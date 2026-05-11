@@ -17,6 +17,12 @@ hidden += [
     "frozenlist",
     "aiosignal",
     "attrs",
+    "httpx",
+    "httpcore",
+    "h11",
+    "huggingface_hub",
+    "huggingface_hub.utils",
+    "huggingface_hub.utils._http",
 ]
 
 a = Analysis(

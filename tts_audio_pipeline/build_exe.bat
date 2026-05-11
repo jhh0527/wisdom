@@ -3,6 +3,11 @@ chcp 65001 >nul
 setlocal EnableDelayedExpansion
 cd /d "%~dp0"
 
+echo 실행 중이면 dist의 exe를 잠그므로, 빌드 전에 GUI/CLI 프로세스를 종료합니다...
+taskkill /F /IM txt2audio_gui.exe >nul 2>&1
+taskkill /F /IM txt2audio.exe >nul 2>&1
+timeout /t 1 /nobreak >nul
+
 echo 이전 빌드 산출물 제거 ^(build, dist^)...
 if exist "%~dp0build" rmdir /s /q "%~dp0build"
 if exist "%~dp0dist" rmdir /s /q "%~dp0dist"

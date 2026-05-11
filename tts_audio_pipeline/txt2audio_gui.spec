@@ -17,6 +17,13 @@ hidden += [
     "frozenlist",
     "aiosignal",
     "attrs",
+    # chatterbox.py — 모듈 로드 시 HF Hub용 httpx 훅 (함수 내부 import라 정적 분석 누락됨)
+    "httpx",
+    "httpcore",
+    "h11",
+    "huggingface_hub",
+    "huggingface_hub.utils",
+    "huggingface_hub.utils._http",
     "tkinter",
     "tkinter.ttk",
     "tkinter.filedialog",
