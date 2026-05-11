@@ -1,0 +1,335 @@
+"""CLI: init | parse | assets | render | all."""
+
+from __future__ import annotations
+
+import argparse
+import shlex
+import sys
+from pathlib import Path
+
+from scenevid.assets import ensure_layout, invoke_txt2audio, make_placeholder_png, make_silent_mp3
+from scenevid.ffmpeg_render import render_project
+from scenevid.schema import load_project, save_project
+from scenevid.script_parse import script_md_to_doc
+from scenevid.subtitles import write_scene_srt
+from scenevid.assets import audio_duration_ffprobe
+from scenevid.media_paths import prepend_local_ffmpeg_bin_to_os_path
+from scenevid.repo_paths import default_tts_pipeline_root, default_tts_python
+
+
+SAMPLE_SCRIPT = """# 내 첫 장면 영상
+
+## 오프닝
+
+여기는 첫 장면 내레이션입니다. TTS용 문장으로 적습니다.
+
+@image: 저녁 노을 산맥 실사풍 일러스트
+
+---
+
+## 두 번째 장면
+
+본문 내용입니다. FFmpeg으로 이미지와 음성을 합칩니다.
+
+@image: 도시 스카이라인 블루아워
+
+"""
+
+
+def cmd_init(project: Path) -> int:
+    project.mkdir(parents=True, exist_ok=True)
+    ensure_layout(project)
+    sp = project / "script.md"
+    if not sp.exists():
+        sp.write_text(SAMPLE_SCRIPT, encoding="utf-8")
+    print(f"폴더 준비: {project}")
+    print(f"예시 스크립트: {sp}")
+    print(
+        "다음(한 줄 예): python -m scenevid all -p .  "
+        "| 단계별: parse → assets(TTS·이미지·자막) → render "
+        "| 자막만: subtitles -p ."
+    )
+    return 0
+
+
+def cmd_parse(project: Path) -> int:
+    script = project / "script.md"
+    if not script.is_file():
+        print(f"없음: {script}", file=sys.stderr)
+        return 1
+    doc = script_md_to_doc(script)
+    outp = project / "scene.json"
+    save_project(doc, outp)
+    print(f"작성됨 {outp} (장면 {len(doc.scenes)}개)")
+    return 0
+
+
+def cmd_subtitles(project: Path, *, guess_seconds: float) -> int:
+    """scene.json + 장면별 MP3(ffprobe 재생 시간)으로 subtitles/*.srt 갱신."""
+    jc = project / "scene.json"
+    if not jc.is_file():
+        print(f"먼저 parse 하세요: {jc}", file=sys.stderr)
+        return 1
+    doc = load_project(jc)
+    if not doc.scenes:
+        print("scene.json에 장면이 없습니다.", file=sys.stderr)
+        return 1
+    ensure_layout(project)
+
+    wrote = 0
+    skipped_no_audio = 0
+    skipped_no_text = 0
+
+    for sc in doc.scenes:
+        img, mp3, srt = sc.resolved_paths(project)
+        text = str(sc.narration or "").strip()
+        if not text:
+            print(f"[건너뜀] {sc.id}: narration 비어 있음", file=sys.stderr)
+            skipped_no_text += 1
+            continue
+        if mp3.is_file():
+            try:
+                dur = audio_duration_ffprobe(mp3)
+            except Exception as e:
+                print(f"[오류] {sc.id} ffprobe: {e}", file=sys.stderr)
+                return 1
+        elif guess_seconds > 0:
+            dur = guess_seconds
+        else:
+            print(f"[건너뜀] {sc.id}: MP3 없음 ({mp3})", file=sys.stderr)
+            skipped_no_audio += 1
+            continue
+        write_scene_srt(srt, sc.narration, dur)
+        print(f"SRT: {srt.name} ({dur:.2f}s)")
+        wrote += 1
+
+    print(f"\n장면당 자막 완료: {wrote}개 (대본 공백 {skipped_no_text}, MP3 없음 {skipped_no_audio})")
+    if wrote == 0 and skipped_no_audio and guess_seconds <= 0:
+        print("힌트: MP3가 없으면 --guess-seconds 5 같은 값으로 타임코드 생성이 가능합니다.", file=sys.stderr)
+    return 0 if wrote > 0 else 1
+
+
+def cmd_assets(
+    project: Path,
+    *,
+    placeholder: bool,
+    tts_python: Path | None,
+    tts_root: Path | None,
+    tts_extra: list[str],
+    dummy_audio_sec: float,
+) -> int:
+    jc = project / "scene.json"
+    if not jc.is_file():
+        print(f"먼저 parse 하세요: {jc}", file=sys.stderr)
+        return 1
+    doc = load_project(jc)
+    ensure_layout(project)
+
+    for sc in doc.scenes:
+        img, mp3, srt = sc.resolved_paths(project)
+        if not img.is_file():
+            if placeholder:
+                title = sc.title or sc.id
+                try:
+                    make_placeholder_png(img, doc.settings.width, doc.settings.height, title=title)
+                    print(f"플레이스홀더: {img}")
+                except RuntimeError as e:
+                    print(str(e), file=sys.stderr)
+                    return 1
+            else:
+                print(f"[경고] 이미지 없음 ( --placeholder 또는 수동 저장 ): {img}", file=sys.stderr)
+
+        need_tts = not mp3.is_file()
+        if need_tts and tts_python and tts_root:
+            tmp_txt = project / "output" / f"_{sc.id}_tts_source.txt"
+            tmp_txt.parent.mkdir(parents=True, exist_ok=True)
+            tmp_txt.write_text(sc.narration.strip() + "\n", encoding="utf-8")
+            try:
+                invoke_txt2audio(str(tts_python), tts_root, tmp_txt, mp3, extra_args=tts_extra)
+                print(f"TTS 생성: {mp3}")
+            except RuntimeError as e:
+                print(str(e), file=sys.stderr)
+                return 1
+        elif need_tts and dummy_audio_sec > 0:
+            try:
+                make_silent_mp3(mp3, dummy_audio_sec)
+                print(f"더미 오디오: {mp3} ({dummy_audio_sec}s)")
+            except Exception as e:
+                print(str(e), file=sys.stderr)
+                return 1
+        elif need_tts:
+            print(f"[안내] 오디오 없음. --dummy-audio-sec 또는 --tts-python/--tts-root → {mp3}", file=sys.stderr)
+
+        # 자막: 오디오가 있으면 scene.json narration + ffprobe 길이로 SRT
+        if mp3.is_file():
+            dur = audio_duration_ffprobe(mp3)
+            write_scene_srt(srt, sc.narration, dur)
+            print(f"자막: {srt.name}")
+
+    print("assets 단계 완료 (이미지·TTS·subtitles 동기)")
+    return 0
+
+
+def cmd_render(project: Path, *, no_sub: bool) -> int:
+    jc = project / "scene.json"
+    if not jc.is_file():
+        print(f"먼저 parse: {jc}", file=sys.stderr)
+        return 1
+    doc = load_project(jc)
+    ensure_layout(project)
+    if not doc.scenes:
+        print("장면이 없습니다.", file=sys.stderr)
+        return 1
+    fp = render_project(doc, project, burn_subtitles=not no_sub)
+    print(f"최종: {fp}")
+    return 0
+
+
+def cmd_all(
+    project: Path,
+    placeholder: bool,
+    tts_python: Path | None,
+    tts_root: Path | None,
+    tts_extra: list[str],
+    dummy_audio_sec: float,
+    no_sub: bool,
+) -> int:
+    c = cmd_parse(project)
+    if c:
+        return c
+    c = cmd_assets(
+        project,
+        placeholder=placeholder,
+        tts_python=tts_python,
+        tts_root=tts_root,
+        tts_extra=tts_extra,
+        dummy_audio_sec=dummy_audio_sec,
+    )
+    if c:
+        return c
+    return cmd_render(project, no_sub=no_sub)
+
+
+def _proj(a: argparse.Namespace) -> Path:
+    return getattr(a, "project", Path(".")).resolve()
+
+
+def main(argv: list[str] | None = None) -> int:
+    prepend_local_ffmpeg_bin_to_os_path()
+    p = argparse.ArgumentParser(
+        prog="scenevid",
+        description=(
+            "파이프라인: script.md → scene.json → (TTS mp3, 이미지 png, 자막 srt) "
+            "→ FFmpeg 합성 → output/final.mp4. 자막만 갱신할 때는 subtitles 명령."
+        ),
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter,
+    )
+    sub = p.add_subparsers(dest="cmd", required=True)
+
+    def add_proj(sp: argparse.ArgumentParser) -> None:
+        sp.add_argument(
+            "--project",
+            "-p",
+            type=Path,
+            default=Path("."),
+            help="프로젝트 폴더 (scene.json, audio/, …)",
+        )
+
+    ip = sub.add_parser("init", help="폴더 구조 + script.md 예시")
+    add_proj(ip)
+    ip.set_defaults(_fn=lambda a: cmd_init(_proj(a)))
+
+    pp = sub.add_parser("parse", help="script.md → scene.json")
+    add_proj(pp)
+    pp.set_defaults(_fn=lambda a: cmd_parse(_proj(a)))
+
+    sp_sub = sub.add_parser(
+        "subtitles",
+        help="scene.json 장면별 narration + MP3 길이로 subtitles/*.srt 만 생성·갱신",
+    )
+    add_proj(sp_sub)
+    sp_sub.add_argument(
+        "--guess-seconds",
+        type=float,
+        default=0.0,
+        help="MP3가 없을 때 장면마다 이 초로 간주해 타임코드 생성(예: 테스트용)",
+    )
+    sp_sub.set_defaults(_fn=lambda a: cmd_subtitles(_proj(a), guess_seconds=a.guess_seconds))
+
+    ap = sub.add_parser(
+        "assets",
+        help="이미지·(선택) TTS·자막(srt)=scene+narration+audio 길이",
+    )
+    add_proj(ap)
+    ap.add_argument("--placeholder", action="store_true", help="없으면 Pillow로 PNG 생성")
+    _ttpy = default_tts_python()
+    _ttroot = default_tts_pipeline_root()
+    ap.add_argument(
+        "--tts-python",
+        type=Path,
+        default=_ttpy,
+        help="txt2audio 가 있는 Python (기본: wisdom/tts_audio_pipeline/.venv_chatterbox/Scripts/python.exe 있으면)",
+    )
+    ap.add_argument(
+        "--tts-root",
+        type=Path,
+        default=_ttroot,
+        help="tts_audio_pipeline 폴더 (기본: wisdom/tts_audio_pipeline)",
+    )
+    ap.add_argument(
+        "--dummy-audio-sec",
+        type=float,
+        default=0.0,
+        help="TTS 없이 테스트할 때 무음 mp3 초 (예 2)",
+    )
+    ap.add_argument(
+        "--txt2audio-extra",
+        type=str,
+        default="",
+        help=r'txt2audio 추가 인자 (쉘 한 줄): 예 --backend edge --voice ko-KR-SunHiNeural',
+    )
+    ap.set_defaults(
+        _fn=lambda a: cmd_assets(
+            _proj(a),
+            placeholder=a.placeholder,
+            tts_python=a.tts_python,
+            tts_root=a.tts_root,
+            tts_extra=shlex.split(a.txt2audio_extra.strip()) if a.txt2audio_extra else [],
+            dummy_audio_sec=a.dummy_audio_sec,
+        )
+    )
+
+    rp = sub.add_parser("render", help="scene.json 기준 FFmpeg 합성")
+    add_proj(rp)
+    rp.add_argument("--no-sub", action="store_true", help="자막 번인 생략")
+    rp.set_defaults(_fn=lambda a: cmd_render(_proj(a), no_sub=a.no_sub))
+
+    alp = sub.add_parser(
+        "all",
+        help="parse + assets(대본·scene.json 반영:TTS·이미지 옵션·자막) + render FFmpeg",
+    )
+    add_proj(alp)
+    alp.add_argument("--placeholder", action="store_true")
+    alp.add_argument("--tts-python", type=Path, default=_ttpy)
+    alp.add_argument("--tts-root", type=Path, default=_ttroot)
+    alp.add_argument("--dummy-audio-sec", type=float, default=0.0)
+    alp.add_argument("--txt2audio-extra", type=str, default="", help='txt2audio 추가 인자 (shlex 분리)')
+    alp.add_argument("--no-sub", action="store_true")
+    alp.set_defaults(
+        _fn=lambda a: cmd_all(
+            _proj(a),
+            placeholder=a.placeholder,
+            tts_python=a.tts_python,
+            tts_root=a.tts_root,
+            tts_extra=shlex.split(a.txt2audio_extra.strip()) if a.txt2audio_extra else [],
+            dummy_audio_sec=a.dummy_audio_sec,
+            no_sub=a.no_sub,
+        )
+    )
+
+    ns = p.parse_args(argv)
+    return int(ns._fn(ns))  # type: ignore[arg-type]
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

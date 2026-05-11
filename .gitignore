@@ -1,0 +1,4 @@
+# 로컬 FFmpeg 바이너리 (wisdom 폴더 안에만 두도록 권장)
+/tools/ffmpeg/bin/*.exe
+/tools/ffmpeg/bin/*.dll
+/tts_audio_pipeline/.venv_chatterbox/Lib/

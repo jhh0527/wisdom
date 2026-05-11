@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="base_library1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/image_prompt_pipeline/build/prompt2image/base_library.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
