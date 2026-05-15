@@ -2,6 +2,15 @@
 $ErrorActionPreference = "Stop"
 Set-Location $PSScriptRoot
 
+# dist\*.exe 가 실행 중이면 PyInstaller가 WinError 5(액세스 거부)로 덮어쓰기 실패함
+foreach ($procName in @("txt2audio_gui", "txt2audio")) {
+    Get-Process -Name $procName -ErrorAction SilentlyContinue | ForEach-Object {
+        Write-Host "실행 중인 프로세스 종료: $($_.ProcessName) (PID $($_.Id))"
+        Stop-Process -Id $_.Id -Force -ErrorAction SilentlyContinue
+    }
+}
+Start-Sleep -Milliseconds 800
+
 foreach ($d in @("build", "dist")) {
     $p = Join-Path $PSScriptRoot $d
     if (Test-Path $p) { Remove-Item -Recurse -Force $p }

@@ -12,6 +12,10 @@ import uuid
 # 엄격 검증이 필요하면 실행 전: set CHATTERBOX_HF_INSECURE_SSL=0
 if "CHATTERBOX_HF_INSECURE_SSL" not in os.environ:
     os.environ["CHATTERBOX_HF_INSECURE_SSL"] = "1"
+# Windows: HF Hub 캐시 심볼릭 링크 → SeCreateSymbolicLinkPrivilege 없으면 WinError 1314.
+# 미설정 시 심링크 비활성(복사 방식). 심링크 유지하려면 개발자 모드/관리자 실행 또는 HF_HUB_DISABLE_SYMLINKS=0.
+if os.name == "nt" and "HF_HUB_DISABLE_SYMLINKS" not in os.environ:
+    os.environ["HF_HUB_DISABLE_SYMLINKS"] = "1"
 from collections.abc import Callable
 from pathlib import Path
 from typing import Any, Literal
@@ -50,14 +54,18 @@ def _apply_hf_insecure_ssl_if_requested() -> None:
     """CHATTERBOX_HF_INSECURE_SSL 켜짐일 때 HF Hub용 httpx에 verify=False 적용."""
     if not _insecure_ssl_enabled():
         return
-    import httpx
-    from huggingface_hub.utils._http import (
-        async_hf_request_event_hook,
-        async_hf_response_event_hook,
-        hf_request_event_hook,
-        set_async_client_factory,
-        set_client_factory,
-    )
+    try:
+        import httpx
+        from huggingface_hub.utils._http import (
+            async_hf_request_event_hook,
+            async_hf_response_event_hook,
+            hf_request_event_hook,
+            set_async_client_factory,
+            set_client_factory,
+        )
+    except ImportError:
+        # PyInstaller onefile 등에서 동적 import가 누락된 경우. urllib3 SSL 완화는 이미 적용됨.
+        return
 
     def _sync_factory() -> httpx.Client:
         return httpx.Client(
@@ -439,7 +447,22 @@ def _post_http_sync(
         err = e.read().decode("utf-8", errors="replace")
         raise RuntimeError(f"Chatterbox HTTP 오류 {e.code}: {err}") from e
     except URLError as e:
-        raise RuntimeError(f"Chatterbox HTTP 연결 실패: {e}") from e
+        hint = ""
+        reason = getattr(e, "reason", e)
+        rlow = str(reason).lower()
+        if (
+            "10061" in str(reason)
+            or "거부" in str(reason)
+            or "actively refused" in rlow
+            or "econnrefused" in rlow
+        ):
+            hint = (
+                "\n\n로컬 브리지가 안 떠 있거나 주소·포트가 다릅니다.\n"
+                "· 프로젝트 폴더에서 run_chatterbox_server.bat 실행 후 이 창을 켠 채로 다시 시도\n"
+                "· 또는: .venv_chatterbox\\Scripts\\python.exe run_chatterbox_http_server.py\n"
+                "· GUI 「Chatterbox (HTTP)」 베이스 URL이 서버와 일치하는지 확인(기본 http://127.0.0.1:8000)"
+            )
+        raise RuntimeError(f"Chatterbox HTTP 연결 실패: {e}{hint}") from e
 
     if "json" in ctype:
         try:

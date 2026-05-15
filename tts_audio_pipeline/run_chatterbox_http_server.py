@@ -24,6 +24,8 @@ import os
 # txt2audio.backends.chatterbox 로드 전에 설정해야 HF Hub 클라이언트에 반영됩니다.
 if "CHATTERBOX_HF_INSECURE_SSL" not in os.environ:
     os.environ["CHATTERBOX_HF_INSECURE_SSL"] = "1"
+if os.name == "nt" and "HF_HUB_DISABLE_SYMLINKS" not in os.environ:
+    os.environ["HF_HUB_DISABLE_SYMLINKS"] = "1"
 
 import argparse
 import base64
