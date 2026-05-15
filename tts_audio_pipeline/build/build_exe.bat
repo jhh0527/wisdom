@@ -3,16 +3,19 @@ chcp 65001 >nul
 setlocal EnableDelayedExpansion
 cd /d "%~dp0"
 
-set "PROOT=%~dp0.."
-for %%I in ("%PROOT%") do set "PROOT=%%~fI"
+echo 이전 빌드 산출물 제거 ^(build, dist^)...
+if exist "%~dp0build" rmdir /s /q "%~dp0build"
+if exist "%~dp0dist" rmdir /s /q "%~dp0dist"
 
 set "PYEXE="
 
+REM 1) Windows Python Launcher (권장)
 where py >nul 2>&1
 if not errorlevel 1 (
   for /f "delims=" %%I in ('py -3 -c "import sys; print(sys.executable)" 2^>nul') do set "PYEXE=%%I"
 )
 
+REM 2) PATH의 python
 if not defined PYEXE (
   where python >nul 2>&1
   if not errorlevel 1 (
@@ -24,6 +27,7 @@ if not defined PYEXE (
 )
 
 :have_python
+REM 3) 사용자 로컬 설치 경로 스캔
 if not defined PYEXE (
   for /d %%D in ("%LocalAppData%\Programs\Python\Python3*") do (
     if exist "%%D\python.exe" (
@@ -55,26 +59,24 @@ if errorlevel 1 (
 )
 
 echo 런타임 의존성 설치...
-"!PYEXE!" -m pip install -q -r "!PROOT!\requirements.txt"
+"!PYEXE!" -m pip install -q -r "%~dp0requirements.txt"
 if errorlevel 1 exit /b 1
 
 echo 빌드 도구 설치...
 "!PYEXE!" -m pip install -q -r "%~dp0requirements-build.txt"
 if errorlevel 1 exit /b 1
 
-if exist "%~dp0work" rmdir /s /q "%~dp0work"
-echo PyInstaller 실행 ^(CLI: "!PROOT!\dist\txt2audio.exe"^)...
-"!PYEXE!" -m PyInstaller --clean --noconfirm --distpath "!PROOT!\dist" --workpath "%~dp0work" "%~dp0txt2audio.spec"
+echo PyInstaller 실행 ^(CLI: dist\txt2audio.exe^)...
+"!PYEXE!" -m PyInstaller --clean --noconfirm "%~dp0txt2audio.spec"
 if errorlevel 1 exit /b 1
 
-if exist "%~dp0work" rmdir /s /q "%~dp0work"
-echo PyInstaller 실행 ^(GUI: "!PROOT!\dist\txt2audio_gui.exe"^)...
-"!PYEXE!" -m PyInstaller --clean --noconfirm --distpath "!PROOT!\dist" --workpath "%~dp0work" "%~dp0txt2audio_gui.spec"
+echo PyInstaller 실행 ^(GUI: dist\txt2audio_gui.exe^)...
+"!PYEXE!" -m PyInstaller --clean --noconfirm "%~dp0txt2audio_gui.spec"
 if errorlevel 1 exit /b 1
 
 echo.
 echo 완료:
-echo   CLI  "!PROOT!\dist\txt2audio.exe"
-echo   GUI  "!PROOT!\dist\txt2audio_gui.exe"  ^(더블클릭 — 파일 선택^)
+echo   CLI  "%~dp0dist\txt2audio.exe"
+echo   GUI  "%~dp0dist\txt2audio_gui.exe"  ^(더블클릭 — 파일 선택^)
 echo 사용 예: txt2audio.exe -i 대본.txt -o 음성.mp3
 exit /b 0
