@@ -1,0 +1,261 @@
+{
+  "part_id": "1",
+  "part_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\part01.mp3",
+  "part_srt": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\part01.srt",
+  "model_id": "eleven_multilingual_v2",
+  "merge_method": "ffmpeg",
+  "segment_count": 25,
+  "duration_ms_estimate": 95951,
+  "segments": [
+    {
+      "index": 1,
+      "caption_id": "1-1",
+      "original": "육식동물 고기는 왜 안 먹을까?",
+      "tts": "육식동물 고기는 왜 안 먹을까?",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part01_0001.mp3",
+      "duration_ms_estimate": 2108,
+      "start_ms_estimate": 0,
+      "end_ms_estimate": 2108
+    },
+    {
+      "index": 2,
+      "caption_id": "1-2",
+      "original": "— 사자 스테이크가 식탁에 오르지 않는 진짜",
+      "tts": "— 사자 스테이크가 식탁에 오르지 않는 진짜",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part01_0002.mp3",
+      "duration_ms_estimate": 2904,
+      "start_ms_estimate": 2108,
+      "end_ms_estimate": 5012
+    },
+    {
+      "index": 3,
+      "caption_id": "1-3",
+      "original": "이유",
+      "tts": "이유",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part01_0003.mp3",
+      "duration_ms_estimate": 750,
+      "start_ms_estimate": 5012,
+      "end_ms_estimate": 5762
+    },
+    {
+      "index": 4,
+      "caption_id": "1-4",
+      "original": "상상해 봅시다.",
+      "tts": "상상해 봅시다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part01_0004.mp3",
+      "duration_ms_estimate": 1265,
+      "start_ms_estimate": 5762,
+      "end_ms_estimate": 7027
+    },
+    {
+      "index": 5,
+      "caption_id": "1-5",
+      "original": "어느 고급 레스토랑. 분위기 있는 조명 아래,",
+      "tts": "어느 고급 레스토랑. 분위기 있는 조명 아래,",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part01_0005.mp3",
+      "duration_ms_estimate": 3326,
+      "start_ms_estimate": 7027,
+      "end_ms_estimate": 10353
+    },
+    {
+      "index": 6,
+      "caption_id": "1-6",
+      "original": "웨이터가 메뉴판을 내밉니다.",
+      "tts": "웨이터가 메뉴판을 내밉니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part01_0006.mp3",
+      "duration_ms_estimate": 2155,
+      "start_ms_estimate": 10353,
+      "end_ms_estimate": 12508
+    },
+    {
+      "index": 7,
+      "caption_id": "1-7",
+      "original": "\"오늘의 특선은 사자 안심 스테이크입니다. 미디엄 레어로 추천드립니다. \" 그 옆 페이지에는 \" 호랑이 갈빗살 바비큐\", \" 늑대 등심 카르파초\", \" 북극곰 타르타르\"가 줄지어 있습니다.",
+      "tts": "\"오늘의 특선은 사자 안심 스테이크입니다. 미디엄 레어로 추천드립니다. \" 그 옆 페이지에는 \" 호랑이 갈빗살 바비큐\", \" 늑대 등심 카르파초\", \" 북극곰 타르타르\"가 줄지어 있습니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part01_0007.mp3",
+      "duration_ms_estimate": 15836,
+      "start_ms_estimate": 12508,
+      "end_ms_estimate": 28344
+    },
+    {
+      "index": 8,
+      "caption_id": "1-8",
+      "original": "…뭔가 이상하지 않습니까? 등골이 서늘해지면서,",
+      "tts": "…뭔가 이상하지 않습니까? 등골이 서늘해지면서,",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part01_0008.mp3",
+      "duration_ms_estimate": 3701,
+      "start_ms_estimate": 28344,
+      "end_ms_estimate": 32045
+    },
+    {
+      "index": 9,
+      "caption_id": "1-9",
+      "original": "이상하게도 식욕이 뚝 떨어집니다.",
+      "tts": "이상하게도 식욕이 뚝 떨어집니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part01_0009.mp3",
+      "duration_ms_estimate": 2343,
+      "start_ms_estimate": 32045,
+      "end_ms_estimate": 34388
+    },
+    {
+      "index": 10,
+      "caption_id": "1-10",
+      "original": "분명히 고기는 고기인데 말이죠.",
+      "tts": "분명히 고기는 고기인데 말이죠.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part01_0010.mp3",
+      "duration_ms_estimate": 2015,
+      "start_ms_estimate": 34388,
+      "end_ms_estimate": 36403
+    },
+    {
+      "index": 11,
+      "caption_id": "1-11",
+      "original": "우리는 소, 돼지, 닭, 양, 오리, 칠면조,",
+      "tts": "우리는 소, 돼지, 닭, 양, 오리, 칠면조,[breathes]",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part01_0011.mp3",
+      "duration_ms_estimate": 4263,
+      "start_ms_estimate": 36403,
+      "end_ms_estimate": 40666
+    },
+    {
+      "index": 12,
+      "caption_id": "1-12",
+      "original": "거위, 토끼, 사슴,",
+      "tts": "거위, 토끼, 사슴,",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part01_0012.mp3",
+      "duration_ms_estimate": 1733,
+      "start_ms_estimate": 40666,
+      "end_ms_estimate": 42399
+    },
+    {
+      "index": 13,
+      "caption_id": "1-13",
+      "original": "멧돼지까지 —",
+      "tts": "멧돼지까지 —",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part01_0013.mp3",
+      "duration_ms_estimate": 1405,
+      "start_ms_estimate": 42399,
+      "end_ms_estimate": 43804
+    },
+    {
+      "index": 14,
+      "caption_id": "1-14",
+      "original": "헤아릴 수 없이 다양한 동물을 먹습니다.",
+      "tts": "헤아릴 수 없이 다양한 동물을 먹습니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part01_0014.mp3",
+      "duration_ms_estimate": 2952,
+      "start_ms_estimate": 43804,
+      "end_ms_estimate": 46756
+    },
+    {
+      "index": 15,
+      "caption_id": "1-15",
+      "original": "심지어 어떤 문화권에서는 말, 개, 곤충,",
+      "tts": "심지어 어떤 문화권에서는 말, 개, 곤충,",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part01_0015.mp3",
+      "duration_ms_estimate": 3654,
+      "start_ms_estimate": 46756,
+      "end_ms_estimate": 50410
+    },
+    {
+      "index": 16,
+      "caption_id": "1-16",
+      "original": "박쥐, 원숭이도 먹습니다.",
+      "tts": "박쥐, 원숭이도 먹습니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part01_0016.mp3",
+      "duration_ms_estimate": 2202,
+      "start_ms_estimate": 50410,
+      "end_ms_estimate": 52612
+    },
+    {
+      "index": 17,
+      "caption_id": "1-17",
+      "original": "그런데 신기하게도 전 세계 어디를 둘러봐도 \"오늘 점심은 사자 불고기 어때?\"라고 말하는 사람은 거의 없습니다.",
+      "tts": "그런데 신기하게도 전 세계 어디를 둘러봐도 \"오늘 점심은 사자 불고기 어때?\"라고 말하는 사람은 거의 없습니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part01_0017.mp3",
+      "duration_ms_estimate": 8433,
+      "start_ms_estimate": 52612,
+      "end_ms_estimate": 61045
+    },
+    {
+      "index": 18,
+      "caption_id": "1-18",
+      "original": "늑대 갈비를 굽는 캠핑장도,",
+      "tts": "늑대 갈비를 굽는 캠핑장도,",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part01_0018.mp3",
+      "duration_ms_estimate": 2343,
+      "start_ms_estimate": 61045,
+      "end_ms_estimate": 63388
+    },
+    {
+      "index": 19,
+      "caption_id": "1-19",
+      "original": "호랑이 육포를 파는 시장도 본 적이 없죠.",
+      "tts": "호랑이 육포를 파는 시장도 본 적이 없죠.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part01_0019.mp3",
+      "duration_ms_estimate": 2858,
+      "start_ms_estimate": 63388,
+      "end_ms_estimate": 66246
+    },
+    {
+      "index": 20,
+      "caption_id": "1-20",
+      "original": "도대체 왜 그럴까요?",
+      "tts": "도대체 왜 그럴까요?",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part01_0020.mp3",
+      "duration_ms_estimate": 1359,
+      "start_ms_estimate": 66246,
+      "end_ms_estimate": 67605
+    },
+    {
+      "index": 21,
+      "caption_id": "1-21",
+      "original": "인류는 왜 약속이라도 한 듯이 육식동물의 고기를 식탁에서 빼놓았을까요? 이건 단순한 우연일까요, 아니면 깊은 과학적·문화적·생물학적 이유가 있는 걸까요?",
+      "tts": "인류는 왜 약속이라도 한 듯이 육식동물의 고기를 식탁에서 빼놓았을까요? 이건 단순한 우연일까요, 아니면 깊은 과학적·문화적·생물학적 이유가 있는 걸까요?",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part01_0021.mp3",
+      "duration_ms_estimate": 12462,
+      "start_ms_estimate": 67605,
+      "end_ms_estimate": 80067
+    },
+    {
+      "index": 22,
+      "caption_id": "1-22",
+      "original": "지금부터 우리는 사자 한 마리를 가상으로 잡아 식탁에 올리는 길고 긴 여정을 떠나보려 합니다.",
+      "tts": "지금부터 우리는 사자 한 마리를 가상으로 잡아 식탁에 올리는 길고 긴 여정을 떠나보려 합니다.[breathes]",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part01_0022.mp3",
+      "duration_ms_estimate": 6934,
+      "start_ms_estimate": 80067,
+      "end_ms_estimate": 87001
+    },
+    {
+      "index": 23,
+      "caption_id": "1-23",
+      "original": "그 길에는 진화생물학, 영양학, 경제학,",
+      "tts": "그 길에는 진화생물학, 영양학, 경제학,",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part01_0023.mp3",
+      "duration_ms_estimate": 3280,
+      "start_ms_estimate": 87001,
+      "end_ms_estimate": 90281
+    },
+    {
+      "index": 24,
+      "caption_id": "1-24",
+      "original": "생태학, 인류학, 종교, 미신,",
+      "tts": "생태학, 인류학, 종교, 미신,",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part01_0024.mp3",
+      "duration_ms_estimate": 2952,
+      "start_ms_estimate": 90281,
+      "end_ms_estimate": 93233
+    },
+    {
+      "index": 25,
+      "caption_id": "1-25",
+      "original": "그리고 약간의 유머가 펼쳐져 있습니다.",
+      "tts": "그리고 약간의 유머가 펼쳐져 있습니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part01_0025.mp3",
+      "duration_ms_estimate": 2718,
+      "start_ms_estimate": 93233,
+      "end_ms_estimate": 95951
+    }
+  ]
+}

@@ -4,7 +4,7 @@ cd /d "%~dp0"
 title txt2audio — 빌드 후 GUI 실행
 
 echo [1/2] 실행 파일 빌드 ^(PyInstaller^)...
-call "%~dp0build_exe.bat"
+call "%~dp0build\build_exe.bat"
 set "RC=%ERRORLEVEL%"
 if not "%RC%"=="0" (
   echo.
