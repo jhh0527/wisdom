@@ -1,0 +1,6 @@
+{
+  "elevenlabs_api_key": "sk_183f539254992bb9dcd00fcc4104460a9e2f83885ebd4845",
+  "voice_id": "8QclKarwLctvzN2plke3",
+  "model_id": "eleven_multilingual_v2",
+  "default_output_mp3": "C:\\intellij\\wisdom\\output\\이름.mp3"
+}
