@@ -14,6 +14,7 @@ from scenevid.cli import cmd_all
 from scenevid.compose_overrides import (
     InsertClipSpec,
     default_overrides_path,
+    is_compose_video_path,
     load_compose_overrides,
     per_cue_images_srt_mapping,
     resolve_cue_effect_override,
@@ -189,26 +190,53 @@ def main() -> None:
         r += 1
 
     def pick_audio() -> None:
-        p = filedialog.askopenfilename(title="MP3", filetypes=[("MP3", "*.mp3"), ("모든 파일", "*.*")])
+        aud, _ = pick_default_compose_audio_srt()
+        init = Path(audio_var.get().strip()) if audio_var.get().strip() else aud
+        if init is None or not init.is_file():
+            init = default_tts_voice_output_dir() / "all.mp3"
+        p = filedialog.askopenfilename(
+            title="MP3",
+            initialdir=str(init.parent) if init.parent.is_dir() else str(default_tts_voice_output_dir()),
+            initialfile=init.name if init.is_file() else "all.mp3",
+            filetypes=[("MP3", "*.mp3"), ("모든 파일", "*.*")],
+        )
         if p:
             audio_var.set(p)
             timeline_refresh(silent=True)
 
     def pick_srt() -> None:
-        p = filedialog.askopenfilename(title="SRT", filetypes=[("SRT", "*.srt"), ("모든 파일", "*.*")])
+        _aud, sr = pick_default_compose_audio_srt()
+        init = Path(srt_var.get().strip()) if srt_var.get().strip() else sr
+        if init is None or not init.is_file():
+            init = default_tts_voice_output_dir() / "all.srt"
+        p = filedialog.askopenfilename(
+            title="SRT",
+            initialdir=str(init.parent) if init.parent.is_dir() else str(default_tts_voice_output_dir()),
+            initialfile=init.name if init.is_file() else "all.srt",
+            filetypes=[("SRT", "*.srt"), ("모든 파일", "*.*")],
+        )
         if p:
             srt_var.set(p)
             timeline_refresh(silent=True)
 
     def pick_images_dir() -> None:
-        p = filedialog.askdirectory(title="이미지 폴더")
+        init = Path(images_var.get().strip()) if images_var.get().strip() else default_srt_image_output_dir()
+        if not init.is_dir():
+            init = default_srt_image_output_dir()
+        p = filedialog.askdirectory(
+            title="이미지·영상 폴더",
+            initialdir=str(init),
+        )
         if p:
             images_var.set(p)
             timeline_refresh(silent=True)
 
     def pick_out() -> None:
+        init = Path(out_var.get().strip()) if out_var.get().strip() else default_scenevid_compose_mp4()
         p = filedialog.asksaveasfilename(
             title="출력 MP4",
+            initialdir=str(init.parent) if init.parent.is_dir() else str(default_scenevid_output_dir()),
+            initialfile=init.name if init.name else "compose_final.mp4",
             defaultextension=".mp4",
             filetypes=[("MP4", "*.mp4")],
         )
@@ -217,7 +245,7 @@ def main() -> None:
 
     _row_labeled("오디오 MP3", audio_var, pick_audio)
     _row_labeled("자막 SRT", srt_var, pick_srt)
-    _row_labeled("이미지 폴더", images_var, pick_images_dir)
+    _row_labeled("이미지·영상 폴더", images_var, pick_images_dir)
     _row_labeled("출력 MP4", out_var, pick_out)
 
     def _fmt_ms(t0: int, t1: int) -> str:
@@ -264,6 +292,13 @@ def main() -> None:
     lb_fr.pack(fill=tk.BOTH, expand=True)
     lb_paths: list[Path] = []
     lb = tk.Listbox(lb_fr, height=12, width=28, exportselection=0)
+
+    def _selected_palette_path() -> Path | None:
+        ix = lb.curselection()
+        if not ix:
+            return None
+        p = lb_paths[int(ix[0])]
+        return p if p.is_file() else None
     lbs = ttk.Scrollbar(lb_fr, orient="vertical", command=lb.yview)
     lb.configure(yscrollcommand=lbs.set)
     lb.grid(row=0, column=0, sticky="nsew")
@@ -688,23 +723,21 @@ def main() -> None:
         timeline_refresh(silent=True)
 
     def palette_apply_image_effect() -> None:
-        ix = lb.curselection()
-        if not ix:
+        p = _selected_palette_path()
+        if p is None:
             messagebox.showinfo("이미지 효과", "오른쪽 팔레트에서 이미지를 선택하세요.")
             return
-        p = lb_paths[int(ix[0])]
-        if not p.is_file():
-            messagebox.showerror("이미지 효과", f"파일 없음: {p}")
+        if is_compose_video_path(p):
+            messagebox.showinfo("이미지 효과", "MP4 영상 구간에는 Ken Burns 효과를 적용할 수 없습니다.")
             return
         tl_state["img_fx"][str(p.resolve())] = normalize_effect(effect_var.get())
         timeline_refresh(silent=True)
 
     def palette_clear_image_effect() -> None:
-        ix = lb.curselection()
-        if not ix:
+        p = _selected_palette_path()
+        if p is None:
             messagebox.showinfo("이미지 효과", "팔레트에서 이미지를 선택하세요.")
             return
-        p = lb_paths[int(ix[0])]
         tl_state["img_fx"].pop(str(p.resolve()), None)
         timeline_refresh(silent=True)
 
@@ -761,7 +794,7 @@ def main() -> None:
         prev_key: str | None = None
 
         for i, img in enumerate(resolved2):
-            if img is None:
+            if img is None or is_compose_video_path(img):
                 continue
             try:
                 key = str(img.resolve())
@@ -783,7 +816,7 @@ def main() -> None:
 
     ttk.Label(
         tab_c,
-        text="이미지 모션 — 큐 선택 후 버튼: 그 큐만. 선택 없이 버튼: 전체 기본값. 「팔레트 이미지에 적용」은 같은 파일이 쓰이는 모든 구간.",
+        text="이미지 모션 — 팔레트에서 파일 선택 후 효과 버튼: 그 파일이 쓰이는 모든 큐에 적용. 큐만 선택 시: 해당 큐만. MP4는 효과 없음.",
     ).grid(row=r, column=0, columnspan=3, sticky="w")
     r += 1
     row_fx = ttk.Frame(tab_c)
@@ -796,11 +829,19 @@ def main() -> None:
 
     def _make_pick_effect(eid: str):
         def _pick() -> None:
-            cno = _selected_cue_no()
-            if cno is not None:
-                tl_state["cue_fx"][cno] = normalize_effect(eid)
+            eff = normalize_effect(eid)
+            pal = _selected_palette_path()
+            if pal is not None:
+                if is_compose_video_path(pal):
+                    messagebox.showinfo("이미지 효과", "MP4 영상 구간에는 Ken Burns 효과를 적용할 수 없습니다.")
+                    return
+                tl_state["img_fx"][str(pal.resolve())] = eff
             else:
-                effect_var.set(eid)
+                cno = _selected_cue_no()
+                if cno is not None:
+                    tl_state["cue_fx"][cno] = eff
+                else:
+                    effect_var.set(eid)
             update_effect_summary()
             if tl_state.get("ready"):
                 timeline_refresh(silent=True)
