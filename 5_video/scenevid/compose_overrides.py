@@ -11,8 +11,14 @@ from typing import Any
 
 from scenevid.motion import normalize_effect
 
-# 이미지 파일 확장자 (SRT 번호 매핑·팔레트)
+# 이미지·영상 파일 확장자 (SRT 번호 매핑·팔레트)
 COMPOSE_IMAGE_EXTS: tuple[str, ...] = (".png", ".jpg", ".jpeg", ".webp", ".bmp")
+COMPOSE_VIDEO_EXTS: tuple[str, ...] = (".mp4",)
+COMPOSE_MEDIA_EXTS: tuple[str, ...] = COMPOSE_IMAGE_EXTS + COMPOSE_VIDEO_EXTS
+
+
+def is_compose_video_path(path: Path) -> bool:
+    return path.suffix.lower() in COMPOSE_VIDEO_EXTS
 
 # 파일명에서 SRT 번호를 뽑는 패턴. 대소문자 무시, 자리수 무관, 밑줄 선택.
 # 매치되는 예) srt_1, srt_01, SRT_001, srt001, SRT-1
@@ -249,6 +255,11 @@ def resolved_motion_effects_per_cue(
         cue_i = i + 1
         mid = map_ids[i]
         img = resolved_imgs[i]
+        if img is not None and is_compose_video_path(img):
+            out.append("none")
+            prev_img = img
+            prev_eff = "none"
+            continue
         ov = resolve_cue_effect_override(cue_i, mid, cue_fx)
         if ov is not None:
             e = normalize_effect(ov)
@@ -288,7 +299,7 @@ def index_srt_numbered_images(images_dir: Path) -> dict[int, Path]:
     for p in sorted(d.iterdir(), key=lambda x: x.name.lower()):
         if not p.is_file():
             continue
-        if p.suffix.lower() not in COMPOSE_IMAGE_EXTS:
+        if p.suffix.lower() not in COMPOSE_MEDIA_EXTS:
             continue
         m = _SRT_IMAGE_STEM_RE.match(p.stem)
         if not m:

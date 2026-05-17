@@ -20,7 +20,7 @@ from png2jpg.converter import (
     DEFAULT_JPEG_QUALITY,
     iter_source_images,
 )
-from png2jpg.paths import default_input_dir, default_output_dir, default_srt_path
+from png2jpg.paths import default_input_dir, default_output_dir
 from png2jpg.settings import load_gui_settings, save_gui_settings
 
 
@@ -80,14 +80,6 @@ def main(
         cfg.get("output_dir"),
         default_output_dir(),
     )
-    srt_default = ""
-    if cfg.get("srt_path") and Path(cfg["srt_path"]).is_file():
-        srt_default = cfg["srt_path"]
-    else:
-        ds = default_srt_path()
-        if ds is not None:
-            srt_default = str(ds)
-
     root = tk.Tk()
     root.title(f"4_1pngToJpg {__version__}")
     root.minsize(680, 520)
@@ -98,7 +90,6 @@ def main(
 
     in_var = tk.StringVar(value=str(in_default))
     out_var = tk.StringVar(value=str(out_default))
-    srt_var = tk.StringVar(value=srt_default)
     recursive_var = tk.BooleanVar(value=True)
     include_jpg_var = tk.BooleanVar(value=False)
     quality_var = tk.IntVar(value=DEFAULT_JPEG_QUALITY)
@@ -156,36 +147,15 @@ def main(
     row_dir("변환 대상 폴더 (PNG·JPG)", in_var, 0, on_pick=on_input_changed)
     row_dir("저장 폴더 (SRT_XXX.jpg)", out_var, 2)
 
-    ttk.Label(frm, text="SRT 자막 파일 (timestamp 파일명 → SRT 번호 매칭)").grid(
-        row=4, column=0, sticky="w", pady=(0, 4)
-    )
-    row_srt = ttk.Frame(frm)
-    row_srt.grid(row=5, column=0, sticky="ew", pady=(0, 10))
-    row_srt.grid_columnconfigure(0, weight=1)
-    ent_srt = ttk.Entry(row_srt, textvariable=srt_var)
-    ent_srt.grid(row=0, column=0, sticky="ew", padx=(0, 6))
-
-    def pick_srt() -> None:
-        initial = srt_var.get().strip()
-        init_dir = str(Path(initial).parent) if initial and Path(initial).parent.is_dir() else str(
-            default_input_dir()
-        )
-        p = filedialog.askopenfilename(
-            title="SRT 자막 파일",
-            initialdir=init_dir,
-            filetypes=[("SRT", "*.srt"), ("모든 파일", "*.*")],
-        )
-        if p:
-            srt_var.set(p)
-
-    btn_srt = ttk.Button(row_srt, text="SRT 선택…", command=pick_srt)
-    btn_srt.grid(row=0, column=1)
-    browse_widgets.extend([ent_srt, btn_srt])
+    ttk.Label(
+        frm,
+        text="파일명 규칙: srt_001, SRT_042, image_3, 06_제목.png 등 → SRT_XXX.jpg (최대 1920×1080, JPEG 최적화)",
+    ).grid(row=4, column=0, sticky="w", pady=(0, 10))
 
     frm.grid_columnconfigure(0, weight=1)
 
     row_target = ttk.Frame(frm)
-    row_target.grid(row=6, column=0, sticky="ew", pady=(0, 8))
+    row_target.grid(row=5, column=0, sticky="ew", pady=(0, 8))
     ttk.Label(row_target, text="대상 파일:").pack(side=tk.LEFT)
     ttk.Label(row_target, textvariable=target_count_var).pack(side=tk.LEFT, padx=(6, 12))
     btn_scan = ttk.Button(row_target, text="대상 다시 확인", command=refresh_target_count)
@@ -193,7 +163,7 @@ def main(
     browse_widgets.append(btn_scan)
 
     opts = ttk.Frame(frm)
-    opts.grid(row=7, column=0, sticky="ew", pady=(0, 8))
+    opts.grid(row=6, column=0, sticky="ew", pady=(0, 8))
 
     def on_opt_change() -> None:
         refresh_target_count()
@@ -214,12 +184,12 @@ def main(
     ttk.Label(opts, textvariable=quality_var, width=3).pack(side=tk.LEFT, padx=(4, 0))
 
     prog = ttk.Progressbar(frm, mode="determinate", maximum=100)
-    prog.grid(row=8, column=0, sticky="ew", pady=(4, 4))
-    ttk.Label(frm, textvariable=status_var).grid(row=9, column=0, sticky="w")
+    prog.grid(row=7, column=0, sticky="ew", pady=(4, 4))
+    ttk.Label(frm, textvariable=status_var).grid(row=8, column=0, sticky="w")
 
     log = tk.Text(frm, height=10, wrap=tk.WORD, state=tk.DISABLED)
-    log.grid(row=10, column=0, sticky="nsew", pady=(8, 0))
-    frm.grid_rowconfigure(10, weight=1)
+    log.grid(row=9, column=0, sticky="nsew", pady=(8, 0))
+    frm.grid_rowconfigure(9, weight=1)
 
     def log_line(msg: str) -> None:
         log.configure(state=tk.NORMAL)
@@ -243,17 +213,9 @@ def main(
             save_gui_settings(
                 input_dir=in_var.get().strip(),
                 output_dir=out_var.get().strip(),
-                srt_path=srt_var.get().strip(),
             )
         except OSError:
             pass
-
-    def _resolve_srt_path() -> Path | None:
-        raw = srt_var.get().strip()
-        if not raw:
-            return None
-        p = Path(raw).resolve()
-        return p if p.is_file() else None
 
     def run_convert() -> None:
         inp = Path(in_var.get().strip())
@@ -279,11 +241,6 @@ def main(
                 f"변환할 PNG/JPG 가 없습니다.\n\n대상: {inp.resolve()}",
             )
             return
-        srt_p = _resolve_srt_path()
-        if srt_var.get().strip() and srt_p is None:
-            messagebox.showerror("SRT", f"SRT 파일을 찾을 수 없습니다:\n{srt_var.get()}")
-            return
-
         def work() -> None:
             err: Exception | None = None
             results: list[ConvertResult] = []
@@ -314,7 +271,6 @@ def main(
                 results, skipped = convert_images(
                     inp,
                     out,
-                    srt_path=srt_p,
                     recursive=bool(recursive_var.get()),
                     include_jpg=bool(include_jpg_var.get()),
                     quality=q,
@@ -355,7 +311,7 @@ def main(
         threading.Thread(target=work, daemon=True).start()
 
     row_btns = ttk.Frame(frm)
-    row_btns.grid(row=11, column=0, sticky="ew", pady=(8, 0))
+    row_btns.grid(row=10, column=0, sticky="ew", pady=(8, 0))
     btn_run = ttk.Button(row_btns, text="PNG → SRT_XXX.jpg 변환", command=run_convert)
     btn_run.pack(side=tk.LEFT)
 

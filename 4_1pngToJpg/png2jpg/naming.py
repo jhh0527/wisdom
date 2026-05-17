@@ -5,8 +5,6 @@ from __future__ import annotations
 
 import re
 
-from png2jpg.srt_match import extract_timestamp_ms_from_stem
-
 # 5_video ``compose_overrides`` 와 동일한 SRT stem 규칙 (전체 stem)
 _SRT_STEM = re.compile(r"^srt[-_]?0*(\d+)$", re.IGNORECASE)
 _IMAGE_STEM = re.compile(r"^image[-_]?0*(\d+)$", re.IGNORECASE)
@@ -18,7 +16,6 @@ _LEADING_TWO_DIGITS = re.compile(r"^(\d{2})")
 _LEADING_SRT = re.compile(r"^srt[-_]?0*(\d+)", re.IGNORECASE)
 _LEADING_IMAGE = re.compile(r"^image[-_]?0*(\d+)", re.IGNORECASE)
 _LEADING_SCENE = re.compile(r"^scene[-_]?0*(\d+)", re.IGNORECASE)
-# ``timestamp`` 없는 파일만: 맨 앞 ``07_...`` (``07_timestamp_12s`` 는 SRT 매칭 사용)
 _LEADING_INDEX = re.compile(r"^0*(\d+)(?=[-_.])")
 
 _DURATION_TAIL = re.compile(r"[-_.]?(\d+)s(?:ec(?:ond)?s?)?$", re.IGNORECASE)
@@ -45,7 +42,7 @@ def _stem_without_duration_suffix(stem: str) -> str:
 
 
 def extract_first_two_digit_srt_number(path_stem: str) -> int | None:
-    """videoPG: stem 맨 앞 2자리 숫자 (``06_timestamp_...`` → 6)."""
+    """stem 맨 앞 2자리 숫자 (``06_...`` → 6)."""
     m = _LEADING_TWO_DIGITS.match(path_stem.strip())
     if not m:
         return None
@@ -53,15 +50,9 @@ def extract_first_two_digit_srt_number(path_stem: str) -> int | None:
 
 
 def extract_srt_number(path_stem: str) -> int | None:
-    """파일명만으로 SRT 번호 추정 (SRT 파일 없을 때 폴백).
-
-    ``timestamp`` 가 있으면 여기서는 번호를 추출하지 않습니다
-    (``120s`` 등 끝 숫자를 SRT 번호로 쓰지 않기 위함).
-    """
+    """파일명만으로 SRT 번호 추정."""
     stem = path_stem.strip()
     if not stem:
-        return None
-    if extract_timestamp_ms_from_stem(stem) is not None:
         return None
 
     n2 = extract_first_two_digit_srt_number(stem)

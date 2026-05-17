@@ -15,7 +15,7 @@ from PIL import Image, ImageDraw, ImageFont, ImageTk
 
 _IMAGE_EXT = {".png", ".jpg", ".jpeg", ".webp", ".bmp"}
 _PRESET_VERSION = 1
-_FONT_PRESET_DIRECT = "(파일에서 직접…)"
+_FONT_PRESET_DIRECT = "(파일에서 직접…)"  # 구 preset 호환용, UI 에는 미표시
 
 
 def _wisdom_repo_root() -> Path:
@@ -35,6 +35,11 @@ def wisdom_fonts_dir() -> Path:
     return _wisdom_repo_root() / "fonts"
 
 
+def default_thumbnail_output_dir() -> Path:
+    """thumbnailPG: 썸네일 저장 기본 폴더."""
+    return _wisdom_repo_root() / "6_thumbnail" / "output"
+
+
 def wisdom_font_combobox_values() -> tuple[str, ...]:
     """Selectbox에는 ``wisdom/fonts`` 에 실제로 있는 파일만 표시."""
     d = wisdom_fonts_dir()
@@ -44,13 +49,13 @@ def wisdom_font_combobox_values() -> tuple[str, ...]:
         (p.name for p in d.iterdir() if p.suffix.lower() in ex and p.is_file()),
         key=str.lower,
     )
-    return (_FONT_PRESET_DIRECT,) + tuple(names)
+    return tuple(names)
 
 
-def resolve_wisdom_font_choice(title: str) -> str | None:
-    """프리셋 제목 → 절대 경로. 직접 선택이면 None, 없으면 빈 문자열."""
-    if title == _FONT_PRESET_DIRECT:
-        return None
+def resolve_wisdom_font_choice(title: str) -> str:
+    """프리셋 제목(파일명) → 절대 경로. 없으면 빈 문자열."""
+    if not title or title == _FONT_PRESET_DIRECT:
+        return ""
     p = wisdom_fonts_dir() / title
     if p.is_file():
         return str(p.resolve())
@@ -59,21 +64,22 @@ def resolve_wisdom_font_choice(title: str) -> str | None:
 
 def combobox_title_for_font_path(fp: str) -> str:
     s = (fp or "").strip()
+    vals = wisdom_font_combobox_values()
     if not s:
-        return _FONT_PRESET_DIRECT
+        return vals[0] if vals else ""
     try:
         want = Path(s).resolve()
     except OSError:
-        return _FONT_PRESET_DIRECT
+        return vals[0] if vals else ""
     cand = wisdom_fonts_dir() / want.name
     if not cand.is_file():
-        return _FONT_PRESET_DIRECT
+        return vals[0] if vals else ""
     try:
         if cand.resolve() == want:
             return want.name
     except OSError:
         pass
-    return _FONT_PRESET_DIRECT
+    return vals[0] if vals else ""
 
 
 def install_font_file_windows(font_path: Path) -> None:
@@ -260,19 +266,23 @@ def main() -> None:
         pass
 
     src_dir = tk.StringVar()
-    out_dir = tk.StringVar()
+    out_dir = tk.StringVar(value=str(default_thumbnail_output_dir()))
     tw_var = tk.StringVar(value="1280")
     th_var = tk.StringVar(value="720")
-    font_path_var = tk.StringVar()
-    font_preset_var = tk.StringVar(value=_FONT_PRESET_DIRECT)
+    _font_vals = wisdom_font_combobox_values()
+    font_preset_var = tk.StringVar(value=_font_vals[0] if _font_vals else "")
     size_var = tk.StringVar(value="56")
     color_var = tk.StringVar(value="#FFFFFF")
     margin_var = tk.StringVar(value="32")
     anchor_var = tk.StringVar(value="mb")
     offset_info_var = tk.StringVar(value="미세 오프셋 X:0 Y:0")
 
+    _init_font = resolve_wisdom_font_choice(_font_vals[0]) if _font_vals else ""
     layers: list[dict[str, str | int]] = [default_text_layer()]
+    if _init_font:
+        layers[0]["font_path"] = _init_font
     cur_layer_idx = tk.IntVar(value=0)
+    live_preview_after_id: list[str | None] = [None]
 
     anchors = [
         ("lt", "좌상"),
@@ -333,15 +343,7 @@ def main() -> None:
         c = colorchooser.askcolor(color_var.get(), title="텍스트 색")
         if c and c[1]:
             color_var.set(c[1])
-
-    def pick_font_file() -> None:
-        p = filedialog.askopenfilename(
-            title="TTF/OTF 폰트",
-            filetypes=[("Font", "*.ttf *.otf"), ("모든 파일", "*.*")],
-        )
-        if p:
-            font_path_var.set(p)
-            font_preset_var.set(combobox_title_for_font_path(p))
+            schedule_live_preview()
 
     def pick_src() -> None:
         p = filedialog.askdirectory(title="원본 이미지 폴더")
@@ -349,7 +351,11 @@ def main() -> None:
             src_dir.set(p)
 
     def pick_out() -> None:
-        p = filedialog.askdirectory(title="썸네일 저장 폴더")
+        init = Path(out_dir.get().strip()) if out_dir.get().strip() else default_thumbnail_output_dir()
+        if not init.is_dir():
+            init = default_thumbnail_output_dir()
+        init.mkdir(parents=True, exist_ok=True)
+        p = filedialog.askdirectory(title="썸네일 저장 폴더", initialdir=str(init))
         if p:
             out_dir.set(p)
 
@@ -358,7 +364,7 @@ def main() -> None:
         if not (0 <= i < len(layers)):
             return
         layers[i]["text"] = tx.get("1.0", "end").rstrip("\n")
-        layers[i]["font_path"] = font_path_var.get().strip()
+        layers[i]["font_path"] = resolve_wisdom_font_choice(font_preset_var.get())
         try:
             layers[i]["font_size"] = int(size_var.get())
         except ValueError:
@@ -381,7 +387,6 @@ def main() -> None:
         L = layers[i]
         tx.delete("1.0", tk.END)
         tx.insert("1.0", str(L.get("text") or ""))
-        font_path_var.set(str(L.get("font_path") or ""))
         font_preset_var.set(combobox_title_for_font_path(str(L.get("font_path") or "")))
         size_var.set(str(int(L.get("font_size") or 56)))
         color_var.set(str(L.get("color") or "#FFFFFF"))
@@ -528,22 +533,26 @@ def main() -> None:
         except OSError as e:
             messagebox.showerror("삭제", str(e))
 
-    def do_preview() -> None:
+    def do_preview(*, silent: bool = False) -> None:
         sync_form_to_layer()
         d = Path(src_dir.get().strip())
         if not d.is_dir():
-            messagebox.showwarning("미리보기", "원본 폴더를 선택하세요.")
+            if not silent:
+                messagebox.showwarning("미리보기", "원본 폴더를 선택하세요.")
             return
         files = sorted([p for p in d.iterdir() if p.suffix.lower() in _IMAGE_EXT], key=natural_sort_key)
         if not files:
-            messagebox.showwarning("미리보기", "이미지 파일이 없습니다.")
+            if not silent:
+                messagebox.showwarning("미리보기", "이미지 파일이 없습니다.")
             return
         try:
             tw, th = int(tw_var.get()), int(th_var.get())
         except ValueError:
-            messagebox.showerror("미리보기", "가로·세로는 정수로 입력하세요.")
+            if not silent:
+                messagebox.showerror("미리보기", "가로·세로는 정수로 입력하세요.")
             return
-        tmp = Path(out_dir.get().strip() or ".") / "_preview_thumb.png"
+        tmp = default_thumbnail_output_dir() / "_preview_thumb.png"
+        tmp.parent.mkdir(parents=True, exist_ok=True)
         try:
             render_thumbnail_layers(files[0], tmp, tw=tw, th=th, layers=list(layers))
             ph = ImageTk.PhotoImage(Image.open(tmp))
@@ -553,7 +562,13 @@ def main() -> None:
             preview_img_ref["ph"] = ph
             prev_canvas.configure(scrollregion=(0, 0, max(iw, 1), max(ih, 1)))
         except Exception as e:
-            messagebox.showerror("미리보기", str(e))
+            if not silent:
+                messagebox.showerror("미리보기", str(e))
+
+    def schedule_live_preview() -> None:
+        if live_preview_after_id[0] is not None:
+            root.after_cancel(live_preview_after_id[0])
+        live_preview_after_id[0] = root.after(120, lambda: do_preview(silent=True))
 
     def do_save_preview_png() -> None:
         sync_form_to_layer()
@@ -657,17 +672,14 @@ def main() -> None:
     ff = ttk.Frame(root)
     ff.grid(row=r, column=0, columnspan=3, sticky="ew", padx=8, pady=4)
     ff.grid_columnconfigure(1, weight=1)
-    ttk.Label(ff, text="폰트 파일(TTF, 선택)").grid(row=0, column=0, sticky="w")
-    ttk.Entry(ff, textvariable=font_path_var).grid(row=0, column=1, sticky="ew", padx=6)
-    ttk.Button(ff, text="찾기…", command=pick_font_file).grid(row=0, column=2)
-    ttk.Label(ff, text="폰트 (wisdom/fonts)").grid(row=1, column=0, sticky="w", pady=(6, 0))
+    ttk.Label(ff, text=f"폰트 ({wisdom_fonts_dir()})").grid(row=0, column=0, sticky="w")
 
     def refresh_font_combobox() -> None:
         vals = list(wisdom_font_combobox_values())
         cb_font["values"] = vals
         cur = font_preset_var.get()
-        if cur not in vals:
-            font_preset_var.set(combobox_title_for_font_path(font_path_var.get()))
+        if vals and cur not in vals:
+            font_preset_var.set(vals[0])
 
     cb_font = ttk.Combobox(
         ff,
@@ -676,31 +688,30 @@ def main() -> None:
         state="readonly",
         width=40,
     )
-    cb_font.grid(row=1, column=1, sticky="ew", padx=6, pady=(6, 0))
+    cb_font.grid(row=0, column=1, sticky="ew", padx=6)
 
     def on_font_preset(_e: object | None = None) -> None:
-        sync_form_to_layer()
         title = font_preset_var.get()
         resolved = resolve_wisdom_font_choice(title)
-        if resolved is None:
-            return
         if resolved == "":
             b = wisdom_fonts_dir()
             messagebox.showwarning(
                 "폰트",
                 f"다음 파일을 찾지 못했습니다.\n{title}\n\n"
                 f"폰트를 받아 넣은 뒤 다시 선택하세요:\n{b}\n\n"
-                "「폰트 설치…」로 Windows에 설치하거나,\n"
-                "「찾기…」로 ttf/otf 경로를 직접 지정할 수 있습니다.",
+                "「폰트 설치…」로 Windows에 설치할 수 있습니다.",
             )
-            font_preset_var.set(_FONT_PRESET_DIRECT)
+            vals = wisdom_font_combobox_values()
+            if vals:
+                font_preset_var.set(vals[0])
             return
-        font_path_var.set(resolved)
+        sync_form_to_layer()
+        schedule_live_preview()
 
     cb_font.bind("<<ComboboxSelected>>", on_font_preset)
 
     btnf = ttk.Frame(ff)
-    btnf.grid(row=2, column=0, columnspan=3, sticky="w", pady=(8, 0))
+    btnf.grid(row=1, column=0, columnspan=3, sticky="w", pady=(8, 0))
 
     def do_install_font() -> None:
         b = wisdom_fonts_dir()
@@ -727,6 +738,7 @@ def main() -> None:
             else:
                 messagebox.showinfo("fonts 폴더", str(b))
             refresh_font_combobox()
+            schedule_live_preview()
         except OSError as e:
             messagebox.showerror("fonts 폴더", str(e))
 
@@ -737,9 +749,13 @@ def main() -> None:
     opt = ttk.Frame(root)
     opt.grid(row=r, column=0, columnspan=3, sticky="w", padx=8, pady=4)
     ttk.Label(opt, text="글자 크기").pack(side=tk.LEFT)
-    ttk.Entry(opt, textvariable=size_var, width=6).pack(side=tk.LEFT, padx=(4, 16))
+    ent_size = ttk.Entry(opt, textvariable=size_var, width=6)
+    ent_size.pack(side=tk.LEFT, padx=(4, 16))
+    ent_size.bind("<KeyRelease>", lambda _e: schedule_live_preview())
     ttk.Label(opt, text="색").pack(side=tk.LEFT)
-    ttk.Entry(opt, textvariable=color_var, width=10).pack(side=tk.LEFT, padx=(4, 6))
+    ent_color = ttk.Entry(opt, textvariable=color_var, width=10)
+    ent_color.pack(side=tk.LEFT, padx=(4, 6))
+    color_var.trace_add("write", lambda *_a: schedule_live_preview())
     ttk.Button(opt, text="색 선택…", command=pick_color).pack(side=tk.LEFT, padx=(0, 16))
     ttk.Label(opt, text="가장자리 여백(px)").pack(side=tk.LEFT)
     ttk.Entry(opt, textvariable=margin_var, width=6).pack(side=tk.LEFT, padx=(4, 0))
@@ -748,6 +764,11 @@ def main() -> None:
     ttk.Label(root, text="텍스트 위치 (앵커)").grid(row=r, column=0, sticky="nw", padx=8, pady=4)
     posf = ttk.Frame(root)
     posf.grid(row=r, column=1, columnspan=2, sticky="w", padx=(0, 8), pady=4)
+    def on_anchor_change(*_args: object) -> None:
+        sync_form_to_layer()
+        schedule_live_preview()
+
+    anchor_var.trace_add("write", on_anchor_change)
     for aid, alab in anchors:
         ttk.Radiobutton(posf, text=alab, value=aid, variable=anchor_var).pack(side=tk.LEFT, padx=2)
     r += 1
@@ -769,14 +790,15 @@ def main() -> None:
         L["offset_x"] = ox + dx
         L["offset_y"] = oy + dy
         sync_layer_to_form()
+        schedule_live_preview()
 
-    micro = ttk.LabelFrame(root, text="텍스트 미세 위치 (앵커 기준 5px)")
+    micro = ttk.LabelFrame(root, text="텍스트 미세 위치 (앵커 기준 10px)")
     micro.grid(row=r, column=0, columnspan=3, sticky="ew", padx=8, pady=4)
     ttk.Label(micro, textvariable=offset_info_var).pack(side=tk.LEFT, padx=(6, 12))
-    ttk.Button(micro, text="상", width=4, command=lambda: nudge_offset(0, -5)).pack(side=tk.LEFT, padx=2)
-    ttk.Button(micro, text="하", width=4, command=lambda: nudge_offset(0, 5)).pack(side=tk.LEFT, padx=2)
-    ttk.Button(micro, text="좌", width=4, command=lambda: nudge_offset(-5, 0)).pack(side=tk.LEFT, padx=2)
-    ttk.Button(micro, text="우", width=4, command=lambda: nudge_offset(5, 0)).pack(side=tk.LEFT, padx=2)
+    ttk.Button(micro, text="상", width=4, command=lambda: nudge_offset(0, -10)).pack(side=tk.LEFT, padx=2)
+    ttk.Button(micro, text="하", width=4, command=lambda: nudge_offset(0, 10)).pack(side=tk.LEFT, padx=2)
+    ttk.Button(micro, text="좌", width=4, command=lambda: nudge_offset(-10, 0)).pack(side=tk.LEFT, padx=2)
+    ttk.Button(micro, text="우", width=4, command=lambda: nudge_offset(10, 0)).pack(side=tk.LEFT, padx=2)
     r += 1
 
     ttk.Label(root, text="미리보기").grid(row=r, column=0, sticky="nw", padx=8, pady=6)
@@ -798,6 +820,7 @@ def main() -> None:
     lb_layers.bind("<<ListboxSelect>>", on_layer_select)
     refresh_layer_listbox()
     refresh_font_combobox()
+    default_thumbnail_output_dir().mkdir(parents=True, exist_ok=True)
     show_preview_empty()
 
     root.grid_columnconfigure(1, weight=1)

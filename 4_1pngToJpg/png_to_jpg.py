@@ -14,14 +14,13 @@ import sys
 from pathlib import Path
 
 from png2jpg.converter import convert_images
-from png2jpg.paths import PROJECT_DIRNAME, default_input_dir, default_output_dir, default_srt_path
+from png2jpg.paths import PROJECT_DIRNAME, default_input_dir, default_output_dir
 
 
 def run_cli(
     input_dir: Path,
     output_dir: Path,
     *,
-    srt_path: Path | None,
     recursive: bool,
     include_jpg: bool,
     quality: int,
@@ -30,7 +29,6 @@ def run_cli(
         results, skipped = convert_images(
             input_dir,
             output_dir,
-            srt_path=srt_path,
             recursive=recursive,
             include_jpg=include_jpg,
             quality=quality,
@@ -83,12 +81,6 @@ def main() -> int:
         help="JPG 도 SRT_XXX.jpg 로 재인코딩·이름 정리",
     )
     parser.add_argument("-q", "--quality", type=int, default=88, help="JPEG 품질 60–95 (기본 88)")
-    parser.add_argument(
-        "--srt",
-        type=Path,
-        default=None,
-        help="SRT 자막 (timestamp 파일명을 SRT 번호로 매칭, 기본: 3_ttsToVoice/output/all.srt)",
-    )
     parser.add_argument("-g", "--gui", action="store_true", help="GUI 실행")
     args = parser.parse_args()
 
@@ -101,11 +93,9 @@ def main() -> int:
     inp = args.input.resolve()
     out = (args.output or default_output_dir()).resolve()
     q = max(60, min(95, args.quality))
-    srt = args.srt.resolve() if args.srt else default_srt_path()
     return run_cli(
         inp,
         out,
-        srt_path=srt,
         recursive=args.recursive,
         include_jpg=args.include_jpg,
         quality=q,

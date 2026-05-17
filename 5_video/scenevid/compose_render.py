@@ -12,6 +12,7 @@ from scenevid.compose_overrides import (
     InsertClipSpec,
     default_overrides_path,
     inserts_by_after_cue,
+    is_compose_video_path,
     load_compose_overrides,
     per_cue_images_srt_mapping,
     resolved_motion_effects_per_cue,
@@ -34,7 +35,7 @@ from scenevid.srt_parse import load_srt_cues_ms
 from scenevid.subtitles import write_single_cue_srt
 
 
-_IMAGE_EXT = {".png", ".jpg", ".jpeg", ".webp", ".bmp"}
+_MEDIA_EXT = {".png", ".jpg", ".jpeg", ".webp", ".bmp", ".mp4"}
 
 ComposeProgressCb = Callable[[int, int, str], None]
 
@@ -86,7 +87,7 @@ def clamp_cues_ms_to_audio(
 def list_compose_images(images_dir: Path) -> list[Path]:
     if not images_dir.is_dir():
         return []
-    files = [p for p in images_dir.iterdir() if p.is_file() and p.suffix.lower() in _IMAGE_EXT]
+    files = [p for p in images_dir.iterdir() if p.is_file() and p.suffix.lower() in _MEDIA_EXT]
     return sorted(files, key=natural_sort_key)
 
 
@@ -317,6 +318,106 @@ def render_compose_insert_clip(
         raise RuntimeError(f"ffmpeg 삽입 클립 실패:\n{pr.stderr}\n{pr.stdout}")
 
 
+def _compose_scale_pad_vf(w: int, h: int) -> str:
+    return (
+        f"scale={w}:{h}:force_original_aspect_ratio=decrease,"
+        f"pad={w}:{h}:(ow-iw)/2:(oh-ih)/2,setsar=1,format=yuv420p"
+    )
+
+
+def render_compose_video_clip(
+    *,
+    video: Path,
+    audio: Path,
+    start_sec: float,
+    end_sec: float,
+    cue_text: str,
+    out_mp4: Path,
+    settings: RenderSettings,
+    burn_subtitles: bool,
+    work_srt: Path,
+) -> None:
+    """MP4 B-roll — Ken Burns 없음, 영상 내장 오디오는 사용하지 않음 (MP3만).
+
+    짧은 MP4가 SRT 구간보다 먼저 끝나지 않도록 루프·trim 으로 영상 길이를 오디오 구간과 맞춥니다.
+    """
+    dur = max(0.06, float(end_sec) - float(start_sec))
+    st = max(0.0, float(start_sec))
+    en = float(end_sec)
+    w, h, fps = settings.width, settings.height, settings.fps
+
+    scale_pad = _compose_scale_pad_vf(w, h)
+    if burn_subtitles:
+        write_single_cue_srt(work_srt, cue_text, dur)
+        sub = _subtitle_path_filter_arg(work_srt, ffmpeg_cwd=out_mp4.parent)
+        vchain = f"{scale_pad},{sub},trim=duration={dur:.6f},setpts=PTS-STARTPTS"
+    else:
+        vchain = f"{scale_pad},trim=duration={dur:.6f},setpts=PTS-STARTPTS"
+
+    fc = (
+        f"[0:v]fps={fps},{vchain}[v];"
+        f"[1:a]atrim=start={st:.6f}:end={en:.6f},asetpts=PTS-STARTPTS[a]"
+    )
+
+    ffmpeg = resolve_ffmpeg_exe()
+    cmd = [
+        ffmpeg,
+        "-y",
+        "-stream_loop",
+        "-1",
+        "-i",
+        str(video.resolve()),
+        "-i",
+        str(audio.resolve()),
+        "-filter_complex",
+        fc,
+        "-map",
+        "[v]",
+        "-map",
+        "[a]",
+        "-t",
+        str(dur),
+        "-c:v",
+        settings.video_codec,
+        "-preset",
+        "veryfast",
+        "-crf",
+        "22",
+        "-pix_fmt",
+        "yuv420p",
+        "-g",
+        str(fps),
+        "-keyint_min",
+        str(fps),
+        "-sc_threshold",
+        "0",
+        "-c:a",
+        settings.audio_codec,
+        "-b:a",
+        "192k",
+        "-r",
+        str(fps),
+        "-vsync",
+        "cfr",
+        "-movflags",
+        "+faststart",
+        str(out_mp4.resolve()),
+    ]
+    env = dict(os.environ)
+    env.setdefault("FONTCONFIG_PATH", "")
+    pr = subprocess_run_no_window(
+        cmd,
+        cwd=str(out_mp4.parent),
+        capture_output=True,
+        text=True,
+        encoding="utf-8",
+        errors="replace",
+        env=env,
+    )
+    if pr.returncode != 0:
+        raise RuntimeError(f"ffmpeg 영상 클립 실패:\n{pr.stderr}\n{pr.stdout}")
+
+
 def render_compose_clip(
     *,
     image: Path,
@@ -332,6 +433,19 @@ def render_compose_clip(
     motion_span_sec: float | None = None,
     motion_phase_sec: float | None = None,
 ) -> None:
+    if is_compose_video_path(image):
+        render_compose_video_clip(
+            video=image,
+            audio=audio,
+            start_sec=start_sec,
+            end_sec=end_sec,
+            cue_text=cue_text,
+            out_mp4=out_mp4,
+            settings=settings,
+            burn_subtitles=burn_subtitles,
+            work_srt=work_srt,
+        )
+        return
     dur = max(0.06, float(end_sec) - float(start_sec))
     st = max(0.0, float(start_sec))
     en = float(end_sec)

@@ -9,12 +9,7 @@ from pathlib import Path
 
 from PIL import Image
 
-from png2jpg.naming import extract_first_two_digit_srt_number, extract_srt_number, srt_jpg_name
-from png2jpg.srt_match import (
-    extract_timestamp_ms_from_stem,
-    match_srt_at_timestamp_ms,
-    parse_srt_cues,
-)
+from png2jpg.naming import extract_srt_number, srt_jpg_name
 
 PNG_EXTS = frozenset({".png", ".PNG"})
 JPG_EXTS = frozenset({".jpg", ".jpeg", ".JPG", ".JPEG"})
@@ -124,53 +119,21 @@ def iter_source_images(
     return sorted(files, key=lambda p: p.name.lower())
 
 
-def _plan_output_numbers(
-    sources: list[Path],
-    cues: list[tuple[int, int, int, str]],
-) -> list[tuple[Path, int | None, str]]:
-    """각 소스 → (경로, SRT번호, 설명). 타임스탬프 파일은 T 순·중복 SRT 미사용."""
-    ts_rows: list[tuple[int, Path]] = []
-    name_rows: list[tuple[Path, int]] = []
-    failures: list[tuple[Path, str]] = []
-
-    for src in sources:
-        t_ms = extract_timestamp_ms_from_stem(src.stem)
-        if t_ms is not None:
-            if cues:
-                ts_rows.append((t_ms, src))
-            else:
-                n_fb = extract_first_two_digit_srt_number(src.stem)
-                if n_fb is not None:
-                    name_rows.append((src, n_fb))
-                else:
-                    failures.append((src, "timestamp 파일 — SRT 자막 지정 또는 맨 앞 2자리 숫자 필요"))
-            continue
-        n = extract_srt_number(src.stem)
-        if n is not None:
-            name_rows.append((src, n))
-        else:
-            failures.append((src, "파일명에서 번호를 찾을 수 없음"))
-
+def _plan_output_numbers(sources: list[Path]) -> list[tuple[Path, int | None, str]]:
+    """각 소스 → (경로, SRT번호, 설명). 파일명 규칙만 사용 (타임스탬프 매칭 없음)."""
     used: set[int] = set()
     planned: list[tuple[Path, int | None, str]] = []
 
-    for t_ms, src in sorted(ts_rows, key=lambda x: (x[0], x[1].name.lower())):
-        mid = match_srt_at_timestamp_ms(cues, t_ms, used)
-        if mid is None:
-            planned.append((src, None, f"SRT 매칭 실패 T={t_ms/1000:.3f}s"))
+    for src in sorted(sources, key=lambda p: p.name.lower()):
+        n = extract_srt_number(src.stem)
+        if n is None:
+            planned.append((src, None, "파일명에서 번호를 찾을 수 없음"))
             continue
-        used.add(mid)
-        planned.append((src, mid, f"SRT 매칭 T={t_ms/1000:.3f}s→#{mid}"))
-
-    for src, n in name_rows:
         if n in used:
-            planned.append((src, None, f"SRT 번호 {n} 은 타임스탬프 매칭에서 이미 사용됨"))
-        else:
-            note = "맨 앞 2자리 숫자" if extract_first_two_digit_srt_number(src.stem) == n else "파일명 번호"
-            planned.append((src, n, note))
-
-    for src, reason in failures:
-        planned.append((src, None, reason))
+            planned.append((src, None, f"SRT_{n:03d} 번호 중복"))
+            continue
+        used.add(n)
+        planned.append((src, n, "파일명 번호"))
 
     return planned
 
@@ -179,7 +142,6 @@ def convert_images(
     input_dir: Path,
     output_dir: Path,
     *,
-    srt_path: Path | None = None,
     recursive: bool = False,
     include_jpg: bool = False,
     max_width: int = DEFAULT_MAX_WIDTH,
@@ -192,14 +154,7 @@ def convert_images(
     out_dir = output_dir.resolve()
     out_dir.mkdir(parents=True, exist_ok=True)
 
-    cues: list[tuple[int, int, int, str]] = []
-    if srt_path is not None:
-        sp = srt_path.resolve()
-        if not sp.is_file():
-            raise FileNotFoundError(f"SRT 파일 없음: {sp}")
-        cues = parse_srt_cues(sp)
-
-    planned = _plan_output_numbers(sources, cues)
+    planned = _plan_output_numbers(sources)
     skipped: list[ConvertSkip] = []
     by_number: dict[int, Path] = {}
 
