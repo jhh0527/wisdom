@@ -1,6 +1,15 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""대본을 줄바꿈 없이 공백 포함 정확히 700자 단위로 나눠 여러 UTF-8 .txt로 저장합니다."""
+"""대본을 줄바꿈 없이 700자 단위(문장 종결 기준)로 나눠 여러 UTF-8 .txt로 저장합니다.
+
+자르는 우선순위:
+1) 700자 윈도우 안의 마지막 마침표(`.`) 또는 물음표(`?`) 직후
+2) 위 둘이 없으면 같은 윈도우 안의 마지막 콤마(`,`) 직후
+3) 그것도 없으면 700자를 초과해서라도 최초로 나오는 마침표/물음표 직후
+4) 끝까지 종결 부호가 더 없으면 끝까지 한 청크
+
+따라서 각 chunk 는 700자보다 짧거나 길 수 있으며, 항상 문장 종결 직후에서 끝납니다.
+"""
 
 from __future__ import annotations
 
@@ -11,6 +20,9 @@ from pathlib import Path
 CHUNK_SIZE = 700
 PROJECT_DIRNAME = "1_textTo700Text"
 OUTPUT_DIRNAME = "output"
+
+SENTENCE_END_CHARS = ".?"
+FALLBACK_BREAK_CHARS = ","
 
 
 def flatten_for_chunking(text: str) -> str:
@@ -35,8 +47,59 @@ def _text_widget_content(widget) -> str:
     return widget.get("1.0", "end-1c")
 
 
+def _rfind_any(flat: str, chars: str, start: int, end: int) -> int:
+    """flat[start:end] 안에서 chars 중 어느 글자든 가장 오른쪽 위치를 반환합니다.
+
+    찾지 못하면 -1.
+    """
+    best = -1
+    for ch in chars:
+        p = flat.rfind(ch, start, end)
+        if p > best:
+            best = p
+    return best
+
+
+def _find_first_any(flat: str, chars: str, start: int) -> int:
+    """flat[start:] 안에서 chars 중 어느 글자든 가장 왼쪽 위치를 반환합니다.
+
+    찾지 못하면 -1.
+    """
+    best = -1
+    for ch in chars:
+        p = flat.find(ch, start)
+        if p != -1 and (best == -1 or p < best):
+            best = p
+    return best
+
+
+def _next_chunk_end(flat: str, start: int, size: int) -> int:
+    """다음 chunk 의 끝 인덱스(=다음 chunk 의 시작 인덱스)를 반환합니다.
+
+    - 남은 길이가 size 이하면 끝까지 한 번에 자릅니다(마지막 청크).
+    - 그 외에는 [start, start+size) 윈도우 내 마지막 마침표/물음표 직후,
+      없으면 마지막 콤마 직후,
+      그것도 없으면 size 를 초과해서라도 최초의 마침표/물음표 직후,
+      그것조차 끝까지 없으면 끝까지(마지막 청크) 반환합니다.
+    """
+    n = len(flat)
+    if n - start <= size:
+        return n
+    window_end = start + size
+    pos = _rfind_any(flat, SENTENCE_END_CHARS, start, window_end)
+    if pos >= start:
+        return pos + 1
+    pos = _rfind_any(flat, FALLBACK_BREAK_CHARS, start, window_end)
+    if pos >= start:
+        return pos + 1
+    pos = _find_first_any(flat, SENTENCE_END_CHARS, window_end)
+    if pos != -1:
+        return pos + 1
+    return n
+
+
 def split_into_chunks(text: str, size: int = CHUNK_SIZE) -> list[str]:
-    """줄바꿈을 무시한 연속 문자열을 공백 포함 정확히 size자씩 잘라 반환합니다."""
+    """줄바꿈을 무시한 연속 문자열을 최대 size자씩, 문장 종결 기준으로 잘라 반환합니다."""
     if size <= 0:
         raise ValueError("size는 1 이상이어야 합니다.")
     if not text:
@@ -44,16 +107,27 @@ def split_into_chunks(text: str, size: int = CHUNK_SIZE) -> list[str]:
     flat = flatten_for_chunking(text)
     if not flat:
         return []
-    return [flat[i : i + size] for i in range(0, len(flat), size)]
+    chunks: list[str] = []
+    i = 0
+    n = len(flat)
+    while i < n:
+        j = _next_chunk_end(flat, i, size)
+        chunk = flat[i:j].lstrip()
+        if chunk:
+            chunks.append(chunk)
+        i = j
+    return chunks
 
 
 def write_chunk_files(chunks: list[str], out_dir: Path, stem: str) -> list[Path]:
-    """chunks를 out_dir에 stem_NNN.txt 형식으로 저장하고 경로 목록을 반환합니다."""
+    """chunks 를 out_dir 에 `{stem}{N}.txt` 형식으로 저장하고 경로 목록을 반환합니다.
+
+    예) stem="part" → part1.txt, part2.txt, …
+    """
     out_dir.mkdir(parents=True, exist_ok=True)
-    width = max(3, len(str(len(chunks))))
     paths: list[Path] = []
     for idx, body in enumerate(chunks, start=1):
-        name = f"{stem}_{idx:0{width}d}.txt"
+        name = f"{stem}{idx}.txt"
         path = out_dir / name
         path.write_text(body, encoding="utf-8", newline="\n")
         paths.append(path)
@@ -66,7 +140,7 @@ def run_gui() -> int:
     from tkinter import ttk
 
     root = tk.Tk()
-    root.title(f"대본 {CHUNK_SIZE}자 분할 저장 (줄바꿈 없이 공백 포함)")
+    root.title(f"대본 {CHUNK_SIZE}자 분할 저장 (문장 종결 기준)")
     root.minsize(560, 420)
     root.geometry("760x520")
 
@@ -78,7 +152,7 @@ def run_gui() -> int:
 
     output_dir = resolve_output_dir()
     output_dir.mkdir(parents=True, exist_ok=True)
-    stem_var = tk.StringVar(value="script_part")
+    stem_var = tk.StringVar(value="part")
 
     frm = tk.Frame(root, padx=10, pady=8)
     frm.grid(row=0, column=0, sticky="nsew")
@@ -137,7 +211,7 @@ def run_gui() -> int:
         if not body.strip():
             messagebox.showwarning("내용 없음", "저장할 대본이 비어 있습니다.")
             return
-        stem = stem_var.get().strip() or "script_part"
+        stem = stem_var.get().strip() or "part"
         bad = set('<>:"/\\|?*')
         if any(c in stem for c in bad):
             messagebox.showerror(
@@ -157,14 +231,18 @@ def run_gui() -> int:
         messagebox.showinfo("완료", f"{len(paths)}개 파일을 저장했습니다.\n{odir.resolve()}")
 
     ttk.Button(row_btns, text="텍스트 파일 불러오기…", command=load_file).pack(side=tk.LEFT, padx=(0, 8))
-    ttk.Button(row_btns, text=f"{CHUNK_SIZE}자 단위로 분할 저장", command=do_split_save).pack(side=tk.LEFT)
+    ttk.Button(
+        row_btns,
+        text=f"최대 {CHUNK_SIZE}자 (문장 종결 기준) 분할 저장",
+        command=do_split_save,
+    ).pack(side=tk.LEFT)
 
     status.grid(row=4, column=0, columnspan=2, sticky="ew")
     frm.grid_rowconfigure(4, weight=0)
 
     status.config(
         text=(
-            f"대기 중 — 줄바꿈을 제외한 본문을 공백 포함 정확히 {CHUNK_SIZE}자씩 끊어 "
+            f"대기 중 — 최대 {CHUNK_SIZE}자 안에서 마침표/물음표(없으면 콤마) 직후로 끊어 "
             f"{output_dir} 에 저장합니다."
         ),
     )
@@ -195,8 +273,8 @@ def run_cli(in_path: Path, out_dir: Path, stem: str) -> int:
 def main() -> int:
     parser = argparse.ArgumentParser(
         description=(
-            f"대본의 줄바꿈을 제외한 본문을 공백 포함 정확히 {CHUNK_SIZE}자씩 잘라 "
-            "여러 UTF-8 .txt로 저장합니다. 인자 없이 실행하면 편집 창이 열립니다."
+            f"대본을 줄바꿈 제거 후 최대 {CHUNK_SIZE}자 안에서 마침표/물음표(없으면 콤마) "
+            "직후로 끊어 여러 UTF-8 .txt 로 저장합니다. 인자 없이 실행하면 편집 창이 열립니다."
         ),
     )
     parser.add_argument("input", nargs="?", type=Path, help="입력 텍스트 파일 (지정 시 콘솔만 사용)")
@@ -210,8 +288,8 @@ def main() -> int:
     parser.add_argument(
         "-n",
         "--name",
-        default="script_part",
-        help="저장 파일 접두사 (기본: script_part)",
+        default="part",
+        help="저장 파일 접두사 (기본: part) — 예) part + 1 → part1.txt",
     )
     parser.add_argument(
         "-g",

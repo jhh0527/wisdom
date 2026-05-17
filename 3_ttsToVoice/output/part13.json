@@ -1,0 +1,401 @@
+{
+  "part_id": "13",
+  "part_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\part13.mp3",
+  "part_srt": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\part13.srt",
+  "model_id": "eleven_multilingual_v2",
+  "merge_method": "ffmpeg",
+  "segment_count": 39,
+  "duration_ms_estimate": 94517,
+  "segments": [
+    {
+      "index": 1,
+      "caption_id": "13-1",
+      "original": "사자 한 마리 잡는 데 들어가는",
+      "tts": "[short pause][breathes][continues]사자 한 마리 잡는 데 들어가는",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part13_0001.mp3",
+      "duration_ms_estimate": 1981,
+      "start_ms_estimate": 0,
+      "end_ms_estimate": 1981
+    },
+    {
+      "index": 2,
+      "caption_id": "13-2",
+      "original": "사냥꾼의 노력과 위험을 생각하면,",
+      "tts": "사냥꾼의 노력과 위험을 생각하면,",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part13_0002.mp3",
+      "duration_ms_estimate": 2879,
+      "start_ms_estimate": 1981,
+      "end_ms_estimate": 4860
+    },
+    {
+      "index": 3,
+      "caption_id": "13-3",
+      "original": "같은 시간에 들소 열 마리,",
+      "tts": "같은 시간에 들소 열 마리,",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part13_0003.mp3",
+      "duration_ms_estimate": 2029,
+      "start_ms_estimate": 4860,
+      "end_ms_estimate": 6889
+    },
+    {
+      "index": 4,
+      "caption_id": "13-4",
+      "original": "영양 백 마리를 잡는 게",
+      "tts": "영양 백 마리를 잡는 게",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part13_0004.mp3",
+      "duration_ms_estimate": 2076,
+      "start_ms_estimate": 6889,
+      "end_ms_estimate": 8965
+    },
+    {
+      "index": 5,
+      "caption_id": "13-5",
+      "original": "압도적으로 합리적입니다.",
+      "tts": "압도적으로 합리적입니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part13_0005.mp3",
+      "duration_ms_estimate": 1651,
+      "start_ms_estimate": 8965,
+      "end_ms_estimate": 10616
+    },
+    {
+      "index": 6,
+      "caption_id": "13-6",
+      "original": "사냥의 ROI(투자수익률)가",
+      "tts": "사냥의 ROI가",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part13_0006.mp3",
+      "duration_ms_estimate": 1463,
+      "start_ms_estimate": 10616,
+      "end_ms_estimate": 12079
+    },
+    {
+      "index": 7,
+      "caption_id": "13-7",
+      "original": "비교가 안 되는 거죠.",
+      "tts": "비교가 안 되는 거죠.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part13_0007.mp3",
+      "duration_ms_estimate": 1463,
+      "start_ms_estimate": 12079,
+      "end_ms_estimate": 13542
+    },
+    {
+      "index": 8,
+      "caption_id": "13-8",
+      "original": "수렵채집 시대 우리 조상들은",
+      "tts": "수렵채집 시대 우리 조상들은",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part13_0008.mp3",
+      "duration_ms_estimate": 2218,
+      "start_ms_estimate": 13542,
+      "end_ms_estimate": 15760
+    },
+    {
+      "index": 9,
+      "caption_id": "13-9",
+      "original": "이를 본능적으로 알았습니다.",
+      "tts": "이를 본능적으로 알았습니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part13_0009.mp3",
+      "duration_ms_estimate": 2029,
+      "start_ms_estimate": 15760,
+      "end_ms_estimate": 17789
+    },
+    {
+      "index": 10,
+      "caption_id": "13-10",
+      "original": "그래서 그들은 영양, 사슴, 들소,",
+      "tts": "그래서 그들은 영양, 사슴, 들소,",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part13_0010.mp3",
+      "duration_ms_estimate": 3303,
+      "start_ms_estimate": 17789,
+      "end_ms_estimate": 21092
+    },
+    {
+      "index": 11,
+      "caption_id": "13-11",
+      "original": "매머드 같은 큰 초식동물을 주로 사냥했고,",
+      "tts": "매머드 같은 큰 초식동물을 주로 사냥했고,[breathes]",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part13_0011.mp3",
+      "duration_ms_estimate": 2973,
+      "start_ms_estimate": 21092,
+      "end_ms_estimate": 24065
+    },
+    {
+      "index": 12,
+      "caption_id": "13-12",
+      "original": "사자나 늑대는 가능하면 피했습니다.",
+      "tts": "사자나 늑대는 가능하면 피했습니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part13_0012.mp3",
+      "duration_ms_estimate": 2737,
+      "start_ms_estimate": 24065,
+      "end_ms_estimate": 26802
+    },
+    {
+      "index": 13,
+      "caption_id": "13-13",
+      "original": "가끔 마주치면 싸워서 쫓아내는 정도였지,",
+      "tts": "가끔 마주치면 싸워서 쫓아내는 정도였지,",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part13_0013.mp3",
+      "duration_ms_estimate": 3350,
+      "start_ms_estimate": 26802,
+      "end_ms_estimate": 30152
+    },
+    {
+      "index": 14,
+      "caption_id": "13-14",
+      "original": "일부러 잡으러 다니지 않았습니다.",
+      "tts": "일부러 잡으러 다니지 않았습니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part13_0014.mp3",
+      "duration_ms_estimate": 2076,
+      "start_ms_estimate": 30152,
+      "end_ms_estimate": 32228
+    },
+    {
+      "index": 15,
+      "caption_id": "13-15",
+      "original": "가축화 후보로 봐도 마찬가지입니다.",
+      "tts": "가축화 후보로 봐도 마찬가지입니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part13_0015.mp3",
+      "duration_ms_estimate": 2265,
+      "start_ms_estimate": 32228,
+      "end_ms_estimate": 34493
+    },
+    {
+      "index": 16,
+      "caption_id": "13-16",
+      "original": "인류학자 재레드 다이아몬드는 명저",
+      "tts": "인류학자 재레드 다이아몬드는 명저",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part13_0016.mp3",
+      "duration_ms_estimate": 2454,
+      "start_ms_estimate": 34493,
+      "end_ms_estimate": 36947
+    },
+    {
+      "index": 17,
+      "caption_id": "13-17",
+      "original": "『총, 균, 쇠』에서 인류가 가축화에",
+      "tts": "『총, 균, 쇠』에서 인류가 가축화에",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part13_0017.mp3",
+      "duration_ms_estimate": 2643,
+      "start_ms_estimate": 36947,
+      "end_ms_estimate": 39590
+    },
+    {
+      "index": 18,
+      "caption_id": "13-18",
+      "original": "성공한 동물의 공통점을 분석했는데,",
+      "tts": "성공한 동물의 공통점을 분석했는데,",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part13_0018.mp3",
+      "duration_ms_estimate": 2831,
+      "start_ms_estimate": 39590,
+      "end_ms_estimate": 42421
+    },
+    {
+      "index": 19,
+      "caption_id": "13-19",
+      "original": "그 조건은 크게 여섯 가지였습니다.",
+      "tts": "그 조건은 크게 여섯 가지였습니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part13_0019.mp3",
+      "duration_ms_estimate": 2406,
+      "start_ms_estimate": 42421,
+      "end_ms_estimate": 44827
+    },
+    {
+      "index": 20,
+      "caption_id": "13-20",
+      "original": "첫째, 효율적인 식성(되도록 초식).",
+      "tts": "첫째, 효율적인 식성. 되도록 초식.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part13_0020.mp3",
+      "duration_ms_estimate": 3586,
+      "start_ms_estimate": 44827,
+      "end_ms_estimate": 48413
+    },
+    {
+      "index": 21,
+      "caption_id": "13-21",
+      "original": "둘째, 빠른 성장 속도.",
+      "tts": "둘째, 빠른 성장 속도.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part13_0021.mp3",
+      "duration_ms_estimate": 2218,
+      "start_ms_estimate": 48413,
+      "end_ms_estimate": 50631
+    },
+    {
+      "index": 22,
+      "caption_id": "13-22",
+      "original": "셋째, 사육 환경에서의 번식 가능성.",
+      "tts": "셋째, 사육 환경에서의 번식 가능성.[breathes]",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part13_0022.mp3",
+      "duration_ms_estimate": 3256,
+      "start_ms_estimate": 50631,
+      "end_ms_estimate": 53887
+    },
+    {
+      "index": 23,
+      "caption_id": "13-23",
+      "original": "넷째, 온순한 기질.",
+      "tts": "넷째, 온순한 기질.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part13_0023.mp3",
+      "duration_ms_estimate": 1604,
+      "start_ms_estimate": 53887,
+      "end_ms_estimate": 55491
+    },
+    {
+      "index": 24,
+      "caption_id": "13-24",
+      "original": "다섯째, 공포 반응이 약할 것.",
+      "tts": "다섯째, 공포 반응이 약할 것.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part13_0024.mp3",
+      "duration_ms_estimate": 2454,
+      "start_ms_estimate": 55491,
+      "end_ms_estimate": 57945
+    },
+    {
+      "index": 25,
+      "caption_id": "13-25",
+      "original": "여섯째, 무리 사회를 이루며 위계가 있을 것.",
+      "tts": "여섯째, 무리 사회를 이루며 위계가 있을 것.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part13_0025.mp3",
+      "duration_ms_estimate": 3634,
+      "start_ms_estimate": 57945,
+      "end_ms_estimate": 61579
+    },
+    {
+      "index": 26,
+      "caption_id": "13-26",
+      "original": "이 기준에 사자를 넣어볼까요?",
+      "tts": "이 기준에 사자를 넣어볼까요?",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part13_0026.mp3",
+      "duration_ms_estimate": 2076,
+      "start_ms_estimate": 61579,
+      "end_ms_estimate": 63655
+    },
+    {
+      "index": 27,
+      "caption_id": "13-27",
+      "original": "첫째, 육식 — 탈락.",
+      "tts": "첫째, 육식 — 탈락.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part13_0027.mp3",
+      "duration_ms_estimate": 1935,
+      "start_ms_estimate": 63655,
+      "end_ms_estimate": 65590
+    },
+    {
+      "index": 28,
+      "caption_id": "13-28",
+      "original": "둘째, 성장 4년 — 탈락.",
+      "tts": "둘째, 성장 사년 — 탈락.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part13_0028.mp3",
+      "duration_ms_estimate": 2265,
+      "start_ms_estimate": 65590,
+      "end_ms_estimate": 67855
+    },
+    {
+      "index": 29,
+      "caption_id": "13-29",
+      "original": "셋째, 사육 환경에서 번식이 까다로움 —",
+      "tts": "셋째, 사육 환경에서 번식이 까다로움 —",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part13_0029.mp3",
+      "duration_ms_estimate": 3634,
+      "start_ms_estimate": 67855,
+      "end_ms_estimate": 71489
+    },
+    {
+      "index": 30,
+      "caption_id": "13-30",
+      "original": "거의 탈락.",
+      "tts": "거의 탈락.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part13_0030.mp3",
+      "duration_ms_estimate": 1038,
+      "start_ms_estimate": 71489,
+      "end_ms_estimate": 72527
+    },
+    {
+      "index": 31,
+      "caption_id": "13-31",
+      "original": "넷째, 온순 — 절대 탈락.",
+      "tts": "넷째, 온순 — 절대 탈락.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part13_0031.mp3",
+      "duration_ms_estimate": 2595,
+      "start_ms_estimate": 72527,
+      "end_ms_estimate": 75122
+    },
+    {
+      "index": 32,
+      "caption_id": "13-32",
+      "original": "다섯째, 공포 반응 — 위험하게 강함.",
+      "tts": "다섯째, 공포 반응 — 위험하게 강함.[breathes]",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part13_0032.mp3",
+      "duration_ms_estimate": 2973,
+      "start_ms_estimate": 75122,
+      "end_ms_estimate": 78095
+    },
+    {
+      "index": 33,
+      "caption_id": "13-33",
+      "original": "여섯째, 위계 — 그나마 통과",
+      "tts": "여섯째, 위계 — 그나마 통과",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part13_0033.mp3",
+      "duration_ms_estimate": 2784,
+      "start_ms_estimate": 78095,
+      "end_ms_estimate": 80879
+    },
+    {
+      "index": 34,
+      "caption_id": "13-34",
+      "original": "(프라이드 구조).",
+      "tts": "(프라이드 구조).",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part13_0034.mp3",
+      "duration_ms_estimate": 1415,
+      "start_ms_estimate": 80879,
+      "end_ms_estimate": 82294
+    },
+    {
+      "index": 35,
+      "caption_id": "13-35",
+      "original": "여섯 항목 중 한 개 통과.",
+      "tts": "여섯 항목 중 한 개 통과.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part13_0035.mp3",
+      "duration_ms_estimate": 2454,
+      "start_ms_estimate": 82294,
+      "end_ms_estimate": 84748
+    },
+    {
+      "index": 36,
+      "caption_id": "13-36",
+      "original": "가축으로 부적격 판정입니다.",
+      "tts": "가축으로 부적격 판정입니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part13_0036.mp3",
+      "duration_ms_estimate": 2454,
+      "start_ms_estimate": 84748,
+      "end_ms_estimate": 87202
+    },
+    {
+      "index": 37,
+      "caption_id": "13-37",
+      "original": "늑대는 그나마 인간이 길들이는 데 성공해",
+      "tts": "늑대는 그나마 인간이 길들이는 데 성공해",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part13_0037.mp3",
+      "duration_ms_estimate": 2879,
+      "start_ms_estimate": 87202,
+      "end_ms_estimate": 90081
+    },
+    {
+      "index": 38,
+      "caption_id": "13-38",
+      "original": "개가 됐지만, 그건 식용이 아니라",
+      "tts": "개가 됐지만, 그건 식용이 아니라",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part13_0038.mp3",
+      "duration_ms_estimate": 2359,
+      "start_ms_estimate": 90081,
+      "end_ms_estimate": 92440
+    },
+    {
+      "index": 39,
+      "caption_id": "13-39",
+      "original": "사냥 동반자로서였습니다.",
+      "tts": "사냥 동반자로서였습니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part13_0039.mp3",
+      "duration_ms_estimate": 2077,
+      "start_ms_estimate": 92440,
+      "end_ms_estimate": 94517
+    }
+  ]
+}

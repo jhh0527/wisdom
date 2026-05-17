@@ -1,0 +1,331 @@
+{
+  "part_id": "17",
+  "part_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\part17.mp3",
+  "part_srt": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\part17.srt",
+  "model_id": "eleven_multilingual_v2",
+  "merge_method": "ffmpeg",
+  "segment_count": 32,
+  "duration_ms_estimate": 72821,
+  "segments": [
+    {
+      "index": 1,
+      "caption_id": "17-1",
+      "original": "우리가 무엇을 먹느냐는",
+      "tts": "[short pause][breathes][continues]우리가 무엇을 먹느냐는",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part17_0001.mp3",
+      "duration_ms_estimate": 1700,
+      "start_ms_estimate": 0,
+      "end_ms_estimate": 1700
+    },
+    {
+      "index": 2,
+      "caption_id": "17-2",
+      "original": "단순한 영양 선택이 아니라는 거죠.",
+      "tts": "단순한 영양 선택이 아니라는 거죠.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part17_0002.mp3",
+      "duration_ms_estimate": 2503,
+      "start_ms_estimate": 1700,
+      "end_ms_estimate": 4203
+    },
+    {
+      "index": 3,
+      "caption_id": "17-3",
+      "original": "그 안에는 우리 조상들의 시행착오,",
+      "tts": "그 안에는 우리 조상들의 시행착오,",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part17_0003.mp3",
+      "duration_ms_estimate": 2408,
+      "start_ms_estimate": 4203,
+      "end_ms_estimate": 6611
+    },
+    {
+      "index": 4,
+      "caption_id": "17-4",
+      "original": "살아남기 위한 본능적 직감,",
+      "tts": "살아남기 위한 본능적 직감,",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part17_0004.mp3",
+      "duration_ms_estimate": 2315,
+      "start_ms_estimate": 6611,
+      "end_ms_estimate": 8926
+    },
+    {
+      "index": 5,
+      "caption_id": "17-5",
+      "original": "사회가 함께 짜온 의미의 그물,",
+      "tts": "사회가 함께 짜온 의미의 그물,",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part17_0005.mp3",
+      "duration_ms_estimate": 2361,
+      "start_ms_estimate": 8926,
+      "end_ms_estimate": 11287
+    },
+    {
+      "index": 6,
+      "caption_id": "17-6",
+      "original": "그리고 자연이 정한 냉정한 법칙이",
+      "tts": "그리고 자연이 정한 냉정한 법칙이",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part17_0006.mp3",
+      "duration_ms_estimate": 2645,
+      "start_ms_estimate": 11287,
+      "end_ms_estimate": 13932
+    },
+    {
+      "index": 7,
+      "caption_id": "17-7",
+      "original": "모두 녹아 있습니다.",
+      "tts": "모두 녹아 있습니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part17_0007.mp3",
+      "duration_ms_estimate": 1559,
+      "start_ms_estimate": 13932,
+      "end_ms_estimate": 15491
+    },
+    {
+      "index": 8,
+      "caption_id": "17-8",
+      "original": "다음에 식당에 갔을 때, 메뉴판에",
+      "tts": "다음에 식당에 갔을 때, 메뉴판에",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part17_0008.mp3",
+      "duration_ms_estimate": 2408,
+      "start_ms_estimate": 15491,
+      "end_ms_estimate": 17899
+    },
+    {
+      "index": 9,
+      "caption_id": "17-9",
+      "original": "\"오늘의 특선: 사자 안심 스테이크\"라고",
+      "tts": "\"오늘의 특선: 사자 안심 스테이크\"라고",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part17_0009.mp3",
+      "duration_ms_estimate": 2692,
+      "start_ms_estimate": 17899,
+      "end_ms_estimate": 20591
+    },
+    {
+      "index": 10,
+      "caption_id": "17-10",
+      "original": "적혀 있지 않다는 사실에 감사해도 됩니다.",
+      "tts": "적혀 있지 않다는 사실에 감사해도 됩니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part17_0010.mp3",
+      "duration_ms_estimate": 3022,
+      "start_ms_estimate": 20591,
+      "end_ms_estimate": 23613
+    },
+    {
+      "index": 11,
+      "caption_id": "17-11",
+      "original": "그건 단지 식당 주인의 무관심이 아니라,",
+      "tts": "그건 단지 식당 주인의 무관심이 아니라,[breathes]",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part17_0011.mp3",
+      "duration_ms_estimate": 3117,
+      "start_ms_estimate": 23613,
+      "end_ms_estimate": 26730
+    },
+    {
+      "index": 12,
+      "caption_id": "17-12",
+      "original": "수십만 년에 걸친 인류 문명이 도달한",
+      "tts": "수십만 년에 걸친 인류 문명이 도달한",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part17_0012.mp3",
+      "duration_ms_estimate": 2928,
+      "start_ms_estimate": 26730,
+      "end_ms_estimate": 29658
+    },
+    {
+      "index": 13,
+      "caption_id": "17-13",
+      "original": "합리적 결론이니까요.",
+      "tts": "합리적 결론이니까요.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part17_0013.mp3",
+      "duration_ms_estimate": 1606,
+      "start_ms_estimate": 29658,
+      "end_ms_estimate": 31264
+    },
+    {
+      "index": 14,
+      "caption_id": "17-14",
+      "original": "그리고 오늘 점심으로 소고기,",
+      "tts": "그리고 오늘 점심으로 소고기,",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part17_0014.mp3",
+      "duration_ms_estimate": 2031,
+      "start_ms_estimate": 31264,
+      "end_ms_estimate": 33295
+    },
+    {
+      "index": 15,
+      "caption_id": "17-15",
+      "original": "돼지고기, 닭고기를 드신다면,",
+      "tts": "돼지고기, 닭고기를 드신다면,",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part17_0015.mp3",
+      "duration_ms_estimate": 2408,
+      "start_ms_estimate": 33295,
+      "end_ms_estimate": 35703
+    },
+    {
+      "index": 16,
+      "caption_id": "17-16",
+      "original": "그 한 점 한 점에는 우리 조상들이",
+      "tts": "그 한 점 한 점에는 우리 조상들이",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part17_0016.mp3",
+      "duration_ms_estimate": 2220,
+      "start_ms_estimate": 35703,
+      "end_ms_estimate": 37923
+    },
+    {
+      "index": 17,
+      "caption_id": "17-17",
+      "original": "\"이건 안전하고, 효율적이고, 맛있다\"고",
+      "tts": "\"이건 안전하고, 효율적이고, 맛있다\"고",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part17_0017.mp3",
+      "duration_ms_estimate": 2786,
+      "start_ms_estimate": 37923,
+      "end_ms_estimate": 40709
+    },
+    {
+      "index": 18,
+      "caption_id": "17-18",
+      "original": "확신하기까지 거쳐온",
+      "tts": "확신하기까지 거쳐온",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part17_0018.mp3",
+      "duration_ms_estimate": 1653,
+      "start_ms_estimate": 40709,
+      "end_ms_estimate": 42362
+    },
+    {
+      "index": 19,
+      "caption_id": "17-19",
+      "original": "무수한 실험과 선택의 역사가",
+      "tts": "무수한 실험과 선택의 역사가",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part17_0019.mp3",
+      "duration_ms_estimate": 2315,
+      "start_ms_estimate": 42362,
+      "end_ms_estimate": 44677
+    },
+    {
+      "index": 20,
+      "caption_id": "17-20",
+      "original": "담겨 있다는 사실을",
+      "tts": "담겨 있다는 사실을",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part17_0020.mp3",
+      "duration_ms_estimate": 1606,
+      "start_ms_estimate": 44677,
+      "end_ms_estimate": 46283
+    },
+    {
+      "index": 21,
+      "caption_id": "17-21",
+      "original": "한 번쯤 떠올려보셔도 좋겠습니다.",
+      "tts": "한 번쯤 떠올려보셔도 좋겠습니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part17_0021.mp3",
+      "duration_ms_estimate": 2503,
+      "start_ms_estimate": 46283,
+      "end_ms_estimate": 48786
+    },
+    {
+      "index": 22,
+      "caption_id": "17-22",
+      "original": "호랑이는 그림 속에서,",
+      "tts": "호랑이는 그림 속에서,[breathes]",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part17_0022.mp3",
+      "duration_ms_estimate": 1653,
+      "start_ms_estimate": 48786,
+      "end_ms_estimate": 50439
+    },
+    {
+      "index": 23,
+      "caption_id": "17-23",
+      "original": "사자는 메달 위에서,",
+      "tts": "사자는 메달 위에서,",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part17_0023.mp3",
+      "duration_ms_estimate": 1606,
+      "start_ms_estimate": 50439,
+      "end_ms_estimate": 52045
+    },
+    {
+      "index": 24,
+      "caption_id": "17-24",
+      "original": "늑대는 동화 속에서 만나는 게 가장 좋습니다.",
+      "tts": "늑대는 동화 속에서 만나는 게 가장 좋습니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part17_0024.mp3",
+      "duration_ms_estimate": 3164,
+      "start_ms_estimate": 52045,
+      "end_ms_estimate": 55209
+    },
+    {
+      "index": 25,
+      "caption_id": "17-25",
+      "original": "식탁에서는 — 글쎄요,",
+      "tts": "식탁에서는 — 글쎄요,",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part17_0025.mp3",
+      "duration_ms_estimate": 1889,
+      "start_ms_estimate": 55209,
+      "end_ms_estimate": 57098
+    },
+    {
+      "index": 26,
+      "caption_id": "17-26",
+      "original": "적어도 가까운 미래에는,",
+      "tts": "적어도 가까운 미래에는,",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part17_0026.mp3",
+      "duration_ms_estimate": 1795,
+      "start_ms_estimate": 57098,
+      "end_ms_estimate": 58893
+    },
+    {
+      "index": 27,
+      "caption_id": "17-27",
+      "original": "그들이 오지 않을 것 같습니다.",
+      "tts": "그들이 오지 않을 것 같습니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part17_0027.mp3",
+      "duration_ms_estimate": 1936,
+      "start_ms_estimate": 58893,
+      "end_ms_estimate": 60829
+    },
+    {
+      "index": 28,
+      "caption_id": "17-28",
+      "original": "그리고 그게 우리 모두에게 좋은 일입니다.",
+      "tts": "그리고 그게 우리 모두에게 좋은 일입니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part17_0028.mp3",
+      "duration_ms_estimate": 2361,
+      "start_ms_estimate": 60829,
+      "end_ms_estimate": 63190
+    },
+    {
+      "index": 29,
+      "caption_id": "17-29",
+      "original": "자, 이제 슬슬 배가 고프지 않으신가요?",
+      "tts": "자, 이제 슬슬 배가 고프지 않으신가요?",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part17_0029.mp3",
+      "duration_ms_estimate": 2408,
+      "start_ms_estimate": 63190,
+      "end_ms_estimate": 65598
+    },
+    {
+      "index": 30,
+      "caption_id": "17-30",
+      "original": "오늘 저녁 메뉴 추천드립니다.",
+      "tts": "오늘 저녁 메뉴 추천드립니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part17_0030.mp3",
+      "duration_ms_estimate": 2172,
+      "start_ms_estimate": 65598,
+      "end_ms_estimate": 67770
+    },
+    {
+      "index": 31,
+      "caption_id": "17-31",
+      "original": "소불고기. 돼지갈비. 치킨.",
+      "tts": "소불고기. 돼지갈비. 치킨.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part17_0031.mp3",
+      "duration_ms_estimate": 2220,
+      "start_ms_estimate": 67770,
+      "end_ms_estimate": 69990
+    },
+    {
+      "index": 32,
+      "caption_id": "17-32",
+      "original": "그 어떤 것도 좋습니다. 사자만 빼고요.",
+      "tts": "그 어떤 것도 좋습니다. 사자만 빼고요.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part17_0032.mp3",
+      "duration_ms_estimate": 2831,
+      "start_ms_estimate": 69990,
+      "end_ms_estimate": 72821
+    }
+  ]
+}

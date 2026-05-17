@@ -1,0 +1,371 @@
+{
+  "part_id": "5",
+  "part_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\part05.mp3",
+  "part_srt": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\part05.srt",
+  "model_id": "eleven_multilingual_v2",
+  "merge_method": "ffmpeg",
+  "segment_count": 36,
+  "duration_ms_estimate": 88149,
+  "segments": [
+    {
+      "index": 1,
+      "caption_id": "5-1",
+      "original": "결론부터 말하면, 별로 좋지 않습니다.",
+      "tts": "[short pause][breathes][continues]결론부터 말하면, 별로 좋지 않습니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part05_0001.mp3",
+      "duration_ms_estimate": 3066,
+      "start_ms_estimate": 0,
+      "end_ms_estimate": 3066
+    },
+    {
+      "index": 2,
+      "caption_id": "5-2",
+      "original": "심하면 죽을 수도 있습니다.",
+      "tts": "심하면 죽을 수도 있습니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part05_0002.mp3",
+      "duration_ms_estimate": 1980,
+      "start_ms_estimate": 3066,
+      "end_ms_estimate": 5046
+    },
+    {
+      "index": 3,
+      "caption_id": "5-3",
+      "original": "첫째, 맛이 없습니다.",
+      "tts": "첫째, 맛이 없습니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part05_0003.mp3",
+      "duration_ms_estimate": 1793,
+      "start_ms_estimate": 5046,
+      "end_ms_estimate": 6839
+    },
+    {
+      "index": 4,
+      "caption_id": "5-4",
+      "original": "이건 단순한 편견이 아니라",
+      "tts": "이건 단순한 편견이 아니라",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part05_0004.mp3",
+      "duration_ms_estimate": 1934,
+      "start_ms_estimate": 6839,
+      "end_ms_estimate": 8773
+    },
+    {
+      "index": 5,
+      "caption_id": "5-5",
+      "original": "화학적 사실에 가깝습니다.",
+      "tts": "화학적 사실에 가깝습니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part05_0005.mp3",
+      "duration_ms_estimate": 1980,
+      "start_ms_estimate": 8773,
+      "end_ms_estimate": 10753
+    },
+    {
+      "index": 6,
+      "caption_id": "5-6",
+      "original": "초식동물의 근육에는 글리코겐, 단당류,",
+      "tts": "초식동물의 근육에는 글리코겐, 단당류,",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part05_0006.mp3",
+      "duration_ms_estimate": 3491,
+      "start_ms_estimate": 10753,
+      "end_ms_estimate": 14244
+    },
+    {
+      "index": 7,
+      "caption_id": "5-7",
+      "original": "그리고 다양한 풍미 전구체들이 풍부합니다.",
+      "tts": "그리고 다양한 풍미 전구체들이 풍부합니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part05_0007.mp3",
+      "duration_ms_estimate": 3160,
+      "start_ms_estimate": 14244,
+      "end_ms_estimate": 17404
+    },
+    {
+      "index": 8,
+      "caption_id": "5-8",
+      "original": "풀을 끊임없이 씹어 발효시키는 과정에서",
+      "tts": "풀을 끊임없이 씹어 발효시키는 과정에서",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part05_0008.mp3",
+      "duration_ms_estimate": 2877,
+      "start_ms_estimate": 17404,
+      "end_ms_estimate": 20281
+    },
+    {
+      "index": 9,
+      "caption_id": "5-9",
+      "original": "향긋한 지방산들이 살에 배어들죠.",
+      "tts": "향긋한 지방산들이 살에 배어들죠.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part05_0009.mp3",
+      "duration_ms_estimate": 2736,
+      "start_ms_estimate": 20281,
+      "end_ms_estimate": 23017
+    },
+    {
+      "index": 10,
+      "caption_id": "5-10",
+      "original": "그래서 한우 등심에서는",
+      "tts": "그래서 한우 등심에서는",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part05_0010.mp3",
+      "duration_ms_estimate": 1604,
+      "start_ms_estimate": 23017,
+      "end_ms_estimate": 24621
+    },
+    {
+      "index": 11,
+      "caption_id": "5-11",
+      "original": "고소한 단맛이 나고,",
+      "tts": "고소한 단맛이 나고,[breathes]",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part05_0011.mp3",
+      "duration_ms_estimate": 1557,
+      "start_ms_estimate": 24621,
+      "end_ms_estimate": 26178
+    },
+    {
+      "index": 12,
+      "caption_id": "5-12",
+      "original": "양고기에서는 특유의 풀 향이 납니다.",
+      "tts": "양고기에서는 특유의 풀 향이 납니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part05_0012.mp3",
+      "duration_ms_estimate": 2829,
+      "start_ms_estimate": 26178,
+      "end_ms_estimate": 29007
+    },
+    {
+      "index": 13,
+      "caption_id": "5-13",
+      "original": "반면 육식동물의 살은 거칠고 질깁니다.",
+      "tts": "반면 육식동물의 살은 거칠고 질깁니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part05_0013.mp3",
+      "duration_ms_estimate": 3396,
+      "start_ms_estimate": 29007,
+      "end_ms_estimate": 32403
+    },
+    {
+      "index": 14,
+      "caption_id": "5-14",
+      "original": "평생을 사냥하느라 근육이 끊임없이",
+      "tts": "평생을 사냥하느라 근육이 끊임없이",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part05_0014.mp3",
+      "duration_ms_estimate": 3113,
+      "start_ms_estimate": 32403,
+      "end_ms_estimate": 35516
+    },
+    {
+      "index": 15,
+      "caption_id": "5-15",
+      "original": "수축하고 늘어났기 때문에",
+      "tts": "수축하고 늘어났기 때문에",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part05_0015.mp3",
+      "duration_ms_estimate": 1887,
+      "start_ms_estimate": 35516,
+      "end_ms_estimate": 37403
+    },
+    {
+      "index": 16,
+      "caption_id": "5-16",
+      "original": "근섬유가 단단하고, 결합 조직이 많습니다.",
+      "tts": "근섬유가 단단하고, 결합 조직이 많습니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part05_0016.mp3",
+      "duration_ms_estimate": 3443,
+      "start_ms_estimate": 37403,
+      "end_ms_estimate": 40846
+    },
+    {
+      "index": 17,
+      "caption_id": "5-17",
+      "original": "지방도 적습니다.",
+      "tts": "지방도 적습니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part05_0017.mp3",
+      "duration_ms_estimate": 1320,
+      "start_ms_estimate": 40846,
+      "end_ms_estimate": 42166
+    },
+    {
+      "index": 18,
+      "caption_id": "5-18",
+      "original": "사냥꾼은 살이 찌면 안 되니까요.",
+      "tts": "사냥꾼은 살이 찌면 안 되니까요.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part05_0018.mp3",
+      "duration_ms_estimate": 2264,
+      "start_ms_estimate": 42166,
+      "end_ms_estimate": 44430
+    },
+    {
+      "index": 19,
+      "caption_id": "5-19",
+      "original": "게다가 다른 동물을 먹어 얻은",
+      "tts": "게다가 다른 동물을 먹어 얻은",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part05_0019.mp3",
+      "duration_ms_estimate": 2358,
+      "start_ms_estimate": 44430,
+      "end_ms_estimate": 46788
+    },
+    {
+      "index": 20,
+      "caption_id": "5-20",
+      "original": "단백질 대사 부산물이 살에 축적되어 있어,",
+      "tts": "단백질 대사 부산물이 살에 축적되어 있어,",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part05_0020.mp3",
+      "duration_ms_estimate": 3160,
+      "start_ms_estimate": 46788,
+      "end_ms_estimate": 49948
+    },
+    {
+      "index": 21,
+      "caption_id": "5-21",
+      "original": "강한 누린내와 시큼한 맛이 납니다.",
+      "tts": "강한 누린내와 시큼한 맛이 납니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part05_0021.mp3",
+      "duration_ms_estimate": 2453,
+      "start_ms_estimate": 49948,
+      "end_ms_estimate": 52401
+    },
+    {
+      "index": 22,
+      "caption_id": "5-22",
+      "original": "곰 고기를 먹어본 사람들의 공통된 평은",
+      "tts": "곰 고기를 먹어본 사람들의 공통된 평은[breathes]",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part05_0022.mp3",
+      "duration_ms_estimate": 3348,
+      "start_ms_estimate": 52401,
+      "end_ms_estimate": 55749
+    },
+    {
+      "index": 23,
+      "caption_id": "5-23",
+      "original": "\"쇳내가 난다\", \"시큼하다\", \"질기다\"입니다.",
+      "tts": "\"쇳내가 난다\", \"시큼하다\", \"질기다\"입니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part05_0023.mp3",
+      "duration_ms_estimate": 3443,
+      "start_ms_estimate": 55749,
+      "end_ms_estimate": 59192
+    },
+    {
+      "index": 24,
+      "caption_id": "5-24",
+      "original": "사자나 호랑이도 비슷할 거라고 추정됩니다.",
+      "tts": "사자나 호랑이도 비슷할 거라고 추정됩니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part05_0024.mp3",
+      "duration_ms_estimate": 2783,
+      "start_ms_estimate": 59192,
+      "end_ms_estimate": 61975
+    },
+    {
+      "index": 25,
+      "caption_id": "5-25",
+      "original": "둘째, 진짜 무서운 건 기생충입니다.",
+      "tts": "둘째, 진짜 무서운 건 기생충입니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part05_0025.mp3",
+      "duration_ms_estimate": 3018,
+      "start_ms_estimate": 61975,
+      "end_ms_estimate": 64993
+    },
+    {
+      "index": 26,
+      "caption_id": "5-26",
+      "original": "이게 핵심입니다.",
+      "tts": "이게 핵심입니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part05_0026.mp3",
+      "duration_ms_estimate": 1462,
+      "start_ms_estimate": 64993,
+      "end_ms_estimate": 66455
+    },
+    {
+      "index": 27,
+      "caption_id": "5-27",
+      "original": "육식동물은 다른 동물을 잡아먹기 때문에,",
+      "tts": "육식동물은 다른 동물을 잡아먹기 때문에,",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part05_0027.mp3",
+      "duration_ms_estimate": 2924,
+      "start_ms_estimate": 66455,
+      "end_ms_estimate": 69379
+    },
+    {
+      "index": 28,
+      "caption_id": "5-28",
+      "original": "그 먹이가 가지고 있던 기생충을",
+      "tts": "그 먹이가 가지고 있던 기생충을",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part05_0028.mp3",
+      "duration_ms_estimate": 2217,
+      "start_ms_estimate": 69379,
+      "end_ms_estimate": 71596
+    },
+    {
+      "index": 29,
+      "caption_id": "5-29",
+      "original": "모조리 받아 축적합니다.",
+      "tts": "모조리 받아 축적합니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part05_0029.mp3",
+      "duration_ms_estimate": 1650,
+      "start_ms_estimate": 71596,
+      "end_ms_estimate": 73246
+    },
+    {
+      "index": 30,
+      "caption_id": "5-30",
+      "original": "먹이사슬을 따라 기생충도",
+      "tts": "먹이사슬을 따라 기생충도",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part05_0030.mp3",
+      "duration_ms_estimate": 1934,
+      "start_ms_estimate": 73246,
+      "end_ms_estimate": 75180
+    },
+    {
+      "index": 31,
+      "caption_id": "5-31",
+      "original": "\"농축\"되는 거죠.",
+      "tts": "\"농축\"되는 거죠.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part05_0031.mp3",
+      "duration_ms_estimate": 1415,
+      "start_ms_estimate": 75180,
+      "end_ms_estimate": 76595
+    },
+    {
+      "index": 32,
+      "caption_id": "5-32",
+      "original": "특히 악명 높은 게 선모충(Trichinella)입니다.",
+      "tts": "특히 악명 높은 게 선모충입니다.[breathes]",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part05_0032.mp3",
+      "duration_ms_estimate": 2499,
+      "start_ms_estimate": 76595,
+      "end_ms_estimate": 79094
+    },
+    {
+      "index": 33,
+      "caption_id": "5-33",
+      "original": "선모충은 근육 속에 시스트(낭종) 형태로",
+      "tts": "선모충은 근육 속에 시스트 형태로",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part05_0033.mp3",
+      "duration_ms_estimate": 2829,
+      "start_ms_estimate": 79094,
+      "end_ms_estimate": 81923
+    },
+    {
+      "index": 34,
+      "caption_id": "5-34",
+      "original": "숨어 있다가, 그 고기를 먹은",
+      "tts": "숨어 있다가, 그 고기를 먹은",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part05_0034.mp3",
+      "duration_ms_estimate": 2217,
+      "start_ms_estimate": 81923,
+      "end_ms_estimate": 84140
+    },
+    {
+      "index": 35,
+      "caption_id": "5-35",
+      "original": "다른 동물의 장에서 깨어나",
+      "tts": "다른 동물의 장에서 깨어나",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part05_0035.mp3",
+      "duration_ms_estimate": 1980,
+      "start_ms_estimate": 84140,
+      "end_ms_estimate": 86120
+    },
+    {
+      "index": 36,
+      "caption_id": "5-36",
+      "original": "다시 근육으로 파고듭니다.",
+      "tts": "다시 근육으로 파고듭니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part05_0036.mp3",
+      "duration_ms_estimate": 2029,
+      "start_ms_estimate": 86120,
+      "end_ms_estimate": 88149
+    }
+  ]
+}

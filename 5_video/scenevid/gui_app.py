@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import os
 import threading
 import tkinter as tk
 import traceback
@@ -28,8 +29,21 @@ from scenevid.compose_render import (
 )
 from scenevid.media_paths import prepend_local_ffmpeg_bin_to_os_path
 from scenevid.motion import EFFECT_IDS, effects_for_compose_cues, normalize_effect
-from scenevid.repo_paths import default_scenevid_compose_mp4, default_tts_pipeline_root, default_tts_python
+from scenevid.repo_paths import (
+    default_scenevid_compose_mp4,
+    default_scenevid_output_dir,
+    default_srt_image_output_dir,
+    default_tts_pipeline_root,
+    default_tts_python,
+    default_tts_voice_output_dir,
+    pick_default_compose_audio_srt,
+    wisdom_repo_root,
+)
 from scenevid.schema import RenderSettings
+from scenevid.srt_image_effects import (
+    find_srt_image_effects_json,
+    load_cue_effects_from_srt_image_json,
+)
 from scenevid.srt_parse import load_srt_cues_ms
 from scenevid.subtitles import seconds_to_srt_ts
 
@@ -43,6 +57,17 @@ FX_LABEL_KO: dict[str, str] = {
     "zoom_in": "줌인",
     "zoom_out": "줌아웃",
 }
+
+# videoPG: SRT 재생 순서대로 반복되는 순환 패턴 (미리·순환 효과 버튼)
+FX_CYCLE_ORDER: tuple[str, ...] = (
+    "pan_left",
+    "pan_right",
+    "pan_up",
+    "pan_down",
+    "zoom_in",
+    "zoom_out",
+    "none",
+)
 
 
 def _fx_disp(token: str) -> str:
@@ -69,11 +94,21 @@ def main() -> None:
     root.option_add("*Font", (fam, sz))
 
     status_var = tk.StringVar(value="대기 중")
+    progress_pct_var = tk.StringVar(value="")
+
     log = tk.Text(root, height=7, wrap=tk.WORD, state=tk.DISABLED)
     nb = ttk.Notebook(root, padding=6)
+
     status_bar = ttk.Label(root, textvariable=status_var, padding=(8, 4))
+    progress_fr = ttk.Frame(root)
+    progress_bar = ttk.Progressbar(progress_fr, mode="determinate", maximum=100)
+
     status_bar.pack(side=tk.BOTTOM, fill=tk.X)
-    log.pack(side=tk.BOTTOM, fill=tk.X, expand=False, padx=8, pady=(0, 4))
+    progress_fr.pack(side=tk.BOTTOM, fill=tk.X, padx=8, pady=(0, 2))
+    progress_bar.pack(side=tk.LEFT, fill=tk.X, expand=True, padx=(0, 8))
+    ttk.Label(progress_fr, textvariable=progress_pct_var, width=14).pack(side=tk.RIGHT)
+
+    log.pack(side=tk.BOTTOM, fill=tk.X, expand=False, padx=8, pady=(4, 4))
     nb.pack(side=tk.TOP, fill=tk.BOTH, expand=True, padx=4, pady=(4, 0))
 
     def log_line(msg: str) -> None:
@@ -107,6 +142,8 @@ def main() -> None:
         "cue_fx": {},
         "img_fx": {},
         "inserts": [],
+        "json_fx": {},
+        "effects_json_path": "",
     }
 
     r = 0
@@ -188,7 +225,7 @@ def main() -> None:
 
     ttk.Label(
         tab_c,
-        text="구간별 이미지 — SRT 첫 줄 번호와 images/srt_NN.png 가 대응합니다. 없으면 직전 이미지 유지. (큐 선택 후 오른쪽 더블클릭 또는 「팔레트 적용」)",
+        text="구간별 이미지 — SRT 첫 줄 번호와 images/SRT_NNN.* (또는 srt_N.*) 파일 번호가 대응합니다. 없으면 직전 이미지 유지. (큐 선택 후 오른쪽 더블클릭 또는 「팔레트 적용」)",
     ).grid(row=r, column=0, columnspan=3, sticky="w")
     r += 1
     row_tl = ttk.Frame(tab_c)
@@ -240,7 +277,7 @@ def main() -> None:
         lb.delete(0, tk.END)
         lb_paths.clear()
         tl_state["ready"] = False
-        root_dir = Path(assets_var.get().strip() or ".").resolve()
+        root_dir = Path(assets_var.get().strip()).resolve() if assets_var.get().strip() else wisdom_repo_root()
         sp = Path(srt_var.get().strip()) if srt_var.get().strip() else None
         imd = Path(images_var.get().strip()) if images_var.get().strip() else None
         aud = Path(audio_var.get().strip()) if audio_var.get().strip() else default_compose_audio(root_dir)
@@ -283,17 +320,35 @@ def main() -> None:
         mem_ix = dict(tl_state.get("img_fx") or {}) if same_assets else {}
 
         ov_file = default_overrides_path(root_dir)
-        cue_o, insl, cue_fx, img_fx = load_compose_overrides(ov_file if ov_file.is_file() else None, root_dir)
+        cue_o, insl, cue_fx_disk, img_fx_disk = load_compose_overrides(
+            ov_file if ov_file.is_file() else None, root_dir
+        )
+
+        json_path = find_srt_image_effects_json(img_dir, root_dir, default_srt_image_output_dir())
+        json_fx: dict[int, str] = {}
+        json_src_msg = ""
+        if json_path:
+            try:
+                json_fx = load_cue_effects_from_srt_image_json(json_path)
+                json_src_msg = f" · JSON 모션 {len(json_fx)}개 ({json_path.name})"
+            except (OSError, ValueError) as e:
+                if not silent:
+                    log_line(f"효과 JSON 읽기 실패 ({json_path}): {e}")
+
         tl_state["root"] = root_dir
         tl_state["cues"] = cues
         tl_state["images"] = imgs
         tl_state["cue_ov"] = {**dict(cue_o), **mem_ov}
-        tl_state["cue_fx"] = {**dict(cue_fx), **mem_fx}
-        tl_state["img_fx"] = {**dict(img_fx), **mem_ix}
+        tl_state["json_fx"] = dict(json_fx)
+        tl_state["effects_json_path"] = str(json_path) if json_path else ""
+        # 우선순위: JSON(4_srtToImage) → compose_overrides.json → GUI 세션 수동 편집
+        tl_state["cue_fx"] = {**json_fx, **dict(cue_fx_disk), **mem_fx}
+        tl_state["img_fx"] = {**dict(img_fx_disk), **mem_ix}
         tl_state["inserts"] = list(insl)
 
         cue_ov: dict[int, Path | None] = tl_state["cue_ov"]
         cue_fx: dict[int, str] = dict(tl_state["cue_fx"] or {})
+        json_fx_map: dict[int, str] = dict(tl_state.get("json_fx") or {})
         img_fx: dict[str, str] = dict(tl_state["img_fx"] or {})
         inserts: list[InsertClipSpec] = tl_state["inserts"]
         n = len(cues)
@@ -343,11 +398,13 @@ def main() -> None:
                 elif mid in cue_ov and cue_ov[mid] is not None:
                     hint = "교체(SRT번호)"
                 elif hit is not None and eff_img.resolve() == hit.resolve():
-                    hint = f"srt_{mid:02d}"
+                    hint = f"SRT {mid} 매핑"
                 else:
                     hint = "이전 유지"
             rfx_tok = carried_fx[i - 1]
             rfx = _fx_disp(rfx_tok)
+            if mid in json_fx_map:
+                hint = f"{hint} · JSON"
             seq += 1
             row(str(seq), "큐", str(mid), _fmt_ms(t0, t1), disp, rfx, hint, f"cue-{i}")
             for j, ins in enumerate(inserts):
@@ -370,7 +427,9 @@ def main() -> None:
             lb_paths.append(p)
 
         tl_state["ready"] = True
-        status_var.set(f"타임라인 {seq}행 · SRT {n}큐 · 이미지 {len(imgs)}개 (srt_NN.png 매핑)")
+        status_var.set(
+            f"타임라인 {seq}행 · SRT {n}큐 · 이미지 {len(imgs)}개 (SRT 번호 매핑){json_src_msg}"
+        )
         update_effect_summary()
 
     row_tl_btns = ttk.Frame(tab_c)
@@ -422,7 +481,14 @@ def main() -> None:
         else:
             tok0 = normalize_effect(eff_lines2[cno - 1])
         tok = carried2[cno - 1]
-        if ov is not None:
+        json_fx2: dict[int, str] = dict(tl_state.get("json_fx") or {})
+        if (
+            mid in json_fx2
+            and ov is not None
+            and normalize_effect(ov) == normalize_effect(json_fx2[mid])
+        ):
+            src = "JSON 모션"
+        elif ov is not None:
             src = "큐 지정"
         elif imgp is not None and tok != tok0:
             src = "동일 이미지 연속(효과 유지)"
@@ -430,6 +496,7 @@ def main() -> None:
             src = "이미지 파일"
         else:
             src = "줄별/기본"
+        effect_var.set(tok)
         effect_summary_var.set(f"기본: {base} · 큐 #{cno}: {_fx_disp(tok)} [{tok}] · 출처: {src}")
 
     def on_tree_pick_image(_e=None) -> None:
@@ -575,7 +642,7 @@ def main() -> None:
         p = filedialog.askopenfilename(title="compose_overrides.json", filetypes=[("JSON", "*.json"), ("모든 파일", "*.*")])
         if not p:
             return
-        root_dir = Path(assets_var.get().strip() or ".").resolve()
+        root_dir = Path(assets_var.get().strip()).resolve() if assets_var.get().strip() else wisdom_repo_root()
         try:
             co, insl, cue_fx, img_fx = load_compose_overrides(Path(p), root_dir)
         except (OSError, ValueError) as e:
@@ -641,6 +708,79 @@ def main() -> None:
         tl_state["img_fx"].pop(str(p.resolve()), None)
         timeline_refresh(silent=True)
 
+    def reload_json_motion_effects() -> None:
+        """``4_srtToImage/output`` 등의 효과 JSON 을 다시 읽어 큐 모션에 반영합니다."""
+        if not tl_state.get("ready"):
+            messagebox.showwarning("JSON 효과", "먼저 타임라인을 불러오세요.")
+            return
+        imd = Path(images_var.get().strip()) if images_var.get().strip() else None
+        root_dir = Path(assets_var.get().strip()).resolve() if assets_var.get().strip() else wisdom_repo_root()
+        img_dir = imd if imd and imd.is_dir() else default_srt_image_output_dir()
+        json_path = find_srt_image_effects_json(img_dir, root_dir, default_srt_image_output_dir())
+        if not json_path:
+            messagebox.showinfo(
+                "JSON 효과",
+                "효과 JSON 을 찾지 못했습니다.\n\n"
+                f"다음 이름 중 하나를 이미지 폴더 또는 {default_srt_image_output_dir()} 에 두세요:\n"
+                "SRT_image_effects.json, srt_image_effects.json",
+            )
+            return
+        try:
+            json_fx = load_cue_effects_from_srt_image_json(json_path)
+        except (OSError, ValueError) as e:
+            messagebox.showerror("JSON 효과", str(e))
+            return
+        old_json_keys = set(tl_state.get("json_fx", {}).keys())
+        cue_fx_live: dict[int, str] = dict(tl_state.get("cue_fx") or {})
+        for k in old_json_keys:
+            cue_fx_live.pop(k, None)
+        cue_fx_live.update(json_fx)
+        tl_state["cue_fx"] = cue_fx_live
+        tl_state["json_fx"] = dict(json_fx)
+        tl_state["effects_json_path"] = str(json_path)
+        timeline_refresh(silent=True)
+        messagebox.showinfo("JSON 효과", f"{len(json_fx)}개 SRT 번호에 모션을 적용했습니다.\n{json_path}")
+
+    def apply_image_random_effects() -> None:
+        """videoPG: 이미지가 바뀔 때만 좌팬→우팬→상팬→하팬→줌인→줌아웃→고정 (큐마다 변경 안 함)."""
+        if not tl_state.get("ready"):
+            messagebox.showwarning("이미지랜덤효과", "먼저 타임라인을 불러오세요 (자막·이미지 경로 확인).")
+            return
+        cues_l: list = tl_state.get("cues") or []
+        if not cues_l:
+            return
+        img_dir2 = Path(images_var.get().strip()) if images_var.get().strip() else Path(tl_state["root"] or ".")
+        map_ids2 = [c[0] for c in cues_l]
+        cue_ov2: dict[int, Path | None] = dict(tl_state.get("cue_ov") or {})
+        resolved2 = per_cue_images_srt_mapping(map_ids2, img_dir2, cue_ov2)
+
+        base_fx = dict(tl_state.get("json_fx") or {})
+        new_fx: dict[int, str] = dict(base_fx)
+        seq = FX_CYCLE_ORDER
+        cycle_i = 0
+        prev_key: str | None = None
+
+        for i, img in enumerate(resolved2):
+            if img is None:
+                continue
+            try:
+                key = str(img.resolve())
+            except OSError:
+                key = str(img)
+            if prev_key is not None and key == prev_key:
+                continue
+            e = normalize_effect(seq[cycle_i % len(seq)])
+            cno = i + 1
+            mid = map_ids2[i]
+            new_fx[cno] = e
+            new_fx[mid] = e
+            cycle_i += 1
+            prev_key = key
+
+        tl_state["cue_fx"] = new_fx
+        timeline_refresh(silent=True)
+        update_effect_summary()
+
     ttk.Label(
         tab_c,
         text="이미지 모션 — 큐 선택 후 버튼: 그 큐만. 선택 없이 버튼: 전체 기본값. 「팔레트 이미지에 적용」은 같은 파일이 쓰이는 모든 구간.",
@@ -685,6 +825,12 @@ def main() -> None:
     ttk.Button(row_fx_apply, text="팔레트 이미지 효과 지우기", command=palette_clear_image_effect).pack(
         side=tk.LEFT, padx=(0, 8)
     )
+    ttk.Button(row_fx_apply, text="이미지랜덤효과", command=apply_image_random_effects).pack(
+        side=tk.LEFT, padx=(12, 8)
+    )
+    ttk.Button(row_fx_apply, text="JSON 효과 불러오기", command=reload_json_motion_effects).pack(
+        side=tk.LEFT, padx=(0, 8)
+    )
 
     row_fx_file = ttk.Frame(row_fx)
     row_fx_file.grid(row=3, column=0, sticky="ew", pady=(0, 0))
@@ -715,24 +861,48 @@ def main() -> None:
 
     btn_compose = ttk.Button(tab_c, text="동영상 만들기")
 
-    def run_compose_bg() -> None:
+    def run_compose_bg(progress_cb=None):
         prepend_local_ffmpeg_bin_to_os_path()
-        root_dir = Path(assets_var.get().strip() or ".").resolve()
+        root_dir = Path(assets_var.get().strip()).resolve() if assets_var.get().strip() else wisdom_repo_root()
         ap = Path(audio_var.get().strip()) if audio_var.get().strip() else None
         sp = Path(srt_var.get().strip()) if srt_var.get().strip() else None
         imd = Path(images_var.get().strip()) if images_var.get().strip() else None
         outp = Path(out_var.get().strip()) if out_var.get().strip() else None
 
-        aud = ap if ap and ap.is_file() else default_compose_audio(root_dir)
+        aud = ap if ap and ap.is_file() else None
+        sr = sp if sp and sp.is_file() else None
+        if aud is None:
+            a_def, s_def = pick_default_compose_audio_srt()
+            aud = a_def
+            if sr is None:
+                sr = s_def
+        if aud is None or not aud.is_file():
+            aud = default_compose_audio(root_dir)
         if aud is None or not aud.is_file():
             raise FileNotFoundError("MP3를 찾을 수 없습니다.")
-        sr = sp if sp and sp.is_file() else default_compose_srt(root_dir, aud)
+        if sr is None or not sr.is_file():
+            sr = default_compose_srt(root_dir, aud)
         if sr is None or not sr.is_file():
             raise FileNotFoundError("SRT를 찾을 수 없습니다.")
-        img_dir = imd if imd and imd.is_dir() else root_dir / "images"
+
+        img_dir: Path | None = imd if imd and imd.is_dir() else None
+        if img_dir is None:
+            cand = default_srt_image_output_dir()
+            img_dir = cand if cand.is_dir() else root_dir / "images"
         if not img_dir.is_dir():
             raise FileNotFoundError(f"이미지 폴더 없음: {img_dir}")
+        ar_root = wisdom_repo_root()
+        # videoPG: 산출물은 5_video/output (Temp 아님)
         out_p = outp if outp else default_scenevid_compose_mp4()
+        if not out_p.is_absolute():
+            out_p = default_scenevid_compose_mp4()
+        try:
+            out_resolved = out_p.resolve()
+            temp_root = Path(os.environ.get("TEMP", "")).resolve()
+            if temp_root.parts and out_resolved.is_relative_to(temp_root):
+                out_p = default_scenevid_compose_mp4()
+        except (ValueError, OSError):
+            pass
         out_p.parent.mkdir(parents=True, exist_ok=True)
         w = int(w_var.get().strip() or "1920")
         h = int(h_var.get().strip() or "1080")
@@ -748,12 +918,13 @@ def main() -> None:
                 burn_subtitles=not bool(no_sub_c.get()),
                 default_effect=normalize_effect(effect_var.get()),
                 effects_file=eff_path,
-                assets_root=root_dir,
+                assets_root=ar_root,
                 overrides_path=None,
                 override_cue_images=dict(tl_state["cue_ov"]),
                 override_inserts=list(tl_state["inserts"]),
                 override_cue_effects=dict(tl_state.get("cue_fx") or {}),
                 override_image_effects=dict(tl_state.get("img_fx") or {}),
+                progress=progress_cb,
             )
         else:
             fp = render_compose_from_assets(
@@ -765,22 +936,40 @@ def main() -> None:
                 burn_subtitles=not bool(no_sub_c.get()),
                 default_effect=normalize_effect(effect_var.get()),
                 effects_file=eff_path,
-                assets_root=root_dir,
+                assets_root=ar_root,
                 overrides_path=None,
                 override_cue_images=None,
                 override_inserts=None,
+                progress=progress_cb,
             )
         return fp
 
     def on_compose() -> None:
         btn_compose.configure(state=tk.DISABLED)
+        progress_bar["value"] = 0
+        progress_pct_var.set("0%")
+
+        def report_progress(done: int, total: int, msg: str) -> None:
+            mx = max(int(total), 1)
+            pct = min(100, int(100.0 * float(done) / float(mx)))
+
+            def ui() -> None:
+                progress_bar["maximum"] = mx
+                progress_bar["value"] = min(int(done), mx)
+                progress_pct_var.set(f"{pct}%")
+                status_var.set(msg[:240])
+
+            root.after(0, ui)
 
         def work() -> None:
             try:
-                fp = run_compose_bg()
+                fp = run_compose_bg(progress_cb=report_progress)
 
                 def ok() -> None:
                     btn_compose.configure(state=tk.NORMAL)
+                    mx = max(progress_bar["maximum"], 1)
+                    progress_bar["value"] = mx
+                    progress_pct_var.set("100%")
                     status_var.set(f"완료: {fp}")
                     log_line(f"합성 완료: {fp}")
                     messagebox.showinfo("5_video", f"완료\n{fp}")
@@ -791,6 +980,8 @@ def main() -> None:
 
                 def err() -> None:
                     btn_compose.configure(state=tk.NORMAL)
+                    progress_bar["value"] = 0
+                    progress_pct_var.set("0%")
                     status_var.set("오류")
                     log_line(tb)
                     messagebox.showerror("5_video", str(e))
@@ -890,5 +1081,20 @@ def main() -> None:
     btn_all.configure(command=on_all)
     btn_all.grid(row=pr, column=0, sticky="w")
     pr += 1
+
+    def apply_pipeline_defaults() -> None:
+        """videoPG 기본 경로: TTS output / SRT 이미지 output / 5_video output."""
+        assets_var.set(str(wisdom_repo_root()))
+        default_scenevid_output_dir().mkdir(parents=True, exist_ok=True)
+        aud, sr = pick_default_compose_audio_srt()
+        if aud:
+            audio_var.set(str(aud))
+        if sr:
+            srt_var.set(str(sr))
+        images_var.set(str(default_srt_image_output_dir()))
+        out_var.set(str(default_scenevid_compose_mp4()))
+        timeline_refresh(silent=True)
+
+    apply_pipeline_defaults()
 
     root.mainloop()

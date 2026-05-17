@@ -1,0 +1,391 @@
+{
+  "part_id": "16",
+  "part_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\part16.mp3",
+  "part_srt": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\part16.srt",
+  "model_id": "eleven_multilingual_v2",
+  "merge_method": "ffmpeg",
+  "segment_count": 38,
+  "duration_ms_estimate": 86642,
+  "segments": [
+    {
+      "index": 1,
+      "caption_id": "16-1",
+      "original": "\"매머드 미트볼\"이라는 화제 상품도",
+      "tts": "[short pause][breathes][continues]\"매머드 미트볼\"이라는 화제 상품도",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part16_0001.mp3",
+      "duration_ms_estimate": 2597,
+      "start_ms_estimate": 0,
+      "end_ms_estimate": 2597
+    },
+    {
+      "index": 2,
+      "caption_id": "16-2",
+      "original": "나왔었죠.",
+      "tts": "나왔었죠.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part16_0002.mp3",
+      "duration_ms_estimate": 1086,
+      "start_ms_estimate": 2597,
+      "end_ms_estimate": 3683
+    },
+    {
+      "index": 3,
+      "caption_id": "16-3",
+      "original": "그러면 사람들이 사자 배양육을 먹을까요?",
+      "tts": "그러면 사람들이 사자 배양육을 먹을까요?",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part16_0003.mp3",
+      "duration_ms_estimate": 2644,
+      "start_ms_estimate": 3683,
+      "end_ms_estimate": 6327
+    },
+    {
+      "index": 4,
+      "caption_id": "16-4",
+      "original": "합리적으로는 먹어도 됩니다.",
+      "tts": "합리적으로는 먹어도 됩니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part16_0004.mp3",
+      "duration_ms_estimate": 2030,
+      "start_ms_estimate": 6327,
+      "end_ms_estimate": 8357
+    },
+    {
+      "index": 5,
+      "caption_id": "16-5",
+      "original": "위험하지 않고, 윤리적 문제도 적습니다.",
+      "tts": "위험하지 않고, 윤리적 문제도 적습니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part16_0005.mp3",
+      "duration_ms_estimate": 3305,
+      "start_ms_estimate": 8357,
+      "end_ms_estimate": 11662
+    },
+    {
+      "index": 6,
+      "caption_id": "16-6",
+      "original": "그런데… 위에서 우리가 본",
+      "tts": "그런데… 위에서 우리가 본",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part16_0006.mp3",
+      "duration_ms_estimate": 2125,
+      "start_ms_estimate": 11662,
+      "end_ms_estimate": 13787
+    },
+    {
+      "index": 7,
+      "caption_id": "16-7",
+      "original": "모든 문화적·심리적 장벽이",
+      "tts": "모든 문화적·심리적 장벽이",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part16_0007.mp3",
+      "duration_ms_estimate": 2314,
+      "start_ms_estimate": 13787,
+      "end_ms_estimate": 16101
+    },
+    {
+      "index": 8,
+      "caption_id": "16-8",
+      "original": "그대로 작동할 가능성이 큽니다.",
+      "tts": "그대로 작동할 가능성이 큽니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part16_0008.mp3",
+      "duration_ms_estimate": 2361,
+      "start_ms_estimate": 16101,
+      "end_ms_estimate": 18462
+    },
+    {
+      "index": 9,
+      "caption_id": "16-9",
+      "original": "사자 모양의 라벨이 붙은 고기를 봤을 때",
+      "tts": "사자 모양의 라벨이 붙은 고기를 봤을 때",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part16_0009.mp3",
+      "duration_ms_estimate": 2832,
+      "start_ms_estimate": 18462,
+      "end_ms_estimate": 21294
+    },
+    {
+      "index": 10,
+      "caption_id": "16-10",
+      "original": "올라오는 그 본능적인 거부감 말이죠.",
+      "tts": "올라오는 그 본능적인 거부감 말이죠.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part16_0010.mp3",
+      "duration_ms_estimate": 2739,
+      "start_ms_estimate": 21294,
+      "end_ms_estimate": 24033
+    },
+    {
+      "index": 11,
+      "caption_id": "16-11",
+      "original": "\"사자 = 무서운 존재 = 안 먹어\"라는",
+      "tts": "\"사자 = 무서운 존재 = 안 먹어\"라는[breathes]",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part16_0011.mp3",
+      "duration_ms_estimate": 3163,
+      "start_ms_estimate": 24033,
+      "end_ms_estimate": 27196
+    },
+    {
+      "index": 12,
+      "caption_id": "16-12",
+      "original": "코드는 수만 년에 걸쳐",
+      "tts": "코드는 수만 년에 걸쳐",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part16_0012.mp3",
+      "duration_ms_estimate": 1936,
+      "start_ms_estimate": 27196,
+      "end_ms_estimate": 29132
+    },
+    {
+      "index": 13,
+      "caption_id": "16-13",
+      "original": "우리 문화 깊숙이 박혀 있기 때문에,",
+      "tts": "우리 문화 깊숙이 박혀 있기 때문에,",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part16_0013.mp3",
+      "duration_ms_estimate": 2266,
+      "start_ms_estimate": 29132,
+      "end_ms_estimate": 31398
+    },
+    {
+      "index": 14,
+      "caption_id": "16-14",
+      "original": "기술이 해결해도 마음이 거부할 수 있습니다.",
+      "tts": "기술이 해결해도 마음이 거부할 수 있습니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part16_0014.mp3",
+      "duration_ms_estimate": 2832,
+      "start_ms_estimate": 31398,
+      "end_ms_estimate": 34230
+    },
+    {
+      "index": 15,
+      "caption_id": "16-15",
+      "original": "게다가 또 한 가지 문제.",
+      "tts": "게다가 또 한 가지 문제.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part16_0015.mp3",
+      "duration_ms_estimate": 1559,
+      "start_ms_estimate": 34230,
+      "end_ms_estimate": 35789
+    },
+    {
+      "index": 16,
+      "caption_id": "16-16",
+      "original": "굳이 그래야 할 이유가 없습니다.",
+      "tts": "굳이 그래야 할 이유가 없습니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part16_0016.mp3",
+      "duration_ms_estimate": 2502,
+      "start_ms_estimate": 35789,
+      "end_ms_estimate": 38291
+    },
+    {
+      "index": 17,
+      "caption_id": "16-17",
+      "original": "배양육의 가치는 환경 부담 감소,",
+      "tts": "배양육의 가치는 환경 부담 감소,",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part16_0017.mp3",
+      "duration_ms_estimate": 2739,
+      "start_ms_estimate": 38291,
+      "end_ms_estimate": 41030
+    },
+    {
+      "index": 18,
+      "caption_id": "16-18",
+      "original": "윤리적 식품 생산에 있는데,",
+      "tts": "윤리적 식품 생산에 있는데,",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part16_0018.mp3",
+      "duration_ms_estimate": 2219,
+      "start_ms_estimate": 41030,
+      "end_ms_estimate": 43249
+    },
+    {
+      "index": 19,
+      "caption_id": "16-19",
+      "original": "굳이 사자 고기를 배양할 이유가",
+      "tts": "굳이 사자 고기를 배양할 이유가",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part16_0019.mp3",
+      "duration_ms_estimate": 2266,
+      "start_ms_estimate": 43249,
+      "end_ms_estimate": 45515
+    },
+    {
+      "index": 20,
+      "caption_id": "16-20",
+      "original": "마땅치 않죠.",
+      "tts": "마땅치 않죠.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part16_0020.mp3",
+      "duration_ms_estimate": 1275,
+      "start_ms_estimate": 45515,
+      "end_ms_estimate": 46790
+    },
+    {
+      "index": 21,
+      "caption_id": "16-21",
+      "original": "시장도 작고 수요도 한정적입니다.",
+      "tts": "시장도 작고 수요도 한정적입니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part16_0021.mp3",
+      "duration_ms_estimate": 2455,
+      "start_ms_estimate": 46790,
+      "end_ms_estimate": 49245
+    },
+    {
+      "index": 22,
+      "caption_id": "16-22",
+      "original": "결국 호기심 마케팅 수준에서",
+      "tts": "결국 호기심 마케팅 수준에서[breathes]",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part16_0022.mp3",
+      "duration_ms_estimate": 2125,
+      "start_ms_estimate": 49245,
+      "end_ms_estimate": 51370
+    },
+    {
+      "index": 23,
+      "caption_id": "16-23",
+      "original": "그칠 가능성이 높습니다.",
+      "tts": "그칠 가능성이 높습니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part16_0023.mp3",
+      "duration_ms_estimate": 1794,
+      "start_ms_estimate": 51370,
+      "end_ms_estimate": 53164
+    },
+    {
+      "index": 24,
+      "caption_id": "16-24",
+      "original": "자, 길었던 여정을 정리할 시간입니다.",
+      "tts": "자, 길었던 여정을 정리할 시간입니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part16_0024.mp3",
+      "duration_ms_estimate": 3116,
+      "start_ms_estimate": 53164,
+      "end_ms_estimate": 56280
+    },
+    {
+      "index": 25,
+      "caption_id": "16-25",
+      "original": "사자 스테이크가 식탁에 오르지 않는 이유,",
+      "tts": "사자 스테이크가 식탁에 오르지 않는 이유,",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part16_0025.mp3",
+      "duration_ms_estimate": 2644,
+      "start_ms_estimate": 56280,
+      "end_ms_estimate": 58924
+    },
+    {
+      "index": 26,
+      "caption_id": "16-26",
+      "original": "한 줄로는 이렇게 답할 수 있습니다.",
+      "tts": "한 줄로는 이렇게 답할 수 있습니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part16_0026.mp3",
+      "duration_ms_estimate": 2314,
+      "start_ms_estimate": 58924,
+      "end_ms_estimate": 61238
+    },
+    {
+      "index": 27,
+      "caption_id": "16-27",
+      "original": "\"비싸고, 위험하고, 맛없고,",
+      "tts": "\"비싸고, 위험하고, 맛없고,",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part16_0027.mp3",
+      "duration_ms_estimate": 2502,
+      "start_ms_estimate": 61238,
+      "end_ms_estimate": 63740
+    },
+    {
+      "index": 28,
+      "caption_id": "16-28",
+      "original": "부족하고, 무섭고, 신성하기 때문이다.\"",
+      "tts": "부족하고, 무섭고, 신성하기 때문이다.\"",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part16_0028.mp3",
+      "duration_ms_estimate": 2975,
+      "start_ms_estimate": 63740,
+      "end_ms_estimate": 66715
+    },
+    {
+      "index": 29,
+      "caption_id": "16-29",
+      "original": "이 한 줄에는 경제학(비싸다),",
+      "tts": "이 한 줄에는 경제학,",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part16_0029.mp3",
+      "duration_ms_estimate": 1747,
+      "start_ms_estimate": 66715,
+      "end_ms_estimate": 68462
+    },
+    {
+      "index": 30,
+      "caption_id": "16-30",
+      "original": "영양학(위험하다, 맛없다),",
+      "tts": "영양학,",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part16_0030.mp3",
+      "duration_ms_estimate": 1039,
+      "start_ms_estimate": 68462,
+      "end_ms_estimate": 69501
+    },
+    {
+      "index": 31,
+      "caption_id": "16-31",
+      "original": "생태학(부족하다), 진화심리학(무섭다),",
+      "tts": "생태학, 진화심리학,",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part16_0031.mp3",
+      "duration_ms_estimate": 1936,
+      "start_ms_estimate": 69501,
+      "end_ms_estimate": 71437
+    },
+    {
+      "index": 32,
+      "caption_id": "16-32",
+      "original": "문화인류학과 종교학(신성하다)이",
+      "tts": "문화인류학과 종교학이[breathes]",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part16_0032.mp3",
+      "duration_ms_estimate": 1794,
+      "start_ms_estimate": 71437,
+      "end_ms_estimate": 73231
+    },
+    {
+      "index": 33,
+      "caption_id": "16-33",
+      "original": "모두 들어있습니다.",
+      "tts": "모두 들어있습니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part16_0033.mp3",
+      "duration_ms_estimate": 1464,
+      "start_ms_estimate": 73231,
+      "end_ms_estimate": 74695
+    },
+    {
+      "index": 34,
+      "caption_id": "16-34",
+      "original": "인류가 사자 고기를 안 먹는다는",
+      "tts": "인류가 사자 고기를 안 먹는다는",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part16_0034.mp3",
+      "duration_ms_estimate": 2266,
+      "start_ms_estimate": 74695,
+      "end_ms_estimate": 76961
+    },
+    {
+      "index": 35,
+      "caption_id": "16-35",
+      "original": "단순한 사실 하나에,",
+      "tts": "단순한 사실 하나에,",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part16_0035.mp3",
+      "duration_ms_estimate": 1605,
+      "start_ms_estimate": 76961,
+      "end_ms_estimate": 78566
+    },
+    {
+      "index": 36,
+      "caption_id": "16-36",
+      "original": "수만 년에 걸친 인류 진화와 문화의",
+      "tts": "수만 년에 걸친 인류 진화와 문화의",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part16_0036.mp3",
+      "duration_ms_estimate": 2832,
+      "start_ms_estimate": 78566,
+      "end_ms_estimate": 81398
+    },
+    {
+      "index": 37,
+      "caption_id": "16-37",
+      "original": "모든 층위가 압축되어 있는 셈입니다.",
+      "tts": "모든 층위가 압축되어 있는 셈입니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part16_0037.mp3",
+      "duration_ms_estimate": 2644,
+      "start_ms_estimate": 81398,
+      "end_ms_estimate": 84042
+    },
+    {
+      "index": 38,
+      "caption_id": "16-38",
+      "original": "그리고 이건 더 큰 통찰로 이어집니다.",
+      "tts": "그리고 이건 더 큰 통찰로 이어집니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part16_0038.mp3",
+      "duration_ms_estimate": 2600,
+      "start_ms_estimate": 84042,
+      "end_ms_estimate": 86642
+    }
+  ]
+}

@@ -2,3 +2,6 @@
 /tools/ffmpeg/bin/*.exe
 /tools/ffmpeg/bin/*.dll
 /tts_audio_pipeline/.venv_chatterbox/Lib/
+
+# GitHub 100MB 제한 — 합성 영상은 로컬만 보관
+5_video/output/*.mp4

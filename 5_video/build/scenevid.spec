@@ -25,6 +25,8 @@ a = Analysis(
         "scenevid.media_paths",
         "scenevid.repo_paths",
         "scenevid.motion",
+        "scenevid.gui_app",
+        "scenevid.subprocess_util",
         "PIL",
         "PIL.Image",
         "PIL.ImageDraw",
