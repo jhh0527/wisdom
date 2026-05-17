@@ -81,6 +81,12 @@ def _static_pad_vf(w: int, h: int) -> str:
     )
 
 
+# zoompan 의 (x,y)·zoom 표현식은 출력 1픽셀 단위로 양자화되어 모션이 끊겨 보입니다(stutter).
+# 출력을 SUPERSAMPLE 배 큰 해상도로 받아 zoompan 하고, 마지막에 lanczos 로 다운스케일하면
+# 양자화 단위가 출력의 1/SUPERSAMPLE 픽셀이 되어 훨씬 부드러워집니다.
+MOTION_SUPERSAMPLE = 2
+
+
 def build_image_motion_vf(
     width: int,
     height: int,
@@ -118,7 +124,12 @@ def build_image_motion_vf(
         max_off = max(0, d_run - d_out)
         if off > max_off:
             off = max_off
-        d = d_out
+        # zoompan 의 d 는 "각 입력 프레임당 출력 프레임 수"입니다. d=d_out 으로 두면 클립 끝
+        # 직전에 zoompan 이 새 사이클(on=0)을 시작하여 zoom 값이 리셋된 프레임이 한 번 새어
+        # 나올 수 있어, 같은 이미지가 연속된 큐의 클립 경계에서 "처음으로 점프" 하는 stutter 가
+        # 보입니다. d=d_run (span 전체) 으로 두면 zoompan 한 사이클이 run 전체를 덮어 클립
+        # 안에서 절대 리셋되지 않고, 각 클립은 -t 로 그 사이클의 일부만 잘라 씁니다.
+        d = d_run
         dm = dm_run
         d_tot = d_run
         on_e = f"(on+{off})"
@@ -128,9 +139,15 @@ def build_image_motion_vf(
         d_tot = d
         on_e = "on"
 
-    # zoompan 입력을 넉넉히 크게 (패딩 없이 increase)
-    sw = max(int(w * 1.55) | 1, w + 32)
-    sh = max(int(h * 1.55) | 1, h + 32)
+    # supersample 적용한 출력 크기
+    ss = max(1, int(MOTION_SUPERSAMPLE))
+    ow = w * ss
+    oh = h * ss
+
+    # zoompan 입력을 출력 크기 기준으로 1.55배 더 크게 (zoom 최대 1.25 에서도 입력 영역이
+    # 출력보다 크도록 보장 → 보간 흐림 없이 supersample 효과만 받음)
+    sw = max(int(ow * 1.55) | 1, ow + 32)
+    sh = max(int(oh * 1.55) | 1, oh + 32)
     pre = f"scale={sw}:{sh}:force_original_aspect_ratio=increase:flags=lanczos"
 
     if eff == "zoom_in":
@@ -163,9 +180,10 @@ def build_image_motion_vf(
 
     zp = (
         f"zoompan=z='{zexpr}':x='{xexpr}':y='{yexpr}':"
-        f"d={d}:s={w}x{h}:fps={fps}"
+        f"d={d}:s={ow}x{oh}:fps={fps}"
     )
-    return f"{pre},{zp}"
+    post = f"scale={w}:{h}:flags=lanczos"
+    return f"{pre},{zp},{post}"
 
 
 def _same_compose_image_path(a: Path | None, b: Path | None) -> bool:

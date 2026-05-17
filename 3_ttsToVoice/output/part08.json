@@ -1,0 +1,401 @@
+{
+  "part_id": "8",
+  "part_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\part08.mp3",
+  "part_srt": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\part08.srt",
+  "model_id": "eleven_multilingual_v2",
+  "merge_method": "ffmpeg",
+  "segment_count": 39,
+  "duration_ms_estimate": 84576,
+  "segments": [
+    {
+      "index": 1,
+      "caption_id": "8-1",
+      "original": "그래서 진화는 우리에게 정교한",
+      "tts": "[short pause][breathes][continues]그래서 진화는 우리에게 정교한",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part08_0001.mp3",
+      "duration_ms_estimate": 2361,
+      "start_ms_estimate": 0,
+      "end_ms_estimate": 2361
+    },
+    {
+      "index": 2,
+      "caption_id": "8-2",
+      "original": "경고 시스템을 장착해 줬습니다.",
+      "tts": "경고 시스템을 장착해 줬습니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part08_0002.mp3",
+      "duration_ms_estimate": 2645,
+      "start_ms_estimate": 2361,
+      "end_ms_estimate": 5006
+    },
+    {
+      "index": 3,
+      "caption_id": "8-3",
+      "original": "상한 음식의 냄새, 곰팡이의 모양,",
+      "tts": "상한 음식의 냄새, 곰팡이의 모양,",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part08_0003.mp3",
+      "duration_ms_estimate": 2692,
+      "start_ms_estimate": 5006,
+      "end_ms_estimate": 7698
+    },
+    {
+      "index": 4,
+      "caption_id": "8-4",
+      "original": "부패한 살의 색깔 —",
+      "tts": "부패한 살의 색깔 —",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part08_0004.mp3",
+      "duration_ms_estimate": 1559,
+      "start_ms_estimate": 7698,
+      "end_ms_estimate": 9257
+    },
+    {
+      "index": 5,
+      "caption_id": "8-5",
+      "original": "우리가 이런 것에 본능적으로",
+      "tts": "우리가 이런 것에 본능적으로",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part08_0005.mp3",
+      "duration_ms_estimate": 1889,
+      "start_ms_estimate": 9257,
+      "end_ms_estimate": 11146
+    },
+    {
+      "index": 6,
+      "caption_id": "8-6",
+      "original": "구역질을 느끼는 이유입니다.",
+      "tts": "구역질을 느끼는 이유입니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part08_0006.mp3",
+      "duration_ms_estimate": 1936,
+      "start_ms_estimate": 11146,
+      "end_ms_estimate": 13082
+    },
+    {
+      "index": 7,
+      "caption_id": "8-7",
+      "original": "그리고 이 혐오 시스템에는",
+      "tts": "그리고 이 혐오 시스템에는",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part08_0007.mp3",
+      "duration_ms_estimate": 1841,
+      "start_ms_estimate": 13082,
+      "end_ms_estimate": 14923
+    },
+    {
+      "index": 8,
+      "caption_id": "8-8",
+      "original": "흥미로운 부가 기능이 하나 있습니다.",
+      "tts": "흥미로운 부가 기능이 하나 있습니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part08_0008.mp3",
+      "duration_ms_estimate": 2220,
+      "start_ms_estimate": 14923,
+      "end_ms_estimate": 17143
+    },
+    {
+      "index": 9,
+      "caption_id": "8-9",
+      "original": "\"위험한 것을 먹은 동물도 위험하다\"고",
+      "tts": "\"위험한 것을 먹은 동물도 위험하다\"고",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part08_0009.mp3",
+      "duration_ms_estimate": 2975,
+      "start_ms_estimate": 17143,
+      "end_ms_estimate": 20118
+    },
+    {
+      "index": 10,
+      "caption_id": "8-10",
+      "original": "인식하는 기능이죠.",
+      "tts": "인식하는 기능이죠.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part08_0010.mp3",
+      "duration_ms_estimate": 1511,
+      "start_ms_estimate": 20118,
+      "end_ms_estimate": 21629
+    },
+    {
+      "index": 11,
+      "caption_id": "8-11",
+      "original": "로진은 이를 \"전염의 법칙(law of contagion)\"",
+      "tts": "로진은 이를 \"전염의 법칙\"[breathes]",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part08_0011.mp3",
+      "duration_ms_estimate": 2314,
+      "start_ms_estimate": 21629,
+      "end_ms_estimate": 23943
+    },
+    {
+      "index": 12,
+      "caption_id": "8-12",
+      "original": "이라고 부릅니다.",
+      "tts": "이라고 부릅니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part08_0012.mp3",
+      "duration_ms_estimate": 1322,
+      "start_ms_estimate": 23943,
+      "end_ms_estimate": 25265
+    },
+    {
+      "index": 13,
+      "caption_id": "8-13",
+      "original": "한번 무언가에 닿은 것은",
+      "tts": "한번 무언가에 닿은 것은",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part08_0013.mp3",
+      "duration_ms_estimate": 2031,
+      "start_ms_estimate": 25265,
+      "end_ms_estimate": 27296
+    },
+    {
+      "index": 14,
+      "caption_id": "8-14",
+      "original": "그 성질을 영원히 가지고 있다는,",
+      "tts": "그 성질을 영원히 가지고 있다는,",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part08_0014.mp3",
+      "duration_ms_estimate": 2408,
+      "start_ms_estimate": 27296,
+      "end_ms_estimate": 29704
+    },
+    {
+      "index": 15,
+      "caption_id": "8-15",
+      "original": "거의 마법적인 사고방식입니다.",
+      "tts": "거의 마법적인 사고방식입니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part08_0015.mp3",
+      "duration_ms_estimate": 2172,
+      "start_ms_estimate": 29704,
+      "end_ms_estimate": 31876
+    },
+    {
+      "index": 16,
+      "caption_id": "8-16",
+      "original": "그래서 우리는 무의식적으로 이렇게 추론합니다.",
+      "tts": "그래서 우리는 무의식적으로 이렇게 추론합니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part08_0016.mp3",
+      "duration_ms_estimate": 3070,
+      "start_ms_estimate": 31876,
+      "end_ms_estimate": 34946
+    },
+    {
+      "index": 17,
+      "caption_id": "8-17",
+      "original": "\"사자는 다른 동물을 죽여서 먹는다 →",
+      "tts": "\"사자는 다른 동물을 죽여서 먹는다 →",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part08_0017.mp3",
+      "duration_ms_estimate": 2833,
+      "start_ms_estimate": 34946,
+      "end_ms_estimate": 37779
+    },
+    {
+      "index": 18,
+      "caption_id": "8-18",
+      "original": "사자의 몸에는 그 죽음과 피가 깃들어 있다 →",
+      "tts": "사자의 몸에는 그 죽음과 피가 깃들어 있다 →",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part08_0018.mp3",
+      "duration_ms_estimate": 3447,
+      "start_ms_estimate": 37779,
+      "end_ms_estimate": 41226
+    },
+    {
+      "index": 19,
+      "caption_id": "8-19",
+      "original": "사자 고기를 먹으면",
+      "tts": "사자 고기를 먹으면",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part08_0019.mp3",
+      "duration_ms_estimate": 1464,
+      "start_ms_estimate": 41226,
+      "end_ms_estimate": 42690
+    },
+    {
+      "index": 20,
+      "caption_id": "8-20",
+      "original": "그 죽음이 내 안에 들어온다.\"",
+      "tts": "그 죽음이 내 안에 들어온다.\"",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part08_0020.mp3",
+      "duration_ms_estimate": 1983,
+      "start_ms_estimate": 42690,
+      "end_ms_estimate": 44673
+    },
+    {
+      "index": 21,
+      "caption_id": "8-21",
+      "original": "비논리적이지만,",
+      "tts": "비논리적이지만,",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part08_0021.mp3",
+      "duration_ms_estimate": 1322,
+      "start_ms_estimate": 44673,
+      "end_ms_estimate": 45995
+    },
+    {
+      "index": 22,
+      "caption_id": "8-22",
+      "original": "강력한 감정적 반응을 일으킵니다.",
+      "tts": "강력한 감정적 반응을 일으킵니다.[breathes]",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part08_0022.mp3",
+      "duration_ms_estimate": 2786,
+      "start_ms_estimate": 45995,
+      "end_ms_estimate": 48781
+    },
+    {
+      "index": 23,
+      "caption_id": "8-23",
+      "original": "게다가 인류학자들이 자주 인용하는",
+      "tts": "게다가 인류학자들이 자주 인용하는",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part08_0023.mp3",
+      "duration_ms_estimate": 2220,
+      "start_ms_estimate": 48781,
+      "end_ms_estimate": 51001
+    },
+    {
+      "index": 24,
+      "caption_id": "8-24",
+      "original": "격언이 있습니다.",
+      "tts": "격언이 있습니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part08_0024.mp3",
+      "duration_ms_estimate": 1370,
+      "start_ms_estimate": 51001,
+      "end_ms_estimate": 52371
+    },
+    {
+      "index": 25,
+      "caption_id": "8-25",
+      "original": "\"You are what you eat\"",
+      "tts": "\"유 아 왓 유 잇\"",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part08_0025.mp3",
+      "duration_ms_estimate": 1227,
+      "start_ms_estimate": 52371,
+      "end_ms_estimate": 53598
+    },
+    {
+      "index": 26,
+      "caption_id": "8-26",
+      "original": "(당신은 당신이 먹는 것이다).",
+      "tts": "당신은 당신이 먹는 것이다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part08_0026.mp3",
+      "duration_ms_estimate": 1983,
+      "start_ms_estimate": 53598,
+      "end_ms_estimate": 55581
+    },
+    {
+      "index": 27,
+      "caption_id": "8-27",
+      "original": "이는 단순한 영양학 슬로건이 아니라,",
+      "tts": "이는 단순한 영양학 슬로건이 아니라,",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part08_0027.mp3",
+      "duration_ms_estimate": 2550,
+      "start_ms_estimate": 55581,
+      "end_ms_estimate": 58131
+    },
+    {
+      "index": 28,
+      "caption_id": "8-28",
+      "original": "거의 모든 문화권에서 발견되는",
+      "tts": "거의 모든 문화권에서 발견되는",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part08_0028.mp3",
+      "duration_ms_estimate": 2314,
+      "start_ms_estimate": 58131,
+      "end_ms_estimate": 60445
+    },
+    {
+      "index": 29,
+      "caption_id": "8-29",
+      "original": "보편적 믿음입니다.",
+      "tts": "보편적 믿음입니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part08_0029.mp3",
+      "duration_ms_estimate": 1559,
+      "start_ms_estimate": 60445,
+      "end_ms_estimate": 62004
+    },
+    {
+      "index": 30,
+      "caption_id": "8-30",
+      "original": "호랑이 고기를 먹으면 호랑이의 용맹함이",
+      "tts": "호랑이 고기를 먹으면 호랑이의 용맹함이",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part08_0030.mp3",
+      "duration_ms_estimate": 2927,
+      "start_ms_estimate": 62004,
+      "end_ms_estimate": 64931
+    },
+    {
+      "index": 31,
+      "caption_id": "8-31",
+      "original": "옮아온다는 믿음(이건 오히려 먹는 쪽)이",
+      "tts": "옮아온다는 믿음이",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part08_0031.mp3",
+      "duration_ms_estimate": 1464,
+      "start_ms_estimate": 64931,
+      "end_ms_estimate": 66395
+    },
+    {
+      "index": 32,
+      "caption_id": "8-32",
+      "original": "있는가 하면, 반대로 사나운 동물의 고기를",
+      "tts": "있는가 하면, 반대로 사나운 동물의 고기를[breathes]",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part08_0032.mp3",
+      "duration_ms_estimate": 3070,
+      "start_ms_estimate": 66395,
+      "end_ms_estimate": 69465
+    },
+    {
+      "index": 33,
+      "caption_id": "8-33",
+      "original": "먹으면 영혼이 사나워진다는 믿음도 있습니다.",
+      "tts": "먹으면 영혼이 사나워진다는 믿음도 있습니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part08_0033.mp3",
+      "duration_ms_estimate": 3022,
+      "start_ms_estimate": 69465,
+      "end_ms_estimate": 72487
+    },
+    {
+      "index": 34,
+      "caption_id": "8-34",
+      "original": "후자가 훨씬 흔합니다.",
+      "tts": "후자가 훨씬 흔합니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part08_0034.mp3",
+      "duration_ms_estimate": 1889,
+      "start_ms_estimate": 72487,
+      "end_ms_estimate": 74376
+    },
+    {
+      "index": 35,
+      "caption_id": "8-35",
+      "original": "많은 전통 사회에서 임산부나 어린이에게",
+      "tts": "많은 전통 사회에서 임산부나 어린이에게",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part08_0035.mp3",
+      "duration_ms_estimate": 2975,
+      "start_ms_estimate": 74376,
+      "end_ms_estimate": 77351
+    },
+    {
+      "index": 36,
+      "caption_id": "8-36",
+      "original": "맹수의 고기를 먹이지 않는",
+      "tts": "맹수의 고기를 먹이지 않는",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part08_0036.mp3",
+      "duration_ms_estimate": 1936,
+      "start_ms_estimate": 77351,
+      "end_ms_estimate": 79287
+    },
+    {
+      "index": 37,
+      "caption_id": "8-37",
+      "original": "금기가 존재합니다.",
+      "tts": "금기가 존재합니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part08_0037.mp3",
+      "duration_ms_estimate": 1511,
+      "start_ms_estimate": 79287,
+      "end_ms_estimate": 80798
+    },
+    {
+      "index": 38,
+      "caption_id": "8-38",
+      "original": "태아나 아이의 성격이 거칠어진다는",
+      "tts": "태아나 아이의 성격이 거칠어진다는",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part08_0038.mp3",
+      "duration_ms_estimate": 2645,
+      "start_ms_estimate": 80798,
+      "end_ms_estimate": 83443
+    },
+    {
+      "index": 39,
+      "caption_id": "8-39",
+      "original": "이유에서죠.",
+      "tts": "이유에서죠.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part08_0039.mp3",
+      "duration_ms_estimate": 1133,
+      "start_ms_estimate": 83443,
+      "end_ms_estimate": 84576
+    }
+  ]
+}

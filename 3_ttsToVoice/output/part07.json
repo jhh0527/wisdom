@@ -1,0 +1,391 @@
+{
+  "part_id": "7",
+  "part_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\part07.mp3",
+  "part_srt": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\part07.srt",
+  "model_id": "eleven_multilingual_v2",
+  "merge_method": "ffmpeg",
+  "segment_count": 38,
+  "duration_ms_estimate": 90114,
+  "segments": [
+    {
+      "index": 1,
+      "caption_id": "7-1",
+      "original": "넷째, 광견병, 탄저병, 결핵, 브루셀라병 등",
+      "tts": "[short pause][breathes][continues]넷째, 광견병, 탄저병, 결핵, 브루셀라병 등",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part07_0001.mp3",
+      "duration_ms_estimate": 4291,
+      "start_ms_estimate": 0,
+      "end_ms_estimate": 4291
+    },
+    {
+      "index": 2,
+      "caption_id": "7-2",
+      "original": "인수공통감염병의 자연 보균자가",
+      "tts": "인수공통감염병의 자연 보균자가",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part07_0002.mp3",
+      "duration_ms_estimate": 2736,
+      "start_ms_estimate": 4291,
+      "end_ms_estimate": 7027
+    },
+    {
+      "index": 3,
+      "caption_id": "7-3",
+      "original": "바로 육식동물들입니다.",
+      "tts": "바로 육식동물들입니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part07_0003.mp3",
+      "duration_ms_estimate": 1698,
+      "start_ms_estimate": 7027,
+      "end_ms_estimate": 8725
+    },
+    {
+      "index": 4,
+      "caption_id": "7-4",
+      "original": "늑대, 여우, 너구리 같은 야생 육식동물은",
+      "tts": "늑대, 여우, 너구리 같은 야생 육식동물은",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part07_0004.mp3",
+      "duration_ms_estimate": 3442,
+      "start_ms_estimate": 8725,
+      "end_ms_estimate": 12167
+    },
+    {
+      "index": 5,
+      "caption_id": "7-5",
+      "original": "광견병 바이러스의 주요 매개체입니다.",
+      "tts": "광견병 바이러스의 주요 매개체입니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part07_0005.mp3",
+      "duration_ms_estimate": 3018,
+      "start_ms_estimate": 12167,
+      "end_ms_estimate": 15185
+    },
+    {
+      "index": 6,
+      "caption_id": "7-6",
+      "original": "잘못 처리한 고기를 만지거나 먹다",
+      "tts": "잘못 처리한 고기를 만지거나 먹다",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part07_0006.mp3",
+      "duration_ms_estimate": 2547,
+      "start_ms_estimate": 15185,
+      "end_ms_estimate": 17732
+    },
+    {
+      "index": 7,
+      "caption_id": "7-7",
+      "original": "감염되면 끔찍한 결과가 기다립니다.",
+      "tts": "감염되면 끔찍한 결과가 기다립니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part07_0007.mp3",
+      "duration_ms_estimate": 3159,
+      "start_ms_estimate": 17732,
+      "end_ms_estimate": 20891
+    },
+    {
+      "index": 8,
+      "caption_id": "7-8",
+      "original": "다섯째, 중금속 축적도",
+      "tts": "다섯째, 중금속 축적도",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part07_0008.mp3",
+      "duration_ms_estimate": 2169,
+      "start_ms_estimate": 20891,
+      "end_ms_estimate": 23060
+    },
+    {
+      "index": 9,
+      "caption_id": "7-9",
+      "original": "무시할 수 없습니다.",
+      "tts": "무시할 수 없습니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part07_0009.mp3",
+      "duration_ms_estimate": 1368,
+      "start_ms_estimate": 23060,
+      "end_ms_estimate": 24428
+    },
+    {
+      "index": 10,
+      "caption_id": "7-10",
+      "original": "먹이사슬을 따라 수은, 카드뮴,",
+      "tts": "먹이사슬을 따라 수은, 카드뮴,",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part07_0010.mp3",
+      "duration_ms_estimate": 2547,
+      "start_ms_estimate": 24428,
+      "end_ms_estimate": 26975
+    },
+    {
+      "index": 11,
+      "caption_id": "7-11",
+      "original": "납 같은 중금속이 농축되는 현상을",
+      "tts": "납 같은 중금속이 농축되는 현상을[breathes]",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part07_0011.mp3",
+      "duration_ms_estimate": 3112,
+      "start_ms_estimate": 26975,
+      "end_ms_estimate": 30087
+    },
+    {
+      "index": 12,
+      "caption_id": "7-12",
+      "original": "\"생물 농축(biomagnification)\"이라고 부릅니다.",
+      "tts": "\"생물 농축\"이라고 부릅니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part07_0012.mp3",
+      "duration_ms_estimate": 2122,
+      "start_ms_estimate": 30087,
+      "end_ms_estimate": 32209
+    },
+    {
+      "index": 13,
+      "caption_id": "7-13",
+      "original": "참치 같은 대형 육식성 어류에서",
+      "tts": "참치 같은 대형 육식성 어류에서",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part07_0013.mp3",
+      "duration_ms_estimate": 2782,
+      "start_ms_estimate": 32209,
+      "end_ms_estimate": 34991
+    },
+    {
+      "index": 14,
+      "caption_id": "7-14",
+      "original": "수은 함량이 높은 이유와 같은 원리죠.",
+      "tts": "수은 함량이 높은 이유와 같은 원리죠.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part07_0014.mp3",
+      "duration_ms_estimate": 2641,
+      "start_ms_estimate": 34991,
+      "end_ms_estimate": 37632
+    },
+    {
+      "index": 15,
+      "caption_id": "7-15",
+      "original": "육상 대형 포식자의 고기에도",
+      "tts": "육상 대형 포식자의 고기에도",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part07_0015.mp3",
+      "duration_ms_estimate": 2263,
+      "start_ms_estimate": 37632,
+      "end_ms_estimate": 39895
+    },
+    {
+      "index": 16,
+      "caption_id": "7-16",
+      "original": "동일한 문제가 있습니다.",
+      "tts": "동일한 문제가 있습니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part07_0016.mp3",
+      "duration_ms_estimate": 1650,
+      "start_ms_estimate": 39895,
+      "end_ms_estimate": 41545
+    },
+    {
+      "index": 17,
+      "caption_id": "7-17",
+      "original": "요약하면, 사자 스테이크 한 접시는",
+      "tts": "요약하면, 사자 스테이크 한 접시는",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part07_0017.mp3",
+      "duration_ms_estimate": 2593,
+      "start_ms_estimate": 41545,
+      "end_ms_estimate": 44138
+    },
+    {
+      "index": 18,
+      "caption_id": "7-18",
+      "original": "\"비싼 값에 맛없고 위험한 도박\"입니다.",
+      "tts": "\"비싼 값에 맛없고 위험한 도박\"입니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part07_0018.mp3",
+      "duration_ms_estimate": 3066,
+      "start_ms_estimate": 44138,
+      "end_ms_estimate": 47204
+    },
+    {
+      "index": 19,
+      "caption_id": "7-19",
+      "original": "우리 조상들이 똑똑하게도",
+      "tts": "우리 조상들이 똑똑하게도",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part07_0019.mp3",
+      "duration_ms_estimate": 1839,
+      "start_ms_estimate": 47204,
+      "end_ms_estimate": 49043
+    },
+    {
+      "index": 20,
+      "caption_id": "7-20",
+      "original": "이걸 피해 갔던 거죠.",
+      "tts": "이걸 피해 갔던 거죠.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part07_0020.mp3",
+      "duration_ms_estimate": 1557,
+      "start_ms_estimate": 49043,
+      "end_ms_estimate": 50600
+    },
+    {
+      "index": 21,
+      "caption_id": "7-21",
+      "original": "자, 이제 좀 더 미묘한 영역으로",
+      "tts": "자, 이제 좀 더 미묘한 영역으로",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part07_0021.mp3",
+      "duration_ms_estimate": 2499,
+      "start_ms_estimate": 50600,
+      "end_ms_estimate": 53099
+    },
+    {
+      "index": 22,
+      "caption_id": "7-22",
+      "original": "들어가 봅시다.",
+      "tts": "들어가 봅시다.[breathes]",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part07_0022.mp3",
+      "duration_ms_estimate": 1132,
+      "start_ms_estimate": 53099,
+      "end_ms_estimate": 54231
+    },
+    {
+      "index": 23,
+      "caption_id": "7-23",
+      "original": "위에서 본 이유들은 다 합리적입니다.",
+      "tts": "위에서 본 이유들은 다 합리적입니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part07_0023.mp3",
+      "duration_ms_estimate": 2358,
+      "start_ms_estimate": 54231,
+      "end_ms_estimate": 56589
+    },
+    {
+      "index": 24,
+      "caption_id": "7-24",
+      "original": "그런데 흥미로운 건, 우리 대부분이",
+      "tts": "그런데 흥미로운 건, 우리 대부분이",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part07_0024.mp3",
+      "duration_ms_estimate": 2311,
+      "start_ms_estimate": 56589,
+      "end_ms_estimate": 58900
+    },
+    {
+      "index": 25,
+      "caption_id": "7-25",
+      "original": "이런 과학적 사실을 알지도 못한 채로",
+      "tts": "이런 과학적 사실을 알지도 못한 채로",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part07_0025.mp3",
+      "duration_ms_estimate": 2688,
+      "start_ms_estimate": 58900,
+      "end_ms_estimate": 61588
+    },
+    {
+      "index": 26,
+      "caption_id": "7-26",
+      "original": "그냥 \"사자 고기? 으, 끔찍해\"라고",
+      "tts": "그냥 \"사자 고기? 으, 끔찍해\"라고",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part07_0026.mp3",
+      "duration_ms_estimate": 2782,
+      "start_ms_estimate": 61588,
+      "end_ms_estimate": 64370
+    },
+    {
+      "index": 27,
+      "caption_id": "7-27",
+      "original": "느낀다는 점입니다.",
+      "tts": "느낀다는 점입니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part07_0027.mp3",
+      "duration_ms_estimate": 1557,
+      "start_ms_estimate": 64370,
+      "end_ms_estimate": 65927
+    },
+    {
+      "index": 28,
+      "caption_id": "7-28",
+      "original": "이 본능적인 혐오감은 어디서 올까요?",
+      "tts": "이 본능적인 혐오감은 어디서 올까요?",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part07_0028.mp3",
+      "duration_ms_estimate": 2499,
+      "start_ms_estimate": 65927,
+      "end_ms_estimate": 68426
+    },
+    {
+      "index": 29,
+      "caption_id": "7-29",
+      "original": "미국의 심리학자 폴 로진(Paul Rozin)은",
+      "tts": "미국의 심리학자 폴 로진은",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part07_0029.mp3",
+      "duration_ms_estimate": 2074,
+      "start_ms_estimate": 68426,
+      "end_ms_estimate": 70500
+    },
+    {
+      "index": 30,
+      "caption_id": "7-30",
+      "original": "평생을 \"혐오(disgust)\"라는 감정을",
+      "tts": "평생을 \"혐오\"라는 감정을",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part07_0030.mp3",
+      "duration_ms_estimate": 2405,
+      "start_ms_estimate": 70500,
+      "end_ms_estimate": 72905
+    },
+    {
+      "index": 31,
+      "caption_id": "7-31",
+      "original": "연구한 학자입니다.",
+      "tts": "연구한 학자입니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part07_0031.mp3",
+      "duration_ms_estimate": 1462,
+      "start_ms_estimate": 72905,
+      "end_ms_estimate": 74367
+    },
+    {
+      "index": 32,
+      "caption_id": "7-32",
+      "original": "그는 혐오가 단순한 감정이 아니라",
+      "tts": "그는 혐오가 단순한 감정이 아니라[breathes]",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part07_0032.mp3",
+      "duration_ms_estimate": 2358,
+      "start_ms_estimate": 74367,
+      "end_ms_estimate": 76725
+    },
+    {
+      "index": 33,
+      "caption_id": "7-33",
+      "original": "진화가 우리에게 새겨준",
+      "tts": "진화가 우리에게 새겨준",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part07_0033.mp3",
+      "duration_ms_estimate": 1744,
+      "start_ms_estimate": 76725,
+      "end_ms_estimate": 78469
+    },
+    {
+      "index": 34,
+      "caption_id": "7-34",
+      "original": "생존 메커니즘이라고 주장합니다.",
+      "tts": "생존 메커니즘이라고 주장합니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part07_0034.mp3",
+      "duration_ms_estimate": 2405,
+      "start_ms_estimate": 78469,
+      "end_ms_estimate": 80874
+    },
+    {
+      "index": 35,
+      "caption_id": "7-35",
+      "original": "먹는 것은 본질적으로 위험한 행위입니다.",
+      "tts": "먹는 것은 본질적으로 위험한 행위입니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part07_0035.mp3",
+      "duration_ms_estimate": 3159,
+      "start_ms_estimate": 80874,
+      "end_ms_estimate": 84033
+    },
+    {
+      "index": 36,
+      "caption_id": "7-36",
+      "original": "입은 외부 세계가 우리 몸 내부로",
+      "tts": "입은 외부 세계가 우리 몸 내부로",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part07_0036.mp3",
+      "duration_ms_estimate": 2169,
+      "start_ms_estimate": 84033,
+      "end_ms_estimate": 86202
+    },
+    {
+      "index": 37,
+      "caption_id": "7-37",
+      "original": "들어오는 통로이고,",
+      "tts": "들어오는 통로이고,",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part07_0037.mp3",
+      "duration_ms_estimate": 1509,
+      "start_ms_estimate": 86202,
+      "end_ms_estimate": 87711
+    },
+    {
+      "index": 38,
+      "caption_id": "7-38",
+      "original": "한 번 잘못 먹으면 죽을 수 있죠.",
+      "tts": "한 번 잘못 먹으면 죽을 수 있죠.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part07_0038.mp3",
+      "duration_ms_estimate": 2403,
+      "start_ms_estimate": 87711,
+      "end_ms_estimate": 90114
+    }
+  ]
+}

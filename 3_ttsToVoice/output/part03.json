@@ -1,0 +1,391 @@
+{
+  "part_id": "3",
+  "part_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\part03.mp3",
+  "part_srt": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\part03.srt",
+  "model_id": "eleven_multilingual_v2",
+  "merge_method": "ffmpeg",
+  "segment_count": 38,
+  "duration_ms_estimate": 91295,
+  "segments": [
+    {
+      "index": 1,
+      "caption_id": "3-1",
+      "original": "참치, 농어, 연어, 대구, 고등어 —",
+      "tts": "[short pause][breathes][continues]참치, 농어, 연어, 대구, 고등어 —",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part03_0001.mp3",
+      "duration_ms_estimate": 2782,
+      "start_ms_estimate": 0,
+      "end_ms_estimate": 2782
+    },
+    {
+      "index": 2,
+      "caption_id": "3-2",
+      "original": "우리가 매일 먹는 생선 대부분이",
+      "tts": "우리가 매일 먹는 생선 대부분이",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part03_0002.mp3",
+      "duration_ms_estimate": 2405,
+      "start_ms_estimate": 2782,
+      "end_ms_estimate": 5187
+    },
+    {
+      "index": 3,
+      "caption_id": "3-3",
+      "original": "사실은 다른 물고기를 잡아먹는",
+      "tts": "사실은 다른 물고기를 잡아먹는",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part03_0003.mp3",
+      "duration_ms_estimate": 2217,
+      "start_ms_estimate": 5187,
+      "end_ms_estimate": 7404
+    },
+    {
+      "index": 4,
+      "caption_id": "3-4",
+      "original": "육식성 어류입니다.",
+      "tts": "육식성 어류입니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part03_0004.mp3",
+      "duration_ms_estimate": 1509,
+      "start_ms_estimate": 7404,
+      "end_ms_estimate": 8913
+    },
+    {
+      "index": 5,
+      "caption_id": "3-5",
+      "original": "우리는 매일 점심에 육식동물을",
+      "tts": "우리는 매일 점심에 육식동물을",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part03_0005.mp3",
+      "duration_ms_estimate": 2452,
+      "start_ms_estimate": 8913,
+      "end_ms_estimate": 11365
+    },
+    {
+      "index": 6,
+      "caption_id": "3-6",
+      "original": "먹고 있던 셈이죠.",
+      "tts": "먹고 있던 셈이죠.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part03_0006.mp3",
+      "duration_ms_estimate": 1557,
+      "start_ms_estimate": 11365,
+      "end_ms_estimate": 12922
+    },
+    {
+      "index": 7,
+      "caption_id": "3-7",
+      "original": "그러니까 정확히 말하면,",
+      "tts": "그러니까 정확히 말하면,",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part03_0007.mp3",
+      "duration_ms_estimate": 1792,
+      "start_ms_estimate": 12922,
+      "end_ms_estimate": 14714
+    },
+    {
+      "index": 8,
+      "caption_id": "3-8",
+      "original": "\"인류는 육식동물 고기를 거의 안 먹는다\"가",
+      "tts": "\"인류는 육식동물 고기를 거의 안 먹는다\"가",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part03_0008.mp3",
+      "duration_ms_estimate": 3396,
+      "start_ms_estimate": 14714,
+      "end_ms_estimate": 18110
+    },
+    {
+      "index": 9,
+      "caption_id": "3-9",
+      "original": "아니라 \"인류는 대형 육상 포식자의 고기를",
+      "tts": "아니라 \"인류는 대형 육상 포식자의 고기를",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part03_0009.mp3",
+      "duration_ms_estimate": 3112,
+      "start_ms_estimate": 18110,
+      "end_ms_estimate": 21222
+    },
+    {
+      "index": 10,
+      "caption_id": "3-10",
+      "original": "거의 안 먹는다\"가 더 정확한 표현입니다.",
+      "tts": "거의 안 먹는다\"가 더 정확한 표현입니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part03_0010.mp3",
+      "duration_ms_estimate": 3207,
+      "start_ms_estimate": 21222,
+      "end_ms_estimate": 24429
+    },
+    {
+      "index": 11,
+      "caption_id": "3-11",
+      "original": "사자, 호랑이, 표범, 늑대,",
+      "tts": "사자, 호랑이, 표범, 늑대,[breathes]",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part03_0011.mp3",
+      "duration_ms_estimate": 2217,
+      "start_ms_estimate": 24429,
+      "end_ms_estimate": 26646
+    },
+    {
+      "index": 12,
+      "caption_id": "3-12",
+      "original": "하이에나, 재규어 같은 친구들 말이죠.",
+      "tts": "하이에나, 재규어 같은 친구들 말이죠.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part03_0012.mp3",
+      "duration_ms_estimate": 2405,
+      "start_ms_estimate": 26646,
+      "end_ms_estimate": 29051
+    },
+    {
+      "index": 13,
+      "caption_id": "3-13",
+      "original": "자, 그럼 이제 진짜 질문이 시작됩니다.",
+      "tts": "자, 그럼 이제 진짜 질문이 시작됩니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part03_0013.mp3",
+      "duration_ms_estimate": 2641,
+      "start_ms_estimate": 29051,
+      "end_ms_estimate": 31692
+    },
+    {
+      "index": 14,
+      "caption_id": "3-14",
+      "original": "왜 이 친구들은 안 먹을까요?",
+      "tts": "왜 이 친구들은 안 먹을까요?",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part03_0014.mp3",
+      "duration_ms_estimate": 2028,
+      "start_ms_estimate": 31692,
+      "end_ms_estimate": 33720
+    },
+    {
+      "index": 15,
+      "caption_id": "3-15",
+      "original": "먼저 가장 차갑고 현실적인 답부터",
+      "tts": "먼저 가장 차갑고 현실적인 답부터",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part03_0015.mp3",
+      "duration_ms_estimate": 3066,
+      "start_ms_estimate": 33720,
+      "end_ms_estimate": 36786
+    },
+    {
+      "index": 16,
+      "caption_id": "3-16",
+      "original": "가보겠습니다. 돈 이야기죠.",
+      "tts": "가보겠습니다. 돈 이야기죠.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part03_0016.mp3",
+      "duration_ms_estimate": 1980,
+      "start_ms_estimate": 36786,
+      "end_ms_estimate": 38766
+    },
+    {
+      "index": 17,
+      "caption_id": "3-17",
+      "original": "농업과 축산업은 본질적으로",
+      "tts": "농업과 축산업은 본질적으로",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part03_0017.mp3",
+      "duration_ms_estimate": 2075,
+      "start_ms_estimate": 38766,
+      "end_ms_estimate": 40841
+    },
+    {
+      "index": 18,
+      "caption_id": "3-18",
+      "original": "에너지 변환 사업입니다.",
+      "tts": "에너지 변환 사업입니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part03_0018.mp3",
+      "duration_ms_estimate": 1650,
+      "start_ms_estimate": 40841,
+      "end_ms_estimate": 42491
+    },
+    {
+      "index": 19,
+      "caption_id": "3-19",
+      "original": "풀이나 곡물 같은 식물 에너지를",
+      "tts": "풀이나 곡물 같은 식물 에너지를",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part03_0019.mp3",
+      "duration_ms_estimate": 2452,
+      "start_ms_estimate": 42491,
+      "end_ms_estimate": 44943
+    },
+    {
+      "index": 20,
+      "caption_id": "3-20",
+      "original": "동물의 살로 바꾸는 거대한 변환기 같은 거죠.",
+      "tts": "동물의 살로 바꾸는 거대한 변환기 같은 거죠.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part03_0020.mp3",
+      "duration_ms_estimate": 3348,
+      "start_ms_estimate": 44943,
+      "end_ms_estimate": 48291
+    },
+    {
+      "index": 21,
+      "caption_id": "3-21",
+      "original": "그리고 이 변환에는 엄연한 법칙이 있습니다.",
+      "tts": "그리고 이 변환에는 엄연한 법칙이 있습니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part03_0021.mp3",
+      "duration_ms_estimate": 3254,
+      "start_ms_estimate": 48291,
+      "end_ms_estimate": 51545
+    },
+    {
+      "index": 22,
+      "caption_id": "3-22",
+      "original": "생태학에서 말하는 \"10% 법칙\"입니다.",
+      "tts": "생태학에서 말하는 \"십퍼센트 법칙\"입니다.[breathes]",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part03_0022.mp3",
+      "duration_ms_estimate": 2924,
+      "start_ms_estimate": 51545,
+      "end_ms_estimate": 54469
+    },
+    {
+      "index": 23,
+      "caption_id": "3-23",
+      "original": "먹이사슬에서 한 단계 올라갈 때마다",
+      "tts": "먹이사슬에서 한 단계 올라갈 때마다",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part03_0023.mp3",
+      "duration_ms_estimate": 2405,
+      "start_ms_estimate": 54469,
+      "end_ms_estimate": 56874
+    },
+    {
+      "index": 24,
+      "caption_id": "3-24",
+      "original": "에너지의 약 90%가 손실되고,",
+      "tts": "에너지의 약 구십퍼센트가 손실되고,",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part03_0024.mp3",
+      "duration_ms_estimate": 2641,
+      "start_ms_estimate": 56874,
+      "end_ms_estimate": 59515
+    },
+    {
+      "index": 25,
+      "caption_id": "3-25",
+      "original": "10%만 다음 단계로 전달됩니다.",
+      "tts": "십퍼센트만 다음 단계로 전달됩니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part03_0025.mp3",
+      "duration_ms_estimate": 2877,
+      "start_ms_estimate": 59515,
+      "end_ms_estimate": 62392
+    },
+    {
+      "index": 26,
+      "caption_id": "3-26",
+      "original": "풀 100kg을 먹은 소가",
+      "tts": "풀 백킬로그램을 먹은 소가",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part03_0026.mp3",
+      "duration_ms_estimate": 2169,
+      "start_ms_estimate": 62392,
+      "end_ms_estimate": 64561
+    },
+    {
+      "index": 27,
+      "caption_id": "3-27",
+      "original": "살로 만드는 건 약 10kg.",
+      "tts": "살로 만드는 건 약 십킬로그램.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part03_0027.mp3",
+      "duration_ms_estimate": 2405,
+      "start_ms_estimate": 64561,
+      "end_ms_estimate": 66966
+    },
+    {
+      "index": 28,
+      "caption_id": "3-28",
+      "original": "그 소 10kg을 먹은 사자는",
+      "tts": "그 소 십킬로그램을 먹은 사자는",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part03_0028.mp3",
+      "duration_ms_estimate": 2405,
+      "start_ms_estimate": 66966,
+      "end_ms_estimate": 69371
+    },
+    {
+      "index": 29,
+      "caption_id": "3-29",
+      "original": "자기 몸에 1kg만 남깁니다.",
+      "tts": "자기 몸에 일킬로그램만 남깁니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part03_0029.mp3",
+      "duration_ms_estimate": 2405,
+      "start_ms_estimate": 69371,
+      "end_ms_estimate": 71776
+    },
+    {
+      "index": 30,
+      "caption_id": "3-30",
+      "original": "그러니까 사자 1kg을 키우려면",
+      "tts": "그러니까 사자 일킬로그램을 키우려면",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part03_0030.mp3",
+      "duration_ms_estimate": 3018,
+      "start_ms_estimate": 71776,
+      "end_ms_estimate": 74794
+    },
+    {
+      "index": 31,
+      "caption_id": "3-31",
+      "original": "풀 100kg과 그걸 먹은 소 10kg이",
+      "tts": "풀 백킬로그램과 그걸 먹은 소 십킬로그램이",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part03_0031.mp3",
+      "duration_ms_estimate": 3396,
+      "start_ms_estimate": 74794,
+      "end_ms_estimate": 78190
+    },
+    {
+      "index": 32,
+      "caption_id": "3-32",
+      "original": "필요한 셈입니다.",
+      "tts": "필요한 셈입니다.[breathes]",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part03_0032.mp3",
+      "duration_ms_estimate": 1415,
+      "start_ms_estimate": 78190,
+      "end_ms_estimate": 79605
+    },
+    {
+      "index": 33,
+      "caption_id": "3-33",
+      "original": "소를 키우는 데도 사료값이",
+      "tts": "소를 키우는 데도 사료값이",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part03_0033.mp3",
+      "duration_ms_estimate": 2075,
+      "start_ms_estimate": 79605,
+      "end_ms_estimate": 81680
+    },
+    {
+      "index": 34,
+      "caption_id": "3-34",
+      "original": "무지막지하게 들어간다고",
+      "tts": "무지막지하게 들어간다고",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part03_0034.mp3",
+      "duration_ms_estimate": 1650,
+      "start_ms_estimate": 81680,
+      "end_ms_estimate": 83330
+    },
+    {
+      "index": 35,
+      "caption_id": "3-35",
+      "original": "농민들이 호소하는 마당에,",
+      "tts": "농민들이 호소하는 마당에,",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part03_0035.mp3",
+      "duration_ms_estimate": 2028,
+      "start_ms_estimate": 83330,
+      "end_ms_estimate": 85358
+    },
+    {
+      "index": 36,
+      "caption_id": "3-36",
+      "original": "그 소를 다시 사자에게 먹여서",
+      "tts": "그 소를 다시 사자에게 먹여서",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part03_0036.mp3",
+      "duration_ms_estimate": 2075,
+      "start_ms_estimate": 85358,
+      "end_ms_estimate": 87433
+    },
+    {
+      "index": 37,
+      "caption_id": "3-37",
+      "original": "사자 고기를 얻겠다?",
+      "tts": "사자 고기를 얻겠다?",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part03_0037.mp3",
+      "duration_ms_estimate": 1509,
+      "start_ms_estimate": 87433,
+      "end_ms_estimate": 88942
+    },
+    {
+      "index": 38,
+      "caption_id": "3-38",
+      "original": "누가 봐도 미친 사업 계획입니다.",
+      "tts": "누가 봐도 미친 사업 계획입니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part03_0038.mp3",
+      "duration_ms_estimate": 2353,
+      "start_ms_estimate": 88942,
+      "end_ms_estimate": 91295
+    }
+  ]
+}

@@ -1,0 +1,391 @@
+{
+  "part_id": "12",
+  "part_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\part12.mp3",
+  "part_srt": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\part12.srt",
+  "model_id": "eleven_multilingual_v2",
+  "merge_method": "ffmpeg",
+  "segment_count": 38,
+  "duration_ms_estimate": 87603,
+  "segments": [
+    {
+      "index": 1,
+      "caption_id": "12-1",
+      "original": "기독교는 신약에서 음식 금기를",
+      "tts": "[short pause][breathes][continues]기독교는 신약에서 음식 금기를",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part12_0001.mp3",
+      "duration_ms_estimate": 2454,
+      "start_ms_estimate": 0,
+      "end_ms_estimate": 2454
+    },
+    {
+      "index": 2,
+      "caption_id": "12-2",
+      "original": "대부분 해제했지만,",
+      "tts": "대부분 해제했지만,",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part12_0002.mp3",
+      "duration_ms_estimate": 1605,
+      "start_ms_estimate": 2454,
+      "end_ms_estimate": 4059
+    },
+    {
+      "index": 3,
+      "caption_id": "12-3",
+      "original": "문화적으로는 여전히 사자 고기를 먹는",
+      "tts": "문화적으로는 여전히 사자 고기를 먹는",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part12_0003.mp3",
+      "duration_ms_estimate": 2738,
+      "start_ms_estimate": 4059,
+      "end_ms_estimate": 6797
+    },
+    {
+      "index": 4,
+      "caption_id": "12-4",
+      "original": "기독교도는 거의 없습니다.",
+      "tts": "기독교도는 거의 없습니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part12_0004.mp3",
+      "duration_ms_estimate": 1794,
+      "start_ms_estimate": 6797,
+      "end_ms_estimate": 8591
+    },
+    {
+      "index": 5,
+      "caption_id": "12-5",
+      "original": "종교 규정이 풀려도",
+      "tts": "종교 규정이 풀려도",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part12_0005.mp3",
+      "duration_ms_estimate": 1699,
+      "start_ms_estimate": 8591,
+      "end_ms_estimate": 10290
+    },
+    {
+      "index": 6,
+      "caption_id": "12-6",
+      "original": "문화적 혐오는 남아있는 거죠.",
+      "tts": "문화적 혐오는 남아있는 거죠.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part12_0006.mp3",
+      "duration_ms_estimate": 2030,
+      "start_ms_estimate": 10290,
+      "end_ms_estimate": 12320
+    },
+    {
+      "index": 7,
+      "caption_id": "12-7",
+      "original": "흥미롭게도 이 종교적 금기들은",
+      "tts": "흥미롭게도 이 종교적 금기들은",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part12_0007.mp3",
+      "duration_ms_estimate": 2219,
+      "start_ms_estimate": 12320,
+      "end_ms_estimate": 14539
+    },
+    {
+      "index": 8,
+      "caption_id": "12-8",
+      "original": "위에서 본 기생충과 질병 위험과",
+      "tts": "위에서 본 기생충과 질병 위험과",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part12_0008.mp3",
+      "duration_ms_estimate": 2690,
+      "start_ms_estimate": 14539,
+      "end_ms_estimate": 17229
+    },
+    {
+      "index": 9,
+      "caption_id": "12-9",
+      "original": "정확히 일치합니다.",
+      "tts": "정확히 일치합니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part12_0009.mp3",
+      "duration_ms_estimate": 1605,
+      "start_ms_estimate": 17229,
+      "end_ms_estimate": 18834
+    },
+    {
+      "index": 10,
+      "caption_id": "12-10",
+      "original": "고대인들이 미생물의 존재를 몰랐어도,",
+      "tts": "고대인들이 미생물의 존재를 몰랐어도,",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part12_0010.mp3",
+      "duration_ms_estimate": 2926,
+      "start_ms_estimate": 18834,
+      "end_ms_estimate": 21760
+    },
+    {
+      "index": 11,
+      "caption_id": "12-11",
+      "original": "경험적으로 \"맹수 고기 먹으면",
+      "tts": "경험적으로 \"맹수 고기 먹으면[breathes]",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part12_0011.mp3",
+      "duration_ms_estimate": 2219,
+      "start_ms_estimate": 21760,
+      "end_ms_estimate": 23979
+    },
+    {
+      "index": 12,
+      "caption_id": "12-12",
+      "original": "자주 병에 걸리더라\"는 패턴을 발견했고,",
+      "tts": "자주 병에 걸리더라\"는 패턴을 발견했고,",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part12_0012.mp3",
+      "duration_ms_estimate": 3256,
+      "start_ms_estimate": 23979,
+      "end_ms_estimate": 27235
+    },
+    {
+      "index": 13,
+      "caption_id": "12-13",
+      "original": "그것이 신의 명령이라는 형식으로",
+      "tts": "그것이 신의 명령이라는 형식으로",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part12_0013.mp3",
+      "duration_ms_estimate": 2549,
+      "start_ms_estimate": 27235,
+      "end_ms_estimate": 29784
+    },
+    {
+      "index": 14,
+      "caption_id": "12-14",
+      "original": "굳어진 것일 가능성이 큽니다.",
+      "tts": "굳어진 것일 가능성이 큽니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part12_0014.mp3",
+      "duration_ms_estimate": 2313,
+      "start_ms_estimate": 29784,
+      "end_ms_estimate": 32097
+    },
+    {
+      "index": 15,
+      "caption_id": "12-15",
+      "original": "종교는 어떤 면에서 인류가 축적한",
+      "tts": "종교는 어떤 면에서 인류가 축적한",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part12_0015.mp3",
+      "duration_ms_estimate": 2926,
+      "start_ms_estimate": 32097,
+      "end_ms_estimate": 35023
+    },
+    {
+      "index": 16,
+      "caption_id": "12-16",
+      "original": "생존 지혜의 데이터베이스이기도 합니다.",
+      "tts": "생존 지혜의 데이터베이스이기도 합니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part12_0016.mp3",
+      "duration_ms_estimate": 2454,
+      "start_ms_estimate": 35023,
+      "end_ms_estimate": 37477
+    },
+    {
+      "index": 17,
+      "caption_id": "12-17",
+      "original": "또 하나 결정적인 이유가 있습니다.",
+      "tts": "또 하나 결정적인 이유가 있습니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part12_0017.mp3",
+      "duration_ms_estimate": 2171,
+      "start_ms_estimate": 37477,
+      "end_ms_estimate": 39648
+    },
+    {
+      "index": 18,
+      "caption_id": "12-18",
+      "original": "단순히 육식동물은 숫자가 너무 적다는 것입니다.",
+      "tts": "단순히 육식동물은 숫자가 너무 적다는 것입니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part12_0018.mp3",
+      "duration_ms_estimate": 3729,
+      "start_ms_estimate": 39648,
+      "end_ms_estimate": 43377
+    },
+    {
+      "index": 19,
+      "caption_id": "12-19",
+      "original": "생태계 피라미드에서 위로 올라갈수록",
+      "tts": "생태계 피라미드에서 위로 올라갈수록",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part12_0019.mp3",
+      "duration_ms_estimate": 2454,
+      "start_ms_estimate": 43377,
+      "end_ms_estimate": 45831
+    },
+    {
+      "index": 20,
+      "caption_id": "12-20",
+      "original": "개체 수는 급격히 줄어듭니다.",
+      "tts": "개체 수는 급격히 줄어듭니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part12_0020.mp3",
+      "duration_ms_estimate": 2501,
+      "start_ms_estimate": 45831,
+      "end_ms_estimate": 48332
+    },
+    {
+      "index": 21,
+      "caption_id": "12-21",
+      "original": "풀 위에 토끼가 있고,",
+      "tts": "풀 위에 토끼가 있고,",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part12_0021.mp3",
+      "duration_ms_estimate": 1558,
+      "start_ms_estimate": 48332,
+      "end_ms_estimate": 49890
+    },
+    {
+      "index": 22,
+      "caption_id": "12-22",
+      "original": "토끼 위에 여우가 있고,",
+      "tts": "토끼 위에 여우가 있고,[breathes]",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part12_0022.mp3",
+      "duration_ms_estimate": 1699,
+      "start_ms_estimate": 49890,
+      "end_ms_estimate": 51589
+    },
+    {
+      "index": 23,
+      "caption_id": "12-23",
+      "original": "여우 위에 늑대가 있는 식이죠.",
+      "tts": "여우 위에 늑대가 있는 식이죠.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part12_0023.mp3",
+      "duration_ms_estimate": 2219,
+      "start_ms_estimate": 51589,
+      "end_ms_estimate": 53808
+    },
+    {
+      "index": 24,
+      "caption_id": "12-24",
+      "original": "아프리카 사바나 1km²에 들소는",
+      "tts": "아프리카 사바나 일제곱킬로미터에 들소는",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part12_0024.mp3",
+      "duration_ms_estimate": 2879,
+      "start_ms_estimate": 53808,
+      "end_ms_estimate": 56687
+    },
+    {
+      "index": 25,
+      "caption_id": "12-25",
+      "original": "수십에서 수백 마리가 살 수 있지만,",
+      "tts": "수십에서 수백 마리가 살 수 있지만,",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part12_0025.mp3",
+      "duration_ms_estimate": 2360,
+      "start_ms_estimate": 56687,
+      "end_ms_estimate": 59047
+    },
+    {
+      "index": 26,
+      "caption_id": "12-26",
+      "original": "사자는 한두 마리도 살기 어렵습니다.",
+      "tts": "사자는 한두 마리도 살기 어렵습니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part12_0026.mp3",
+      "duration_ms_estimate": 2360,
+      "start_ms_estimate": 59047,
+      "end_ms_estimate": 61407
+    },
+    {
+      "index": 27,
+      "caption_id": "12-27",
+      "original": "전 세계 야생 사자 개체 수는",
+      "tts": "전 세계 야생 사자 개체 수는",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part12_0027.mp3",
+      "duration_ms_estimate": 2407,
+      "start_ms_estimate": 61407,
+      "end_ms_estimate": 63814
+    },
+    {
+      "index": 28,
+      "caption_id": "12-28",
+      "original": "현재 약 2만 마리 정도로 추정됩니다.",
+      "tts": "현재 약 이만 마리 정도로 추정됩니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part12_0028.mp3",
+      "duration_ms_estimate": 2926,
+      "start_ms_estimate": 63814,
+      "end_ms_estimate": 66740
+    },
+    {
+      "index": 29,
+      "caption_id": "12-29",
+      "original": "호랑이는 4천 마리 남짓.",
+      "tts": "호랑이는 사천 마리 남짓.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part12_0029.mp3",
+      "duration_ms_estimate": 2076,
+      "start_ms_estimate": 66740,
+      "end_ms_estimate": 68816
+    },
+    {
+      "index": 30,
+      "caption_id": "12-30",
+      "original": "표범, 치타, 재규어를 다 합쳐도",
+      "tts": "표범, 치타, 재규어를 다 합쳐도",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part12_0030.mp3",
+      "duration_ms_estimate": 2501,
+      "start_ms_estimate": 68816,
+      "end_ms_estimate": 71317
+    },
+    {
+      "index": 31,
+      "caption_id": "12-31",
+      "original": "수십만 마리에 불과합니다.",
+      "tts": "수십만 마리에 불과합니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part12_0031.mp3",
+      "duration_ms_estimate": 1746,
+      "start_ms_estimate": 71317,
+      "end_ms_estimate": 73063
+    },
+    {
+      "index": 32,
+      "caption_id": "12-32",
+      "original": "반면 인류가 키우는 가축은?",
+      "tts": "반면 인류가 키우는 가축은?[breathes]",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part12_0032.mp3",
+      "duration_ms_estimate": 2219,
+      "start_ms_estimate": 73063,
+      "end_ms_estimate": 75282
+    },
+    {
+      "index": 33,
+      "caption_id": "12-33",
+      "original": "소가 약 15억 마리,",
+      "tts": "소가 약 십오억 마리,",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part12_0033.mp3",
+      "duration_ms_estimate": 1558,
+      "start_ms_estimate": 75282,
+      "end_ms_estimate": 76840
+    },
+    {
+      "index": 34,
+      "caption_id": "12-34",
+      "original": "돼지가 약 8억 마리,",
+      "tts": "돼지가 약 팔억 마리,",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part12_0034.mp3",
+      "duration_ms_estimate": 1652,
+      "start_ms_estimate": 76840,
+      "end_ms_estimate": 78492
+    },
+    {
+      "index": 35,
+      "caption_id": "12-35",
+      "original": "닭이 약 250억 마리입니다.",
+      "tts": "닭이 약 이백오십억 마리입니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part12_0035.mp3",
+      "duration_ms_estimate": 2407,
+      "start_ms_estimate": 78492,
+      "end_ms_estimate": 80899
+    },
+    {
+      "index": 36,
+      "caption_id": "12-36",
+      "original": "비교가 안 되죠.",
+      "tts": "비교가 안 되죠.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part12_0036.mp3",
+      "duration_ms_estimate": 1274,
+      "start_ms_estimate": 80899,
+      "end_ms_estimate": 82173
+    },
+    {
+      "index": 37,
+      "caption_id": "12-37",
+      "original": "설령 인류가 \"사자 고기를 먹자!\"고",
+      "tts": "설령 인류가 \"사자 고기를 먹자!\"고",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part12_0037.mp3",
+      "duration_ms_estimate": 2785,
+      "start_ms_estimate": 82173,
+      "end_ms_estimate": 84958
+    },
+    {
+      "index": 38,
+      "caption_id": "12-38",
+      "original": "결심했다 한들, 물량이 안 됩니다.",
+      "tts": "결심했다 한들, 물량이 안 됩니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part12_0038.mp3",
+      "duration_ms_estimate": 2645,
+      "start_ms_estimate": 84958,
+      "end_ms_estimate": 87603
+    }
+  ]
+}

@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import re
 from collections import defaultdict
 from dataclasses import dataclass
 from pathlib import Path
@@ -10,8 +11,12 @@ from typing import Any
 
 from scenevid.motion import normalize_effect
 
-# 이미지 파일 확장자 (srt_NN 매핑·팔레트)
+# 이미지 파일 확장자 (SRT 번호 매핑·팔레트)
 COMPOSE_IMAGE_EXTS: tuple[str, ...] = (".png", ".jpg", ".jpeg", ".webp", ".bmp")
+
+# 파일명에서 SRT 번호를 뽑는 패턴. 대소문자 무시, 자리수 무관, 밑줄 선택.
+# 매치되는 예) srt_1, srt_01, SRT_001, srt001, SRT-1
+_SRT_IMAGE_STEM_RE = re.compile(r"^srt[-_]?0*(\d+)$", re.IGNORECASE)
 
 BLACK_TOKENS = frozenset(
     {
@@ -267,16 +272,39 @@ def resolved_motion_effects_per_cue(
     return out
 
 
-def try_srt_numbered_image(images_dir: Path, map_id: int) -> Path | None:
-    """``images_dir/srt_NN.ext`` — NN은 최소 2자리(1→01), 없으면 ``srt_{id}.ext`` 도 시도."""
+def index_srt_numbered_images(images_dir: Path) -> dict[int, Path]:
+    """``images_dir`` 안의 ``srt_NN.*`` / ``SRT_NNN.*`` 등을 한 번 스캔해 ``{번호: 경로}`` 로 인덱스합니다.
+
+    인식 규칙:
+      - 대소문자 무시: ``srt``, ``SRT`` 모두 허용
+      - 구분자 선택: ``srt_001``, ``srt-1``, ``srt001`` 모두 허용
+      - 자릿수 무관: ``1`` 도, ``001`` 도 같은 번호로 인식
+    같은 번호의 파일이 여러 개면 정렬 후 첫 번째 파일을 사용합니다.
+    """
+    idx: dict[int, Path] = {}
     d = images_dir.resolve()
-    stems = (f"srt_{int(map_id):02d}", f"srt_{int(map_id)}")
-    for stem in stems:
-        for ext in COMPOSE_IMAGE_EXTS:
-            p = d / f"{stem}{ext}"
-            if p.is_file():
-                return p.resolve()
-    return None
+    if not d.is_dir():
+        return idx
+    for p in sorted(d.iterdir(), key=lambda x: x.name.lower()):
+        if not p.is_file():
+            continue
+        if p.suffix.lower() not in COMPOSE_IMAGE_EXTS:
+            continue
+        m = _SRT_IMAGE_STEM_RE.match(p.stem)
+        if not m:
+            continue
+        n = int(m.group(1))
+        idx.setdefault(n, p.resolve())
+    return idx
+
+
+def try_srt_numbered_image(images_dir: Path, map_id: int) -> Path | None:
+    """SRT 자막 번호 → 해당 번호의 이미지 파일.
+
+    파일명 인식은 :func:`index_srt_numbered_images` 와 동일합니다. 정확히 같은 번호의
+    파일이 없으면 ``None`` 을 반환합니다 (호출부에서 직전 이미지 캐리 등의 정책을 적용).
+    """
+    return index_srt_numbered_images(images_dir).get(int(map_id))
 
 
 def per_cue_images_srt_mapping(
@@ -286,12 +314,13 @@ def per_cue_images_srt_mapping(
 ) -> list[Path | None]:
     """큐 재생 순서대로 각 구간에 쓸 이미지 경로.
 
-    - 기본: ``srt_{표시번호}.png`` 등이 있으면 사용, 없으면 직전에 쓴 이미지를 유지합니다.
-    - 해당 ``srt_NN`` 파일이 없으면 직전 구간과 같은 이미지를 씁니다. 첫 구간부터
-      파일이 없으면 ``None``(검은 화면)입니다.
+    - 기본: SRT 자막 번호와 같은 번호의 이미지(``srt_NN`` / ``SRT_NNN`` 등)가 있으면 사용.
+    - 해당 번호 이미지가 없으면 직전 구간과 같은 이미지를 유지합니다. 첫 구간부터 매치되는
+      파일이 없으면 ``None`` (검은 화면)입니다.
     - ``compose_overrides.json`` 의 ``cue_images``: 블록 순번(1…) 또는 SRT 표시 번호 키 모두 허용.
-    - 오버라이드가 ``null``(검은 화면)이면 해당 구간만 검정이며, 다음 구간의 "이전 이미지" 캐리 값은 바꾸지 않습니다.
+    - 오버라이드가 ``null`` (검은 화면)이면 해당 구간만 검정이며, 다음 구간의 "이전 이미지" 캐리 값은 바꾸지 않습니다.
     """
+    image_index = index_srt_numbered_images(images_dir)
     last: Path | None = None
     out: list[Path | None] = []
     for block_i, mid in enumerate(image_map_ids, start=1):
@@ -303,7 +332,7 @@ def per_cue_images_srt_mapping(
                 out.append(ov)
                 last = ov
             continue
-        hit = try_srt_numbered_image(images_dir, mid)
+        hit = image_index.get(int(mid))
         if hit is not None:
             out.append(hit)
             last = hit

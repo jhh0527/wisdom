@@ -62,6 +62,14 @@ if errorlevel 1 exit /b 1
 
 if exist "%~dp0work" rmdir /s /q "%~dp0work"
 echo PyInstaller 실행 ^(GUI: "!PROOT!\dist\5_video_gui.exe"^)...
+echo   ※ 5_video_gui.exe 가 실행 중이면 ^(접근 거부^) 빌드가 실패합니다. GUI 창을 닫은 뒤 다시 build.bat 을 실행하세요.
+if exist "!PROOT!\dist\5_video_gui.exe" (
+  del /f /q "!PROOT!\dist\5_video_gui.exe" 2>nul
+  if exist "!PROOT!\dist\5_video_gui.exe" (
+    echo [경고] 기존 5_video_gui.exe 를 지울 수 없습니다. 프로세스를 종료한 뒤 이 배치 파일을 다시 실행하세요.
+    exit /b 1
+  )
+)
 "!PYEXE!" -m PyInstaller --clean --noconfirm --distpath "!PROOT!\dist" --workpath "%~dp0work" "%~dp0scenevid_gui.spec"
 if errorlevel 1 exit /b 1
 

@@ -1,0 +1,89 @@
+# -*- coding: utf-8 -*-
+"""파일명에서 SRT(이미지) 번호 추출 → ``SRT_XXX.jpg`` 형식."""
+
+from __future__ import annotations
+
+import re
+
+from png2jpg.srt_match import extract_timestamp_ms_from_stem
+
+# 5_video ``compose_overrides`` 와 동일한 SRT stem 규칙 (전체 stem)
+_SRT_STEM = re.compile(r"^srt[-_]?0*(\d+)$", re.IGNORECASE)
+_IMAGE_STEM = re.compile(r"^image[-_]?0*(\d+)$", re.IGNORECASE)
+_SCENE_STEM = re.compile(r"^scene[-_]?0*(\d+)$", re.IGNORECASE)
+_PLAIN_NUM = re.compile(r"^0*(\d+)$")
+# videoPG: 파일명 맨 앞 2자리 숫자 → SRT 번호 (``06_...`` → 6 → ``SRT_006.jpg``)
+_LEADING_TWO_DIGITS = re.compile(r"^(\d{2})")
+
+_LEADING_SRT = re.compile(r"^srt[-_]?0*(\d+)", re.IGNORECASE)
+_LEADING_IMAGE = re.compile(r"^image[-_]?0*(\d+)", re.IGNORECASE)
+_LEADING_SCENE = re.compile(r"^scene[-_]?0*(\d+)", re.IGNORECASE)
+# ``timestamp`` 없는 파일만: 맨 앞 ``07_...`` (``07_timestamp_12s`` 는 SRT 매칭 사용)
+_LEADING_INDEX = re.compile(r"^0*(\d+)(?=[-_.])")
+
+_DURATION_TAIL = re.compile(r"[-_.]?(\d+)s(?:ec(?:ond)?s?)?$", re.IGNORECASE)
+_ANY_DIGITS = re.compile(r"(\d+)")
+
+
+def srt_jpg_name(number: int, *, pad: int = 3) -> str:
+    """``SRT_001.jpg`` 형식 출력 파일명."""
+    if number < 1:
+        raise ValueError(f"SRT 번호는 1 이상이어야 합니다: {number}")
+    return f"SRT_{number:0{pad}d}.jpg"
+
+
+def _positive_int(s: str) -> int | None:
+    try:
+        n = int(s)
+    except ValueError:
+        return None
+    return n if n > 0 else None
+
+
+def _stem_without_duration_suffix(stem: str) -> str:
+    return _DURATION_TAIL.sub("", stem)
+
+
+def extract_first_two_digit_srt_number(path_stem: str) -> int | None:
+    """videoPG: stem 맨 앞 2자리 숫자 (``06_timestamp_...`` → 6)."""
+    m = _LEADING_TWO_DIGITS.match(path_stem.strip())
+    if not m:
+        return None
+    return _positive_int(m.group(1))
+
+
+def extract_srt_number(path_stem: str) -> int | None:
+    """파일명만으로 SRT 번호 추정 (SRT 파일 없을 때 폴백).
+
+    ``timestamp`` 가 있으면 여기서는 번호를 추출하지 않습니다
+    (``120s`` 등 끝 숫자를 SRT 번호로 쓰지 않기 위함).
+    """
+    stem = path_stem.strip()
+    if not stem:
+        return None
+    if extract_timestamp_ms_from_stem(stem) is not None:
+        return None
+
+    n2 = extract_first_two_digit_srt_number(stem)
+    if n2 is not None:
+        return n2
+
+    for pat in (_SRT_STEM, _IMAGE_STEM, _SCENE_STEM, _PLAIN_NUM):
+        m = pat.match(stem)
+        if m:
+            return _positive_int(m.group(1))
+
+    for pat in (_LEADING_SRT, _LEADING_IMAGE, _LEADING_SCENE):
+        m = pat.match(stem)
+        if m:
+            return _positive_int(m.group(1))
+
+    core = _stem_without_duration_suffix(stem)
+    m = _LEADING_INDEX.match(core)
+    if m:
+        return _positive_int(m.group(1))
+
+    hits = [int(g) for g in _ANY_DIGITS.findall(core) if int(g) > 0]
+    if hits:
+        return hits[0]
+    return None

@@ -1,0 +1,401 @@
+{
+  "part_id": "10",
+  "part_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\part10.mp3",
+  "part_srt": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\part10.srt",
+  "model_id": "eleven_multilingual_v2",
+  "merge_method": "ffmpeg",
+  "segment_count": 39,
+  "duration_ms_estimate": 91350,
+  "segments": [
+    {
+      "index": 1,
+      "caption_id": "10-1",
+      "original": "호랑이는 한국과 중국에서",
+      "tts": "[short pause][breathes][continues]호랑이는 한국과 중국에서",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part10_0001.mp3",
+      "duration_ms_estimate": 1982,
+      "start_ms_estimate": 0,
+      "end_ms_estimate": 1982
+    },
+    {
+      "index": 2,
+      "caption_id": "10-2",
+      "original": "산신의 화신이자 영물이었습니다.",
+      "tts": "산신의 화신이자 영물이었습니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part10_0002.mp3",
+      "duration_ms_estimate": 2314,
+      "start_ms_estimate": 1982,
+      "end_ms_estimate": 4296
+    },
+    {
+      "index": 3,
+      "caption_id": "10-3",
+      "original": "늑대는 로마 건국 신화의 어머니였고,",
+      "tts": "늑대는 로마 건국 신화의 어머니였고,",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part10_0003.mp3",
+      "duration_ms_estimate": 2880,
+      "start_ms_estimate": 4296,
+      "end_ms_estimate": 7176
+    },
+    {
+      "index": 4,
+      "caption_id": "10-4",
+      "original": "북유럽에서는 오딘의 동반자였습니다.",
+      "tts": "북유럽에서는 오딘의 동반자였습니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part10_0004.mp3",
+      "duration_ms_estimate": 2785,
+      "start_ms_estimate": 7176,
+      "end_ms_estimate": 9961
+    },
+    {
+      "index": 5,
+      "caption_id": "10-5",
+      "original": "곰은 시베리아 토착민들에게",
+      "tts": "곰은 시베리아 토착민들에게",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part10_0005.mp3",
+      "duration_ms_estimate": 1936,
+      "start_ms_estimate": 9961,
+      "end_ms_estimate": 11897
+    },
+    {
+      "index": 6,
+      "caption_id": "10-6",
+      "original": "\"숲의 할아버지\"로 추앙받았습니다.",
+      "tts": "\"숲의 할아버지\"로 추앙받았습니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part10_0006.mp3",
+      "duration_ms_estimate": 2455,
+      "start_ms_estimate": 11897,
+      "end_ms_estimate": 14352
+    },
+    {
+      "index": 7,
+      "caption_id": "10-7",
+      "original": "이렇게 신성한 존재를 식탁에 올린다?",
+      "tts": "이렇게 신성한 존재를 식탁에 올린다?",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part10_0007.mp3",
+      "duration_ms_estimate": 2785,
+      "start_ms_estimate": 14352,
+      "end_ms_estimate": 17137
+    },
+    {
+      "index": 8,
+      "caption_id": "10-8",
+      "original": "거의 모든 사회에서 이는 터부(taboo)였습니다.",
+      "tts": "거의 모든 사회에서 이는 터부였습니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part10_0008.mp3",
+      "duration_ms_estimate": 2832,
+      "start_ms_estimate": 17137,
+      "end_ms_estimate": 19969
+    },
+    {
+      "index": 9,
+      "caption_id": "10-9",
+      "original": "신의 살을 씹는 행위에 가까웠죠.",
+      "tts": "신의 살을 씹는 행위에 가까웠죠.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part10_0009.mp3",
+      "duration_ms_estimate": 2360,
+      "start_ms_estimate": 19969,
+      "end_ms_estimate": 22329
+    },
+    {
+      "index": 10,
+      "caption_id": "10-10",
+      "original": "시베리아의 일부 부족은 곰을 사냥한 뒤",
+      "tts": "시베리아의 일부 부족은 곰을 사냥한 뒤",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part10_0010.mp3",
+      "duration_ms_estimate": 2927,
+      "start_ms_estimate": 22329,
+      "end_ms_estimate": 25256
+    },
+    {
+      "index": 11,
+      "caption_id": "10-11",
+      "original": "정교한 사죄 의식을 치렀고,",
+      "tts": "정교한 사죄 의식을 치렀고,[breathes]",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part10_0011.mp3",
+      "duration_ms_estimate": 2219,
+      "start_ms_estimate": 25256,
+      "end_ms_estimate": 27475
+    },
+    {
+      "index": 12,
+      "caption_id": "10-12",
+      "original": "곰의 뼈를 함부로 버리지 않고",
+      "tts": "곰의 뼈를 함부로 버리지 않고",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part10_0012.mp3",
+      "duration_ms_estimate": 2125,
+      "start_ms_estimate": 27475,
+      "end_ms_estimate": 29600
+    },
+    {
+      "index": 13,
+      "caption_id": "10-13",
+      "original": "묻어주었습니다.",
+      "tts": "묻어주었습니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part10_0013.mp3",
+      "duration_ms_estimate": 1369,
+      "start_ms_estimate": 29600,
+      "end_ms_estimate": 30969
+    },
+    {
+      "index": 14,
+      "caption_id": "10-14",
+      "original": "\"어쩔 수 없이 잡아먹지만, 죄송합니다\"라는",
+      "tts": "\"어쩔 수 없이 잡아먹지만, 죄송합니다\"라는",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part10_0014.mp3",
+      "duration_ms_estimate": 3069,
+      "start_ms_estimate": 30969,
+      "end_ms_estimate": 34038
+    },
+    {
+      "index": 15,
+      "caption_id": "10-15",
+      "original": "마음을 표현한 거죠.",
+      "tts": "마음을 표현한 거죠.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part10_0015.mp3",
+      "duration_ms_estimate": 1511,
+      "start_ms_estimate": 34038,
+      "end_ms_estimate": 35549
+    },
+    {
+      "index": 16,
+      "caption_id": "10-16",
+      "original": "반면 소, 양, 돼지, 닭은 어떨까요?",
+      "tts": "반면 소, 양, 돼지, 닭은 어떨까요?",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part10_0016.mp3",
+      "duration_ms_estimate": 3116,
+      "start_ms_estimate": 35549,
+      "end_ms_estimate": 38665
+    },
+    {
+      "index": 17,
+      "caption_id": "10-17",
+      "original": "이 동물들은 인류와 함께 살면서 점점",
+      "tts": "이 동물들은 인류와 함께 살면서 점점",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part10_0017.mp3",
+      "duration_ms_estimate": 3163,
+      "start_ms_estimate": 38665,
+      "end_ms_estimate": 41828
+    },
+    {
+      "index": 18,
+      "caption_id": "10-18",
+      "original": "\"먹기 위한 존재\"로 문화적 위치가",
+      "tts": "\"먹기 위한 존재\"로 문화적 위치가",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part10_0018.mp3",
+      "duration_ms_estimate": 2502,
+      "start_ms_estimate": 41828,
+      "end_ms_estimate": 44330
+    },
+    {
+      "index": 19,
+      "caption_id": "10-19",
+      "original": "정해졌습니다.",
+      "tts": "정해졌습니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part10_0019.mp3",
+      "duration_ms_estimate": 1322,
+      "start_ms_estimate": 44330,
+      "end_ms_estimate": 45652
+    },
+    {
+      "index": 20,
+      "caption_id": "10-20",
+      "original": "물론 예외도 있습니다.",
+      "tts": "물론 예외도 있습니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part10_0020.mp3",
+      "duration_ms_estimate": 1605,
+      "start_ms_estimate": 45652,
+      "end_ms_estimate": 47257
+    },
+    {
+      "index": 21,
+      "caption_id": "10-21",
+      "original": "힌두교에서 소는 신성하고,",
+      "tts": "힌두교에서 소는 신성하고,",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part10_0021.mp3",
+      "duration_ms_estimate": 2030,
+      "start_ms_estimate": 47257,
+      "end_ms_estimate": 49287
+    },
+    {
+      "index": 22,
+      "caption_id": "10-22",
+      "original": "이슬람과 유대교에서 돼지는 부정합니다.",
+      "tts": "이슬람과 유대교에서 돼지는 부정합니다.[breathes]",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part10_0022.mp3",
+      "duration_ms_estimate": 3021,
+      "start_ms_estimate": 49287,
+      "end_ms_estimate": 52308
+    },
+    {
+      "index": 23,
+      "caption_id": "10-23",
+      "original": "하지만 전반적으로 가축화된 초식동물은",
+      "tts": "하지만 전반적으로 가축화된 초식동물은",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part10_0023.mp3",
+      "duration_ms_estimate": 3163,
+      "start_ms_estimate": 52308,
+      "end_ms_estimate": 55471
+    },
+    {
+      "index": 24,
+      "caption_id": "10-24",
+      "original": "식량으로 분류되고,",
+      "tts": "식량으로 분류되고,",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part10_0024.mp3",
+      "duration_ms_estimate": 1605,
+      "start_ms_estimate": 55471,
+      "end_ms_estimate": 57076
+    },
+    {
+      "index": 25,
+      "caption_id": "10-25",
+      "original": "야생 대형 포식자는 신화의 영역에",
+      "tts": "야생 대형 포식자는 신화의 영역에",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part10_0025.mp3",
+      "duration_ms_estimate": 2550,
+      "start_ms_estimate": 57076,
+      "end_ms_estimate": 59626
+    },
+    {
+      "index": 26,
+      "caption_id": "10-26",
+      "original": "머물렀습니다.",
+      "tts": "머물렀습니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part10_0026.mp3",
+      "duration_ms_estimate": 1227,
+      "start_ms_estimate": 59626,
+      "end_ms_estimate": 60853
+    },
+    {
+      "index": 27,
+      "caption_id": "10-27",
+      "original": "또 다른 흥미로운 분류 체계가 있습니다.",
+      "tts": "또 다른 흥미로운 분류 체계가 있습니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part10_0027.mp3",
+      "duration_ms_estimate": 2880,
+      "start_ms_estimate": 60853,
+      "end_ms_estimate": 63733
+    },
+    {
+      "index": 28,
+      "caption_id": "10-28",
+      "original": "인류학자 메리 더글러스는",
+      "tts": "인류학자 메리 더글러스는",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part10_0028.mp3",
+      "duration_ms_estimate": 2077,
+      "start_ms_estimate": 63733,
+      "end_ms_estimate": 65810
+    },
+    {
+      "index": 29,
+      "caption_id": "10-29",
+      "original": "\"정결과 위험(Purity and Danger)\"이라는",
+      "tts": "\"정결과 위험\"이라는",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part10_0029.mp3",
+      "duration_ms_estimate": 1700,
+      "start_ms_estimate": 65810,
+      "end_ms_estimate": 67510
+    },
+    {
+      "index": 30,
+      "caption_id": "10-30",
+      "original": "책에서, 모든 문화에는",
+      "tts": "책에서, 모든 문화에는",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part10_0030.mp3",
+      "duration_ms_estimate": 1889,
+      "start_ms_estimate": 67510,
+      "end_ms_estimate": 69399
+    },
+    {
+      "index": 31,
+      "caption_id": "10-31",
+      "original": "\"범주를 흐리는 것\"을 부정하게 여기는",
+      "tts": "\"범주를 흐리는 것\"을 부정하게 여기는",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part10_0031.mp3",
+      "duration_ms_estimate": 2739,
+      "start_ms_estimate": 69399,
+      "end_ms_estimate": 72138
+    },
+    {
+      "index": 32,
+      "caption_id": "10-32",
+      "original": "경향이 있다고 말했습니다.",
+      "tts": "경향이 있다고 말했습니다.[breathes]",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part10_0032.mp3",
+      "duration_ms_estimate": 1889,
+      "start_ms_estimate": 72138,
+      "end_ms_estimate": 74027
+    },
+    {
+      "index": 33,
+      "caption_id": "10-33",
+      "original": "명확한 분류에 들어맞지 않는 동물은",
+      "tts": "명확한 분류에 들어맞지 않는 동물은",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part10_0033.mp3",
+      "duration_ms_estimate": 2785,
+      "start_ms_estimate": 74027,
+      "end_ms_estimate": 76812
+    },
+    {
+      "index": 34,
+      "caption_id": "10-34",
+      "original": "금기시되기 쉽다는 거죠.",
+      "tts": "금기시되기 쉽다는 거죠.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part10_0034.mp3",
+      "duration_ms_estimate": 1841,
+      "start_ms_estimate": 76812,
+      "end_ms_estimate": 78653
+    },
+    {
+      "index": 35,
+      "caption_id": "10-35",
+      "original": "육식동물은 우리에게 묘하게",
+      "tts": "육식동물은 우리에게 묘하게",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part10_0035.mp3",
+      "duration_ms_estimate": 2030,
+      "start_ms_estimate": 78653,
+      "end_ms_estimate": 80683
+    },
+    {
+      "index": 36,
+      "caption_id": "10-36",
+      "original": "양가적인 존재입니다.",
+      "tts": "양가적인 존재입니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part10_0036.mp3",
+      "duration_ms_estimate": 1652,
+      "start_ms_estimate": 80683,
+      "end_ms_estimate": 82335
+    },
+    {
+      "index": 37,
+      "caption_id": "10-37",
+      "original": "야생이면서도 인간과 비슷한 사회성을",
+      "tts": "야생이면서도 인간과 비슷한 사회성을",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part10_0037.mp3",
+      "duration_ms_estimate": 3352,
+      "start_ms_estimate": 82335,
+      "end_ms_estimate": 85687
+    },
+    {
+      "index": 38,
+      "caption_id": "10-38",
+      "original": "가지고 있고(늑대의 무리, 사자의 프라이드),",
+      "tts": "가지고 있고(늑대의 무리, 사자의 프라이드),",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part10_0038.mp3",
+      "duration_ms_estimate": 3116,
+      "start_ms_estimate": 85687,
+      "end_ms_estimate": 88803
+    },
+    {
+      "index": 39,
+      "caption_id": "10-39",
+      "original": "지능이 높고, 감정이 풍부합니다.",
+      "tts": "지능이 높고, 감정이 풍부합니다.",
+      "segment_mp3": "C:\\cursor\\wisdom-1\\3_ttsToVoice\\output\\segments\\part10_0039.mp3",
+      "duration_ms_estimate": 2547,
+      "start_ms_estimate": 88803,
+      "end_ms_estimate": 91350
+    }
+  ]
+}
