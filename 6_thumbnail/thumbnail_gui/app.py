@@ -108,6 +108,18 @@ def natural_sort_key(path: Path) -> list[str | int]:
     return [int(t) if t.isdigit() else t.lower() for t in re.split(r"(\d+)", path.name)]
 
 
+def default_source_image_path() -> str:
+    """저장 폴더 안 첫 이미지 경로(없으면 빈 문자열)."""
+    d = default_thumbnail_output_dir()
+    if not d.is_dir():
+        return ""
+    files = sorted(
+        [p for p in d.iterdir() if p.suffix.lower() in _IMAGE_EXT and p.is_file()],
+        key=natural_sort_key,
+    )
+    return str(files[0].resolve()) if files else ""
+
+
 def _load_font(size: int, font_path: str) -> ImageFont.FreeTypeFont | ImageFont.ImageFont:
     fp = (font_path or "").strip()
     if fp and Path(fp).is_file():
@@ -194,14 +206,13 @@ def default_text_layer() -> dict[str, str | int]:
     }
 
 
-def render_thumbnail_layers(
+def render_thumbnail_layers_image(
     src: Path,
-    dst: Path,
     *,
     tw: int,
     th: int,
     layers: list[dict[str, str | int]],
-) -> None:
+) -> Image.Image:
     im = Image.open(src).convert("RGB")
     canvas = Image.new("RGB", (tw, th), (18, 18, 22))
     _paste_fit_cover(canvas, im)
@@ -243,6 +254,18 @@ def render_thumbnail_layers(
             stroke_width=max(2, fs // 24),
             stroke_fill=(0, 0, 0),
         )
+    return canvas
+
+
+def render_thumbnail_layers(
+    src: Path,
+    dst: Path,
+    *,
+    tw: int,
+    th: int,
+    layers: list[dict[str, str | int]],
+) -> None:
+    canvas = render_thumbnail_layers_image(src, tw=tw, th=th, layers=layers)
     dst.parent.mkdir(parents=True, exist_ok=True)
     suf = dst.suffix.lower()
     if suf == ".png":
@@ -265,7 +288,7 @@ def main() -> None:
     except tk.TclError:
         pass
 
-    src_dir = tk.StringVar()
+    src_image = tk.StringVar(value=default_source_image_path())
     out_dir = tk.StringVar(value=str(default_thumbnail_output_dir()))
     tw_var = tk.StringVar(value="1280")
     th_var = tk.StringVar(value="720")
@@ -282,7 +305,8 @@ def main() -> None:
     if _init_font:
         layers[0]["font_path"] = _init_font
     cur_layer_idx = tk.IntVar(value=0)
-    live_preview_after_id: list[str | None] = [None]
+    resize_drag: dict[str, int | bool] = {"active": False, "x": 0, "y": 0, "tw": 0, "th": 0}
+    preview_size: dict[str, int] = {"iw": 0, "ih": 0}
 
     anchors = [
         ("lt", "좌상"),
@@ -332,7 +356,7 @@ def main() -> None:
         prev_canvas.create_text(
             cw // 2,
             ch // 2,
-            text="(미리보기 없음)\n미리보기 버튼을 누르면 첫 이미지에 레이어가 적용됩니다.",
+            text="(미리보기 없음)\n원본 이미지를 선택한 뒤 「미리보기」를 누르세요.",
             fill="#aaa",
             width=cw - 24,
             justify="center",
@@ -343,12 +367,23 @@ def main() -> None:
         c = colorchooser.askcolor(color_var.get(), title="텍스트 색")
         if c and c[1]:
             color_var.set(c[1])
-            schedule_live_preview()
 
     def pick_src() -> None:
-        p = filedialog.askdirectory(title="원본 이미지 폴더")
+        init = default_thumbnail_output_dir()
+        init.mkdir(parents=True, exist_ok=True)
+        cur = src_image.get().strip()
+        if cur and Path(cur).is_file():
+            init = Path(cur).parent
+        p = filedialog.askopenfilename(
+            title="원본 이미지",
+            initialdir=str(init),
+            filetypes=[
+                ("이미지", "*.png *.jpg *.jpeg *.webp *.bmp"),
+                ("모든 파일", "*.*"),
+            ],
+        )
         if p:
-            src_dir.set(p)
+            src_image.set(p)
 
     def pick_out() -> None:
         init = Path(out_dir.get().strip()) if out_dir.get().strip() else default_thumbnail_output_dir()
@@ -451,7 +486,7 @@ def main() -> None:
             return
         data = {
             "version": _PRESET_VERSION,
-            "src_dir": src_dir.get().strip(),
+            "src_image": src_image.get().strip(),
             "out_dir": out_dir.get().strip(),
             "tw": tw_var.get().strip(),
             "th": th_var.get().strip(),
@@ -478,7 +513,14 @@ def main() -> None:
         if not isinstance(data, dict):
             messagebox.showerror("불러오기", "형식이 올바르지 않습니다.")
             return
-        src_dir.set(str(data.get("src_dir") or ""))
+        loaded_src = str(data.get("src_image") or data.get("src_dir") or "").strip()
+        if loaded_src and Path(loaded_src).is_dir():
+            files = sorted(
+                [p for p in Path(loaded_src).iterdir() if p.suffix.lower() in _IMAGE_EXT],
+                key=natural_sort_key,
+            )
+            loaded_src = str(files[0]) if files else ""
+        src_image.set(loaded_src)
         out_dir.set(str(data.get("out_dir") or ""))
         tw_var.set(str(data.get("tw") or "1280"))
         th_var.set(str(data.get("th") or "720"))
@@ -533,102 +575,112 @@ def main() -> None:
         except OSError as e:
             messagebox.showerror("삭제", str(e))
 
-    def do_preview(*, silent: bool = False) -> None:
-        sync_form_to_layer()
-        d = Path(src_dir.get().strip())
-        if not d.is_dir():
-            if not silent:
-                messagebox.showwarning("미리보기", "원본 폴더를 선택하세요.")
+    def _resolve_src_image() -> Path | None:
+        p = Path(src_image.get().strip())
+        if p.is_file() and p.suffix.lower() in _IMAGE_EXT:
+            return p
+        return None
+
+    def _draw_resize_handle(iw: int, ih: int) -> None:
+        hs = 12
+        prev_canvas.create_rectangle(
+            iw - hs,
+            ih - hs,
+            iw + hs,
+            ih + hs,
+            fill="#4af",
+            outline="#fff",
+            tags=("resize_handle",),
+        )
+        prev_canvas.create_text(
+            iw,
+            ih - 18,
+            text="드래그로 가로·세로 조절",
+            fill="#ccc",
+            tags=("resize_handle",),
+        )
+
+    def _on_resize_press(e: tk.Event) -> None:
+        hit = prev_canvas.find_closest(e.x, e.y)
+        if not hit or "resize_handle" not in prev_canvas.gettags(hit[0]):
             return
-        files = sorted([p for p in d.iterdir() if p.suffix.lower() in _IMAGE_EXT], key=natural_sort_key)
-        if not files:
-            if not silent:
-                messagebox.showwarning("미리보기", "이미지 파일이 없습니다.")
+        try:
+            tw0, th0 = int(tw_var.get()), int(th_var.get())
+        except ValueError:
+            return
+        resize_drag["active"] = True
+        resize_drag["x"] = e.x
+        resize_drag["y"] = e.y
+        resize_drag["tw"] = tw0
+        resize_drag["th"] = th0
+
+    def _on_resize_motion(e: tk.Event) -> None:
+        if not resize_drag["active"]:
+            return
+        dx = e.x - int(resize_drag["x"])
+        dy = e.y - int(resize_drag["y"])
+        tw_var.set(str(max(64, int(resize_drag["tw"]) + dx)))
+        th_var.set(str(max(64, int(resize_drag["th"]) + dy)))
+
+    def _on_resize_release(_e: tk.Event) -> None:
+        resize_drag["active"] = False
+
+    def do_preview() -> None:
+        sync_form_to_layer()
+        src = _resolve_src_image()
+        if src is None:
+            messagebox.showwarning("미리보기", "원본 이미지 파일을 선택하세요.")
             return
         try:
             tw, th = int(tw_var.get()), int(th_var.get())
         except ValueError:
-            if not silent:
-                messagebox.showerror("미리보기", "가로·세로는 정수로 입력하세요.")
+            messagebox.showerror("미리보기", "가로·세로는 정수로 입력하세요.")
             return
-        tmp = default_thumbnail_output_dir() / "_preview_thumb.png"
-        tmp.parent.mkdir(parents=True, exist_ok=True)
         try:
-            render_thumbnail_layers(files[0], tmp, tw=tw, th=th, layers=list(layers))
-            ph = ImageTk.PhotoImage(Image.open(tmp))
+            im = render_thumbnail_layers_image(src, tw=tw, th=th, layers=list(layers))
+            ph = ImageTk.PhotoImage(im)
             prev_canvas.delete("all")
             iw, ih = ph.width(), ph.height()
-            prev_canvas.create_image(0, 0, anchor="nw", image=ph)
+            preview_size["iw"], preview_size["ih"] = iw, ih
+            prev_canvas.create_image(0, 0, anchor="nw", image=ph, tags=("preview_img",))
             preview_img_ref["ph"] = ph
-            prev_canvas.configure(scrollregion=(0, 0, max(iw, 1), max(ih, 1)))
+            _draw_resize_handle(iw, ih)
+            prev_canvas.configure(scrollregion=(0, 0, max(iw + 16, 1), max(ih + 16, 1)))
         except Exception as e:
-            if not silent:
-                messagebox.showerror("미리보기", str(e))
+            messagebox.showerror("미리보기", str(e))
 
-    def schedule_live_preview() -> None:
-        if live_preview_after_id[0] is not None:
-            root.after_cancel(live_preview_after_id[0])
-        live_preview_after_id[0] = root.after(120, lambda: do_preview(silent=True))
-
-    def do_save_preview_png() -> None:
+    def do_save() -> None:
         sync_form_to_layer()
-        d = Path(src_dir.get().strip())
-        if not d.is_dir():
-            messagebox.showwarning("저장", "원본 폴더를 선택하세요.")
+        src = _resolve_src_image()
+        if src is None:
+            messagebox.showwarning("저장", "원본 이미지 파일을 선택하세요.")
             return
-        files = sorted([p for p in d.iterdir() if p.suffix.lower() in _IMAGE_EXT], key=natural_sort_key)
-        if not files:
-            messagebox.showwarning("저장", "이미지 파일이 없습니다.")
-            return
+        od = Path(out_dir.get().strip())
+        if not od.is_dir():
+            try:
+                od.mkdir(parents=True, exist_ok=True)
+            except OSError as e:
+                messagebox.showerror("저장", f"저장 폴더를 만들 수 없습니다.\n{e}")
+                return
         try:
             tw, th = int(tw_var.get()), int(th_var.get())
         except ValueError:
             messagebox.showerror("저장", "가로·세로는 정수로 입력하세요.")
             return
-        p = filedialog.asksaveasfilename(
-            title="미리보기 이미지 저장 (PNG)",
-            defaultextension=".png",
-            filetypes=[("PNG", "*.png"), ("모든 파일", "*.*")],
-        )
-        if not p:
-            return
+        dst = od / f"thumb_{src.stem}.jpg"
         try:
-            render_thumbnail_layers(files[0], Path(p), tw=tw, th=th, layers=list(layers))
-            messagebox.showinfo("저장", f"PNG로 저장했습니다.\n{p}")
+            render_thumbnail_layers(src, dst, tw=tw, th=th, layers=list(layers))
+            messagebox.showinfo("저장", f"저장했습니다.\n{dst.resolve()}")
         except Exception as e:
             messagebox.showerror("저장", str(e))
 
-    def do_batch() -> None:
-        sync_form_to_layer()
-        d = Path(src_dir.get().strip())
-        od = Path(out_dir.get().strip())
-        if not d.is_dir() or not od.is_dir():
-            messagebox.showerror("생성", "원본 폴더와 저장 폴더를 모두 선택하세요.")
-            return
-        try:
-            tw, th = int(tw_var.get()), int(th_var.get())
-        except ValueError:
-            messagebox.showerror("생성", "가로·세로는 정수로 입력하세요.")
-            return
-        files = sorted([p for p in d.iterdir() if p.suffix.lower() in _IMAGE_EXT], key=natural_sort_key)
-        if not files:
-            messagebox.showwarning("생성", "원본에 이미지가 없습니다.")
-            return
-        n = 0
-        layer_copy = [dict(x) for x in layers]
-        for p in files:
-            dst = od / f"thumb_{p.stem}.jpg"
-            try:
-                render_thumbnail_layers(p, dst, tw=tw, th=th, layers=layer_copy)
-                n += 1
-            except Exception as e:
-                messagebox.showerror("생성", f"{p.name}: {e}")
-                return
-        messagebox.showinfo("생성", f"{n}개 저장했습니다.\n{od}")
+    prev_canvas.bind("<ButtonPress-1>", _on_resize_press)
+    prev_canvas.bind("<B1-Motion>", _on_resize_motion)
+    prev_canvas.bind("<ButtonRelease-1>", _on_resize_release)
 
     r = 0
-    ttk.Label(root, text="원본 이미지 폴더").grid(row=r, column=0, sticky="w", padx=8, pady=(8, 2))
-    ttk.Entry(root, textvariable=src_dir, width=48).grid(row=r, column=1, sticky="ew", padx=(0, 6))
+    ttk.Label(root, text="원본 이미지").grid(row=r, column=0, sticky="w", padx=8, pady=(8, 2))
+    ttk.Entry(root, textvariable=src_image, width=48).grid(row=r, column=1, sticky="ew", padx=(0, 6))
     ttk.Button(root, text="찾기…", command=pick_src).grid(row=r, column=2, padx=(0, 8))
     r += 1
     ttk.Label(root, text="저장 폴더").grid(row=r, column=0, sticky="w", padx=8, pady=2)
@@ -706,7 +758,6 @@ def main() -> None:
                 font_preset_var.set(vals[0])
             return
         sync_form_to_layer()
-        schedule_live_preview()
 
     cb_font.bind("<<ComboboxSelected>>", on_font_preset)
 
@@ -738,7 +789,6 @@ def main() -> None:
             else:
                 messagebox.showinfo("fonts 폴더", str(b))
             refresh_font_combobox()
-            schedule_live_preview()
         except OSError as e:
             messagebox.showerror("fonts 폴더", str(e))
 
@@ -749,13 +799,9 @@ def main() -> None:
     opt = ttk.Frame(root)
     opt.grid(row=r, column=0, columnspan=3, sticky="w", padx=8, pady=4)
     ttk.Label(opt, text="글자 크기").pack(side=tk.LEFT)
-    ent_size = ttk.Entry(opt, textvariable=size_var, width=6)
-    ent_size.pack(side=tk.LEFT, padx=(4, 16))
-    ent_size.bind("<KeyRelease>", lambda _e: schedule_live_preview())
+    ttk.Entry(opt, textvariable=size_var, width=6).pack(side=tk.LEFT, padx=(4, 16))
     ttk.Label(opt, text="색").pack(side=tk.LEFT)
-    ent_color = ttk.Entry(opt, textvariable=color_var, width=10)
-    ent_color.pack(side=tk.LEFT, padx=(4, 6))
-    color_var.trace_add("write", lambda *_a: schedule_live_preview())
+    ttk.Entry(opt, textvariable=color_var, width=10).pack(side=tk.LEFT, padx=(4, 6))
     ttk.Button(opt, text="색 선택…", command=pick_color).pack(side=tk.LEFT, padx=(0, 16))
     ttk.Label(opt, text="가장자리 여백(px)").pack(side=tk.LEFT)
     ttk.Entry(opt, textvariable=margin_var, width=6).pack(side=tk.LEFT, padx=(4, 0))
@@ -766,7 +812,6 @@ def main() -> None:
     posf.grid(row=r, column=1, columnspan=2, sticky="w", padx=(0, 8), pady=4)
     def on_anchor_change(*_args: object) -> None:
         sync_form_to_layer()
-        schedule_live_preview()
 
     anchor_var.trace_add("write", on_anchor_change)
     for aid, alab in anchors:
@@ -790,7 +835,6 @@ def main() -> None:
         L["offset_x"] = ox + dx
         L["offset_y"] = oy + dy
         sync_layer_to_form()
-        schedule_live_preview()
 
     micro = ttk.LabelFrame(root, text="텍스트 미세 위치 (앵커 기준 10px)")
     micro.grid(row=r, column=0, columnspan=3, sticky="ew", padx=8, pady=4)
@@ -808,13 +852,8 @@ def main() -> None:
 
     btns = ttk.Frame(root)
     btns.grid(row=r, column=0, columnspan=3, sticky="w", padx=8, pady=8)
-    ttk.Button(btns, text="미리보기", command=lambda: (sync_form_to_layer(), do_preview())).pack(side=tk.LEFT, padx=(0, 8))
-    ttk.Button(btns, text="저장 (PNG)", command=lambda: (sync_form_to_layer(), do_save_preview_png())).pack(
-        side=tk.LEFT, padx=(0, 8)
-    )
-    ttk.Button(btns, text="폴더 전체 생성 (thumb_이름.jpg)", command=lambda: (sync_form_to_layer(), do_batch())).pack(
-        side=tk.LEFT
-    )
+    ttk.Button(btns, text="미리보기", command=do_preview).pack(side=tk.LEFT, padx=(0, 8))
+    ttk.Button(btns, text="저장", command=do_save).pack(side=tk.LEFT, padx=(0, 8))
     r += 1
 
     lb_layers.bind("<<ListboxSelect>>", on_layer_select)
