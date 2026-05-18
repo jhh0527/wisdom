@@ -30,6 +30,16 @@ def flatten_for_chunking(text: str) -> str:
     return text.replace("\r\n", "\n").replace("\r", "\n").replace("\n", "")
 
 
+def count_chars_with_spaces(text: str) -> int:
+    """편집기 본문 기준 공백 포함 글자 수."""
+    return len(text)
+
+
+def count_chars_flattened(text: str) -> int:
+    """분할 저장 시 사용되는 연속 문자열(줄바꿈 제거)의 공백 포함 글자 수."""
+    return len(flatten_for_chunking(text))
+
+
 def resolve_output_dir() -> Path:
     """`1_textTo700Text/output/` 절대 경로를 반환합니다."""
     if getattr(sys, "frozen", False):
@@ -169,7 +179,7 @@ def run_gui() -> int:
     scroll_y.grid(row=1, column=1, sticky="ns", pady=(4, 8))
 
     row_opts = ttk.Frame(frm)
-    row_opts.grid(row=2, column=0, columnspan=2, sticky="ew", pady=(0, 6))
+    row_opts.grid(row=3, column=0, columnspan=2, sticky="ew", pady=(0, 6))
     row_opts.grid_columnconfigure(1, weight=1)
 
     ttk.Label(row_opts, text="저장 폴더(고정)").grid(row=0, column=0, sticky="nw", padx=(0, 6))
@@ -184,9 +194,19 @@ def run_gui() -> int:
     ttk.Entry(row_opts, textvariable=stem_var).grid(row=1, column=1, columnspan=2, sticky="ew", pady=(6, 0))
 
     row_btns = ttk.Frame(frm)
-    row_btns.grid(row=3, column=0, columnspan=2, sticky="ew", pady=(4, 6))
+    row_btns.grid(row=4, column=0, columnspan=2, sticky="ew", pady=(4, 6))
+
+    char_count_var = tk.StringVar(value="공백 포함 글자수: 0  |  분할 기준(줄바꿈 제거): 0")
+    ttk.Label(frm, textvariable=char_count_var).grid(row=2, column=0, columnspan=2, sticky="w", pady=(0, 4))
 
     status = tk.Label(frm, anchor=tk.W, justify=tk.LEFT, relief=tk.SUNKEN, padx=6, pady=4)
+
+    def update_char_count(_event=None) -> None:
+        body = _text_widget_content(text)
+        char_count_var.set(
+            f"공백 포함 글자수: {count_chars_with_spaces(body)}  |  "
+            f"분할 기준(줄바꿈 제거): {count_chars_flattened(body)}"
+        )
 
     def load_file() -> None:
         path = filedialog.askopenfilename(
@@ -205,6 +225,10 @@ def run_gui() -> int:
         text.insert("1.0", data)
         if not stem_var.get().strip():
             stem_var.set(p.stem)
+        update_char_count()
+
+    text.bind("<KeyRelease>", update_char_count)
+    text.bind("<<Paste>>", lambda _e: root.after_idle(update_char_count))
 
     def do_split_save() -> None:
         body = _text_widget_content(text)
@@ -237,8 +261,8 @@ def run_gui() -> int:
         command=do_split_save,
     ).pack(side=tk.LEFT)
 
-    status.grid(row=4, column=0, columnspan=2, sticky="ew")
-    frm.grid_rowconfigure(4, weight=0)
+    status.grid(row=5, column=0, columnspan=2, sticky="ew")
+    frm.grid_rowconfigure(5, weight=0)
 
     status.config(
         text=(
@@ -246,6 +270,7 @@ def run_gui() -> int:
             f"{output_dir} 에 저장합니다."
         ),
     )
+    update_char_count()
     root.mainloop()
     return 0
 
