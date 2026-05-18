@@ -624,8 +624,11 @@ def main() -> None:
 
     def _on_resize_release(_e: tk.Event) -> None:
         resize_drag["active"] = False
+        if _resolve_src_image() is not None:
+            do_preview()
 
     def do_preview() -> None:
+        """화면 미리보기만 갱신 (파일 저장 없음 — videoPG)."""
         sync_form_to_layer()
         src = _resolve_src_image()
         if src is None:
@@ -650,6 +653,7 @@ def main() -> None:
             messagebox.showerror("미리보기", str(e))
 
     def do_save() -> None:
+        """저장 버튼으로만 최종 이미지 파일을 씁니다."""
         sync_form_to_layer()
         src = _resolve_src_image()
         if src is None:
@@ -845,7 +849,7 @@ def main() -> None:
     ttk.Button(micro, text="우", width=4, command=lambda: nudge_offset(10, 0)).pack(side=tk.LEFT, padx=2)
     r += 1
 
-    ttk.Label(root, text="미리보기").grid(row=r, column=0, sticky="nw", padx=8, pady=6)
+    ttk.Label(root, text="미리보기 (저장 안 함)").grid(row=r, column=0, sticky="nw", padx=8, pady=6)
     prev_wrap.grid(row=r, column=1, columnspan=2, sticky="nsew", padx=(0, 8), pady=6)
     root.grid_rowconfigure(r, weight=1)
     r += 1
@@ -853,7 +857,8 @@ def main() -> None:
     btns = ttk.Frame(root)
     btns.grid(row=r, column=0, columnspan=3, sticky="w", padx=8, pady=8)
     ttk.Button(btns, text="미리보기", command=do_preview).pack(side=tk.LEFT, padx=(0, 8))
-    ttk.Button(btns, text="저장", command=do_save).pack(side=tk.LEFT, padx=(0, 8))
+    ttk.Button(btns, text="저장 (최종 저장)", command=do_save).pack(side=tk.LEFT, padx=(0, 8))
+    ttk.Label(btns, text="우하 모서리 핸들 드래그 → 가로·세로 조절").pack(side=tk.LEFT, padx=(8, 0))
     r += 1
 
     lb_layers.bind("<<ListboxSelect>>", on_layer_select)

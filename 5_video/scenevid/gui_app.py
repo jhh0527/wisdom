@@ -123,7 +123,6 @@ def main() -> None:
     nb.add(tab_c, text="산출물 합성 (SRT+MP3+이미지)")
     tab_c.grid_columnconfigure(0, weight=1)
 
-    assets_var = tk.StringVar()
     audio_var = tk.StringVar()
     srt_var = tk.StringVar()
     images_var = tk.StringVar()
@@ -147,36 +146,10 @@ def main() -> None:
         "effects_json_path": "",
     }
 
+    def _compose_assets_root() -> Path:
+        return wisdom_repo_root()
+
     r = 0
-    ttk.Label(tab_c, text="산출물 폴더 (part01.mp3, part01.srt, images/ 등)").grid(row=r, column=0, sticky="w")
-    r += 1
-    row_a = ttk.Frame(tab_c)
-    row_a.grid(row=r, column=0, columnspan=3, sticky="ew", pady=(0, 6))
-    row_a.grid_columnconfigure(0, weight=1)
-    ttk.Entry(row_a, textvariable=assets_var).grid(row=0, column=0, sticky="ew", padx=(0, 6))
-
-    def pick_assets() -> None:
-        p = filedialog.askdirectory(title="산출물 폴더")
-        if not p:
-            return
-        assets_var.set(p)
-        ap = Path(p)
-        da = default_compose_audio(ap)
-        audio_var.set(str(da) if da else "")
-        ds = default_compose_srt(ap, da)
-        srt_var.set(str(ds) if ds else "")
-        images_var.set(str(ap / "images"))
-        out_var.set(str(default_scenevid_compose_mp4()))
-        try:
-            cues = load_srt_cues_ms(Path(srt_var.get())) if srt_var.get().strip() else []
-            imgs = list_compose_images(Path(images_var.get())) if images_var.get().strip() else []
-            status_var.set(f"SRT 큐 {len(cues)}개 · 이미지 {len(imgs)}개")
-        except (OSError, ValueError):
-            status_var.set("경로를 확인하세요.")
-        timeline_refresh(silent=True)
-
-    ttk.Button(row_a, text="폴더…", command=pick_assets).grid(row=0, column=1)
-    r += 1
 
     def _row_labeled(label: str, var: tk.StringVar, pick_cmd) -> None:
         nonlocal r
@@ -312,15 +285,20 @@ def main() -> None:
         lb.delete(0, tk.END)
         lb_paths.clear()
         tl_state["ready"] = False
-        root_dir = Path(assets_var.get().strip()).resolve() if assets_var.get().strip() else wisdom_repo_root()
+        root_dir = _compose_assets_root()
         sp = Path(srt_var.get().strip()) if srt_var.get().strip() else None
         imd = Path(images_var.get().strip()) if images_var.get().strip() else None
-        aud = Path(audio_var.get().strip()) if audio_var.get().strip() else default_compose_audio(root_dir)
+        aud = Path(audio_var.get().strip()) if audio_var.get().strip() else None
+        if aud is None or not aud.is_file():
+            a_def, s_def = pick_default_compose_audio_srt()
+            aud = a_def
+            if sp is None or not sp.is_file():
+                sp = s_def
         sr = sp if sp and sp.is_file() else default_compose_srt(root_dir, aud)
-        img_dir = imd if imd and imd.is_dir() else root_dir / "images"
+        img_dir = imd if imd and imd.is_dir() else default_srt_image_output_dir()
         if not sr or not sr.is_file():
             if not silent:
-                messagebox.showwarning("타임라인", "SRT 파일을 지정하거나 산출물 폴더를 선택하세요.")
+                messagebox.showwarning("타임라인", "자막 SRT 파일을 지정하세요.")
             tl_state["ready"] = False
             update_effect_summary()
             return
@@ -677,7 +655,7 @@ def main() -> None:
         p = filedialog.askopenfilename(title="compose_overrides.json", filetypes=[("JSON", "*.json"), ("모든 파일", "*.*")])
         if not p:
             return
-        root_dir = Path(assets_var.get().strip()).resolve() if assets_var.get().strip() else wisdom_repo_root()
+        root_dir = _compose_assets_root()
         try:
             co, insl, cue_fx, img_fx = load_compose_overrides(Path(p), root_dir)
         except (OSError, ValueError) as e:
@@ -747,7 +725,7 @@ def main() -> None:
             messagebox.showwarning("JSON 효과", "먼저 타임라인을 불러오세요.")
             return
         imd = Path(images_var.get().strip()) if images_var.get().strip() else None
-        root_dir = Path(assets_var.get().strip()).resolve() if assets_var.get().strip() else wisdom_repo_root()
+        root_dir = _compose_assets_root()
         img_dir = imd if imd and imd.is_dir() else default_srt_image_output_dir()
         json_path = find_srt_image_effects_json(img_dir, root_dir, default_srt_image_output_dir())
         if not json_path:
@@ -904,7 +882,7 @@ def main() -> None:
 
     def run_compose_bg(progress_cb=None):
         prepend_local_ffmpeg_bin_to_os_path()
-        root_dir = Path(assets_var.get().strip()).resolve() if assets_var.get().strip() else wisdom_repo_root()
+        root_dir = _compose_assets_root()
         ap = Path(audio_var.get().strip()) if audio_var.get().strip() else None
         sp = Path(srt_var.get().strip()) if srt_var.get().strip() else None
         imd = Path(images_var.get().strip()) if images_var.get().strip() else None
@@ -1125,7 +1103,6 @@ def main() -> None:
 
     def apply_pipeline_defaults() -> None:
         """videoPG 기본 경로: TTS output / SRT 이미지 output / 5_video output."""
-        assets_var.set(str(wisdom_repo_root()))
         default_scenevid_output_dir().mkdir(parents=True, exist_ok=True)
         aud, sr = pick_default_compose_audio_srt()
         if aud:

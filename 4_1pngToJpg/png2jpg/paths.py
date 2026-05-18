@@ -33,20 +33,3 @@ def default_input_dir() -> Path:
         if cand.is_dir():
             return cand
     return root / "input"
-
-
-def default_srt_path() -> Path | None:
-    """기본 SRT: ``3_ttsToVoice/output/all.srt`` (없으면 part01.srt)."""
-    root = _project_root()
-    for p in root.parents:
-        out = p / "3_ttsToVoice" / "output"
-        if not out.is_dir():
-            continue
-        for name in ("all.srt", "part01.srt"):
-            cand = out / name
-            if cand.is_file():
-                return cand
-        srts = sorted(out.glob("*.srt"))
-        if srts:
-            return srts[0]
-    return None

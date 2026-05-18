@@ -27,17 +27,15 @@ def load_gui_settings() -> dict[str, str]:
     if not isinstance(data, dict):
         return {}
     out: dict[str, str] = {}
-    for key in ("input_dir", "output_dir", "srt_path"):
+    for key in ("input_dir", "output_dir"):
         v = data.get(key)
         if isinstance(v, str) and v.strip():
             out[key] = v.strip()
     return out
 
 
-def save_gui_settings(*, input_dir: str, output_dir: str, srt_path: str = "") -> None:
+def save_gui_settings(*, input_dir: str, output_dir: str) -> None:
     p = config_path()
     p.parent.mkdir(parents=True, exist_ok=True)
     data: dict[str, str] = {"input_dir": input_dir, "output_dir": output_dir}
-    if srt_path.strip():
-        data["srt_path"] = srt_path.strip()
     p.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
