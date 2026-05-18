@@ -10,6 +10,7 @@ from scenevid.subprocess_util import subprocess_run_no_window
 from scenevid.media_paths import ffmpeg_executable
 from scenevid.motion import build_image_motion_vf, scene_effective_motion
 from scenevid.schema import ProjectDoc, Scene
+from scenevid.subtitles import COMPOSE_SUBTITLE_FORCE_STYLE
 
 
 def resolve_ffmpeg_exe() -> str:
@@ -31,7 +32,8 @@ def _subtitle_path_filter_arg(srt: Path, *, ffmpeg_cwd: Path | None = None) -> s
     (3) 그 외는 ``filename=`` + POSIX 경로 를 씁니다.
     """
     s_abs = srt.resolve()
-    ch = "charenc=UTF-8"
+    fs = COMPOSE_SUBTITLE_FORCE_STYLE.replace("'", r"\'")
+    ch = f"charenc=UTF-8:force_style='{fs}'"
 
     def _with_filename(path_for_filter: str) -> str:
         # path_for_filter 안에 작은따옴표·콤마 등이 있으면 추가 이스케이프 필요할 수 있음

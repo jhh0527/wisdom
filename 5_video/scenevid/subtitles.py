@@ -5,6 +5,13 @@ from __future__ import annotations
 import re
 from pathlib import Path
 
+# videoPG / YouTube 1080p: 가독성 있는 하단 자막 (libass force_style)
+COMPOSE_SUBTITLE_FORCE_STYLE = (
+    "FontName=Malgun Gothic,FontSize=28,Bold=1,"
+    "PrimaryColour=&H00FFFFFF,OutlineColour=&H00000000,"
+    "BorderStyle=1,Outline=2,Shadow=0,MarginV=44,Alignment=2"
+)
+
 
 def seconds_to_srt_ts(sec: float) -> str:
     if sec < 0:
