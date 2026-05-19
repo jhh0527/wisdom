@@ -2,7 +2,8 @@
 """3_ttsToVoice: 원본 자막 + 길이로 SRT 생성.
 
 - `build_srt` / `build_srt_from_durations`: 줄별 길이는 글자 수 추정 또는 실측(ms)을 사용합니다.
-- `merge_srt_files`: 파트 SRT 병합 시 `part_mp3_paths` 를 넘기면 오프셋에 ffprobe 길이를 사용합니다.
+- `merge_srt_files`: all.srt 병합 시 큐 번호 = 타임라인 시작 시각의 정수 초(예: 00:07:29 → 449).
+  `part_mp3_paths` 를 넘기면 파트 경계 오프셋에 ffprobe 길이를 사용합니다.
 """
 
 from __future__ import annotations
@@ -86,6 +87,14 @@ def parse_srt_timestamp(ts: str) -> int:
     return ((h * 60 + mi) * 60 + s) * 1000 + z
 
 
+def cue_index_from_start_ms(start_ms: int) -> int:
+    """SRT 블록 첫 줄 번호: 시작 시각의 정수 초 (00:07:29,002 → 449).
+
+    ``4_srtToImage`` 의 ``SRT_449``·``5_video`` 의 ``images/srt_NN`` 매칭과 맞춥니다.
+    """
+    return max(0, int(start_ms) // 1000)
+
+
 def parse_srt_cues(content: str) -> list[tuple[int, int, str]]:
     """SRT 본문을 (start_ms, end_ms, text) 리스트로 파싱합니다."""
     cues: list[tuple[int, int, str]] = []
@@ -122,7 +131,6 @@ def merge_srt_files(
     from elsub.media_probe import ffprobe_duration_sec
 
     offset_ms = 0
-    out_idx = 1
     chunks: list[str] = []
     use_mp3 = (
         part_mp3_paths is not None
@@ -132,10 +140,12 @@ def merge_srt_files(
         cues = parse_srt_cues(path.read_text(encoding="utf-8"))
         if cues:
             for st, en, text in cues:
-                a = ms_to_ts(st + offset_ms)
-                b = ms_to_ts(en + offset_ms)
-                chunks.append(f"{out_idx}\n{a} --> {b}\n{text}\n")
-                out_idx += 1
+                abs_st = st + offset_ms
+                abs_en = en + offset_ms
+                cue_idx = cue_index_from_start_ms(abs_st)
+                a = ms_to_ts(abs_st)
+                b = ms_to_ts(abs_en)
+                chunks.append(f"{cue_idx}\n{a} --> {b}\n{text}\n")
         if use_mp3:
             mp = part_mp3_paths[i]  # type: ignore[index]
             try:
