@@ -409,7 +409,7 @@ def main() -> None:
                 def ok() -> None:
                     status.set("병합 완료")
                     log_line(f"all.mp3 ← {len(part_mp3s)}개 파트 (바이너리 이어붙임)")
-                    log_line(f"all.srt ← part*.srt 시간 오프셋 병합")
+                    log_line(f"all.srt ← part*.srt 병합 (큐 번호=시작 시각 초, 예: 00:07:29→449)")
                     log_line(f"all.json ← part*.json 메타 병합")
                     log_line(f"MP3: {all_mp3}")
                     log_line(f"SRT: {all_srt}")

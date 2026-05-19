@@ -309,13 +309,29 @@ def index_srt_numbered_images(images_dir: Path) -> dict[int, Path]:
     return idx
 
 
-def try_srt_numbered_image(images_dir: Path, map_id: int) -> Path | None:
-    """SRT 자막 번호 → 해당 번호의 이미지 파일.
+def image_stem_number(path: Path) -> int | None:
+    """``SRT_150.jpg`` → 150. 패턴에 맞지 않으면 ``None``."""
+    m = _SRT_IMAGE_STEM_RE.match(path.stem)
+    return int(m.group(1)) if m else None
 
-    파일명 인식은 :func:`index_srt_numbered_images` 와 동일합니다. 정확히 같은 번호의
-    파일이 없으면 ``None`` 을 반환합니다 (호출부에서 직전 이미지 캐리 등의 정책을 적용).
+
+def pick_image_for_srt_id(image_index: dict[int, Path], map_id: int) -> Path | None:
+    """SRT 표시 번호에 맞는 이미지: 파일 번호 ≤ SRT 번호 인 것 중 **가장 큰** 번호.
+
+    예: SRT 151 → ``SRT_150.jpg`` (150≤151 중 최대, 120은 제외).
+    SRT 449 → ``SRT_150.jpg`` (150≤449 중 최대). ``SRT_449.jpg`` 가 있으면 449 사용.
+    SRT보다 작은 번호의 이미지가 하나도 없으면 ``None``.
     """
-    return index_srt_numbered_images(images_dir).get(int(map_id))
+    mid = int(map_id)
+    leq = [n for n in image_index if n <= mid]
+    if not leq:
+        return None
+    return image_index[max(leq)]
+
+
+def try_srt_numbered_image(images_dir: Path, map_id: int) -> Path | None:
+    """SRT 자막 번호 → 매칭 이미지 (번호 ≤ SRT 인 것 중 최대 번호)."""
+    return pick_image_for_srt_id(index_srt_numbered_images(images_dir), map_id)
 
 
 def per_cue_images_srt_mapping(
@@ -325,8 +341,9 @@ def per_cue_images_srt_mapping(
 ) -> list[Path | None]:
     """큐 재생 순서대로 각 구간에 쓸 이미지 경로.
 
-    - 기본: SRT 자막 번호와 같은 번호의 이미지(``srt_NN`` / ``SRT_NNN`` 등)가 있으면 사용.
-    - 해당 번호 이미지가 없으면 직전 구간과 같은 이미지를 유지합니다. 첫 구간부터 매치되는
+    - 기본: 이미지 파일 번호 ≤ SRT 표시 번호 인 것 중 **가장 큰** 번호의 이미지를 사용
+      (예: SRT 449 → ``SRT_150``; ``SRT_449`` 가 있으면 그것 우선).
+    - 그런 이미지가 없으면 직전 구간과 같은 이미지를 유지합니다. 첫 구간부터 매치되는
       파일이 없으면 ``None`` (검은 화면)입니다.
     - ``compose_overrides.json`` 의 ``cue_images``: 블록 순번(1…) 또는 SRT 표시 번호 키 모두 허용.
     - 오버라이드가 ``null`` (검은 화면)이면 해당 구간만 검정이며, 다음 구간의 "이전 이미지" 캐리 값은 바꾸지 않습니다.
@@ -343,7 +360,9 @@ def per_cue_images_srt_mapping(
                 out.append(ov)
                 last = ov
             continue
-        hit = image_index.get(int(mid))
+        # SRT가 커지면 더 큰 번호의 키프레임 이미지로 갱신 (예: 147→120, 151→150).
+        # 직전 이미지 유지는 pick 결과가 없을 때만 적용합니다.
+        hit = pick_image_for_srt_id(image_index, mid)
         if hit is not None:
             out.append(hit)
             last = hit

@@ -16,11 +16,11 @@ from scenevid.compose_overrides import (
     default_overrides_path,
     is_compose_video_path,
     load_compose_overrides,
+    image_stem_number,
     per_cue_images_srt_mapping,
     resolve_cue_effect_override,
     resolved_motion_effects_per_cue,
     save_compose_overrides_json,
-    try_srt_numbered_image,
 )
 from scenevid.compose_render import (
     default_compose_audio,
@@ -150,15 +150,19 @@ def main() -> None:
         return wisdom_repo_root()
 
     r = 0
+    _compose_entries: dict[str, ttk.Entry] = {}
 
-    def _row_labeled(label: str, var: tk.StringVar, pick_cmd) -> None:
+    def _row_labeled(label: str, var: tk.StringVar, pick_cmd, *, entry_key: str | None = None) -> None:
         nonlocal r
         ttk.Label(tab_c, text=label).grid(row=r, column=0, columnspan=3, sticky="w")
         r += 1
         fr = ttk.Frame(tab_c)
         fr.grid(row=r, column=0, columnspan=3, sticky="ew", pady=(0, 6))
         fr.grid_columnconfigure(0, weight=1)
-        ttk.Entry(fr, textvariable=var).grid(row=0, column=0, sticky="ew", padx=(0, 6))
+        ent = ttk.Entry(fr, textvariable=var)
+        ent.grid(row=0, column=0, sticky="ew", padx=(0, 6))
+        if entry_key:
+            _compose_entries[entry_key] = ent
         ttk.Button(fr, text="찾기…", command=pick_cmd).grid(row=0, column=1)
         r += 1
 
@@ -218,7 +222,7 @@ def main() -> None:
 
     _row_labeled("오디오 MP3", audio_var, pick_audio)
     _row_labeled("자막 SRT", srt_var, pick_srt)
-    _row_labeled("이미지·영상 폴더", images_var, pick_images_dir)
+    _row_labeled("이미지·영상 폴더", images_var, pick_images_dir, entry_key="images")
     _row_labeled("출력 MP4", out_var, pick_out)
 
     def _fmt_ms(t0: int, t1: int) -> str:
@@ -226,7 +230,7 @@ def main() -> None:
 
     ttk.Label(
         tab_c,
-        text="구간별 이미지 — SRT 첫 줄 번호와 images/SRT_NNN.* (또는 srt_N.*) 파일 번호가 대응합니다. 없으면 직전 이미지 유지. (큐 선택 후 오른쪽 더블클릭 또는 「팔레트 적용」)",
+        text="구간별 이미지 — images/SRT_NNN.* 번호가 SRT 표시 번호 이하일 때, 그중 가장 큰 번호로 매칭(예: SRT 449→SRT_150). 없으면 직전 이미지 유지.",
     ).grid(row=r, column=0, columnspan=3, sticky="w")
     r += 1
     row_tl = ttk.Frame(tab_c)
@@ -394,28 +398,44 @@ def main() -> None:
                 (ins.subtitle or "")[:36],
                 f"ins-{j}",
             )
+        prev_mapped_img: Path | None = None
         for i in range(1, n + 1):
             mid, t0, t1, _txt = cues[i - 1]
             eff_img = resolved[i - 1]
-            hit = try_srt_numbered_image(img_dir, mid)
+            rfx_tok = carried_fx[i - 1]
+            rfx = _fx_disp(rfx_tok)
             has_ov = i in cue_ov or mid in cue_ov
             if eff_img is None:
                 if has_ov and ((i in cue_ov and cue_ov[i] is None) or (mid in cue_ov and cue_ov[mid] is None)):
                     disp, hint = "(검은 화면)", "검정"
                 else:
                     disp, hint = "(검은 화면)", "이미지 없음"
+                prev_mapped_img = None
             else:
                 disp = eff_img.name
+                try:
+                    eff_resolved = eff_img.resolve()
+                except OSError:
+                    eff_resolved = eff_img
                 if i in cue_ov and cue_ov[i] is not None:
                     hint = "교체(순번)"
+                    prev_mapped_img = eff_resolved
                 elif mid in cue_ov and cue_ov[mid] is not None:
                     hint = "교체(SRT번호)"
-                elif hit is not None and eff_img.resolve() == hit.resolve():
-                    hint = f"SRT {mid} 매핑"
+                    prev_mapped_img = eff_resolved
                 else:
-                    hint = "이전 유지"
-            rfx_tok = carried_fx[i - 1]
-            rfx = _fx_disp(rfx_tok)
+                    img_n = image_stem_number(eff_img)
+                    same_image = prev_mapped_img is not None and eff_resolved == prev_mapped_img
+                    if same_image:
+                        hint = "이전 유지"
+                    elif img_n is not None and img_n == mid:
+                        hint = f"SRT {mid} 매핑"
+                    elif img_n is not None:
+                        fx_label = rfx if rfx and rfx != "고정" else ""
+                        hint = f"{fx_label} 이미지 {img_n} (≤SRT {mid})".strip()
+                    else:
+                        hint = "이전 유지"
+                    prev_mapped_img = eff_resolved
             if mid in json_fx_map:
                 hint = f"{hint} · JSON"
             seq += 1
@@ -444,6 +464,44 @@ def main() -> None:
             f"타임라인 {seq}행 · SRT {n}큐 · 이미지 {len(imgs)}개 (SRT 번호 매핑){json_src_msg}"
         )
         update_effect_summary()
+
+    _images_path_refresh_job: list[str | None] = [None]
+
+    def _refresh_timeline_if_images_dir_valid() -> None:
+        p = images_var.get().strip()
+        if not p:
+            return
+        try:
+            if not Path(p).is_dir():
+                return
+        except OSError:
+            return
+        timeline_refresh(silent=True)
+
+    def _schedule_timeline_refresh_on_images_path() -> None:
+        job = _images_path_refresh_job[0]
+        if job is not None:
+            try:
+                root.after_cancel(job)
+            except tk.TclError:
+                pass
+
+        def _run() -> None:
+            _images_path_refresh_job[0] = None
+            _refresh_timeline_if_images_dir_valid()
+
+        _images_path_refresh_job[0] = root.after(350, _run)
+
+    def _bind_images_folder_auto_refresh() -> None:
+        ent = _compose_entries.get("images")
+        if ent is None:
+            return
+        ent.bind("<FocusOut>", lambda _e: _refresh_timeline_if_images_dir_valid())
+        ent.bind("<Return>", lambda _e: _refresh_timeline_if_images_dir_valid())
+        ent.bind("<KP_Enter>", lambda _e: _refresh_timeline_if_images_dir_valid())
+        images_var.trace_add("write", lambda *_a: _schedule_timeline_refresh_on_images_path())
+
+    _bind_images_folder_auto_refresh()
 
     row_tl_btns = ttk.Frame(tab_c)
     row_tl_btns.grid(row=r, column=0, columnspan=3, sticky="ew", pady=(0, 6))

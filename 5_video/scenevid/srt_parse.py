@@ -21,7 +21,7 @@ def _srt_image_map_id(first_line: str, ordinal: int) -> int:
     s = first_line.strip()
     if s.isdigit():
         n = int(s)
-        if n >= 1:
+        if n >= 0:
             return n
     return ordinal
 
