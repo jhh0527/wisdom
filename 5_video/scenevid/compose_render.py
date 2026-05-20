@@ -121,6 +121,7 @@ def _compose_video_vf(
     *,
     burn_subtitles: bool,
     subtitle_cwd: Path | None = None,
+    play_res: tuple[int, int] | None = None,
     motion_span_sec: float | None = None,
     motion_phase_sec: float | None = None,
 ) -> str:
@@ -134,7 +135,8 @@ def _compose_video_vf(
         motion_phase_sec=motion_phase_sec,
     )
     if burn_subtitles and srt is not None:
-        return base + "," + _subtitle_path_filter_arg(srt, ffmpeg_cwd=subtitle_cwd)
+        pr = play_res if play_res is not None else (w, h)
+        return base + "," + _subtitle_path_filter_arg(srt, ffmpeg_cwd=subtitle_cwd, play_res=pr)
     return base
 
 
@@ -157,7 +159,7 @@ def render_compose_black_clip(
 
     if burn_subtitles and (cue_text or "").strip():
         write_single_cue_srt(work_srt, cue_text, dur)
-        vf = f"format=yuv420p,{_subtitle_path_filter_arg(work_srt, ffmpeg_cwd=out_mp4.parent)}"
+        vf = f"format=yuv420p,{_subtitle_path_filter_arg(work_srt, ffmpeg_cwd=out_mp4.parent, play_res=(w, h))}"
     else:
         vf = "format=yuv420p"
 
@@ -349,7 +351,7 @@ def render_compose_video_clip(
     scale_pad = _compose_scale_pad_vf(w, h)
     if burn_subtitles:
         write_single_cue_srt(work_srt, cue_text, dur)
-        sub = _subtitle_path_filter_arg(work_srt, ffmpeg_cwd=out_mp4.parent)
+        sub = _subtitle_path_filter_arg(work_srt, ffmpeg_cwd=out_mp4.parent, play_res=(w, h))
         vchain = f"{scale_pad},{sub},trim=duration={dur:.6f},setpts=PTS-STARTPTS"
     else:
         vchain = f"{scale_pad},trim=duration={dur:.6f},setpts=PTS-STARTPTS"
@@ -563,7 +565,7 @@ def render_compose_from_assets(
     ``compose_overrides.json`` 의 ``cue_effects``·``image_effects``(또는 override)로 효과를 지정할 수 있습니다.
     같은 정지 이미지가 연속된 SRT 큐에 걸쳐 있으면 줌/팬 효과는 그 연속 구간 전체에 대해 한 번만 재생되며,
     각 클립은 그 타임라인의 일부만 잘라 씁니다(큐마다 효과가 처음부터 반복되지 않음).
-    우선순위: 큐별 ``cue_effects`` → (이전 큐와 같은 이미지면 이전 큐에 적용된 효과 유지) → ``image_effects`` → ``compose_effects.txt``/기본값."""
+    우선순위: (직전 큐와 같은 이미지면 효과 유지) → 큐별 ``cue_effects`` → ``image_effects`` → ``compose_effects.txt``/기본값."""
     if not audio_mp3.is_file():
         raise FileNotFoundError(f"오디오 없음: {audio_mp3}")
     if not srt_path.is_file():

@@ -5,11 +5,11 @@ from __future__ import annotations
 import re
 from pathlib import Path
 
-# videoPG / YouTube 1080p: 가독성 있는 하단 자막 (libass force_style)
+# 1080p YouTube 채널형: 약간 작은 글자, 하단 여백 조금 줄여 더 아래 (libass force_style)
 COMPOSE_SUBTITLE_FORCE_STYLE = (
-    "FontName=Malgun Gothic,FontSize=28,Bold=1,"
+    "FontName=Malgun Gothic,FontSize=25,Bold=1,"
     "PrimaryColour=&H00FFFFFF,OutlineColour=&H00000000,"
-    "BorderStyle=1,Outline=2,Shadow=0,MarginV=44,Alignment=2"
+    "BorderStyle=1,Outline=2,Shadow=0,MarginV=32,Alignment=2"
 )
 
 
