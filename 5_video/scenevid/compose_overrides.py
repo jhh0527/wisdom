@@ -9,7 +9,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
-from scenevid.motion import normalize_effect
+from scenevid.motion import _same_compose_image_path, normalize_effect
 
 # 이미지·영상 파일 확장자 (SRT 번호 매핑·팔레트)
 COMPOSE_IMAGE_EXTS: tuple[str, ...] = (".png", ".jpg", ".jpeg", ".webp", ".bmp")
@@ -236,10 +236,10 @@ def resolved_motion_effects_per_cue(
 ) -> list[str]:
     """큐별 최종 모션 토큰.
 
-    큐에 직접 지정한 효과가 있으면 그대로 쓰고, 없으면 해석된 이미지가
-    이전 큐와 같을 때(연속 캐리) 이전 큐에 적용된 효과를 이어 씁니다.
-    이미지가 바뀌면 다시 ``image_effects`` / ``compose_effects`` 줄을 따릅니다.
-    검은 구간(이미지 없음)은 이어받지 않으며, 이전에 보이던 이미지·효과 상태는 유지됩니다.
+    직전 큐와 해석된 이미지 경로가 같으면(이전 유지) 모션 토큰도 그대로 이어 씁니다.
+    이미지가 바뀐 큐만 ``cue_effects`` → ``image_effects`` → ``compose_effects`` 줄 순으로
+    새 효과를 고릅니다. 검은 구간(이미지 없음)은 효과를 이어받지 않으며,
+    직전에 보이던 이미지·효과 상태는 다음 이미지 큐까지 유지됩니다.
     """
     n = len(map_ids)
     if n == 0:
@@ -260,21 +260,17 @@ def resolved_motion_effects_per_cue(
             prev_img = img
             prev_eff = "none"
             continue
-        ov = resolve_cue_effect_override(cue_i, mid, cue_fx)
-        if ov is not None:
-            e = normalize_effect(ov)
-        elif img is not None and prev_img is not None:
-            try:
-                same = img.resolve() == prev_img.resolve()
-            except OSError:
-                same = False
-            if same:
-                e = prev_eff
-            else:
+        if img is not None and _same_compose_image_path(img, prev_img):
+            e = prev_eff
+        else:
+            ov = resolve_cue_effect_override(cue_i, mid, cue_fx)
+            if ov is not None:
+                e = normalize_effect(ov)
+            elif img is not None:
                 ik = str(img.resolve())
                 e = normalize_effect(img_fx[ik]) if ik in img_fx else normalize_effect(eff_lines[i])
-        else:
-            e = normalize_effect(eff_lines[i])
+            else:
+                e = normalize_effect(eff_lines[i])
         out.append(e)
         if img is not None:
             prev_img = img

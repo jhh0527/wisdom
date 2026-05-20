@@ -1,5 +1,4 @@
 {
-  "input_dir": "C:/intellij/wisdom/4_1pngToJpg/input/닮다_final_20260519_004502",
-  "output_dir": "C:\\intellij\\wisdom\\4_srtToImage\\output",
-  "srt_path": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\all.srt"
+  "input_dir": "C:\\intellij\\wisdom\\4_1pngToJpg\\input",
+  "output_dir": "C:\\intellij\\wisdom\\4_srtToImage\\output"
 }

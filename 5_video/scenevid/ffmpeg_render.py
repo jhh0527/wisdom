@@ -23,17 +23,31 @@ def resolve_ffmpeg_exe() -> str:
     return ff
 
 
-def _subtitle_path_filter_arg(srt: Path, *, ffmpeg_cwd: Path | None = None) -> str:
-    """subtitles 필터용 ``filename=…:charenc=UTF-8`` 문자열.
+def _escape_ffmpeg_force_style(style: str) -> str:
+    """FFmpeg 필터 옵션 구분자(쉼표)와 충돌하지 않도록 ASS force_style 이스케이프."""
+    return style.replace("\\", r"\\").replace(",", r"\,").replace("'", r"\'")
+
+
+def _subtitle_path_filter_arg(
+    srt: Path,
+    *,
+    ffmpeg_cwd: Path | None = None,
+    play_res: tuple[int, int] = (1920, 1080),
+) -> str:
+    """subtitles 필터용 ``filename=…:charenc=UTF-8:force_style=…`` 문자열.
 
     FFmpeg 8.x 는 ``subtitles='C:/…'`` 처럼 드라이브 글자 앞뒤가 잘려 ``original_size`` 등으로
     잘못 해석하는 경우가 있어, (1) ffmpeg cwd 와 같은 디렉터리면 **파일명만**,
     (2) 그 외 Windows 절대 경로는 ``filename=C\\:/path`` (movie 필터와 동일한 ``\\:`` 이스케이프),
     (3) 그 외는 ``filename=`` + POSIX 경로 를 씁니다.
+
+    ``force_style`` 안의 쉼표는 ``\\,`` 로 이스케이프하지 않으면 ``FontSize`` 등이 잘려
+    libass 기본 크기만 적용됩니다(스타일 변경이 영상에 반영되지 않음).
     """
     s_abs = srt.resolve()
-    fs = COMPOSE_SUBTITLE_FORCE_STYLE.replace("'", r"\'")
-    ch = f"charenc=UTF-8:force_style='{fs}'"
+    pw, ph = play_res
+    fs = _escape_ffmpeg_force_style(COMPOSE_SUBTITLE_FORCE_STYLE)
+    ch = f"charenc=UTF-8:original_size={pw}x{ph}:force_style='{fs}'"
 
     def _with_filename(path_for_filter: str) -> str:
         # path_for_filter 안에 작은따옴표·콤마 등이 있으면 추가 이스케이프 필요할 수 있음
@@ -87,7 +101,11 @@ def render_one_scene(
     if burn_subtitles and scene.narration.strip():
         if not srt.is_file():
             write_scene_srt(srt, scene.narration, duration)
-        sub_vf = "," + _subtitle_path_filter_arg(srt, ffmpeg_cwd=root)
+        sub_vf = "," + _subtitle_path_filter_arg(
+            srt,
+            ffmpeg_cwd=root,
+            play_res=(doc.settings.width, doc.settings.height),
+        )
     else:
         sub_vf = ""
 
