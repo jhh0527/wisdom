@@ -1,0 +1,71 @@
+{
+  "part_id": "14",
+  "part_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\part14.mp3",
+  "part_srt": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\part14.srt",
+  "model_id": "eleven_multilingual_v2",
+  "merge_method": "ffmpeg",
+  "segment_count": 6,
+  "duration_ms_estimate": 17200,
+  "segments": [
+    {
+      "index": 1,
+      "caption_id": "14-1",
+      "original": "[short pause][breathes][continues]다음번에 한 장의 김을 먹을 때, 다시",
+      "tts": "[short pause][breathes][continues]다음번에 한 장의 김을 먹을 때, 다시",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part14_0001.mp3",
+      "duration_ms_estimate": 2914,
+      "start_ms_estimate": 0,
+      "end_ms_estimate": 2914
+    },
+    {
+      "index": 2,
+      "caption_id": "14-2",
+      "original": "한 번 생각해보세요. 당신은 한국의 바다를",
+      "tts": "한 번 생각해보세요. 당신은 한국의 바다를",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part14_0002.mp3",
+      "duration_ms_estimate": 3148,
+      "start_ms_estimate": 2914,
+      "end_ms_estimate": 6062
+    },
+    {
+      "index": 3,
+      "caption_id": "14-3",
+      "original": "맛보고 있어요. 당신은 계절의 신비를 경험하고",
+      "tts": "맛보고 있어요. 당신은 계절의 신비를 경험하고",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part14_0003.mp3",
+      "duration_ms_estimate": 3431,
+      "start_ms_estimate": 6062,
+      "end_ms_estimate": 9493
+    },
+    {
+      "index": 4,
+      "caption_id": "14-4",
+      "original": "있어요. 당신은 누군가의 정성 어린 손길을 받고",
+      "tts": "있어요. 당신은 누군가의 정성 어린 손길을 받고",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part14_0004.mp3",
+      "duration_ms_estimate": 3431,
+      "start_ms_estimate": 9493,
+      "end_ms_estimate": 12924
+    },
+    {
+      "index": 5,
+      "caption_id": "14-5",
+      "original": "있어요. 그것이 바로 한국 김의 진정한",
+      "tts": "있어요. 그것이 바로 한국 김의 진정한[breathes]",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part14_0005.mp3",
+      "duration_ms_estimate": 2679,
+      "start_ms_estimate": 12924,
+      "end_ms_estimate": 15603
+    },
+    {
+      "index": 6,
+      "caption_id": "14-6",
+      "original": "가치입니다. 감사합니다.",
+      "tts": "가치입니다. 감사합니다.",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part14_0006.mp3",
+      "duration_ms_estimate": 1597,
+      "start_ms_estimate": 15603,
+      "end_ms_estimate": 17200
+    }
+  ]
+}

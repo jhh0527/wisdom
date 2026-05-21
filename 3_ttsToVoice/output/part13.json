@@ -1,0 +1,141 @@
+{
+  "part_id": "13",
+  "part_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\part13.mp3",
+  "part_srt": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\part13.srt",
+  "model_id": "eleven_multilingual_v2",
+  "merge_method": "ffmpeg",
+  "segment_count": 13,
+  "duration_ms_estimate": 40496,
+  "segments": [
+    {
+      "index": 1,
+      "caption_id": "13-1",
+      "original": "[short pause][breathes][continues]마지막으로 이 모든 것을 정리해보면,",
+      "tts": "[short pause][breathes][continues]마지막으로 이 모든 것을 정리해보면,",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part13_0001.mp3",
+      "duration_ms_estimate": 2769,
+      "start_ms_estimate": 0,
+      "end_ms_estimate": 2769
+    },
+    {
+      "index": 2,
+      "caption_id": "13-2",
+      "original": "한국 김이 세계 최고인 이유는 이겁니다.",
+      "tts": "한국 김이 세계 최고인 이유는 이겁니다.",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part13_0002.mp3",
+      "duration_ms_estimate": 2628,
+      "start_ms_estimate": 2769,
+      "end_ms_estimate": 5397
+    },
+    {
+      "index": 3,
+      "caption_id": "13-3",
+      "original": "최적의 자연환경, 옳은 계절의 선택, 정성스러운",
+      "tts": "최적의 자연환경, 옳은 계절의 선택, 정성스러운",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part13_0003.mp3",
+      "duration_ms_estimate": 4646,
+      "start_ms_estimate": 5397,
+      "end_ms_estimate": 10043
+    },
+    {
+      "index": 4,
+      "caption_id": "13-4",
+      "original": "손의 작업, 전통과 현대의 완벽한 조화, 그리고",
+      "tts": "손의 작업, 전통과 현대의 완벽한 조화, 그리고",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part13_0004.mp3",
+      "duration_ms_estimate": 4130,
+      "start_ms_estimate": 10043,
+      "end_ms_estimate": 14173
+    },
+    {
+      "index": 5,
+      "caption_id": "13-5",
+      "original": "무엇보다 음식을 만드는 사람들의 사랑입니다.",
+      "tts": "무엇보다 음식을 만드는 사람들의 사랑입니다.[breathes]",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part13_0005.mp3",
+      "duration_ms_estimate": 3050,
+      "start_ms_estimate": 14173,
+      "end_ms_estimate": 17223
+    },
+    {
+      "index": 6,
+      "caption_id": "13-6",
+      "original": "새벽 시간에 일어나는 어부들, 차가운 바다 속에서",
+      "tts": "새벽 시간에 일어나는 어부들, 차가운 바다 속에서",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part13_0006.mp3",
+      "duration_ms_estimate": 3473,
+      "start_ms_estimate": 17223,
+      "end_ms_estimate": 20696
+    },
+    {
+      "index": 7,
+      "caption_id": "13-7",
+      "original": "하루종일 일하는 사람들, 공장에서 밤새도록",
+      "tts": "하루종일 일하는 사람들, 공장에서 밤새도록",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part13_0007.mp3",
+      "duration_ms_estimate": 3237,
+      "start_ms_estimate": 20696,
+      "end_ms_estimate": 23933
+    },
+    {
+      "index": 8,
+      "caption_id": "13-8",
+      "original": "건조 과정을 지켜보는 아주머니들.",
+      "tts": "건조 과정을 지켜보는 아주머니들.",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part13_0008.mp3",
+      "duration_ms_estimate": 2346,
+      "start_ms_estimate": 23933,
+      "end_ms_estimate": 26279
+    },
+    {
+      "index": 9,
+      "caption_id": "13-9",
+      "original": "이 모든 사람들이 생각하는 것은 한 가지예요.",
+      "tts": "이 모든 사람들이 생각하는 것은 한 가지예요.",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part13_0009.mp3",
+      "duration_ms_estimate": 2815,
+      "start_ms_estimate": 26279,
+      "end_ms_estimate": 29094
+    },
+    {
+      "index": 10,
+      "caption_id": "13-10",
+      "original": "\"누군가의 밥상에 올라갈 음식. 그 누군가가",
+      "tts": "\"누군가의 밥상에 올라갈 음식. 그 누군가가",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part13_0010.mp3",
+      "duration_ms_estimate": 3519,
+      "start_ms_estimate": 29094,
+      "end_ms_estimate": 32613
+    },
+    {
+      "index": 11,
+      "caption_id": "13-11",
+      "original": "맛있게 먹고, 행복해했으면 좋겠다\"는 마음",
+      "tts": "맛있게 먹고, 행복해했으면 좋겠다\"는 마음[breathes]",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part13_0011.mp3",
+      "duration_ms_estimate": 3895,
+      "start_ms_estimate": 32613,
+      "end_ms_estimate": 36508
+    },
+    {
+      "index": 12,
+      "caption_id": "13-12",
+      "original": "말이에요. 이 마음이 바로 한국 김을 세계",
+      "tts": "말이에요. 이 마음이 바로 한국 김을 세계",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part13_0012.mp3",
+      "duration_ms_estimate": 2346,
+      "start_ms_estimate": 36508,
+      "end_ms_estimate": 38854
+    },
+    {
+      "index": 13,
+      "caption_id": "13-13",
+      "original": "최고로 만드는 것입니다.",
+      "tts": "최고로 만드는 것입니다.",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part13_0013.mp3",
+      "duration_ms_estimate": 1642,
+      "start_ms_estimate": 38854,
+      "end_ms_estimate": 40496
+    }
+  ]
+}

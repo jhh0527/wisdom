@@ -1,0 +1,151 @@
+{
+  "part_id": "3",
+  "part_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\part03.mp3",
+  "part_srt": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\part03.srt",
+  "model_id": "eleven_multilingual_v2",
+  "merge_method": "ffmpeg",
+  "segment_count": 14,
+  "duration_ms_estimate": 37640,
+  "segments": [
+    {
+      "index": 1,
+      "caption_id": "3-1",
+      "original": "[short pause][breathes][continues]왜 이렇게 고집스럽게 겨울 시즌에만",
+      "tts": "[short pause][breathes][continues]왜 이렇게 고집스럽게 겨울 시즌에만",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part03_0001.mp3",
+      "duration_ms_estimate": 2541,
+      "start_ms_estimate": 0,
+      "end_ms_estimate": 2541
+    },
+    {
+      "index": 2,
+      "caption_id": "3-2",
+      "original": "할까요? 이건 우연이 아니라, 경험에서 나온",
+      "tts": "할까요? 이건 우연이 아니라, 경험에서 나온",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part03_0002.mp3",
+      "duration_ms_estimate": 2682,
+      "start_ms_estimate": 2541,
+      "end_ms_estimate": 5223
+    },
+    {
+      "index": 3,
+      "caption_id": "3-3",
+      "original": "지혜입니다. 사실 따뜻한 물에서도 김은",
+      "tts": "지혜입니다. 사실 따뜨한 물에서도 김은",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part03_0003.mp3",
+      "duration_ms_estimate": 2776,
+      "start_ms_estimate": 5223,
+      "end_ms_estimate": 7999
+    },
+    {
+      "index": 4,
+      "caption_id": "3-4",
+      "original": "자랄 수 있어요. 하지만 그렇게 자란 김은",
+      "tts": "자랄 수 있어요. 하지만 그렇게 자란 김은",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part03_0004.mp3",
+      "duration_ms_estimate": 2682,
+      "start_ms_estimate": 7999,
+      "end_ms_estimate": 10681
+    },
+    {
+      "index": 5,
+      "caption_id": "3-5",
+      "original": "맛이 달라요. 겨울의 찬물에서 자란 김과는",
+      "tts": "맛이 달라요. 겨울의 찬물에서 자란 김과는",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part03_0005.mp3",
+      "duration_ms_estimate": 3434,
+      "start_ms_estimate": 10681,
+      "end_ms_estimate": 14115
+    },
+    {
+      "index": 6,
+      "caption_id": "3-6",
+      "original": "비교가 안 된다는 거죠. 왜 그럴까요?",
+      "tts": "비교가 안 된다는 거죠. 왜 그럴까요?[breathes]",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part03_0006.mp3",
+      "duration_ms_estimate": 2306,
+      "start_ms_estimate": 14115,
+      "end_ms_estimate": 16421
+    },
+    {
+      "index": 7,
+      "caption_id": "3-7",
+      "original": "이걸 이해하려면 포도주를 생각해보면 돼요.",
+      "tts": "이걸 이해하려면 포도주를 생각해보면 돼요.",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part03_0007.mp3",
+      "duration_ms_estimate": 3059,
+      "start_ms_estimate": 16421,
+      "end_ms_estimate": 19480
+    },
+    {
+      "index": 8,
+      "caption_id": "3-8",
+      "original": "포도주가 깊은 맛을 가지려면 시간이",
+      "tts": "포도주가 깊은 맛을 가지려면 시간이",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part03_0008.mp3",
+      "duration_ms_estimate": 2541,
+      "start_ms_estimate": 19480,
+      "end_ms_estimate": 22021
+    },
+    {
+      "index": 9,
+      "caption_id": "3-9",
+      "original": "필요하잖아요. 마찬가지로 김도 천천히",
+      "tts": "필요하잖아요. 마찬가지로 김도 천천히",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part03_0009.mp3",
+      "duration_ms_estimate": 2306,
+      "start_ms_estimate": 22021,
+      "end_ms_estimate": 24327
+    },
+    {
+      "index": 10,
+      "caption_id": "3-10",
+      "original": "성숙해야 진정한 맛이 나는 거예요.",
+      "tts": "성숙해야 진정한 맛이 나는 거예요.",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part03_0010.mp3",
+      "duration_ms_estimate": 2682,
+      "start_ms_estimate": 24327,
+      "end_ms_estimate": 27009
+    },
+    {
+      "index": 11,
+      "caption_id": "3-11",
+      "original": "겨울의 찬물은 김의 성장을 더디게 하지만,",
+      "tts": "겨울의 찬물은 김의 성장을 더디게 하지만,[breathes]",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part03_0011.mp3",
+      "duration_ms_estimate": 3011,
+      "start_ms_estimate": 27009,
+      "end_ms_estimate": 30020
+    },
+    {
+      "index": 12,
+      "caption_id": "3-12",
+      "original": "동시에 그 안에 더 많은 영양분과 풍미를",
+      "tts": "동시에 그 안에 더 많은 영양분과 풍미를",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part03_0012.mp3",
+      "duration_ms_estimate": 3294,
+      "start_ms_estimate": 30020,
+      "end_ms_estimate": 33314
+    },
+    {
+      "index": 13,
+      "caption_id": "3-13",
+      "original": "응축시키는 거죠. 마치 시간이 최고의 조미료인",
+      "tts": "응축시키는 거죠. 마치 시간이 최고의 조미료인",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part03_0013.mp3",
+      "duration_ms_estimate": 3246,
+      "start_ms_estimate": 33314,
+      "end_ms_estimate": 36560
+    },
+    {
+      "index": 14,
+      "caption_id": "3-14",
+      "original": "것처럼요.",
+      "tts": "것처럼요.",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part03_0014.mp3",
+      "duration_ms_estimate": 1080,
+      "start_ms_estimate": 36560,
+      "end_ms_estimate": 37640
+    }
+  ]
+}
