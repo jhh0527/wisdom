@@ -1,0 +1,131 @@
+{
+  "part_id": "11",
+  "part_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\part11.mp3",
+  "part_srt": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\part11.srt",
+  "model_id": "eleven_multilingual_v2",
+  "merge_method": "ffmpeg",
+  "segment_count": 12,
+  "duration_ms_estimate": 35007,
+  "segments": [
+    {
+      "index": 1,
+      "caption_id": "11-1",
+      "original": "[short pause][breathes][continues]여기서 흥미로운 통계를 봤어요.",
+      "tts": "[short pause][breathes][continues]여기서 흥미로운 통계를 봤어요.",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part11_0001.mp3",
+      "duration_ms_estimate": 2067,
+      "start_ms_estimate": 0,
+      "end_ms_estimate": 2067
+    },
+    {
+      "index": 2,
+      "caption_id": "11-2",
+      "original": "한국이 연간 생산하는 김의 양은 약 오십오만",
+      "tts": "한국이 연간 생산하는 김의 양은 약 오십오만",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part11_0002.mp3",
+      "duration_ms_estimate": 3384,
+      "start_ms_estimate": 2067,
+      "end_ms_estimate": 5451
+    },
+    {
+      "index": 3,
+      "caption_id": "11-3",
+      "original": "톤이라고 해요. 전 세계 마른 김 생산량",
+      "tts": "톤이라고 해요. 전 세계 마른 김 생산량",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part11_0003.mp3",
+      "duration_ms_estimate": 2913,
+      "start_ms_estimate": 5451,
+      "end_ms_estimate": 8364
+    },
+    {
+      "index": 4,
+      "caption_id": "11-4",
+      "original": "이백오십억장 중에 한국이 백이십사억장을",
+      "tts": "이백오십억장 중에 한국이 백이십사억장을",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part11_0004.mp3",
+      "duration_ms_estimate": 3195,
+      "start_ms_estimate": 8364,
+      "end_ms_estimate": 11559
+    },
+    {
+      "index": 5,
+      "caption_id": "11-5",
+      "original": "생산하고 있다는 뜻이에요. 이는 전 세계의",
+      "tts": "생산하고 있다는 뜻이에요. 이는 전 세계의[breathes]",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part11_0005.mp3",
+      "duration_ms_estimate": 2913,
+      "start_ms_estimate": 11559,
+      "end_ms_estimate": 14472
+    },
+    {
+      "index": 6,
+      "caption_id": "11-6",
+      "original": "약 오십퍼센트에 가까워요. 일본은 팔십삼억장,",
+      "tts": "약 오십퍼센트에 가까워요. 일본은 팔십삼억장,",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part11_0006.mp3",
+      "duration_ms_estimate": 4041,
+      "start_ms_estimate": 14472,
+      "end_ms_estimate": 18513
+    },
+    {
+      "index": 7,
+      "caption_id": "11-7",
+      "original": "중국은 사십사억장을 생산하죠. 어마어마한",
+      "tts": "중국은 사십사억장을 생산하죠. 어마어마한",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part11_0007.mp3",
+      "duration_ms_estimate": 3478,
+      "start_ms_estimate": 18513,
+      "end_ms_estimate": 21991
+    },
+    {
+      "index": 8,
+      "caption_id": "11-8",
+      "original": "수량인데도 불구하고 한국 김이 유지하고 있는",
+      "tts": "수량인데도 불구하고 한국 김이 유지하고 있는",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part11_0008.mp3",
+      "duration_ms_estimate": 3101,
+      "start_ms_estimate": 21991,
+      "end_ms_estimate": 25092
+    },
+    {
+      "index": 9,
+      "caption_id": "11-9",
+      "original": "품질은 정말 놀라워요. 왜 그럴까요?",
+      "tts": "품질은 정말 놀라워요. 왜 그럴까요?",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part11_0009.mp3",
+      "duration_ms_estimate": 2678,
+      "start_ms_estimate": 25092,
+      "end_ms_estimate": 27770
+    },
+    {
+      "index": 10,
+      "caption_id": "11-10",
+      "original": "그건 이 모든 양을 한 가지 철학으로 만들고",
+      "tts": "그건 이 모든 양을 한 가지 철학으로 만들고",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part11_0010.mp3",
+      "duration_ms_estimate": 2772,
+      "start_ms_estimate": 27770,
+      "end_ms_estimate": 30542
+    },
+    {
+      "index": 11,
+      "caption_id": "11-11",
+      "original": "있기 때문입니다. 바로 '최고의 것만 만들자'라는",
+      "tts": "있기 때문입니다. 바로 '최고의 것만 만들자'라는[breathes]",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part11_0011.mp3",
+      "duration_ms_estimate": 3430,
+      "start_ms_estimate": 30542,
+      "end_ms_estimate": 33972
+    },
+    {
+      "index": 12,
+      "caption_id": "11-12",
+      "original": "철학이에요.",
+      "tts": "철학이에요.",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part11_0012.mp3",
+      "duration_ms_estimate": 1035,
+      "start_ms_estimate": 33972,
+      "end_ms_estimate": 35007
+    }
+  ]
+}

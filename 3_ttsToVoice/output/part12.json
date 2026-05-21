@@ -1,0 +1,121 @@
+{
+  "part_id": "12",
+  "part_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\part12.mp3",
+  "part_srt": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\part12.srt",
+  "model_id": "eleven_multilingual_v2",
+  "merge_method": "ffmpeg",
+  "segment_count": 11,
+  "duration_ms_estimate": 33486,
+  "segments": [
+    {
+      "index": 1,
+      "caption_id": "12-1",
+      "original": "[short pause][breathes][continues]해외에서는 한국 김을 어떻게 생각할까요?",
+      "tts": "[short pause][breathes][continues]해외에서는 한국 김을 어떻게 생각할까요?",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part12_0001.mp3",
+      "duration_ms_estimate": 2865,
+      "start_ms_estimate": 0,
+      "end_ms_estimate": 2865
+    },
+    {
+      "index": 2,
+      "caption_id": "12-2",
+      "original": "고급 레스토랑들을 가보세요. 특히 미슐랭 별을",
+      "tts": "고급 레스토랑들을 가보세요. 특히 미슐랭 별을",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part12_0002.mp3",
+      "duration_ms_estimate": 3428,
+      "start_ms_estimate": 2865,
+      "end_ms_estimate": 6293
+    },
+    {
+      "index": 3,
+      "caption_id": "12-3",
+      "original": "받은 식당들 말이에요. 거기서 제공하는 한국 김은",
+      "tts": "받은 식당들 말이에요. 거기서 제공하는 한국 김은",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part12_0003.mp3",
+      "duration_ms_estimate": 3334,
+      "start_ms_estimate": 6293,
+      "end_ms_estimate": 9627
+    },
+    {
+      "index": 4,
+      "caption_id": "12-4",
+      "original": "정말 프리미엄 재료로 취급돼요. 마치 트러플이나",
+      "tts": "정말 프리미엄 재료로 취급돼요. 마치 트러플이나",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part12_0004.mp3",
+      "duration_ms_estimate": 3522,
+      "start_ms_estimate": 9627,
+      "end_ms_estimate": 13149
+    },
+    {
+      "index": 5,
+      "caption_id": "12-5",
+      "original": "캐비어처럼요. 왜 그럴까요? 그건 바로 한국 김의",
+      "tts": "캐비어처럼요. 왜 그럴까요? 그건 바로 한국 김의[breathes]",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part12_0005.mp3",
+      "duration_ms_estimate": 3522,
+      "start_ms_estimate": 13149,
+      "end_ms_estimate": 16671
+    },
+    {
+      "index": 6,
+      "caption_id": "12-6",
+      "original": "품질이 그 정도라는 뜻이에요. 또 놀라운 점은",
+      "tts": "품질이 그 정도라는 뜻이에요. 또 놀라운 점은",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part12_0006.mp3",
+      "duration_ms_estimate": 3100,
+      "start_ms_estimate": 16671,
+      "end_ms_estimate": 19771
+    },
+    {
+      "index": 7,
+      "caption_id": "12-7",
+      "original": "수출입니다. 한국 김은 이제 미국, 유럽, 일본",
+      "tts": "수출입니다. 한국 김은 이제 미국, 유럽, 일본",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part12_0007.mp3",
+      "duration_ms_estimate": 3194,
+      "start_ms_estimate": 19771,
+      "end_ms_estimate": 22965
+    },
+    {
+      "index": 8,
+      "caption_id": "12-8",
+      "original": "등 전 세계로 팔려나가고 있어요. 그리고 거기서도",
+      "tts": "등 전 세계로 팔려나가고 있어요. 그리고 거기서도",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part12_0008.mp3",
+      "duration_ms_estimate": 3382,
+      "start_ms_estimate": 22965,
+      "end_ms_estimate": 26347
+    },
+    {
+      "index": 9,
+      "caption_id": "12-9",
+      "original": "프리미엄 가격으로 팔린다는 거죠. 왜냐하면",
+      "tts": "프리미엄 가격으로 팔린다는 거죠. 왜냐하면",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part12_0009.mp3",
+      "duration_ms_estimate": 3006,
+      "start_ms_estimate": 26347,
+      "end_ms_estimate": 29353
+    },
+    {
+      "index": 10,
+      "caption_id": "12-10",
+      "original": "소비자들이 알기 때문이에요. 한국 김이 다르다는",
+      "tts": "소비자들이 알기 때문이에요. 한국 김이 다르다는",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part12_0010.mp3",
+      "duration_ms_estimate": 3053,
+      "start_ms_estimate": 29353,
+      "end_ms_estimate": 32406
+    },
+    {
+      "index": 11,
+      "caption_id": "12-11",
+      "original": "것을 말이죠.",
+      "tts": "것을 말이죠.[breathes]",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part12_0011.mp3",
+      "duration_ms_estimate": 1080,
+      "start_ms_estimate": 32406,
+      "end_ms_estimate": 33486
+    }
+  ]
+}

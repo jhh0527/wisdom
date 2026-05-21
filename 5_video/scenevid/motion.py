@@ -145,10 +145,22 @@ def build_image_motion_vf(
     oh = h * ss
 
     # zoompan 입력을 출력 크기 기준으로 1.55배 더 크게 (zoom 최대 1.25 에서도 입력 영역이
-    # 출력보다 크도록 보장 → 보간 흐림 없이 supersample 효과만 받음)
-    sw = max(int(ow * 1.55) | 1, ow + 32)
-    sh = max(int(oh * 1.55) | 1, oh + 32)
-    pre = f"scale={sw}:{sh}:force_original_aspect_ratio=increase:flags=lanczos"
+    # 출력보다 크도록 보장 → 보간 흐림 없이 supersample 효과만 받음).
+    # 또한 zoompan 의 출력(s=ow:oh)은 입력 sub-rect 를 강제 리샘플하므로, 입력의
+    # 가로/세로 비율이 출력과 다르면 이미지가 가로 또는 세로로 늘어집니다.
+    # 따라서 입력 캔버스를 정확히 ow:oh 비율로 letterbox(검은 띠) 처리합니다.
+    sw = max(int(ow * 1.55), ow + 32)
+    sh = max(int(oh * 1.55), oh + 32)
+    if sw * oh >= sh * ow:
+        sh = int(round(sw * oh / ow))
+    else:
+        sw = int(round(sh * ow / oh))
+    sw -= sw % 2
+    sh -= sh % 2
+    pre = (
+        f"scale={sw}:{sh}:force_original_aspect_ratio=decrease:flags=lanczos,"
+        f"pad={sw}:{sh}:(ow-iw)/2:(oh-ih)/2:color=black,setsar=1"
+    )
 
     if eff == "zoom_in":
         # 쉼표는 FFmpeg 필터그래프에서 이스케이프

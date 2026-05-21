@@ -1,0 +1,191 @@
+{
+  "part_id": "4",
+  "part_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\part04.mp3",
+  "part_srt": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\part04.srt",
+  "model_id": "eleven_multilingual_v2",
+  "merge_method": "ffmpeg",
+  "segment_count": 18,
+  "duration_ms_estimate": 49807,
+  "segments": [
+    {
+      "index": 1,
+      "caption_id": "4-1",
+      "original": "[short pause][breathes][continues]한국 어부들의 '손'입니다.",
+      "tts": "[short pause][breathes][continues]한국 어부들의 '손'입니다.",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part04_0001.mp3",
+      "duration_ms_estimate": 2117,
+      "start_ms_estimate": 0,
+      "end_ms_estimate": 2117
+    },
+    {
+      "index": 2,
+      "caption_id": "4-2",
+      "original": "이게 정말 중요해요. 김을 채취할 때,",
+      "tts": "이게 정말 중요해요. 김을 채취할 때,",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part04_0002.mp3",
+      "duration_ms_estimate": 2916,
+      "start_ms_estimate": 2117,
+      "end_ms_estimate": 5033
+    },
+    {
+      "index": 3,
+      "caption_id": "4-3",
+      "original": "기계는 빠르고 효율적으로 하겠죠.",
+      "tts": "기계는 빠르고 효율적으로 하겠죠.",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part04_0003.mp3",
+      "duration_ms_estimate": 2352,
+      "start_ms_estimate": 5033,
+      "end_ms_estimate": 7385
+    },
+    {
+      "index": 4,
+      "caption_id": "4-4",
+      "original": "하지만 효율성이 맛을 만드는 건 아니에요.",
+      "tts": "하지만 효율성이 맛을 만드는 건 아니에요.",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part04_0004.mp3",
+      "duration_ms_estimate": 2775,
+      "start_ms_estimate": 7385,
+      "end_ms_estimate": 10160
+    },
+    {
+      "index": 5,
+      "caption_id": "4-5",
+      "original": "한국의 어부들은 여전히 손으로 김을 켜켜이",
+      "tts": "한국의 어부들은 여전히 손으로 김을 켜켜이",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part04_0005.mp3",
+      "duration_ms_estimate": 3245,
+      "start_ms_estimate": 10160,
+      "end_ms_estimate": 13405
+    },
+    {
+      "index": 6,
+      "caption_id": "4-6",
+      "original": "벗겨냅니다. 차가운 바다 속에서요.",
+      "tts": "벗겨냅니다. 차가운 바다 속에서요.[breathes]",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part04_0006.mp3",
+      "duration_ms_estimate": 2446,
+      "start_ms_estimate": 13405,
+      "end_ms_estimate": 15851
+    },
+    {
+      "index": 7,
+      "caption_id": "4-7",
+      "original": "이 손의 움직임은 마치 악기를 연주하는",
+      "tts": "이 손의 움직임은 마치 악기를 연주하는",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part04_0007.mp3",
+      "duration_ms_estimate": 3057,
+      "start_ms_estimate": 15851,
+      "end_ms_estimate": 18908
+    },
+    {
+      "index": 8,
+      "caption_id": "4-8",
+      "original": "것처럼 섬세해요. 너무 세게 벗기면 안 되고,",
+      "tts": "것처럼 섬세해요. 너무 세게 벗기면 안 되고,",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part04_0008.mp3",
+      "duration_ms_estimate": 3574,
+      "start_ms_estimate": 18908,
+      "end_ms_estimate": 22482
+    },
+    {
+      "index": 9,
+      "caption_id": "4-9",
+      "original": "너무 약하게 벗겨도 안 돼요. 정확히 그",
+      "tts": "너무 약하게 벗겨도 안 돼요. 정확히 그",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part04_0009.mp3",
+      "duration_ms_estimate": 2634,
+      "start_ms_estimate": 22482,
+      "end_ms_estimate": 25116
+    },
+    {
+      "index": 10,
+      "caption_id": "4-10",
+      "original": "중간, 김의 세포가 손상되지 않으면서도",
+      "tts": "중간, 김의 세포가 손상되지 않으면서도",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part04_0010.mp3",
+      "duration_ms_estimate": 3057,
+      "start_ms_estimate": 25116,
+      "end_ms_estimate": 28173
+    },
+    {
+      "index": 11,
+      "caption_id": "4-11",
+      "original": "완벽하게 떨어지는 그 순간을 알고 있어야",
+      "tts": "완벽하게 떨어지는 그 순간을 알고 있어야[breathes]",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part04_0011.mp3",
+      "duration_ms_estimate": 3057,
+      "start_ms_estimate": 28173,
+      "end_ms_estimate": 31230
+    },
+    {
+      "index": 12,
+      "caption_id": "4-12",
+      "original": "하는 거죠. 이건 경험입니다.",
+      "tts": "하는 거죠. 이건 경험입니다.",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part04_0012.mp3",
+      "duration_ms_estimate": 2117,
+      "start_ms_estimate": 31230,
+      "end_ms_estimate": 33347
+    },
+    {
+      "index": 13,
+      "caption_id": "4-13",
+      "original": "아버지에게서 아들에게로, 할머니에게서",
+      "tts": "아버지에게서 아들에게로, 할머니에게서",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part04_0013.mp3",
+      "duration_ms_estimate": 2446,
+      "start_ms_estimate": 33347,
+      "end_ms_estimate": 35793
+    },
+    {
+      "index": 14,
+      "caption_id": "4-14",
+      "original": "손녀에게로 전해지는 손의 기억이에요.",
+      "tts": "손녀에게로 전해지는 손의 기억이에요.",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part04_0014.mp3",
+      "duration_ms_estimate": 2492,
+      "start_ms_estimate": 35793,
+      "end_ms_estimate": 38285
+    },
+    {
+      "index": 15,
+      "caption_id": "4-15",
+      "original": "기계는 정해진 힘으로만 작동하지만, 손은",
+      "tts": "기계는 정해진 힘으로만 작동하지만, 손은",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part04_0015.mp3",
+      "duration_ms_estimate": 3433,
+      "start_ms_estimate": 38285,
+      "end_ms_estimate": 41718
+    },
+    {
+      "index": 16,
+      "caption_id": "4-16",
+      "original": "다르죠. 손은 오늘의 바다가 어제와 다르다는",
+      "tts": "다르죠. 손은 오늘의 바다가 어제와 다르다는[breathes]",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part04_0016.mp3",
+      "duration_ms_estimate": 3481,
+      "start_ms_estimate": 41718,
+      "end_ms_estimate": 45199
+    },
+    {
+      "index": 17,
+      "caption_id": "4-17",
+      "original": "걸 알고, 김의 상태가 조금 다르다는 걸",
+      "tts": "걸 알고, 김의 상태가 조금 다르다는 걸",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part04_0017.mp3",
+      "duration_ms_estimate": 3057,
+      "start_ms_estimate": 45199,
+      "end_ms_estimate": 48256
+    },
+    {
+      "index": 18,
+      "caption_id": "4-18",
+      "original": "감지하고 조절합니다.",
+      "tts": "감지하고 조절합니다.",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part04_0018.mp3",
+      "duration_ms_estimate": 1551,
+      "start_ms_estimate": 48256,
+      "end_ms_estimate": 49807
+    }
+  ]
+}

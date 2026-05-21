@@ -1,0 +1,141 @@
+{
+  "part_id": "8",
+  "part_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\part08.mp3",
+  "part_srt": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\part08.srt",
+  "model_id": "eleven_multilingual_v2",
+  "merge_method": "ffmpeg",
+  "segment_count": 13,
+  "duration_ms_estimate": 35915,
+  "segments": [
+    {
+      "index": 1,
+      "caption_id": "8-1",
+      "original": "[short pause][breathes][continues]그 다음 나타나는 맛은 단맛입니다.",
+      "tts": "[short pause][breathes][continues]그 다음 나타나는 맛은 단맛입니다.",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part08_0001.mp3",
+      "duration_ms_estimate": 2256,
+      "start_ms_estimate": 0,
+      "end_ms_estimate": 2256
+    },
+    {
+      "index": 2,
+      "caption_id": "8-2",
+      "original": "이건 예상 외일 수 있어요. 김에서 단맛이",
+      "tts": "이건 예상 외일 수 있어요. 김에서 단맛이",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part08_0002.mp3",
+      "duration_ms_estimate": 2397,
+      "start_ms_estimate": 2256,
+      "end_ms_estimate": 4653
+    },
+    {
+      "index": 3,
+      "caption_id": "8-3",
+      "original": "난다니요. 하지만 이것이 한국 김의 특징이에요.",
+      "tts": "난다니요. 하지만 이것이 한국 김의 특징이에요.",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part08_0003.mp3",
+      "duration_ms_estimate": 3243,
+      "start_ms_estimate": 4653,
+      "end_ms_estimate": 7896
+    },
+    {
+      "index": 4,
+      "caption_id": "8-4",
+      "original": "이 단맛은 김에 들어 있는 천연 당분과",
+      "tts": "이 단맛은 김에 들어 있는 천연 당분과",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part08_0004.mp3",
+      "duration_ms_estimate": 3009,
+      "start_ms_estimate": 7896,
+      "end_ms_estimate": 10905
+    },
+    {
+      "index": 5,
+      "caption_id": "8-5",
+      "original": "아미노산이 만드는 거고, 이건 바다의 풍부한",
+      "tts": "아미노산이 만드는 거고, 이건 바다의 풍부한",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part08_0005.mp3",
+      "duration_ms_estimate": 3009,
+      "start_ms_estimate": 10905,
+      "end_ms_estimate": 13914
+    },
+    {
+      "index": 6,
+      "caption_id": "8-6",
+      "original": "영양분 때문이에요. 그리고 세 번째 맛은",
+      "tts": "영양분 때문이에요. 그리고 세 번째 맛은[breathes]",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part08_0006.mp3",
+      "duration_ms_estimate": 2962,
+      "start_ms_estimate": 13914,
+      "end_ms_estimate": 16876
+    },
+    {
+      "index": 7,
+      "caption_id": "8-7",
+      "original": "설명하기 정말 어렵습니다. 풍미라고 할까요?",
+      "tts": "설명하기 정말 어렵습니다. 풍미라고 할까요?",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part08_0007.mp3",
+      "duration_ms_estimate": 3009,
+      "start_ms_estimate": 16876,
+      "end_ms_estimate": 19885
+    },
+    {
+      "index": 8,
+      "caption_id": "8-8",
+      "original": "마치 바다 내음이 입 안에 퍼지는 것 같은",
+      "tts": "마치 바다 내음이 입 안에 퍼지는 것 같은",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part08_0008.mp3",
+      "duration_ms_estimate": 2727,
+      "start_ms_estimate": 19885,
+      "end_ms_estimate": 22612
+    },
+    {
+      "index": 9,
+      "caption_id": "8-9",
+      "original": "느낌이에요. 동시에 뭔가 그리운 듯한 감정까지",
+      "tts": "느낌이에요. 동시에 뭔가 그리운 듯한 감정까지",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part08_0009.mp3",
+      "duration_ms_estimate": 3338,
+      "start_ms_estimate": 22612,
+      "end_ms_estimate": 25950
+    },
+    {
+      "index": 10,
+      "caption_id": "8-10",
+      "original": "일어나요. 이것은 추억의 맛입니다.",
+      "tts": "일어나요. 이것은 추억의 맛입니다.",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part08_0010.mp3",
+      "duration_ms_estimate": 2256,
+      "start_ms_estimate": 25950,
+      "end_ms_estimate": 28206
+    },
+    {
+      "index": 11,
+      "caption_id": "8-11",
+      "original": "한국인이 어릴 때부터 먹는 맛이에요.",
+      "tts": "한국인이 어릴 때부터 먹는 맛이에요.[breathes]",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part08_0011.mp3",
+      "duration_ms_estimate": 2397,
+      "start_ms_estimate": 28206,
+      "end_ms_estimate": 30603
+    },
+    {
+      "index": 12,
+      "caption_id": "8-12",
+      "original": "엄마가 주먹밥을 만들어줄 때, 그 위에 놓여",
+      "tts": "엄마가 주먹밥을 만들어줄 때, 그 위에 놓여",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part08_0012.mp3",
+      "duration_ms_estimate": 3808,
+      "start_ms_estimate": 30603,
+      "end_ms_estimate": 34411
+    },
+    {
+      "index": 13,
+      "caption_id": "8-13",
+      "original": "있던 바로 그 맛이죠.",
+      "tts": "있던 바로 그 맛이죠.",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part08_0013.mp3",
+      "duration_ms_estimate": 1504,
+      "start_ms_estimate": 34411,
+      "end_ms_estimate": 35915
+    }
+  ]
+}

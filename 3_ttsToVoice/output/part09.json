@@ -1,0 +1,151 @@
+{
+  "part_id": "9",
+  "part_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\part09.mp3",
+  "part_srt": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\part09.srt",
+  "model_id": "eleven_multilingual_v2",
+  "merge_method": "ffmpeg",
+  "segment_count": 14,
+  "duration_ms_estimate": 40557,
+  "segments": [
+    {
+      "index": 1,
+      "caption_id": "9-1",
+      "original": "[short pause][breathes][continues]할머니 손으로 밥을 집어 김으로 싸서",
+      "tts": "[short pause][breathes][continues]할머니 손으로 밥을 집어 김으로 싸서",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part09_0001.mp3",
+      "duration_ms_estimate": 2164,
+      "start_ms_estimate": 0,
+      "end_ms_estimate": 2164
+    },
+    {
+      "index": 2,
+      "caption_id": "9-2",
+      "original": "입에 넣어주던 그 맛이에요. 이 맛은 단순한",
+      "tts": "입에 넣어주던 그 맛이에요. 이 맛은 단순한",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part09_0002.mp3",
+      "duration_ms_estimate": 3152,
+      "start_ms_estimate": 2164,
+      "end_ms_estimate": 5316
+    },
+    {
+      "index": 3,
+      "caption_id": "9-3",
+      "original": "음식의 맛이 아니라, 사랑의 맛이고, 추억의",
+      "tts": "음식의 맛이 아니라, 사랑의 맛이고, 추억의",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part09_0003.mp3",
+      "duration_ms_estimate": 2587,
+      "start_ms_estimate": 5316,
+      "end_ms_estimate": 7903
+    },
+    {
+      "index": 4,
+      "caption_id": "9-4",
+      "original": "맛이고, 가족의 맛입니다. 이것이 한국 김이",
+      "tts": "맛이고, 가족의 맛입니다. 이것이 한국 김이",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part09_0004.mp3",
+      "duration_ms_estimate": 3152,
+      "start_ms_estimate": 7903,
+      "end_ms_estimate": 11055
+    },
+    {
+      "index": 5,
+      "caption_id": "9-5",
+      "original": "가지고 있는 가장 큰 특징이에요.",
+      "tts": "가지고 있는 가장 큰 특징이에요.[breathes]",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part09_0005.mp3",
+      "duration_ms_estimate": 2306,
+      "start_ms_estimate": 11055,
+      "end_ms_estimate": 13361
+    },
+    {
+      "index": 6,
+      "caption_id": "9-6",
+      "original": "다른 나라의 김은 왜 이 맛을 못 낼까요?",
+      "tts": "다른 나라의 김은 왜 이 맛을 못 낼까요?",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part09_0006.mp3",
+      "duration_ms_estimate": 2729,
+      "start_ms_estimate": 13361,
+      "end_ms_estimate": 16090
+    },
+    {
+      "index": 7,
+      "caption_id": "9-7",
+      "original": "물론 여러 이유가 있어요. 자연환경이 다를",
+      "tts": "물론 여러 이유가 있어요. 자연환경이 다를",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part09_0007.mp3",
+      "duration_ms_estimate": 3199,
+      "start_ms_estimate": 16090,
+      "end_ms_estimate": 19289
+    },
+    {
+      "index": 8,
+      "caption_id": "9-8",
+      "original": "수도 있고, 계절을 선택하지 않고 생산할 수도",
+      "tts": "수도 있고, 계절을 선택하지 않고 생산할 수도",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part09_0008.mp3",
+      "duration_ms_estimate": 3482,
+      "start_ms_estimate": 19289,
+      "end_ms_estimate": 22771
+    },
+    {
+      "index": 9,
+      "caption_id": "9-9",
+      "original": "있고, 빠른 효율성을 위해 모든 과정을",
+      "tts": "있고, 빠른 효율성을 위해 모든 과정을",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part09_0009.mp3",
+      "duration_ms_estimate": 3575,
+      "start_ms_estimate": 22771,
+      "end_ms_estimate": 26346
+    },
+    {
+      "index": 10,
+      "caption_id": "9-10",
+      "original": "기계화했을 수도 있죠. 하지만 근본적으로는",
+      "tts": "기계화했을 수도 있죠. 하지만 근본적으로는",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part09_0010.mp3",
+      "duration_ms_estimate": 3199,
+      "start_ms_estimate": 26346,
+      "end_ms_estimate": 29545
+    },
+    {
+      "index": 11,
+      "caption_id": "9-11",
+      "original": "이것입니다. 사랑의 정도가 다르다는 거예요.",
+      "tts": "이것입니다. 사랑의 정도가 다르다는 거예요.[breathes]",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part09_0011.mp3",
+      "duration_ms_estimate": 2729,
+      "start_ms_estimate": 29545,
+      "end_ms_estimate": 32274
+    },
+    {
+      "index": 12,
+      "caption_id": "9-12",
+      "original": "한국은 김을 만들 때, 단순히 상품을 만드는",
+      "tts": "한국은 김을 만들 때, 단순히 상품을 만드는",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part09_0012.mp3",
+      "duration_ms_estimate": 3529,
+      "start_ms_estimate": 32274,
+      "end_ms_estimate": 35803
+    },
+    {
+      "index": 13,
+      "caption_id": "9-13",
+      "original": "게 아니라, 누군가의 밥상에 올라갈 음식을",
+      "tts": "게 아니라, 누군가의 밥상에 올라갈 음식을",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part09_0013.mp3",
+      "duration_ms_estimate": 2964,
+      "start_ms_estimate": 35803,
+      "end_ms_estimate": 38767
+    },
+    {
+      "index": 14,
+      "caption_id": "9-14",
+      "original": "만든다고 생각하는 거죠.",
+      "tts": "만든다고 생각하는 거죠.",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part09_0014.mp3",
+      "duration_ms_estimate": 1790,
+      "start_ms_estimate": 38767,
+      "end_ms_estimate": 40557
+    }
+  ]
+}
