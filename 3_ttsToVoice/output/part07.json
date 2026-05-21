@@ -1,0 +1,141 @@
+{
+  "part_id": "7",
+  "part_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\part07.mp3",
+  "part_srt": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\part07.srt",
+  "model_id": "eleven_multilingual_v2",
+  "merge_method": "ffmpeg",
+  "segment_count": 13,
+  "duration_ms_estimate": 36923,
+  "segments": [
+    {
+      "index": 1,
+      "caption_id": "7-1",
+      "original": "[short pause][breathes][continues]당신 앞에 놓인 한 장의 김을 봅시다.",
+      "tts": "[short pause][breathes][continues]당신 앞에 놓인 한 장의 김을 봅시다.",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part07_0001.mp3",
+      "duration_ms_estimate": 2258,
+      "start_ms_estimate": 0,
+      "end_ms_estimate": 2258
+    },
+    {
+      "index": 2,
+      "caption_id": "7-2",
+      "original": "이 깊은 검은색은 바로 최적의 건조 상태를",
+      "tts": "이 깊은 검은색은 바로 최적의 건조 상태를",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part07_0002.mp3",
+      "duration_ms_estimate": 3198,
+      "start_ms_estimate": 2258,
+      "end_ms_estimate": 5456
+    },
+    {
+      "index": 3,
+      "caption_id": "7-3",
+      "original": "나타내는 거예요. 과도하지도, 부족하지도",
+      "tts": "나타내는 거예요. 과도하지도, 부족하지도",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part07_0003.mp3",
+      "duration_ms_estimate": 2775,
+      "start_ms_estimate": 5456,
+      "end_ms_estimate": 8231
+    },
+    {
+      "index": 4,
+      "caption_id": "7-4",
+      "original": "않은 완벽한 상태인 거죠. 다른 나라의 김은",
+      "tts": "않은 완벽한 상태인 거죠. 다른 나라의 김은",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part07_0004.mp3",
+      "duration_ms_estimate": 3293,
+      "start_ms_estimate": 8231,
+      "end_ms_estimate": 11524
+    },
+    {
+      "index": 5,
+      "caption_id": "7-5",
+      "original": "어떨까요? 어떤 것은 너무 검어서 마치",
+      "tts": "어떨까요? 어떤 것은 너무 검어서 마치",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part07_0005.mp3",
+      "duration_ms_estimate": 2963,
+      "start_ms_estimate": 11524,
+      "end_ms_estimate": 14487
+    },
+    {
+      "index": 6,
+      "caption_id": "7-6",
+      "original": "타버린 것처럼 보이고, 어떤 것은 그렇게",
+      "tts": "타버린 것처럼 보이고, 어떤 것은 그렇게[breathes]",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part07_0006.mp3",
+      "duration_ms_estimate": 3151,
+      "start_ms_estimate": 14487,
+      "end_ms_estimate": 17638
+    },
+    {
+      "index": 7,
+      "caption_id": "7-7",
+      "original": "짙지 않아요. 이제 한 입 먹어보세요.",
+      "tts": "짙지 않아요. 이제 한 입 먹어보세요.",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part07_0007.mp3",
+      "duration_ms_estimate": 2305,
+      "start_ms_estimate": 17638,
+      "end_ms_estimate": 19943
+    },
+    {
+      "index": 8,
+      "caption_id": "7-8",
+      "original": "당신은 여러 층의 맛을 경험할 거예요.",
+      "tts": "당신은 여러 층의 맛을 경험할 거예요.",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part07_0008.mp3",
+      "duration_ms_estimate": 2681,
+      "start_ms_estimate": 19943,
+      "end_ms_estimate": 22624
+    },
+    {
+      "index": 9,
+      "caption_id": "7-9",
+      "original": "먼저 고소함이 느껴집니다. 이건 바다의",
+      "tts": "먼저 고소함이 느껴집니다. 이건 바다의",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part07_0009.mp3",
+      "duration_ms_estimate": 2869,
+      "start_ms_estimate": 22624,
+      "end_ms_estimate": 25493
+    },
+    {
+      "index": 10,
+      "caption_id": "7-10",
+      "original": "미네랄에서 오는 거예요. 하지만 불쾌한 짠맛이",
+      "tts": "미네랄에서 오는 거예요. 하지만 불쾌한 짠맛이",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part07_0010.mp3",
+      "duration_ms_estimate": 3293,
+      "start_ms_estimate": 25493,
+      "end_ms_estimate": 28786
+    },
+    {
+      "index": 11,
+      "caption_id": "7-11",
+      "original": "아니에요. 담수로 정확하게 씻어내었기 때문이죠.",
+      "tts": "아니에요. 담수로 정확하게 씻어내었기 때문이죠.[breathes]",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part07_0011.mp3",
+      "duration_ms_estimate": 3245,
+      "start_ms_estimate": 28786,
+      "end_ms_estimate": 32031
+    },
+    {
+      "index": 12,
+      "caption_id": "7-12",
+      "original": "고소함이 느껴지지만, 마치 자연의 맛을 느끼는",
+      "tts": "고소함이 느껴지지만, 마치 자연의 맛을 느끼는",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part07_0012.mp3",
+      "duration_ms_estimate": 3293,
+      "start_ms_estimate": 32031,
+      "end_ms_estimate": 35324
+    },
+    {
+      "index": 13,
+      "caption_id": "7-13",
+      "original": "듯한 향미인 거죠.",
+      "tts": "듯한 향미인 거죠.",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part07_0013.mp3",
+      "duration_ms_estimate": 1599,
+      "start_ms_estimate": 35324,
+      "end_ms_estimate": 36923
+    }
+  ]
+}
