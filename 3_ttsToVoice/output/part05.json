@@ -1,0 +1,151 @@
+{
+  "part_id": "5",
+  "part_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\part05.mp3",
+  "part_srt": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\part05.srt",
+  "model_id": "eleven_multilingual_v2",
+  "merge_method": "ffmpeg",
+  "segment_count": 14,
+  "duration_ms_estimate": 41619,
+  "segments": [
+    {
+      "index": 1,
+      "caption_id": "5-1",
+      "original": "[short pause][breathes][continues]채취된 김이 공장에 도착하면 또 다른",
+      "tts": "[short pause][breathes][continues]채취된 김이 공장에 도착하면 또 다른",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part05_0001.mp3",
+      "duration_ms_estimate": 2915,
+      "start_ms_estimate": 0,
+      "end_ms_estimate": 2915
+    },
+    {
+      "index": 2,
+      "caption_id": "5-2",
+      "original": "마법이 시작돼요. 바로 건조 과정이죠.",
+      "tts": "마법이 시작돼요. 바로 건조 과정이죠.",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part05_0002.mp3",
+      "duration_ms_estimate": 2728,
+      "start_ms_estimate": 2915,
+      "end_ms_estimate": 5643
+    },
+    {
+      "index": 3,
+      "caption_id": "5-3",
+      "original": "먼저 담수로 씻겨집니다. 왜 씻을까요?",
+      "tts": "먼저 담수로 씻겨집니다. 왜 씻을까요?",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part05_0003.mp3",
+      "duration_ms_estimate": 2963,
+      "start_ms_estimate": 5643,
+      "end_ms_estimate": 8606
+    },
+    {
+      "index": 4,
+      "caption_id": "5-4",
+      "original": "바닷물의 불필요한 염분을 제거하고, 바다의",
+      "tts": "바닷물의 불필요한 염분을 제거하고, 바다의",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part05_0004.mp3",
+      "duration_ms_estimate": 3104,
+      "start_ms_estimate": 8606,
+      "end_ms_estimate": 11710
+    },
+    {
+      "index": 5,
+      "caption_id": "5-5",
+      "original": "잡질을 없애기 위함이에요. 그런데 이",
+      "tts": "잡질을 없애기 위함이에요. 그런데 이",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part05_0005.mp3",
+      "duration_ms_estimate": 2540,
+      "start_ms_estimate": 11710,
+      "end_ms_estimate": 14250
+    },
+    {
+      "index": 6,
+      "caption_id": "5-6",
+      "original": "세척도 단순하지 않아요. 너무 세게 씻으면",
+      "tts": "세척도 단순하지 않아요. 너무 세게 씻으면[breathes]",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part05_0006.mp3",
+      "duration_ms_estimate": 3010,
+      "start_ms_estimate": 14250,
+      "end_ms_estimate": 17260
+    },
+    {
+      "index": 7,
+      "caption_id": "5-7",
+      "original": "김의 영양분이 나가버리고, 너무 약하게 씻으면",
+      "tts": "김의 영양분이 나가버리고, 너무 약하게 씻으면",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part05_0007.mp3",
+      "duration_ms_estimate": 3292,
+      "start_ms_estimate": 17260,
+      "end_ms_estimate": 20552
+    },
+    {
+      "index": 8,
+      "caption_id": "5-8",
+      "original": "불순물이 남아요. 정확히 그 밸런스를 맞춰야",
+      "tts": "불순물이 남아요. 정확히 그 밸런스를 맞춰야",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part05_0008.mp3",
+      "duration_ms_estimate": 3198,
+      "start_ms_estimate": 20552,
+      "end_ms_estimate": 23750
+    },
+    {
+      "index": 9,
+      "caption_id": "5-9",
+      "original": "하는 거죠. 그 다음, 김이 틀 위에 펼쳐져서",
+      "tts": "하는 거죠. 그 다음, 김이 틀 위에 펼쳐져서",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part05_0009.mp3",
+      "duration_ms_estimate": 3104,
+      "start_ms_estimate": 23750,
+      "end_ms_estimate": 26854
+    },
+    {
+      "index": 10,
+      "caption_id": "5-10",
+      "original": "건조됩니다. 많은 나라들은 이 과정을 완전히",
+      "tts": "건조됩니다. 많은 나라들은 이 과정을 완전히",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part05_0010.mp3",
+      "duration_ms_estimate": 3574,
+      "start_ms_estimate": 26854,
+      "end_ms_estimate": 30428
+    },
+    {
+      "index": 11,
+      "caption_id": "5-11",
+      "original": "기계화했어요. 온도를 정해놓고, 시간을",
+      "tts": "기계화했어요. 온도를 정해놓고, 시간을[breathes]",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part05_0011.mp3",
+      "duration_ms_estimate": 3057,
+      "start_ms_estimate": 30428,
+      "end_ms_estimate": 33485
+    },
+    {
+      "index": 12,
+      "caption_id": "5-12",
+      "original": "정해놓고, 자동으로 돌린다고요. 하지만",
+      "tts": "정해놓고, 자동으로 돌린다고요. 하지만",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part05_0012.mp3",
+      "duration_ms_estimate": 2915,
+      "start_ms_estimate": 33485,
+      "end_ms_estimate": 36400
+    },
+    {
+      "index": 13,
+      "caption_id": "5-13",
+      "original": "한국의 전통적인 방식은 조금 달라요.",
+      "tts": "한국의 전통적인 방식은 조금 달라요.",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part05_0013.mp3",
+      "duration_ms_estimate": 3150,
+      "start_ms_estimate": 36400,
+      "end_ms_estimate": 39550
+    },
+    {
+      "index": 14,
+      "caption_id": "5-14",
+      "original": "여전히 사람이 지켜보고 있어요.",
+      "tts": "여전히 사람이 지켜보고 있어요.",
+      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part05_0014.mp3",
+      "duration_ms_estimate": 2069,
+      "start_ms_estimate": 39550,
+      "end_ms_estimate": 41619
+    }
+  ]
+}

@@ -1,2 +1,14 @@
 # 로컬 비밀 설정 (복사: elsub_config.example.json → elsub_config.json 후 값 입력)
 elsub_config.json
+
+# 빌드·실행 파일
+build/
+dist/
+
+# TTS 오디오만 제외 (json/srt는 추적)
+output/**/*.mp3
+output/segments/
+
+# Python 캐시
+__pycache__/
+*.pyc
