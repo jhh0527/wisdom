@@ -50,7 +50,6 @@ from scenevid.subtitles import seconds_to_srt_ts
 
 
 FX_LABEL_KO: dict[str, str] = {
-    "none": "고정",
     "pan_left": "좌팬",
     "pan_right": "우팬",
     "pan_up": "상팬",
@@ -59,20 +58,17 @@ FX_LABEL_KO: dict[str, str] = {
     "zoom_out": "줌아웃",
 }
 
-# videoPG: SRT 재생 순서대로 반복되는 순환 패턴 (미리·순환 효과 버튼)
-FX_CYCLE_ORDER: tuple[str, ...] = (
-    "pan_left",
-    "pan_right",
-    "pan_up",
-    "pan_down",
-    "zoom_in",
-    "zoom_out",
-    "none",
-)
+# 이미지 효과 팔레트·콤보박스에 노출할 ID (고정/none 제외)
+FX_PALETTE_IDS: tuple[str, ...] = tuple(e for e in EFFECT_IDS if e != "none")
+
+# videoPG: SRT 재생 순서대로 반복 (이미지가 바뀔 때만 순환)
+FX_CYCLE_ORDER: tuple[str, ...] = FX_PALETTE_IDS
 
 
 def _fx_disp(token: str) -> str:
     t = normalize_effect(token)
+    if t == "none":
+        return "없음"
     return FX_LABEL_KO.get(t, t)
 
 
@@ -131,8 +127,10 @@ def main() -> None:
     w_var = tk.StringVar(value="1920")
     h_var = tk.StringVar(value="1080")
     effects_file_var = tk.StringVar()
-    effect_var = tk.StringVar(value="none")
-    effect_summary_var = tk.StringVar(value="기본 효과: 고정 · 선택 큐: —")
+    effect_var = tk.StringVar(value=FX_PALETTE_IDS[0])
+    effect_summary_var = tk.StringVar(
+        value=f"기본 효과: {FX_LABEL_KO[FX_PALETTE_IDS[0]]} · 선택 큐: —"
+    )
     tl_state: dict[str, object] = {
         "ready": False,
         "root": None,
@@ -431,7 +429,7 @@ def main() -> None:
                     elif img_n is not None and img_n == mid:
                         hint = f"SRT {mid} 매핑"
                     elif img_n is not None:
-                        fx_label = rfx if rfx and rfx != "고정" else ""
+                        fx_label = rfx if rfx_tok != "none" else ""
                         hint = f"{fx_label} 이미지 {img_n} (≤SRT {mid})".strip()
                     else:
                         hint = "이전 유지"
@@ -652,7 +650,7 @@ def main() -> None:
         ttk.Combobox(
             fr,
             textvariable=v_eff,
-            values=list(EFFECT_IDS),
+            values=list(FX_PALETTE_IDS),
             state="readonly",
             width=18,
         ).grid(row=4, column=1, sticky="w")
@@ -811,7 +809,7 @@ def main() -> None:
         messagebox.showinfo("JSON 효과", f"{len(json_fx)}개 SRT 번호에 모션을 적용했습니다.\n{json_path}")
 
     def apply_image_random_effects() -> None:
-        """videoPG: 이미지가 바뀔 때만 좌팬→우팬→상팬→하팬→줌인→줌아웃→고정 (큐마다 변경 안 함)."""
+        """videoPG: 이미지가 바뀔 때만 좌팬→우팬→상팬→하팬→줌인→줌아웃 순환 (큐마다 변경 안 함)."""
         if not tl_state.get("ready"):
             messagebox.showwarning("이미지랜덤효과", "먼저 타임라인을 불러오세요 (자막·이미지 경로 확인).")
             return
@@ -884,7 +882,7 @@ def main() -> None:
 
         return _pick
 
-    for ei in EFFECT_IDS:
+    for ei in FX_PALETTE_IDS:
         ttk.Button(btns_fx, text=FX_LABEL_KO.get(ei, ei), command=_make_pick_effect(ei), width=8).pack(
             side=tk.LEFT, padx=2
         )
