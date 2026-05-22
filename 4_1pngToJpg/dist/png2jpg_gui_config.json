@@ -1,4 +1,5 @@
 {
   "input_dir": "C:\\intellij\\wisdom\\4_1pngToJpg\\input",
-  "output_dir": "C:\\intellij\\wisdom\\4_srtToImage\\output"
+  "output_dir": "C:\\intellij\\wisdom\\4_srtToImage\\output",
+  "srt_path": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\all.srt"
 }
