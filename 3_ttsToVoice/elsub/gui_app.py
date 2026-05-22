@@ -6,6 +6,7 @@
 - 통합 `all.*` 파일은 **별도 버튼**으로 출력 폴더의 기존 `part*.` 파일만 읽어 생성합니다.
 - 출력 폴더는 항상 `3_ttsToVoice/output/` 입니다.
 - 자막 구간 길이는 세그먼트 MP3를 ffprobe 한 값을 사용하고, 파트 전체 길이에 맞게 미세 보정합니다.
+- TTS가 마침표·쉼표·느낌표·물음표 등으로 끝나지 않으면 다음 줄과 한 API 호출로 이어서 합성합니다.
 """
 
 from __future__ import annotations
@@ -24,6 +25,7 @@ from elsub.elevenlabs_client import (
     concat_mp3_files,
     concat_mp3_files_binary_from_paths,
     concat_mp3_files_ffmpeg,
+    strip_tts_tags,
     synthesize_mp3,
 )
 from elsub.media_probe import ffprobe_duration_sec
@@ -35,6 +37,11 @@ from elsub.settings import (
     resolve_output_dir,
 )
 from elsub.srt_gen import build_srt_from_durations, estimate_duration_ms, merge_srt_files
+from elsub.tts_merge import (
+    group_entries_for_synthesis,
+    merge_group_tts,
+    split_duration_ms,
+)
 
 
 _PART_MP3 = re.compile(r"^part(\d+)\.mp3$", re.IGNORECASE)
@@ -247,26 +254,35 @@ def main() -> None:
                     part_seg_paths: list[Path] = []
                     part_seg_blobs: list[bytes] = []
                     seg_durs_ms: list[int] = []
+                    line_segment_mp3: list[str] = []
 
-                    for i, e in enumerate(group_entries, start=1):
-                        done += 1
+                    synth_groups = group_entries_for_synthesis(group_entries)
+                    for gidx, grp in enumerate(synth_groups, start=1):
+                        merged_tts = merge_group_tts(grp)
 
                         def upd(n: int = done) -> None:
                             status.set(f"음성 합성… {part_lbl} ({n}/{total_lines})")
 
                         root.after(0, upd)
-                        blob = synthesize_mp3(key, vid, e.tts, model_id=model)
-                        seg_p = seg_root / f"{part_lbl}_{i:04d}.mp3"
+                        blob = synthesize_mp3(key, vid, merged_tts, model_id=model)
+                        seg_p = seg_root / f"{part_lbl}_{gidx:04d}.mp3"
                         seg_p.write_bytes(blob)
                         part_seg_paths.append(seg_p)
                         part_seg_blobs.append(blob)
 
                         try:
-                            dms = int(round(ffprobe_duration_sec(seg_p) * 1000))
+                            group_ms = int(round(ffprobe_duration_sec(seg_p) * 1000))
                         except Exception:
-                            dms = estimate_duration_ms(e.tts)
-                        dms = max(1, dms)
-                        seg_durs_ms.append(dms)
+                            group_ms = estimate_duration_ms(merged_tts)
+                        group_ms = max(1, group_ms)
+                        weights = [len(strip_tts_tags(e.tts).strip()) or 1 for e in grp]
+                        line_durs = split_duration_ms(group_ms, weights)
+                        seg_path = str(seg_p.resolve())
+                        for e, dms in zip(grp, line_durs):
+                            done += 1
+                            root.after(0, upd)
+                            seg_durs_ms.append(dms)
+                            line_segment_mp3.append(seg_path)
 
                     part_merge_note = ""
                     try:
@@ -296,7 +312,7 @@ def main() -> None:
                                 "caption_id": e.caption_id,
                                 "original": e.original,
                                 "tts": e.tts,
-                                "segment_mp3": str(part_seg_paths[i - 1].resolve()),
+                                "segment_mp3": line_segment_mp3[i - 1],
                                 "duration_ms_estimate": dur,
                                 "start_ms_estimate": part_cur_ms,
                                 "end_ms_estimate": part_cur_ms + dur,
