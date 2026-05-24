@@ -9,6 +9,14 @@ from typing import Any
 
 from scenevid.motion import normalize_effect
 
+DEFAULT_OUTRO_TEXT = "구독과 좋아요는 큰힘이 됩니다."
+
+
+def resolve_outro_text(raw: str | None) -> str:
+    """엔딩 자막. 비어 있으면 ``DEFAULT_OUTRO_TEXT``."""
+    s = (raw or "").strip()
+    return s if s else DEFAULT_OUTRO_TEXT
+
 
 @dataclass
 class RenderSettings:
@@ -20,6 +28,10 @@ class RenderSettings:
     youtube_faststart: bool = True
     # 장면에 image_effect 없을 때 (none | pan_left | pan_right | pan_up | pan_down | zoom_in | zoom_out)
     default_image_effect: str = "none"
+    # 본편 끝: 마지막 화면 유지 + 감사 자막 (무음)
+    outro_enabled: bool = True
+    outro_text: str = ""  # 비우면 resolve_outro_text → DEFAULT_OUTRO_TEXT
+    outro_duration_sec: float = 3.0
 
 
 @dataclass
@@ -98,6 +110,9 @@ class ProjectDoc:
             audio_codec=str(st.get("audio_codec", "aac")),
             youtube_faststart=bool(st.get("youtube_faststart", True)),
             default_image_effect=normalize_effect(str(st.get("default_image_effect") or "none")),
+            outro_enabled=bool(st.get("outro_enabled", True)),
+            outro_text=str(st.get("outro_text", "")),
+            outro_duration_sec=float(st.get("outro_duration_sec", 3.0)),
         )
         return ProjectDoc(
             title=str(data.get("title") or "Untitled"),

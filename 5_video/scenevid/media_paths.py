@@ -18,7 +18,14 @@ def _local_ffmpeg_bin_dir() -> Path | None:
     ff_n, fp_n = _ffmpeg_probe_names()
     bases: list[Path] = []
     if getattr(sys, "frozen", False):
-        bases.append(Path(sys.executable).resolve().parent)
+        exe = Path(sys.executable).resolve()
+        bases.extend([exe.parent, exe.parent.parent, exe.parent.parent.parent])
+        try:
+            from scenevid.repo_paths import wisdom_repo_root
+
+            bases.append(wisdom_repo_root())
+        except Exception:
+            pass
     bases.extend(Path(__file__).resolve().parents)
     for base in bases:
         d = base / "tools" / "ffmpeg" / "bin"

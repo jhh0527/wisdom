@@ -14,12 +14,17 @@ from scenevid.compose_render import (
     render_compose_from_assets,
 )
 from scenevid.ffmpeg_render import render_project
-from scenevid.schema import RenderSettings, load_project, save_project
+from scenevid.schema import DEFAULT_OUTRO_TEXT, RenderSettings, load_project, save_project
 from scenevid.script_parse import script_md_to_doc
 from scenevid.subtitles import write_scene_srt
 from scenevid.assets import audio_duration_ffprobe
 from scenevid.media_paths import prepend_local_ffmpeg_bin_to_os_path
-from scenevid.repo_paths import default_scenevid_compose_mp4, default_tts_pipeline_root, default_tts_python
+from scenevid.repo_paths import (
+    default_scenevid_compose_mp4,
+    default_scenevid_compose_mp4_name,
+    default_tts_pipeline_root,
+    default_tts_python,
+)
 
 
 SAMPLE_SCRIPT = """# 내 첫 장면 영상
@@ -193,6 +198,7 @@ def cmd_compose(
     default_effect: str,
     effects_file: Path | None,
     overrides_path: Path | None,
+    outro_text: str | None = None,
 ) -> int:
     """3·4단계 산출물: MP3 + SRT + images/srt_NN.* → output."""
     root = assets.resolve()
@@ -210,7 +216,11 @@ def cmd_compose(
         return 1
     outp = (out.resolve() if out else default_scenevid_compose_mp4())
     outp.parent.mkdir(parents=True, exist_ok=True)
-    st = RenderSettings(width=width, height=height)
+    st = RenderSettings(
+        width=width,
+        height=height,
+        outro_text=(outro_text or "").strip(),
+    )
     try:
         fp = render_compose_from_assets(
             audio_mp3=aud,
@@ -282,7 +292,7 @@ def main(argv: list[str] | None = None) -> int:
         description=(
             "파이프라인: script.md → scene.json → (TTS mp3, 이미지 png, 자막 srt) "
             "→ FFmpeg 합성 → output/final.mp4. "
-            "산출물만 합칠 때는 compose (MP3+SRT+images/srt_NN); 기본 MP4 출력은 wisdom/5_video/output/compose_final.mp4. 자막만 갱신: subtitles."
+            "산출물만 합칠 때는 compose (MP3+SRT+images/srt_NN); 기본 MP4 출력은 wisdom/5_video/output/yyyymmdd.mp4. 자막만 갱신: subtitles."
         ),
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
     )
@@ -385,7 +395,13 @@ def main(argv: list[str] | None = None) -> int:
         "-o",
         type=Path,
         default=None,
-        help="출력 MP4 (기본: wisdom/5_video/output/compose_final.mp4)",
+        help=f"출력 MP4 (기본: wisdom/5_video/output/{default_scenevid_compose_mp4_name()})",
+    )
+    cp.add_argument(
+        "--outro-text",
+        type=str,
+        default=None,
+        help=f"엔딩 자막 (비우면 「{DEFAULT_OUTRO_TEXT}」)",
     )
     cp.add_argument("--no-sub", action="store_true", help="자막 번인 생략")
     cp.add_argument("--width", type=int, default=1920)
@@ -421,6 +437,7 @@ def main(argv: list[str] | None = None) -> int:
             default_effect=a.default_effect,
             effects_file=a.effects_file,
             overrides_path=a.overrides,
+            outro_text=a.outro_text,
         )
     )
 

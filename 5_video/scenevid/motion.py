@@ -74,10 +74,11 @@ def normalize_effect(raw: str | None) -> str:
     return "none"
 
 
-def _static_pad_vf(w: int, h: int) -> str:
+def _static_cover_vf(w: int, h: int) -> str:
+    """출력 프레임(16:9 등)을 꽉 채우도록 확대 후 중앙 크롭 (CSS object-fit: cover)."""
     return (
-        f"scale={w}:{h}:force_original_aspect_ratio=decrease,"
-        f"pad={w}:{h}:(ow-iw)/2:(oh-ih)/2:color=black"
+        f"scale={w}:{h}:force_original_aspect_ratio=increase:flags=lanczos,"
+        f"crop={w}:{h},setsar=1"
     )
 
 
@@ -107,7 +108,7 @@ def build_image_motion_vf(
     w, h = int(width), int(height)
     fps = max(1, int(fps))
     if eff == "none":
-        return _static_pad_vf(w, h)
+        return _static_cover_vf(w, h)
 
     d_out = max(1, int(math.ceil(float(duration_sec) * fps)))
     use_span = (
@@ -148,7 +149,7 @@ def build_image_motion_vf(
     # 출력보다 크도록 보장 → 보간 흐림 없이 supersample 효과만 받음).
     # 또한 zoompan 의 출력(s=ow:oh)은 입력 sub-rect 를 강제 리샘플하므로, 입력의
     # 가로/세로 비율이 출력과 다르면 이미지가 가로 또는 세로로 늘어집니다.
-    # 따라서 입력 캔버스를 정확히 ow:oh 비율로 letterbox(검은 띠) 처리합니다.
+    # 따라서 입력 캔버스를 정확히 ow:oh 비율로 중앙 크롭해 꽉 채웁니다.
     sw = max(int(ow * 1.55), ow + 32)
     sh = max(int(oh * 1.55), oh + 32)
     if sw * oh >= sh * ow:
@@ -158,8 +159,8 @@ def build_image_motion_vf(
     sw -= sw % 2
     sh -= sh % 2
     pre = (
-        f"scale={sw}:{sh}:force_original_aspect_ratio=decrease:flags=lanczos,"
-        f"pad={sw}:{sh}:(ow-iw)/2:(oh-ih)/2:color=black,setsar=1"
+        f"scale={sw}:{sh}:force_original_aspect_ratio=increase:flags=lanczos,"
+        f"crop={sw}:{sh},setsar=1"
     )
 
     if eff == "zoom_in":
@@ -188,7 +189,87 @@ def build_image_motion_vf(
         xexpr = "(iw-iw/zoom)/2"
         yexpr = f"(ih-ih/zoom)*{on_e}/{dm}"
     else:
-        return _static_pad_vf(w, h)
+        return _static_cover_vf(w, h)
+
+    zp = (
+        f"zoompan=z='{zexpr}':x='{xexpr}':y='{yexpr}':"
+        f"d={d}:s={ow}x{oh}:fps={fps}"
+    )
+    post = f"scale={w}:{h}:flags=lanczos"
+    return f"{pre},{zp},{post}"
+
+
+def build_image_motion_frozen_vf(
+    width: int,
+    height: int,
+    fps: int,
+    duration_sec: float,
+    effect: str | None,
+    *,
+    motion_span_sec: float,
+    freeze_phase_sec: float,
+) -> str:
+    """본편 마지막 시점(``freeze_phase_sec``)의 줌/팬 화면을 ``duration_sec`` 동안 **고정**."""
+    eff = normalize_effect(effect)
+    w, h = int(width), int(height)
+    fps = max(1, int(fps))
+    if eff == "none":
+        return _static_cover_vf(w, h)
+
+    d_out = max(1, int(math.ceil(float(duration_sec) * fps)))
+    d_run = max(1, int(math.ceil(float(motion_span_sec) * fps)))
+    dm = max(1, d_run - 1)
+    on_frozen = int(round(float(freeze_phase_sec) * fps))
+    if on_frozen < 0:
+        on_frozen = 0
+    if on_frozen > dm:
+        on_frozen = dm
+    on_e = str(on_frozen)
+    d = d_out
+    d_tot = d_run
+
+    ss = max(1, int(MOTION_SUPERSAMPLE))
+    ow = w * ss
+    oh = h * ss
+    sw = max(int(ow * 1.55), ow + 32)
+    sh = max(int(oh * 1.55), oh + 32)
+    if sw * oh >= sh * ow:
+        sh = int(round(sw * oh / ow))
+    else:
+        sw = int(round(sh * ow / oh))
+    sw -= sw % 2
+    sh -= sh % 2
+    pre = (
+        f"scale={sw}:{sh}:force_original_aspect_ratio=increase:flags=lanczos,"
+        f"crop={sw}:{sh},setsar=1"
+    )
+
+    if eff == "zoom_in":
+        zexpr = f"min(1.25\\,1+0.22*{on_e}/{dm})"
+        xexpr = "(iw-iw/zoom)/2"
+        yexpr = "(ih-ih/zoom)/2"
+    elif eff == "zoom_out":
+        zexpr = f"max(1\\,1.22-0.22*{on_e}/{dm})"
+        xexpr = "(iw-iw/zoom)/2"
+        yexpr = "(ih-ih/zoom)/2"
+    elif eff == "pan_left":
+        zexpr = "1.12"
+        xexpr = f"(iw-iw/zoom)*({d_tot}-{on_e})/{dm}"
+        yexpr = "(ih-ih/zoom)/2"
+    elif eff == "pan_right":
+        zexpr = "1.12"
+        xexpr = f"(iw-iw/zoom)*{on_e}/{dm}"
+        yexpr = "(ih-ih/zoom)/2"
+    elif eff == "pan_up":
+        zexpr = "1.12"
+        xexpr = "(iw-iw/zoom)/2"
+        yexpr = f"(ih-ih/zoom)*({d_tot}-{on_e})/{dm}"
+    elif eff == "pan_down":
+        zexpr = "1.12"
+        xexpr = "(iw-iw/zoom)/2"
+        yexpr = f"(ih-ih/zoom)*{on_e}/{dm}"
+    else:
+        return _static_cover_vf(w, h)
 
     zp = (
         f"zoompan=z='{zexpr}':x='{xexpr}':y='{yexpr}':"

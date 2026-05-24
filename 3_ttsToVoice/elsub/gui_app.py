@@ -2,11 +2,11 @@
 """3_ttsToVoice: ElevenLabs TTS 블록 → 파트별 MP3·SRT·JSON 합성 + 수동 `all` 병합.
 
 - 각 파트(`1.{}`, `2.{}` …)별로 `part01`, `part02` … 이름으로 MP3·SRT·JSON 을 생성합니다.
-- 파트 내부 MP3 병합은 ffmpeg(concat, `-c copy` → 실패 시 재인코딩) 후, 실패 시 바이너리 이어붙임입니다.
+- 파트·`all.mp3` 병합은 ffmpeg concat + libmp3lame 재인코딩(128k/44.1kHz/mono) 우선, 실패 시 바이너리 폴백입니다.
 - 통합 `all.*` 파일은 **별도 버튼**으로 출력 폴더의 기존 `part*.` 파일만 읽어 생성합니다.
 - 출력 폴더는 항상 `3_ttsToVoice/output/` 입니다.
 - 자막 구간 길이는 세그먼트 MP3를 ffprobe 한 값을 사용하고, 파트 전체 길이에 맞게 미세 보정합니다.
-- TTS가 마침표·쉼표·느낌표·물음표 등으로 끝나지 않으면 다음 줄과 한 API 호출로 이어서 합성합니다.
+- 문장부호·호흡 태그로 끝나지 않아 다음 줄과 한 API로 합성될 때, 줄 사이에 짧은 쉼(``<break time="0.35s" />``)을 넣어 띄어 읽습니다.
 """
 
 from __future__ import annotations
@@ -86,6 +86,8 @@ def build_merged_json_from_part_files(
     part_mp3_paths: list[Path],
     all_mp3: Path,
     all_srt: Path,
+    *,
+    all_merge_method: str = "",
 ) -> dict:
     """`partNN.json` 을 읽어 통합 JSON 문서를 만듭니다."""
     parts_meta: list[dict] = []
@@ -140,7 +142,7 @@ def build_merged_json_from_part_files(
         "merged_mp3": str(all_mp3.resolve()),
         "subtitle_srt": str(all_srt.resolve()),
         "model_id": model_id or "eleven_multilingual_v2",
-        "merge_method": "manual: part*.json 기준 병합",
+        "merge_method": all_merge_method or "manual: part*.json 기준 병합",
         "total_duration_ms_estimate": total_from_probe,
         "parts": parts_meta,
         "segments": all_segments,
@@ -287,7 +289,7 @@ def main() -> None:
                     part_merge_note = ""
                     try:
                         concat_mp3_files_ffmpeg(part_seg_paths, part_mp3)
-                        part_merge_note = "ffmpeg"
+                        part_merge_note = "ffmpeg-reencode"
                     except Exception as ff_err:
                         concat_mp3_files(part_seg_blobs, str(part_mp3))
                         part_merge_note = f"binary-fallback ({ff_err})"
@@ -413,18 +415,26 @@ def main() -> None:
                 all_srt = output_dir / "all.srt"
                 all_json = output_dir / "all.json"
 
-                concat_mp3_files_binary_from_paths(part_mp3s, all_mp3)
+                all_merge_note = ""
+                try:
+                    concat_mp3_files_ffmpeg(part_mp3s, all_mp3)
+                    all_merge_note = "ffmpeg-reencode"
+                except Exception as ff_err:
+                    concat_mp3_files_binary_from_paths(part_mp3s, all_mp3)
+                    all_merge_note = f"binary-fallback ({ff_err})"
 
                 srt_paths = [p.with_suffix(".srt") for p in part_mp3s]
                 merged_srt, _timeline_end = merge_srt_files(srt_paths, part_mp3_paths=part_mp3s)
                 all_srt.write_text(merged_srt, encoding="utf-8")
 
-                merged_doc = build_merged_json_from_part_files(part_mp3s, all_mp3, all_srt)
+                merged_doc = build_merged_json_from_part_files(
+                    part_mp3s, all_mp3, all_srt, all_merge_method=all_merge_note
+                )
                 all_json.write_text(json.dumps(merged_doc, ensure_ascii=False, indent=2), encoding="utf-8")
 
                 def ok() -> None:
                     status.set("병합 완료")
-                    log_line(f"all.mp3 ← {len(part_mp3s)}개 파트 (바이너리 이어붙임)")
+                    log_line(f"all.mp3 ← {len(part_mp3s)}개 파트 ({all_merge_note})")
                     log_line(f"all.srt ← part*.srt 병합 (큐 번호=시작 시각 초, 예: 00:07:29→449)")
                     log_line(f"all.json ← part*.json 메타 병합")
                     log_line(f"MP3: {all_mp3}")

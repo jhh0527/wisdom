@@ -20,13 +20,15 @@ from scenevid.compose_overrides import (
 from scenevid.ffmpeg_render import concat_scenes, resolve_ffmpeg_exe, _subtitle_path_filter_arg
 from scenevid.subprocess_util import subprocess_run_no_window
 from scenevid.motion import (
+    _same_compose_image_path,
+    build_image_motion_frozen_vf,
     build_image_motion_vf,
     compose_motion_span_phase_per_cue,
     effects_for_compose_cues,
     normalize_effect,
 )
 from scenevid.repo_paths import default_srt_image_output_dir
-from scenevid.schema import RenderSettings
+from scenevid.schema import RenderSettings, resolve_outro_text
 from scenevid.srt_image_effects import (
     find_srt_image_effects_json,
     load_cue_effects_from_srt_image_json,
@@ -61,13 +63,17 @@ def clamp_cues_ms_to_audio(
     cues: list[tuple[int, int, int, str]],
     audio_duration_sec: float,
 ) -> tuple[list[tuple[int, int, int, str]], str]:
-    """SRT 큐 종료 시각을 MP3 재생 길이 안으로 자릅니다. (MP4만 길어지는 현상 방지)"""
+    """SRT 타임라인을 MP3 길이에 맞춥니다.
+
+    - SRT가 MP3보다 길면: 큐 종료를 MP3 끝으로 자름 (영상만 길어지는 현상 방지).
+    - SRT가 MP3보다 짧으면: **마지막 큐** 종료를 MP3 끝까지 연장 (끝 음성 1초대 잘림 방지).
+    """
     audio_ms = max(0, int(round(float(audio_duration_sec) * 1000.0)))
-    warn = ""
+    warns: list[str] = []
     if cues:
         last_end = max(c[2] for c in cues)
         if last_end > audio_ms + 80:
-            warn = (
+            warns.append(
                 f"SRT 끝({last_end / 60000:.2f}분)이 MP3({audio_ms / 60000:.2f}분)보다 깁니다. "
                 "MP3 길이로 자막 구간을 잘랐습니다."
             )
@@ -81,7 +87,18 @@ def clamp_cues_ms_to_audio(
         if end <= int(t0):
             continue
         out.append((mid, int(t0), end, txt))
-    return out, warn
+
+    if out and audio_ms > 0:
+        mid, t0, t1, txt = out[-1]
+        gap_ms = audio_ms - int(t1)
+        if gap_ms > 80:
+            warns.append(
+                f"마지막 SRT({t1 / 1000:.2f}s)보다 MP3({audio_ms / 1000:.2f}s)가 "
+                f"{gap_ms / 1000:.2f}s 깁니다. 마지막 큐를 MP3 끝까지 연장했습니다."
+            )
+            out[-1] = (mid, int(t0), audio_ms, txt)
+
+    return out, " ".join(warns)
 
 
 def list_compose_images(images_dir: Path) -> list[Path]:
@@ -154,8 +171,8 @@ def render_compose_black_clip(
     """이미지 삭제(검은 화면) 구간 — 원본 MP3 구간만 유지."""
     dur = max(0.06, float(end_sec) - float(start_sec))
     st = max(0.0, float(start_sec))
-    en = float(end_sec)
     w, h, fps = settings.width, settings.height, settings.fps
+    af = f"atrim=start={st:.6f}:duration={dur:.6f},asetpts=PTS-STARTPTS"
 
     if burn_subtitles and (cue_text or "").strip():
         write_single_cue_srt(work_srt, cue_text, dur)
@@ -176,7 +193,7 @@ def render_compose_black_clip(
         "-vf",
         vf,
         "-af",
-        f"atrim=start={st}:end={en},asetpts=PTS-STARTPTS",
+        af,
         "-c:v",
         settings.video_codec,
         "-preset",
@@ -229,6 +246,8 @@ def render_compose_insert_clip(
     burn_subtitles: bool,
     work_srt: Path,
     effect: str,
+    motion_span_sec: float | None = None,
+    motion_phase_sec: float | None = None,
 ) -> None:
     """삽입 구간 — 무음 + 정지 이미지(선택 자막)."""
     dur = max(0.06, float(duration_sec))
@@ -245,6 +264,8 @@ def render_compose_insert_clip(
             work_srt,
             burn_subtitles=True,
             subtitle_cwd=out_mp4.parent,
+            motion_span_sec=motion_span_sec,
+            motion_phase_sec=motion_phase_sec,
         )
     else:
         vf = _compose_video_vf(
@@ -255,6 +276,8 @@ def render_compose_insert_clip(
             eff,
             None,
             burn_subtitles=False,
+            motion_span_sec=motion_span_sec,
+            motion_phase_sec=motion_phase_sec,
         )
 
     input_fps = _compose_static_image_input_framerate(dur) if eff != "none" else str(settings.fps)
@@ -320,10 +343,332 @@ def render_compose_insert_clip(
         raise RuntimeError(f"ffmpeg 삽입 클립 실패:\n{pr.stderr}\n{pr.stdout}")
 
 
-def _compose_scale_pad_vf(w: int, h: int) -> str:
+def _last_compose_media(resolved_imgs: list[Path | None]) -> Path | None:
+    """엔딩 홀드용: 마지막으로 쓰인 이미지·영상."""
+    for p in reversed(resolved_imgs):
+        if p is not None and p.is_file():
+            return p
+    return None
+
+
+def _outro_motion_freeze_state(
+    cues: list[tuple[int, int, int, str]],
+    motion_per_cue: list[str],
+    span_phase_per_cue: list[tuple[float | None, float | None]],
+    resolved_imgs: list[Path | None],
+    outro_image: Path | None,
+) -> tuple[str, float | None, float | None]:
+    """엔딩 고정 화면: 본편 마지막 시점의 줌/팬 상태(효과·span·phase)."""
+    n = len(cues)
+    if (
+        n == 0
+        or len(motion_per_cue) != n
+        or len(span_phase_per_cue) != n
+        or len(resolved_imgs) != n
+    ):
+        return "none", None, None
+
+    run_end_i = n - 1
+    if outro_image is not None:
+        for i in range(n - 1, -1, -1):
+            img = resolved_imgs[i]
+            if img is not None and _same_compose_image_path(img, outro_image):
+                run_end_i = i
+                break
+
+    eff = motion_per_cue[run_end_i]
+    if normalize_effect(eff) == "none":
+        return eff, None, None
+
+    _mid, t0, t1, _txt = cues[run_end_i]
+    last_cue_sec = max(1e-6, (int(t1) - int(t0)) / 1000.0)
+
+    mspan, mphase = span_phase_per_cue[run_end_i]
+    if mspan is not None and mphase is not None:
+        phase_at_end = float(mphase) + last_cue_sec
+        return eff, float(mspan), phase_at_end
+
+    # 검은 큐·영상 등으로 span 이 없어도, 같은 이미지 연속 구간 길이로 위상 계산
+    img = resolved_imgs[run_end_i]
+    if img is None:
+        return eff, None, None
+
+    run_start_i = run_end_i
+    for i in range(run_end_i - 1, -1, -1):
+        if resolved_imgs[i] is not None and _same_compose_image_path(resolved_imgs[i], img):
+            run_start_i = i
+        elif resolved_imgs[i] is not None:
+            break
+
+    t0_run = cues[run_start_i][1] / 1000.0
+    t1_run = cues[run_end_i][2] / 1000.0
+    span = max(1e-6, float(t1_run - t0_run))
+    phase_at_end = max(0.0, float(t0) / 1000.0 - t0_run) + last_cue_sec
+    phase_at_end = min(phase_at_end, span)
+    return eff, span, phase_at_end
+
+
+def render_compose_outro_hold_clip(
+    *,
+    image: Path | None,
+    duration_sec: float,
+    subtitle_text: str,
+    out_mp4: Path,
+    settings: RenderSettings,
+    burn_subtitles: bool,
+    work_srt: Path,
+    effect: str = "none",
+    motion_span_sec: float | None = None,
+    motion_phase_sec: float | None = None,
+) -> None:
+    """본편 종료 후: 마지막 효과 화면 고정 + 감사 자막(무음)."""
+    dur = max(0.06, float(duration_sec))
+    if image is not None and image.is_file():
+        if is_compose_video_path(image):
+            w, h, fps = settings.width, settings.height, settings.fps
+            scale_cover = _compose_scale_cover_vf(w, h)
+            if burn_subtitles and (subtitle_text or "").strip():
+                write_single_cue_srt(work_srt, subtitle_text, dur)
+                sub = _subtitle_path_filter_arg(work_srt, ffmpeg_cwd=out_mp4.parent, play_res=(w, h))
+                vchain = f"{scale_cover},{sub},trim=duration={dur:.6f},setpts=PTS-STARTPTS"
+            else:
+                vchain = f"{scale_cover},trim=duration={dur:.6f},setpts=PTS-STARTPTS"
+            fc = f"[0:v]fps={fps},{vchain}[v]"
+            ffmpeg = resolve_ffmpeg_exe()
+            cmd = [
+                ffmpeg,
+                "-y",
+                "-stream_loop",
+                "-1",
+                "-i",
+                str(image.resolve()),
+                "-f",
+                "lavfi",
+                "-i",
+                "anullsrc=channel_layout=stereo:sample_rate=44100",
+                "-filter_complex",
+                fc,
+                "-map",
+                "[v]",
+                "-map",
+                "1:a",
+                "-t",
+                str(dur),
+                "-c:v",
+                settings.video_codec,
+                "-preset",
+                "veryfast",
+                "-crf",
+                "22",
+                "-pix_fmt",
+                "yuv420p",
+                "-g",
+                str(fps),
+                "-keyint_min",
+                str(fps),
+                "-sc_threshold",
+                "0",
+                "-c:a",
+                settings.audio_codec,
+                "-b:a",
+                "192k",
+                "-r",
+                str(fps),
+                "-vsync",
+                "cfr",
+                "-movflags",
+                "+faststart",
+                str(out_mp4.resolve()),
+            ]
+            env = dict(os.environ)
+            env.setdefault("FONTCONFIG_PATH", "")
+            pr = subprocess_run_no_window(
+                cmd,
+                cwd=str(out_mp4.parent),
+                capture_output=True,
+                text=True,
+                encoding="utf-8",
+                errors="replace",
+                env=env,
+            )
+            if pr.returncode != 0:
+                raise RuntimeError(f"ffmpeg 엔딩 영상 클립 실패:\n{pr.stderr}\n{pr.stdout}")
+            return
+
+        eff_norm = normalize_effect(effect)
+        freeze_ok = (
+            eff_norm != "none"
+            and motion_span_sec is not None
+            and motion_phase_sec is not None
+            and float(motion_span_sec) > 1e-6
+        )
+        if freeze_ok:
+            w, h, fps = settings.width, settings.height, settings.fps
+            if burn_subtitles and (subtitle_text or "").strip():
+                write_single_cue_srt(work_srt, subtitle_text, dur)
+                vf = build_image_motion_frozen_vf(
+                    w,
+                    h,
+                    fps,
+                    dur,
+                    effect,
+                    motion_span_sec=float(motion_span_sec),
+                    freeze_phase_sec=float(motion_phase_sec),
+                )
+                vf += "," + _subtitle_path_filter_arg(
+                    work_srt, ffmpeg_cwd=out_mp4.parent, play_res=(w, h)
+                )
+            else:
+                vf = build_image_motion_frozen_vf(
+                    w,
+                    h,
+                    fps,
+                    dur,
+                    effect,
+                    motion_span_sec=float(motion_span_sec),
+                    freeze_phase_sec=float(motion_phase_sec),
+                )
+            input_fps = _compose_static_image_input_framerate(dur)
+            ffmpeg = resolve_ffmpeg_exe()
+            cmd = [
+                ffmpeg,
+                "-y",
+                "-framerate",
+                input_fps,
+                "-loop",
+                "1",
+                "-i",
+                str(image.resolve()),
+                "-f",
+                "lavfi",
+                "-i",
+                "anullsrc=channel_layout=stereo:sample_rate=44100",
+                "-vf",
+                vf,
+                "-t",
+                str(dur),
+                "-c:v",
+                settings.video_codec,
+                "-preset",
+                "medium",
+                "-crf",
+                "20",
+                "-tune",
+                "stillimage",
+                "-pix_fmt",
+                "yuv420p",
+                "-g",
+                str(fps),
+                "-keyint_min",
+                str(fps),
+                "-sc_threshold",
+                "0",
+                "-c:a",
+                settings.audio_codec,
+                "-b:a",
+                "192k",
+                "-r",
+                str(fps),
+                "-vsync",
+                "cfr",
+                "-movflags",
+                "+faststart",
+                str(out_mp4.resolve()),
+            ]
+            env = dict(os.environ)
+            env.setdefault("FONTCONFIG_PATH", "")
+            pr = subprocess_run_no_window(
+                cmd,
+                cwd=str(out_mp4.parent),
+                capture_output=True,
+                text=True,
+                encoding="utf-8",
+                errors="replace",
+                env=env,
+            )
+            if pr.returncode != 0:
+                raise RuntimeError(f"ffmpeg 엔딩(고정 화면) 클립 실패:\n{pr.stderr}\n{pr.stdout}")
+            return
+
+        render_compose_insert_clip(
+            image=image,
+            duration_sec=dur,
+            subtitle_text=subtitle_text,
+            out_mp4=out_mp4,
+            settings=settings,
+            burn_subtitles=burn_subtitles,
+            work_srt=work_srt,
+            effect="none",
+        )
+        return
+
+    w, h, fps = settings.width, settings.height, settings.fps
+    if burn_subtitles and (subtitle_text or "").strip():
+        write_single_cue_srt(work_srt, subtitle_text, dur)
+        vf = f"format=yuv420p,{_subtitle_path_filter_arg(work_srt, ffmpeg_cwd=out_mp4.parent, play_res=(w, h))}"
+    else:
+        vf = "format=yuv420p"
+
+    ffmpeg = resolve_ffmpeg_exe()
+    cmd = [
+        ffmpeg,
+        "-y",
+        "-f",
+        "lavfi",
+        "-i",
+        f"color=c=black:s={w}x{h}:r={fps}:d={dur}",
+        "-f",
+        "lavfi",
+        "-i",
+        "anullsrc=channel_layout=stereo:sample_rate=44100",
+        "-vf",
+        vf,
+        "-c:v",
+        settings.video_codec,
+        "-preset",
+        "veryfast",
+        "-crf",
+        "22",
+        "-pix_fmt",
+        "yuv420p",
+        "-g",
+        str(fps),
+        "-keyint_min",
+        str(fps),
+        "-sc_threshold",
+        "0",
+        "-c:a",
+        settings.audio_codec,
+        "-b:a",
+        "192k",
+        "-shortest",
+        "-r",
+        str(fps),
+        "-vsync",
+        "cfr",
+        "-movflags",
+        "+faststart",
+        str(out_mp4.resolve()),
+    ]
+    env = dict(os.environ)
+    env.setdefault("FONTCONFIG_PATH", "")
+    pr = subprocess_run_no_window(
+        cmd,
+        cwd=str(out_mp4.parent),
+        capture_output=True,
+        text=True,
+        encoding="utf-8",
+        errors="replace",
+        env=env,
+    )
+    if pr.returncode != 0:
+        raise RuntimeError(f"ffmpeg 엔딩(검은 화면) 클립 실패:\n{pr.stderr}\n{pr.stdout}")
+
+
+def _compose_scale_cover_vf(w: int, h: int) -> str:
     return (
-        f"scale={w}:{h}:force_original_aspect_ratio=decrease,"
-        f"pad={w}:{h}:(ow-iw)/2:(oh-ih)/2,setsar=1,format=yuv420p"
+        f"scale={w}:{h}:force_original_aspect_ratio=increase:flags=lanczos,"
+        f"crop={w}:{h},setsar=1,format=yuv420p"
     )
 
 
@@ -345,20 +690,19 @@ def render_compose_video_clip(
     """
     dur = max(0.06, float(end_sec) - float(start_sec))
     st = max(0.0, float(start_sec))
-    en = float(end_sec)
     w, h, fps = settings.width, settings.height, settings.fps
 
-    scale_pad = _compose_scale_pad_vf(w, h)
+    scale_cover = _compose_scale_cover_vf(w, h)
     if burn_subtitles:
         write_single_cue_srt(work_srt, cue_text, dur)
         sub = _subtitle_path_filter_arg(work_srt, ffmpeg_cwd=out_mp4.parent, play_res=(w, h))
-        vchain = f"{scale_pad},{sub},trim=duration={dur:.6f},setpts=PTS-STARTPTS"
+        vchain = f"{scale_cover},{sub},trim=duration={dur:.6f},setpts=PTS-STARTPTS"
     else:
-        vchain = f"{scale_pad},trim=duration={dur:.6f},setpts=PTS-STARTPTS"
+        vchain = f"{scale_cover},trim=duration={dur:.6f},setpts=PTS-STARTPTS"
 
     fc = (
         f"[0:v]fps={fps},{vchain}[v];"
-        f"[1:a]atrim=start={st:.6f}:end={en:.6f},asetpts=PTS-STARTPTS[a]"
+        f"[1:a]atrim=start={st:.6f}:duration={dur:.6f},asetpts=PTS-STARTPTS[a]"
     )
 
     ffmpeg = resolve_ffmpeg_exe()
@@ -450,9 +794,10 @@ def render_compose_clip(
         return
     dur = max(0.06, float(end_sec) - float(start_sec))
     st = max(0.0, float(start_sec))
-    en = float(end_sec)
     eff_norm = normalize_effect(effect)
     input_fps = _compose_static_image_input_framerate(dur) if eff_norm != "none" else str(settings.fps)
+    # atrim end= 는 경계에서 샘플이 빠질 수 있어 start + -t 로 길이만 맞춤
+    af = f"atrim=start={st:.6f}:duration={dur:.6f},asetpts=PTS-STARTPTS"
 
     if burn_subtitles:
         write_single_cue_srt(work_srt, cue_text, dur)
@@ -496,7 +841,7 @@ def render_compose_clip(
         "-vf",
         vf,
         "-af",
-        f"atrim=start={st}:end={en},asetpts=PTS-STARTPTS",
+        af,
         "-t",
         str(dur),
         "-c:v",
@@ -650,9 +995,13 @@ def render_compose_from_assets(
     clip_seq = 0
     clips: list[Path] = []
 
+    outro_text_resolved = resolve_outro_text(stg.outro_text)
+    outro_on = bool(stg.outro_enabled) and float(stg.outro_duration_sec) > 0
     total_steps = len(ins_by.get(0, []))
     for ci in range(1, n_cues + 1):
         total_steps += 1 + len(ins_by.get(ci, []))
+    if outro_on:
+        total_steps += 1
     total_steps += 1  # concat
 
     done = 0
@@ -738,6 +1087,32 @@ def render_compose_from_assets(
                 clips.append(mp2)
                 done += 1
                 prog(f"삽입 클립 완료 ({done}/{total_steps})")
+
+        if outro_on:
+            mp_outro, sr_outro = _next_paths()
+            outro_img = _last_compose_media(resolved_imgs)
+            outro_eff, outro_span, freeze_phase = _outro_motion_freeze_state(
+                cues,
+                motion_per_cue,
+                span_phase_per_cue,
+                resolved_imgs,
+                outro_img,
+            )
+            render_compose_outro_hold_clip(
+                image=outro_img,
+                duration_sec=float(stg.outro_duration_sec),
+                subtitle_text=outro_text_resolved,
+                out_mp4=mp_outro,
+                settings=stg,
+                burn_subtitles=burn_subtitles,
+                work_srt=sr_outro,
+                effect=outro_eff,
+                motion_span_sec=outro_span,
+                motion_phase_sec=freeze_phase,
+            )
+            clips.append(mp_outro)
+            done += 1
+            prog(f"엔딩({stg.outro_duration_sec:.1f}초) 완료 ({done}/{total_steps})")
 
         out_mp4.parent.mkdir(parents=True, exist_ok=True)
         prog(f"세그먼트 연결 중… ({done}/{total_steps})")

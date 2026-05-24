@@ -40,7 +40,7 @@ from scenevid.repo_paths import (
     pick_default_compose_audio_srt,
     wisdom_repo_root,
 )
-from scenevid.schema import RenderSettings
+from scenevid.schema import DEFAULT_OUTRO_TEXT, RenderSettings
 from scenevid.srt_image_effects import (
     find_srt_image_effects_json,
     load_cue_effects_from_srt_image_json,
@@ -123,6 +123,7 @@ def main() -> None:
     srt_var = tk.StringVar()
     images_var = tk.StringVar()
     out_var = tk.StringVar()
+    outro_msg_var = tk.StringVar(value="")
     no_sub_c = tk.BooleanVar(value=False)
     w_var = tk.StringVar(value="1920")
     h_var = tk.StringVar(value="1080")
@@ -211,7 +212,7 @@ def main() -> None:
         p = filedialog.asksaveasfilename(
             title="출력 MP4",
             initialdir=str(init.parent) if init.parent.is_dir() else str(default_scenevid_output_dir()),
-            initialfile=init.name if init.name else "compose_final.mp4",
+            initialfile=init.name if init.name else default_scenevid_compose_mp4().name,
             defaultextension=".mp4",
             filetypes=[("MP4", "*.mp4")],
         )
@@ -222,6 +223,26 @@ def main() -> None:
     _row_labeled("자막 SRT", srt_var, pick_srt)
     _row_labeled("이미지·영상 폴더", images_var, pick_images_dir, entry_key="images")
     _row_labeled("출력 MP4", out_var, pick_out)
+    ttk.Label(tab_c, text=f"엔딩 메시지 (비우면 「{DEFAULT_OUTRO_TEXT}」)").grid(row=r, column=0, columnspan=3, sticky="w")
+    r += 1
+    ttk.Entry(tab_c, textvariable=outro_msg_var).grid(row=r, column=0, columnspan=3, sticky="ew", pady=(0, 6))
+    r += 1
+
+    def apply_pipeline_defaults() -> None:
+        """videoPG 기본 경로: TTS output / SRT 이미지 output / 5_video output/yyyymmdd.mp4."""
+        default_scenevid_output_dir().mkdir(parents=True, exist_ok=True)
+        aud, sr = pick_default_compose_audio_srt()
+        if aud:
+            audio_var.set(str(aud))
+        if sr:
+            srt_var.set(str(sr))
+        images_var.set(str(default_srt_image_output_dir()))
+        out_var.set(str(default_scenevid_compose_mp4()))
+
+    row_paths_btn = ttk.Frame(tab_c)
+    row_paths_btn.grid(row=r, column=0, columnspan=3, sticky="w", pady=(0, 6))
+    ttk.Button(row_paths_btn, text="기본 경로 적용", command=apply_pipeline_defaults).pack(side=tk.LEFT)
+    r += 1
 
     def _fmt_ms(t0: int, t1: int) -> str:
         return f"{seconds_to_srt_ts(t0 / 1000.0)} → {seconds_to_srt_ts(t1 / 1000.0)}"
@@ -981,7 +1002,11 @@ def main() -> None:
         out_p.parent.mkdir(parents=True, exist_ok=True)
         w = int(w_var.get().strip() or "1920")
         h = int(h_var.get().strip() or "1080")
-        st = RenderSettings(width=w, height=h)
+        st = RenderSettings(
+            width=w,
+            height=h,
+            outro_text=outro_msg_var.get().strip(),
+        )
         eff_path = Path(effects_file_var.get().strip()) if effects_file_var.get().strip() else None
         if bool(tl_state.get("ready")):
             fp = render_compose_from_assets(
@@ -1157,18 +1182,7 @@ def main() -> None:
     btn_all.grid(row=pr, column=0, sticky="w")
     pr += 1
 
-    def apply_pipeline_defaults() -> None:
-        """videoPG 기본 경로: TTS output / SRT 이미지 output / 5_video output."""
-        default_scenevid_output_dir().mkdir(parents=True, exist_ok=True)
-        aud, sr = pick_default_compose_audio_srt()
-        if aud:
-            audio_var.set(str(aud))
-        if sr:
-            srt_var.set(str(sr))
-        images_var.set(str(default_srt_image_output_dir()))
-        out_var.set(str(default_scenevid_compose_mp4()))
-        timeline_refresh(silent=True)
-
     apply_pipeline_defaults()
+    timeline_refresh(silent=True)
 
     root.mainloop()
