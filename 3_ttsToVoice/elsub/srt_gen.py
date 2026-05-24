@@ -2,7 +2,7 @@
 """3_ttsToVoice: 원본 자막 + 길이로 SRT 생성.
 
 - `build_srt` / `build_srt_from_durations`: 줄별 길이는 글자 수 추정 또는 실측(ms)을 사용합니다.
-- `merge_srt_files`: all.srt 병합 시 큐 번호 = 타임라인 시작 시각의 정수 초(예: 00:07:29 → 449).
+- `merge_srt_files`: all.srt 병합 시 큐 번호 = 시작 시각의 정수 초(0초는 1, 예: 00:07:29 → 449).
   `part_mp3_paths` 를 넘기면 파트 경계 오프셋에 ffprobe 길이를 사용합니다.
 """
 
@@ -88,11 +88,11 @@ def parse_srt_timestamp(ts: str) -> int:
 
 
 def cue_index_from_start_ms(start_ms: int) -> int:
-    """SRT 블록 첫 줄 번호: 시작 시각의 정수 초 (00:07:29,002 → 449).
+    """SRT 블록 첫 줄 번호: 시작 시각의 정수 초 (00:00:00 → 1, 00:07:29,002 → 449).
 
-    ``4_srtToImage`` 의 ``SRT_449``·``5_video`` 의 ``images/srt_NN`` 매칭과 맞춥니다.
+    ``4_srtToImage`` 의 ``SRT_NNN``·``5_video`` 의 ``images/srt_NN`` 매칭과 맞춥니다.
     """
-    return max(0, int(start_ms) // 1000)
+    return max(1, int(start_ms) // 1000)
 
 
 def parse_srt_cues(content: str) -> list[tuple[int, int, str]]:

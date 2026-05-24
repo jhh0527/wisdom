@@ -23,7 +23,6 @@ a = Analysis(
         "png2jpg.naming",
         "png2jpg.paths",
         "png2jpg.settings",
-        "png2jpg.srt_match",
         "PIL",
         "PIL.Image",
     ],

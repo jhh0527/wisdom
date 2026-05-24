@@ -1,20 +1,41 @@
 # -*- coding: utf-8 -*-
-"""TTS 줄 병합: 문장부호로 끝나지 않으면 다음 줄과 한 번에 합성."""
+"""TTS 줄 병합: 문장부호·호흡 태그로 끊고, 이어 읽을 줄만 한 API 호출로 합성."""
 
 from __future__ import annotations
 
-from elsub.elevenlabs_client import strip_tts_tags
+import re
+
+from elsub.elevenlabs_client import SUBTITLE_LINE_BREAK, strip_tts_tags
 from elsub.parser import CaptionLine
 
-# 마침표·쉼표·느낌표·물음표·콜론·세미콜론(ASCII·전각·일부 CJK)
+# 마침표·쉼표·느낌표·물음표·콜론·세미콜론·말줄임(ASCII·전각·일부 CJK)
 _PAUSE_END_CHARS = frozenset(
-    ".,!?;:。"
+    ".,!?;:…"
     "．，、！？：；"
+    "」』\"')】〉"
 )
+
+_LEADING_PAUSE_TAG_RE = re.compile(
+    r"^\s*\[(?:short pause|breathes)(?:\]\s*\[(?:breathes|continues))*\]",
+    re.IGNORECASE,
+)
+_TRAILING_PAUSE_TAG_RE = re.compile(r"\[(?:short pause|breathes)\]\s*$", re.IGNORECASE)
+
+
+def tts_has_leading_pause_marker(tts: str) -> bool:
+    """TTS 앞에 ``[short pause]``·``[breathes]`` 계열이 있으면 True."""
+    return bool(_LEADING_PAUSE_TAG_RE.match(tts.strip()))
+
+
+def tts_has_trailing_pause_marker(tts: str) -> bool:
+    """TTS 끝에 ``[breathes]``·``[short pause]`` 가 있으면 True."""
+    return bool(_TRAILING_PAUSE_TAG_RE.search(tts.strip()))
 
 
 def tts_ends_with_pause_punctuation(tts: str) -> bool:
     """태그 제거 후 끝 문자가 쉼/끊김용 문장부호이면 True."""
+    if tts_has_trailing_pause_marker(tts):
+        return True
     plain = strip_tts_tags(tts).strip()
     if not plain:
         return True
@@ -22,12 +43,14 @@ def tts_ends_with_pause_punctuation(tts: str) -> bool:
 
 
 def group_entries_for_synthesis(entries: list[CaptionLine]) -> list[list[CaptionLine]]:
-    """이전 줄 TTS가 문장부호로 끝나지 않으면 다음 줄과 같은 합성 묶음."""
+    """이전 줄이 끊김 지점이면 다음 줄을 새 합성 묶음으로 시작합니다."""
     if not entries:
         return []
     groups: list[list[CaptionLine]] = [[entries[0]]]
     for e in entries[1:]:
-        if tts_ends_with_pause_punctuation(groups[-1][-1].tts):
+        if tts_has_leading_pause_marker(e.tts):
+            groups.append([e])
+        elif tts_ends_with_pause_punctuation(groups[-1][-1].tts):
             groups.append([e])
         else:
             groups[-1].append(e)
@@ -35,8 +58,17 @@ def group_entries_for_synthesis(entries: list[CaptionLine]) -> list[list[Caption
 
 
 def merge_group_tts(group: list[CaptionLine]) -> str:
-    """한 묶음의 TTS 문자열을 이어 붙입니다(자막 줄바꿈·공백 없이)."""
-    return "".join(e.tts for e in group)
+    """한 묶음 TTS. 앞 줄이 문장부호·호흡 태그로 끝나지 않으면 짧은 ``<break>`` 로 띄어 읽습니다."""
+    if not group:
+        return ""
+    if len(group) == 1:
+        return group[0].tts
+    parts: list[str] = [group[0].tts]
+    for prev, curr in zip(group, group[1:]):
+        if not tts_ends_with_pause_punctuation(prev.tts):
+            parts.append(SUBTITLE_LINE_BREAK)
+        parts.append(curr.tts)
+    return "".join(parts)
 
 
 def split_duration_ms(total_ms: int, weights: list[int], *, min_ms: int = 1) -> list[int]:
