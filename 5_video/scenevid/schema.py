@@ -9,11 +9,11 @@ from typing import Any
 
 from scenevid.motion import normalize_effect
 
-DEFAULT_OUTRO_TEXT = "구독과 좋아요는 큰힘이 됩니다."
+DEFAULT_OUTRO_TEXT = ""
 
 
 def resolve_outro_text(raw: str | None) -> str:
-    """엔딩 자막. 비어 있으면 ``DEFAULT_OUTRO_TEXT``."""
+    """엔딩 자막. 비어 있으면 기본값(공백·자막 없음)."""
     s = (raw or "").strip()
     return s if s else DEFAULT_OUTRO_TEXT
 
