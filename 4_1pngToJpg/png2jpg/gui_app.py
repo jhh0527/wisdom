@@ -149,7 +149,7 @@ def main(
 
     ttk.Label(
         frm,
-        text="파일명 규칙: srt_001, SRT_042, image_3, 06_제목.png 등 → SRT_XXX.jpg (최대 1920×1080, JPEG 최적화)",
+        text="파일명 규칙: SRT_000, srt_00, SRT_042, 00_제목.png 등 → SRT_XXX.jpg (번호=시작초, 0부터, 최대 1920×1080)",
     ).grid(row=4, column=0, sticky="w", pady=(0, 10))
 
     frm.grid_columnconfigure(0, weight=1)

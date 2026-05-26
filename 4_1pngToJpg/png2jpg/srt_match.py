@@ -52,10 +52,10 @@ def parse_srt_cues(path: Path) -> list[tuple[int, int, int, str]]:
         except ValueError:
             continue
         head = lines[0].strip()
-        if head.isdigit() and int(head) >= 1:
+        if head.isdigit() and int(head) >= 0:
             map_id = int(head)
         else:
-            map_id = len(cues) + 1
+            map_id = max(0, st // 1000)
         text = "\n".join(lines[2:]).strip() if len(lines) > 2 else ""
         cues.append((map_id, st, en, text))
     return cues
@@ -125,11 +125,16 @@ def resolve_output_srt_number(
 ) -> tuple[int | None, str]:
     """출력 SRT 번호와 출처 설명."""
     t_ms = extract_timestamp_ms_from_stem(stem)
-    if t_ms is not None and cues:
-        mid = match_srt_at_timestamp_ms(cues, t_ms, used_map_ids)
-        if mid is not None:
-            sec = t_ms / 1000.0
-            return mid, f"SRT 매칭 T={sec:.3f}s→#{mid}"
+    if t_ms is not None:
+        sec_n = max(0, int(t_ms) // 1000)
+        if sec_n in used_map_ids:
+            return None, f"SRT_{sec_n:03d} 번호 중복"
+        if cues:
+            mid = match_srt_at_timestamp_ms(cues, t_ms, used_map_ids)
+            if mid is not None:
+                sec = t_ms / 1000.0
+                return sec_n, f"SRT 매칭 T={sec:.3f}s→SRT_{sec_n:03d}"
+        return sec_n, f"타임스탬프 {sec_n}s→SRT_{sec_n:03d}"
     if fallback_from_name is not None:
         return fallback_from_name, "파일명 선행 번호"
     return None, "번호 없음"

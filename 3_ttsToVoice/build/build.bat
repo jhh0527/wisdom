@@ -84,6 +84,8 @@ if not exist "!DISTEXE!" (
   exit /b 1
 )
 
+powershell -NoProfile -Command "Unblock-File -LiteralPath '%DISTEXE%' -ErrorAction SilentlyContinue" >nul 2>&1
+
 if exist "!PROOT!\elsub_config.json" (
   copy /Y "!PROOT!\elsub_config.json" "!PROOT!\dist\elsub_config.json" >nul
   echo  - 설정 복사: elsub_config.json -^> dist\

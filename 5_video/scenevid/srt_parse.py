@@ -29,7 +29,7 @@ def _srt_image_map_id(first_line: str, ordinal: int) -> int:
 def parse_srt_cues_ms(content: str) -> list[tuple[int, int, int, str]]:
     """SRT 본문을 (image_map_id, start_ms, end_ms, text) 리스트로 파싱합니다.
 
-    image_map_id는 보통 블록 첫 줄의 자막 번호이며, 이미지 파일명 ``srt_NN`` 과 맞춥니다.
+    image_map_id는 보통 블록 첫 줄의 자막 번호이며, 이미지 매칭은 ``start_ms`` 초(``SRT_000``=0초) 기준입니다.
     첫 줄이 번호가 아니면 해당 블록의 파일 내 순번(1부터)을 씁니다.
     """
     cues: list[tuple[int, int, int, str]] = []

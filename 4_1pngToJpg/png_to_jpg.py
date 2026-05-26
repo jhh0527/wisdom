@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """PNG → 유튜브·영상 파이프라인용 JPEG (SRT_XXX.jpg).
 
-- 파일명의 숫자(srt_01, image_023, 22 등) → ``SRT_001.jpg`` 형식
+- 파일명의 숫자(srt_00, SRT_000, image_023, 22 등) → ``SRT_000.jpg`` … ``SRT_NNN.jpg`` (번호=시작초)
 - 최대 1920×1080 (비율 유지, 업스케일 없음)
 - JPEG progressive·optimize (기본 품질 88)
 """

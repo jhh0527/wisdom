@@ -5,7 +5,7 @@ from __future__ import annotations
 
 import re
 
-from elsub.elevenlabs_client import SUBTITLE_LINE_BREAK, strip_tts_tags
+from elsub.elevenlabs_client import strip_tts_tags
 from elsub.parser import CaptionLine
 
 # 마침표·쉼표·느낌표·물음표·콜론·세미콜론·말줄임(ASCII·전각·일부 CJK)
@@ -19,6 +19,7 @@ _LEADING_PAUSE_TAG_RE = re.compile(
     r"^\s*\[(?:short pause|breathes)(?:\]\s*\[(?:breathes|continues))*\]",
     re.IGNORECASE,
 )
+_LEADING_CONTINUES_RE = re.compile(r"^\s*\[continues\]\s*", re.IGNORECASE)
 _TRAILING_PAUSE_TAG_RE = re.compile(r"\[(?:short pause|breathes)\]\s*$", re.IGNORECASE)
 
 
@@ -33,13 +34,24 @@ def tts_has_trailing_pause_marker(tts: str) -> bool:
 
 
 def tts_ends_with_pause_punctuation(tts: str) -> bool:
-    """태그 제거 후 끝 문자가 쉼/끊김용 문장부호이면 True."""
-    if tts_has_trailing_pause_marker(tts):
+    """문장·파트 단위 끊김이면 True. 줄 끝 ``[breathes]`` 만 있으면 False(다음 줄과 이어 읽기)."""
+    s = tts.strip()
+    plain = strip_tts_tags(s).strip()
+    if plain and plain[-1] in _PAUSE_END_CHARS:
         return True
-    plain = strip_tts_tags(tts).strip()
-    if not plain:
+    if re.search(r"\[short pause\]", s, re.IGNORECASE):
         return True
-    return plain[-1] in _PAUSE_END_CHARS
+    return False
+
+
+def strip_trailing_line_breath_tags(tts: str) -> str:
+    """줄바꿈용 끝 ``[breathes]``·``[short pause]`` 제거(이어 읽기 시 자연스럽게 붙임)."""
+    return _TRAILING_PAUSE_TAG_RE.sub("", tts.strip()).rstrip()
+
+
+def strip_leading_continues_marker(tts: str) -> str:
+    """같은 묶음 다음 줄 앞 ``[continues]`` 제거."""
+    return _LEADING_CONTINUES_RE.sub("", tts.strip())
 
 
 def group_entries_for_synthesis(entries: list[CaptionLine]) -> list[list[CaptionLine]]:
@@ -58,7 +70,7 @@ def group_entries_for_synthesis(entries: list[CaptionLine]) -> list[list[Caption
 
 
 def merge_group_tts(group: list[CaptionLine]) -> str:
-    """한 묶음 TTS. 앞 줄이 문장부호·호흡 태그로 끝나지 않으면 짧은 ``<break>`` 로 띄어 읽습니다."""
+    """한 묶음 TTS. 문장부호 없이 이어지는 줄은 쉼 없이 붙여 한 번에 낭독합니다."""
     if not group:
         return ""
     if len(group) == 1:
@@ -66,8 +78,10 @@ def merge_group_tts(group: list[CaptionLine]) -> str:
     parts: list[str] = [group[0].tts]
     for prev, curr in zip(group, group[1:]):
         if not tts_ends_with_pause_punctuation(prev.tts):
-            parts.append(SUBTITLE_LINE_BREAK)
-        parts.append(curr.tts)
+            parts[-1] = strip_trailing_line_breath_tags(parts[-1])
+            parts.append(strip_leading_continues_marker(curr.tts))
+        else:
+            parts.append(curr.tts)
     return "".join(parts)
 
 

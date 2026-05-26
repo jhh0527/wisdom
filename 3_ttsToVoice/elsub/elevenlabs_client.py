@@ -12,8 +12,8 @@ from urllib.parse import quote
 
 DEFAULT_HOST = "api.elevenlabs.io"
 
-# 문장부호 없이 이어지는 자막 줄 사이 띄어 읽기 (ElevenLabs SSML)
-SUBTITLE_LINE_BREAK = '<break time="0.35s" />'
+# 줄 끝 [breathes] (파트 경계 ``[short pause]`` 조합은 아래 1.0s 유지)
+LINE_BREATH_BREAK = "0.5s"
 
 _BRACKET_TAG_RE = re.compile(r"\[[^\]]*\]", re.IGNORECASE)
 
@@ -39,7 +39,12 @@ def prepare_tts_for_api(text: str) -> str:
         flags=re.IGNORECASE,
     )
     s = re.sub(r"\[short pause\]", '<break time="0.4s" />', s, flags=re.IGNORECASE)
-    s = re.sub(r"\[breathes\]", '<break time="0.7s" />', s, flags=re.IGNORECASE)
+    s = re.sub(
+        r"\[breathes\]",
+        f'<break time="{LINE_BREATH_BREAK}" />',
+        s,
+        flags=re.IGNORECASE,
+    )
     s = re.sub(r"\[continues\]", "", s, flags=re.IGNORECASE)
     s = _BRACKET_TAG_RE.sub("", s)
     return s.strip()
