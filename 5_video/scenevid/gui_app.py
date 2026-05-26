@@ -223,7 +223,12 @@ def main() -> None:
     _row_labeled("자막 SRT", srt_var, pick_srt)
     _row_labeled("이미지·영상 폴더", images_var, pick_images_dir, entry_key="images")
     _row_labeled("출력 MP4", out_var, pick_out)
-    ttk.Label(tab_c, text=f"엔딩 메시지 (비우면 「{DEFAULT_OUTRO_TEXT}」)").grid(row=r, column=0, columnspan=3, sticky="w")
+    _outro_hint = (
+        "엔딩 메시지 (비우면 자막 없음)"
+        if not DEFAULT_OUTRO_TEXT.strip()
+        else f"엔딩 메시지 (비우면 「{DEFAULT_OUTRO_TEXT}」)"
+    )
+    ttk.Label(tab_c, text=_outro_hint).grid(row=r, column=0, columnspan=3, sticky="w")
     r += 1
     ttk.Entry(tab_c, textvariable=outro_msg_var).grid(row=r, column=0, columnspan=3, sticky="ew", pady=(0, 6))
     r += 1

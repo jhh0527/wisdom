@@ -401,7 +401,9 @@ def main(argv: list[str] | None = None) -> int:
         "--outro-text",
         type=str,
         default=None,
-        help=f"엔딩 자막 (비우면 「{DEFAULT_OUTRO_TEXT}」)",
+        help="엔딩 자막 (비우면 자막 없음)"
+        if not DEFAULT_OUTRO_TEXT.strip()
+        else f"엔딩 자막 (비우면 「{DEFAULT_OUTRO_TEXT}」)",
     )
     cp.add_argument("--no-sub", action="store_true", help="자막 번인 생략")
     cp.add_argument("--width", type=int, default=1920)
