@@ -249,7 +249,7 @@ def main() -> None:
 
     ttk.Label(
         tab_c,
-        text="구간별 이미지 — images/SRT_NNN.* 번호가 SRT 표시 번호 이하일 때, 그중 가장 큰 번호로 매칭(예: SRT 449→SRT_150). 없으면 직전 이미지 유지.",
+        text="구간별 이미지 — images/SRT_NNN.* 의 NNN(초) ≤ 구간 시작 시각(초) 중 최대로 매칭(예: 0초→SRT_000, 150초→SRT_150). 없으면 직전 이미지 유지.",
     ).grid(row=r, column=0, columnspan=3, sticky="w")
     r += 1
     row_tl = ttk.Frame(tab_c)
@@ -264,7 +264,7 @@ def main() -> None:
     tree = ttk.Treeview(row_tl, columns=cols, show="headings", height=12, selectmode="browse")
     tree.heading("seq", text="#")
     tree.heading("kind", text="구분")
-    tree.heading("ref", text="SRT번호")
+    tree.heading("ref", text="시작초")
     tree.heading("time", text="구간/길이")
     tree.heading("img", text="이미지")
     tree.heading("fx", text="효과")
@@ -389,7 +389,10 @@ def main() -> None:
         inserts: list[InsertClipSpec] = tl_state["inserts"]
         n = len(cues)
         map_ids = [c[0] for c in cues]
-        resolved = per_cue_images_srt_mapping(map_ids, img_dir, cue_ov)
+        cue_starts = [c[1] for c in cues]
+        resolved = per_cue_images_srt_mapping(
+            map_ids, img_dir, cue_ov, cue_start_ms=cue_starts
+        )
         eff_path = Path(effects_file_var.get().strip()) if effects_file_var.get().strip() else None
         eff_lines = effects_for_compose_cues(
             n,
@@ -420,6 +423,7 @@ def main() -> None:
         prev_mapped_img: Path | None = None
         for i in range(1, n + 1):
             mid, t0, t1, _txt = cues[i - 1]
+            start_sec = max(0, int(t0) // 1000)
             eff_img = resolved[i - 1]
             rfx_tok = carried_fx[i - 1]
             rfx = _fx_disp(rfx_tok)
@@ -447,18 +451,18 @@ def main() -> None:
                     same_image = prev_mapped_img is not None and eff_resolved == prev_mapped_img
                     if same_image:
                         hint = "이전 유지"
-                    elif img_n is not None and img_n == mid:
-                        hint = f"SRT {mid} 매핑"
+                    elif img_n is not None and img_n == start_sec:
+                        hint = f"SRT_{img_n:03d} 매핑 ({start_sec}초)"
                     elif img_n is not None:
                         fx_label = rfx if rfx_tok != "none" else ""
-                        hint = f"{fx_label} 이미지 {img_n} (≤SRT {mid})".strip()
+                        hint = f"{fx_label} SRT_{img_n:03d} (≤{start_sec}초)".strip()
                     else:
                         hint = "이전 유지"
                     prev_mapped_img = eff_resolved
             if mid in json_fx_map:
                 hint = f"{hint} · JSON"
             seq += 1
-            row(str(seq), "큐", str(mid), _fmt_ms(t0, t1), disp, rfx, hint, f"cue-{i}")
+            row(str(seq), "큐", str(start_sec), _fmt_ms(t0, t1), disp, rfx, hint, f"cue-{i}")
             for j, ins in enumerate(inserts):
                 if ins.after_cue_index != i:
                     continue
@@ -480,7 +484,7 @@ def main() -> None:
 
         tl_state["ready"] = True
         status_var.set(
-            f"타임라인 {seq}행 · SRT {n}큐 · 이미지 {len(imgs)}개 (SRT 번호 매핑){json_src_msg}"
+            f"타임라인 {seq}행 · SRT {n}큐 · 이미지 {len(imgs)}개 (시작초→SRT_NNN 매핑){json_src_msg}"
         )
         update_effect_summary()
 
@@ -559,7 +563,10 @@ def main() -> None:
             return
         mid = cues_l[cno - 1][0]
         map_ids2 = [c[0] for c in cues_l]
-        res2 = per_cue_images_srt_mapping(map_ids2, img_dir2, cue_ov2)
+        cue_starts2 = [c[1] for c in cues_l]
+        res2 = per_cue_images_srt_mapping(
+            map_ids2, img_dir2, cue_ov2, cue_start_ms=cue_starts2
+        )
         imgp = res2[cno - 1]
         carried2 = resolved_motion_effects_per_cue(map_ids2, res2, cue_fx2, img_fx2, eff_lines2)
         ov = resolve_cue_effect_override(cno, mid, cue_fx2)
@@ -839,8 +846,11 @@ def main() -> None:
             return
         img_dir2 = Path(images_var.get().strip()) if images_var.get().strip() else Path(tl_state["root"] or ".")
         map_ids2 = [c[0] for c in cues_l]
+        cue_starts_rand = [c[1] for c in cues_l]
         cue_ov2: dict[int, Path | None] = dict(tl_state.get("cue_ov") or {})
-        resolved2 = per_cue_images_srt_mapping(map_ids2, img_dir2, cue_ov2)
+        resolved2 = per_cue_images_srt_mapping(
+            map_ids2, img_dir2, cue_ov2, cue_start_ms=cue_starts_rand
+        )
 
         base_fx = dict(tl_state.get("json_fx") or {})
         new_fx: dict[int, str] = dict(base_fx)

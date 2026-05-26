@@ -378,7 +378,7 @@ def main(argv: list[str] | None = None) -> int:
 
     cp = sub.add_parser(
         "compose",
-        help="한 개 MP3 + SRT + images/SRT_NNN(번호≤SRT 중 최대, 없으면 직전 이미지 유지) → 동영상",
+        help="한 개 MP3 + SRT + images/SRT_NNN(초≤구간시작초 중 최대, 0초→SRT_000, 없으면 직전 이미지 유지) → 동영상",
     )
     cp.add_argument(
         "--assets",

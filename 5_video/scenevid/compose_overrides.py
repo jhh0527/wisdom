@@ -311,13 +311,23 @@ def image_stem_number(path: Path) -> int | None:
     return int(m.group(1)) if m else None
 
 
-def pick_image_for_srt_id(image_index: dict[int, Path], map_id: int) -> Path | None:
-    """SRT 표시 번호에 맞는 이미지: 파일 번호 ≤ SRT 번호 인 것 중 **가장 큰** 번호.
+def pick_image_for_srt_second(image_index: dict[int, Path], start_ms: int) -> Path | None:
+    """구간 시작 시각(초)에 맞는 이미지: 파일 번호 ≤ 시작초 인 것 중 **가장 큰** 번호.
 
-    예: SRT 151 → ``SRT_150.jpg`` (150≤151 중 최대, 120은 제외).
-    SRT 449 → ``SRT_150.jpg`` (150≤449 중 최대). ``SRT_449.jpg`` 가 있으면 449 사용.
-    SRT보다 작은 번호의 이미지가 하나도 없으면 ``None``.
+    ``4_srtToImage`` 라벨과 동일: ``SRT_000`` = 0초, ``SRT_150`` = 150초.
+
+    예: 0ms 구간 → ``SRT_000``; 1500ms → ``SRT_001`` (000·001 있을 때).
+    해당 초 이하 이미지가 없으면 ``None``.
     """
+    sec = max(0, int(start_ms) // 1000)
+    leq = [n for n in image_index if n <= sec]
+    if not leq:
+        return None
+    return image_index[max(leq)]
+
+
+def pick_image_for_srt_id(image_index: dict[int, Path], map_id: int) -> Path | None:
+    """SRT 블록 첫 줄 번호 기준(레거시). 합성·GUI는 ``pick_image_for_srt_second`` 를 사용."""
     mid = int(map_id)
     leq = [n for n in image_index if n <= mid]
     if not leq:
@@ -334,11 +344,14 @@ def per_cue_images_srt_mapping(
     image_map_ids: list[int],
     images_dir: Path,
     overrides: dict[int, Path | None],
+    *,
+    cue_start_ms: list[int] | None = None,
 ) -> list[Path | None]:
     """큐 재생 순서대로 각 구간에 쓸 이미지 경로.
 
-    - 기본: 이미지 파일 번호 ≤ SRT 표시 번호 인 것 중 **가장 큰** 번호의 이미지를 사용
-      (예: SRT 449 → ``SRT_150``; ``SRT_449`` 가 있으면 그것 우선).
+    - 기본: ``images/SRT_NNN.*`` 의 NNN(초) ≤ 구간 ``start_ms`` 의 초 인 것 중 **가장 큰** 번호
+      (예: 0초 → ``SRT_000``; 150초 → ``SRT_150``; ``SRT_449`` 가 있으면 449초부터 그 파일).
+    - ``cue_start_ms`` 가 없으면 SRT 블록 첫 줄 번호(``image_map_ids``)로 매칭합니다.
     - 그런 이미지가 없으면 직전 구간과 같은 이미지를 유지합니다. 첫 구간부터 매치되는
       파일이 없으면 ``None`` (검은 화면)입니다.
     - ``compose_overrides.json`` 의 ``cue_images``: 블록 순번(1…) 또는 SRT 표시 번호 키 모두 허용.
@@ -358,7 +371,10 @@ def per_cue_images_srt_mapping(
             continue
         # SRT가 커지면 더 큰 번호의 키프레임 이미지로 갱신 (예: 147→120, 151→150).
         # 직전 이미지 유지는 pick 결과가 없을 때만 적용합니다.
-        hit = pick_image_for_srt_id(image_index, mid)
+        if cue_start_ms is not None and block_i - 1 < len(cue_start_ms):
+            hit = pick_image_for_srt_second(image_index, cue_start_ms[block_i - 1])
+        else:
+            hit = pick_image_for_srt_id(image_index, mid)
         if hit is not None:
             out.append(hit)
             last = hit

@@ -10,7 +10,7 @@ _SRT_STEM = re.compile(r"^srt[-_]?0*(\d+)$", re.IGNORECASE)
 _IMAGE_STEM = re.compile(r"^image[-_]?0*(\d+)$", re.IGNORECASE)
 _SCENE_STEM = re.compile(r"^scene[-_]?0*(\d+)$", re.IGNORECASE)
 _PLAIN_NUM = re.compile(r"^0*(\d+)$")
-# videoPG: 파일명 맨 앞 2자리 숫자 → SRT 번호 (``06_...`` → 6 → ``SRT_006.jpg``)
+# 파일명 맨 앞 2자리 숫자 → SRT 번호 (``00_...`` → 0 → ``SRT_000.jpg``, ``06_...`` → 6)
 _LEADING_TWO_DIGITS = re.compile(r"^(\d{2})")
 
 _LEADING_SRT = re.compile(r"^srt[-_]?0*(\d+)", re.IGNORECASE)
@@ -23,18 +23,18 @@ _ANY_DIGITS = re.compile(r"(\d+)")
 
 
 def srt_jpg_name(number: int, *, pad: int = 3) -> str:
-    """``SRT_001.jpg`` 형식 출력 파일명."""
-    if number < 1:
-        raise ValueError(f"SRT 번호는 1 이상이어야 합니다: {number}")
+    """``SRT_000.jpg`` … ``SRT_NNN.jpg`` 형식 출력 파일명 (번호 = 매칭 SRT 시작초)."""
+    if number < 0:
+        raise ValueError(f"SRT 번호는 0 이상이어야 합니다: {number}")
     return f"SRT_{number:0{pad}d}.jpg"
 
 
-def _positive_int(s: str) -> int | None:
+def _srt_index_int(s: str) -> int | None:
     try:
         n = int(s)
     except ValueError:
         return None
-    return n if n > 0 else None
+    return n if n >= 0 else None
 
 
 def _stem_without_duration_suffix(stem: str) -> str:
@@ -46,7 +46,7 @@ def extract_first_two_digit_srt_number(path_stem: str) -> int | None:
     m = _LEADING_TWO_DIGITS.match(path_stem.strip())
     if not m:
         return None
-    return _positive_int(m.group(1))
+    return _srt_index_int(m.group(1))
 
 
 def extract_srt_number(path_stem: str) -> int | None:
@@ -62,19 +62,19 @@ def extract_srt_number(path_stem: str) -> int | None:
     for pat in (_SRT_STEM, _IMAGE_STEM, _SCENE_STEM, _PLAIN_NUM):
         m = pat.match(stem)
         if m:
-            return _positive_int(m.group(1))
+            return _srt_index_int(m.group(1))
 
     for pat in (_LEADING_SRT, _LEADING_IMAGE, _LEADING_SCENE):
         m = pat.match(stem)
         if m:
-            return _positive_int(m.group(1))
+            return _srt_index_int(m.group(1))
 
     core = _stem_without_duration_suffix(stem)
     m = _LEADING_INDEX.match(core)
     if m:
-        return _positive_int(m.group(1))
+        return _srt_index_int(m.group(1))
 
-    hits = [int(g) for g in _ANY_DIGITS.findall(core) if int(g) > 0]
+    hits = [int(g) for g in _ANY_DIGITS.findall(core) if int(g) >= 0]
     if hits:
         return hits[0]
     return None

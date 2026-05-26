@@ -905,7 +905,7 @@ def render_compose_from_assets(
     override_image_effects: dict[str, str] | None = None,
     progress: ComposeProgressCb | None = None,
 ) -> Path:
-    """part01.srt 큐별 이미지 합성. 이미지는 ``images/SRT_NNN.*`` 번호 ≤ SRT 표시 번호 중 최대 번호로 매칭하고,
+    """part01.srt 큐별 이미지 합성. 이미지는 ``images/SRT_NNN.*`` 번호(초) ≤ 구간 시작 시각(초) 중 최대로 매칭하고,
     해당 파일이 없으면 직전 구간 이미지를 유지합니다. JSON·GUI의 cue_images로 교체·검정 가능.
     ``compose_overrides.json`` 의 ``cue_effects``·``image_effects``(또는 override)로 효과를 지정할 수 있습니다.
     같은 정지 이미지가 연속된 SRT 큐에 걸쳐 있으면 줌/팬 효과는 그 연속 구간 전체에 대해 한 번만 재생되며,
@@ -975,7 +975,10 @@ def render_compose_from_assets(
 
     n_cues = len(cues)
     map_ids = [c[0] for c in cues]
-    resolved_imgs = per_cue_images_srt_mapping(map_ids, images_dir, overrides)
+    cue_starts = [c[1] for c in cues]
+    resolved_imgs = per_cue_images_srt_mapping(
+        map_ids, images_dir, overrides, cue_start_ms=cue_starts
+    )
 
     stg = settings or RenderSettings()
     work = out_mp4.parent / "_compose_work"
