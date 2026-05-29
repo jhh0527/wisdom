@@ -1,151 +1,241 @@
 {
   "part_id": "9",
-  "part_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\part09.mp3",
-  "part_srt": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\part09.srt",
+  "part_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\part09.mp3",
+  "part_srt": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\part09.srt",
   "model_id": "eleven_multilingual_v2",
-  "merge_method": "ffmpeg",
-  "segment_count": 14,
-  "duration_ms_estimate": 40557,
+  "merge_method": "ffmpeg-reencode",
+  "segment_count": 13,
+  "duration_ms_estimate": 55031,
   "segments": [
     {
       "index": 1,
       "caption_id": "9-1",
-      "original": "[short pause][breathes][continues]할머니 손으로 밥을 집어 김으로 싸서",
-      "tts": "[short pause][breathes][continues]할머니 손으로 밥을 집어 김으로 싸서",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part09_0001.mp3",
-      "duration_ms_estimate": 2164,
+      "original": "항물질은 어디에 쓰일까요?",
+      "tts": "[short pause][breathes][continues]항물질은 어디에 쓰일까요?",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part09_0001.mp3",
+      "duration_ms_estimate": 2786,
       "start_ms_estimate": 0,
-      "end_ms_estimate": 2164
+      "end_ms_estimate": 2786
     },
     {
       "index": 2,
       "caption_id": "9-2",
-      "original": "입에 넣어주던 그 맛이에요. 이 맛은 단순한",
-      "tts": "입에 넣어주던 그 맛이에요. 이 맛은 단순한",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part09_0002.mp3",
-      "duration_ms_estimate": 3152,
-      "start_ms_estimate": 2164,
-      "end_ms_estimate": 5316
+      "original": "현재 실용화된 분야는 의료입니다.",
+      "tts": "현재 실용화된 분야는 의료입니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part09_0002.mp3",
+      "duration_ms_estimate": 2554,
+      "start_ms_estimate": 2786,
+      "end_ms_estimate": 5340
     },
     {
       "index": 3,
       "caption_id": "9-3",
-      "original": "음식의 맛이 아니라, 사랑의 맛이고, 추억의",
-      "tts": "음식의 맛이 아니라, 사랑의 맛이고, 추억의",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part09_0003.mp3",
-      "duration_ms_estimate": 2587,
-      "start_ms_estimate": 5316,
-      "end_ms_estimate": 7903
+      "original": "양전자 단층촬영, 그러니까 PET 검사가",
+      "tts": "양전자 단층촬영, 그러니까 펫 검사가",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part09_0003.mp3",
+      "duration_ms_estimate": 2667,
+      "start_ms_estimate": 5340,
+      "end_ms_estimate": 8007
     },
     {
       "index": 4,
       "caption_id": "9-4",
-      "original": "맛이고, 가족의 맛입니다. 이것이 한국 김이",
-      "tts": "맛이고, 가족의 맛입니다. 이것이 한국 김이",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part09_0004.mp3",
-      "duration_ms_estimate": 3152,
-      "start_ms_estimate": 7903,
-      "end_ms_estimate": 11055
+      "original": "바로 항물질을 이용하는 기술이에요.",
+      "tts": "바로 항물질을 이용하는 기술이에요.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part09_0003.mp3",
+      "duration_ms_estimate": 2534,
+      "start_ms_estimate": 8007,
+      "end_ms_estimate": 10541
     },
     {
       "index": 5,
       "caption_id": "9-5",
-      "original": "가지고 있는 가장 큰 특징이에요.",
-      "tts": "가지고 있는 가장 큰 특징이에요.[breathes]",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part09_0005.mp3",
-      "duration_ms_estimate": 2306,
-      "start_ms_estimate": 11055,
-      "end_ms_estimate": 13361
+      "original": "양전자라는 항물질이 우리 몸속 전자와",
+      "tts": "양전자라는 항물질이 우리 몸속 전자와",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part09_0004.mp3",
+      "duration_ms_estimate": 2769,
+      "start_ms_estimate": 10541,
+      "end_ms_estimate": 13310
     },
     {
       "index": 6,
       "caption_id": "9-6",
-      "original": "다른 나라의 김은 왜 이 맛을 못 낼까요?",
-      "tts": "다른 나라의 김은 왜 이 맛을 못 낼까요?",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part09_0006.mp3",
-      "duration_ms_estimate": 2729,
-      "start_ms_estimate": 13361,
-      "end_ms_estimate": 16090
+      "original": "만나 소멸하면서 내는 감마선을 포착해",
+      "tts": "만나 소멸하면서 내는 감마선을 포착해",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part09_0004.mp3",
+      "duration_ms_estimate": 2769,
+      "start_ms_estimate": 13310,
+      "end_ms_estimate": 16079
     },
     {
       "index": 7,
       "caption_id": "9-7",
-      "original": "물론 여러 이유가 있어요. 자연환경이 다를",
-      "tts": "물론 여러 이유가 있어요. 자연환경이 다를",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part09_0007.mp3",
-      "duration_ms_estimate": 3199,
-      "start_ms_estimate": 16090,
-      "end_ms_estimate": 19289
+      "original": "암세포를 찾아내는 거죠.",
+      "tts": "암세포를 찾아내는 거죠.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part09_0004.mp3",
+      "duration_ms_estimate": 1800,
+      "start_ms_estimate": 16079,
+      "end_ms_estimate": 17879
     },
     {
       "index": 8,
       "caption_id": "9-8",
-      "original": "수도 있고, 계절을 선택하지 않고 생산할 수도",
-      "tts": "수도 있고, 계절을 선택하지 않고 생산할 수도",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part09_0008.mp3",
-      "duration_ms_estimate": 3482,
-      "start_ms_estimate": 19289,
-      "end_ms_estimate": 22771
+      "original": "미래에는 항물질 한 줌으로",
+      "tts": "미래에는 항물질 한 줌으로",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part09_0005.mp3",
+      "duration_ms_estimate": 1898,
+      "start_ms_estimate": 17879,
+      "end_ms_estimate": 19777
     },
     {
       "index": 9,
       "caption_id": "9-9",
-      "original": "있고, 빠른 효율성을 위해 모든 과정을",
-      "tts": "있고, 빠른 효율성을 위해 모든 과정을",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part09_0009.mp3",
-      "duration_ms_estimate": 3575,
-      "start_ms_estimate": 22771,
-      "end_ms_estimate": 26346
+      "original": "거대한 우주선을 추진하는 항성간 우주여행,",
+      "tts": "거대한 우주선을 추진하는 항성간 우주여행,",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part09_0005.mp3",
+      "duration_ms_estimate": 3118,
+      "start_ms_estimate": 19777,
+      "end_ms_estimate": 22895
     },
     {
       "index": 10,
       "caption_id": "9-10",
-      "original": "기계화했을 수도 있죠. 하지만 근본적으로는",
-      "tts": "기계화했을 수도 있죠. 하지만 근본적으로는",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part09_0010.mp3",
-      "duration_ms_estimate": 3199,
-      "start_ms_estimate": 26346,
-      "end_ms_estimate": 29545
+      "original": "그리고 종양만 정밀하게 파괴하는",
+      "tts": "그리고 종양만 정밀하게 파괴하는",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part09_0006.mp3",
+      "duration_ms_estimate": 2270,
+      "start_ms_estimate": 22895,
+      "end_ms_estimate": 25165
     },
     {
       "index": 11,
       "caption_id": "9-11",
-      "original": "이것입니다. 사랑의 정도가 다르다는 거예요.",
-      "tts": "이것입니다. 사랑의 정도가 다르다는 거예요.[breathes]",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part09_0011.mp3",
-      "duration_ms_estimate": 2729,
-      "start_ms_estimate": 29545,
-      "end_ms_estimate": 32274
+      "original": "차세대 암 치료에 쓰일 수 있다고 합니다.",
+      "tts": "차세대 암 치료에 쓰일 수 있다고 합니다.[breathes]",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part09_0006.mp3",
+      "duration_ms_estimate": 3071,
+      "start_ms_estimate": 25165,
+      "end_ms_estimate": 28236
     },
     {
       "index": 12,
       "caption_id": "9-12",
-      "original": "한국은 김을 만들 때, 단순히 상품을 만드는",
-      "tts": "한국은 김을 만들 때, 단순히 상품을 만드는",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part09_0012.mp3",
-      "duration_ms_estimate": 3529,
-      "start_ms_estimate": 32274,
-      "end_ms_estimate": 35803
+      "original": "그런데 재미있는 사실 하나.",
+      "tts": "그런데 재미있는 사실 하나.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part09_0007.mp3",
+      "duration_ms_estimate": 2043,
+      "start_ms_estimate": 28236,
+      "end_ms_estimate": 30279
     },
     {
       "index": 13,
       "caption_id": "9-13",
-      "original": "게 아니라, 누군가의 밥상에 올라갈 음식을",
-      "tts": "게 아니라, 누군가의 밥상에 올라갈 음식을",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part09_0013.mp3",
-      "duration_ms_estimate": 2964,
-      "start_ms_estimate": 35803,
-      "end_ms_estimate": 38767
+      "original": "인류가 지금까지 만든 항물질을",
+      "tts": "인류가 지금까지 만든 항물질을",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part09_0008.mp3",
+      "duration_ms_estimate": 2064,
+      "start_ms_estimate": 30279,
+      "end_ms_estimate": 32343
     },
     {
       "index": 14,
       "caption_id": "9-14",
-      "original": "만든다고 생각하는 거죠.",
-      "tts": "만든다고 생각하는 거죠.",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part09_0014.mp3",
-      "duration_ms_estimate": 1790,
-      "start_ms_estimate": 38767,
-      "end_ms_estimate": 40557
+      "original": "전부 모아도 1나노그램이 안 됩니다.",
+      "tts": "전부 모아도 일나노그램이 안 됩니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part09_0008.mp3",
+      "duration_ms_estimate": 2580,
+      "start_ms_estimate": 32343,
+      "end_ms_estimate": 34923
+    },
+    {
+      "index": 15,
+      "caption_id": "9-15",
+      "original": "1그램은커녕 10억분의 1그램도",
+      "tts": "일그램은커녕 십억분의 일그램도",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part09_0009.mp3",
+      "duration_ms_estimate": 2167,
+      "start_ms_estimate": 34923,
+      "end_ms_estimate": 37090
+    },
+    {
+      "index": 16,
+      "caption_id": "9-16",
+      "original": "못 만들었어요.",
+      "tts": "못 만들었어요.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part09_0009.mp3",
+      "duration_ms_estimate": 1084,
+      "start_ms_estimate": 37090,
+      "end_ms_estimate": 38174
+    },
+    {
+      "index": 17,
+      "caption_id": "9-17",
+      "original": "유럽입자물리연구소 CERN에서",
+      "tts": "유럽입자물리연구소 세른에서",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part09_0010.mp3",
+      "duration_ms_estimate": 2034,
+      "start_ms_estimate": 38174,
+      "end_ms_estimate": 40208
+    },
+    {
+      "index": 18,
+      "caption_id": "9-18",
+      "original": "거대한 가속기를 돌려가며",
+      "tts": "거대한 가속기를 돌려가며",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part09_0010.mp3",
+      "duration_ms_estimate": 1888,
+      "start_ms_estimate": 40208,
+      "end_ms_estimate": 42096
+    },
+    {
+      "index": 19,
+      "caption_id": "9-19",
+      "original": "한 번에 몇 개의 반양성자를 만들고,",
+      "tts": "한 번에 몇 개의 반양성자를 만들고,",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part09_0010.mp3",
+      "duration_ms_estimate": 2905,
+      "start_ms_estimate": 42096,
+      "end_ms_estimate": 45001
+    },
+    {
+      "index": 20,
+      "caption_id": "9-20",
+      "original": "그걸 자기장 안에 가둬서 보관하는데,",
+      "tts": "그걸 자기장 안에 가둬서 보관하는데,",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part09_0011.mp3",
+      "duration_ms_estimate": 2740,
+      "start_ms_estimate": 45001,
+      "end_ms_estimate": 47741
+    },
+    {
+      "index": 21,
+      "caption_id": "9-21",
+      "original": "그것도 몇 분이면 사라집니다.",
+      "tts": "그것도 몇 분이면 사라집니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part09_0012.mp3",
+      "duration_ms_estimate": 2276,
+      "start_ms_estimate": 47741,
+      "end_ms_estimate": 50017
+    },
+    {
+      "index": 22,
+      "caption_id": "9-22",
+      "original": "한 마디로, 인류는 아직 항물질을",
+      "tts": "한 마디로, 인류는 아직 항물질을",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part09_0013.mp3",
+      "duration_ms_estimate": 2202,
+      "start_ms_estimate": 50017,
+      "end_ms_estimate": 52219
+    },
+    {
+      "index": 23,
+      "caption_id": "9-23",
+      "original": "\"팔 수 있는\" 단계가 전혀 아닌 거예요.",
+      "tts": "\"팔 수 있는\" 단계가 전혀 아닌 거예요.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part09_0013.mp3",
+      "duration_ms_estimate": 2812,
+      "start_ms_estimate": 52219,
+      "end_ms_estimate": 55031
     }
   ]
 }

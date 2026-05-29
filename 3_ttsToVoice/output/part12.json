@@ -1,121 +1,201 @@
 {
   "part_id": "12",
-  "part_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\part12.mp3",
-  "part_srt": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\part12.srt",
+  "part_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\part12.mp3",
+  "part_srt": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\part12.srt",
   "model_id": "eleven_multilingual_v2",
-  "merge_method": "ffmpeg",
-  "segment_count": 11,
-  "duration_ms_estimate": 33486,
+  "merge_method": "ffmpeg-reencode",
+  "segment_count": 13,
+  "duration_ms_estimate": 47880,
   "segments": [
     {
       "index": 1,
       "caption_id": "12-1",
-      "original": "[short pause][breathes][continues]해외에서는 한국 김을 어떻게 생각할까요?",
-      "tts": "[short pause][breathes][continues]해외에서는 한국 김을 어떻게 생각할까요?",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part12_0001.mp3",
-      "duration_ms_estimate": 2865,
+      "original": "여기서 잠깐, 별 이야기로 다시 돌아가 볼게요.",
+      "tts": "[short pause][breathes][continues]여기서 잠깐, 별 이야기로 다시 돌아가 볼게요.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part12_0001.mp3",
+      "duration_ms_estimate": 3669,
       "start_ms_estimate": 0,
-      "end_ms_estimate": 2865
+      "end_ms_estimate": 3669
     },
     {
       "index": 2,
       "caption_id": "12-2",
-      "original": "고급 레스토랑들을 가보세요. 특히 미슐랭 별을",
-      "tts": "고급 레스토랑들을 가보세요. 특히 미슐랭 별을",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part12_0002.mp3",
-      "duration_ms_estimate": 3428,
-      "start_ms_estimate": 2865,
-      "end_ms_estimate": 6293
+      "original": "최근 천문학에서 가장 흥미로운 발견 중 하나가,",
+      "tts": "최근 천문학에서 가장 흥미로운 발견 중 하나가,",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part12_0002.mp3",
+      "duration_ms_estimate": 3390,
+      "start_ms_estimate": 3669,
+      "end_ms_estimate": 7059
     },
     {
       "index": 3,
       "caption_id": "12-3",
-      "original": "받은 식당들 말이에요. 거기서 제공하는 한국 김은",
-      "tts": "받은 식당들 말이에요. 거기서 제공하는 한국 김은",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part12_0003.mp3",
-      "duration_ms_estimate": 3334,
-      "start_ms_estimate": 6293,
-      "end_ms_estimate": 9627
+      "original": "중성자별 두 개가 충돌할 때",
+      "tts": "중성자별 두 개가 충돌할 때",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part12_0003.mp3",
+      "duration_ms_estimate": 2017,
+      "start_ms_estimate": 7059,
+      "end_ms_estimate": 9076
     },
     {
       "index": 4,
       "caption_id": "12-4",
-      "original": "정말 프리미엄 재료로 취급돼요. 마치 트러플이나",
-      "tts": "정말 프리미엄 재료로 취급돼요. 마치 트러플이나",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part12_0004.mp3",
-      "duration_ms_estimate": 3522,
-      "start_ms_estimate": 9627,
-      "end_ms_estimate": 13149
+      "original": "한 번에 어마어마한 양의 금과 백금이",
+      "tts": "한 번에 어마어마한 양의 금과 백금이",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part12_0003.mp3",
+      "duration_ms_estimate": 2690,
+      "start_ms_estimate": 9076,
+      "end_ms_estimate": 11766
     },
     {
       "index": 5,
       "caption_id": "12-5",
-      "original": "캐비어처럼요. 왜 그럴까요? 그건 바로 한국 김의",
-      "tts": "캐비어처럼요. 왜 그럴까요? 그건 바로 한국 김의[breathes]",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part12_0005.mp3",
-      "duration_ms_estimate": 3522,
-      "start_ms_estimate": 13149,
-      "end_ms_estimate": 16671
+      "original": "만들어진다는 사실입니다.",
+      "tts": "만들어진다는 사실입니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part12_0003.mp3",
+      "duration_ms_estimate": 1748,
+      "start_ms_estimate": 11766,
+      "end_ms_estimate": 13514
     },
     {
       "index": 6,
       "caption_id": "12-6",
-      "original": "품질이 그 정도라는 뜻이에요. 또 놀라운 점은",
-      "tts": "품질이 그 정도라는 뜻이에요. 또 놀라운 점은",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part12_0006.mp3",
-      "duration_ms_estimate": 3100,
-      "start_ms_estimate": 16671,
-      "end_ms_estimate": 19771
+      "original": "2017년 처음으로 중성자별 충돌이",
+      "tts": "이천십칠년 처음으로 중성자별 충돌이",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part12_0004.mp3",
+      "duration_ms_estimate": 3028,
+      "start_ms_estimate": 13514,
+      "end_ms_estimate": 16542
     },
     {
       "index": 7,
       "caption_id": "12-7",
-      "original": "수출입니다. 한국 김은 이제 미국, 유럽, 일본",
-      "tts": "수출입니다. 한국 김은 이제 미국, 유럽, 일본",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part12_0007.mp3",
-      "duration_ms_estimate": 3194,
-      "start_ms_estimate": 19771,
-      "end_ms_estimate": 22965
+      "original": "직접 관측됐는데, GW170817 사건이라고 부릅니다.",
+      "tts": "직접 관측됐는데, 지더블유일칠공팔일칠 사건이라고 부릅니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part12_0004.mp3",
+      "duration_ms_estimate": 5099,
+      "start_ms_estimate": 16542,
+      "end_ms_estimate": 21641
     },
     {
       "index": 8,
       "caption_id": "12-8",
-      "original": "등 전 세계로 팔려나가고 있어요. 그리고 거기서도",
-      "tts": "등 전 세계로 팔려나가고 있어요. 그리고 거기서도",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part12_0008.mp3",
-      "duration_ms_estimate": 3382,
-      "start_ms_estimate": 22965,
-      "end_ms_estimate": 26347
+      "original": "그때 분석 결과 지구 질량의 수 배에 해당하는",
+      "tts": "그때 분석 결과 지구 질량의 수 배에 해당하는",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part12_0005.mp3",
+      "duration_ms_estimate": 3040,
+      "start_ms_estimate": 21641,
+      "end_ms_estimate": 24681
     },
     {
       "index": 9,
       "caption_id": "12-9",
-      "original": "프리미엄 가격으로 팔린다는 거죠. 왜냐하면",
-      "tts": "프리미엄 가격으로 팔린다는 거죠. 왜냐하면",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part12_0009.mp3",
-      "duration_ms_estimate": 3006,
-      "start_ms_estimate": 26347,
-      "end_ms_estimate": 29353
+      "original": "금이 만들어진 걸로 추정됐어요.",
+      "tts": "금이 만들어진 걸로 추정됐어요.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part12_0005.mp3",
+      "duration_ms_estimate": 2068,
+      "start_ms_estimate": 24681,
+      "end_ms_estimate": 26749
     },
     {
       "index": 10,
       "caption_id": "12-10",
-      "original": "소비자들이 알기 때문이에요. 한국 김이 다르다는",
-      "tts": "소비자들이 알기 때문이에요. 한국 김이 다르다는",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part12_0010.mp3",
-      "duration_ms_estimate": 3053,
-      "start_ms_estimate": 29353,
-      "end_ms_estimate": 32406
+      "original": "우주적 스케일에서는 금이",
+      "tts": "우주적 스케일에서는 금이",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part12_0006.mp3",
+      "duration_ms_estimate": 1728,
+      "start_ms_estimate": 26749,
+      "end_ms_estimate": 28477
     },
     {
       "index": 11,
       "caption_id": "12-11",
-      "original": "것을 말이죠.",
-      "tts": "것을 말이죠.[breathes]",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part12_0011.mp3",
-      "duration_ms_estimate": 1080,
-      "start_ms_estimate": 32406,
-      "end_ms_estimate": 33486
+      "original": "그렇게 귀하지 않은 셈입니다.",
+      "tts": "그렇게 귀하지 않은 셈입니다.[breathes]",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part12_0006.mp3",
+      "duration_ms_estimate": 2127,
+      "start_ms_estimate": 28477,
+      "end_ms_estimate": 30604
+    },
+    {
+      "index": 12,
+      "caption_id": "12-12",
+      "original": "다만 그게 지구까지 와서",
+      "tts": "다만 그게 지구까지 와서",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part12_0007.mp3",
+      "duration_ms_estimate": 1541,
+      "start_ms_estimate": 30604,
+      "end_ms_estimate": 32145
+    },
+    {
+      "index": 13,
+      "caption_id": "12-13",
+      "original": "채굴 가능한 형태로 모이는 게 어려울 뿐이죠.",
+      "tts": "채굴 가능한 형태로 모이는 게 어려울 뿐이죠.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part12_0007.mp3",
+      "duration_ms_estimate": 2964,
+      "start_ms_estimate": 32145,
+      "end_ms_estimate": 35109
+    },
+    {
+      "index": 14,
+      "caption_id": "12-14",
+      "original": "자, 이번엔 좀 다른 영역으로 가볼게요.",
+      "tts": "자, 이번엔 좀 다른 영역으로 가볼게요.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part12_0008.mp3",
+      "duration_ms_estimate": 2508,
+      "start_ms_estimate": 35109,
+      "end_ms_estimate": 37617
+    },
+    {
+      "index": 15,
+      "caption_id": "12-15",
+      "original": "광물과 보석의 세계입니다.",
+      "tts": "광물과 보석의 세계입니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part12_0009.mp3",
+      "duration_ms_estimate": 2043,
+      "start_ms_estimate": 37617,
+      "end_ms_estimate": 39660
+    },
+    {
+      "index": 16,
+      "caption_id": "12-16",
+      "original": "다이아몬드가 비싸다고요?",
+      "tts": "다이아몬드가 비싸다고요?",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part12_0010.mp3",
+      "duration_ms_estimate": 1625,
+      "start_ms_estimate": 39660,
+      "end_ms_estimate": 41285
+    },
+    {
+      "index": 17,
+      "caption_id": "12-17",
+      "original": "사실 다이아몬드는 그렇게 희귀한 광물이 아닙니다.",
+      "tts": "사실 다이아몬드는 그렇게 희귀한 광물이 아닙니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part12_0011.mp3",
+      "duration_ms_estimate": 2926,
+      "start_ms_estimate": 41285,
+      "end_ms_estimate": 44211
+    },
+    {
+      "index": 18,
+      "caption_id": "12-18",
+      "original": "마케팅의 승리죠.",
+      "tts": "마케팅의 승리죠.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part12_0012.mp3",
+      "duration_ms_estimate": 1347,
+      "start_ms_estimate": 44211,
+      "end_ms_estimate": 45558
+    },
+    {
+      "index": 19,
+      "caption_id": "12-19",
+      "original": "진짜 희귀한 보석들을 만나볼게요.",
+      "tts": "진짜 희귀한 보석들을 만나볼게요.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part12_0013.mp3",
+      "duration_ms_estimate": 2322,
+      "start_ms_estimate": 45558,
+      "end_ms_estimate": 47880
     }
   ]
 }

@@ -1,141 +1,231 @@
 {
   "part_id": "13",
-  "part_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\part13.mp3",
-  "part_srt": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\part13.srt",
+  "part_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\part13.mp3",
+  "part_srt": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\part13.srt",
   "model_id": "eleven_multilingual_v2",
-  "merge_method": "ffmpeg",
-  "segment_count": 13,
-  "duration_ms_estimate": 40496,
+  "merge_method": "ffmpeg-reencode",
+  "segment_count": 15,
+  "duration_ms_estimate": 52802,
   "segments": [
     {
       "index": 1,
       "caption_id": "13-1",
-      "original": "[short pause][breathes][continues]마지막으로 이 모든 것을 정리해보면,",
-      "tts": "[short pause][breathes][continues]마지막으로 이 모든 것을 정리해보면,",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part13_0001.mp3",
-      "duration_ms_estimate": 2769,
+      "original": "페인타이트(Painite)라는 광물이 있습니다.",
+      "tts": "[short pause][breathes][continues]페인타이트(Painite)라는 광물이 있습니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part13_0001.mp3",
+      "duration_ms_estimate": 3576,
       "start_ms_estimate": 0,
-      "end_ms_estimate": 2769
+      "end_ms_estimate": 3576
     },
     {
       "index": 2,
       "caption_id": "13-2",
-      "original": "한국 김이 세계 최고인 이유는 이겁니다.",
-      "tts": "한국 김이 세계 최고인 이유는 이겁니다.",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part13_0002.mp3",
-      "duration_ms_estimate": 2628,
-      "start_ms_estimate": 2769,
-      "end_ms_estimate": 5397
+      "original": "1950년대 영국의 광물학자 아서 페인이",
+      "tts": "천구백오십년대 영국의 광물학자 아서 페인이",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part13_0002.mp3",
+      "duration_ms_estimate": 3317,
+      "start_ms_estimate": 3576,
+      "end_ms_estimate": 6893
     },
     {
       "index": 3,
       "caption_id": "13-3",
-      "original": "최적의 자연환경, 옳은 계절의 선택, 정성스러운",
-      "tts": "최적의 자연환경, 옳은 계절의 선택, 정성스러운",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part13_0003.mp3",
-      "duration_ms_estimate": 4646,
-      "start_ms_estimate": 5397,
-      "end_ms_estimate": 10043
+      "original": "미얀마에서 발견한 광물인데,",
+      "tts": "미얀마에서 발견한 광물인데,",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part13_0002.mp3",
+      "duration_ms_estimate": 2163,
+      "start_ms_estimate": 6893,
+      "end_ms_estimate": 9056
     },
     {
       "index": 4,
       "caption_id": "13-4",
-      "original": "손의 작업, 전통과 현대의 완벽한 조화, 그리고",
-      "tts": "손의 작업, 전통과 현대의 완벽한 조화, 그리고",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part13_0004.mp3",
-      "duration_ms_estimate": 4130,
-      "start_ms_estimate": 10043,
-      "end_ms_estimate": 14173
+      "original": "2004년경까지 전 세계에",
+      "tts": "이천사년경까지 전 세계에",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part13_0003.mp3",
+      "duration_ms_estimate": 1827,
+      "start_ms_estimate": 9056,
+      "end_ms_estimate": 10883
     },
     {
       "index": 5,
       "caption_id": "13-5",
-      "original": "무엇보다 음식을 만드는 사람들의 사랑입니다.",
-      "tts": "무엇보다 음식을 만드는 사람들의 사랑입니다.[breathes]",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part13_0005.mp3",
-      "duration_ms_estimate": 3050,
-      "start_ms_estimate": 14173,
-      "end_ms_estimate": 17223
+      "original": "보석급 결정이 채 24개도 알려지지 않았어요.",
+      "tts": "보석급 결정이 채 스물네개도 알려지지 않았어요.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part13_0003.mp3",
+      "duration_ms_estimate": 3653,
+      "start_ms_estimate": 10883,
+      "end_ms_estimate": 14536
     },
     {
       "index": 6,
       "caption_id": "13-6",
-      "original": "새벽 시간에 일어나는 어부들, 차가운 바다 속에서",
-      "tts": "새벽 시간에 일어나는 어부들, 차가운 바다 속에서",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part13_0006.mp3",
-      "duration_ms_estimate": 3473,
-      "start_ms_estimate": 17223,
-      "end_ms_estimate": 20696
+      "original": "지금은 미얀마에서 좀 더 발견됐지만,",
+      "tts": "지금은 미얀마에서 좀 더 발견됐지만,",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part13_0004.mp3",
+      "duration_ms_estimate": 2740,
+      "start_ms_estimate": 14536,
+      "end_ms_estimate": 17276
     },
     {
       "index": 7,
       "caption_id": "13-7",
-      "original": "하루종일 일하는 사람들, 공장에서 밤새도록",
-      "tts": "하루종일 일하는 사람들, 공장에서 밤새도록",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part13_0007.mp3",
-      "duration_ms_estimate": 3237,
-      "start_ms_estimate": 20696,
-      "end_ms_estimate": 23933
+      "original": "여전히 고품질은 1캐럿에",
+      "tts": "여전히 고품질은 일캐럿에",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part13_0005.mp3",
+      "duration_ms_estimate": 1788,
+      "start_ms_estimate": 17276,
+      "end_ms_estimate": 19064
     },
     {
       "index": 8,
       "caption_id": "13-8",
-      "original": "건조 과정을 지켜보는 아주머니들.",
-      "tts": "건조 과정을 지켜보는 아주머니들.",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part13_0008.mp3",
-      "duration_ms_estimate": 2346,
-      "start_ms_estimate": 23933,
-      "end_ms_estimate": 26279
+      "original": "6만 달러를 호가합니다.",
+      "tts": "육만 달러를 호가합니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part13_0005.mp3",
+      "duration_ms_estimate": 1788,
+      "start_ms_estimate": 19064,
+      "end_ms_estimate": 20852
     },
     {
       "index": 9,
       "caption_id": "13-9",
-      "original": "이 모든 사람들이 생각하는 것은 한 가지예요.",
-      "tts": "이 모든 사람들이 생각하는 것은 한 가지예요.",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part13_0009.mp3",
-      "duration_ms_estimate": 2815,
-      "start_ms_estimate": 26279,
-      "end_ms_estimate": 29094
+      "original": "용도는 거의 컬렉터용 보석이에요.",
+      "tts": "용도는 거의 컬렉터용 보석이에요.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part13_0006.mp3",
+      "duration_ms_estimate": 2183,
+      "start_ms_estimate": 20852,
+      "end_ms_estimate": 23035
     },
     {
       "index": 10,
       "caption_id": "13-10",
-      "original": "\"누군가의 밥상에 올라갈 음식. 그 누군가가",
-      "tts": "\"누군가의 밥상에 올라갈 음식. 그 누군가가",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part13_0010.mp3",
-      "duration_ms_estimate": 3519,
-      "start_ms_estimate": 29094,
-      "end_ms_estimate": 32613
+      "original": "너무 희귀해서 산업용으로는 쓸 수가 없죠.",
+      "tts": "너무 희귀해서 산업용으로는 쓸 수가 없죠.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part13_0007.mp3",
+      "duration_ms_estimate": 2879,
+      "start_ms_estimate": 23035,
+      "end_ms_estimate": 25914
     },
     {
       "index": 11,
       "caption_id": "13-11",
-      "original": "맛있게 먹고, 행복해했으면 좋겠다\"는 마음",
-      "tts": "맛있게 먹고, 행복해했으면 좋겠다\"는 마음[breathes]",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part13_0011.mp3",
-      "duration_ms_estimate": 3895,
-      "start_ms_estimate": 32613,
-      "end_ms_estimate": 36508
+      "original": "세계 유수의 박물관과 개인 수집가들이",
+      "tts": "세계 유수의 박물관과 개인 수집가들이[breathes]",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part13_0008.mp3",
+      "duration_ms_estimate": 2698,
+      "start_ms_estimate": 25914,
+      "end_ms_estimate": 28612
     },
     {
       "index": 12,
       "caption_id": "13-12",
-      "original": "말이에요. 이 마음이 바로 한국 김을 세계",
-      "tts": "말이에요. 이 마음이 바로 한국 김을 세계",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part13_0012.mp3",
-      "duration_ms_estimate": 2346,
-      "start_ms_estimate": 36508,
-      "end_ms_estimate": 38854
+      "original": "서로 가지려고 경쟁하는 그런 보석입니다.",
+      "tts": "서로 가지려고 경쟁하는 그런 보석입니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part13_0008.mp3",
+      "duration_ms_estimate": 2968,
+      "start_ms_estimate": 28612,
+      "end_ms_estimate": 31580
     },
     {
       "index": 13,
       "caption_id": "13-13",
-      "original": "최고로 만드는 것입니다.",
-      "tts": "최고로 만드는 것입니다.",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part13_0013.mp3",
-      "duration_ms_estimate": 1642,
-      "start_ms_estimate": 38854,
-      "end_ms_estimate": 40496
+      "original": "레드 베릴(Red Beryl)도 있습니다.",
+      "tts": "레드 베릴(Red Beryl)도 있습니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part13_0009.mp3",
+      "duration_ms_estimate": 2136,
+      "start_ms_estimate": 31580,
+      "end_ms_estimate": 33716
+    },
+    {
+      "index": 14,
+      "caption_id": "13-14",
+      "original": "에메랄드와 같은 베릴 광물인데,",
+      "tts": "에메랄드와 같은 베릴 광물인데,",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part13_0010.mp3",
+      "duration_ms_estimate": 2322,
+      "start_ms_estimate": 33716,
+      "end_ms_estimate": 36038
+    },
+    {
+      "index": 15,
+      "caption_id": "13-15",
+      "original": "색깔이 붉은 종류입니다.",
+      "tts": "색깔이 붉은 종류입니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part13_0011.mp3",
+      "duration_ms_estimate": 1811,
+      "start_ms_estimate": 36038,
+      "end_ms_estimate": 37849
+    },
+    {
+      "index": 16,
+      "caption_id": "13-16",
+      "original": "유타 지질조사국에 따르면",
+      "tts": "유타 지질조사국에 따르면",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part13_0012.mp3",
+      "duration_ms_estimate": 1545,
+      "start_ms_estimate": 37849,
+      "end_ms_estimate": 39394
+    },
+    {
+      "index": 17,
+      "caption_id": "13-17",
+      "original": "다이아몬드 15만 개가 발견될 때",
+      "tts": "다이아몬드 십오만 개가 발견될 때",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part13_0012.mp3",
+      "duration_ms_estimate": 2139,
+      "start_ms_estimate": 39394,
+      "end_ms_estimate": 41533
+    },
+    {
+      "index": 18,
+      "caption_id": "13-18",
+      "original": "레드베릴이 단 하나 발견될 정도로 희귀하다고 해요.",
+      "tts": "레드베릴이 단 하나 발견될 정도로 희귀하다고 해요.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part13_0012.mp3",
+      "duration_ms_estimate": 3328,
+      "start_ms_estimate": 41533,
+      "end_ms_estimate": 44861
+    },
+    {
+      "index": 19,
+      "caption_id": "13-19",
+      "original": "미국 유타주의 단 한 곳,",
+      "tts": "미국 유타주의 단 한 곳,",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part13_0013.mp3",
+      "duration_ms_estimate": 1625,
+      "start_ms_estimate": 44861,
+      "end_ms_estimate": 46486
+    },
+    {
+      "index": 20,
+      "caption_id": "13-20",
+      "original": "와와 산맥에서만 보석급이 채굴됩니다.",
+      "tts": "와와 산맥에서만 보석급이 채굴됩니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part13_0014.mp3",
+      "duration_ms_estimate": 2833,
+      "start_ms_estimate": 46486,
+      "end_ms_estimate": 49319
+    },
+    {
+      "index": 21,
+      "caption_id": "13-21",
+      "original": "이 역시 고급 보석과",
+      "tts": "이 역시 고급 보석과",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part13_0015.mp3",
+      "duration_ms_estimate": 1368,
+      "start_ms_estimate": 49319,
+      "end_ms_estimate": 50687
+    },
+    {
+      "index": 22,
+      "caption_id": "13-22",
+      "original": "컬렉터 시장이 주된 용도입니다.",
+      "tts": "컬렉터 시장이 주된 용도입니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part13_0015.mp3",
+      "duration_ms_estimate": 2115,
+      "start_ms_estimate": 50687,
+      "end_ms_estimate": 52802
     }
   ]
 }

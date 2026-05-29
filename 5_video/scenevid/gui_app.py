@@ -34,8 +34,6 @@ from scenevid.repo_paths import (
     default_scenevid_compose_mp4,
     default_scenevid_output_dir,
     default_srt_image_output_dir,
-    default_tts_pipeline_root,
-    default_tts_python,
     default_tts_voice_output_dir,
     pick_default_compose_audio_srt,
     wisdom_repo_root,
@@ -1118,8 +1116,6 @@ def main() -> None:
     ph_var = tk.BooleanVar(value=False)
     no_sub_p = tk.BooleanVar(value=False)
     dummy_var = tk.StringVar(value="0")
-    tts_extra_var = tk.StringVar()
-
     ttk.Label(tab_p, text="프로젝트 폴더 (script.md, scene.json 생성 위치)").grid(row=pr, column=0, sticky="w")
     pr += 1
     row_p = ttk.Frame(tab_p)
@@ -1142,16 +1138,9 @@ def main() -> None:
     ttk.Label(tab_p, text="더미 오디오(초, TTS 없이 테스트)").grid(row=pr, column=0, sticky="w")
     ttk.Entry(tab_p, textvariable=dummy_var, width=10).grid(row=pr, column=1, sticky="w")
     pr += 1
-    ttk.Label(tab_p, text="txt2audio 추가 인자 (선택, 한 줄)").grid(row=pr, column=0, sticky="w")
-    pr += 1
-    ttk.Entry(tab_p, textvariable=tts_extra_var).grid(row=pr, column=0, columnspan=2, sticky="ew")
-    pr += 1
-
     btn_all = ttk.Button(tab_p, text="parse + assets + render (all)")
 
     def on_all() -> None:
-        import shlex
-
         btn_all.configure(state=tk.DISABLED)
 
         def work() -> None:
@@ -1161,13 +1150,9 @@ def main() -> None:
                     dummy = float(dummy_var.get().strip() or "0")
                 except ValueError as e:
                     raise ValueError("더미 오디오 초는 숫자여야 합니다.") from e
-                extra = shlex.split(tts_extra_var.get().strip()) if tts_extra_var.get().strip() else []
                 code = cmd_all(
                     p,
                     placeholder=bool(ph_var.get()),
-                    tts_python=default_tts_python(),
-                    tts_root=default_tts_pipeline_root(),
-                    tts_extra=extra,
                     dummy_audio_sec=dummy,
                     no_sub=bool(no_sub_p.get()),
                 )

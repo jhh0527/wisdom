@@ -9,15 +9,15 @@ from pathlib import Path
 import tkinter as tk
 from tkinter import filedialog, messagebox, ttk
 
-from utube.api import YouTubeApiError, fetch_top_by_views, fetch_trending
+from utube.api import YouTubeApiError, fetch_keyword_search, fetch_top_by_views, fetch_trending
 from utube.categories import category_label
-from utube.config import load_api_key, module_root, save_api_key
+from utube.config import load_api_key, module_root, persist_api_key_if_changed, save_api_key
 from utube.export_util import export_videos_excel
 from utube.format_util import duration_display_to_seconds, format_count, format_published
 from utube.models import VideoItem
 
 _REGIONS = ("KR", "US", "JP", "GB", "DE", "FR", "IN", "BR")
-_MODES = ("인기 급상승", "조회수 TOP 검색")
+_MODES = ("인기 급상승", "키워드 검색", "조회수 TOP 검색")
 _DAYS = ("7", "30", "90", "180", "365")
 _CATEGORIES = (
     ("전체", ""),
@@ -30,13 +30,14 @@ _CATEGORIES = (
     ("스포츠", "17"),
 )
 
-_COLS = ("rank", "views", "likes", "date", "duration", "channel", "category", "title")
+_COLS = ("rank", "views", "likes", "date", "duration", "shorts", "channel", "category", "title")
 _COL_LABELS = {
     "rank": "#",
     "views": "조회수",
     "likes": "좋아요",
     "date": "업로드",
     "duration": "길이",
+    "shorts": "쇼츠",
     "channel": "채널",
     "category": "카테고리",
     "title": "제목",
@@ -55,6 +56,8 @@ def _sort_key(col: str, v: VideoItem, index: int) -> object:
         return v.published_at or ""
     if col == "duration":
         return duration_display_to_seconds(v.duration)
+    if col == "shorts":
+        return (0 if v.is_shorts else 1, v.shorts_display.casefold())
     if col == "channel":
         return v.channel.casefold()
     if col == "category":
@@ -95,7 +98,7 @@ def main() -> None:
     ttk.Checkbutton(key_fr, text="표시", variable=show_key, command=toggle_show).grid(row=0, column=2, padx=4)
     ttk.Label(
         key_fr,
-        text="Google Cloud Console → YouTube Data API v3 활성화 후 키 발급. 저장 시 config/youtube_api.json",
+        text="키는 config/youtube_api.json에 저장·자동 로드 (조회 성공 시 자동 저장). exe는 dist/config/",
         font=("", 8),
     ).grid(row=1, column=0, columnspan=3, sticky="w", pady=(4, 0))
 
@@ -112,7 +115,7 @@ def main() -> None:
     # 조회 옵션
     opt_fr = ttk.LabelFrame(frm, text="조회 조건", padding=6)
     opt_fr.grid(row=1, column=0, sticky="ew", pady=(0, 6))
-    mode_var = tk.StringVar(value=_MODES[0])
+    mode_var = tk.StringVar(value=_MODES[1])
     region_var = tk.StringVar(value="KR")
     days_var = tk.StringVar(value="30")
     max_var = tk.StringVar(value="50")
@@ -120,7 +123,7 @@ def main() -> None:
     cat_var = tk.StringVar(value="전체")
 
     ttk.Label(opt_fr, text="모드").grid(row=0, column=0, sticky="w")
-    mode_cb = ttk.Combobox(opt_fr, textvariable=mode_var, values=_MODES, state="readonly", width=14)
+    mode_cb = ttk.Combobox(opt_fr, textvariable=mode_var, values=_MODES, state="readonly", width=16)
     mode_cb.grid(row=0, column=1, sticky="w", padx=(4, 12))
 
     ttk.Label(opt_fr, text="지역").grid(row=0, column=2, sticky="w")
@@ -151,14 +154,17 @@ def main() -> None:
     )
 
     def on_mode_change(_e=None) -> None:
-        is_search = mode_var.get() == _MODES[1]
+        is_search = mode_var.get() in (_MODES[1], _MODES[2])
         query_ent.configure(state="normal" if is_search else "disabled")
         days_cb.configure(state="readonly" if is_search else "disabled")
 
     mode_cb.bind("<<ComboboxSelected>>", on_mode_change)
     on_mode_change()
+    query_ent.bind("<Return>", lambda _e: do_fetch())
 
-    status_var = tk.StringVar(value="API 키를 입력한 뒤 「조회」를 누르세요. 컬럼 헤더 클릭으로 정렬합니다.")
+    status_var = tk.StringVar(
+        value="모드 「키워드 검색」→ 검색어 입력 후 조회(Enter 가능). API 키는 자동 로드됩니다."
+    )
     ttk.Label(frm, textvariable=status_var).grid(row=2, column=0, sticky="w", pady=(0, 4))
 
     # 테이블
@@ -168,6 +174,7 @@ def main() -> None:
     tree.column("likes", width=72, anchor="e", stretch=False)
     tree.column("date", width=88, anchor="center", stretch=False)
     tree.column("duration", width=56, anchor="center", stretch=False)
+    tree.column("shorts", width=48, anchor="center", stretch=False)
     tree.column("channel", width=120, anchor="w", stretch=False)
     tree.column("category", width=88, anchor="center", stretch=False)
     tree.column("title", width=360, anchor="w", stretch=True)
@@ -202,6 +209,7 @@ def main() -> None:
                     format_count(v.like_count),
                     format_published(v.published_at),
                     v.duration,
+                    v.shorts_display,
                     v.channel[:36],
                     category_label(v.category_id)[:16],
                     v.title[:100],
@@ -259,6 +267,11 @@ def main() -> None:
         if not key:
             messagebox.showwarning("조회", "YouTube API 키를 입력·저장하세요.")
             return
+        mode = mode_var.get()
+        if mode == _MODES[1] and not query_var.get().strip():
+            messagebox.showwarning("키워드 검색", "검색어를 입력하세요.")
+            query_ent.focus_set()
+            return
         try:
             mx = int(max_var.get())
         except ValueError:
@@ -266,12 +279,21 @@ def main() -> None:
 
         def work() -> None:
             try:
-                if mode_var.get() == _MODES[0]:
+                mode = mode_var.get()
+                if mode == _MODES[0]:
                     data = fetch_trending(
                         key,
                         region=region_var.get(),
                         max_results=mx,
                         category_id=category_id(),
+                    )
+                elif mode == _MODES[1]:
+                    data = fetch_keyword_search(
+                        key,
+                        query=query_var.get(),
+                        region=region_var.get(),
+                        days=int(days_var.get()),
+                        max_results=mx,
                     )
                 else:
                     data = fetch_top_by_views(
@@ -285,10 +307,26 @@ def main() -> None:
                 root.after(0, lambda: messagebox.showerror("조회 실패", str(e)))
                 root.after(0, lambda: status_var.set("조회 실패"))
                 return
-            root.after(0, lambda: fill_table(data))
+            def done() -> None:
+                saved = persist_api_key_if_changed(key)
+                fill_table(data)
+                if saved:
+                    status_var.set(
+                        f"{len(data)}개 · API 키 저장됨 ({api_key_path_display()})"
+                    )
+
+            root.after(0, done)
 
         status_var.set("조회 중…")
         threading.Thread(target=work, daemon=True).start()
+
+    def api_key_path_display() -> str:
+        from utube.config import api_key_path
+
+        try:
+            return str(api_key_path().relative_to(module_root()))
+        except ValueError:
+            return str(api_key_path())
 
     def _export_rows() -> list[VideoItem]:
         return list(rows_state)
@@ -313,7 +351,19 @@ def main() -> None:
         with p.open("w", encoding="utf-8-sig", newline="") as f:
             w = csv.writer(f)
             w.writerow(
-                ["순위", "제목", "채널", "카테고리", "조회수", "좋아요", "댓글", "업로드", "길이", "URL"]
+                [
+                    "순위",
+                    "제목",
+                    "채널",
+                    "카테고리",
+                    "조회수",
+                    "좋아요",
+                    "댓글",
+                    "업로드",
+                    "길이",
+                    "쇼츠",
+                    "URL",
+                ]
             )
             for i, v in enumerate(rows, start=1):
                 w.writerow(
@@ -327,6 +377,7 @@ def main() -> None:
                         v.comment_count or "",
                         format_published(v.published_at),
                         v.duration,
+                        v.shorts_display,
                         v.url,
                     ]
                 )
@@ -387,6 +438,11 @@ def main() -> None:
 
     tree.bind("<Double-1>", lambda _e: open_youtube())
 
+    def on_close() -> None:
+        persist_api_key_if_changed(api_var.get())
+        root.destroy()
+
+    root.protocol("WM_DELETE_WINDOW", on_close)
     root.mainloop()
 
 

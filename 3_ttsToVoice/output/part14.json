@@ -1,71 +1,241 @@
 {
   "part_id": "14",
-  "part_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\part14.mp3",
-  "part_srt": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\part14.srt",
+  "part_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\part14.mp3",
+  "part_srt": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\part14.srt",
   "model_id": "eleven_multilingual_v2",
-  "merge_method": "ffmpeg",
-  "segment_count": 6,
-  "duration_ms_estimate": 17200,
+  "merge_method": "ffmpeg-reencode",
+  "segment_count": 16,
+  "duration_ms_estimate": 56285,
   "segments": [
     {
       "index": 1,
       "caption_id": "14-1",
-      "original": "[short pause][breathes][continues]다음번에 한 장의 김을 먹을 때, 다시",
-      "tts": "[short pause][breathes][continues]다음번에 한 장의 김을 먹을 때, 다시",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part14_0001.mp3",
-      "duration_ms_estimate": 2914,
+      "original": "그리고 제가 개인적으로 가장 좋아하는 이야기.",
+      "tts": "[short pause][breathes][continues]그리고 제가 개인적으로 가장 좋아하는 이야기.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part14_0001.mp3",
+      "duration_ms_estimate": 3576,
       "start_ms_estimate": 0,
-      "end_ms_estimate": 2914
+      "end_ms_estimate": 3576
     },
     {
       "index": 2,
       "caption_id": "14-2",
-      "original": "한 번 생각해보세요. 당신은 한국의 바다를",
-      "tts": "한 번 생각해보세요. 당신은 한국의 바다를",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part14_0002.mp3",
-      "duration_ms_estimate": 3148,
-      "start_ms_estimate": 2914,
-      "end_ms_estimate": 6062
+      "original": "그란디디에라이트(Grandidierite)라는",
+      "tts": "그란디디에라이트(Grandidierite)라는",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part14_0002.mp3",
+      "duration_ms_estimate": 2568,
+      "start_ms_estimate": 3576,
+      "end_ms_estimate": 6144
     },
     {
       "index": 3,
       "caption_id": "14-3",
-      "original": "맛보고 있어요. 당신은 계절의 신비를 경험하고",
-      "tts": "맛보고 있어요. 당신은 계절의 신비를 경험하고",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part14_0003.mp3",
-      "duration_ms_estimate": 3431,
-      "start_ms_estimate": 6062,
-      "end_ms_estimate": 9493
+      "original": "광물이 있어요.",
+      "tts": "광물이 있어요.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part14_0002.mp3",
+      "duration_ms_estimate": 822,
+      "start_ms_estimate": 6144,
+      "end_ms_estimate": 6966
     },
     {
       "index": 4,
       "caption_id": "14-4",
-      "original": "있어요. 당신은 누군가의 정성 어린 손길을 받고",
-      "tts": "있어요. 당신은 누군가의 정성 어린 손길을 받고",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part14_0004.mp3",
-      "duration_ms_estimate": 3431,
-      "start_ms_estimate": 9493,
-      "end_ms_estimate": 12924
+      "original": "마다가스카르에서만 나오는 청록색 보석인데,",
+      "tts": "마다가스카르에서만 나오는 청록색 보석인데,",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part14_0003.mp3",
+      "duration_ms_estimate": 3065,
+      "start_ms_estimate": 6966,
+      "end_ms_estimate": 10031
     },
     {
       "index": 5,
       "caption_id": "14-5",
-      "original": "있어요. 그것이 바로 한국 김의 진정한",
-      "tts": "있어요. 그것이 바로 한국 김의 진정한[breathes]",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part14_0005.mp3",
-      "duration_ms_estimate": 2679,
-      "start_ms_estimate": 12924,
-      "end_ms_estimate": 15603
+      "original": "빛에 따라 색이 변하는 매혹적인 광물입니다.",
+      "tts": "빛에 따라 색이 변하는 매혹적인 광물입니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part14_0004.mp3",
+      "duration_ms_estimate": 3158,
+      "start_ms_estimate": 10031,
+      "end_ms_estimate": 13189
     },
     {
       "index": 6,
       "caption_id": "14-6",
-      "original": "가치입니다. 감사합니다.",
-      "tts": "가치입니다. 감사합니다.",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part14_0006.mp3",
-      "duration_ms_estimate": 1597,
-      "start_ms_estimate": 15603,
-      "end_ms_estimate": 17200
+      "original": "한때 세상에서 가장 희귀한 보석으로 꼽혔죠.",
+      "tts": "한때 세상에서 가장 희귀한 보석으로 꼽혔죠.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part14_0005.mp3",
+      "duration_ms_estimate": 3344,
+      "start_ms_estimate": 13189,
+      "end_ms_estimate": 16533
+    },
+    {
+      "index": 7,
+      "caption_id": "14-7",
+      "original": "1캐럿에 2만 달러 이상입니다.",
+      "tts": "일캐럿에 이만 달러 이상입니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part14_0006.mp3",
+      "duration_ms_estimate": 2368,
+      "start_ms_estimate": 16533,
+      "end_ms_estimate": 18901
+    },
+    {
+      "index": 8,
+      "caption_id": "14-8",
+      "original": "이것도 거의 보석 시장 전용입니다.",
+      "tts": "이것도 거의 보석 시장 전용입니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part14_0007.mp3",
+      "duration_ms_estimate": 2368,
+      "start_ms_estimate": 18901,
+      "end_ms_estimate": 21269
+    },
+    {
+      "index": 9,
+      "caption_id": "14-9",
+      "original": "자, 이제 강의를 마무리하면서",
+      "tts": "자, 이제 강의를 마무리하면서",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part14_0008.mp3",
+      "duration_ms_estimate": 1783,
+      "start_ms_estimate": 21269,
+      "end_ms_estimate": 23052
+    },
+    {
+      "index": 10,
+      "caption_id": "14-10",
+      "original": "재미있는 반전을 하나 알려드릴게요.",
+      "tts": "재미있는 반전을 하나 알려드릴게요.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part14_0008.mp3",
+      "duration_ms_estimate": 2118,
+      "start_ms_estimate": 23052,
+      "end_ms_estimate": 25170
+    },
+    {
+      "index": 11,
+      "caption_id": "14-11",
+      "original": "사실 여러분 주머니 속에도",
+      "tts": "사실 여러분 주머니 속에도[breathes]",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part14_0009.mp3",
+      "duration_ms_estimate": 1749,
+      "start_ms_estimate": 25170,
+      "end_ms_estimate": 26919
+    },
+    {
+      "index": 12,
+      "caption_id": "14-12",
+      "original": "금보다 비싼 물질이 들어있을 가능성이",
+      "tts": "금보다 비싼 물질이 들어있을 가능성이",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part14_0009.mp3",
+      "duration_ms_estimate": 2499,
+      "start_ms_estimate": 26919,
+      "end_ms_estimate": 29418
+    },
+    {
+      "index": 13,
+      "caption_id": "14-13",
+      "original": "매우 높습니다.",
+      "tts": "매우 높습니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part14_0009.mp3",
+      "duration_ms_estimate": 1000,
+      "start_ms_estimate": 29418,
+      "end_ms_estimate": 30418
+    },
+    {
+      "index": 14,
+      "caption_id": "14-14",
+      "original": "스마트폰 안에는 갈륨, 인듐,",
+      "tts": "스마트폰 안에는 갈륨, 인듐,",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part14_0010.mp3",
+      "duration_ms_estimate": 2368,
+      "start_ms_estimate": 30418,
+      "end_ms_estimate": 32786
+    },
+    {
+      "index": 15,
+      "caption_id": "14-15",
+      "original": "탄탈럼, 네오디뮴 같은 희토류와",
+      "tts": "탄탈럼, 네오디뮴 같은 희토류와",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part14_0011.mp3",
+      "duration_ms_estimate": 2165,
+      "start_ms_estimate": 32786,
+      "end_ms_estimate": 34951
+    },
+    {
+      "index": 16,
+      "caption_id": "14-16",
+      "original": "희소금속들이 미량씩 들어 있어요.",
+      "tts": "희소금속들이 미량씩 들어 있어요.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part14_0011.mp3",
+      "duration_ms_estimate": 2293,
+      "start_ms_estimate": 34951,
+      "end_ms_estimate": 37244
+    },
+    {
+      "index": 17,
+      "caption_id": "14-17",
+      "original": "갈륨은 반도체 칩과 LED,",
+      "tts": "갈륨은 반도체 칩과 엘이디,",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part14_0012.mp3",
+      "duration_ms_estimate": 2183,
+      "start_ms_estimate": 37244,
+      "end_ms_estimate": 39427
+    },
+    {
+      "index": 18,
+      "caption_id": "14-18",
+      "original": "인듐은 터치스크린의 투명 전극,",
+      "tts": "인듐은 터치스크린의 투명 전극,",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part14_0013.mp3",
+      "duration_ms_estimate": 2554,
+      "start_ms_estimate": 39427,
+      "end_ms_estimate": 41981
+    },
+    {
+      "index": 19,
+      "caption_id": "14-19",
+      "original": "탄탈럼은 초소형 콘덴서,",
+      "tts": "탄탈럼은 초소형 콘덴서,",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part14_0014.mp3",
+      "duration_ms_estimate": 2183,
+      "start_ms_estimate": 41981,
+      "end_ms_estimate": 44164
+    },
+    {
+      "index": 20,
+      "caption_id": "14-20",
+      "original": "네오디뮴은 진동 모터의 강력 자석에 들어갑니다.",
+      "tts": "네오디뮴은 진동 모터의 강력 자석에 들어갑니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part14_0015.mp3",
+      "duration_ms_estimate": 3251,
+      "start_ms_estimate": 44164,
+      "end_ms_estimate": 47415
+    },
+    {
+      "index": 21,
+      "caption_id": "14-21",
+      "original": "이들 중 일부는 무게당 가격으로는",
+      "tts": "이들 중 일부는 무게당 가격으로는",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part14_0016.mp3",
+      "duration_ms_estimate": 2801,
+      "start_ms_estimate": 47415,
+      "end_ms_estimate": 50216
+    },
+    {
+      "index": 22,
+      "caption_id": "14-22",
+      "original": "금보다 싸지만, 정제 과정과 환경 비용까지",
+      "tts": "금보다 싸지만, 정제 과정과 환경 비용까지",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part14_0016.mp3",
+      "duration_ms_estimate": 3579,
+      "start_ms_estimate": 50216,
+      "end_ms_estimate": 53795
+    },
+    {
+      "index": 23,
+      "caption_id": "14-23",
+      "original": "따지면 결코 만만치 않습니다.",
+      "tts": "따지면 결코 만만치 않습니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part14_0016.mp3",
+      "duration_ms_estimate": 2490,
+      "start_ms_estimate": 53795,
+      "end_ms_estimate": 56285
     }
   ]
 }

@@ -6,7 +6,7 @@ import urllib.parse
 import urllib.request
 from datetime import datetime, timedelta, timezone
 
-from utube.format_util import parse_iso8601_duration
+from utube.format_util import parse_iso8601_duration, parse_iso8601_duration_seconds
 from utube.models import VideoItem
 
 _API = "https://www.googleapis.com/youtube/v3"
@@ -54,6 +54,7 @@ def _items_from_videos_response(data: dict) -> list[VideoItem]:
         vc = st.get("viewCount")
         lc = st.get("likeCount")
         cc = st.get("commentCount")
+        iso_dur = str(cd.get("duration") or "")
         out.append(
             VideoItem(
                 video_id=vid,
@@ -63,7 +64,8 @@ def _items_from_videos_response(data: dict) -> list[VideoItem]:
                 like_count=int(lc) if lc is not None else None,
                 comment_count=int(cc) if cc is not None else None,
                 published_at=str(sn.get("publishedAt") or ""),
-                duration=parse_iso8601_duration(str(cd.get("duration") or "")),
+                duration=parse_iso8601_duration(iso_dur),
+                duration_seconds=parse_iso8601_duration_seconds(iso_dur),
                 category_id=str(sn.get("categoryId") or "") or None,
             )
         )
@@ -93,43 +95,44 @@ def fetch_trending(
     return _items_from_videos_response(data)
 
 
-def fetch_top_by_views(
+def _search_video_ids(
     api_key: str,
     *,
-    query: str = "",
-    region: str = "KR",
-    days: int = 30,
-    max_results: int = 50,
-) -> list[VideoItem]:
-    """키워드(선택) + 기간 내 업로드 영상을 조회수 순으로 검색."""
-    if not api_key.strip():
-        raise YouTubeApiError("YouTube API 키가 없습니다.")
+    query: str,
+    region: str,
+    days: int,
+    max_results: int,
+    order: str,
+    require_query: bool,
+) -> list[str]:
+    q = query.strip()
+    if require_query and not q:
+        raise YouTubeApiError("검색어를 입력하세요.")
     max_results = max(1, min(50, int(max_results)))
     days = max(1, min(365, int(days)))
     after = datetime.now(timezone.utc) - timedelta(days=days)
-    published_after = after.strftime("%Y-%m-%dT%H:%M:%SZ")
-
     search_params: dict[str, str] = {
         "part": "snippet",
         "type": "video",
-        "order": "viewCount",
+        "order": order,
         "regionCode": region.upper()[:2],
-        "publishedAfter": published_after,
+        "publishedAfter": after.strftime("%Y-%m-%dT%H:%M:%SZ"),
         "maxResults": str(max_results),
     }
-    q = query.strip()
     if q:
         search_params["q"] = q
-
     search_data = _get("search", search_params, api_key)
     ids: list[str] = []
     for it in search_data.get("items") or []:
         vid = (it.get("id") or {}).get("videoId")
         if vid:
             ids.append(str(vid))
+    return ids
+
+
+def _videos_by_ids(api_key: str, ids: list[str]) -> list[VideoItem]:
     if not ids:
         return []
-
     videos_data = _get(
         "videos",
         {
@@ -141,3 +144,49 @@ def fetch_top_by_views(
     )
     by_id = {v.video_id: v for v in _items_from_videos_response(videos_data)}
     return [by_id[i] for i in ids if i in by_id]
+
+
+def fetch_keyword_search(
+    api_key: str,
+    *,
+    query: str,
+    region: str = "KR",
+    days: int = 30,
+    max_results: int = 50,
+) -> list[VideoItem]:
+    """키워드로 영상 검색 (관련도 순)."""
+    if not api_key.strip():
+        raise YouTubeApiError("YouTube API 키가 없습니다.")
+    ids = _search_video_ids(
+        api_key,
+        query=query,
+        region=region,
+        days=days,
+        max_results=max_results,
+        order="relevance",
+        require_query=True,
+    )
+    return _videos_by_ids(api_key, ids)
+
+
+def fetch_top_by_views(
+    api_key: str,
+    *,
+    query: str = "",
+    region: str = "KR",
+    days: int = 30,
+    max_results: int = 50,
+) -> list[VideoItem]:
+    """키워드(선택) + 기간 내 업로드 영상을 조회수 순으로 검색."""
+    if not api_key.strip():
+        raise YouTubeApiError("YouTube API 키가 없습니다.")
+    ids = _search_video_ids(
+        api_key,
+        query=query,
+        region=region,
+        days=days,
+        max_results=max_results,
+        order="viewCount",
+        require_query=False,
+    )
+    return _videos_by_ids(api_key, ids)

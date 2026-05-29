@@ -1,7 +1,7 @@
 {
-  "srt_file": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\all.srt",
-  "png_dir": "C:\\intellij\\wisdom\\4_1pngToJpg\\input",
-  "preview_pane_width": 412,
+  "srt_file": "C:\\util\\유튜브\\금보다비싼금속\\all.srt",
+  "png_dir": "C:\\util\\유튜브\\금보다비싼금속",
+  "preview_pane_width": 706,
   "manual_overrides": {
     "C:\\intellij\\wisdom\\4_1pngToJpg\\input\\SRT_159.png": {
       "srt_number": 159,
@@ -343,6 +343,69 @@
       "word_srt_number": -1,
       "word_cue_text": "",
       "status": "즉시 저장 완료: SRT_925.png",
+      "match_reason": "—"
+    },
+    "C:\\util\\유튜브\\20260000_고양이가먹으면안되는것\\SRT_049.png": {
+      "srt_number": 49,
+      "target_name": "SRT_049.png",
+      "cue_text": "안 들어가는 데가 없죠?",
+      "word_srt_number": 49,
+      "word_cue_text": "안 들어가는 데가 없죠?",
+      "status": "OCR매핑 선택: 49번 (저장 대기)",
+      "match_reason": "들어가·49번"
+    },
+    "C:\\util\\유튜브\\20260000_고양이가먹으면안되는것\\SRT_173.png": {
+      "srt_number": 173,
+      "target_name": "SRT_173.png",
+      "cue_text": "항상 우유 접시에 코 박고 있죠?",
+      "word_srt_number": 183,
+      "word_cue_text": "대부분의 어른 고양이는 '유당불내증'이에요.",
+      "status": "OCR매핑 선택: 173번 (저장 대기)",
+      "match_reason": "유당이·192번, 우유·161/173/177/178/192/199번, 있어요·62/132/205/303/353/388번, 락타아제·187번, 유당불내증·183번, 단백질·503번, 증상·91번, 유당·192번, 경우·103/253/481/666번, 한국·44/421번, 분해·192번, 10·140/538번"
+    },
+    "C:\\util\\유튜브\\20260000_고양이가먹으면안되는것\\SRT_385.png": {
+      "srt_number": 385,
+      "target_name": "SRT_385.png",
+      "cue_text": "영어로는 'yellow fat disease' 또는",
+      "word_srt_number": 331,
+      "word_cue_text": "비타민 B7, 그러니까 비오틴 흡수를 막아요.",
+      "status": "즉시 저장 완료: SRT_385.png",
+      "match_reason": "염증·396번, 손상·276번, 불포화지방산·393번, 비타민·331/348/350/392번"
+    },
+    "C:\\util\\유튜브\\20260000_고양이가먹으면안되는것\\SRT_427.png": {
+      "srt_number": 427,
+      "target_name": "SRT_427.png",
+      "cue_text": "근데요, 고양이 몸은 우리보다 훨씬 작고요,",
+      "word_srt_number": 4,
+      "word_cue_text": "우리 고양이가 식탁 아래에서",
+      "status": "OCR매핑 선택: 427번 (저장 대기)",
+      "match_reason": "사람·64/119/532/658번, 상대·682번, 능력·430번, 고양이·4/67/116/121/143/148번, 기준·148/506번, 체중·145/498번"
+    },
+    "C:\\util\\유튜브\\20260000_고양이가먹으면안되는것\\SRT_501.png": {
+      "srt_number": 501,
+      "target_name": "SRT_501.png",
+      "cue_text": "고양이 전용 사료를 선택하세요.",
+      "word_srt_number": 393,
+      "word_cue_text": "불포화지방산을 너무 많이 섭취했을 때",
+      "status": "즉시 저장 완료: SRT_501.png",
+      "match_reason": "기준·148/506번, 하고·113/676번, AAFCO·503번, 건강·360/498/605/613/619번, 고양이의·143/440번, 건강한·686번, 영양·506번"
+    },
+    "C:\\util\\유튜브\\20260000_고양이가먹으면안되는것\\SRT_524.png": {
+      "srt_number": 524,
+      "target_name": "SRT_524.png",
+      "cue_text": "고양이 전용 제품으로 주는 것이에요.",
+      "word_srt_number": 529,
+      "word_cue_text": "시중에 안전한 간식이 정말 많아요.",
+      "status": "즉시 저장 완료: SRT_524.png",
+      "match_reason": "하는·253/388/544/565번, 안전한·529번, 간식·520/526/529/535/536/597번"
+    },
+    "C:\\util\\유튜브\\20260000_고양이가먹으면안되는것\\SRT_592.png": {
+      "srt_number": 592,
+      "target_name": "SRT_592.png",
+      "cue_text": "거절하는 것이 가장 큰 사랑이라는 걸 기억하세요.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_592.png",
       "match_reason": "—"
     }
   }

@@ -1,141 +1,231 @@
 {
   "part_id": "10",
-  "part_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\part10.mp3",
-  "part_srt": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\part10.srt",
+  "part_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\part10.mp3",
+  "part_srt": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\part10.srt",
   "model_id": "eleven_multilingual_v2",
-  "merge_method": "ffmpeg",
-  "segment_count": 13,
-  "duration_ms_estimate": 40133,
+  "merge_method": "ffmpeg-reencode",
+  "segment_count": 15,
+  "duration_ms_estimate": 50341,
   "segments": [
     {
       "index": 1,
       "caption_id": "10-1",
-      "original": "[short pause][breathes][continues]한국 김에는 요오드, 철분, 칼슘, 그리고",
-      "tts": "[short pause][breathes][continues]한국 김에는 요오드, 철분, 칼슘, 그리고",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part10_0001.mp3",
-      "duration_ms_estimate": 3380,
+      "original": "이제 시야를 우주로 넓혀봅시다.",
+      "tts": "[short pause][breathes][continues]이제 시야를 우주로 넓혀봅시다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part10_0001.mp3",
+      "duration_ms_estimate": 2926,
       "start_ms_estimate": 0,
-      "end_ms_estimate": 3380
+      "end_ms_estimate": 2926
     },
     {
       "index": 2,
       "caption_id": "10-2",
-      "original": "정말 귀한 비타민 비 십이가 들어 있어요.",
-      "tts": "정말 귀한 비타민 비 십이가 들어 있어요.",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part10_0002.mp3",
-      "duration_ms_estimate": 2675,
-      "start_ms_estimate": 3380,
-      "end_ms_estimate": 6055
+      "original": "사실 금이라는 원소 자체가",
+      "tts": "사실 금이라는 원소 자체가",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part10_0002.mp3",
+      "duration_ms_estimate": 1801,
+      "start_ms_estimate": 2926,
+      "end_ms_estimate": 4727
     },
     {
       "index": 3,
       "caption_id": "10-3",
-      "original": "특히 비타민 비 십이는 식물에는 거의 없는",
-      "tts": "특히 비타민 비 십이는 식물에는 거의 없는",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part10_0003.mp3",
-      "duration_ms_estimate": 2910,
-      "start_ms_estimate": 6055,
-      "end_ms_estimate": 8965
+      "original": "어디서 왔는지 아세요?",
+      "tts": "어디서 왔는지 아세요?",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part10_0002.mp3",
+      "duration_ms_estimate": 1543,
+      "start_ms_estimate": 4727,
+      "end_ms_estimate": 6270
     },
     {
       "index": 4,
       "caption_id": "10-4",
-      "original": "영양소거든요. 채식주의자들에게는 정말 소중한",
-      "tts": "영양소거든요. 채식주의자들에게는 정말 소중한",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part10_0004.mp3",
-      "duration_ms_estimate": 3661,
-      "start_ms_estimate": 8965,
-      "end_ms_estimate": 12626
+      "original": "우리가 결혼반지로 끼고 있는 그 금,",
+      "tts": "우리가 결혼반지로 끼고 있는 그 금,",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part10_0003.mp3",
+      "duration_ms_estimate": 2508,
+      "start_ms_estimate": 6270,
+      "end_ms_estimate": 8778
     },
     {
       "index": 5,
       "caption_id": "10-5",
-      "original": "음식이 바로 한국 김이에요. 한 장에 얼마나",
-      "tts": "음식이 바로 한국 김이에요. 한 장에 얼마나[breathes]",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part10_0005.mp3",
-      "duration_ms_estimate": 2863,
-      "start_ms_estimate": 12626,
-      "end_ms_estimate": 15489
+      "original": "사실은 수십억 년 전 어디선가",
+      "tts": "사실은 수십억 년 전 어디선가",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part10_0004.mp3",
+      "duration_ms_estimate": 2049,
+      "start_ms_estimate": 8778,
+      "end_ms_estimate": 10827
     },
     {
       "index": 6,
       "caption_id": "10-6",
-      "original": "많은 영양분이 들어있는지 아세요? 거의",
-      "tts": "많은 영양분이 들어있는지 아세요? 거의",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part10_0006.mp3",
-      "duration_ms_estimate": 2816,
-      "start_ms_estimate": 15489,
-      "end_ms_estimate": 18305
+      "original": "별이 죽으면서 만들어낸 겁니다.",
+      "tts": "별이 죽으면서 만들어낸 겁니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part10_0004.mp3",
+      "duration_ms_estimate": 2177,
+      "start_ms_estimate": 10827,
+      "end_ms_estimate": 13004
     },
     {
       "index": 7,
       "caption_id": "10-7",
-      "original": "영양제 수준입니다. 이것도 모두 한국 바다의",
-      "tts": "영양제 수준입니다. 이것도 모두 한국 바다의",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part10_0007.mp3",
-      "duration_ms_estimate": 3286,
-      "start_ms_estimate": 18305,
-      "end_ms_estimate": 21591
+      "original": "정확히는 중성자별 충돌이라는",
+      "tts": "정확히는 중성자별 충돌이라는",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part10_0005.mp3",
+      "duration_ms_estimate": 2189,
+      "start_ms_estimate": 13004,
+      "end_ms_estimate": 15193
     },
     {
       "index": 8,
       "caption_id": "10-8",
-      "original": "풍부한 미네랄 때문이에요. 사실 이건 우연이",
-      "tts": "풍부한 미네랄 때문이에요. 사실 이건 우연이",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part10_0008.mp3",
-      "duration_ms_estimate": 2769,
-      "start_ms_estimate": 21591,
-      "end_ms_estimate": 24360
+      "original": "우주적 대참사에서 상당량이 나왔어요.",
+      "tts": "우주적 대참사에서 상당량이 나왔어요.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part10_0005.mp3",
+      "duration_ms_estimate": 2919,
+      "start_ms_estimate": 15193,
+      "end_ms_estimate": 18112
     },
     {
       "index": 9,
       "caption_id": "10-9",
-      "original": "아니에요. 기름진 토양에서 자란 채소가 더 많은",
-      "tts": "아니에요. 기름진 토양에서 자란 채소가 더 많은",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part10_0009.mp3",
-      "duration_ms_estimate": 2910,
-      "start_ms_estimate": 24360,
-      "end_ms_estimate": 27270
+      "original": "일부는 초신성 폭발에서도 만들어지는데,",
+      "tts": "일부는 초신성 폭발에서도 만들어지는데,",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part10_0006.mp3",
+      "duration_ms_estimate": 2786,
+      "start_ms_estimate": 18112,
+      "end_ms_estimate": 20898
     },
     {
       "index": 10,
       "caption_id": "10-10",
-      "original": "영양분을 함유하는 것처럼, 미네랄이 풍부한",
-      "tts": "영양분을 함유하는 것처럼, 미네랄이 풍부한",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part10_0010.mp3",
-      "duration_ms_estimate": 3192,
-      "start_ms_estimate": 27270,
-      "end_ms_estimate": 30462
+      "original": "그 비중에 대해서는",
+      "tts": "그 비중에 대해서는",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part10_0007.mp3",
+      "duration_ms_estimate": 1465,
+      "start_ms_estimate": 20898,
+      "end_ms_estimate": 22363
     },
     {
       "index": 11,
       "caption_id": "10-11",
-      "original": "바다에서 자란 김도 자동으로 그 모든 영양분을",
-      "tts": "바다에서 자란 김도 자동으로 그 모든 영양분을[breathes]",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part10_0011.mp3",
-      "duration_ms_estimate": 3380,
-      "start_ms_estimate": 30462,
-      "end_ms_estimate": 33842
+      "original": "아직 학계에서 논쟁 중입니다.",
+      "tts": "아직 학계에서 논쟁 중입니다.[breathes]",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part10_0007.mp3",
+      "duration_ms_estimate": 2343,
+      "start_ms_estimate": 22363,
+      "end_ms_estimate": 24706
     },
     {
       "index": 12,
       "caption_id": "10-12",
-      "original": "받아들이는 거죠. 이것이 한국 김이 건강",
-      "tts": "받아들이는 거죠. 이것이 한국 김이 건강",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part10_0012.mp3",
-      "duration_ms_estimate": 3192,
-      "start_ms_estimate": 33842,
-      "end_ms_estimate": 37034
+      "original": "별이 폭발할 때 만들어지는 원소들 중에는",
+      "tts": "별이 폭발할 때 만들어지는 원소들 중에는",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part10_0008.mp3",
+      "duration_ms_estimate": 2932,
+      "start_ms_estimate": 24706,
+      "end_ms_estimate": 27638
     },
     {
       "index": 13,
       "caption_id": "10-13",
-      "original": "식품으로도 세계적으로 인정받는 이유입니다.",
-      "tts": "식품으로도 세계적으로 인정받는 이유입니다.",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part10_0013.mp3",
-      "duration_ms_estimate": 3099,
-      "start_ms_estimate": 37034,
-      "end_ms_estimate": 40133
+      "original": "금보다 훨씬 만들기 어려운 것들이 있습니다.",
+      "tts": "금보다 훨씬 만들기 어려운 것들이 있습니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part10_0008.mp3",
+      "duration_ms_estimate": 3198,
+      "start_ms_estimate": 27638,
+      "end_ms_estimate": 30836
+    },
+    {
+      "index": 14,
+      "caption_id": "10-14",
+      "original": "그 대표주자가 아스타틴(Astatine)입니다.",
+      "tts": "그 대표주자가 아스타틴(Astatine)입니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part10_0009.mp3",
+      "duration_ms_estimate": 2601,
+      "start_ms_estimate": 30836,
+      "end_ms_estimate": 33437
+    },
+    {
+      "index": 15,
+      "caption_id": "10-15",
+      "original": "원자번호 85번.",
+      "tts": "원자번호 팔십오번.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part10_0010.mp3",
+      "duration_ms_estimate": 1486,
+      "start_ms_estimate": 33437,
+      "end_ms_estimate": 34923
+    },
+    {
+      "index": 16,
+      "caption_id": "10-16",
+      "original": "지구 전체에 존재하는",
+      "tts": "지구 전체에 존재하는",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part10_0011.mp3",
+      "duration_ms_estimate": 1328,
+      "start_ms_estimate": 34923,
+      "end_ms_estimate": 36251
+    },
+    {
+      "index": 17,
+      "caption_id": "10-17",
+      "original": "아스타틴의 총량이 얼마인지 아세요?",
+      "tts": "아스타틴의 총량이 얼마인지 아세요?",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part10_0011.mp3",
+      "duration_ms_estimate": 2294,
+      "start_ms_estimate": 36251,
+      "end_ms_estimate": 38545
+    },
+    {
+      "index": 18,
+      "caption_id": "10-18",
+      "original": "1온스, 그러니까 약 28그램이 채 안 됩니다.",
+      "tts": "일온스, 그러니까 약 이십팔그램이 채 안 됩니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part10_0012.mp3",
+      "duration_ms_estimate": 3344,
+      "start_ms_estimate": 38545,
+      "end_ms_estimate": 41889
+    },
+    {
+      "index": 19,
+      "caption_id": "10-19",
+      "original": "지구 전체에 말이죠!",
+      "tts": "지구 전체에 말이죠!",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part10_0013.mp3",
+      "duration_ms_estimate": 1486,
+      "start_ms_estimate": 41889,
+      "end_ms_estimate": 43375
+    },
+    {
+      "index": 20,
+      "caption_id": "10-20",
+      "original": "작은 종이컵 하나도 못 채우는 양이에요.",
+      "tts": "작은 종이컵 하나도 못 채우는 양이에요.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part10_0014.mp3",
+      "duration_ms_estimate": 2508,
+      "start_ms_estimate": 43375,
+      "end_ms_estimate": 45883
+    },
+    {
+      "index": 21,
+      "caption_id": "10-21",
+      "original": "반감기가 너무 짧아서 만들자마자",
+      "tts": "반감기가 너무 짧아서 만들자마자",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part10_0015.mp3",
+      "duration_ms_estimate": 2229,
+      "start_ms_estimate": 45883,
+      "end_ms_estimate": 48112
+    },
+    {
+      "index": 22,
+      "caption_id": "10-22",
+      "original": "다른 원소로 붕괴해 버리거든요.",
+      "tts": "다른 원소로 붕괴해 버리거든요.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part10_0015.mp3",
+      "duration_ms_estimate": 2229,
+      "start_ms_estimate": 48112,
+      "end_ms_estimate": 50341
     }
   ]
 }

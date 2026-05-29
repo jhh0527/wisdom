@@ -94,24 +94,3 @@ def make_silent_mp3(path: Path, duration_sec: float) -> None:
     subprocess_run_no_window(cmd, capture_output=True, text=True, check=True, timeout=60)
 
 
-def invoke_txt2audio(
-    python_exe: str,
-    tts_pipeline_root: Path,
-    text: Path,
-    out_mp3: Path,
-    *,
-    extra_args: list[str] | None = None,
-) -> None:
-    """형제 레포 txt2audio: python_exe -m txt2audio 로 호출."""
-    out_mp3.parent.mkdir(parents=True, exist_ok=True)
-    cmd = [python_exe, "-m", "txt2audio", "-i", str(text), "-o", str(out_mp3)]
-    if extra_args:
-        cmd.extend(extra_args)
-    r = subprocess_run_no_window(cmd, cwd=str(tts_pipeline_root), capture_output=True, text=True, timeout=7200)
-    if r.returncode != 0:
-        raise RuntimeError(
-            "txt2audio 실패:\n"
-            + (r.stderr or r.stdout or "").strip()
-            + "\n명령: "
-            + " ".join(cmd)
-        )

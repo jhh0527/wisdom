@@ -112,10 +112,3 @@ def pick_default_compose_audio_srt(tts_output: Path | None = None) -> tuple[Path
     return (mp3s[0] if mp3s else None, srts[0] if srts else None)
 
 
-def default_tts_pipeline_root() -> Path:
-    return _WISDOM / "tts_audio_pipeline"
-
-
-def default_tts_python() -> Path | None:
-    p = default_tts_pipeline_root() / ".venv_chatterbox" / "Scripts" / "python.exe"
-    return p if p.is_file() else None

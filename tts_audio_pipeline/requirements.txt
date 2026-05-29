@@ -1,2 +1,0 @@
-edge-tts>=6.1.12
-# Chatterbox 로컬: requirements-chatterbox.txt 참고

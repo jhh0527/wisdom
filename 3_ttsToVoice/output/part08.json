@@ -1,141 +1,241 @@
 {
   "part_id": "8",
-  "part_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\part08.mp3",
-  "part_srt": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\part08.srt",
+  "part_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\part08.mp3",
+  "part_srt": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\part08.srt",
   "model_id": "eleven_multilingual_v2",
-  "merge_method": "ffmpeg",
-  "segment_count": 13,
-  "duration_ms_estimate": 35915,
+  "merge_method": "ffmpeg-reencode",
+  "segment_count": 15,
+  "duration_ms_estimate": 59025,
   "segments": [
     {
       "index": 1,
       "caption_id": "8-1",
-      "original": "[short pause][breathes][continues]그 다음 나타나는 맛은 단맛입니다.",
-      "tts": "[short pause][breathes][continues]그 다음 나타나는 맛은 단맛입니다.",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part08_0001.mp3",
-      "duration_ms_estimate": 2256,
+      "original": "이 물질의 용도가 정말 흥미로워요.",
+      "tts": "[short pause][breathes][continues]이 물질의 용도가 정말 흥미로워요.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part08_0001.mp3",
+      "duration_ms_estimate": 3204,
       "start_ms_estimate": 0,
-      "end_ms_estimate": 2256
+      "end_ms_estimate": 3204
     },
     {
       "index": 2,
       "caption_id": "8-2",
-      "original": "이건 예상 외일 수 있어요. 김에서 단맛이",
-      "tts": "이건 예상 외일 수 있어요. 김에서 단맛이",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part08_0002.mp3",
-      "duration_ms_estimate": 2397,
-      "start_ms_estimate": 2256,
-      "end_ms_estimate": 4653
+      "original": "가장 주목받는 분야는",
+      "tts": "가장 주목받는 분야는",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part08_0002.mp3",
+      "duration_ms_estimate": 1552,
+      "start_ms_estimate": 3204,
+      "end_ms_estimate": 4756
     },
     {
       "index": 3,
       "caption_id": "8-3",
-      "original": "난다니요. 하지만 이것이 한국 김의 특징이에요.",
-      "tts": "난다니요. 하지만 이것이 한국 김의 특징이에요.",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part08_0003.mp3",
-      "duration_ms_estimate": 3243,
-      "start_ms_estimate": 4653,
-      "end_ms_estimate": 7896
+      "original": "초소형 원자시계 제작입니다.",
+      "tts": "초소형 원자시계 제작입니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part08_0002.mp3",
+      "duration_ms_estimate": 2117,
+      "start_ms_estimate": 4756,
+      "end_ms_estimate": 6873
     },
     {
       "index": 4,
       "caption_id": "8-4",
-      "original": "이 단맛은 김에 들어 있는 천연 당분과",
-      "tts": "이 단맛은 김에 들어 있는 천연 당분과",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part08_0004.mp3",
-      "duration_ms_estimate": 3009,
-      "start_ms_estimate": 7896,
-      "end_ms_estimate": 10905
+      "original": "지금 우리가 쓰는 GPS는",
+      "tts": "지금 우리가 쓰는 지피에스는",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part08_0003.mp3",
+      "duration_ms_estimate": 1705,
+      "start_ms_estimate": 6873,
+      "end_ms_estimate": 8578
     },
     {
       "index": 5,
       "caption_id": "8-5",
-      "original": "아미노산이 만드는 거고, 이건 바다의 풍부한",
-      "tts": "아미노산이 만드는 거고, 이건 바다의 풍부한",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part08_0005.mp3",
-      "duration_ms_estimate": 3009,
-      "start_ms_estimate": 10905,
-      "end_ms_estimate": 13914
+      "original": "오차가 몇 미터 단위인데,",
+      "tts": "오차가 몇 미터 단위인데,",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part08_0003.mp3",
+      "duration_ms_estimate": 1592,
+      "start_ms_estimate": 8578,
+      "end_ms_estimate": 10170
     },
     {
       "index": 6,
       "caption_id": "8-6",
-      "original": "영양분 때문이에요. 그리고 세 번째 맛은",
-      "tts": "영양분 때문이에요. 그리고 세 번째 맛은[breathes]",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part08_0006.mp3",
-      "duration_ms_estimate": 2962,
-      "start_ms_estimate": 13914,
-      "end_ms_estimate": 16876
+      "original": "이 원자시계를 탑재하면",
+      "tts": "이 원자시계를 탑재하면",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part08_0004.mp3",
+      "duration_ms_estimate": 1618,
+      "start_ms_estimate": 10170,
+      "end_ms_estimate": 11788
     },
     {
       "index": 7,
       "caption_id": "8-7",
-      "original": "설명하기 정말 어렵습니다. 풍미라고 할까요?",
-      "tts": "설명하기 정말 어렵습니다. 풍미라고 할까요?",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part08_0007.mp3",
-      "duration_ms_estimate": 3009,
-      "start_ms_estimate": 16876,
-      "end_ms_estimate": 19885
+      "original": "오차가 센티미터 단위로 줄어듭니다.",
+      "tts": "오차가 센티미터 단위로 줄어듭니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part08_0004.mp3",
+      "duration_ms_estimate": 2562,
+      "start_ms_estimate": 11788,
+      "end_ms_estimate": 14350
     },
     {
       "index": 8,
       "caption_id": "8-8",
-      "original": "마치 바다 내음이 입 안에 퍼지는 것 같은",
-      "tts": "마치 바다 내음이 입 안에 퍼지는 것 같은",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part08_0008.mp3",
-      "duration_ms_estimate": 2727,
-      "start_ms_estimate": 19885,
-      "end_ms_estimate": 22612
+      "original": "자율주행차가 실제 도로에서",
+      "tts": "자율주행차가 실제 도로에서",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part08_0005.mp3",
+      "duration_ms_estimate": 1895,
+      "start_ms_estimate": 14350,
+      "end_ms_estimate": 16245
     },
     {
       "index": 9,
       "caption_id": "8-9",
-      "original": "느낌이에요. 동시에 뭔가 그리운 듯한 감정까지",
-      "tts": "느낌이에요. 동시에 뭔가 그리운 듯한 감정까지",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part08_0009.mp3",
-      "duration_ms_estimate": 3338,
-      "start_ms_estimate": 22612,
-      "end_ms_estimate": 25950
+      "original": "안전하게 다니려면 꼭 필요한 기술이죠.",
+      "tts": "안전하게 다니려면 꼭 필요한 기술이죠.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part08_0005.mp3",
+      "duration_ms_estimate": 2842,
+      "start_ms_estimate": 16245,
+      "end_ms_estimate": 19087
     },
     {
       "index": 10,
       "caption_id": "8-10",
-      "original": "일어나요. 이것은 추억의 맛입니다.",
-      "tts": "일어나요. 이것은 추억의 맛입니다.",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part08_0010.mp3",
-      "duration_ms_estimate": 2256,
-      "start_ms_estimate": 25950,
-      "end_ms_estimate": 28206
+      "original": "또 양자컴퓨터의 큐비트 재료,",
+      "tts": "또 양자컴퓨터의 큐비트 재료,",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part08_0006.mp3",
+      "duration_ms_estimate": 2276,
+      "start_ms_estimate": 19087,
+      "end_ms_estimate": 21363
     },
     {
       "index": 11,
       "caption_id": "8-11",
-      "original": "한국인이 어릴 때부터 먹는 맛이에요.",
-      "tts": "한국인이 어릴 때부터 먹는 맛이에요.[breathes]",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part08_0011.mp3",
-      "duration_ms_estimate": 2397,
-      "start_ms_estimate": 28206,
-      "end_ms_estimate": 30603
+      "original": "차세대 MRI 조영제, 그리고 표적 항암 치료의",
+      "tts": "차세대 엠알아이 조영제, 그리고 표적 항암 치료의[breathes]",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part08_0007.mp3",
+      "duration_ms_estimate": 3653,
+      "start_ms_estimate": 21363,
+      "end_ms_estimate": 25016
     },
     {
       "index": 12,
       "caption_id": "8-12",
-      "original": "엄마가 주먹밥을 만들어줄 때, 그 위에 놓여",
-      "tts": "엄마가 주먹밥을 만들어줄 때, 그 위에 놓여",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part08_0012.mp3",
-      "duration_ms_estimate": 3808,
-      "start_ms_estimate": 30603,
-      "end_ms_estimate": 34411
+      "original": "약물 전달체로도 연구되고 있습니다.",
+      "tts": "약물 전달체로도 연구되고 있습니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part08_0007.mp3",
+      "duration_ms_estimate": 2570,
+      "start_ms_estimate": 25016,
+      "end_ms_estimate": 27586
     },
     {
       "index": 13,
       "caption_id": "8-13",
-      "original": "있던 바로 그 맛이죠.",
-      "tts": "있던 바로 그 맛이죠.",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part08_0013.mp3",
-      "duration_ms_estimate": 1504,
-      "start_ms_estimate": 34411,
-      "end_ms_estimate": 35915
+      "original": "정말 미래 기술의 핵심 소재인 셈이죠.",
+      "tts": "정말 미래 기술의 핵심 소재인 셈이죠.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part08_0008.mp3",
+      "duration_ms_estimate": 2972,
+      "start_ms_estimate": 27586,
+      "end_ms_estimate": 30558
+    },
+    {
+      "index": 14,
+      "caption_id": "8-14",
+      "original": "자, 더 올라갑니다. 항물질(Antimatter).",
+      "tts": "자, 더 올라갑니다. 항물질(Antimatter).",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part08_0009.mp3",
+      "duration_ms_estimate": 2694,
+      "start_ms_estimate": 30558,
+      "end_ms_estimate": 33252
+    },
+    {
+      "index": 15,
+      "caption_id": "8-15",
+      "original": "들어보셨죠? 영화 천사와 악마에서",
+      "tts": "들어보셨죠? 영화 천사와 악마에서",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part08_0010.mp3",
+      "duration_ms_estimate": 2838,
+      "start_ms_estimate": 33252,
+      "end_ms_estimate": 36090
+    },
+    {
+      "index": 16,
+      "caption_id": "8-16",
+      "original": "바티칸을 날려버릴 뻔했던 그것입니다.",
+      "tts": "바티칸을 날려버릴 뻔했던 그것입니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part08_0010.mp3",
+      "duration_ms_estimate": 3153,
+      "start_ms_estimate": 36090,
+      "end_ms_estimate": 39243
+    },
+    {
+      "index": 17,
+      "caption_id": "8-17",
+      "original": "항물질은 일반 물질과 만나면",
+      "tts": "항물질은 일반 물질과 만나면",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part08_0011.mp3",
+      "duration_ms_estimate": 2229,
+      "start_ms_estimate": 39243,
+      "end_ms_estimate": 41472
+    },
+    {
+      "index": 18,
+      "caption_id": "8-18",
+      "original": "100% 에너지로 전환되며 폭발해요.",
+      "tts": "백퍼센트 에너지로 전환되며 폭발해요.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part08_0011.mp3",
+      "duration_ms_estimate": 2972,
+      "start_ms_estimate": 41472,
+      "end_ms_estimate": 44444
+    },
+    {
+      "index": 19,
+      "caption_id": "8-19",
+      "original": "NASA의 추정에 따르면, 항물질 1그램을",
+      "tts": "나사의 추정에 따르면, 항물질 일그램을",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part08_0012.mp3",
+      "duration_ms_estimate": 3032,
+      "start_ms_estimate": 44444,
+      "end_ms_estimate": 47476
+    },
+    {
+      "index": 20,
+      "caption_id": "8-20",
+      "original": "만드는 데 약 62조 5천억 달러가 듭니다.",
+      "tts": "만드는 데 약 육십이조 오천억 달러가 듭니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part08_0012.mp3",
+      "duration_ms_estimate": 3609,
+      "start_ms_estimate": 47476,
+      "end_ms_estimate": 51085
+    },
+    {
+      "index": 21,
+      "caption_id": "8-21",
+      "original": "우리 돈으로 8경원이 훌쩍 넘는 금액입니다.",
+      "tts": "우리 돈으로 팔경원이 훌쩍 넘는 금액입니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part08_0013.mp3",
+      "duration_ms_estimate": 3158,
+      "start_ms_estimate": 51085,
+      "end_ms_estimate": 54243
+    },
+    {
+      "index": 22,
+      "caption_id": "8-22",
+      "original": "경(京) 단위가 나왔어요.",
+      "tts": "경(京) 단위가 나왔어요.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part08_0014.mp3",
+      "duration_ms_estimate": 2229,
+      "start_ms_estimate": 54243,
+      "end_ms_estimate": 56472
+    },
+    {
+      "index": 23,
+      "caption_id": "8-23",
+      "original": "금의 8백억 배가 넘는 가격입니다.",
+      "tts": "금의 팔백억 배가 넘는 가격입니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part08_0015.mp3",
+      "duration_ms_estimate": 2553,
+      "start_ms_estimate": 56472,
+      "end_ms_estimate": 59025
     }
   ]
 }

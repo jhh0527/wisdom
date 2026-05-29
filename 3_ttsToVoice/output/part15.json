@@ -1,0 +1,231 @@
+{
+  "part_id": "15",
+  "part_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\part15.mp3",
+  "part_srt": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\part15.srt",
+  "model_id": "eleven_multilingual_v2",
+  "merge_method": "ffmpeg-reencode",
+  "segment_count": 14,
+  "duration_ms_estimate": 49041,
+  "segments": [
+    {
+      "index": 1,
+      "caption_id": "15-1",
+      "original": "특히 헬륨-3(Helium-3)라는 물질을",
+      "tts": "[short pause][breathes][continues]특히 헬륨-삼(Helium-3)라는 물질을",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part15_0001.mp3",
+      "duration_ms_estimate": 3483,
+      "start_ms_estimate": 0,
+      "end_ms_estimate": 3483
+    },
+    {
+      "index": 2,
+      "caption_id": "15-2",
+      "original": "빼놓을 수 없죠.",
+      "tts": "빼놓을 수 없죠.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part15_0002.mp3",
+      "duration_ms_estimate": 1393,
+      "start_ms_estimate": 3483,
+      "end_ms_estimate": 4876
+    },
+    {
+      "index": 3,
+      "caption_id": "15-3",
+      "original": "1리터에 수백만원을 호가합니다.",
+      "tts": "일리터에 수백만원을 호가합니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part15_0003.mp3",
+      "duration_ms_estimate": 2183,
+      "start_ms_estimate": 4876,
+      "end_ms_estimate": 7059
+    },
+    {
+      "index": 4,
+      "caption_id": "15-4",
+      "original": "용도가 정말 다양해요.",
+      "tts": "용도가 정말 다양해요.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part15_0004.mp3",
+      "duration_ms_estimate": 1625,
+      "start_ms_estimate": 7059,
+      "end_ms_estimate": 8684
+    },
+    {
+      "index": 5,
+      "caption_id": "15-5",
+      "original": "첫째, 핵융합 발전의 꿈의 연료입니다.",
+      "tts": "첫째, 핵융합 발전의 꿈의 연료입니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part15_0005.mp3",
+      "duration_ms_estimate": 3204,
+      "start_ms_estimate": 8684,
+      "end_ms_estimate": 11888
+    },
+    {
+      "index": 6,
+      "caption_id": "15-6",
+      "original": "방사성 폐기물이 거의 안 나오는",
+      "tts": "방사성 폐기물이 거의 안 나오는",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part15_0006.mp3",
+      "duration_ms_estimate": 2290,
+      "start_ms_estimate": 11888,
+      "end_ms_estimate": 14178
+    },
+    {
+      "index": 7,
+      "caption_id": "15-7",
+      "original": "청정 에너지원이라 인류의 에너지 문제를",
+      "tts": "청정 에너지원이라 인류의 에너지 문제를",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part15_0006.mp3",
+      "duration_ms_estimate": 2828,
+      "start_ms_estimate": 14178,
+      "end_ms_estimate": 17006
+    },
+    {
+      "index": 8,
+      "caption_id": "15-8",
+      "original": "해결할 후보로 꼽히죠.",
+      "tts": "해결할 후보로 꼽히죠.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part15_0006.mp3",
+      "duration_ms_estimate": 1616,
+      "start_ms_estimate": 17006,
+      "end_ms_estimate": 18622
+    },
+    {
+      "index": 9,
+      "caption_id": "15-9",
+      "original": "둘째, 절대영도에 가까운 극저온을",
+      "tts": "둘째, 절대영도에 가까운 극저온을",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part15_0007.mp3",
+      "duration_ms_estimate": 2638,
+      "start_ms_estimate": 18622,
+      "end_ms_estimate": 21260
+    },
+    {
+      "index": 10,
+      "caption_id": "15-10",
+      "original": "만드는 냉각재로 쓰입니다.",
+      "tts": "만드는 냉각재로 쓰입니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part15_0007.mp3",
+      "duration_ms_estimate": 2052,
+      "start_ms_estimate": 21260,
+      "end_ms_estimate": 23312
+    },
+    {
+      "index": 11,
+      "caption_id": "15-11",
+      "original": "양자컴퓨터 운영에 필수죠.",
+      "tts": "양자컴퓨터 운영에 필수죠.[breathes]",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part15_0008.mp3",
+      "duration_ms_estimate": 2647,
+      "start_ms_estimate": 23312,
+      "end_ms_estimate": 25959
+    },
+    {
+      "index": 12,
+      "caption_id": "15-12",
+      "original": "셋째, 폐 질환을 진단하는",
+      "tts": "셋째, 폐 질환을 진단하는",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part15_0009.mp3",
+      "duration_ms_estimate": 2052,
+      "start_ms_estimate": 25959,
+      "end_ms_estimate": 28011
+    },
+    {
+      "index": 13,
+      "caption_id": "15-13",
+      "original": "특수 MRI 조영제로도 쓰여요.",
+      "tts": "특수 엠알아이 조영제로도 쓰여요.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part15_0009.mp3",
+      "duration_ms_estimate": 2638,
+      "start_ms_estimate": 28011,
+      "end_ms_estimate": 30649
+    },
+    {
+      "index": 14,
+      "caption_id": "15-14",
+      "original": "넷째, 공항과 항만에서",
+      "tts": "넷째, 공항과 항만에서",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part15_0010.mp3",
+      "duration_ms_estimate": 1821,
+      "start_ms_estimate": 30649,
+      "end_ms_estimate": 32470
+    },
+    {
+      "index": 15,
+      "caption_id": "15-15",
+      "original": "핵물질 밀반입을 감시하는",
+      "tts": "핵물질 밀반입을 감시하는",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part15_0010.mp3",
+      "duration_ms_estimate": 1973,
+      "start_ms_estimate": 32470,
+      "end_ms_estimate": 34443
+    },
+    {
+      "index": 16,
+      "caption_id": "15-16",
+      "original": "중성자 탐지기에도 들어갑니다.",
+      "tts": "중성자 탐지기에도 들어갑니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part15_0010.mp3",
+      "duration_ms_estimate": 2429,
+      "start_ms_estimate": 34443,
+      "end_ms_estimate": 36872
+    },
+    {
+      "index": 17,
+      "caption_id": "15-17",
+      "original": "지구에는 거의 없고",
+      "tts": "지구에는 거의 없고",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part15_0011.mp3",
+      "duration_ms_estimate": 1260,
+      "start_ms_estimate": 36872,
+      "end_ms_estimate": 38132
+    },
+    {
+      "index": 18,
+      "caption_id": "15-18",
+      "original": "달 표면에 풍부하게 깔려 있어요.",
+      "tts": "달 표면에 풍부하게 깔려 있어요.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part15_0011.mp3",
+      "duration_ms_estimate": 2269,
+      "start_ms_estimate": 38132,
+      "end_ms_estimate": 40401
+    },
+    {
+      "index": 19,
+      "caption_id": "15-19",
+      "original": "그래서 미국, 중국, 인도가",
+      "tts": "그래서 미국, 중국, 인도가",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part15_0012.mp3",
+      "duration_ms_estimate": 1815,
+      "start_ms_estimate": 40401,
+      "end_ms_estimate": 42216
+    },
+    {
+      "index": 20,
+      "caption_id": "15-20",
+      "original": "모두 달에 가려고 그러는 거예요.",
+      "tts": "모두 달에 가려고 그러는 거예요.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part15_0012.mp3",
+      "duration_ms_estimate": 2179,
+      "start_ms_estimate": 42216,
+      "end_ms_estimate": 44395
+    },
+    {
+      "index": 21,
+      "caption_id": "15-21",
+      "original": "단순한 자존심 싸움이 아닙니다.",
+      "tts": "단순한 자존심 싸움이 아닙니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part15_0013.mp3",
+      "duration_ms_estimate": 2368,
+      "start_ms_estimate": 44395,
+      "end_ms_estimate": 46763
+    },
+    {
+      "index": 22,
+      "caption_id": "15-22",
+      "original": "미래의 에너지 자원 확보전인 거죠.",
+      "tts": "미래의 에너지 자원 확보전인 거죠.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part15_0014.mp3",
+      "duration_ms_estimate": 2278,
+      "start_ms_estimate": 46763,
+      "end_ms_estimate": 49041
+    }
+  ]
+}
