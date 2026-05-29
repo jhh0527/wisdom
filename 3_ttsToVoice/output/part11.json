@@ -1,131 +1,241 @@
 {
   "part_id": "11",
-  "part_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\part11.mp3",
-  "part_srt": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\part11.srt",
+  "part_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\part11.mp3",
+  "part_srt": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\part11.srt",
   "model_id": "eleven_multilingual_v2",
-  "merge_method": "ffmpeg",
-  "segment_count": 12,
-  "duration_ms_estimate": 35007,
+  "merge_method": "ffmpeg-reencode",
+  "segment_count": 14,
+  "duration_ms_estimate": 53870,
   "segments": [
     {
       "index": 1,
       "caption_id": "11-1",
-      "original": "[short pause][breathes][continues]여기서 흥미로운 통계를 봤어요.",
-      "tts": "[short pause][breathes][continues]여기서 흥미로운 통계를 봤어요.",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part11_0001.mp3",
-      "duration_ms_estimate": 2067,
+      "original": "용도가 없을 것 같죠? 그런데 있습니다.",
+      "tts": "[short pause][breathes][continues]용도가 없을 것 같죠? 그런데 있습니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part11_0001.mp3",
+      "duration_ms_estimate": 3994,
       "start_ms_estimate": 0,
-      "end_ms_estimate": 2067
+      "end_ms_estimate": 3994
     },
     {
       "index": 2,
       "caption_id": "11-2",
-      "original": "한국이 연간 생산하는 김의 양은 약 오십오만",
-      "tts": "한국이 연간 생산하는 김의 양은 약 오십오만",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part11_0002.mp3",
-      "duration_ms_estimate": 3384,
-      "start_ms_estimate": 2067,
-      "end_ms_estimate": 5451
+      "original": "아스타틴-211이라는 동위원소가",
+      "tts": "아스타틴-이백십일이라는 동위원소가",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part11_0002.mp3",
+      "duration_ms_estimate": 2388,
+      "start_ms_estimate": 3994,
+      "end_ms_estimate": 6382
     },
     {
       "index": 3,
       "caption_id": "11-3",
-      "original": "톤이라고 해요. 전 세계 마른 김 생산량",
-      "tts": "톤이라고 해요. 전 세계 마른 김 생산량",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part11_0003.mp3",
-      "duration_ms_estimate": 2913,
-      "start_ms_estimate": 5451,
-      "end_ms_estimate": 8364
+      "original": "표적 알파선 치료라는",
+      "tts": "표적 알파선 치료라는",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part11_0002.mp3",
+      "duration_ms_estimate": 1460,
+      "start_ms_estimate": 6382,
+      "end_ms_estimate": 7842
     },
     {
       "index": 4,
       "caption_id": "11-4",
-      "original": "이백오십억장 중에 한국이 백이십사억장을",
-      "tts": "이백오십억장 중에 한국이 백이십사억장을",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part11_0004.mp3",
-      "duration_ms_estimate": 3195,
-      "start_ms_estimate": 8364,
-      "end_ms_estimate": 11559
+      "original": "차세대 암 치료법에 활용되고 있어요.",
+      "tts": "차세대 암 치료법에 활용되고 있어요.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part11_0002.mp3",
+      "duration_ms_estimate": 2654,
+      "start_ms_estimate": 7842,
+      "end_ms_estimate": 10496
     },
     {
       "index": 5,
       "caption_id": "11-5",
-      "original": "생산하고 있다는 뜻이에요. 이는 전 세계의",
-      "tts": "생산하고 있다는 뜻이에요. 이는 전 세계의[breathes]",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part11_0005.mp3",
-      "duration_ms_estimate": 2913,
-      "start_ms_estimate": 11559,
-      "end_ms_estimate": 14472
+      "original": "알파 입자를 방출하면서",
+      "tts": "알파 입자를 방출하면서",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part11_0003.mp3",
+      "duration_ms_estimate": 1471,
+      "start_ms_estimate": 10496,
+      "end_ms_estimate": 11967
     },
     {
       "index": 6,
       "caption_id": "11-6",
-      "original": "약 오십퍼센트에 가까워요. 일본은 팔십삼억장,",
-      "tts": "약 오십퍼센트에 가까워요. 일본은 팔십삼억장,",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part11_0006.mp3",
-      "duration_ms_estimate": 4041,
-      "start_ms_estimate": 14472,
-      "end_ms_estimate": 18513
+      "original": "세포 몇 개 거리만 정확히 파괴하기 때문에,",
+      "tts": "세포 몇 개 거리만 정확히 파괴하기 때문에,",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part11_0003.mp3",
+      "duration_ms_estimate": 2941,
+      "start_ms_estimate": 11967,
+      "end_ms_estimate": 14908
     },
     {
       "index": 7,
       "caption_id": "11-7",
-      "original": "중국은 사십사억장을 생산하죠. 어마어마한",
-      "tts": "중국은 사십사억장을 생산하죠. 어마어마한",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part11_0007.mp3",
-      "duration_ms_estimate": 3478,
-      "start_ms_estimate": 18513,
-      "end_ms_estimate": 21991
+      "original": "주변 정상 조직은 그대로 두고",
+      "tts": "주변 정상 조직은 그대로 두고",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part11_0004.mp3",
+      "duration_ms_estimate": 1974,
+      "start_ms_estimate": 14908,
+      "end_ms_estimate": 16882
     },
     {
       "index": 8,
       "caption_id": "11-8",
-      "original": "수량인데도 불구하고 한국 김이 유지하고 있는",
-      "tts": "수량인데도 불구하고 한국 김이 유지하고 있는",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part11_0008.mp3",
-      "duration_ms_estimate": 3101,
-      "start_ms_estimate": 21991,
-      "end_ms_estimate": 25092
+      "original": "암세포만 골라서 죽일 수 있습니다.",
+      "tts": "암세포만 골라서 죽일 수 있습니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part11_0004.mp3",
+      "duration_ms_estimate": 2345,
+      "start_ms_estimate": 16882,
+      "end_ms_estimate": 19227
     },
     {
       "index": 9,
       "caption_id": "11-9",
-      "original": "품질은 정말 놀라워요. 왜 그럴까요?",
-      "tts": "품질은 정말 놀라워요. 왜 그럴까요?",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part11_0009.mp3",
-      "duration_ms_estimate": 2678,
-      "start_ms_estimate": 25092,
-      "end_ms_estimate": 27770
+      "original": "특히 백혈병이나 전이된 미세 암을",
+      "tts": "특히 백혈병이나 전이된 미세 암을",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part11_0005.mp3",
+      "duration_ms_estimate": 2202,
+      "start_ms_estimate": 19227,
+      "end_ms_estimate": 21429
     },
     {
       "index": 10,
       "caption_id": "11-10",
-      "original": "그건 이 모든 양을 한 가지 철학으로 만들고",
-      "tts": "그건 이 모든 양을 한 가지 철학으로 만들고",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part11_0010.mp3",
-      "duration_ms_estimate": 2772,
-      "start_ms_estimate": 27770,
-      "end_ms_estimate": 30542
+      "original": "치료하는 데 차세대 무기로 주목받고 있죠.",
+      "tts": "치료하는 데 차세대 무기로 주목받고 있죠.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part11_0005.mp3",
+      "duration_ms_estimate": 2814,
+      "start_ms_estimate": 21429,
+      "end_ms_estimate": 24243
     },
     {
       "index": 11,
       "caption_id": "11-11",
-      "original": "있기 때문입니다. 바로 '최고의 것만 만들자'라는",
-      "tts": "있기 때문입니다. 바로 '최고의 것만 만들자'라는[breathes]",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part11_0011.mp3",
-      "duration_ms_estimate": 3430,
-      "start_ms_estimate": 30542,
-      "end_ms_estimate": 33972
+      "original": "그리고 프란슘(Francium)이라는 친구도 있습니다.",
+      "tts": "그리고 프란슘(Francium)이라는 친구도 있습니다.[breathes]",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part11_0006.mp3",
+      "duration_ms_estimate": 3576,
+      "start_ms_estimate": 24243,
+      "end_ms_estimate": 27819
     },
     {
       "index": 12,
       "caption_id": "11-12",
-      "original": "철학이에요.",
-      "tts": "철학이에요.",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part11_0012.mp3",
-      "duration_ms_estimate": 1035,
-      "start_ms_estimate": 33972,
-      "end_ms_estimate": 35007
+      "original": "지구 지각 전체에 존재하는 양이",
+      "tts": "지구 지각 전체에 존재하는 양이",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part11_0007.mp3",
+      "duration_ms_estimate": 2221,
+      "start_ms_estimate": 27819,
+      "end_ms_estimate": 30040
+    },
+    {
+      "index": 13,
+      "caption_id": "11-13",
+      "original": "약 30그램으로 추정됩니다.",
+      "tts": "약 삼십그램으로 추정됩니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part11_0007.mp3",
+      "duration_ms_estimate": 1959,
+      "start_ms_estimate": 30040,
+      "end_ms_estimate": 31999
+    },
+    {
+      "index": 14,
+      "caption_id": "11-14",
+      "original": "한 번에 가장 많이 모인 양도",
+      "tts": "한 번에 가장 많이 모인 양도",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part11_0008.mp3",
+      "duration_ms_estimate": 2066,
+      "start_ms_estimate": 31999,
+      "end_ms_estimate": 34065
+    },
+    {
+      "index": 15,
+      "caption_id": "11-15",
+      "original": "30만 개의 원자였다고 해요.",
+      "tts": "삼십만 개의 원자였다고 해요.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part11_0008.mp3",
+      "duration_ms_estimate": 2067,
+      "start_ms_estimate": 34065,
+      "end_ms_estimate": 36132
+    },
+    {
+      "index": 16,
+      "caption_id": "11-16",
+      "original": "미국 스토니브룩 대학 연구진이 세운 기록이죠.",
+      "tts": "미국 스토니브룩 대학 연구진이 세운 기록이죠.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part11_0009.mp3",
+      "duration_ms_estimate": 2972,
+      "start_ms_estimate": 36132,
+      "end_ms_estimate": 39104
+    },
+    {
+      "index": 17,
+      "caption_id": "11-17",
+      "original": "원자 30만 개.",
+      "tts": "원자 삼십만 개.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part11_0010.mp3",
+      "duration_ms_estimate": 1579,
+      "start_ms_estimate": 39104,
+      "end_ms_estimate": 40683
+    },
+    {
+      "index": 18,
+      "caption_id": "11-18",
+      "original": "우리가 숨 한 번 들이쉴 때",
+      "tts": "우리가 숨 한 번 들이쉴 때",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part11_0011.mp3",
+      "duration_ms_estimate": 1853,
+      "start_ms_estimate": 40683,
+      "end_ms_estimate": 42536
+    },
+    {
+      "index": 19,
+      "caption_id": "11-19",
+      "original": "들어오는 산소 분자 수가",
+      "tts": "들어오는 산소 분자 수가",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part11_0011.mp3",
+      "duration_ms_estimate": 1606,
+      "start_ms_estimate": 42536,
+      "end_ms_estimate": 44142
+    },
+    {
+      "index": 20,
+      "caption_id": "11-20",
+      "original": "10의 22제곱 개인 걸 생각하면,",
+      "tts": "십의 이십이제곱 개인 걸 생각하면,",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part11_0011.mp3",
+      "duration_ms_estimate": 2346,
+      "start_ms_estimate": 44142,
+      "end_ms_estimate": 46488
+    },
+    {
+      "index": 21,
+      "caption_id": "11-21",
+      "original": "얼마나 적은 양인지 감이 오시죠?",
+      "tts": "얼마나 적은 양인지 감이 오시죠?",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part11_0012.mp3",
+      "duration_ms_estimate": 2136,
+      "start_ms_estimate": 46488,
+      "end_ms_estimate": 48624
+    },
+    {
+      "index": 22,
+      "caption_id": "11-22",
+      "original": "프란슘은 거래되지 않지만,",
+      "tts": "프란슘은 거래되지 않지만,",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part11_0013.mp3",
+      "duration_ms_estimate": 1997,
+      "start_ms_estimate": 48624,
+      "end_ms_estimate": 50621
+    },
+    {
+      "index": 23,
+      "caption_id": "11-23",
+      "original": "원자 구조 연구와 기초 물리학 실험에 쓰입니다.",
+      "tts": "원자 구조 연구와 기초 물리학 실험에 쓰입니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part11_0014.mp3",
+      "duration_ms_estimate": 3249,
+      "start_ms_estimate": 50621,
+      "end_ms_estimate": 53870
     }
   ]
 }

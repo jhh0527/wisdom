@@ -1,141 +1,251 @@
 {
   "part_id": "7",
-  "part_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\part07.mp3",
-  "part_srt": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\part07.srt",
+  "part_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\part07.mp3",
+  "part_srt": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\part07.srt",
   "model_id": "eleven_multilingual_v2",
-  "merge_method": "ffmpeg",
-  "segment_count": 13,
-  "duration_ms_estimate": 36923,
+  "merge_method": "ffmpeg-reencode",
+  "segment_count": 15,
+  "duration_ms_estimate": 56517,
   "segments": [
     {
       "index": 1,
       "caption_id": "7-1",
-      "original": "[short pause][breathes][continues]당신 앞에 놓인 한 장의 김을 봅시다.",
-      "tts": "[short pause][breathes][continues]당신 앞에 놓인 한 장의 김을 봅시다.",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part07_0001.mp3",
-      "duration_ms_estimate": 2258,
+      "original": "용도는 뭘까요?",
+      "tts": "[short pause][breathes][continues]용도는 뭘까요?",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part07_0001.mp3",
+      "duration_ms_estimate": 2136,
       "start_ms_estimate": 0,
-      "end_ms_estimate": 2258
+      "end_ms_estimate": 2136
     },
     {
       "index": 2,
       "caption_id": "7-2",
-      "original": "이 깊은 검은색은 바로 최적의 건조 상태를",
-      "tts": "이 깊은 검은색은 바로 최적의 건조 상태를",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part07_0002.mp3",
-      "duration_ms_estimate": 3198,
-      "start_ms_estimate": 2258,
-      "end_ms_estimate": 5456
+      "original": "강력한 중성자 방출원으로 쓰입니다.",
+      "tts": "강력한 중성자 방출원으로 쓰입니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part07_0002.mp3",
+      "duration_ms_estimate": 2833,
+      "start_ms_estimate": 2136,
+      "end_ms_estimate": 4969
     },
     {
       "index": 3,
       "caption_id": "7-3",
-      "original": "나타내는 거예요. 과도하지도, 부족하지도",
-      "tts": "나타내는 거예요. 과도하지도, 부족하지도",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part07_0003.mp3",
-      "duration_ms_estimate": 2775,
-      "start_ms_estimate": 5456,
-      "end_ms_estimate": 8231
+      "original": "구체적으로는 이렇습니다.",
+      "tts": "구체적으로는 이렇습니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part07_0003.mp3",
+      "duration_ms_estimate": 1718,
+      "start_ms_estimate": 4969,
+      "end_ms_estimate": 6687
     },
     {
       "index": 4,
       "caption_id": "7-4",
-      "original": "않은 완벽한 상태인 거죠. 다른 나라의 김은",
-      "tts": "않은 완벽한 상태인 거죠. 다른 나라의 김은",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part07_0004.mp3",
-      "duration_ms_estimate": 3293,
-      "start_ms_estimate": 8231,
-      "end_ms_estimate": 11524
+      "original": "첫째, 자궁경부암과 뇌종양의",
+      "tts": "첫째, 자궁경부암과 뇌종양의",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part07_0004.mp3",
+      "duration_ms_estimate": 2202,
+      "start_ms_estimate": 6687,
+      "end_ms_estimate": 8889
     },
     {
       "index": 5,
       "caption_id": "7-5",
-      "original": "어떨까요? 어떤 것은 너무 검어서 마치",
-      "tts": "어떨까요? 어떤 것은 너무 검어서 마치",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part07_0005.mp3",
-      "duration_ms_estimate": 2963,
-      "start_ms_estimate": 11524,
-      "end_ms_estimate": 14487
+      "original": "근접 방사선 치료에 사용돼요.",
+      "tts": "근접 방사선 치료에 사용돼요.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part07_0004.mp3",
+      "duration_ms_estimate": 2349,
+      "start_ms_estimate": 8889,
+      "end_ms_estimate": 11238
     },
     {
       "index": 6,
       "caption_id": "7-6",
-      "original": "타버린 것처럼 보이고, 어떤 것은 그렇게",
-      "tts": "타버린 것처럼 보이고, 어떤 것은 그렇게[breathes]",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part07_0006.mp3",
-      "duration_ms_estimate": 3151,
-      "start_ms_estimate": 14487,
-      "end_ms_estimate": 17638
+      "original": "둘째, 석유 시추 현장에서",
+      "tts": "둘째, 석유 시추 현장에서",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part07_0005.mp3",
+      "duration_ms_estimate": 2016,
+      "start_ms_estimate": 11238,
+      "end_ms_estimate": 13254
     },
     {
       "index": 7,
       "caption_id": "7-7",
-      "original": "짙지 않아요. 이제 한 입 먹어보세요.",
-      "tts": "짙지 않아요. 이제 한 입 먹어보세요.",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part07_0007.mp3",
-      "duration_ms_estimate": 2305,
-      "start_ms_estimate": 17638,
-      "end_ms_estimate": 19943
+      "original": "지층을 분석하는 중성자 검층 장비에 들어갑니다.",
+      "tts": "지층을 분석하는 중성자 검층 장비에 들어갑니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part07_0005.mp3",
+      "duration_ms_estimate": 3743,
+      "start_ms_estimate": 13254,
+      "end_ms_estimate": 16997
     },
     {
       "index": 8,
       "caption_id": "7-8",
-      "original": "당신은 여러 층의 맛을 경험할 거예요.",
-      "tts": "당신은 여러 층의 맛을 경험할 거예요.",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part07_0008.mp3",
-      "duration_ms_estimate": 2681,
-      "start_ms_estimate": 19943,
-      "end_ms_estimate": 22624
+      "original": "셋째, 원자로를 처음 가동할 때",
+      "tts": "셋째, 원자로를 처음 가동할 때",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part07_0006.mp3",
+      "duration_ms_estimate": 2456,
+      "start_ms_estimate": 16997,
+      "end_ms_estimate": 19453
     },
     {
       "index": 9,
       "caption_id": "7-9",
-      "original": "먼저 고소함이 느껴집니다. 이건 바다의",
-      "tts": "먼저 고소함이 느껴집니다. 이건 바다의",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part07_0009.mp3",
-      "duration_ms_estimate": 2869,
-      "start_ms_estimate": 22624,
-      "end_ms_estimate": 25493
+      "original": "핵분열 반응을 점화시키는",
+      "tts": "핵분열 반응을 점화시키는",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part07_0006.mp3",
+      "duration_ms_estimate": 1878,
+      "start_ms_estimate": 19453,
+      "end_ms_estimate": 21331
     },
     {
       "index": 10,
       "caption_id": "7-10",
-      "original": "미네랄에서 오는 거예요. 하지만 불쾌한 짠맛이",
-      "tts": "미네랄에서 오는 거예요. 하지만 불쾌한 짠맛이",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part07_0010.mp3",
-      "duration_ms_estimate": 3293,
-      "start_ms_estimate": 25493,
-      "end_ms_estimate": 28786
+      "original": "시동 중성자원으로 쓰입니다.",
+      "tts": "시동 중성자원으로 쓰입니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part07_0006.mp3",
+      "duration_ms_estimate": 2168,
+      "start_ms_estimate": 21331,
+      "end_ms_estimate": 23499
     },
     {
       "index": 11,
       "caption_id": "7-11",
-      "original": "아니에요. 담수로 정확하게 씻어내었기 때문이죠.",
-      "tts": "아니에요. 담수로 정확하게 씻어내었기 때문이죠.[breathes]",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part07_0011.mp3",
-      "duration_ms_estimate": 3245,
-      "start_ms_estimate": 28786,
-      "end_ms_estimate": 32031
+      "original": "넷째, 공항 보안 검색대에서",
+      "tts": "넷째, 공항 보안 검색대에서[breathes]",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part07_0007.mp3",
+      "duration_ms_estimate": 2107,
+      "start_ms_estimate": 23499,
+      "end_ms_estimate": 25606
     },
     {
       "index": 12,
       "caption_id": "7-12",
-      "original": "고소함이 느껴지지만, 마치 자연의 맛을 느끼는",
-      "tts": "고소함이 느껴지지만, 마치 자연의 맛을 느끼는",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part07_0012.mp3",
-      "duration_ms_estimate": 3293,
-      "start_ms_estimate": 32031,
-      "end_ms_estimate": 35324
+      "original": "폭발물이나 숨겨진 무기를 탐지하는 데도",
+      "tts": "폭발물이나 숨겨진 무기를 탐지하는 데도",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part07_0007.mp3",
+      "duration_ms_estimate": 2950,
+      "start_ms_estimate": 25606,
+      "end_ms_estimate": 28556
     },
     {
       "index": 13,
       "caption_id": "7-13",
-      "original": "듯한 향미인 거죠.",
-      "tts": "듯한 향미인 거죠.",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part07_0013.mp3",
-      "duration_ms_estimate": 1599,
-      "start_ms_estimate": 35324,
-      "end_ms_estimate": 36923
+      "original": "활용돼요.",
+      "tts": "활용돼요.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part07_0007.mp3",
+      "duration_ms_estimate": 702,
+      "start_ms_estimate": 28556,
+      "end_ms_estimate": 29258
+    },
+    {
+      "index": 14,
+      "caption_id": "7-14",
+      "original": "인류가 가진 가장 강력한 휴대용",
+      "tts": "인류가 가진 가장 강력한 휴대용",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part07_0008.mp3",
+      "duration_ms_estimate": 2143,
+      "start_ms_estimate": 29258,
+      "end_ms_estimate": 31401
+    },
+    {
+      "index": 15,
+      "caption_id": "7-15",
+      "original": "중성자 공장이라고 보시면 됩니다.",
+      "tts": "중성자 공장이라고 보시면 됩니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part07_0008.mp3",
+      "duration_ms_estimate": 2269,
+      "start_ms_estimate": 31401,
+      "end_ms_estimate": 33670
+    },
+    {
+      "index": 16,
+      "caption_id": "7-16",
+      "original": "다음 단계로 올라가 볼게요.",
+      "tts": "다음 단계로 올라가 볼게요.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part07_0009.mp3",
+      "duration_ms_estimate": 1858,
+      "start_ms_estimate": 33670,
+      "end_ms_estimate": 35528
+    },
+    {
+      "index": 17,
+      "caption_id": "7-17",
+      "original": "엔드오헤드랄 풀러렌이라는 물질이 있습니다.",
+      "tts": "엔드오헤드랄 풀러렌이라는 물질이 있습니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part07_0010.mp3",
+      "duration_ms_estimate": 2926,
+      "start_ms_estimate": 35528,
+      "end_ms_estimate": 38454
+    },
+    {
+      "index": 18,
+      "caption_id": "7-18",
+      "original": "이름이 어렵죠?",
+      "tts": "이름이 어렵죠?",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part07_0011.mp3",
+      "duration_ms_estimate": 1161,
+      "start_ms_estimate": 38454,
+      "end_ms_estimate": 39615
+    },
+    {
+      "index": 19,
+      "caption_id": "7-19",
+      "original": "풀러렌이라는 축구공 모양의 탄소 분자 안에",
+      "tts": "풀러렌이라는 축구공 모양의 탄소 분자 안에",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part07_0012.mp3",
+      "duration_ms_estimate": 3022,
+      "start_ms_estimate": 39615,
+      "end_ms_estimate": 42637
+    },
+    {
+      "index": 20,
+      "caption_id": "7-20",
+      "original": "다른 원자를 가둬놓은 구조입니다.",
+      "tts": "다른 원자를 가둬놓은 구조입니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part07_0012.mp3",
+      "duration_ms_estimate": 2365,
+      "start_ms_estimate": 42637,
+      "end_ms_estimate": 45002
+    },
+    {
+      "index": 21,
+      "caption_id": "7-21",
+      "original": "2015년 영국의 한 회사가",
+      "tts": "이천십오년 영국의 한 회사가",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part07_0013.mp3",
+      "duration_ms_estimate": 2286,
+      "start_ms_estimate": 45002,
+      "end_ms_estimate": 47288
+    },
+    {
+      "index": 22,
+      "caption_id": "7-22",
+      "original": "0.2밀리그램을 33,000파운드에 판매했어요.",
+      "tts": "영점이밀리그램을 삼만삼천파운드에 판매했어요.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part07_0013.mp3",
+      "duration_ms_estimate": 3658,
+      "start_ms_estimate": 47288,
+      "end_ms_estimate": 50946
+    },
+    {
+      "index": 23,
+      "caption_id": "7-23",
+      "original": "환산하면 1그램에 약 1억 6,700만 달러,",
+      "tts": "환산하면 일그램에 약 일억 육천칠백만 달러,",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part07_0014.mp3",
+      "duration_ms_estimate": 3251,
+      "start_ms_estimate": 50946,
+      "end_ms_estimate": 54197
+    },
+    {
+      "index": 24,
+      "caption_id": "7-24",
+      "original": "우리 돈으로 약 2,200억원입니다.",
+      "tts": "우리 돈으로 약 이천이백억원입니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part07_0015.mp3",
+      "duration_ms_estimate": 2320,
+      "start_ms_estimate": 54197,
+      "end_ms_estimate": 56517
     }
   ]
 }

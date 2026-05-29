@@ -1,191 +1,241 @@
 {
   "part_id": "2",
-  "part_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\part02.mp3",
-  "part_srt": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\part02.srt",
+  "part_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\part02.mp3",
+  "part_srt": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\part02.srt",
   "model_id": "eleven_multilingual_v2",
-  "merge_method": "ffmpeg",
+  "merge_method": "ffmpeg-reencode",
   "segment_count": 18,
-  "duration_ms_estimate": 49151,
+  "duration_ms_estimate": 51502,
   "segments": [
     {
       "index": 1,
       "caption_id": "2-1",
-      "original": "[short pause][breathes][continues]한국의 바다를 봅시다.",
-      "tts": "[short pause][breathes][continues]한국의 바다를 봅시다.",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part02_0001.mp3",
-      "duration_ms_estimate": 1646,
+      "original": "왜 이렇게 비쌀까요?",
+      "tts": "[short pause][breathes][continues]왜 이렇게 비쌀까요?",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part02_0001.mp3",
+      "duration_ms_estimate": 2276,
       "start_ms_estimate": 0,
-      "end_ms_estimate": 1646
+      "end_ms_estimate": 2276
     },
     {
       "index": 2,
       "caption_id": "2-2",
-      "original": "한반도 주변, 특히 남해와 서해는 정말",
-      "tts": "한반도 주변, 특히 남해와 서해는 정말",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part02_0002.mp3",
-      "duration_ms_estimate": 2963,
-      "start_ms_estimate": 1646,
-      "end_ms_estimate": 4609
+      "original": "이유는 크게 세 가지로 정리할 수 있어요.",
+      "tts": "이유는 크게 세 가지로 정리할 수 있어요.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part02_0002.mp3",
+      "duration_ms_estimate": 2368,
+      "start_ms_estimate": 2276,
+      "end_ms_estimate": 4644
     },
     {
       "index": 3,
       "caption_id": "2-3",
-      "original": "특별한 곳이에요. 왜 특별할까요?",
-      "tts": "특별한 곳이에요. 왜 특별할까요?",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part02_0003.mp3",
-      "duration_ms_estimate": 2023,
-      "start_ms_estimate": 4609,
-      "end_ms_estimate": 6632
+      "original": "첫째, 희소성입니다.",
+      "tts": "첫째, 희소성입니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part02_0003.mp3",
+      "duration_ms_estimate": 1672,
+      "start_ms_estimate": 4644,
+      "end_ms_estimate": 6316
     },
     {
       "index": 4,
       "caption_id": "2-4",
-      "original": "바로 여기서 두 개의 바다가 만나기 때문입니다.",
-      "tts": "바로 여기서 두 개의 바다가 만나기 때문입니다.",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part02_0004.mp3",
-      "duration_ms_estimate": 2963,
-      "start_ms_estimate": 6632,
-      "end_ms_estimate": 9595
+      "original": "지구상에 아예 존재량이 적은 경우죠.",
+      "tts": "지구상에 아예 존재량이 적은 경우죠.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part02_0004.mp3",
+      "duration_ms_estimate": 2740,
+      "start_ms_estimate": 6316,
+      "end_ms_estimate": 9056
     },
     {
       "index": 5,
       "caption_id": "2-5",
-      "original": "찬 물과 따뜻한 물이 만나는 이 지점에서",
-      "tts": "찬 물과 따뜻한 물이 만나는 이 지점에서",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part02_0005.mp3",
-      "duration_ms_estimate": 2963,
-      "start_ms_estimate": 9595,
-      "end_ms_estimate": 12558
+      "original": "둘째, 제조의 어려움입니다.",
+      "tts": "둘째, 제조의 어려움입니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part02_0005.mp3",
+      "duration_ms_estimate": 2136,
+      "start_ms_estimate": 9056,
+      "end_ms_estimate": 11192
     },
     {
       "index": 6,
       "caption_id": "2-6",
-      "original": "놀라운 일이 일어나요. 바다 밑바닥의",
-      "tts": "놀라운 일이 일어나요. 바다 밑바닥의[breathes]",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part02_0006.mp3",
-      "duration_ms_estimate": 2352,
-      "start_ms_estimate": 12558,
-      "end_ms_estimate": 14910
+      "original": "자연에는 없고, 인간이 어마어마한",
+      "tts": "자연에는 없고, 인간이 어마어마한",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part02_0006.mp3",
+      "duration_ms_estimate": 2278,
+      "start_ms_estimate": 11192,
+      "end_ms_estimate": 13470
     },
     {
       "index": 7,
       "caption_id": "2-7",
-      "original": "영양분이 솟아올라요. 이걸 과학으로는",
-      "tts": "영양분이 솟아올라요. 이걸 과학으로는",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part02_0007.mp3",
-      "duration_ms_estimate": 2634,
-      "start_ms_estimate": 14910,
-      "end_ms_estimate": 17544
+      "original": "에너지를 들여 만들어야 하는 경우입니다.",
+      "tts": "에너지를 들여 만들어야 하는 경우입니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part02_0006.mp3",
+      "duration_ms_estimate": 2784,
+      "start_ms_estimate": 13470,
+      "end_ms_estimate": 16254
     },
     {
       "index": 8,
       "caption_id": "2-8",
-      "original": "'용승'이라고 부르는데, 말 그대로 바다의",
-      "tts": "'용승'이라고 부르는데, 말 그대로 바다의",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part02_0008.mp3",
-      "duration_ms_estimate": 3245,
-      "start_ms_estimate": 17544,
-      "end_ms_estimate": 20789
+      "original": "셋째, 수요와 용도입니다.",
+      "tts": "셋째, 수요와 용도입니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part02_0007.mp3",
+      "duration_ms_estimate": 1858,
+      "start_ms_estimate": 16254,
+      "end_ms_estimate": 18112
     },
     {
       "index": 9,
       "caption_id": "2-9",
-      "original": "모든 좋은 것들이 한 곳으로 모이는 현상이죠.",
-      "tts": "모든 좋은 것들이 한 곳으로 모이는 현상이죠.",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part02_0009.mp3",
-      "duration_ms_estimate": 3151,
-      "start_ms_estimate": 20789,
-      "end_ms_estimate": 23940
+      "original": "아무리 희귀해도 쓸 데가 없으면",
+      "tts": "아무리 희귀해도 쓸 데가 없으면",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part02_0008.mp3",
+      "duration_ms_estimate": 2004,
+      "start_ms_estimate": 18112,
+      "end_ms_estimate": 20116
     },
     {
       "index": 10,
       "caption_id": "2-10",
-      "original": "이곳의 미네랄과 영양분의 농도는 정말",
-      "tts": "이곳의 미네랄과 영양분의 농도는 정말",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part02_0010.mp3",
-      "duration_ms_estimate": 3104,
-      "start_ms_estimate": 23940,
-      "end_ms_estimate": 27044
+      "original": "비싸지 않거든요.",
+      "tts": "비싸지 않거든요.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part02_0008.mp3",
+      "duration_ms_estimate": 1061,
+      "start_ms_estimate": 20116,
+      "end_ms_estimate": 21177
     },
     {
       "index": 11,
       "caption_id": "2-11",
-      "original": "엄청나요. 수천 년 동안 산에서 흘러내려온",
-      "tts": "엄청나요. 수천 년 동안 산에서 흘러내려온[breathes]",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part02_0011.mp3",
-      "duration_ms_estimate": 3245,
-      "start_ms_estimate": 27044,
-      "end_ms_estimate": 30289
+      "original": "이 세 가지를 머릿속에 넣어두시고,",
+      "tts": "이 세 가지를 머릿속에 넣어두시고,[breathes]",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part02_0009.mp3",
+      "duration_ms_estimate": 2740,
+      "start_ms_estimate": 21177,
+      "end_ms_estimate": 23917
     },
     {
       "index": 12,
       "caption_id": "2-12",
-      "original": "영양분들이 여기에 쌓여있는 거거든요.",
-      "tts": "영양분들이 여기에 쌓여있는 거거든요.",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part02_0012.mp3",
-      "duration_ms_estimate": 2587,
-      "start_ms_estimate": 30289,
-      "end_ms_estimate": 32876
+      "original": "이제 본격적으로 우리의 보물창고를",
+      "tts": "이제 본격적으로 우리의 보물창고를",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part02_0010.mp3",
+      "duration_ms_estimate": 2154,
+      "start_ms_estimate": 23917,
+      "end_ms_estimate": 26071
     },
     {
       "index": 13,
       "caption_id": "2-13",
-      "original": "다른 나라도 같은 조건의 바다를 가지고",
-      "tts": "다른 나라도 같은 조건의 바다를 가지고",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part02_0013.mp3",
-      "duration_ms_estimate": 2775,
-      "start_ms_estimate": 32876,
-      "end_ms_estimate": 35651
+      "original": "열어보겠습니다.",
+      "tts": "열어보겠습니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part02_0010.mp3",
+      "duration_ms_estimate": 957,
+      "start_ms_estimate": 26071,
+      "end_ms_estimate": 27028
     },
     {
       "index": 14,
       "caption_id": "2-14",
-      "original": "있을 수 있죠. 하지만 여기가 특별한 이유는",
-      "tts": "있을 수 있죠. 하지만 여기가 특별한 이유는",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part02_0014.mp3",
-      "duration_ms_estimate": 2916,
-      "start_ms_estimate": 35651,
-      "end_ms_estimate": 38567
+      "original": "자, 첫 번째 손님을 모셔볼게요.",
+      "tts": "자, 첫 번째 손님을 모셔볼게요.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part02_0011.mp3",
+      "duration_ms_estimate": 2229,
+      "start_ms_estimate": 27028,
+      "end_ms_estimate": 29257
     },
     {
       "index": 15,
       "caption_id": "2-15",
-      "original": "바로 '시간'입니다. 한국의 김은 겨울",
-      "tts": "바로 '시간'입니다. 한국의 김은 겨울",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part02_0015.mp3",
-      "duration_ms_estimate": 2728,
-      "start_ms_estimate": 38567,
-      "end_ms_estimate": 41295
+      "original": "로듐(Rhodium)입니다. 들어보셨어요?",
+      "tts": "로듐(Rhodium)입니다. 들어보셨어요?",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part02_0012.mp3",
+      "duration_ms_estimate": 2322,
+      "start_ms_estimate": 29257,
+      "end_ms_estimate": 31579
     },
     {
       "index": 16,
       "caption_id": "2-16",
-      "original": "시즌에만, 정확히 말하면 십월 중순부터",
-      "tts": "시즌에만, 정확히 말하면 십월 중순부터[breathes]",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part02_0016.mp3",
-      "duration_ms_estimate": 3198,
-      "start_ms_estimate": 41295,
-      "end_ms_estimate": 44493
+      "original": "못 들어보신 분이 많을 거예요.",
+      "tts": "못 들어보신 분이 많을 거예요.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part02_0013.mp3",
+      "duration_ms_estimate": 1950,
+      "start_ms_estimate": 31579,
+      "end_ms_estimate": 33529
     },
     {
       "index": 17,
       "caption_id": "2-17",
-      "original": "이듬해 사월 오월까지 약 육칠개월 동안만",
-      "tts": "이듬해 사월 오월까지 약 육칠개월 동안만",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part02_0017.mp3",
-      "duration_ms_estimate": 3716,
-      "start_ms_estimate": 44493,
-      "end_ms_estimate": 48209
+      "original": "그런데 이 친구, 한때 1온스에",
+      "tts": "그런데 이 친구, 한때 일온스에",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part02_0014.mp3",
+      "duration_ms_estimate": 2244,
+      "start_ms_estimate": 33529,
+      "end_ms_estimate": 35773
     },
     {
       "index": 18,
       "caption_id": "2-18",
-      "original": "자라요.",
-      "tts": "자라요.",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part02_0018.mp3",
-      "duration_ms_estimate": 942,
-      "start_ms_estimate": 48209,
-      "end_ms_estimate": 49151
+      "original": "3만 달러까지 치솟았던 적이 있습니다.",
+      "tts": "삼만 달러까지 치솟았던 적이 있습니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part02_0014.mp3",
+      "duration_ms_estimate": 2772,
+      "start_ms_estimate": 35773,
+      "end_ms_estimate": 38545
+    },
+    {
+      "index": 19,
+      "caption_id": "2-19",
+      "original": "금이 2천 달러 수준일 때 말이죠.",
+      "tts": "금이 이천 달러 수준일 때 말이죠.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part02_0015.mp3",
+      "duration_ms_estimate": 2368,
+      "start_ms_estimate": 38545,
+      "end_ms_estimate": 40913
+    },
+    {
+      "index": 20,
+      "caption_id": "2-20",
+      "original": "금의 약 15배 가격이었던 거예요.",
+      "tts": "금의 약 열다섯배 가격이었던 거예요.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part02_0016.mp3",
+      "duration_ms_estimate": 2786,
+      "start_ms_estimate": 40913,
+      "end_ms_estimate": 43699
+    },
+    {
+      "index": 21,
+      "caption_id": "2-21",
+      "original": "참고로 2026년 현재는 1온스에",
+      "tts": "참고로 이천이십육년 현재는 일온스에",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part02_0017.mp3",
+      "duration_ms_estimate": 2694,
+      "start_ms_estimate": 43699,
+      "end_ms_estimate": 46393
+    },
+    {
+      "index": 22,
+      "caption_id": "2-22",
+      "original": "9천 달러 안팎으로 내려와 있지만,",
+      "tts": "구천 달러 안팎으로 내려와 있지만,[breathes]",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part02_0017.mp3",
+      "duration_ms_estimate": 2693,
+      "start_ms_estimate": 46393,
+      "end_ms_estimate": 49086
+    },
+    {
+      "index": 23,
+      "caption_id": "2-23",
+      "original": "여전히 금보다 훨씬 비쌉니다.",
+      "tts": "여전히 금보다 훨씬 비쌉니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part02_0018.mp3",
+      "duration_ms_estimate": 2416,
+      "start_ms_estimate": 49086,
+      "end_ms_estimate": 51502
     }
   ]
 }

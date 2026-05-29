@@ -1,0 +1,281 @@
+{
+  "part_id": "16",
+  "part_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\part16.mp3",
+  "part_srt": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\part16.srt",
+  "model_id": "eleven_multilingual_v2",
+  "merge_method": "ffmpeg-reencode",
+  "segment_count": 19,
+  "duration_ms_estimate": 64644,
+  "segments": [
+    {
+      "index": 1,
+      "caption_id": "16-1",
+      "original": "그리고 마지막으로, 정말 마지막입니다.",
+      "tts": "[short pause][breathes][continues]그리고 마지막으로, 정말 마지막입니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part16_0001.mp3",
+      "duration_ms_estimate": 3158,
+      "start_ms_estimate": 0,
+      "end_ms_estimate": 3158
+    },
+    {
+      "index": 2,
+      "caption_id": "16-2",
+      "original": "여러분의 몸 안에는 가격을 매길 수 없는",
+      "tts": "여러분의 몸 안에는 가격을 매길 수 없는",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part16_0002.mp3",
+      "duration_ms_estimate": 2627,
+      "start_ms_estimate": 3158,
+      "end_ms_estimate": 5785
+    },
+    {
+      "index": 3,
+      "caption_id": "16-3",
+      "original": "물질이 흐르고 있습니다.",
+      "tts": "물질이 흐르고 있습니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part16_0002.mp3",
+      "duration_ms_estimate": 1553,
+      "start_ms_estimate": 5785,
+      "end_ms_estimate": 7338
+    },
+    {
+      "index": 4,
+      "caption_id": "16-4",
+      "original": "여러분의 DNA입니다.",
+      "tts": "여러분의 디엔에이입니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part16_0003.mp3",
+      "duration_ms_estimate": 1486,
+      "start_ms_estimate": 7338,
+      "end_ms_estimate": 8824
+    },
+    {
+      "index": 5,
+      "caption_id": "16-5",
+      "original": "지구상 80억 인구 중 단 한 명,",
+      "tts": "지구상 팔십억 인구 중 단 한 명,",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part16_0004.mp3",
+      "duration_ms_estimate": 2554,
+      "start_ms_estimate": 8824,
+      "end_ms_estimate": 11378
+    },
+    {
+      "index": 6,
+      "caption_id": "16-6",
+      "original": "여러분만이 가진 고유한 정보 분자.",
+      "tts": "여러분만이 가진 고유한 정보 분자.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part16_0005.mp3",
+      "duration_ms_estimate": 2461,
+      "start_ms_estimate": 11378,
+      "end_ms_estimate": 13839
+    },
+    {
+      "index": 7,
+      "caption_id": "16-7",
+      "original": "그리고 여러분이 살아있는 동안만 작동하는,",
+      "tts": "그리고 여러분이 살아있는 동안만 작동하는,",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part16_0006.mp3",
+      "duration_ms_estimate": 3065,
+      "start_ms_estimate": 13839,
+      "end_ms_estimate": 16904
+    },
+    {
+      "index": 8,
+      "caption_id": "16-8",
+      "original": "단 한 번뿐인 화학 공장.",
+      "tts": "단 한 번뿐인 화학 공장.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part16_0007.mp3",
+      "duration_ms_estimate": 2136,
+      "start_ms_estimate": 16904,
+      "end_ms_estimate": 19040
+    },
+    {
+      "index": 9,
+      "caption_id": "16-9",
+      "original": "자연이 38억 년 동안 진화시켜 만든",
+      "tts": "자연이 삼십팔억 년 동안 진화시켜 만든",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part16_0008.mp3",
+      "duration_ms_estimate": 3322,
+      "start_ms_estimate": 19040,
+      "end_ms_estimate": 22362
+    },
+    {
+      "index": 10,
+      "caption_id": "16-10",
+      "original": "이 시스템은, 인류 전체 GDP를 모아도",
+      "tts": "이 시스템은, 인류 전체 지디피를 모아도",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part16_0008.mp3",
+      "duration_ms_estimate": 3480,
+      "start_ms_estimate": 22362,
+      "end_ms_estimate": 25842
+    },
+    {
+      "index": 11,
+      "caption_id": "16-11",
+      "original": "똑같이 만들어낼 수 없습니다.",
+      "tts": "똑같이 만들어낼 수 없습니다.[breathes]",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part16_0008.mp3",
+      "duration_ms_estimate": 2532,
+      "start_ms_estimate": 25842,
+      "end_ms_estimate": 28374
+    },
+    {
+      "index": 12,
+      "caption_id": "16-12",
+      "original": "자, 오늘 강의를 정리해 볼까요?",
+      "tts": "자, 오늘 강의를 정리해 볼까요?",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part16_0009.mp3",
+      "duration_ms_estimate": 2043,
+      "start_ms_estimate": 28374,
+      "end_ms_estimate": 30417
+    },
+    {
+      "index": 13,
+      "caption_id": "16-13",
+      "original": "우리는 금에서 출발해서",
+      "tts": "우리는 금에서 출발해서",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part16_0010.mp3",
+      "duration_ms_estimate": 1672,
+      "start_ms_estimate": 30417,
+      "end_ms_estimate": 32089
+    },
+    {
+      "index": 14,
+      "caption_id": "16-14",
+      "original": "백금족 금속들을 거쳐,",
+      "tts": "백금족 금속들을 거쳐,",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part16_0010.mp3",
+      "duration_ms_estimate": 1672,
+      "start_ms_estimate": 32089,
+      "end_ms_estimate": 33761
+    },
+    {
+      "index": 15,
+      "caption_id": "16-15",
+      "original": "인공 원소들의 세계로 들어갔고,",
+      "tts": "인공 원소들의 세계로 들어갔고,",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part16_0011.mp3",
+      "duration_ms_estimate": 2368,
+      "start_ms_estimate": 33761,
+      "end_ms_estimate": 36129
+    },
+    {
+      "index": 16,
+      "caption_id": "16-16",
+      "original": "우주가 만든 보물들을 살펴봤습니다.",
+      "tts": "우주가 만든 보물들을 살펴봤습니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part16_0012.mp3",
+      "duration_ms_estimate": 2508,
+      "start_ms_estimate": 36129,
+      "end_ms_estimate": 38637
+    },
+    {
+      "index": 17,
+      "caption_id": "16-17",
+      "original": "각 물질이 그저 비싸기만 한 게 아니라,",
+      "tts": "각 물질이 그저 비싸기만 한 게 아니라,",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part16_0013.mp3",
+      "duration_ms_estimate": 2601,
+      "start_ms_estimate": 38637,
+      "end_ms_estimate": 41238
+    },
+    {
+      "index": 18,
+      "caption_id": "16-18",
+      "original": "우리 일상 곳곳에서,",
+      "tts": "우리 일상 곳곳에서,",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part16_0014.mp3",
+      "duration_ms_estimate": 1625,
+      "start_ms_estimate": 41238,
+      "end_ms_estimate": 42863
+    },
+    {
+      "index": 19,
+      "caption_id": "16-19",
+      "original": "또 미래 기술의 핵심에서",
+      "tts": "또 미래 기술의 핵심에서",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part16_0015.mp3",
+      "duration_ms_estimate": 1677,
+      "start_ms_estimate": 42863,
+      "end_ms_estimate": 44540
+    },
+    {
+      "index": 20,
+      "caption_id": "16-20",
+      "original": "묵묵히 역할을 하고 있다는 것도 확인했죠.",
+      "tts": "묵묵히 역할을 하고 있다는 것도 확인했죠.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part16_0015.mp3",
+      "duration_ms_estimate": 2967,
+      "start_ms_estimate": 44540,
+      "end_ms_estimate": 47507
+    },
+    {
+      "index": 21,
+      "caption_id": "16-21",
+      "original": "그리고 마지막에는 여러분 자신이",
+      "tts": "그리고 마지막에는 여러분 자신이",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part16_0016.mp3",
+      "duration_ms_estimate": 2207,
+      "start_ms_estimate": 47507,
+      "end_ms_estimate": 49714
+    },
+    {
+      "index": 22,
+      "caption_id": "16-22",
+      "original": "가장 귀한 존재라는 결론에 도달했습니다.",
+      "tts": "가장 귀한 존재라는 결론에 도달했습니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part16_0016.mp3",
+      "duration_ms_estimate": 2855,
+      "start_ms_estimate": 49714,
+      "end_ms_estimate": 52569
+    },
+    {
+      "index": 23,
+      "caption_id": "16-23",
+      "original": "좀 식상한가요? 하지만 진실입니다.",
+      "tts": "좀 식상한가요? 하지만 진실입니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part16_0017.mp3",
+      "duration_ms_estimate": 2415,
+      "start_ms_estimate": 52569,
+      "end_ms_estimate": 54984
+    },
+    {
+      "index": 24,
+      "caption_id": "16-24",
+      "original": "다음 시간에는 \"이 비싼 물질들을",
+      "tts": "다음 시간에는 \"이 비싼 물질들을",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part16_0018.mp3",
+      "duration_ms_estimate": 2401,
+      "start_ms_estimate": 54984,
+      "end_ms_estimate": 57385
+    },
+    {
+      "index": 25,
+      "caption_id": "16-25",
+      "original": "어떻게 채굴하고 정제하는가\"에 대해",
+      "tts": "어떻게 채굴하고 정제하는가\"에 대해",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part16_0018.mp3",
+      "duration_ms_estimate": 2534,
+      "start_ms_estimate": 57385,
+      "end_ms_estimate": 59919
+    },
+    {
+      "index": 26,
+      "caption_id": "16-26",
+      "original": "다뤄볼 예정입니다.",
+      "tts": "다뤄볼 예정입니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part16_0018.mp3",
+      "duration_ms_estimate": 1334,
+      "start_ms_estimate": 59919,
+      "end_ms_estimate": 61253
+    },
+    {
+      "index": 27,
+      "caption_id": "16-27",
+      "original": "오늘 강의는 여기까지. 모두 수고하셨습니다.",
+      "tts": "오늘 강의는 여기까지. 모두 수고하셨습니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part16_0019.mp3",
+      "duration_ms_estimate": 3391,
+      "start_ms_estimate": 61253,
+      "end_ms_estimate": 64644
+    }
+  ]
+}

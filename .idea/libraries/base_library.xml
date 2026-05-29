@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="base_library">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/video_studio/build/video_studio_gui/base_library.zip!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

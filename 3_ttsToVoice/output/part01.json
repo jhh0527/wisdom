@@ -1,181 +1,231 @@
 {
   "part_id": "1",
-  "part_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\part01.mp3",
-  "part_srt": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\part01.srt",
+  "part_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\part01.mp3",
+  "part_srt": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\part01.srt",
   "model_id": "eleven_multilingual_v2",
-  "merge_method": "ffmpeg",
-  "segment_count": 17,
-  "duration_ms_estimate": 47853,
+  "merge_method": "ffmpeg-reencode",
+  "segment_count": 16,
+  "duration_ms_estimate": 50666,
   "segments": [
     {
       "index": 1,
       "caption_id": "1-1",
-      "original": "지금 당신이 손에 들고 있는 한 장의 김.",
-      "tts": "지금 당신이 손에 들고 있는 한 장의 김.",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part01_0001.mp3",
-      "duration_ms_estimate": 3059,
+      "original": "자, 여러분. 오늘 강의를 시작하기 전에",
+      "tts": "자, 여러분. 오늘 강의를 시작하기 전에",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part01_0001.mp3",
+      "duration_ms_estimate": 2540,
       "start_ms_estimate": 0,
-      "end_ms_estimate": 3059
+      "end_ms_estimate": 2540
     },
     {
       "index": 2,
       "caption_id": "1-2",
-      "original": "이 검은 잎사귀 같은 것이 얼마나 대단한지",
-      "tts": "이 검은 잎사귀 같은 것이 얼마나 대단한지",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part01_0002.mp3",
-      "duration_ms_estimate": 2965,
-      "start_ms_estimate": 3059,
-      "end_ms_estimate": 6024
+      "original": "한 가지 질문을 드려볼게요.",
+      "tts": "한 가지 질문을 드려볼게요.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part01_0001.mp3",
+      "duration_ms_estimate": 1732,
+      "start_ms_estimate": 2540,
+      "end_ms_estimate": 4272
     },
     {
       "index": 3,
       "caption_id": "1-3",
-      "original": "아세요? 사실 이건 그냥 바다풀이 아닙니다.",
-      "tts": "아세요? 사실 이건 그냥 바다풀이 아닙니다.",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part01_0003.mp3",
-      "duration_ms_estimate": 2729,
-      "start_ms_estimate": 6024,
-      "end_ms_estimate": 8753
+      "original": "\"이 세상에서 가장 비싼 물질이 뭘까요?\"",
+      "tts": "\"이 세상에서 가장 비싼 물질이 뭘까요?\"",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part01_0002.mp3",
+      "duration_ms_estimate": 2833,
+      "start_ms_estimate": 4272,
+      "end_ms_estimate": 7105
     },
     {
       "index": 4,
       "caption_id": "1-4",
-      "original": "이것은 6에서 7개월이라는 시간, 수백 년의",
-      "tts": "이것은 육에서 칠개월이라는 시간, 수백 년의",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part01_0004.mp3",
-      "duration_ms_estimate": 3340,
-      "start_ms_estimate": 8753,
-      "end_ms_estimate": 12093
+      "original": "아마 대부분 이렇게 답하실 겁니다.",
+      "tts": "아마 대부분 이렇게 답하실 겁니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part01_0003.mp3",
+      "duration_ms_estimate": 2229,
+      "start_ms_estimate": 7105,
+      "end_ms_estimate": 9334
     },
     {
       "index": 5,
       "caption_id": "1-5",
-      "original": "기술, 그리고 누군가의 손길이 모두 담겨 있는",
-      "tts": "기술, 그리고 누군가의 손길이 모두 담겨 있는",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part01_0005.mp3",
-      "duration_ms_estimate": 3435,
-      "start_ms_estimate": 12093,
-      "end_ms_estimate": 15528
+      "original": "\"금이요!\" 혹은 \"다이아몬드요!\"",
+      "tts": "\"금이요!\" 혹은 \"다이아몬드요!\"",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part01_0004.mp3",
+      "duration_ms_estimate": 2229,
+      "start_ms_estimate": 9334,
+      "end_ms_estimate": 11563
     },
     {
       "index": 6,
       "caption_id": "1-6",
-      "original": "예술작품이에요. 상상해보세요.",
-      "tts": "예술작품이에요. 상상해보세요.[breathes]",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part01_0006.mp3",
-      "duration_ms_estimate": 2164,
-      "start_ms_estimate": 15528,
-      "end_ms_estimate": 17692
+      "original": "그런데 말이죠, 만약 제가 여러분께",
+      "tts": "그런데 말이죠, 만약 제가 여러분께",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part01_0005.mp3",
+      "duration_ms_estimate": 2242,
+      "start_ms_estimate": 11563,
+      "end_ms_estimate": 13805
     },
     {
       "index": 7,
       "caption_id": "1-7",
-      "original": "새벽 시간입니다. 아직 별이 가득한 하늘 아래,",
-      "tts": "새벽 시간입니다. 아직 별이 가득한 하늘 아래,",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part01_0007.mp3",
-      "duration_ms_estimate": 3294,
-      "start_ms_estimate": 17692,
-      "end_ms_estimate": 20986
+      "original": "\"금은 사실 별로 안 비싼 편입니다\"라고",
+      "tts": "\"금은 사실 별로 안 비싼 편입니다\"라고",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part01_0005.mp3",
+      "duration_ms_estimate": 2596,
+      "start_ms_estimate": 13805,
+      "end_ms_estimate": 16401
     },
     {
       "index": 8,
       "caption_id": "1-8",
-      "original": "전남 해역의 어부들이 일어납니다.",
-      "tts": "전남 해역의 어부들이 일어납니다.",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part01_0008.mp3",
-      "duration_ms_estimate": 2399,
-      "start_ms_estimate": 20986,
-      "end_ms_estimate": 23385
+      "original": "말씀드린다면 어떠시겠어요? 놀라셨죠?",
+      "tts": "말씀드린다면 어떠시겠어요? 놀라셨죠?",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part01_0005.mp3",
+      "duration_ms_estimate": 2360,
+      "start_ms_estimate": 16401,
+      "end_ms_estimate": 18761
     },
     {
       "index": 9,
       "caption_id": "1-9",
-      "original": "보통 사람들은 이 시간에 침대에 있죠.",
-      "tts": "보통 사람들은 이 시간에 침대에 있죠.",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part01_0009.mp3",
-      "duration_ms_estimate": 2306,
-      "start_ms_estimate": 23385,
-      "end_ms_estimate": 25691
+      "original": "오늘 강의가 끝날 때쯤이면 여러분은",
+      "tts": "오늘 강의가 끝날 때쯤이면 여러분은",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part01_0006.mp3",
+      "duration_ms_estimate": 2272,
+      "start_ms_estimate": 18761,
+      "end_ms_estimate": 21033
     },
     {
       "index": 10,
       "caption_id": "1-10",
-      "original": "하지만 이 어부들은 다릅니다. 왜 이렇게",
-      "tts": "하지만 이 어부들은 다릅니다. 왜 이렇게",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part01_0010.mp3",
-      "duration_ms_estimate": 2823,
-      "start_ms_estimate": 25691,
-      "end_ms_estimate": 28514
+      "original": "금을 보고 이렇게 말하게 되실 겁니다.",
+      "tts": "금을 보고 이렇게 말하게 되실 겁니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part01_0006.mp3",
+      "duration_ms_estimate": 2511,
+      "start_ms_estimate": 21033,
+      "end_ms_estimate": 23544
     },
     {
       "index": 11,
       "caption_id": "1-11",
-      "original": "이른 시간에 바다에 나갈까요?",
-      "tts": "이른 시간에 바다에 나갈까요?[breathes]",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part01_0011.mp3",
-      "duration_ms_estimate": 1882,
-      "start_ms_estimate": 28514,
-      "end_ms_estimate": 30396
+      "original": "\"아, 이 흔한 금속!\"",
+      "tts": "\"아, 이 흔한 금속!\"[breathes]",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part01_0007.mp3",
+      "duration_ms_estimate": 1718,
+      "start_ms_estimate": 23544,
+      "end_ms_estimate": 25262
     },
     {
       "index": 12,
       "caption_id": "1-12",
-      "original": "그건 바로 김이 자신의 최고의 상태를",
-      "tts": "그건 바로 김이 자신의 최고의 상태를",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part01_0012.mp3",
-      "duration_ms_estimate": 2870,
-      "start_ms_estimate": 30396,
-      "end_ms_estimate": 33266
+      "original": "자, 그럼 본격적으로 시작해 볼까요.",
+      "tts": "자, 그럼 본격적으로 시작해 볼까요.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part01_0008.mp3",
+      "duration_ms_estimate": 2322,
+      "start_ms_estimate": 25262,
+      "end_ms_estimate": 27584
     },
     {
       "index": 13,
       "caption_id": "1-13",
-      "original": "보여주는 시간이기 때문이에요.",
-      "tts": "보여주는 시간이기 때문이에요.",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part01_0013.mp3",
-      "duration_ms_estimate": 1835,
-      "start_ms_estimate": 33266,
-      "end_ms_estimate": 35101
+      "original": "먼저 기준을 잡고 가야겠죠.",
+      "tts": "먼저 기준을 잡고 가야겠죠.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part01_0009.mp3",
+      "duration_ms_estimate": 1997,
+      "start_ms_estimate": 27584,
+      "end_ms_estimate": 29581
     },
     {
       "index": 14,
       "caption_id": "1-14",
-      "original": "밤새 차가운 바다 속에서 영양분을 빨아들인",
-      "tts": "밤새 차가운 바다 속에서 영양분을 빨아들인",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part01_0014.mp3",
-      "duration_ms_estimate": 3482,
-      "start_ms_estimate": 35101,
-      "end_ms_estimate": 38583
+      "original": "2026년 현재 금 1그램의 가격은",
+      "tts": "이천이십육년 현재 금 일그램의 가격은",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part01_0010.mp3",
+      "duration_ms_estimate": 2927,
+      "start_ms_estimate": 29581,
+      "end_ms_estimate": 32508
     },
     {
       "index": 15,
       "caption_id": "1-15",
-      "original": "김이, 아직 햇빛에 의해 손상되지 않은",
-      "tts": "김이, 아직 햇빛에 의해 손상되지 않은",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part01_0015.mp3",
-      "duration_ms_estimate": 3059,
-      "start_ms_estimate": 38583,
-      "end_ms_estimate": 41642
+      "original": "대략 10만원 안팎입니다.",
+      "tts": "대략 십만원 안팎입니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part01_0010.mp3",
+      "duration_ms_estimate": 1903,
+      "start_ms_estimate": 32508,
+      "end_ms_estimate": 34411
     },
     {
       "index": 16,
       "caption_id": "1-16",
-      "original": "상태인 것입니다. 이건 단순한 추측이 아니에요.",
-      "tts": "상태인 것입니다. 이건 단순한 추측이 아니에요.",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part01_0016.mp3",
-      "duration_ms_estimate": 3011,
-      "start_ms_estimate": 41642,
-      "end_ms_estimate": 44653
+      "original": "1킬로그램이면 1억원 정도 하는 셈이죠.",
+      "tts": "일킬로그램이면 일억원 정도 하는 셈이죠.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part01_0011.mp3",
+      "duration_ms_estimate": 2833,
+      "start_ms_estimate": 34411,
+      "end_ms_estimate": 37244
     },
     {
       "index": 17,
       "caption_id": "1-17",
-      "original": "수십 년의 경험으로 어부들이 알아낸 비결입니다.",
-      "tts": "수십 년의 경험으로 어부들이 알아낸 비결입니다.[breathes]",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part01_0017.mp3",
-      "duration_ms_estimate": 3200,
-      "start_ms_estimate": 44653,
-      "end_ms_estimate": 47853
+      "original": "\"와, 비싸다!\" 싶으시죠?",
+      "tts": "\"와, 비싸다!\" 싶으시죠?",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part01_0012.mp3",
+      "duration_ms_estimate": 1625,
+      "start_ms_estimate": 37244,
+      "end_ms_estimate": 38869
+    },
+    {
+      "index": 18,
+      "caption_id": "1-18",
+      "original": "그런데 이게 우리 강의의 출발선입니다.",
+      "tts": "그런데 이게 우리 강의의 출발선입니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part01_0013.mp3",
+      "duration_ms_estimate": 2415,
+      "start_ms_estimate": 38869,
+      "end_ms_estimate": 41284
+    },
+    {
+      "index": 19,
+      "caption_id": "1-19",
+      "original": "오늘 우리가 만날 물질들은",
+      "tts": "오늘 우리가 만날 물질들은",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part01_0014.mp3",
+      "duration_ms_estimate": 1834,
+      "start_ms_estimate": 41284,
+      "end_ms_estimate": 43118
+    },
+    {
+      "index": 20,
+      "caption_id": "1-20",
+      "original": "이 출발선을 가볍게 넘어,",
+      "tts": "이 출발선을 가볍게 넘어,",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part01_0014.mp3",
+      "duration_ms_estimate": 1835,
+      "start_ms_estimate": 43118,
+      "end_ms_estimate": 44953
+    },
+    {
+      "index": 21,
+      "caption_id": "1-21",
+      "original": "어떤 것은 금값의 수십 배, 수백만 배,",
+      "tts": "어떤 것은 금값의 수십 배, 수백만 배,",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part01_0015.mp3",
+      "duration_ms_estimate": 3344,
+      "start_ms_estimate": 44953,
+      "end_ms_estimate": 48297
+    },
+    {
+      "index": 22,
+      "caption_id": "1-22",
+      "original": "심지어 수조 배에 달하는 것들입니다.",
+      "tts": "심지어 수조 배에 달하는 것들입니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part01_0016.mp3",
+      "duration_ms_estimate": 2369,
+      "start_ms_estimate": 48297,
+      "end_ms_estimate": 50666
     }
   ]
 }

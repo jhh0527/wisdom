@@ -1,151 +1,231 @@
 {
   "part_id": "3",
-  "part_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\part03.mp3",
-  "part_srt": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\part03.srt",
+  "part_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\part03.mp3",
+  "part_srt": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\part03.srt",
   "model_id": "eleven_multilingual_v2",
-  "merge_method": "ffmpeg",
+  "merge_method": "ffmpeg-reencode",
   "segment_count": 14,
-  "duration_ms_estimate": 37640,
+  "duration_ms_estimate": 51130,
   "segments": [
     {
       "index": 1,
       "caption_id": "3-1",
-      "original": "[short pause][breathes][continues]왜 이렇게 고집스럽게 겨울 시즌에만",
-      "tts": "[short pause][breathes][continues]왜 이렇게 고집스럽게 겨울 시즌에만",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part03_0001.mp3",
-      "duration_ms_estimate": 2541,
+      "original": "로듐이 왜 이렇게 비싸냐고요?",
+      "tts": "[short pause][breathes][continues]로듐이 왜 이렇게 비싸냐고요?",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part03_0001.mp3",
+      "duration_ms_estimate": 2694,
       "start_ms_estimate": 0,
-      "end_ms_estimate": 2541
+      "end_ms_estimate": 2694
     },
     {
       "index": 2,
       "caption_id": "3-2",
-      "original": "할까요? 이건 우연이 아니라, 경험에서 나온",
-      "tts": "할까요? 이건 우연이 아니라, 경험에서 나온",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part03_0002.mp3",
-      "duration_ms_estimate": 2682,
-      "start_ms_estimate": 2541,
-      "end_ms_estimate": 5223
+      "original": "용도 이야기를 해드릴게요.",
+      "tts": "용도 이야기를 해드릴게요.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part03_0002.mp3",
+      "duration_ms_estimate": 1811,
+      "start_ms_estimate": 2694,
+      "end_ms_estimate": 4505
     },
     {
       "index": 3,
       "caption_id": "3-3",
-      "original": "지혜입니다. 사실 따뜻한 물에서도 김은",
-      "tts": "지혜입니다. 사실 따뜨한 물에서도 김은",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part03_0003.mp3",
-      "duration_ms_estimate": 2776,
-      "start_ms_estimate": 5223,
-      "end_ms_estimate": 7999
+      "original": "가장 큰 수요처는 자동차 배기가스",
+      "tts": "가장 큰 수요처는 자동차 배기가스",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part03_0003.mp3",
+      "duration_ms_estimate": 2403,
+      "start_ms_estimate": 4505,
+      "end_ms_estimate": 6908
     },
     {
       "index": 4,
       "caption_id": "3-4",
-      "original": "자랄 수 있어요. 하지만 그렇게 자란 김은",
-      "tts": "자랄 수 있어요. 하지만 그렇게 자란 김은",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part03_0004.mp3",
-      "duration_ms_estimate": 2682,
-      "start_ms_estimate": 7999,
-      "end_ms_estimate": 10681
+      "original": "정화 장치, 그러니까 촉매 변환기입니다.",
+      "tts": "정화 장치, 그러니까 촉매 변환기입니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part03_0003.mp3",
+      "duration_ms_estimate": 2938,
+      "start_ms_estimate": 6908,
+      "end_ms_estimate": 9846
     },
     {
       "index": 5,
       "caption_id": "3-5",
-      "original": "맛이 달라요. 겨울의 찬물에서 자란 김과는",
-      "tts": "맛이 달라요. 겨울의 찬물에서 자란 김과는",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part03_0005.mp3",
-      "duration_ms_estimate": 3434,
-      "start_ms_estimate": 10681,
-      "end_ms_estimate": 14115
+      "original": "전 세계 로듐의 80% 이상이",
+      "tts": "전 세계 로듐의 팔십퍼센트 이상이",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part03_0004.mp3",
+      "duration_ms_estimate": 2260,
+      "start_ms_estimate": 9846,
+      "end_ms_estimate": 12106
     },
     {
       "index": 6,
       "caption_id": "3-6",
-      "original": "비교가 안 된다는 거죠. 왜 그럴까요?",
-      "tts": "비교가 안 된다는 거죠. 왜 그럴까요?[breathes]",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part03_0006.mp3",
-      "duration_ms_estimate": 2306,
-      "start_ms_estimate": 14115,
-      "end_ms_estimate": 16421
+      "original": "여기에 들어가요.",
+      "tts": "여기에 들어가요.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part03_0004.mp3",
+      "duration_ms_estimate": 1130,
+      "start_ms_estimate": 12106,
+      "end_ms_estimate": 13236
     },
     {
       "index": 7,
       "caption_id": "3-7",
-      "original": "이걸 이해하려면 포도주를 생각해보면 돼요.",
-      "tts": "이걸 이해하려면 포도주를 생각해보면 돼요.",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part03_0007.mp3",
-      "duration_ms_estimate": 3059,
-      "start_ms_estimate": 16421,
-      "end_ms_estimate": 19480
+      "original": "질소산화물을 무해한 질소로 바꿔주는",
+      "tts": "질소산화물을 무해한 질소로 바꿔주는",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part03_0005.mp3",
+      "duration_ms_estimate": 2647,
+      "start_ms_estimate": 13236,
+      "end_ms_estimate": 15883
     },
     {
       "index": 8,
       "caption_id": "3-8",
-      "original": "포도주가 깊은 맛을 가지려면 시간이",
-      "tts": "포도주가 깊은 맛을 가지려면 시간이",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part03_0008.mp3",
-      "duration_ms_estimate": 2541,
-      "start_ms_estimate": 19480,
-      "end_ms_estimate": 22021
+      "original": "마법 같은 역할을 하거든요.",
+      "tts": "마법 같은 역할을 하거든요.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part03_0005.mp3",
+      "duration_ms_estimate": 2090,
+      "start_ms_estimate": 15883,
+      "end_ms_estimate": 17973
     },
     {
       "index": 9,
       "caption_id": "3-9",
-      "original": "필요하잖아요. 마찬가지로 김도 천천히",
-      "tts": "필요하잖아요. 마찬가지로 김도 천천히",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part03_0009.mp3",
-      "duration_ms_estimate": 2306,
-      "start_ms_estimate": 22021,
-      "end_ms_estimate": 24327
+      "original": "그 외에도 광섬유 제조용 도가니,",
+      "tts": "그 외에도 광섬유 제조용 도가니,",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part03_0006.mp3",
+      "duration_ms_estimate": 2415,
+      "start_ms_estimate": 17973,
+      "end_ms_estimate": 20388
     },
     {
       "index": 10,
       "caption_id": "3-10",
-      "original": "성숙해야 진정한 맛이 나는 거예요.",
-      "tts": "성숙해야 진정한 맛이 나는 거예요.",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part03_0010.mp3",
-      "duration_ms_estimate": 2682,
-      "start_ms_estimate": 24327,
-      "end_ms_estimate": 27009
+      "original": "항공기 터빈 엔진 코팅,",
+      "tts": "항공기 터빈 엔진 코팅,",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part03_0007.mp3",
+      "duration_ms_estimate": 2043,
+      "start_ms_estimate": 20388,
+      "end_ms_estimate": 22431
     },
     {
       "index": 11,
       "caption_id": "3-11",
-      "original": "겨울의 찬물은 김의 성장을 더디게 하지만,",
-      "tts": "겨울의 찬물은 김의 성장을 더디게 하지만,[breathes]",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part03_0011.mp3",
-      "duration_ms_estimate": 3011,
-      "start_ms_estimate": 27009,
-      "end_ms_estimate": 30020
+      "original": "보석에 광택을 입히는 도금,",
+      "tts": "보석에 광택을 입히는 도금,[breathes]",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part03_0008.mp3",
+      "duration_ms_estimate": 2461,
+      "start_ms_estimate": 22431,
+      "end_ms_estimate": 24892
     },
     {
       "index": 12,
       "caption_id": "3-12",
-      "original": "동시에 그 안에 더 많은 영양분과 풍미를",
-      "tts": "동시에 그 안에 더 많은 영양분과 풍미를",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part03_0012.mp3",
-      "duration_ms_estimate": 3294,
-      "start_ms_estimate": 30020,
-      "end_ms_estimate": 33314
+      "original": "그리고 화학 공장의 촉매로도 쓰입니다.",
+      "tts": "그리고 화학 공장의 촉매로도 쓰입니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part03_0009.mp3",
+      "duration_ms_estimate": 2740,
+      "start_ms_estimate": 24892,
+      "end_ms_estimate": 27632
     },
     {
       "index": 13,
       "caption_id": "3-13",
-      "original": "응축시키는 거죠. 마치 시간이 최고의 조미료인",
-      "tts": "응축시키는 거죠. 마치 시간이 최고의 조미료인",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part03_0013.mp3",
-      "duration_ms_estimate": 3246,
-      "start_ms_estimate": 33314,
-      "end_ms_estimate": 36560
+      "original": "여러분이 끼고 있는 화이트골드 반지의",
+      "tts": "여러분이 끼고 있는 화이트골드 반지의",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part03_0010.mp3",
+      "duration_ms_estimate": 2491,
+      "start_ms_estimate": 27632,
+      "end_ms_estimate": 30123
     },
     {
       "index": 14,
       "caption_id": "3-14",
-      "original": "것처럼요.",
-      "tts": "것처럼요.",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part03_0014.mp3",
-      "duration_ms_estimate": 1080,
-      "start_ms_estimate": 36560,
-      "end_ms_estimate": 37640
+      "original": "그 반짝이는 표면도 사실은 로듐 도금이에요.",
+      "tts": "그 반짝이는 표면도 사실은 로듐 도금이에요.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part03_0010.mp3",
+      "duration_ms_estimate": 2989,
+      "start_ms_estimate": 30123,
+      "end_ms_estimate": 33112
+    },
+    {
+      "index": 15,
+      "caption_id": "3-15",
+      "original": "그런데 전 세계 생산량이",
+      "tts": "그런데 전 세계 생산량이",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part03_0011.mp3",
+      "duration_ms_estimate": 1850,
+      "start_ms_estimate": 33112,
+      "end_ms_estimate": 34962
+    },
+    {
+      "index": 16,
+      "caption_id": "3-16",
+      "original": "연간 30톤 정도밖에 안 됩니다.",
+      "tts": "연간 삼십톤 정도밖에 안 됩니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part03_0011.mp3",
+      "duration_ms_estimate": 2562,
+      "start_ms_estimate": 34962,
+      "end_ms_estimate": 37524
+    },
+    {
+      "index": 17,
+      "caption_id": "3-17",
+      "original": "금이 연간 3,300톤 넘게 생산되는 것과",
+      "tts": "금이 연간 삼천삼백톤 넘게 생산되는 것과",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part03_0012.mp3",
+      "duration_ms_estimate": 3441,
+      "start_ms_estimate": 37524,
+      "end_ms_estimate": 40965
+    },
+    {
+      "index": 18,
+      "caption_id": "3-18",
+      "original": "비교하면 100분의 1 수준이죠.",
+      "tts": "비교하면 백분의 일 수준이죠.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part03_0012.mp3",
+      "duration_ms_estimate": 2503,
+      "start_ms_estimate": 40965,
+      "end_ms_estimate": 43468
+    },
+    {
+      "index": 19,
+      "caption_id": "3-19",
+      "original": "게다가 주로 남아프리카공화국",
+      "tts": "게다가 주로 남아프리카공화국",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part03_0013.mp3",
+      "duration_ms_estimate": 1822,
+      "start_ms_estimate": 43468,
+      "end_ms_estimate": 45290
+    },
+    {
+      "index": 20,
+      "caption_id": "3-20",
+      "original": "한 곳에서 나옵니다.",
+      "tts": "한 곳에서 나옵니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part03_0013.mp3",
+      "duration_ms_estimate": 1336,
+      "start_ms_estimate": 45290,
+      "end_ms_estimate": 46626
+    },
+    {
+      "index": 21,
+      "caption_id": "3-21",
+      "original": "공급이 조금만 흔들려도 가격이",
+      "tts": "공급이 조금만 흔들려도 가격이",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part03_0014.mp3",
+      "duration_ms_estimate": 2252,
+      "start_ms_estimate": 46626,
+      "end_ms_estimate": 48878
+    },
+    {
+      "index": 22,
+      "caption_id": "3-22",
+      "original": "천장을 뚫고 올라가는 이유죠.",
+      "tts": "천장을 뚫고 올라가는 이유죠.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part03_0014.mp3",
+      "duration_ms_estimate": 2252,
+      "start_ms_estimate": 48878,
+      "end_ms_estimate": 51130
     }
   ]
 }

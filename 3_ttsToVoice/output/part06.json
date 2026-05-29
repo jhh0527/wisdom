@@ -1,141 +1,201 @@
 {
   "part_id": "6",
-  "part_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\part06.mp3",
-  "part_srt": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\part06.srt",
+  "part_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\part06.mp3",
+  "part_srt": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\part06.srt",
   "model_id": "eleven_multilingual_v2",
-  "merge_method": "ffmpeg",
-  "segment_count": 13,
-  "duration_ms_estimate": 38362,
+  "merge_method": "ffmpeg-reencode",
+  "segment_count": 14,
+  "duration_ms_estimate": 50852,
   "segments": [
     {
       "index": 1,
       "caption_id": "6-1",
-      "original": "[short pause][breathes][continues]건조 시간, 습도, 온도 모든 것이",
-      "tts": "[short pause][breathes][continues]건조 시간, 습도, 온도 모든 것이",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part06_0001.mp3",
-      "duration_ms_estimate": 2533,
+      "original": "자, 이제부터가 진짜입니다.",
+      "tts": "[short pause][breathes][continues]자, 이제부터가 진짜입니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part06_0001.mp3",
+      "duration_ms_estimate": 2461,
       "start_ms_estimate": 0,
-      "end_ms_estimate": 2533
+      "end_ms_estimate": 2461
     },
     {
       "index": 2,
       "caption_id": "6-2",
-      "original": "정해진 데이터대로만 진행되지 않습니다.",
-      "tts": "정해진 데이터대로만 진행되지 않습니다.",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part06_0002.mp3",
-      "duration_ms_estimate": 2767,
-      "start_ms_estimate": 2533,
-      "end_ms_estimate": 5300
+      "original": "백금족까지는 자연이 만들어준 거예요.",
+      "tts": "백금족까지는 자연이 만들어준 거예요.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part06_0002.mp3",
+      "duration_ms_estimate": 2694,
+      "start_ms_estimate": 2461,
+      "end_ms_estimate": 5155
     },
     {
       "index": 3,
       "caption_id": "6-3",
-      "original": "왜냐하면 날씨가 매일 다르기 때문이에요.",
-      "tts": "왜냐하면 날씨가 매일 다르기 때문이에요.",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part06_0003.mp3",
-      "duration_ms_estimate": 2626,
-      "start_ms_estimate": 5300,
-      "end_ms_estimate": 7926
+      "original": "하지만 인간은 욕심이 많죠.",
+      "tts": "하지만 인간은 욕심이 많죠.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part06_0003.mp3",
+      "duration_ms_estimate": 2043,
+      "start_ms_estimate": 5155,
+      "end_ms_estimate": 7198
     },
     {
       "index": 4,
       "caption_id": "6-4",
-      "original": "오늘의 습도와 내일의 습도가 다르고, 아침의",
-      "tts": "오늘의 습도와 내일의 습도가 다르고, 아침의",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part06_0004.mp3",
-      "duration_ms_estimate": 3095,
-      "start_ms_estimate": 7926,
-      "end_ms_estimate": 11021
+      "original": "자연에 없는 것까지 만들어냈습니다.",
+      "tts": "자연에 없는 것까지 만들어냈습니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part06_0004.mp3",
+      "duration_ms_estimate": 2786,
+      "start_ms_estimate": 7198,
+      "end_ms_estimate": 9984
     },
     {
       "index": 5,
       "caption_id": "6-5",
-      "original": "온도와 오후의 온도가 다르죠. 경험 많은",
-      "tts": "온도와 오후의 온도가 다르죠. 경험 많은",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part06_0005.mp3",
-      "duration_ms_estimate": 2955,
-      "start_ms_estimate": 11021,
-      "end_ms_estimate": 13976
+      "original": "그리고 그 가격은… 상상을 초월합니다.",
+      "tts": "그리고 그 가격은… 상상을 초월합니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part06_0005.mp3",
+      "duration_ms_estimate": 3297,
+      "start_ms_estimate": 9984,
+      "end_ms_estimate": 13281
     },
     {
       "index": 6,
       "caption_id": "6-6",
-      "original": "작업자들—대부분은 수십 년을 이 일을 해온",
-      "tts": "작업자들—대부분은 수십 년을 이 일을 해온[breathes]",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part06_0006.mp3",
-      "duration_ms_estimate": 3611,
-      "start_ms_estimate": 13976,
-      "end_ms_estimate": 17587
+      "original": "먼저 캘리포늄-252(Californium-252)를",
+      "tts": "먼저 캘리포늄-이백오십이(Californium-252)를",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part06_0006.mp3",
+      "duration_ms_estimate": 4543,
+      "start_ms_estimate": 13281,
+      "end_ms_estimate": 17824
     },
     {
       "index": 7,
       "caption_id": "6-7",
-      "original": "여성들인데요—는 \"이 정도면 될 것 같은데\"라는",
-      "tts": "여성들인데요—는 \"이 정도면 될 것 같은데\"라는",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part06_0007.mp3",
-      "duration_ms_estimate": 4033,
-      "start_ms_estimate": 17587,
-      "end_ms_estimate": 21620
+      "original": "만나볼까요? 1950년 캘리포니아 대학 버클리,",
+      "tts": "만나볼까요? 천구백오십년 캘리포니아 대학 버클리,",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part06_0006.mp3",
+      "duration_ms_estimate": 3956,
+      "start_ms_estimate": 17824,
+      "end_ms_estimate": 21780
     },
     {
       "index": 8,
       "caption_id": "6-8",
-      "original": "감각이 있어요. 이것은 과학으로 설명할 수",
-      "tts": "감각이 있어요. 이것은 과학으로 설명할 수",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part06_0008.mp3",
-      "duration_ms_estimate": 3189,
-      "start_ms_estimate": 21620,
-      "end_ms_estimate": 24809
+      "original": "당시 UC 방사선연구소에서 처음 합성된",
+      "tts": "당시 유씨 방사선연구소에서 처음 합성된",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part06_0007.mp3",
+      "duration_ms_estimate": 3325,
+      "start_ms_estimate": 21780,
+      "end_ms_estimate": 25105
     },
     {
       "index": 9,
       "caption_id": "6-9",
-      "original": "없는 뭔가예요. 하지만 이 감각이 최고의 김을",
-      "tts": "없는 뭔가예요. 하지만 이 감각이 최고의 김을",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part06_0009.mp3",
-      "duration_ms_estimate": 3049,
-      "start_ms_estimate": 24809,
-      "end_ms_estimate": 27858
+      "original": "이 원소는, 1그램에 약 2,700만 달러,",
+      "tts": "이 원소는, 일그램에 약 이천칠백만 달러,",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part06_0007.mp3",
+      "duration_ms_estimate": 3641,
+      "start_ms_estimate": 25105,
+      "end_ms_estimate": 28746
     },
     {
       "index": 10,
       "caption_id": "6-10",
-      "original": "만드는 거죠. 너무 건조하면 딱딱하고 맛이",
-      "tts": "만드는 거죠. 너무 건조하면 딱딱하고 맛이",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part06_0010.mp3",
-      "duration_ms_estimate": 3423,
-      "start_ms_estimate": 27858,
-      "end_ms_estimate": 31281
+      "original": "우리 돈으로 약 370억원에 달합니다.",
+      "tts": "우리 돈으로 약 삼백칠십억원에 달합니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part06_0008.mp3",
+      "duration_ms_estimate": 2786,
+      "start_ms_estimate": 28746,
+      "end_ms_estimate": 31532
     },
     {
       "index": 11,
       "caption_id": "6-11",
-      "original": "날아가고, 너무 습하면 곰팡이가 피니까요.",
-      "tts": "날아가고, 너무 습하면 곰팡이가 피니까요.[breathes]",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part06_0011.mp3",
-      "duration_ms_estimate": 2955,
-      "start_ms_estimate": 31281,
-      "end_ms_estimate": 34236
+      "original": "금 1그램이 10만원이니까,",
+      "tts": "금 일그램이 십만원이니까,[breathes]",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part06_0009.mp3",
+      "duration_ms_estimate": 2322,
+      "start_ms_estimate": 31532,
+      "end_ms_estimate": 33854
     },
     {
       "index": 12,
       "caption_id": "6-12",
-      "original": "완벽한 수분 함량이 바로 식감을 결정하는",
-      "tts": "완벽한 수분 함량이 바로 식감을 결정하는",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part06_0012.mp3",
-      "duration_ms_estimate": 3189,
-      "start_ms_estimate": 34236,
-      "end_ms_estimate": 37425
+      "original": "금의 약 37만 배죠.",
+      "tts": "금의 약 삼십칠만 배죠.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part06_0010.mp3",
+      "duration_ms_estimate": 1997,
+      "start_ms_estimate": 33854,
+      "end_ms_estimate": 35851
     },
     {
       "index": 13,
       "caption_id": "6-13",
-      "original": "것입니다.",
-      "tts": "것입니다.",
-      "segment_mp3": "C:\\cursor\\wisdom\\3_ttsToVoice\\output\\segments\\part06_0013.mp3",
-      "duration_ms_estimate": 937,
-      "start_ms_estimate": 37425,
-      "end_ms_estimate": 38362
+      "original": "어떻게 만드냐고요?",
+      "tts": "어떻게 만드냐고요?",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part06_0011.mp3",
+      "duration_ms_estimate": 1347,
+      "start_ms_estimate": 35851,
+      "end_ms_estimate": 37198
+    },
+    {
+      "index": 14,
+      "caption_id": "6-14",
+      "original": "원자로에서 플루토늄을 수년간",
+      "tts": "원자로에서 플루토늄을 수년간",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part06_0012.mp3",
+      "duration_ms_estimate": 2169,
+      "start_ms_estimate": 37198,
+      "end_ms_estimate": 39367
+    },
+    {
+      "index": 15,
+      "caption_id": "6-15",
+      "original": "중성자로 두들겨 패서",
+      "tts": "중성자로 두들겨 패서",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part06_0012.mp3",
+      "duration_ms_estimate": 1590,
+      "start_ms_estimate": 39367,
+      "end_ms_estimate": 40957
+    },
+    {
+      "index": 16,
+      "caption_id": "6-16",
+      "original": "겨우 몇 마이크로그램을 얻습니다.",
+      "tts": "겨우 몇 마이크로그램을 얻습니다.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part06_0012.mp3",
+      "duration_ms_estimate": 2603,
+      "start_ms_estimate": 40957,
+      "end_ms_estimate": 43560
+    },
+    {
+      "index": 17,
+      "caption_id": "6-17",
+      "original": "전 세계 생산량이 연간 0.25그램에서",
+      "tts": "전 세계 생산량이 연간 영점이오그램에서",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part06_0013.mp3",
+      "duration_ms_estimate": 3103,
+      "start_ms_estimate": 43560,
+      "end_ms_estimate": 46663
+    },
+    {
+      "index": 18,
+      "caption_id": "6-18",
+      "original": "0.5그램 수준이에요.",
+      "tts": "영점오그램 수준이에요.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part06_0013.mp3",
+      "duration_ms_estimate": 1773,
+      "start_ms_estimate": 46663,
+      "end_ms_estimate": 48436
+    },
+    {
+      "index": 19,
+      "caption_id": "6-19",
+      "original": "한 사람 손톱만큼도 안 되는 양이죠.",
+      "tts": "한 사람 손톱만큼도 안 되는 양이죠.",
+      "segment_mp3": "C:\\intellij\\wisdom\\3_ttsToVoice\\output\\segments\\part06_0014.mp3",
+      "duration_ms_estimate": 2416,
+      "start_ms_estimate": 48436,
+      "end_ms_estimate": 50852
     }
   ]
 }

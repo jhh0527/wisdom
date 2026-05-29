@@ -3,11 +3,10 @@
 from __future__ import annotations
 
 import argparse
-import shlex
 import sys
 from pathlib import Path
 
-from scenevid.assets import ensure_layout, invoke_txt2audio, make_placeholder_png, make_silent_mp3
+from scenevid.assets import ensure_layout, make_placeholder_png, make_silent_mp3
 from scenevid.compose_render import (
     default_compose_audio,
     default_compose_srt,
@@ -22,8 +21,6 @@ from scenevid.media_paths import prepend_local_ffmpeg_bin_to_os_path
 from scenevid.repo_paths import (
     default_scenevid_compose_mp4,
     default_scenevid_compose_mp4_name,
-    default_tts_pipeline_root,
-    default_tts_python,
 )
 
 
@@ -128,9 +125,6 @@ def cmd_assets(
     project: Path,
     *,
     placeholder: bool,
-    tts_python: Path | None,
-    tts_root: Path | None,
-    tts_extra: list[str],
     dummy_audio_sec: float,
 ) -> int:
     jc = project / "scene.json"
@@ -155,17 +149,7 @@ def cmd_assets(
                 print(f"[경고] 이미지 없음 ( --placeholder 또는 수동 저장 ): {img}", file=sys.stderr)
 
         need_tts = not mp3.is_file()
-        if need_tts and tts_python and tts_root:
-            tmp_txt = project / "output" / f"_{sc.id}_tts_source.txt"
-            tmp_txt.parent.mkdir(parents=True, exist_ok=True)
-            tmp_txt.write_text(sc.narration.strip() + "\n", encoding="utf-8")
-            try:
-                invoke_txt2audio(str(tts_python), tts_root, tmp_txt, mp3, extra_args=tts_extra)
-                print(f"TTS 생성: {mp3}")
-            except RuntimeError as e:
-                print(str(e), file=sys.stderr)
-                return 1
-        elif need_tts and dummy_audio_sec > 0:
+        if need_tts and dummy_audio_sec > 0:
             try:
                 make_silent_mp3(mp3, dummy_audio_sec)
                 print(f"더미 오디오: {mp3} ({dummy_audio_sec}s)")
@@ -173,7 +157,11 @@ def cmd_assets(
                 print(str(e), file=sys.stderr)
                 return 1
         elif need_tts:
-            print(f"[안내] 오디오 없음. --dummy-audio-sec 또는 --tts-python/--tts-root → {mp3}", file=sys.stderr)
+            print(
+                f"[안내] 오디오 없음. 3_ttsToVoice 로 MP3 생성 후 audio/에 넣거나 "
+                f"--dummy-audio-sec 로 테스트 → {mp3}",
+                file=sys.stderr,
+            )
 
         # 자막: 오디오가 있으면 scene.json narration + ffprobe 길이로 SRT
         if mp3.is_file():
@@ -259,9 +247,6 @@ def cmd_render(project: Path, *, no_sub: bool) -> int:
 def cmd_all(
     project: Path,
     placeholder: bool,
-    tts_python: Path | None,
-    tts_root: Path | None,
-    tts_extra: list[str],
     dummy_audio_sec: float,
     no_sub: bool,
 ) -> int:
@@ -271,9 +256,6 @@ def cmd_all(
     c = cmd_assets(
         project,
         placeholder=placeholder,
-        tts_python=tts_python,
-        tts_root=tts_root,
-        tts_extra=tts_extra,
         dummy_audio_sec=dummy_audio_sec,
     )
     if c:
@@ -334,39 +316,16 @@ def main(argv: list[str] | None = None) -> int:
     )
     add_proj(ap)
     ap.add_argument("--placeholder", action="store_true", help="없으면 Pillow로 PNG 생성")
-    _ttpy = default_tts_python()
-    _ttroot = default_tts_pipeline_root()
-    ap.add_argument(
-        "--tts-python",
-        type=Path,
-        default=_ttpy,
-        help="txt2audio 가 있는 Python (기본: wisdom/tts_audio_pipeline/.venv_chatterbox/Scripts/python.exe 있으면)",
-    )
-    ap.add_argument(
-        "--tts-root",
-        type=Path,
-        default=_ttroot,
-        help="tts_audio_pipeline 폴더 (기본: wisdom/tts_audio_pipeline)",
-    )
     ap.add_argument(
         "--dummy-audio-sec",
         type=float,
         default=0.0,
-        help="TTS 없이 테스트할 때 무음 mp3 초 (예 2)",
-    )
-    ap.add_argument(
-        "--txt2audio-extra",
-        type=str,
-        default="",
-        help=r'txt2audio 추가 인자 (쉘 한 줄): 예 --backend edge --voice ko-KR-SunHiNeural',
+        help="TTS 없이 테스트할 때 무음 mp3 초 (예 2). 음성은 3_ttsToVoice 산출물 사용",
     )
     ap.set_defaults(
         _fn=lambda a: cmd_assets(
             _proj(a),
             placeholder=a.placeholder,
-            tts_python=a.tts_python,
-            tts_root=a.tts_root,
-            tts_extra=shlex.split(a.txt2audio_extra.strip()) if a.txt2audio_extra else [],
             dummy_audio_sec=a.dummy_audio_sec,
         )
     )
@@ -449,18 +408,12 @@ def main(argv: list[str] | None = None) -> int:
     )
     add_proj(alp)
     alp.add_argument("--placeholder", action="store_true")
-    alp.add_argument("--tts-python", type=Path, default=_ttpy)
-    alp.add_argument("--tts-root", type=Path, default=_ttroot)
     alp.add_argument("--dummy-audio-sec", type=float, default=0.0)
-    alp.add_argument("--txt2audio-extra", type=str, default="", help='txt2audio 추가 인자 (shlex 분리)')
     alp.add_argument("--no-sub", action="store_true")
     alp.set_defaults(
         _fn=lambda a: cmd_all(
             _proj(a),
             placeholder=a.placeholder,
-            tts_python=a.tts_python,
-            tts_root=a.tts_root,
-            tts_extra=shlex.split(a.txt2audio_extra.strip()) if a.txt2audio_extra else [],
             dummy_audio_sec=a.dummy_audio_sec,
             no_sub=a.no_sub,
         )

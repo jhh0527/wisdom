@@ -1,0 +1,94 @@
+---
+description: wisdom 공통 정책 — GUI·exe 중심, CLI 미사용, 빌드·자동 빌드. 항상 적용.
+alwaysApply: true
+---
+
+# wisdom 공통 정책
+
+`5_video/md/videoPG.md` 「공통」과 동일. wisdom 저장소 PyInstaller·GUI 모듈 작업 시 **매 세션·매 작업** 적용.
+
+## CLI 사용 안 함
+
+**사용자는 CLI 프로그램을 사용하지 않는다.** (`python -m …`, 콘솔 전용 exe, 터미널 워크플로)
+
+- 기능·수정·안내·검증은 **GUI(`*_gui.exe`) 또는 `run_*_gui.py`** 기준으로 한다.
+- 응답에 `python -m utube …` 등 **CLI 실행 예시를 기본으로 넣지 않는다** (사용자가 CLI를 명시적으로 요청한 경우만).
+- 에이전트가 기능 확인할 때도 **CLI 대신 GUI·빌드된 exe**를 우선한다.
+- `cli.py`·`__main__.py` 서브커맨드는 레거시로 둘 수 있으나, **새 기능·문서·테스트 안내는 GUI에만** 반영한다.
+- spec·`build.bat`은 **GUI exe**(`*_gui.spec`, `*_gui.exe`)를 기준으로 맞춘다. CLI 전용 exe만 추가·갱신하지 않는다.
+
+## 공통 (videoPG.md)
+
+1. **변경된 프로그램이 있으면** 해당 모듈 `build/`의 **spec·`build.bat`을 수정**하여 반영한다.
+2. **기존 프로그램이 실행 중이면** 빌드 시 **중지**하고 **실행 파일을 다시 생성**한다.
+3. **프로그램(`*.py` 등) 변경 후** 자동 빌드·생략 여부는 아래 **§3 자동 빌드 조건**을 따른다.
+
+## 1. spec·build.bat 반영
+
+대상 모듈의 Python·의존성·진입점·`hiddenimports`·데이터 파일이 바뀌면 **같은 모듈**의 `build/`를 함께 수정한다.
+
+- `build/*.spec` — Analysis 대상, `hiddenimports`, `datas`, exe 이름
+- `build/build.bat` — spec 경로, dist/work 경로, pip requirements (있을 때)
+
+`build.bat`이 없고 `*.spec`만 있는 모듈은 spec만 맞춘다.
+
+## 2. 빌드 전 실행 중 exe 종료
+
+해당 모듈의 `dist/*.exe`가 실행 중이면 PyInstaller가 **접근 거부**로 실패한다. `build.bat` 실행 **전에** 프로세스를 종료한다.
+
+```bat
+taskkill /IM <exe이름>.exe /F 2>nul
+```
+
+예: `7_utube_gui.exe`, `5_video_gui.exe`, `elsub_gui.exe` 등 (모듈별 `build/*.spec`의 `name=` 확인).
+
+## 3. 자동 빌드 조건
+
+작업이 끝나면 아래를 **모두** 만족할 때 `build.bat`(또는 해당 spec으로 PyInstaller)를 **에이전트가 직접 실행**한다. 사용자에게 “빌드할까요?”만 묻고 끝내지 않는다.
+
+### 빌드함 (AND)
+
+- 이번 대화에서 **실행 파일에 영향 주는 변경**을 해당 모듈에 적용했음
+- 대상 모듈에 `build/build.bat` 또는 `build/*.spec`이 있음
+- 사용자가 **「빌드 생략」「빌드 안 함」「소스만」** 등으로 명시하지 않음
+
+### 변경 유형별
+
+| 변경 | 자동 빌드 |
+|------|-----------|
+| `*.py` (패키지·GUI·`run_*_gui.py`) | **함** |
+| `requirements.txt` / 빌드 의존성 | **함** |
+| `build/*.spec`, `build.bat`, `hiddenimports` | **함** (spec 반영 후) |
+| `config/*.json` 등 런타임 설정만 | **안 함** (exe 재빌드 불필요) |
+| `md/`, `output/`, 테스트·산출물만 | **안 함** |
+| 다른 모듈만 수정 | **안 함** (수정한 모듈만) |
+
+### 빌드 생략 (OR — 하나라도 해당 시 실행 안 함)
+
+- 문서·주석·`.md`만 수정
+- 사용자가 빌드 생략을 요청
+- `build.bat` / spec이 없는 모듈 (소스 실행만 가능)
+- 이번 세션에서 **같은 모듈·같은 spec**으로 이미 빌드 성공했고, 그 이후 해당 모듈 코드 추가 변경 없음
+
+### 실행 순서
+
+1. §2 — `taskkill /IM <exe>.exe /F 2>nul`
+2. `<모듈>\build\build.bat` (없으면 spec에 맞는 PyInstaller 명령)
+3. 실패 시 — exe 종료·spec·로그 점검 후 재시도 1회까지
+
+### 보고
+
+빌드 후 응답에 **산출 exe 경로**를 적는다 (예: `7_utube/dist/7_utube_gui.exe`).
+
+## 4. 모듈 ↔ 빌드 경로 (참고)
+
+| 모듈 | build |
+|------|--------|
+| `1_textTo700Text` | `1_textTo700Text/build/` |
+| `3_ttsToVoice` | `3_ttsToVoice/build/build.bat` |
+| `4_1pngToJpg`, `4_2pngFileName`, `4_srtToImage` | 각 `build/` |
+| `5_video` | `5_video/build/build.bat` |
+| `6_thumbnail` | `6_thumbnail/build/` |
+| `7_utube` | `7_utube/build/build.bat` |
+
+문서화·요구사항은 `5_video/md/videoPG.md` 및 각 모듈 `md/*PG.md`를 본다.

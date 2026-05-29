@@ -16,6 +16,7 @@ _EXCEL_HEADERS = (
     "댓글",
     "업로드",
     "길이",
+    "쇼츠",
     "URL",
 )
 
@@ -49,16 +50,17 @@ def export_videos_excel(path: Path, rows: list[VideoItem]) -> None:
         ws.cell(row=i, column=7, value=v.comment_count if v.comment_count is not None else "")
         ws.cell(row=i, column=8, value=format_published(v.published_at))
         ws.cell(row=i, column=9, value=v.duration)
-        link = ws.cell(row=i, column=10, value=v.url)
+        ws.cell(row=i, column=10, value=v.shorts_display)
+        link = ws.cell(row=i, column=11, value=v.url)
         link.hyperlink = v.url
         link.style = "Hyperlink"
 
-    widths = (6, 48, 22, 14, 12, 10, 10, 12, 10, 52)
+    widths = (6, 48, 22, 14, 12, 10, 10, 12, 10, 8, 52)
     for col, w in enumerate(widths, start=1):
         ws.column_dimensions[get_column_letter(col)].width = w
 
     ws.freeze_panes = "A2"
-    ws.auto_filter.ref = f"A1:J{max(1, len(rows) + 1)}"
+    ws.auto_filter.ref = f"A1:K{max(1, len(rows) + 1)}"
 
     path.parent.mkdir(parents=True, exist_ok=True)
     wb.save(path)
