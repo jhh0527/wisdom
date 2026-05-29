@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import re
 import shutil
+import os
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -62,6 +63,30 @@ def _tessdata_dir(exe: Path) -> Path:
     return exe.parent / "tessdata"
 
 
+def _kor_candidates(exe: Path) -> list[Path]:
+    """kor.traineddata 탐색 경로(환경변수 우선)."""
+    candidates: list[Path] = []
+    prefix = os.environ.get("TESSDATA_PREFIX", "").strip()
+    if prefix:
+        base = Path(prefix)
+        candidates.append(base / "kor.traineddata")
+        candidates.append(base / "tessdata" / "kor.traineddata")
+    # Windows 사용자 설치(관리자 권한 없이 추가한 데이터) 기본 경로
+    local = os.environ.get("LOCALAPPDATA", "").strip()
+    if local:
+        local_base = Path(local) / "Tesseract-OCR"
+        candidates.append(local_base / "kor.traineddata")
+        candidates.append(local_base / "tessdata" / "kor.traineddata")
+    candidates.append(_tessdata_dir(exe) / "kor.traineddata")
+    return candidates
+
+
+def _tess_prefix_from_kor(kor_path: Path) -> str:
+    # Tesseract 는 traineddata 가 있는 실제 폴더를 prefix 로 기대하는 환경이 있다.
+    # 따라서 kor 파일의 부모 디렉터리를 그대로 사용한다.
+    return str(kor_path.parent)
+
+
 def ensure_tesseract_cmd() -> None:
     """PATH 또는 Windows 기본 설치 경로에서 tesseract 를 찾습니다."""
     import pytesseract
@@ -77,16 +102,19 @@ def ensure_tesseract_cmd() -> None:
         )
     pytesseract.pytesseract.tesseract_cmd = str(exe)
 
-    kor = _tessdata_dir(exe) / "kor.traineddata"
-    if not kor.is_file():
+    kor = next((p for p in _kor_candidates(exe) if p.is_file()), None)
+    if kor is None:
+        default_kor = _tessdata_dir(exe) / "kor.traineddata"
         raise RuntimeError(
             "Tesseract 한국어(kor) 데이터가 없습니다.\n\n"
-            f"다음 파일이 필요합니다:\n  {kor}\n\n"
+            f"다음 파일이 필요합니다:\n  {default_kor}\n\n"
             "PowerShell(관리자) 예:\n"
             '  Invoke-WebRequest -Uri '
             '"https://github.com/tesseract-ocr/tessdata/raw/main/kor.traineddata" '
-            f'-OutFile "{kor}"'
+            f'-OutFile "{default_kor}"'
         )
+    # OCR 실행 프로세스가 사용자 환경변수를 못 물고 온 경우를 대비해 강제 지정
+    os.environ["TESSDATA_PREFIX"] = _tess_prefix_from_kor(kor)
 
 
 def _image_to_data(rgb, lang: str):
