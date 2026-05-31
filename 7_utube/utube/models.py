@@ -17,6 +17,8 @@ class VideoItem:
     duration: str
     duration_seconds: int = 0
     category_id: str | None = None
+    tags: tuple[str, ...] = ()
+    region_code: str = ""
 
     @property
     def is_shorts(self) -> bool:
@@ -29,3 +31,10 @@ class VideoItem:
     @property
     def url(self) -> str:
         return f"https://www.youtube.com/watch?v={self.video_id}"
+
+
+@dataclass(frozen=True, slots=True)
+class KeywordItem:
+    keyword: str
+    score: int
+    source: str

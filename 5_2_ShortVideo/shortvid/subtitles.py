@@ -5,12 +5,14 @@ from __future__ import annotations
 import re
 from pathlib import Path
 
-# 9:16 쇼츠: 하단 safe area (libass force_style)
+# 9:16 쇼츠(1080×1920): 세로 화면·모바일 시청에 맞춘 큰 자막 (libass force_style)
 COMPOSE_SUBTITLE_FORCE_STYLE = (
-    "FontName=Malgun Gothic,FontSize=28,Bold=1,"
+    "FontName=Malgun Gothic,FontSize=46,Bold=1,"
     "PrimaryColour=&H00FFFFFF,OutlineColour=&H00000000,"
-    "BorderStyle=1,Outline=2,Shadow=0,MarginV=72,Alignment=2"
+    "BorderStyle=1,Outline=3,Shadow=0,MarginV=130,Alignment=2"
 )
+
+_MAX_CHARS_PER_LINE_IN_CUE = 32
 
 
 def seconds_to_srt_ts(sec: float) -> str:
@@ -28,8 +30,6 @@ def seconds_to_srt_ts(sec: float) -> str:
 
 
 _SENT_SPLIT = re.compile(r"(?<=[.!?。？！…])\s+")
-
-_MAX_CHARS_PER_LINE_IN_CUE = 44
 
 
 def _wrap_cue_lines(text: str, line_len: int = _MAX_CHARS_PER_LINE_IN_CUE) -> str:

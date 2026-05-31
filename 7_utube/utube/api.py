@@ -1,13 +1,15 @@
 from __future__ import annotations
 
 import json
+import re
 import urllib.error
 import urllib.parse
 import urllib.request
+from collections import Counter, defaultdict
 from datetime import datetime, timedelta, timezone
 
 from utube.format_util import parse_iso8601_duration, parse_iso8601_duration_seconds
-from utube.models import VideoItem
+from utube.models import KeywordItem, VideoItem
 
 _API = "https://www.googleapis.com/youtube/v3"
 
@@ -42,7 +44,7 @@ def _get(path: str, params: dict[str, str], api_key: str) -> dict:
     return json.loads(raw)
 
 
-def _items_from_videos_response(data: dict) -> list[VideoItem]:
+def _items_from_videos_response(data: dict, *, region_code: str = "") -> list[VideoItem]:
     out: list[VideoItem] = []
     for it in data.get("items") or []:
         vid = str(it.get("id") or "")
@@ -55,6 +57,8 @@ def _items_from_videos_response(data: dict) -> list[VideoItem]:
         lc = st.get("likeCount")
         cc = st.get("commentCount")
         iso_dur = str(cd.get("duration") or "")
+        raw_tags = sn.get("tags") or []
+        tags = tuple(str(t).strip() for t in raw_tags if str(t).strip())
         out.append(
             VideoItem(
                 video_id=vid,
@@ -67,22 +71,67 @@ def _items_from_videos_response(data: dict) -> list[VideoItem]:
                 duration=parse_iso8601_duration(iso_dur),
                 duration_seconds=parse_iso8601_duration_seconds(iso_dur),
                 category_id=str(sn.get("categoryId") or "") or None,
+                tags=tags,
+                region_code=region_code.upper()[:2] if region_code else "",
             )
         )
     return out
 
 
-def fetch_trending(
+def _tag_videos_region(videos: list[VideoItem], region_code: str) -> list[VideoItem]:
+    reg = region_code.upper()[:2]
+    if not reg:
+        return videos
+    out: list[VideoItem] = []
+    for v in videos:
+        if v.region_code == reg:
+            out.append(v)
+        else:
+            out.append(
+                VideoItem(
+                    video_id=v.video_id,
+                    title=v.title,
+                    channel=v.channel,
+                    view_count=v.view_count,
+                    like_count=v.like_count,
+                    comment_count=v.comment_count,
+                    published_at=v.published_at,
+                    duration=v.duration,
+                    duration_seconds=v.duration_seconds,
+                    category_id=v.category_id,
+                    tags=v.tags,
+                    region_code=reg,
+                )
+            )
+    return out
+
+
+def _merge_videos(
+    lists: list[list[VideoItem]],
+    max_results: int,
+    *,
+    sort_by_views: bool,
+) -> list[VideoItem]:
+    seen: set[str] = set()
+    out: list[VideoItem] = []
+    for lst in lists:
+        for v in lst:
+            if v.video_id in seen:
+                continue
+            seen.add(v.video_id)
+            out.append(v)
+    if sort_by_views:
+        out.sort(key=lambda v: v.view_count, reverse=True)
+    return out[: max(1, min(50, int(max_results)))]
+
+
+def _fetch_trending_once(
     api_key: str,
     *,
-    region: str = "KR",
-    max_results: int = 50,
-    category_id: str | None = None,
+    region: str,
+    max_results: int,
+    category_id: str | None,
 ) -> list[VideoItem]:
-    """지역별 인기 급상승(mostPopular) 영상."""
-    if not api_key.strip():
-        raise YouTubeApiError("YouTube API 키가 없습니다. config/youtube_api.json 또는 YOUTUBE_API_KEY 를 설정하세요.")
-    max_results = max(1, min(50, int(max_results)))
     params: dict[str, str] = {
         "part": "snippet,statistics,contentDetails",
         "chart": "mostPopular",
@@ -91,8 +140,59 @@ def fetch_trending(
     }
     if category_id:
         params["videoCategoryId"] = category_id
-    data = _get("videos", params, api_key)
-    return _items_from_videos_response(data)
+    try:
+        data = _get("videos", params, api_key)
+    except YouTubeApiError as e:
+        # 지역·카테고리 조합에 인기 차트가 없으면 404 — 다른 카테고리는 계속 조회
+        if "404" in str(e):
+            return []
+        raise
+    return _items_from_videos_response(data, region_code=region.upper()[:2])
+
+
+def fetch_trending(
+    api_key: str,
+    *,
+    region: str = "KR",
+    regions: list[str] | None = None,
+    max_results: int = 50,
+    category_id: str | None = None,
+    category_ids: list[str] | None = None,
+) -> list[VideoItem]:
+    """지역별 인기 급상승(mostPopular) 영상."""
+    if not api_key.strip():
+        raise YouTubeApiError("YouTube API 키가 없습니다. config/youtube_api.json 또는 YOUTUBE_API_KEY 를 설정하세요.")
+    max_results = max(1, min(50, int(max_results)))
+    regs = list(regions or [])
+    if not regs:
+        regs = [region.upper()[:2]]
+    ids = list(category_ids or [])
+    if category_id and category_id not in ids:
+        ids.insert(0, category_id)
+
+    lists: list[list[VideoItem]] = []
+    for reg in regs:
+        if not ids:
+            batch = _fetch_trending_once(
+                api_key, region=reg, max_results=max_results, category_id=None
+            )
+            if batch:
+                lists.append(_tag_videos_region(batch, reg))
+            continue
+        for cid in ids:
+            batch = _fetch_trending_once(
+                api_key, region=reg, max_results=max_results, category_id=cid
+            )
+            if batch:
+                lists.append(_tag_videos_region(batch, reg))
+    if ids and not lists:
+        raise YouTubeApiError(
+            "선택한 카테고리에 인기 급상승 데이터가 없습니다. "
+            "카테고리를 줄이거나 「카테고리 (전체)」로 조회하세요."
+        )
+    if not lists:
+        return []
+    return _merge_videos(lists, max_results, sort_by_views=True)
 
 
 def _search_video_ids(
@@ -104,6 +204,7 @@ def _search_video_ids(
     max_results: int,
     order: str,
     require_query: bool,
+    category_id: str | None = None,
 ) -> list[str]:
     q = query.strip()
     if require_query and not q:
@@ -121,7 +222,14 @@ def _search_video_ids(
     }
     if q:
         search_params["q"] = q
-    search_data = _get("search", search_params, api_key)
+    if category_id:
+        search_params["videoCategoryId"] = category_id
+    try:
+        search_data = _get("search", search_params, api_key)
+    except YouTubeApiError as e:
+        if "404" in str(e):
+            return []
+        raise
     ids: list[str] = []
     for it in search_data.get("items") or []:
         vid = (it.get("id") or {}).get("videoId")
@@ -130,7 +238,7 @@ def _search_video_ids(
     return ids
 
 
-def _videos_by_ids(api_key: str, ids: list[str]) -> list[VideoItem]:
+def _videos_by_ids(api_key: str, ids: list[str], *, region_code: str = "") -> list[VideoItem]:
     if not ids:
         return []
     videos_data = _get(
@@ -142,8 +250,107 @@ def _videos_by_ids(api_key: str, ids: list[str]) -> list[VideoItem]:
         },
         api_key,
     )
-    by_id = {v.video_id: v for v in _items_from_videos_response(videos_data)}
+    by_id = {
+        v.video_id: v
+        for v in _items_from_videos_response(videos_data, region_code=region_code)
+    }
     return [by_id[i] for i in ids if i in by_id]
+
+
+def _fetch_top_by_views_region(
+    api_key: str,
+    *,
+    query: str,
+    region: str,
+    days: int,
+    max_results: int,
+) -> list[VideoItem]:
+    """지역·기간 내 조회수 순. API viewCount가 비면 date 검색 후 클라이언트 정렬."""
+    reg = region.upper()[:2]
+    fetch_n = max(max_results, min(50, max_results * 5))
+    ids = _search_video_ids(
+        api_key,
+        query=query,
+        region=reg,
+        days=days,
+        max_results=fetch_n,
+        order="viewCount",
+        require_query=False,
+    )
+    if not ids and not query.strip():
+        ids = _search_video_ids(
+            api_key,
+            query=query,
+            region=reg,
+            days=days,
+            max_results=50,
+            order="date",
+            require_query=False,
+        )
+    videos = _tag_videos_region(_videos_by_ids(api_key, ids, region_code=reg), reg)
+    videos.sort(key=lambda v: v.view_count, reverse=True)
+    return videos[: max(1, min(50, int(max_results)))]
+
+
+def _fetch_search_videos(
+    api_key: str,
+    *,
+    query: str,
+    region: str,
+    regions: list[str] | None,
+    days: int,
+    max_results: int,
+    order: str,
+    category_ids: list[str] | None,
+) -> list[VideoItem]:
+    regs = list(regions or [])
+    if not regs:
+        regs = [region.upper()[:2]]
+    cids = list(category_ids or [])
+    lists: list[list[VideoItem]] = []
+    for reg in regs:
+        if order == "viewCount" and not cids:
+            batch = _fetch_top_by_views_region(
+                api_key,
+                query=query,
+                region=reg,
+                days=days,
+                max_results=max_results,
+            )
+            if batch:
+                lists.append(batch)
+            continue
+        if not cids:
+            ids = _search_video_ids(
+                api_key,
+                query=query,
+                region=reg,
+                days=days,
+                max_results=max_results,
+                order=order,
+                require_query=False,
+            )
+            batch = _tag_videos_region(_videos_by_ids(api_key, ids, region_code=reg), reg)
+            if batch:
+                lists.append(batch)
+            continue
+        for cid in cids:
+            ids = _search_video_ids(
+                api_key,
+                query=query,
+                region=reg,
+                days=days,
+                max_results=max_results,
+                order=order,
+                require_query=False,
+                category_id=cid,
+            )
+            batch = _tag_videos_region(_videos_by_ids(api_key, ids, region_code=reg), reg)
+            if batch:
+                lists.append(batch)
+    if not lists:
+        return []
+    return _merge_videos(lists, max_results, sort_by_views=(order == "viewCount"))
 
 
 def fetch_keyword_search(
@@ -151,22 +358,24 @@ def fetch_keyword_search(
     *,
     query: str,
     region: str = "KR",
+    regions: list[str] | None = None,
     days: int = 30,
     max_results: int = 50,
+    category_ids: list[str] | None = None,
 ) -> list[VideoItem]:
     """키워드로 영상 검색 (관련도 순). 검색어가 비어 있으면 기간·지역 기준 전체 검색."""
     if not api_key.strip():
         raise YouTubeApiError("YouTube API 키가 없습니다.")
-    ids = _search_video_ids(
+    return _fetch_search_videos(
         api_key,
         query=query,
         region=region,
+        regions=regions,
         days=days,
         max_results=max_results,
         order="relevance",
-        require_query=False,
+        category_ids=category_ids,
     )
-    return _videos_by_ids(api_key, ids)
 
 
 def fetch_top_by_views(
@@ -174,19 +383,136 @@ def fetch_top_by_views(
     *,
     query: str = "",
     region: str = "KR",
+    regions: list[str] | None = None,
     days: int = 30,
     max_results: int = 50,
+    category_ids: list[str] | None = None,
 ) -> list[VideoItem]:
     """키워드(선택) + 기간 내 업로드 영상을 조회수 순으로 검색."""
     if not api_key.strip():
         raise YouTubeApiError("YouTube API 키가 없습니다.")
-    ids = _search_video_ids(
+    return _fetch_search_videos(
         api_key,
         query=query,
         region=region,
+        regions=regions,
         days=days,
         max_results=max_results,
         order="viewCount",
-        require_query=False,
+        category_ids=category_ids,
     )
-    return _videos_by_ids(api_key, ids)
+
+
+_REGION_GL: dict[str, str] = {
+    "KR": "kr",
+    "US": "us",
+    "JP": "jp",
+    "GB": "gb",
+    "DE": "de",
+    "FR": "fr",
+    "IN": "in",
+    "BR": "br",
+}
+
+_SUGGEST_SEEDS_KO = ("", "가", "나", "다", "라", "마", "바", "사", "아", "오", "주", "한", "202")
+_SUGGEST_SEEDS_EN = ("", "a", "b", "c", "s", "t", "m", "n", "202")
+
+
+def _youtube_suggest(query: str, *, region: str) -> list[str]:
+    """YouTube 검색 자동완성(인기 연관 키워드). API 키·할당량 불필요."""
+    gl = _REGION_GL.get(region.upper()[:2], region.lower()[:2])
+    hl = "ko" if gl == "kr" else "en"
+    params = {
+        "client": "firefox",
+        "ds": "yt",
+        "q": query,
+        "hl": hl,
+        "gl": gl,
+    }
+    url = f"https://suggestqueries.google.com/complete/search?{urllib.parse.urlencode(params)}"
+    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+    try:
+        with urllib.request.urlopen(req, timeout=12) as resp:
+            raw = resp.read().decode("utf-8", errors="replace")
+    except (urllib.error.URLError, urllib.error.HTTPError, TimeoutError):
+        return []
+    try:
+        data = json.loads(raw)
+    except json.JSONDecodeError:
+        return []
+    if not isinstance(data, list) or len(data) < 2:
+        return []
+    return [str(x).strip() for x in data[1] if str(x).strip()]
+
+
+def _keyword_weight(view_count: int) -> int:
+    if view_count <= 0:
+        return 1
+    return max(1, int(view_count ** 0.5 // 1000))
+
+
+def fetch_popular_keywords(
+    api_key: str,
+    *,
+    region: str = "KR",
+    regions: list[str] | None = None,
+    max_results: int = 50,
+    category_ids: list[str] | None = None,
+    exclude_shorts: bool = False,
+    excluded_category_ids: set[str] | frozenset[str] | None = None,
+) -> list[KeywordItem]:
+    """지역 인기 영상 태그·제목 + YouTube 자동완성으로 인기 키워드 목록."""
+    if not api_key.strip():
+        raise YouTubeApiError("YouTube API 키가 없습니다.")
+    max_results = max(1, min(100, int(max_results)))
+
+    videos = fetch_trending(
+        api_key,
+        region=region,
+        regions=regions,
+        max_results=50,
+        category_ids=category_ids,
+    )
+    if exclude_shorts:
+        videos = [v for v in videos if not v.is_shorts]
+    if excluded_category_ids:
+        exc = set(excluded_category_ids)
+        videos = [v for v in videos if not v.category_id or v.category_id not in exc]
+
+    scores: Counter[str] = Counter()
+    sources: dict[str, set[str]] = defaultdict(set)
+
+    for v in videos:
+        weight = _keyword_weight(v.view_count)
+        for tag in v.tags:
+            kw = tag.strip()
+            if len(kw) >= 2:
+                scores[kw] += weight
+                sources[kw].add("태그")
+        for m in re.findall(r"#([\w가-힣]+)", v.title):
+            kw = m.strip()
+            if len(kw) >= 2:
+                scores[kw] += weight
+                sources[kw].add("제목")
+
+    seeds = _SUGGEST_SEEDS_KO if (regions or [region])[0].upper()[:2] == "KR" else _SUGGEST_SEEDS_EN
+    suggest_region = (regions or [region])[0]
+    for seed in seeds:
+        for sug in _youtube_suggest(seed, region=suggest_region):
+            if len(sug) >= 2:
+                scores[sug] += 3
+                sources[sug].add("자동완성")
+
+    top_tag_seeds = [kw for kw, _ in scores.most_common(8)]
+    for seed in top_tag_seeds:
+        for sug in _youtube_suggest(seed, region=suggest_region):
+            if len(sug) >= 2 and sug != seed:
+                scores[sug] += 2
+                sources[sug].add("자동완성")
+
+    ranked = scores.most_common(max_results)
+    out: list[KeywordItem] = []
+    for kw, sc in ranked:
+        src = "/".join(sorted(sources[kw]))
+        out.append(KeywordItem(keyword=kw, score=sc, source=src))
+    return out

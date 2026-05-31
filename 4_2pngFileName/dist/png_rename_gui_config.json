@@ -1,7 +1,7 @@
 {
-  "srt_file": "C:/util/유튜브/목성의내부구조/all.srt",
-  "png_dir": "C:/util/유튜브/목성의내부구조",
-  "preview_pane_width": 573,
+  "srt_file": "C:/util/유튜브/유튜브에게 한국이란/all.srt",
+  "png_dir": "C:/util/유튜브/유튜브에게 한국이란/png",
+  "preview_pane_width": 590,
   "manual_overrides": {
     "C:\\intellij\\wisdom\\4_1pngToJpg\\input\\SRT_159.png": {
       "srt_number": 159,
@@ -605,6 +605,51 @@
       "word_cue_text": "후속 연구들은 이 충돌 가설을",
       "status": "OCR매핑 선택: 432번 (저장 대기)",
       "match_reason": "데이터로·446번, 과학·446번, 2024·128/450번, 20·364번, 24·60번, 측정·375번, 2025·450번, 열원·92번, 어떻게·311번, 거의·42번, 가설·425/453/492번, 연구·128/505번, 충돌로·458번, 행성·6/15/432/513/534/550번, 형성·553번, 충돌·453번, 최신·128번, 현재·136번"
+    },
+    "C:\\util\\유튜브\\유튜브에게 한국이란\\png\\SRT_393.png": {
+      "srt_number": 393,
+      "target_name": "SRT_393.png",
+      "cue_text": "1MILLION Dance Studio 같은",
+      "word_srt_number": 488,
+      "word_cue_text": "2,000억 회를 돌파했습니다.",
+      "status": "즉시 저장 완료: SRT_393.png",
+      "match_reason": "000·212/236/488번, 100·248/336/574번, 구독자·352/358/361/376/381/408번, 20·83/135번"
+    },
+    "C:\\util\\유튜브\\유튜브에게 한국이란\\png\\SRT_413.png": {
+      "srt_number": 413,
+      "target_name": "SRT_413.png",
+      "cue_text": "즉, 한국 크리에이터들이 만들어낸 콘텐츠가",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_413.png",
+      "match_reason": "—"
+    },
+    "C:\\util\\유튜브\\유튜브에게 한국이란\\png\\SRT_652.png": {
+      "srt_number": 652,
+      "target_name": "SRT_652.png",
+      "cue_text": "첫째, 정치 유튜브의 비대화.",
+      "word_srt_number": 358,
+      "word_cue_text": "약 8천만 명의 구독자를 보유하고 있고,",
+      "status": "즉시 저장 완료: SRT_652.png",
+      "match_reason": "분석·206번, 알고리즘·672/697/722/741번, 10·135/239/243/254/260/297번, 구독자·352/358/361/376/381/408번, 추천·741번"
+    },
+    "C:\\util\\유튜브\\유튜브에게 한국이란\\png\\SRT_755.png": {
+      "srt_number": 755,
+      "target_name": "SRT_755.png",
+      "cue_text": "\"유튜브에게 한국은 어떤 곳인가?\"",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_755.png",
+      "match_reason": "시장·15/26/85/216/515/763번, 수익·250번, 높은·515번"
+    },
+    "C:\\util\\유튜브\\유튜브에게 한국이란\\png\\SRT_804.png": {
+      "srt_number": 804,
+      "target_name": "SRT_804.png",
+      "cue_text": "한국은 유튜브에게 세 가지 의미를 가집니다.",
+      "word_srt_number": 716,
+      "word_cue_text": "편향된 콘텐츠에 깊이 빠지는 '필터버블' 문제가",
+      "status": "즉시 저장 완료: SRT_804.png",
+      "match_reason": "27·48번, 깊이·716번"
     }
   }
 }

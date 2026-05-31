@@ -43,3 +43,18 @@ def category_label(category_id: str | None) -> str:
     if not category_id:
         return ""
     return YOUTUBE_CATEGORY_LABELS.get(str(category_id).strip(), f"ID:{category_id}")
+
+
+# GUI 카테고리 제외 선택용 (이름, videoCategoryId)
+SELECTABLE_CATEGORIES: list[tuple[str, str]] = [
+    ("음악", "10"),
+    ("게임", "20"),
+    ("뉴스", "25"),
+    ("과학/기술", "28"),
+    ("교육", "27"),
+    ("엔터", "24"),
+    ("스포츠", "17"),
+]
+
+# 기본 제외: 음악·게임
+DEFAULT_EXCLUDED_CATEGORY_IDS: frozenset[str] = frozenset({"10", "20"})
