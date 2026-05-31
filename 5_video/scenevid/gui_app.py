@@ -45,6 +45,7 @@ from scenevid.srt_image_effects import (
 )
 from scenevid.srt_parse import load_srt_cues_ms
 from scenevid.subtitles import seconds_to_srt_ts
+from wisdom_workspace import folder_dialog_initial, touch_workspace_from_path
 
 
 FX_LABEL_KO: dict[str, str] = {
@@ -170,12 +171,13 @@ def main() -> None:
             init = default_tts_voice_output_dir() / "all.mp3"
         p = filedialog.askopenfilename(
             title="MP3",
-            initialdir=str(init.parent) if init.parent.is_dir() else str(default_tts_voice_output_dir()),
+            initialdir=folder_dialog_initial(init.parent if init.is_file() else init),
             initialfile=init.name if init.is_file() else "all.mp3",
             filetypes=[("MP3", "*.mp3"), ("모든 파일", "*.*")],
         )
         if p:
             audio_var.set(p)
+            touch_workspace_from_path(p)
             timeline_refresh(silent=True)
 
     def pick_srt() -> None:
@@ -185,12 +187,13 @@ def main() -> None:
             init = default_tts_voice_output_dir() / "all.srt"
         p = filedialog.askopenfilename(
             title="SRT",
-            initialdir=str(init.parent) if init.parent.is_dir() else str(default_tts_voice_output_dir()),
+            initialdir=folder_dialog_initial(init.parent if init.is_file() else init),
             initialfile=init.name if init.is_file() else "all.srt",
             filetypes=[("SRT", "*.srt"), ("모든 파일", "*.*")],
         )
         if p:
             srt_var.set(p)
+            touch_workspace_from_path(p)
             timeline_refresh(silent=True)
 
     def pick_images_dir() -> None:
@@ -199,17 +202,18 @@ def main() -> None:
             init = default_srt_image_output_dir()
         p = filedialog.askdirectory(
             title="이미지·영상 폴더",
-            initialdir=str(init),
+            initialdir=folder_dialog_initial(init),
         )
         if p:
             images_var.set(p)
+            touch_workspace_from_path(p)
             timeline_refresh(silent=True)
 
     def pick_out() -> None:
         init = Path(out_var.get().strip()) if out_var.get().strip() else default_scenevid_compose_mp4()
         p = filedialog.asksaveasfilename(
             title="출력 MP4",
-            initialdir=str(init.parent) if init.parent.is_dir() else str(default_scenevid_output_dir()),
+            initialdir=folder_dialog_initial(init.parent if init.parent.is_dir() else init),
             initialfile=init.name if init.name else default_scenevid_compose_mp4().name,
             defaultextension=".mp4",
             filetypes=[("MP4", "*.mp4")],

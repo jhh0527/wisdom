@@ -19,15 +19,16 @@ _FONT_PRESET_DIRECT = "(파일에서 직접…)"  # 구 preset 호환용, UI 에
 
 
 def _wisdom_repo_root() -> Path:
-    """저장소 루트(``wisdom/fonts``). PyInstaller 실행 시에도 ``6_thumbnail`` 형제로 식별."""
-    if getattr(sys, "frozen", False):
-        start = Path(sys.executable).resolve().parent
-    else:
-        start = Path(__file__).resolve().parent
-    for p in [start, *start.parents]:
-        if (p / "fonts").is_dir() and (p / "6_thumbnail").is_dir():
-            return p
-    return Path(__file__).resolve().parents[2]
+    """저장소 루트 — IDE·탐색기에서 연 wisdom 폴더."""
+    for base in [Path.cwd(), *Path(__file__).resolve().parents]:
+        if (base / "wisdom_root.py").is_file():
+            s = str(base)
+            if s not in sys.path:
+                sys.path.insert(0, s)
+            break
+    from wisdom_root import resolve_wisdom_root
+
+    return resolve_wisdom_root()
 
 
 def wisdom_fonts_dir() -> Path:
@@ -37,7 +38,15 @@ def wisdom_fonts_dir() -> Path:
 
 def default_thumbnail_output_dir() -> Path:
     """thumbnailPG: 썸네일 저장 기본 폴더."""
-    return _wisdom_repo_root() / "6_thumbnail" / "output"
+    for base in [Path.cwd(), *Path(__file__).resolve().parents]:
+        if (base / "wisdom_root.py").is_file():
+            s = str(base)
+            if s not in sys.path:
+                sys.path.insert(0, s)
+            break
+    from wisdom_workspace import resolve_module_output
+
+    return resolve_module_output("6_thumbnail")
 
 
 def wisdom_font_combobox_values() -> tuple[str, ...]:
@@ -369,14 +378,12 @@ def main() -> None:
             color_var.set(c[1])
 
     def pick_src() -> None:
-        init = default_thumbnail_output_dir()
-        init.mkdir(parents=True, exist_ok=True)
-        cur = src_image.get().strip()
-        if cur and Path(cur).is_file():
-            init = Path(cur).parent
+        from wisdom_workspace import folder_dialog_initial, touch_workspace_from_path
+
+        init = Path(src_image.get().strip()).parent if src_image.get().strip() else default_thumbnail_output_dir()
         p = filedialog.askopenfilename(
             title="원본 이미지",
-            initialdir=str(init),
+            initialdir=folder_dialog_initial(init),
             filetypes=[
                 ("이미지", "*.png *.jpg *.jpeg *.webp *.bmp"),
                 ("모든 파일", "*.*"),
@@ -384,15 +391,19 @@ def main() -> None:
         )
         if p:
             src_image.set(p)
+            touch_workspace_from_path(p)
 
     def pick_out() -> None:
+        from wisdom_workspace import folder_dialog_initial, touch_workspace_from_path
+
         init = Path(out_dir.get().strip()) if out_dir.get().strip() else default_thumbnail_output_dir()
-        if not init.is_dir():
-            init = default_thumbnail_output_dir()
-        init.mkdir(parents=True, exist_ok=True)
-        p = filedialog.askdirectory(title="썸네일 저장 폴더", initialdir=str(init))
+        p = filedialog.askdirectory(
+            title="썸네일 저장 폴더",
+            initialdir=folder_dialog_initial(init),
+        )
         if p:
             out_dir.set(p)
+            touch_workspace_from_path(p)
 
     def sync_form_to_layer() -> None:
         i = cur_layer_idx.get()

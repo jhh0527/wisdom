@@ -4,7 +4,14 @@
 import os
 
 specdir = os.path.dirname(os.path.abspath(SPEC))
-app_py = os.path.normpath(os.path.join(specdir, "..", "manuscript_700_splitter.py"))
+proot = os.path.normpath(os.path.join(specdir, ".."))
+wisdom_repo = os.path.normpath(os.path.join(proot, ".."))
+app_py = os.path.join(proot, "manuscript_700_splitter.py")
+_wisdom_scripts = [
+    os.path.join(wisdom_repo, "wisdom_root.py"),
+    os.path.join(wisdom_repo, "wisdom_bootstrap.py"),
+    os.path.join(wisdom_repo, "wisdom_workspace.py"),
+]
 
 hiddenimports = [
     "tkinter",
@@ -12,11 +19,14 @@ hiddenimports = [
     "tkinter.filedialog",
     "tkinter.messagebox",
     "tkinter.font",
+    "wisdom_root",
+    "wisdom_bootstrap",
+    "wisdom_workspace",
 ]
 
 a = Analysis(
-    [app_py],
-    pathex=[os.path.dirname(app_py)],
+    [app_py, *_wisdom_scripts],
+    pathex=[proot, wisdom_repo],
     binaries=[],
     datas=[],
     hiddenimports=hiddenimports,

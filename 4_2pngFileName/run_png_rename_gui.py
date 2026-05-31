@@ -24,6 +24,12 @@ def _parse_args(argv: list[str] | None = None) -> argparse.Namespace:
 
 
 def main(argv: list[str] | None = None) -> None:
+    _WISDOM = Path(__file__).resolve().parent.parent
+    if str(_WISDOM) not in sys.path:
+        sys.path.insert(0, str(_WISDOM))
+    from wisdom_bootstrap import run as wisdom_run
+
+    work = wisdom_run(__file__)
     args = _parse_args(argv)
 
     if getattr(sys, "frozen", False):
@@ -51,7 +57,7 @@ def main(argv: list[str] | None = None) -> None:
         forward.extend(["--png-dir", str(args.png_dir)])
 
     if not use_source and exe.is_file():
-        r = subprocess.run([str(exe), *forward], cwd=str(root))
+        r = subprocess.run([str(exe), *forward], cwd=str(work))
         raise SystemExit(r.returncode or 0)
 
     from png_rename.gui_app import main as gui_main

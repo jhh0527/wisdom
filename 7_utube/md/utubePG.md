@@ -26,8 +26,9 @@ python run_utube_gui.py
 # 한국 인기 급상승 25개
 python -m utube trending --region KR --max 25
 
-# 키워드 검색 (관련도 순, 최근 30일)
+# 키워드 검색 (관련도 순, 최근 30일, -q 생략 시 전체)
 python -m utube keyword -q "요리" --days 30 --max 50
+python -m utube keyword --days 30 --max 50
 
 # 최근 30일 조회수 순 (검색어 선택)
 python -m utube search -q "요리" --days 30 --max 50
@@ -47,7 +48,7 @@ python -m utube trending --max 50 --csv output/youtube_trending.csv
 | 모드 | 설명 |
 |------|------|
 | 인기 급상승 | `videos.list` + `chart=mostPopular` (지역·카테고리) |
-| 키워드 검색 | `search.list` + `order=relevance` (검색어 필수, 기간) |
+| 키워드 검색 | `search.list` + `order=relevance` (검색어 선택, 비우면 전체) |
 | 조회수 TOP 검색 | `search.list` + `order=viewCount` (기간·검색어 선택) |
 
 ## 의존성

@@ -35,6 +35,12 @@ def load_gui_settings() -> dict[str, str]:
 
 
 def save_gui_settings(*, input_dir: str, output_dir: str) -> None:
+    try:
+        from wisdom_workspace import touch_workspace_from_path
+
+        touch_workspace_from_path(input_dir)
+    except ImportError:
+        pass
     p = config_path()
     p.parent.mkdir(parents=True, exist_ok=True)
     data: dict[str, str] = {"input_dir": input_dir, "output_dir": output_dir}

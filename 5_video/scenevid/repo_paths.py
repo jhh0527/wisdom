@@ -1,88 +1,44 @@
-"""저장소(wisdom) 루트 기준 경로 — 소스·PyInstaller exe 모두 ``intellij/wisdom`` 을 찾습니다."""
+"""저장소(wisdom) 루트 기준 경로 — 열린 워크스페이스 폴더를 기준으로 합니다."""
 
 from __future__ import annotations
 
-import os
 import sys
 from datetime import date
 from pathlib import Path
 
 
-def _looks_like_wisdom_root(p: Path) -> bool:
-    try:
-        r = p.resolve()
-    except OSError:
-        return False
-    return (
-        (r / "5_video").is_dir()
-        and (r / "3_ttsToVoice").is_dir()
-        and (r / "4_srtToImage").is_dir()
-    )
+def _ensure_wisdom_on_path(from_file: str | Path) -> None:
+    for base in [Path.cwd(), *Path(from_file).resolve().parents]:
+        if (base / "wisdom_root.py").is_file():
+            s = str(base)
+            if s not in sys.path:
+                sys.path.insert(0, s)
+            return
+    raise ImportError("wisdom_root.py not found — wisdom 폴더를 워크스페이스 루트로 여세요.")
 
 
-def _resolve_wisdom_root() -> Path:
-    """videoPG 기본 경로용 wisdom 루트.
-
-    - 환경 변수 ``WISDOM_ROOT``
-    - frozen: ``5_video/dist/*.exe`` → 상위가 ``5_video`` → 그 상위가 wisdom
-    - 소스: ``scenevid/repo_paths.py`` 기준 ``parents[2]``
-    - 위가 실패하면 후보 경로에서 상위로 올라가며 탐색
-    """
-    env = os.environ.get("WISDOM_ROOT", "").strip()
-    if env:
-        cand = Path(env).expanduser()
-        if _looks_like_wisdom_root(cand):
-            return cand.resolve()
-
-    candidates: list[Path] = []
-    if getattr(sys, "frozen", False):
-        exe = Path(sys.executable).resolve()
-        candidates.extend([exe.parent, exe.parent.parent, exe.parent.parent.parent])
-    here = Path(__file__).resolve()
-    if len(here.parents) >= 3:
-        candidates.append(here.parents[2])
-    candidates.append(Path.cwd())
-
-    seen: set[str] = set()
-    for start in candidates:
-        key = str(start)
-        if key in seen:
-            continue
-        seen.add(key)
-        p = start
-        for _ in range(8):
-            if _looks_like_wisdom_root(p):
-                return p.resolve()
-            parent = p.parent
-            if parent == p:
-                break
-            p = parent
-
-    if len(here.parents) >= 3:
-        return here.parents[2].resolve()
-    return here.resolve()
-
-
-_WISDOM = _resolve_wisdom_root()
+_ensure_wisdom_on_path(__file__)
+from wisdom_root import module_output, resolve_wisdom_root
+from wisdom_workspace import resolve_module_output
 
 
 def wisdom_repo_root() -> Path:
-    return _WISDOM
+    return resolve_wisdom_root()
 
 
 def default_scenevid_output_dir() -> Path:
     """videoPG: 자막·음성·이미지 합성 산출물 기본 폴더."""
-    return _WISDOM / "5_video" / "output"
+    return resolve_module_output("5_video")
 
 
 def default_tts_voice_output_dir() -> Path:
     """TTS 단계 산출물 (part*.mp3, all.mp3, *.srt 등)."""
-    return _WISDOM / "3_ttsToVoice" / "output"
+    return resolve_module_output("3_ttsToVoice")
 
 
 def default_srt_image_output_dir() -> Path:
     """SRT 이미지 단계 산출물 (SRT_NNN.jpg 등)."""
-    return _WISDOM / "4_srtToImage" / "output"
+    return resolve_module_output("4_srtToImage")
 
 
 def default_scenevid_compose_mp4_name() -> str:
@@ -110,5 +66,3 @@ def pick_default_compose_audio_srt(tts_output: Path | None = None) -> tuple[Path
     if mp3s and srts:
         return mp3s[0], srts[0]
     return (mp3s[0] if mp3s else None, srts[0] if srts else None)
-
-

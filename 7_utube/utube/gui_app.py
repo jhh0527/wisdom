@@ -143,6 +143,11 @@ def main() -> None:
     ttk.Label(opt_fr, text="검색어").grid(row=1, column=0, sticky="w", pady=(6, 0))
     query_ent = ttk.Entry(opt_fr, textvariable=query_var, width=28)
     query_ent.grid(row=1, column=1, columnspan=2, sticky="ew", padx=(4, 12), pady=(6, 0))
+    ttk.Label(
+        opt_fr,
+        text="(비우면 전체)",
+        font=("", 8),
+    ).grid(row=1, column=3, sticky="w", padx=(0, 4), pady=(6, 0))
 
     ttk.Label(opt_fr, text="기간(일)").grid(row=1, column=2, sticky="w", pady=(6, 0))
     days_cb = ttk.Combobox(opt_fr, textvariable=days_var, values=_DAYS, state="readonly", width=6)
@@ -163,7 +168,7 @@ def main() -> None:
     query_ent.bind("<Return>", lambda _e: do_fetch())
 
     status_var = tk.StringVar(
-        value="모드 「키워드 검색」→ 검색어 입력 후 조회(Enter 가능). API 키는 자동 로드됩니다."
+        value="키워드·조회수 TOP: 검색어 비우면 기간·지역 전체 검색. Enter로 조회."
     )
     ttk.Label(frm, textvariable=status_var).grid(row=2, column=0, sticky="w", pady=(0, 4))
 
@@ -266,11 +271,6 @@ def main() -> None:
         key = api_var.get().strip() or load_api_key()
         if not key:
             messagebox.showwarning("조회", "YouTube API 키를 입력·저장하세요.")
-            return
-        mode = mode_var.get()
-        if mode == _MODES[1] and not query_var.get().strip():
-            messagebox.showwarning("키워드 검색", "검색어를 입력하세요.")
-            query_ent.focus_set()
             return
         try:
             mx = int(max_var.get())

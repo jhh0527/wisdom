@@ -154,7 +154,7 @@ def fetch_keyword_search(
     days: int = 30,
     max_results: int = 50,
 ) -> list[VideoItem]:
-    """키워드로 영상 검색 (관련도 순)."""
+    """키워드로 영상 검색 (관련도 순). 검색어가 비어 있으면 기간·지역 기준 전체 검색."""
     if not api_key.strip():
         raise YouTubeApiError("YouTube API 키가 없습니다.")
     ids = _search_video_ids(
@@ -164,7 +164,7 @@ def fetch_keyword_search(
         days=days,
         max_results=max_results,
         order="relevance",
-        require_query=True,
+        require_query=False,
     )
     return _videos_by_ids(api_key, ids)
 

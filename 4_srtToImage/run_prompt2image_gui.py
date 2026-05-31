@@ -6,9 +6,16 @@ from __future__ import annotations
 
 import sys
 import traceback
+from pathlib import Path
 
 
 def main() -> None:
+    _WISDOM = Path(__file__).resolve().parent.parent
+    if str(_WISDOM) not in sys.path:
+        sys.path.insert(0, str(_WISDOM))
+    from wisdom_bootstrap import run as wisdom_run
+
+    wisdom_run(__file__)
     try:
         from prompt2image.gui_app import main as gui_main
 

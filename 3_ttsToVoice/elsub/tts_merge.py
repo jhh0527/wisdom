@@ -15,9 +15,20 @@ _PAUSE_END_CHARS = frozenset(
     "」』\"')】〉"
 )
 
+_LEADING_PART_OPENER_RE = re.compile(
+    r"^\s*\[short pause\]\s*\[breathes\]\s*\[continues\]\s*",
+    re.IGNORECASE,
+)
 _LEADING_PAUSE_TAG_RE = re.compile(
     r"^\s*\[(?:short pause|breathes)(?:\]\s*\[(?:breathes|continues))*\]",
     re.IGNORECASE,
+)
+_LEADING_TAG_STRIP_PATTERNS = (
+    r"^\s*\[short pause\]\s*\[breathes\]\s*\[continues\]\s*",
+    r"^\s*\[short pause\]\s*\[breathes\]\s*",
+    r"^\s*\[short pause\]\s*",
+    r"^\s*\[breathes\]\s*",
+    r"^\s*\[continues\]\s*",
 )
 _LEADING_CONTINUES_RE = re.compile(r"^\s*\[continues\]\s*", re.IGNORECASE)
 _TRAILING_PAUSE_TAG_RE = re.compile(r"\[(?:short pause|breathes)\]\s*$", re.IGNORECASE)
@@ -28,14 +39,55 @@ def tts_has_leading_pause_marker(tts: str) -> bool:
     return bool(_LEADING_PAUSE_TAG_RE.match(tts.strip()))
 
 
+def leading_pause_ms(tts: str) -> int:
+    """TTS 맨 앞 호흡·쉼 태그에 대응하는 무음 길이(ms). API 선행 ``<break>`` 대신 ffmpeg 무음용."""
+    s = tts.strip()
+    if _LEADING_PART_OPENER_RE.match(s):
+        return 1000
+    if re.match(r"^\s*\[short pause\]\s*\[breathes\]", s, re.IGNORECASE):
+        return 1000
+    if re.match(r"^\s*\[short pause\]", s, re.IGNORECASE):
+        return 400
+    if re.match(r"^\s*\[breathes\]", s, re.IGNORECASE):
+        return 500
+    return 0
+
+
+def remove_leading_pause_tags(tts: str) -> str:
+    """맨 앞 쉼·호흡 태그만 제거(본문·줄 중간 태그는 유지)."""
+    s = tts.strip()
+    while True:
+        changed = False
+        for pat in _LEADING_TAG_STRIP_PATTERNS:
+            ns = re.sub(pat, "", s, count=1, flags=re.IGNORECASE)
+            if ns != s:
+                s = ns
+                changed = True
+                break
+        if not changed:
+            break
+    return s.strip()
+
+
+def tts_synthesis_weight(tts: str) -> int:
+    """합성 MP3 길이를 줄별로 나눌 때 선행 무음 구간을 반영한 가중치."""
+    w = len(strip_tts_tags(tts).strip()) or 1
+    pause = leading_pause_ms(tts)
+    if pause:
+        w += max(8, pause // 40)
+    return w
+
+
 def tts_has_trailing_pause_marker(tts: str) -> bool:
     """TTS 끝에 ``[breathes]``·``[short pause]`` 가 있으면 True."""
     return bool(_TRAILING_PAUSE_TAG_RE.search(tts.strip()))
 
 
 def tts_ends_with_pause_punctuation(tts: str) -> bool:
-    """문장·파트 단위 끊김이면 True. 줄 끝 ``[breathes]`` 만 있으면 False(다음 줄과 이어 읽기)."""
+    """문장·호흡 태그·파트 단위 끊김이면 True (다음 줄을 새 합성 묶음으로)."""
     s = tts.strip()
+    if tts_has_trailing_pause_marker(s):
+        return True
     plain = strip_tts_tags(s).strip()
     if plain and plain[-1] in _PAUSE_END_CHARS:
         return True

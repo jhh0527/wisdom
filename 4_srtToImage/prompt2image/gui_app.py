@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import sys
 import threading
 import tkinter as tk
 import traceback
@@ -13,6 +14,11 @@ from prompt2image.backends.openai_image import OpenAIImageBackend
 from prompt2image.backends.pollinations import PollinationsBackend
 from prompt2image.generator import generate_scenes
 from prompt2image.prompt_parser import Scene, parse_markdown_file
+from wisdom_workspace import (
+    folder_dialog_initial,
+    resolve_module_output,
+    touch_workspace_from_path,
+)
 
 
 def _default_font() -> tuple[str, int]:
@@ -37,7 +43,7 @@ def main() -> None:
         "stop": False,
     }
     md_path = tk.StringVar()
-    out_dir = tk.StringVar()
+    out_dir = tk.StringVar(value=str(resolve_module_output("4_srtToImage")))
     backend_var = tk.StringVar(value="pollinations")
     model_var = tk.StringVar(value="flux")
     size_var = tk.StringVar(value="1024x1024")
@@ -131,8 +137,10 @@ def main() -> None:
 
     # 파일 선택
     def pick_md() -> None:
+        init = folder_dialog_initial()
         p = filedialog.askopenfilename(
             title="이미지 프롬프트 마크다운 선택",
+            initialdir=init,
             filetypes=[("Markdown", "*.md"), ("모든 파일", "*.*")],
         )
         if p:
@@ -140,9 +148,13 @@ def main() -> None:
             load_md(Path(p))
 
     def pick_out() -> None:
-        p = filedialog.askdirectory(title="저장 폴더 선택")
+        init = folder_dialog_initial(
+            Path(out_dir.get().strip()) if out_dir.get().strip() else resolve_module_output("4_srtToImage"),
+        )
+        p = filedialog.askdirectory(title="저장 폴더 선택", initialdir=init)
         if p:
             out_dir.set(p)
+            touch_workspace_from_path(p)
 
     btn_pick_md = ttk.Button(row1, text="파일 선택…", command=pick_md)
     btn_pick_md.grid(row=0, column=1)
@@ -275,7 +287,15 @@ def main() -> None:
         threading.Thread(target=work, daemon=True).start()
 
     # 기본 마크다운 자동 추정
-    default_md = Path(__file__).resolve().parents[2] / "로스차일드_이미지프롬프트.md"
+    for base in [Path.cwd(), *Path(__file__).resolve().parents]:
+        if (base / "wisdom_root.py").is_file():
+            s = str(base)
+            if s not in sys.path:
+                sys.path.insert(0, s)
+            break
+    from wisdom_root import resolve_wisdom_root
+
+    default_md = resolve_wisdom_root() / "로스차일드_이미지프롬프트.md"
     if default_md.is_file():
         md_path.set(str(default_md))
         load_md(default_md)

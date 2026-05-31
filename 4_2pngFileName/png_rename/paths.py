@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""wisdom 저장소 기준 기본 경로."""
+"""wisdom 워크스페이스(열린 폴더) 기준 기본 경로."""
 
 from __future__ import annotations
 
@@ -9,13 +9,27 @@ from pathlib import Path
 PROJECT_DIRNAME = "4_2pngFileName"
 
 
+def _ensure_wisdom_on_path(from_file: str | Path) -> None:
+    for base in [Path.cwd(), *Path(from_file).resolve().parents]:
+        if (base / "wisdom_root.py").is_file():
+            s = str(base)
+            if s not in sys.path:
+                sys.path.insert(0, s)
+            return
+    raise ImportError("wisdom_root.py not found — wisdom 폴더를 워크스페이스 루트로 여세요.")
+
+
+_ensure_wisdom_on_path(__file__)
+from wisdom_root import module_dir, module_output, resolve_wisdom_root
+from wisdom_workspace import get_workspace_dir, resolve_module_output
+
+
 def _project_root() -> Path:
+    found = module_dir(PROJECT_DIRNAME)
+    if found.is_dir():
+        return found
     if getattr(sys, "frozen", False):
-        # dist/4_2pngFileName_gui.exe → 상위가 4_2pngFileName
-        exe_dir = Path(sys.executable).resolve().parent
-        if exe_dir.name == "dist" and exe_dir.parent.name == PROJECT_DIRNAME:
-            return exe_dir.parent
-        start = exe_dir
+        start = Path(sys.executable).resolve().parent
     else:
         start = Path(__file__).resolve().parent.parent
     for p in [start, *start.parents]:
@@ -25,21 +39,24 @@ def _project_root() -> Path:
 
 
 def _wisdom_root() -> Path:
-    root = _project_root()
-    for p in [root, *root.parents]:
-        if (p / "3_ttsToVoice").is_dir():
-            return p
-    return root.parent
+    return resolve_wisdom_root()
 
 
 def default_srt_file() -> Path:
-    return _wisdom_root() / "3_ttsToVoice" / "output" / "all.srt"
+    ws = get_workspace_dir()
+    if ws is not None:
+        cand = ws / "3_ttsToVoice" / "output" / "all.srt"
+        if cand.is_file():
+            return cand
+    return resolve_module_output("3_ttsToVoice") / "all.srt"
 
 
 def default_png_dir() -> Path:
-    """기본 PNG 폴더: ``4_1pngToJpg/input``."""
-    root = _wisdom_root()
-    return (root / "4_1pngToJpg" / "input").resolve()
+    """기본 PNG 폴더: ``4_1pngToJpg/input`` (작업 폴더 우선)."""
+    ws = get_workspace_dir()
+    if ws is not None:
+        return (ws / "4_1pngToJpg" / "input").resolve()
+    return (module_dir("4_1pngToJpg") / "input").resolve()
 
 
 def resolve_initial_srt(

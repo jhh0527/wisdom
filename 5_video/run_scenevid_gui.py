@@ -17,11 +17,21 @@ import traceback
 from pathlib import Path
 
 
+def _wisdom_workdir() -> Path:
+    root = Path(__file__).resolve().parent.parent
+    if str(root) not in sys.path:
+        sys.path.insert(0, str(root))
+    from wisdom_bootstrap import run as wisdom_run
+
+    return wisdom_run(__file__)
+
+
 def _dist_gui_exe() -> Path:
     return Path(__file__).resolve().parent / "dist" / "5_video_gui.exe"
 
 
 def main() -> None:
+    work = _wisdom_workdir()
     # PyInstaller 단일 exe로 실행 중이면 여기서 바로 GUI 로드 (dist 재실행 금지).
     if getattr(sys, "frozen", False):
         try:
@@ -49,7 +59,7 @@ def main() -> None:
     if not use_source and exe.is_file():
         r = subprocess.run(
             [str(exe), *sys.argv[1:]],
-            cwd=str(root),
+            cwd=str(work),
         )
         raise SystemExit(r.returncode or 0)
 

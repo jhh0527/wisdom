@@ -117,7 +117,7 @@ def main(argv: list[str] | None = None) -> int:
     pt.set_defaults(func=cmd_trending)
 
     pk = sub.add_parser("keyword", help="키워드 검색 (관련도 순)")
-    pk.add_argument("--query", "-q", required=True, help="검색어 (필수)")
+    pk.add_argument("--query", "-q", default="", help="검색어 (비우면 전체)")
     pk.add_argument("--region", default="KR")
     pk.add_argument("--days", type=int, default=30, help="최근 N일 (1~365)")
     pk.add_argument("--max", type=int, default=25)

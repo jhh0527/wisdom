@@ -5,13 +5,19 @@ import os
 
 specdir = os.path.dirname(os.path.abspath(SPEC))
 proot = os.path.normpath(os.path.join(specdir, ".."))
+wisdom_repo = os.path.normpath(os.path.join(proot, ".."))
+_wisdom_scripts = [
+    os.path.join(wisdom_repo, "wisdom_root.py"),
+    os.path.join(wisdom_repo, "wisdom_bootstrap.py"),
+    os.path.join(wisdom_repo, "wisdom_workspace.py"),
+]
 
 a = Analysis(
-    [os.path.join(proot, "run_thumbnail_gui.py")],
-    pathex=[proot],
+    [os.path.join(proot, "run_thumbnail_gui.py"), *_wisdom_scripts],
+    pathex=[proot, wisdom_repo],
     binaries=[],
     datas=[],
-    hiddenimports=["PIL._tkinter_finder"],
+    hiddenimports=["PIL._tkinter_finder", "wisdom_root", "wisdom_bootstrap", "wisdom_workspace"],
     hookspath=[],
     hooksconfig={},
     runtime_hooks=[],

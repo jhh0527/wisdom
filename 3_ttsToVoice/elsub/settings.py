@@ -8,11 +8,34 @@ import sys
 from dataclasses import dataclass
 from pathlib import Path
 
+PROJECT_DIRNAME = "3_ttsToVoice"
+
+
+def _ensure_wisdom_on_path(from_file: str | Path) -> None:
+    for base in [Path.cwd(), *Path(from_file).resolve().parents]:
+        if (base / "wisdom_root.py").is_file():
+            s = str(base)
+            if s not in sys.path:
+                sys.path.insert(0, s)
+            return
+    raise ImportError("wisdom_root.py not found — wisdom 폴더를 워크스페이스 루트로 여세요.")
+
+
+_ensure_wisdom_on_path(__file__)
+from wisdom_root import module_dir, module_output
+from wisdom_workspace import (
+    folder_dialog_initial,
+    get_workspace_dir,
+    resolve_module_output,
+    touch_workspace_from_path,
+    workspace_module_output,
+)
 
 CONFIG_FILENAME = "elsub_config.json"
 EXAMPLE_FILENAME = "elsub_config.example.json"
+GUI_CONFIG_NAME = "elsub_gui_config.json"
 OUTPUT_DIRNAME = "output"
-PROJECT_DIRNAME = "3_ttsToVoice"
+INPUT_DIRNAME = "input"
 
 
 def config_file_path() -> Path:
@@ -22,22 +45,56 @@ def config_file_path() -> Path:
 
 
 def resolve_output_dir() -> Path:
-    """`3_ttsToVoice/output/` 절대 경로를 반환합니다.
+    """``{작업폴더}/3_ttsToVoice/output`` 또는 wisdom 기본."""
+    return resolve_module_output(PROJECT_DIRNAME)
 
-    - 동결(exe) 모드: 실행 파일 위치에서 `3_ttsToVoice` 디렉터리를 거슬러 올라가 찾고,
-      찾으면 그 하위 `output/`을 사용합니다. 못 찾으면 exe와 같은 폴더의 `output/`.
-    - 개발 모드(스크립트): 패키지 부모(`3_ttsToVoice/`) 하위 `output/`을 사용합니다.
 
-    ASCII 경로를 강제해 Windows ffmpeg 의 비ASCII 경로 문제(병합 실패)를 피합니다.
-    """
+def default_input_dir() -> Path:
+    """기본 입력: 작업 폴더의 ``2_textToTts/output`` 또는 wisdom ``2_textToTts/output``."""
+    ws = get_workspace_dir()
+    if ws is not None:
+        tts_out = ws / "2_textToTts" / OUTPUT_DIRNAME
+        if tts_out.is_dir():
+            return tts_out
+        return ws
+    tts_out = module_dir("2_textToTts") / OUTPUT_DIRNAME
+    if tts_out.is_dir():
+        return tts_out
+    local = module_dir(PROJECT_DIRNAME) / INPUT_DIRNAME
+    local.mkdir(parents=True, exist_ok=True)
+    return local
+
+
+def gui_config_path() -> Path:
     if getattr(sys, "frozen", False):
-        start = Path(sys.executable).resolve().parent
-    else:
-        start = Path(__file__).resolve().parent
-    for p in [start, *start.parents]:
-        if p.name == PROJECT_DIRNAME:
-            return p / OUTPUT_DIRNAME
-    return start / OUTPUT_DIRNAME
+        return Path(sys.executable).resolve().parent / GUI_CONFIG_NAME
+    return module_dir(PROJECT_DIRNAME) / "dist" / GUI_CONFIG_NAME
+
+
+def load_gui_settings() -> dict[str, str]:
+    p = gui_config_path()
+    if not p.is_file():
+        return {}
+    try:
+        data = json.loads(p.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError, ValueError):
+        return {}
+    if not isinstance(data, dict):
+        return {}
+    out: dict[str, str] = {}
+    for key in ("input_dir", "output_dir"):
+        v = data.get(key)
+        if isinstance(v, str) and v.strip():
+            out[key] = v.strip()
+    return out
+
+
+def save_gui_settings(*, input_dir: str, output_dir: str) -> None:
+    touch_workspace_from_path(input_dir)
+    p = gui_config_path()
+    p.parent.mkdir(parents=True, exist_ok=True)
+    data = {"input_dir": input_dir.strip(), "output_dir": output_dir.strip()}
+    p.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
 def copy_bundled_example_if_needed() -> None:

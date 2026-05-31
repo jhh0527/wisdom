@@ -21,6 +21,27 @@ CHUNK_SIZE = 700
 PROJECT_DIRNAME = "1_textTo700Text"
 OUTPUT_DIRNAME = "output"
 
+
+def _ensure_wisdom_on_path(from_file: str | Path) -> None:
+    for base in [Path.cwd(), *Path(from_file).resolve().parents]:
+        if (base / "wisdom_root.py").is_file():
+            s = str(base)
+            if s not in sys.path:
+                sys.path.insert(0, s)
+            return
+    raise ImportError("wisdom_root.py not found — wisdom 폴더를 워크스페이스 루트로 여세요.")
+
+
+_ensure_wisdom_on_path(__file__)
+from wisdom_root import bootstrap, module_output
+from wisdom_workspace import resolve_module_output
+
+
+def resolve_output_dir() -> Path:
+    """``{작업폴더}/1_textTo700Text/output`` 또는 wisdom 기본."""
+    return resolve_module_output(PROJECT_DIRNAME)
+
+
 SENTENCE_END_CHARS = ".?"
 FALLBACK_BREAK_CHARS = ","
 
@@ -38,18 +59,6 @@ def count_chars_with_spaces(text: str) -> int:
 def count_chars_flattened(text: str) -> int:
     """분할 저장 시 사용되는 연속 문자열(줄바꿈 제거)의 공백 포함 글자 수."""
     return len(flatten_for_chunking(text))
-
-
-def resolve_output_dir() -> Path:
-    """`1_textTo700Text/output/` 절대 경로를 반환합니다."""
-    if getattr(sys, "frozen", False):
-        start = Path(sys.executable).resolve().parent
-    else:
-        start = Path(__file__).resolve().parent
-    for p in [start, *start.parents]:
-        if p.name == PROJECT_DIRNAME:
-            return p / OUTPUT_DIRNAME
-    return start / OUTPUT_DIRNAME
 
 
 def _text_widget_content(widget) -> str:
@@ -323,6 +332,7 @@ def main() -> int:
         help="입력 파일이 있어도 GUI를 엽니다",
     )
     args = parser.parse_args()
+    bootstrap()
     out = args.out_dir if args.out_dir is not None else resolve_output_dir()
     out.mkdir(parents=True, exist_ok=True)
 

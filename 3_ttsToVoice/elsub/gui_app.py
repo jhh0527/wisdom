@@ -4,9 +4,11 @@
 - 각 파트(`1.{}`, `2.{}` …)별로 `part01`, `part02` … 이름으로 MP3·SRT·JSON 을 생성합니다.
 - 파트·`all.mp3` 병합은 ffmpeg concat + libmp3lame 재인코딩(128k/44.1kHz/mono) 우선, 실패 시 바이너리 폴백입니다.
 - 통합 `all.*` 파일은 **별도 버튼**으로 출력 폴더의 기존 `part*.` 파일만 읽어 생성합니다.
-- 출력 폴더는 항상 `3_ttsToVoice/output/` 입니다.
+- 출력 폴더는 GUI에서 지정합니다 (기본 ``3_ttsToVoice/output/``).
+- 입력은 붙여넣기 또는 **입력 폴더**의 ``*.txt`` (기본 ``2_textToTts/output/``).
 - 자막 구간 길이는 세그먼트 MP3를 ffprobe 한 값을 사용하고, 파트 전체 길이에 맞게 미세 보정합니다.
-- 문장부호로 끝나지 않은 줄은 다음 줄 TTS를 쉼 없이 붙여 한 API로 자연스럽게 이어 읽습니다.
+- 문장부호로 끝나지 않은 줄은 다음 줄 TTS를 쉼 없이 붙여 한 API로 이어 읽습니다.
+- ``[breathes]``·``[short pause]`` 등은 ElevenLabs SSML ``<break>`` 로 변환해 호흡·쉼을 넣습니다.
 """
 
 from __future__ import annotations
@@ -18,13 +20,15 @@ import traceback
 import tkinter as tk
 from collections import OrderedDict
 from pathlib import Path
-from tkinter import font as tkfont, messagebox, scrolledtext, ttk
+from tkinter import filedialog, font as tkfont, messagebox, scrolledtext, ttk
 
 from elsub import __version__
+from elsub.input_loader import load_tts_text_from_dir
 from elsub.elevenlabs_client import (
     concat_mp3_files,
     concat_mp3_files_binary_from_paths,
     concat_mp3_files_ffmpeg,
+    prepend_silence_mp3,
     strip_tts_tags,
     synthesize_mp3,
 )
@@ -33,14 +37,26 @@ from elsub.parser import CaptionLine, parse_knowledgetts_block
 from elsub.settings import (
     config_file_path,
     copy_bundled_example_if_needed,
+    default_input_dir,
+    load_gui_settings,
     load_settings,
     resolve_output_dir,
+    save_gui_settings,
+)
+from wisdom_workspace import (
+    folder_dialog_initial,
+    get_workspace_dir,
+    touch_workspace_from_path,
+    workspace_module_output,
 )
 from elsub.srt_gen import build_srt_from_durations, estimate_duration_ms, merge_srt_files
 from elsub.tts_merge import (
     group_entries_for_synthesis,
+    leading_pause_ms,
     merge_group_tts,
+    remove_leading_pause_tags,
     split_duration_ms,
+    tts_synthesis_weight,
 )
 
 
@@ -149,18 +165,56 @@ def build_merged_json_from_part_files(
     }
 
 
+def _resolve_dir(raw: str, fallback: Path) -> Path:
+    s = raw.strip()
+    if s:
+        p = Path(s).expanduser().resolve()
+        if p.is_dir():
+            return p
+    return fallback.resolve()
+
+
+def _sync_output_to_workspace() -> None:
+    ws_out = workspace_module_output("3_ttsToVoice")
+    if ws_out is not None:
+        out_var.set(str(ws_out))
+
+
+def _coerce_saved_output(gui_cfg: dict[str, str], in_default: Path) -> Path:
+    """입력은 작업 폴더인데 출력만 wisdom 기본일 때 작업 폴더 하위로 맞춤."""
+    out_saved = gui_cfg.get("output_dir", "").strip()
+    if out_saved:
+        p = Path(out_saved).expanduser()
+        try:
+            if p.is_dir():
+                return p.resolve()
+        except OSError:
+            pass
+    ws = get_workspace_dir()
+    if ws is not None:
+        return resolve_output_dir()
+    return _resolve_dir(out_saved, resolve_output_dir())
+
+
 def main() -> None:
+    copy_bundled_example_if_needed()
+    cfg_path = config_file_path()
+    gui_cfg = load_gui_settings()
+    if gui_cfg.get("input_dir"):
+        touch_workspace_from_path(gui_cfg["input_dir"])
+    in_default = _resolve_dir(gui_cfg.get("input_dir", ""), default_input_dir())
+    out_default = _coerce_saved_output(gui_cfg, in_default)
+
     root = tk.Tk()
     root.title(f"3_ttsToVoice {__version__}")
-    root.minsize(640, 560)
-    root.geometry("820x640")
+    root.minsize(640, 620)
+    root.geometry("820x700")
     fam, sz = _font()
     root.option_add("*Font", (fam, sz))
 
-    copy_bundled_example_if_needed()
-    cfg_path = config_file_path()
-    out_dir = resolve_output_dir()
     status = tk.StringVar()
+    in_var = tk.StringVar(value=str(in_default))
+    out_var = tk.StringVar(value=str(out_default))
     if cfg_path.is_file():
         status.set("대기 중")
     else:
@@ -170,30 +224,92 @@ def main() -> None:
     frm.grid(row=0, column=0, sticky="nsew")
     root.grid_rowconfigure(0, weight=1)
     root.grid_columnconfigure(0, weight=1)
-    frm.grid_rowconfigure(2, weight=1)
     frm.grid_columnconfigure(0, weight=1)
+
+    def row_dir(
+        label: str,
+        var: tk.StringVar,
+        row: int,
+        *,
+        pick_title: str,
+        pick_fallback: Path,
+    ) -> None:
+        ttk.Label(frm, text=label).grid(row=row, column=0, sticky="w", pady=(0, 2))
+        rf = ttk.Frame(frm)
+        rf.grid(row=row + 1, column=0, sticky="ew", pady=(0, 8))
+        rf.grid_columnconfigure(0, weight=1)
+        ttk.Entry(rf, textvariable=var).grid(row=0, column=0, sticky="ew", padx=(0, 6))
+
+        def pick() -> None:
+            initial = var.get().strip()
+            init_dir = folder_dialog_initial(
+                Path(initial) if initial else pick_fallback,
+            )
+            chosen = filedialog.askdirectory(title=pick_title, initialdir=init_dir)
+            if chosen:
+                var.set(chosen)
+                touch_workspace_from_path(chosen)
+                if var is in_var:
+                    _sync_output_to_workspace()
+
+        ttk.Button(rf, text="찾아보기…", command=pick).grid(row=0, column=1)
+
+    row_dir(
+        "입력 폴더 (*.txt)",
+        in_var,
+        0,
+        pick_title="TTS 텍스트 입력 폴더",
+        pick_fallback=in_default,
+    )
+    row_dir(
+        "출력 폴더 (MP3·SRT·JSON)",
+        out_var,
+        2,
+        pick_title="TTS 음성 출력 폴더",
+        pick_fallback=out_default,
+    )
 
     ttk.Label(
         frm,
-        text=(
-            f"API 키·Voice ID·모델은 아래 파일에서만 설정합니다.\n{cfg_path}\n"
-            f"출력 폴더(고정): {out_dir}\n"
-            "① 파트 생성: part01.{mp3,srt,json} …  ② 병합: 출력 폴더의 part* 를 읽어 all.{mp3,srt,json} 생성"
-        ),
+        text=f"API 키·Voice ID·모델: {cfg_path}",
         foreground="gray",
         justify="left",
-    ).grid(row=0, column=0, sticky="w", pady=(0, 8))
+    ).grid(row=4, column=0, sticky="w", pady=(0, 4))
 
-    ttk.Label(frm, text="TTS 변환 결과 붙여넣기 (원본: / TTS: 줄)").grid(row=1, column=0, sticky="sw")
-    txt = scrolledtext.ScrolledText(frm, height=18, wrap="word", font=(fam, sz))
-    txt.grid(row=2, column=0, sticky="nsew", pady=(4, 6))
-    frm.grid_rowconfigure(2, weight=1)
+    head_fr = ttk.Frame(frm)
+    head_fr.grid(row=5, column=0, sticky="ew", pady=(0, 4))
+    ttk.Label(head_fr, text="TTS 변환 결과 (붙여넣기 또는 입력 폴더 불러오기)").pack(side=tk.LEFT)
+
+    def persist_dirs() -> None:
+        save_gui_settings(input_dir=in_var.get(), output_dir=out_var.get())
+
+    def load_from_input_dir(*, quiet: bool = False) -> bool:
+        folder = _resolve_dir(in_var.get(), default_input_dir())
+        try:
+            text = load_tts_text_from_dir(folder)
+        except FileNotFoundError as e:
+            if not quiet:
+                messagebox.showerror("입력 폴더", str(e))
+            return False
+        txt.delete("1.0", tk.END)
+        txt.insert("1.0", text)
+        touch_workspace_from_path(folder)
+        _sync_output_to_workspace()
+        persist_dirs()
+        status.set(f"입력 불러옴: {folder} ({len(list(folder.glob('*.txt')))}개 txt)")
+        return True
+
+    ttk.Button(head_fr, text="입력 폴더 불러오기", command=load_from_input_dir).pack(side=tk.RIGHT)
+
+    txt = scrolledtext.ScrolledText(frm, height=16, wrap="word", font=(fam, sz))
+    txt.grid(row=6, column=0, sticky="nsew", pady=(4, 6))
+    frm.grid_rowconfigure(6, weight=1)
 
     log_fr = ttk.LabelFrame(frm, text="실행 로그", padding=4)
-    log_fr.grid(row=3, column=0, sticky="nsew", pady=(0, 6))
+    log_fr.grid(row=7, column=0, sticky="nsew", pady=(0, 6))
     log_fr.grid_rowconfigure(0, weight=1)
     log_fr.grid_columnconfigure(0, weight=1)
-    frm.grid_rowconfigure(3, weight=0)
+    frm.grid_rowconfigure(7, weight=0)
     log = scrolledtext.ScrolledText(log_fr, height=8, wrap="word", font=(fam, max(9, sz - 1)))
 
     def log_line(s: str) -> None:
@@ -204,9 +320,13 @@ def main() -> None:
 
     busy = {"v": False}
 
+    def _output_dir() -> Path:
+        return _resolve_dir(out_var.get(), resolve_output_dir())
+
     def run_gen() -> None:
         if busy["v"]:
             return
+        persist_dirs()
         s = load_settings()
         key = s.elevenlabs_api_key.strip()
         vid = s.voice_id.strip()
@@ -222,7 +342,15 @@ def main() -> None:
             messagebox.showwarning("설정", f"{cfg_path.name} 에 voice_id 를 넣으세요.")
             return
 
-        block = txt.get("1.0", "end-1c")
+        block = txt.get("1.0", "end-1c").strip()
+        if not block:
+            if not load_from_input_dir(quiet=True):
+                messagebox.showwarning(
+                    "입력",
+                    "TTS 텍스트를 붙여넣거나, 입력 폴더를 지정한 뒤 「입력 폴더 불러오기」를 누르세요.",
+                )
+                return
+            block = txt.get("1.0", "end-1c")
         entries = parse_knowledgetts_block(block)
         if not entries:
             messagebox.showerror("파싱", "유효한 줄이 없습니다.\n`1-1 원본: … TTS: …` 형식인지 확인하세요.")
@@ -239,7 +367,7 @@ def main() -> None:
 
         def work() -> None:
             try:
-                output_dir = resolve_output_dir()
+                output_dir = _output_dir()
                 output_dir.mkdir(parents=True, exist_ok=True)
                 seg_root = output_dir / "segments"
                 seg_root.mkdir(parents=True, exist_ok=True)
@@ -261,23 +389,31 @@ def main() -> None:
                     synth_groups = group_entries_for_synthesis(group_entries)
                     for gidx, grp in enumerate(synth_groups, start=1):
                         merged_tts = merge_group_tts(grp)
+                        pre_pause_ms = leading_pause_ms(merged_tts)
+                        api_tts = (
+                            remove_leading_pause_tags(merged_tts)
+                            if pre_pause_ms
+                            else merged_tts
+                        )
 
                         def upd(n: int = done) -> None:
                             status.set(f"음성 합성… {part_lbl} ({n}/{total_lines})")
 
                         root.after(0, upd)
-                        blob = synthesize_mp3(key, vid, merged_tts, model_id=model)
+                        blob = synthesize_mp3(key, vid, api_tts, model_id=model)
                         seg_p = seg_root / f"{part_lbl}_{gidx:04d}.mp3"
                         seg_p.write_bytes(blob)
+                        if pre_pause_ms:
+                            prepend_silence_mp3(seg_p, pre_pause_ms / 1000.0)
                         part_seg_paths.append(seg_p)
                         part_seg_blobs.append(blob)
 
                         try:
                             group_ms = int(round(ffprobe_duration_sec(seg_p) * 1000))
                         except Exception:
-                            group_ms = estimate_duration_ms(merged_tts)
+                            group_ms = estimate_duration_ms(api_tts) + pre_pause_ms
                         group_ms = max(1, group_ms)
-                        weights = [len(strip_tts_tags(e.tts).strip()) or 1 for e in grp]
+                        weights = [tts_synthesis_weight(e.tts) for e in grp]
                         line_durs = split_duration_ms(group_ms, weights)
                         seg_path = str(seg_p.resolve())
                         for e, dms in zip(grp, line_durs):
@@ -385,7 +521,8 @@ def main() -> None:
     def run_merge_all() -> None:
         if busy["v"]:
             return
-        output_dir = resolve_output_dir()
+        persist_dirs()
+        output_dir = _output_dir()
         part_mp3s = discover_part_mp3_paths(output_dir)
         if not part_mp3s:
             messagebox.showerror(
@@ -467,7 +604,7 @@ def main() -> None:
         threading.Thread(target=work, daemon=True).start()
 
     btn_row = ttk.Frame(frm)
-    btn_row.grid(row=4, column=0, sticky="w", pady=(0, 4))
+    btn_row.grid(row=8, column=0, sticky="w", pady=(0, 4))
     btn_run = ttk.Button(
         btn_row,
         text="파트별 MP3·SRT·JSON 생성 (TTS 합성)",
@@ -480,13 +617,13 @@ def main() -> None:
         command=run_merge_all,
     )
     btn_merge.grid(row=0, column=1, sticky="w")
-    ttk.Label(frm, textvariable=status).grid(row=5, column=0, sticky="w")
+    ttk.Label(frm, textvariable=status).grid(row=9, column=0, sticky="w")
 
     ttk.Label(
         frm,
-        text="elsub_config.json 은 Git·공유에 넣지 마세요.",
+        text="elsub_config.json 은 Git·공유에 넣지 마세요. 작업 폴더는 wisdom/config/wisdom_workspace.json 에 저장됩니다.",
         foreground="gray",
-    ).grid(row=6, column=0, sticky="w", pady=(10, 0))
+    ).grid(row=10, column=0, sticky="w", pady=(10, 0))
 
     root.mainloop()
 

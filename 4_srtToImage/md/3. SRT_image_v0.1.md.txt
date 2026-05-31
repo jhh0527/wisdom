@@ -649,6 +649,9 @@ SRT_1089.png {... (1000초 이상은 자릿수 그대로 사용)}
    ✗ 잘못: SRT_3.png {프롬프트}             (zero-padding 누락)
    ✗ 잘못: SRT_120.png (타임스탬프 그대로 사용, 매칭 SRT 시작초 무시)
 
+   썸네일 라벨은 SRT_999X.png 형식으로 시작한다.
+   예 : SRT_9997.png, SRT_9998.png
+
 13-4. 프롬프트에 한글은 단순 단어만 " " 안에 넣는다.
    ○ 허용: Korean text "수면" and "8시간" displayed
    ✗ 금지: Korean text "그래서 수면이 중요합니다"

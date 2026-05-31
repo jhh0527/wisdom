@@ -45,6 +45,7 @@ from png_rename.settings import (
     save_gui_settings,
     save_manual_overrides,
 )
+from wisdom_workspace import folder_dialog_initial, touch_workspace_from_path
 
 _COL_SEL = "sel"
 _COL_CURRENT = "current"
@@ -133,17 +134,13 @@ def main(
         def pick() -> None:
             cur = var.get().strip()
             if is_dir:
-                init = (
-                    cur
-                    if cur and Path(cur).is_dir()
-                    else str(default_png_dir())
+                init = folder_dialog_initial(
+                    Path(cur) if cur and Path(cur).is_dir() else default_png_dir(),
                 )
                 p = filedialog.askdirectory(title=label, initialdir=init)
             else:
-                init = (
-                    str(Path(cur).parent)
-                    if cur and Path(cur).parent.is_dir()
-                    else str(default_srt_file().parent)
+                init = folder_dialog_initial(
+                    Path(cur).parent if cur and Path(cur).parent.is_dir() else default_srt_file().parent,
                 )
                 p = filedialog.askopenfilename(
                     title=label,
@@ -152,6 +149,7 @@ def main(
                 )
             if p:
                 var.set(p)
+                touch_workspace_from_path(p)
                 refresh_count()
 
         btn = ttk.Button(rf, text="찾아보기…", command=pick)
@@ -526,11 +524,7 @@ def main(
         picked = _choose_mapping_candidate_with_words(row, candidates)
         if picked is None:
             return
-        row.srt_number = picked
-        _sync_cue_text(row)
-        row.target_name = srt_png_name(picked)
-        row.can_rename = _resolve_rename_source(row) is not None
-        _sync_row_match_fields(row)
+        _apply_script_number_to_row(row, picked)
         row.status = (
             f"OCR매핑 선택: {picked}번 (저장 대기)"
             if row.can_rename
@@ -1163,6 +1157,9 @@ def main(
             if 0 <= cidx < len(cols) and cols[cidx] == _COL_MATCH_REASON:
                 _open_mapping_popup_for_row(iid)
                 return
+            if 0 <= cidx < len(cols) and cols[cidx] == _COL_STATUS:
+                _open_script_picker_for_row(iid)
+                return
             if 0 <= cidx < len(cols) and cols[cidx] == _COL_APPLY:
                 _apply_ocr_mapping_for_row(iid)
                 return
@@ -1197,17 +1194,18 @@ def main(
             return
         if not candidates and row.srt_number >= 0:
             candidates = [row.srt_number]
-        if len(candidates) > 1 and row.srt_number not in candidates:
-            row.srt_number = candidates[0]
         if len(candidates) > 1:
             picked = _choose_mapping_candidate(candidates, row.srt_number)
             if picked is None:
                 return
-            row.srt_number = picked
-            _sync_cue_text(row)
-        row.target_name = srt_png_name(row.srt_number)
-        row.can_rename = _resolve_rename_source(row) is not None
-        _sync_row_match_fields(row)
+            n = picked
+        elif row.srt_number >= 0:
+            n = row.srt_number
+        elif candidates:
+            n = candidates[0]
+        else:
+            return
+        _apply_script_number_to_row(row, n)
         row.status = (
             f"OCR매핑 선택: {row.srt_number}번 (저장 대기)"
             if row.can_rename
@@ -1446,8 +1444,164 @@ def main(
             return None
         return n, srt_png_name(n)
 
-    # ---- 셀 직접 편집 (더블클릭) ----
+    # ---- 대본 번호 지정 · 셀 편집 ----
     _cell_editor: tk.Widget | None = None
+
+    def _apply_script_number_to_row(row: MatchPreview, n: int) -> bool:
+        """대본 번호 → ``SRT_XXX.png`` 목표명·rename 원본 경로 확정."""
+        old_src = _resolve_rename_source(row)
+        row.srt_number = n
+        _sync_cue_text(row)
+        tgt_name = srt_png_name(n)
+        row.target_name = tgt_name
+        if old_src is not None and old_src.is_file():
+            try:
+                if old_src.resolve().name != tgt_name:
+                    _rename_source_by_row[id(row)] = old_src.resolve()
+            except OSError:
+                _rename_source_by_row[id(row)] = old_src
+        src = _rename_source_by_row.get(id(row))
+        if src is None:
+            src = _resolve_rename_source(row)
+        row.can_rename = bool(src and src.is_file() and src.name != tgt_name)
+        _sync_row_match_fields(row)
+        return row.can_rename
+
+    def _commit_script_number(row: MatchPreview, val: str, iid: str) -> bool:
+        """대본 번호 지정 후 가능하면 즉시 파일명 변경."""
+        if not _assign_srt_number(row, val):
+            return False
+        if row.can_rename:
+            _rename_row_filename_now(row, iid)
+        else:
+            _refresh_row_display(iid, row)
+            show_preview_for_iid(iid)
+            _save_row_override(row)
+        return True
+
+    def _assign_srt_number(row: MatchPreview, val: str) -> bool:
+        val = val.strip()
+        if not val or val == "—":
+            row.srt_number = -1
+            row.matched = False
+            row.can_rename = False
+            row.status = "대본번호 해제"
+            _rename_source_by_row.pop(id(row), None)
+            return True
+        try:
+            n = int(val)
+        except ValueError:
+            messagebox.showwarning("입력", "대본 번호는 숫자여야 합니다.")
+            return False
+        can = _apply_script_number_to_row(row, n)
+        row.status = (
+            f"변경 지정: {row.target_name} (저장 대기)"
+            if can
+            else f"대본 {n}번 · PNG 없음"
+        )
+        return True
+
+    def _open_script_picker_for_row(iid: str) -> None:
+        row = rows_by_iid.get(iid)
+        if row is None:
+            return
+        _refresh_srt_name_choices()
+        if not srt_cue_map:
+            messagebox.showinfo("대본 번호", "SRT 파일을 먼저 지정하세요.")
+            return
+
+        cues = sorted(srt_cue_map.items(), key=lambda c: c[0])
+        win = tk.Toplevel(root)
+        win.title("대본 번호 선택")
+        win.transient(root)
+        win.grab_set()
+        win.minsize(480, 360)
+        picked: dict[str, int | None] = {"value": None}
+
+        frm_local = ttk.Frame(win, padding=10)
+        frm_local.pack(fill=tk.BOTH, expand=True)
+        ttk.Label(
+            frm_local,
+            text="대본 번호·문장을 선택하세요 (더블클릭 또는 확인).",
+        ).pack(anchor=tk.W)
+
+        list_frm = ttk.Frame(frm_local)
+        list_frm.pack(fill=tk.BOTH, expand=True, pady=(6, 8))
+        list_frm.grid_columnconfigure(0, weight=1)
+        list_frm.grid_rowconfigure(0, weight=1)
+
+        tv = ttk.Treeview(
+            list_frm,
+            columns=("no", "cue"),
+            show="headings",
+            height=12,
+            selectmode="browse",
+        )
+        tv.heading("no", text="대본번호")
+        tv.heading("cue", text="대본 문장")
+        tv.column("no", width=72, anchor=tk.CENTER, stretch=False)
+        tv.column("cue", width=380, anchor=tk.W, stretch=True)
+        vsb = ttk.Scrollbar(list_frm, orient=tk.VERTICAL, command=tv.yview)
+        tv.configure(yscrollcommand=vsb.set)
+        tv.grid(row=0, column=0, sticky="nsew")
+        vsb.grid(row=0, column=1, sticky="ns")
+
+        default_iid = ""
+        for mid, cue in cues:
+            iid_local = f"n{mid}"
+            tv.insert("", tk.END, iid=iid_local, values=(str(mid), cue[:200] if cue else "—"))
+            if mid == row.srt_number:
+                default_iid = iid_local
+        if not default_iid and cues:
+            default_iid = f"n{cues[0][0]}"
+        if default_iid:
+            tv.selection_set(default_iid)
+            tv.focus(default_iid)
+            tv.see(default_iid)
+
+        btns = ttk.Frame(frm_local)
+        btns.pack(anchor=tk.E)
+
+        def ok() -> None:
+            sel = tv.selection()
+            if not sel:
+                picked["value"] = None
+            else:
+                try:
+                    picked["value"] = int(tv.item(sel[0], "values")[0])
+                except (ValueError, TypeError, IndexError):
+                    picked["value"] = None
+            win.destroy()
+
+        def cancel() -> None:
+            picked["value"] = None
+            win.destroy()
+
+        ttk.Button(btns, text="확인", command=ok, width=8).pack(side=tk.LEFT, padx=(0, 6))
+        ttk.Button(btns, text="취소", command=cancel, width=8).pack(side=tk.LEFT)
+        ttk.Button(btns, text="해제", command=lambda: (picked.update(value=-1), ok()), width=8).pack(
+            side=tk.LEFT, padx=(8, 0)
+        )
+        tv.bind("<Double-1>", lambda _e: ok())
+        tv.bind("<Return>", lambda _e: ok())
+        win.bind("<Escape>", lambda _e: cancel())
+        win.protocol("WM_DELETE_WINDOW", cancel)
+        root.wait_window(win)
+
+        if picked["value"] is None:
+            return
+        val = "—" if picked["value"] == -1 else str(picked["value"])
+        if not _commit_script_number(row, val, iid):
+            return
+        status_var.set(
+            f"파일명 변경: {row.target_name}"
+            if row.status.startswith("즉시 저장")
+            else (
+                f"대본 {row.srt_number}번 지정 → {row.target_name}"
+                if row.srt_number >= 0
+                else "대본번호 해제"
+            )
+        )
 
     def _close_cell_editor() -> None:
         nonlocal _cell_editor
@@ -1465,7 +1619,7 @@ def main(
             return
         row = rows_by_iid[iid]
 
-        editable = {_COL_SRT, _COL_CURRENT, _COL_CUE, _COL_STATUS}
+        editable = {_COL_SRT, _COL_CURRENT, _COL_CUE}
         if col_id not in editable:
             return
 
@@ -1485,35 +1639,9 @@ def main(
             show_preview_for_iid(iid)
             _save_row_override(row)
 
-        def _apply_srt_number_choice(val: str) -> bool:
-            val = val.strip()
-            if not val or val == "—":
-                row.srt_number = -1
-                row.matched = False
-                row.can_rename = False
-                row.status = "대본번호 해제"
-                return True
-            try:
-                n = int(val)
-            except ValueError:
-                messagebox.showwarning("입력", "대본 번호는 숫자여야 합니다.")
-                return False
-            row.srt_number = n
-            _sync_cue_text(row)
-            if (row.target_name or "") in ("", "—"):
-                row.target_name = srt_png_name(n)
-            row.can_rename = _resolve_rename_source(row) is not None
-            _sync_row_match_fields(row)
-            row.status = (
-                f"대본 {n}번 · 저장 대기"
-                if row.can_rename
-                else f"대본 {n}번 · PNG 없음"
-            )
-            return True
-
         def commit_entry(val: str) -> None:
             if col_id == _COL_SRT:
-                if not _apply_srt_number_choice(val):
+                if not _assign_srt_number(row, val):
                     return
             elif col_id == _COL_CURRENT:
                 if not val or val == "—":
@@ -1549,8 +1677,6 @@ def main(
                     return
             elif col_id == _COL_CUE:
                 row.cue_text = val
-            elif col_id == _COL_STATUS:
-                row.status = val
             finish_edit()
             _close_cell_editor()
 
@@ -1574,10 +1700,9 @@ def main(
             cb.event_generate("<Down>")
 
             def commit_srt_combo(_event: tk.Event | None = None) -> None:
-                if not _apply_srt_number_choice(cb.get()):
-                    return
-                finish_edit()
+                val = cb.get()
                 _close_cell_editor()
+                _commit_script_number(row, val, iid)
 
             cb.bind("<<ComboboxSelected>>", commit_srt_combo)
             cb.bind("<Return>", commit_srt_combo)
@@ -1588,8 +1713,6 @@ def main(
             cur_val = _edit_current_filename_value(row)
         elif col_id == _COL_CUE:
             cur_val = row.cue_text or ""
-        elif col_id == _COL_STATUS:
-            cur_val = row.status or ""
         else:
             cur_val = ""
 
@@ -1619,6 +1742,9 @@ def main(
             return
         col_id = cols[idx]
         if col_id == _COL_SEL:
+            return
+        if col_id == _COL_STATUS:
+            _open_script_picker_for_row(iid)
             return
         _start_cell_edit(iid, col_id)
 
@@ -1890,22 +2016,8 @@ def main(
                 return
 
             row.srt_number = int(num)
-            _sync_cue_text(row)
-            if (row.target_name or "") in ("", "—"):
-                row.target_name = srt_png_name(num)
-            row.can_rename = _resolve_rename_source(row) is not None
-            _sync_row_match_fields(row)
-            row.status = (
-                f"대본 {num}번 · 저장 대기"
-                if row.can_rename
-                else f"대본 {num}번 · PNG 없음"
-            )
-
-            _refresh_row_display(iid, row)
-            tree.see(iid)
-            show_preview_for_iid(iid)
-            _save_row_override(row)
-            win_status.set(f"대본 {num}번 지정 (현재파일명={srt_png_name(num)})")
+            _commit_script_number(row, str(num), iid)
+            win_status.set(f"대본 {num}번 → {srt_png_name(num)}")
 
         def on_close() -> None:
             nonlocal _search_win

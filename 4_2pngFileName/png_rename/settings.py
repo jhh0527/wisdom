@@ -149,6 +149,12 @@ def save_gui_settings(
 
     data["srt_file"] = srt_file
     data["png_dir"] = png_dir
+    try:
+        from wisdom_workspace import touch_workspace_from_path
+
+        touch_workspace_from_path(png_dir)
+    except ImportError:
+        pass
     if preview_pane_width is not None and preview_pane_width >= 200:
         data["preview_pane_width"] = preview_pane_width
     p.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

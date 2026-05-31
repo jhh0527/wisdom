@@ -5,10 +5,16 @@ import os
 
 specdir = os.path.dirname(os.path.abspath(SPEC))
 proot = os.path.normpath(os.path.join(specdir, ".."))
+wisdom_repo = os.path.normpath(os.path.join(proot, ".."))
+_wisdom_scripts = [
+    os.path.join(wisdom_repo, "wisdom_root.py"),
+    os.path.join(wisdom_repo, "wisdom_bootstrap.py"),
+    os.path.join(wisdom_repo, "wisdom_workspace.py"),
+]
 
 a = Analysis(
-    [os.path.join(proot, "run_png2jpg_gui.py")],
-    pathex=[proot],
+    [os.path.join(proot, "run_png2jpg_gui.py"), *_wisdom_scripts],
+    pathex=[proot, wisdom_repo],
     binaries=[],
     datas=[],
     hiddenimports=[
@@ -23,6 +29,9 @@ a = Analysis(
         "png2jpg.naming",
         "png2jpg.paths",
         "png2jpg.settings",
+        "wisdom_root",
+        "wisdom_bootstrap",
+        "wisdom_workspace",
         "PIL",
         "PIL.Image",
     ],

@@ -7,9 +7,23 @@ from pathlib import Path
 
 
 def module_root() -> Path:
-    """소스: ``7_utube/`` · frozen exe: ``dist/`` (exe와 같은 폴더)."""
+    """``wisdom/7_utube/`` (열린 워크스페이스 기준)."""
+    for base in [Path.cwd(), *Path(__file__).resolve().parents]:
+        if (base / "wisdom_root.py").is_file():
+            s = str(base)
+            if s not in sys.path:
+                sys.path.insert(0, s)
+            break
+    from wisdom_root import module_dir
+
+    mod = module_dir("7_utube")
+    if mod.is_dir():
+        return mod
     if getattr(sys, "frozen", False):
-        return Path(sys.executable).resolve().parent
+        exe = Path(sys.executable).resolve().parent
+        if exe.name == "dist" and exe.parent.name == "7_utube":
+            return exe.parent
+        return exe
     return Path(__file__).resolve().parents[1]
 
 

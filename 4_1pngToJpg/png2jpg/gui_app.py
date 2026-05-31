@@ -22,6 +22,7 @@ from png2jpg.converter import (
 )
 from png2jpg.paths import default_input_dir, default_output_dir
 from png2jpg.settings import load_gui_settings, save_gui_settings
+from wisdom_workspace import folder_dialog_initial, touch_workspace_from_path
 
 
 def _default_font() -> tuple[str, int]:
@@ -117,10 +118,13 @@ def main(
 
         def pick() -> None:
             initial = var.get().strip()
-            init_dir = initial if initial and Path(initial).is_dir() else str(default_input_dir())
+            init_dir = folder_dialog_initial(
+                Path(initial) if initial and Path(initial).is_dir() else default_input_dir(),
+            )
             p = filedialog.askdirectory(title=label, initialdir=init_dir)
             if p:
                 var.set(p)
+                touch_workspace_from_path(p)
                 if on_pick:
                     on_pick()
 

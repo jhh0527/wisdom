@@ -6,7 +6,10 @@ from __future__ import annotations
 import http.client
 import json
 import re
+import shutil
 import ssl
+import subprocess
+import sys
 from pathlib import Path
 from urllib.parse import quote
 
@@ -24,8 +27,18 @@ def strip_tts_tags(text: str) -> str:
 
 
 def prepare_tts_for_api(text: str) -> str:
-    """ElevenLabs API용 텍스트. ``[breathes]`` 등은 SSML ``<break>`` 로 변환합니다."""
+    """ElevenLabs API용 텍스트. ``[breathes]`` 등은 SSML ``<break>`` 로 변환합니다.
+
+    맨 앞 ``<break>`` 는 첫 음절이 작거나 깨지는 경우가 있어 ``leading_pause_ms``·
+    ``prepend_silence_mp3`` 로 처리하고, 여기서는 선행 break 를 제거합니다.
+    """
     s = text.strip()
+    s = re.sub(
+        r"^\s*(?:<break\s+time=\"[^\"]+\"\s*/>\s*)+",
+        "",
+        s,
+        flags=re.IGNORECASE,
+    )
     s = re.sub(
         r"\[short pause\]\s*\[breathes\]\s*\[continues\]",
         '<break time="1.0s" />',
@@ -93,6 +106,47 @@ def synthesize_mp3(
             conn.close()
         except Exception:
             pass
+
+
+def prepend_silence_mp3(mp3_path: Path, silence_sec: float) -> None:
+    """MP3 앞에 무음을 붙입니다 (파트 첫 줄 선행 쉼·호흡용)."""
+    ffmpeg = shutil.which("ffmpeg")
+    if ffmpeg is None:
+        raise RuntimeError(
+            "ffmpeg 가 필요합니다. 선행 쉼 처리를 위해 PATH에 ffmpeg 를 넣으세요."
+        )
+    silence_sec = max(0.05, min(3.0, float(silence_sec)))
+    src = Path(mp3_path).resolve()
+    tmp = src.with_suffix(".prepend_tmp.mp3")
+    kw: dict = dict(capture_output=True, text=True, timeout=300)
+    if sys.platform == "win32":
+        kw["creationflags"] = subprocess.CREATE_NO_WINDOW  # type: ignore[attr-defined]
+    r = subprocess.run(
+        [
+            ffmpeg,
+            "-hide_banner",
+            "-loglevel",
+            "error",
+            "-y",
+            "-f",
+            "lavfi",
+            "-t",
+            str(silence_sec),
+            "-i",
+            "anullsrc=r=44100:cl=mono",
+            "-i",
+            str(src),
+            "-filter_complex",
+            "[0:a][1:a]concat=n=2:v=0:a=1",
+            *_FFMPEG_MP3_ENCODE_ARGS,
+            str(tmp),
+        ],
+        **kw,
+    )
+    if r.returncode != 0:
+        msg = (r.stderr or r.stdout or "").strip()
+        raise RuntimeError(f"선행 무음 삽입 실패: {msg or r.returncode}")
+    tmp.replace(src)
 
 
 def concat_mp3_files(parts: list[bytes], out_path: str) -> None:
