@@ -7,9 +7,62 @@ import os
 import sys
 from pathlib import Path
 
-MARKER_DIRS = ("3_ttsToVoice", "5_video", "4_srtToImage", "1_textTo700Text")
+# wisdom 루트 판별용 (번호 체계 개편 후 폴더명)
+MARKER_DIRS = (
+    "2_1_ttsToVoice",
+    "4_1_video",
+    "2_2_srtToImage",
+    "1_1_textTo700Text",
+)
+
+# canonical → 예전 폴더명 (작업 폴더·저장 경로 호환)
+MODULE_LEGACY_ALIASES: dict[str, tuple[str, ...]] = {
+    "1_1_textTo700Text": ("1_textTo700Text",),
+    "1_2_textToTts": ("2_textToTts",),
+    "2_1_ttsToVoice": ("3_ttsToVoice",),
+    "2_2_srtToImage": ("4_srtToImage",),
+    "3_1_pngFileName": ("4_2pngFileName",),
+    "3_2_pngToJpg": ("4_1pngToJpg",),
+    "4_1_video": ("5_video",),
+    "4_2_ShortVideo": ("5_2_ShortVideo",),
+}
+
+_LEGACY_TO_CANONICAL: dict[str, str] = {
+    legacy: canonical
+    for canonical, legacies in MODULE_LEGACY_ALIASES.items()
+    for legacy in legacies
+}
 
 _installed = False
+
+
+def canonical_module_name(name: str) -> str:
+    """모듈 폴더의 현재(정식) 이름."""
+    return _LEGACY_TO_CANONICAL.get(name, name)
+
+
+def module_name_candidates(name: str) -> tuple[str, ...]:
+    """존재하는 폴더를 찾을 때 시도할 이름 (정식 → 구 이름)."""
+    canonical = canonical_module_name(name)
+    seen: set[str] = set()
+    out: list[str] = []
+    for n in (canonical, name):
+        if n not in seen:
+            seen.add(n)
+            out.append(n)
+    for legacy in MODULE_LEGACY_ALIASES.get(canonical, ()):
+        if legacy not in seen:
+            seen.add(legacy)
+            out.append(legacy)
+    return tuple(out)
+
+
+def _first_existing_child(parent: Path, names: tuple[str, ...]) -> Path | None:
+    for n in names:
+        p = parent / n
+        if p.is_dir():
+            return p
+    return None
 
 
 def looks_like_wisdom_root(p: Path) -> bool:
@@ -18,7 +71,17 @@ def looks_like_wisdom_root(p: Path) -> bool:
     except OSError:
         return False
     hits = sum(1 for name in MARKER_DIRS if (r / name).is_dir())
-    return hits >= 2
+    if hits >= 2:
+        return True
+    # 구 마커만 있는 저장소도 인식
+    legacy_markers = (
+        "3_ttsToVoice",
+        "5_video",
+        "4_srtToImage",
+        "1_textTo700Text",
+    )
+    legacy_hits = sum(1 for name in legacy_markers if (r / name).is_dir())
+    return legacy_hits >= 2
 
 
 def _walk_up(start: Path, *, max_depth: int = 12) -> Path | None:
@@ -75,6 +138,9 @@ def resolve_wisdom_root() -> Path:
     cwd = Path.cwd().resolve()
     if looks_like_wisdom_root(cwd):
         return cwd
+    found_cwd = _walk_up(cwd)
+    if found_cwd is not None:
+        return found_cwd
 
     for start in _candidate_starts():
         if start == cwd:
@@ -87,15 +153,10 @@ def resolve_wisdom_root() -> Path:
 
 
 def _ensure_importable() -> None:
-    root = resolve_wisdom_root()
-    root_str = str(root)
-    if root_str not in sys.path:
-        sys.path.insert(0, root_str)
-    meipass = getattr(sys, "_MEIPASS", None)
-    if meipass:
-        mp = str(meipass)
-        if mp not in sys.path:
-            sys.path.insert(0, mp)
+    root = Path(__file__).resolve().parent
+    s = str(root)
+    if s not in sys.path:
+        sys.path.insert(0, s)
 
 
 def install(*, chdir: bool = True) -> Path:
@@ -118,7 +179,11 @@ def bootstrap() -> Path:
 
 
 def module_dir(name: str) -> Path:
-    return resolve_wisdom_root() / name
+    root = resolve_wisdom_root()
+    found = _first_existing_child(root, module_name_candidates(name))
+    if found is not None:
+        return found
+    return root / canonical_module_name(name)
 
 
 def module_output(name: str) -> Path:

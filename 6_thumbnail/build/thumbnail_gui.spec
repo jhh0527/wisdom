@@ -17,7 +17,12 @@ a = Analysis(
     pathex=[proot, wisdom_repo],
     binaries=[],
     datas=[],
-    hiddenimports=["PIL._tkinter_finder", "wisdom_root", "wisdom_bootstrap", "wisdom_workspace"],
+    hiddenimports=[
+        "PIL._tkinter_finder",
+        "wisdom_root",
+        "wisdom_bootstrap",
+        "wisdom_workspace",
+    ],
     hookspath=[],
     hooksconfig={},
     runtime_hooks=[],

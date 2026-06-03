@@ -6,7 +6,12 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from wisdom_root import module_output, resolve_wisdom_root
+from wisdom_root import (
+    canonical_module_name,
+    module_name_candidates,
+    module_output,
+    resolve_wisdom_root,
+)
 
 CONFIG_REL = Path("config") / "wisdom_workspace.json"
 _KEY = "workspace_dir"
@@ -60,9 +65,12 @@ def _discover_from_module_configs() -> Path | None:
     """다른 모듈 GUI 설정에 저장된 wisdom 밖 폴더를 작업 폴더로 추론."""
     wisdom = resolve_wisdom_root()
     candidates: list[Path] = [
-        wisdom / "4_1pngToJpg" / "dist" / "png2jpg_gui_config.json",
-        wisdom / "3_ttsToVoice" / "dist" / "elsub_gui_config.json",
-        wisdom / "4_2pngFileName" / "dist" / "png_rename_gui_config.json",
+        wisdom / "3_2_pngToJpg" / "dist" / "png2jpg_gui_config.json",
+        wisdom / "2_1_ttsToVoice" / "dist" / "elsub_gui_config.json",
+        wisdom / "3_1_pngFileName" / "dist" / "png_rename_gui_config.json",
+        wisdom / "3_2_pngToJpg" / "dist" / "png2jpg_gui_config.json",
+        wisdom / "2_1_ttsToVoice" / "dist" / "elsub_gui_config.json",
+        wisdom / "3_1_pngFileName" / "dist" / "png_rename_gui_config.json",
     ]
     import sys
 
@@ -139,7 +147,11 @@ def workspace_module_dir(module: str) -> Path | None:
     ws = get_workspace_dir()
     if ws is None:
         return None
-    return ws / module
+    for n in module_name_candidates(module):
+        p = ws / n
+        if p.is_dir():
+            return p
+    return ws / canonical_module_name(module)
 
 
 def workspace_module_output(module: str) -> Path | None:

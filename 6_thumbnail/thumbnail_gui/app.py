@@ -283,11 +283,17 @@ def render_thumbnail_layers(
         canvas.save(dst, quality=92)
 
 
-def main() -> None:
-    root = tk.Tk()
-    root.title("썸네일 스튜디오 (6_thumbnail)")
-    root.minsize(560, 520)
-    root.geometry("800x700")
+def main(*, container: tk.Misc | None = None) -> None:
+    from wisdom_gui_host import apply_window_chrome, run_mainloop, tk_host
+
+    root, standalone = tk_host(container)
+    apply_window_chrome(
+        root,
+        standalone,
+        title="썸네일 스튜디오 (6_thumbnail)",
+        minsize=(560, 520),
+        geometry="800x700",
+    )
 
     wisdom_fonts_dir().mkdir(parents=True, exist_ok=True)
 
@@ -879,4 +885,4 @@ def main() -> None:
     show_preview_empty()
 
     root.grid_columnconfigure(1, weight=1)
-    root.mainloop()
+    run_mainloop(root, standalone)

@@ -5,8 +5,6 @@ alwaysApply: true
 
 # wisdom 공통 정책
 
-`5_video/md/videoPG.md` 「공통」과 동일. wisdom 저장소 PyInstaller·GUI 모듈 작업 시 **매 세션·매 작업** 적용.
-
 ## CLI 사용 안 함
 
 **사용자는 CLI 프로그램을 사용하지 않는다.** (`python -m …`, 콘솔 전용 exe, 터미널 워크플로)
@@ -19,7 +17,7 @@ alwaysApply: true
 
 ## 워크스페이스 루트 (열린 폴더)
 
-모듈 간 기본 경로(`3_ttsToVoice/output`, `5_video/output` 등)는 **IDE·탐색기에서 연 wisdom 폴더**를 루트로 한다.
+모듈 간 기본 경로(`2_1_ttsToVoice/output`, `4_1_video/output` 등)는 **IDE·탐색기에서 연 wisdom 폴더**를 루트로 한다.
 
 - 공통: 저장소 루트 `wisdom_root.py`, GUI 진입 `wisdom_bootstrap.py`
 - `run_*_gui.py` 시작 시 `wisdom_bootstrap.run(__file__)` → `os.chdir(wisdom_root)`
@@ -30,11 +28,11 @@ alwaysApply: true
 
 wisdom **밖**에서 콘텐츠를 작업할 때, 한 GUI에서 처음 고른 폴더가 **작업 폴더**로 `config/wisdom_workspace.json`에 저장된다.
 
-- 다른 모듈 기본 경로: `{작업폴더}/{모듈명}/output` (예: `…/3_ttsToVoice/output`)
+- 다른 모듈 기본 경로: `{작업폴더}/{모듈명}/output` (예: `…/2_1_ttsToVoice/output`)
 - 폴더 선택 대화상자: 작업 폴더를 `initialdir` 우선
 - 기존 `png2jpg_gui_config.json` 등에 저장된 wisdom 밖 경로도 자동 인식
 
-## 공통 (videoPG.md)
+## 공통 
 
 1. **변경된 프로그램이 있으면** 해당 모듈 `build/`의 **spec·`build.bat`을 수정**하여 반영한다.
 2. **기존 프로그램이 실행 중이면** 빌드 시 **중지**하고 **실행 파일을 다시 생성**한다.
@@ -57,7 +55,7 @@ wisdom **밖**에서 콘텐츠를 작업할 때, 한 GUI에서 처음 고른 폴
 taskkill /IM <exe이름>.exe /F 2>nul
 ```
 
-예: `7_utube_gui.exe`, `5_video_gui.exe`, `elsub_gui.exe` 등 (모듈별 `build/*.spec`의 `name=` 확인).
+예: `7_utube_gui.exe`, `4_1_video_gui.exe`, `elsub_gui.exe` 등 (모듈별 `build/*.spec`의 `name=` 확인).
 
 ## 3. 자동 빌드 조건
 
@@ -101,12 +99,13 @@ taskkill /IM <exe이름>.exe /F 2>nul
 
 | 모듈 | build |
 |------|--------|
-| `1_textTo700Text` | `1_textTo700Text/build/` |
-| `3_ttsToVoice` | `3_ttsToVoice/build/build.bat` |
-| `4_1pngToJpg`, `4_2pngFileName`, `4_srtToImage` | 각 `build/` |
-| `5_video` | `5_video/build/build.bat` |
-| `5_2_ShortVideo` | `5_2_ShortVideo/build/build.bat` |
+| `1_1_textTo700Text` | `1_1_textTo700Text/build/` |
+| `2_1_ttsToVoice` | `2_1_ttsToVoice/build/build.bat` |
+| `3_2_pngToJpg`, `3_1_pngFileName`, `2_2_srtToImage` | 각 `build/` |
+| `4_1_video` | `4_1_video/build/build.bat` |
+| `4_2_ShortVideo` | `4_2_ShortVideo/build/build.bat` |
 | `6_thumbnail` | `6_thumbnail/build/` |
 | `7_utube` | `7_utube/build/build.bat` |
+| **통합 허브** (탭) | `build/build_hub.bat` → `dist/wisdom_hub_gui.exe` |
 
-문서화·요구사항은 `5_video/md/videoPG.md` 및 각 모듈 `md/*PG.md`를 본다.
+문서화·요구사항은 `4_1_video/md/videoPG.md` 및 각 모듈 `md/*PG.md`를 본다.

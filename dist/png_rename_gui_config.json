@@ -1,0 +1,124 @@
+{
+  "srt_file": "C:/util/유튜브/고갈된다는석유/tts/all.srt",
+  "png_dir": "C:/util/유튜브/고갈된다는석유/png",
+  "preview_pane_width": 708,
+  "manual_overrides": {
+    "C:\\util\\유튜브\\고갈된다는석유\\png\\SRT_097.png": {
+      "srt_number": 97,
+      "target_name": "SRT_097.png",
+      "cue_text": "냉장고 속 콜라처럼,",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_097.png",
+      "match_reason": "—"
+    },
+    "C:\\util\\유튜브\\고갈된다는석유\\png\\SRT_089.png": {
+      "srt_number": 89,
+      "target_name": "SRT_089.png",
+      "cue_text": "여러분, '매장량' 하면 뭐가 떠오르세요?",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_089.png",
+      "match_reason": "—"
+    },
+    "C:\\util\\유튜브\\고갈된다는석유\\png\\SRT_110.png": {
+      "srt_number": 110,
+      "target_name": "SRT_110.png",
+      "cue_text": "정확히는 \"지금 기술로, 지금 가격에,",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_110.png",
+      "match_reason": "—"
+    },
+    "C:\\util\\유튜브\\고갈된다는석유\\png\\SRT_147.png": {
+      "srt_number": 147,
+      "target_name": "SRT_147.png",
+      "cue_text": "못 캐던 석유가 갑자기",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_147.png",
+      "match_reason": "—"
+    },
+    "C:\\util\\유튜브\\고갈된다는석유\\png\\SRT_130.png": {
+      "srt_number": 130,
+      "target_name": "SRT_130.png",
+      "cue_text": "그런데 어느 날 비밀번호를 알아냈어요.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_130.png",
+      "match_reason": "—"
+    },
+    "C:\\util\\유튜브\\고갈된다는석유\\png\\SRT_392.png": {
+      "srt_number": 392,
+      "target_name": "SRT_392.png",
+      "cue_text": "무슨 뜻일까요?",
+      "word_srt_number": 341,
+      "word_cue_text": "이것들이 바다 밑에 수백만 년 쌓이고",
+      "status": "즉시 저장 완료: SRT_392.png",
+      "match_reason": "압력·213번, 수백만·341번, 석유·1/12/22/28/43/61번"
+    },
+    "C:\\util\\유튜브\\고갈된다는석유\\png\\SRT_424.png": {
+      "srt_number": 424,
+      "target_name": "SRT_424.png",
+      "cue_text": "둘째, 셰일 혁명 같은 기술 발전이",
+      "word_srt_number": 144,
+      "word_cue_text": "기술이라는 '비밀번호'가 풀릴 때마다,",
+      "status": "즉시 저장 완료: SRT_424.png",
+      "match_reason": "기술·110/156/205/253/287/303번, 때마다·144번, 기술의·253번, 풀릴·144번, 비밀번호·125/130/144/159/422번, 석유·1/12/22/28/43/61번"
+    },
+    "C:\\util\\유튜브\\고갈된다는석유\\png\\SRT_059.png": {
+      "srt_number": 59,
+      "target_name": "SRT_059.png",
+      "cue_text": "1970년대 오일쇼크 때는",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_059.png",
+      "match_reason": "세계·239/250번"
+    },
+    "C:\\util\\유튜브\\고갈된다는석유\\png\\SRT_087.png": {
+      "srt_number": 87,
+      "target_name": "SRT_087.png",
+      "cue_text": "딱 한 단어예요. 바로 '매장량'.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_087.png",
+      "match_reason": "—"
+    },
+    "C:\\util\\유튜브\\고갈된다는석유\\png\\SRT_108.png": {
+      "srt_number": 108,
+      "target_name": "SRT_108.png",
+      "cue_text": "땅속 석유의 총량이 아니에요.",
+      "word_srt_number": 291,
+      "word_cue_text": "전체의 몇 퍼센트일 것 같으세요?",
+      "status": "즉시 저장 완료: SRT_108.png",
+      "match_reason": "전체·291번"
+    },
+    "C:\\util\\유튜브\\고갈된다는석유\\png\\SRT_136.png": {
+      "srt_number": 136,
+      "target_name": "SRT_136.png",
+      "cue_text": "천오만 원으로 확 늘어나는 겁니다.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_136.png",
+      "match_reason": "—"
+    },
+    "C:\\util\\유튜브\\고갈된다는석유\\png\\SRT_352.png": {
+      "srt_number": 352,
+      "target_name": "SRT_352.png",
+      "cue_text": "오늘 이거 하나는 꼭 기억해 가세요.",
+      "word_srt_number": 341,
+      "word_cue_text": "이것들이 바다 밑에 수백만 년 쌓이고",
+      "status": "즉시 저장 완료: SRT_352.png",
+      "match_reason": "압력·213번, 수백만·341번, 석유·1/12/22/28/43/61번"
+    },
+    "C:\\util\\유튜브\\고갈된다는석유\\png\\SRT_218.png": {
+      "srt_number": 218,
+      "target_name": "SRT_218.png",
+      "cue_text": "일명 프래킹이에요.",
+      "word_srt_number": 213,
+      "word_cue_text": "또 하나는 물과 모래를 엄청난 압력으로 쏴서",
+      "status": "즉시 저장 완료: SRT_218.png",
+      "match_reason": "엄청난·213번, 압력·213번, 암석·170/216번, 일이·45번, 모래를·213번"
+    }
+  }
+}

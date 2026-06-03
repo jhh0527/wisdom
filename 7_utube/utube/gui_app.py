@@ -78,11 +78,17 @@ def _sort_key(col: str, v: VideoItem, index: int) -> object:
     return index
 
 
-def main() -> None:
-    root = tk.Tk()
-    root.title("7_utube — YouTube 인기·고조회 영상")
-    root.minsize(960, 520)
-    root.geometry("1100x640")
+def main(*, container: tk.Misc | None = None) -> None:
+    from wisdom_gui_host import bind_close, apply_window_chrome, run_mainloop, tk_host
+
+    root, standalone = tk_host(container)
+    apply_window_chrome(
+        root,
+        standalone,
+        title="7_utube — YouTube 인기·고조회 영상",
+        minsize=(960, 520),
+        geometry="1100x640",
+    )
 
     rows_state: list[VideoItem] = []
     keyword_rows_state: list[KeywordItem] = []
@@ -735,10 +741,9 @@ def main() -> None:
 
     def on_close() -> None:
         persist_api_key_if_changed(api_var.get())
-        root.destroy()
 
-    root.protocol("WM_DELETE_WINDOW", on_close)
-    root.mainloop()
+    bind_close(root, standalone, on_close)
+    run_mainloop(root, standalone)
 
 
 if __name__ == "__main__":

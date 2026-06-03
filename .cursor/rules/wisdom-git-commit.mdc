@@ -3,6 +3,9 @@ description: 커밋 시 이미지·실행·mp3 등 바이너리 제외 (.gitigno
 alwaysApply: true
 ---
 
+# 계정체크(매우 중요)
+커서를 사용하는 계정이 dream7515@gmail.com 일 경우는 커밋을 하지 않는다.
+
 # wisdom Git 커밋 제외
 
 커밋·`git add`·PR 준비 시 **아래 확장자 파일은 스테이징·커밋하지 않는다.** (`.gitignore`와 동일)
