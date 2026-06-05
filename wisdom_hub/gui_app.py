@@ -3,6 +3,8 @@
 
 from __future__ import annotations
 
+import sys
+
 import tkinter as tk
 from tkinter import ttk
 
@@ -58,7 +60,10 @@ def main() -> None:
 
     nb.bind("<<NotebookTabChanged>>", on_tab_changed)
     ensure_loaded(HUB_TABS[0][1])
-    root.mainloop()
+    try:
+        root.mainloop()
+    finally:
+        sys.exit(0)
 
 
 if __name__ == "__main__":

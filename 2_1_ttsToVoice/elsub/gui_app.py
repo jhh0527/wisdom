@@ -197,7 +197,14 @@ def _coerce_saved_output(gui_cfg: dict[str, str], in_default: Path) -> Path:
 
 
 def main(*, container: tk.Misc | None = None) -> None:
-    from wisdom_gui_host import apply_window_chrome, run_mainloop, tk_host
+    from wisdom_gui_host import (
+        apply_window_chrome,
+        bind_hub_destroy,
+        run_mainloop,
+        safe_after,
+        safe_messagebox,
+        tk_host,
+    )
 
     copy_bundled_example_if_needed()
     cfg_path = config_file_path()
@@ -408,7 +415,7 @@ def main(*, container: tk.Misc | None = None) -> None:
                         def upd(n: int = done) -> None:
                             status.set(f"음성 합성… {part_lbl} ({n}/{total_lines})")
 
-                        root.after(0, upd)
+                        safe_after(root, upd)
                         blob = synthesize_mp3(key, vid, api_tts, model_id=model)
                         seg_p = seg_root / f"{part_lbl}_{gidx:04d}.mp3"
                         seg_p.write_bytes(blob)
@@ -427,7 +434,7 @@ def main(*, container: tk.Misc | None = None) -> None:
                         seg_path = str(seg_p.resolve())
                         for e, dms in zip(grp, line_durs):
                             done += 1
-                            root.after(0, upd)
+                            safe_after(root, upd)
                             seg_durs_ms.append(dms)
                             line_segment_mp3.append(seg_path)
 
@@ -490,7 +497,7 @@ def main(*, container: tk.Misc | None = None) -> None:
                     def log_part(p: str = part_lbl, m: str = part_merge_note) -> None:
                         log_line(f"[{p}] mp3/srt/json 생성 완료 (mp3 병합: {m})")
 
-                    root.after(0, log_part)
+                    safe_after(root, log_part)
 
                 def ok() -> None:
                     status.set("완료")
@@ -498,7 +505,9 @@ def main(*, container: tk.Misc | None = None) -> None:
                     log_line(f"출력 폴더: {output_dir}")
                     log_line(f"세그먼트 폴더: {seg_root}")
                     log_line("통합 all.* 은 「병합 파일 생성」 버튼으로 만드세요.")
-                    messagebox.showinfo(
+                    safe_messagebox(
+                        root,
+                        "showinfo",
                         "완료",
                         f"파트 수: {len(groups)}\n"
                         f"출력 폴더: {output_dir}\n\n"
@@ -506,16 +515,21 @@ def main(*, container: tk.Misc | None = None) -> None:
                         "자막 시간은 각 세그먼트 MP3(ffprobe) 길이에 맞춥니다. ffprobe 없으면 글자 수 추정으로 대체됩니다.",
                     )
 
-                root.after(0, ok)
+                safe_after(root, ok)
             except Exception:
                 err = traceback.format_exc()
 
                 def fail() -> None:
                     status.set("오류")
                     log_line(err)
-                    messagebox.showerror("오류", "실패했습니다. 하단 실행 로그를 복사해 확인하세요.")
+                    safe_messagebox(
+                        root,
+                        "showerror",
+                        "오류",
+                        "실패했습니다. 하단 실행 로그를 복사해 확인하세요.",
+                    )
 
-                root.after(0, fail)
+                safe_after(root, fail)
             finally:
 
                 def fin() -> None:
@@ -523,7 +537,7 @@ def main(*, container: tk.Misc | None = None) -> None:
                     btn_run.state(["!disabled"])
                     btn_merge.state(["!disabled"])
 
-                root.after(0, fin)
+                safe_after(root, fin)
 
         threading.Thread(target=work, daemon=True).start()
 
@@ -586,21 +600,28 @@ def main(*, container: tk.Misc | None = None) -> None:
                     log_line(f"MP3: {all_mp3}")
                     log_line(f"SRT: {all_srt}")
                     log_line(f"JSON: {all_json}")
-                    messagebox.showinfo(
+                    safe_messagebox(
+                        root,
+                        "showinfo",
                         "병합 완료",
                         f"all.mp3\nall.srt\nall.json\n\n폴더: {output_dir}",
                     )
 
-                root.after(0, ok)
+                safe_after(root, ok)
             except Exception:
                 err = traceback.format_exc()
 
                 def fail() -> None:
                     status.set("병합 오류")
                     log_line(err)
-                    messagebox.showerror("병합 오류", "실패했습니다. 실행 로그를 확인하세요.")
+                    safe_messagebox(
+                        root,
+                        "showerror",
+                        "병합 오류",
+                        "실패했습니다. 실행 로그를 확인하세요.",
+                    )
 
-                root.after(0, fail)
+                safe_after(root, fail)
             finally:
 
                 def fin() -> None:
@@ -608,7 +629,7 @@ def main(*, container: tk.Misc | None = None) -> None:
                     btn_run.state(["!disabled"])
                     btn_merge.state(["!disabled"])
 
-                root.after(0, fin)
+                safe_after(root, fin)
 
         threading.Thread(target=work, daemon=True).start()
 
@@ -633,6 +654,9 @@ def main(*, container: tk.Misc | None = None) -> None:
         text="elsub_config.json 은 Git·공유에 넣지 마세요. 작업 폴더는 wisdom/config/wisdom_workspace.json 에 저장됩니다.",
         foreground="gray",
     ).grid(row=10, column=0, sticky="w", pady=(10, 0))
+
+    if not standalone:
+        bind_hub_destroy(root, lambda: None)
 
     run_mainloop(root, standalone)
 

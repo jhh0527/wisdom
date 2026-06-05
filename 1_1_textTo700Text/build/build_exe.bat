@@ -52,6 +52,10 @@ if errorlevel 1 (
 echo 빌드 도구 설치...
 "!PYEXE!" -m pip install -q -r "%~dp0requirements-build.txt"
 if errorlevel 1 exit /b 1
+echo Playwright ^(Genspark 채팅 검색^)...
+"!PYEXE!" -m pip install -q -r "%~dp0..\requirements-automation.txt"
+if errorlevel 1 exit /b 1
+"!PYEXE!" -m playwright install chrome 2>nul
 
 echo PyInstaller 실행...
 "!PYEXE!" -m PyInstaller --clean --noconfirm --distpath "!PROOT!\dist" --workpath "%~dp0work" "%~dp0manuscript_700_splitter.spec"

@@ -154,19 +154,31 @@ def write_chunk_files(chunks: list[str], out_dir: Path, stem: str) -> list[Path]
 
 
 def run_gui(*, container: tk.Misc | None = None) -> int:
+    import threading
     import tkinter as tk
     from tkinter import filedialog, messagebox, font as tkfont
     from tkinter import ttk
 
-    from wisdom_gui_host import apply_window_chrome, run_mainloop, tk_host
+    from genspark_chat import (
+        chat_profile_dir,
+        open_genspark_chat_in_chrome,
+        run_submit_search_sync,
+    )
+    from wisdom_gui_host import (
+        apply_window_chrome,
+        bind_hub_destroy,
+        run_mainloop,
+        safe_after,
+        tk_host,
+    )
 
     root, standalone = tk_host(container)
     apply_window_chrome(
         root,
         standalone,
         title=f"대본 {CHUNK_SIZE}자 분할 저장 (문장 종결 기준)",
-        minsize=(560, 420),
-        geometry="760x520",
+        minsize=(560, 520),
+        geometry="760x620",
     )
 
     try:
@@ -194,7 +206,7 @@ def run_gui(*, container: tk.Misc | None = None) -> int:
     scroll_y.grid(row=1, column=1, sticky="ns", pady=(4, 8))
 
     row_opts = ttk.Frame(frm)
-    row_opts.grid(row=3, column=0, columnspan=2, sticky="ew", pady=(0, 6))
+    row_opts.grid(row=4, column=0, columnspan=2, sticky="ew", pady=(0, 6))
     row_opts.grid_columnconfigure(1, weight=1)
 
     ttk.Label(row_opts, text="저장 폴더(고정)").grid(row=0, column=0, sticky="nw", padx=(0, 6))
@@ -209,10 +221,95 @@ def run_gui(*, container: tk.Misc | None = None) -> int:
     ttk.Entry(row_opts, textvariable=stem_var).grid(row=1, column=1, columnspan=2, sticky="ew", pady=(6, 0))
 
     row_btns = ttk.Frame(frm)
-    row_btns.grid(row=4, column=0, columnspan=2, sticky="ew", pady=(4, 6))
+    row_btns.grid(row=5, column=0, columnspan=2, sticky="ew", pady=(4, 6))
 
     char_count_var = tk.StringVar(value="공백 포함 글자수: 0  |  분할 기준(줄바꿈 제거): 0")
     ttk.Label(frm, textvariable=char_count_var).grid(row=2, column=0, columnspan=2, sticky="w", pady=(0, 4))
+
+    genspark_frm = ttk.LabelFrame(frm, text="Genspark 채팅 (사실 검증)", padding=(6, 4))
+    genspark_frm.grid(row=3, column=0, columnspan=2, sticky="ew", pady=(0, 8))
+    genspark_frm.grid_columnconfigure(0, weight=1)
+
+    ttk.Label(genspark_frm, text="검색어").grid(row=0, column=0, sticky="w")
+    search_txt = tk.Text(genspark_frm, height=3, wrap=tk.WORD, font=text_font, padx=4, pady=4)
+    search_txt.grid(row=1, column=0, sticky="ew", pady=(2, 6))
+
+    genspark_btns = ttk.Frame(genspark_frm)
+    genspark_btns.grid(row=2, column=0, sticky="w")
+    _genspark_busy = {"open": False, "search": False}
+
+    def _set_status(msg: str) -> None:
+        status.config(text=msg)
+
+    def _copy_search_clipboard(text: str) -> None:
+        root.clipboard_clear()
+        root.clipboard_append(text)
+        root.update_idletasks()
+
+    def open_chat_browser() -> None:
+        try:
+            open_genspark_chat_in_chrome()
+        except Exception as e:
+            messagebox.showerror("브라우저", str(e))
+            _set_status(f"브라우저 열기 실패: {e}")
+            return
+        _set_status(
+            "Chrome에서 Genspark 채팅을 열었습니다. "
+            "검색어 조회: 자동 전송 또는 클립보드 복사 후 Ctrl+V"
+        )
+
+    def do_search_query() -> None:
+        if _genspark_busy["search"]:
+            return
+        query = search_txt.get("1.0", "end-1c").strip()
+        if not query:
+            messagebox.showwarning("검색어", "검색어 입력란에 내용을 입력하세요.")
+            return
+        _genspark_busy["search"] = True
+        btn_search.configure(state=tk.DISABLED)
+        profile = chat_profile_dir(output_dir)
+
+        def work() -> None:
+            err: Exception | None = None
+            mode = ""
+            try:
+                mode = run_submit_search_sync(
+                    profile,
+                    query,
+                    on_status=lambda m: safe_after(root, lambda msg=m: _set_status(msg)),
+                    copy_for_manual=_copy_search_clipboard,
+                )
+            except Exception as ex:
+                err = ex
+
+            def done() -> None:
+                _genspark_busy["search"] = False
+                try:
+                    btn_search.configure(state=tk.NORMAL)
+                except tk.TclError:
+                    pass
+                if err:
+                    messagebox.showerror("검색어 조회", str(err))
+                    _set_status(f"검색어 조회 실패: {err}")
+                elif mode == "manual":
+                    messagebox.showinfo(
+                        "검색어 조회",
+                        "검색어를 클립보드에 복사했습니다.\n"
+                        "열린 Genspark 채팅 입력란에 Ctrl+V 로 붙여넣으세요.",
+                    )
+                    _set_status("검색어 복사 · Chrome 열림 — Ctrl+V 로 붙여넣기")
+                else:
+                    _set_status("Genspark 채팅에 검색어를 전송했습니다.")
+
+            safe_after(root, done)
+
+        _set_status("Genspark 채팅에 검색어 전송 중…")
+        threading.Thread(target=work, daemon=True).start()
+
+    btn_browser = ttk.Button(genspark_btns, text="브라우저 열기", command=open_chat_browser)
+    btn_browser.pack(side=tk.LEFT, padx=(0, 8))
+    btn_search = ttk.Button(genspark_btns, text="검색어 조회", command=do_search_query)
+    btn_search.pack(side=tk.LEFT)
 
     status = tk.Label(frm, anchor=tk.W, justify=tk.LEFT, relief=tk.SUNKEN, padx=6, pady=4)
 
@@ -276,8 +373,8 @@ def run_gui(*, container: tk.Misc | None = None) -> int:
         command=do_split_save,
     ).pack(side=tk.LEFT)
 
-    status.grid(row=5, column=0, columnspan=2, sticky="ew")
-    frm.grid_rowconfigure(5, weight=0)
+    status.grid(row=6, column=0, columnspan=2, sticky="ew")
+    frm.grid_rowconfigure(6, weight=0)
 
     status.config(
         text=(
@@ -286,6 +383,8 @@ def run_gui(*, container: tk.Misc | None = None) -> int:
         ),
     )
     update_char_count()
+    if not standalone:
+        bind_hub_destroy(root, lambda: None)
     run_mainloop(root, standalone)
     return 0
 

@@ -80,7 +80,14 @@ def _default_font() -> tuple[str, int]:
 
 
 def main(*, container: tk.Misc | None = None) -> None:
-    from wisdom_gui_host import apply_window_chrome, run_mainloop, tk_host
+    from wisdom_gui_host import (
+        apply_window_chrome,
+        bind_hub_destroy,
+        run_mainloop,
+        safe_after,
+        safe_messagebox,
+        tk_host,
+    )
 
     prepend_local_ffmpeg_bin_to_os_path()
     root, standalone = tk_host(container)
@@ -1088,7 +1095,7 @@ def main(*, container: tk.Misc | None = None) -> None:
                 progress_pct_var.set(f"{pct}%")
                 status_var.set(msg[:240])
 
-            root.after(0, ui)
+            safe_after(root, ui)
 
         def work() -> None:
             try:
@@ -1101,9 +1108,9 @@ def main(*, container: tk.Misc | None = None) -> None:
                     progress_pct_var.set("100%")
                     status_var.set(f"완료: {fp}")
                     log_line(f"합성 완료: {fp}")
-                    messagebox.showinfo("4_1_video", f"완료\n{fp}")
+                    safe_messagebox(root, "showinfo", "4_1_video", f"완료\n{fp}")
 
-                root.after(0, ok)
+                safe_after(root, ok)
             except Exception as e:
                 tb = traceback.format_exc()
 
@@ -1113,9 +1120,9 @@ def main(*, container: tk.Misc | None = None) -> None:
                     progress_pct_var.set("0%")
                     status_var.set("오류")
                     log_line(tb)
-                    messagebox.showerror("4_1_video", str(e))
+                    safe_messagebox(root, "showerror", "4_1_video", str(e))
 
-                root.after(0, err)
+                safe_after(root, err)
 
         threading.Thread(target=work, daemon=True).start()
 
@@ -1179,7 +1186,7 @@ def main(*, container: tk.Misc | None = None) -> None:
                     status_var.set(f"완료: {p / 'output' / 'final.mp4'}")
                     log_line(f"프로젝트 all 완료 → {p / 'output' / 'final.mp4'}")
 
-                root.after(0, ok)
+                safe_after(root, ok)
             except Exception as e:
                 tb = traceback.format_exc()
 
@@ -1187,9 +1194,9 @@ def main(*, container: tk.Misc | None = None) -> None:
                     btn_all.configure(state=tk.NORMAL)
                     status_var.set("오류")
                     log_line(tb)
-                    messagebox.showerror("4_1_video", str(e))
+                    safe_messagebox(root, "showerror", "4_1_video", str(e))
 
-                root.after(0, err)
+                safe_after(root, err)
 
         threading.Thread(target=work, daemon=True).start()
 
@@ -1199,5 +1206,8 @@ def main(*, container: tk.Misc | None = None) -> None:
 
     apply_pipeline_defaults()
     timeline_refresh(silent=True)
+
+    if not standalone:
+        bind_hub_destroy(root, lambda: None)
 
     run_mainloop(root, standalone)

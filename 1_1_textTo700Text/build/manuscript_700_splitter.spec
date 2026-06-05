@@ -2,6 +2,7 @@
 """대본 700자 분할 GUI (콘솔 없음, 단일 exe)."""
 
 import os
+from PyInstaller.utils.hooks import collect_all
 
 specdir = os.path.dirname(os.path.abspath(SPEC))
 proot = os.path.normpath(os.path.join(specdir, ".."))
@@ -12,6 +13,7 @@ _wisdom_scripts = [
     os.path.join(wisdom_repo, "wisdom_bootstrap.py"),
     os.path.join(wisdom_repo, "wisdom_workspace.py"),
 ]
+_pw_datas, _pw_binaries, _pw_hidden = collect_all("playwright")
 
 hiddenimports = [
     "tkinter",
@@ -27,9 +29,15 @@ hiddenimports = [
 a = Analysis(
     [app_py, *_wisdom_scripts],
     pathex=[proot, wisdom_repo],
-    binaries=[],
-    datas=[],
-    hiddenimports=hiddenimports,
+    binaries=_pw_binaries,
+    datas=_pw_datas,
+    hiddenimports=hiddenimports
+    + [
+        "genspark_chat",
+        "playwright",
+        "playwright.async_api",
+        *_pw_hidden,
+    ],
     hookspath=[],
     hooksconfig={},
     runtime_hooks=[],

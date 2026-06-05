@@ -26,10 +26,13 @@ def main() -> None:
                 import tkinter as tk
                 from tkinter import messagebox
 
-                r = tk.Tk()
-                r.withdraw()
-                messagebox.showerror("wisdom 허브", traceback.format_exc())
-                r.destroy()
+                from wisdom_gui_host import is_hub_shutting_down
+
+                if not is_hub_shutting_down():
+                    r = tk.Tk()
+                    r.withdraw()
+                    messagebox.showerror("wisdom 허브", traceback.format_exc())
+                    r.destroy()
             except Exception:
                 pass
         else:

@@ -6,12 +6,72 @@ from __future__ import annotations
 from typing import Callable
 
 import tkinter as tk
+from tkinter import messagebox
 
 _hub_shutting_down = False
 
 
 def is_hub_shutting_down() -> bool:
     return _hub_shutting_down
+
+
+def ui_alive(root: tk.Misc, *, closing: bool = False) -> bool:
+    """허브·모듈 종료 중이면 UI 갱신·팝업을 막습니다."""
+    if closing or is_hub_shutting_down():
+        return False
+    try:
+        return bool(root.winfo_exists())
+    except tk.TclError:
+        return False
+
+
+def safe_after(root: tk.Misc, fn: Callable[[], None], *, closing: bool = False) -> None:
+    """``after(0, …)`` — 허브 종료 후 새 Tk 창이 뜨지 않도록 보호합니다."""
+
+    def wrapper() -> None:
+        if not ui_alive(root, closing=closing):
+            return
+        try:
+            fn()
+        except tk.TclError:
+            pass
+
+    if not ui_alive(root, closing=closing):
+        return
+    try:
+        root.after(0, wrapper)
+    except tk.TclError:
+        pass
+
+
+def safe_messagebox(
+    root: tk.Misc,
+    kind: str,
+    title: str,
+    message: str,
+    **kwargs: object,
+) -> None:
+    """허브 종료 중 ``messagebox`` 가 새 루트 창을 만들지 않도록 합니다."""
+    if not ui_alive(root):
+        return
+    func = getattr(messagebox, kind, None)
+    if func is None:
+        return
+    try:
+        func(title, message, parent=root, **kwargs)
+    except tk.TclError:
+        pass
+
+
+def bind_hub_destroy(root: tk.Misc, on_close: Callable[[], None]) -> None:
+    """허브 탭(Frame) 에 붙은 모듈 — 허브 창 닫힐 때 정리 콜백 실행."""
+    hub_root = root.winfo_toplevel()
+
+    def _on_hub_destroy(event: tk.Event) -> None:
+        if event.widget is hub_root:
+            on_close()
+
+    hub_root.bind("<Destroy>", _on_hub_destroy, add="+")
 
 
 def request_shutdown(root: tk.Misc) -> None:
@@ -35,7 +95,7 @@ def request_shutdown(root: tk.Misc) -> None:
 
 
 def _destroy_toplevels(widget: tk.Misc) -> None:
-    for child in widget.winfo_children():
+    for child in list(widget.winfo_children()):
         _destroy_toplevels(child)
         try:
             if child.winfo_class() == "Toplevel":

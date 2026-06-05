@@ -26,10 +26,13 @@ def main() -> None:
                 import tkinter as tk
                 from tkinter import messagebox
 
-                root = tk.Tk()
-                root.withdraw()
-                messagebox.showerror("2_2_srtToImage GUI", traceback.format_exc())
-                root.destroy()
+                from wisdom_gui_host import is_hub_shutting_down
+
+                if not is_hub_shutting_down():
+                    err_root = tk.Tk()
+                    err_root.withdraw()
+                    messagebox.showerror("2_2_srtToImage GUI", traceback.format_exc())
+                    err_root.destroy()
             except Exception:
                 pass
         else:

@@ -3,7 +3,7 @@
 
 import os
 
-from PyInstaller.utils.hooks import collect_submodules
+from PyInstaller.utils.hooks import collect_all, collect_submodules
 
 specdir = os.path.dirname(os.path.abspath(SPEC))
 wisdom_repo = os.path.normpath(os.path.join(specdir, ".."))
@@ -32,10 +32,17 @@ _wisdom_scripts = [
     os.path.join(wisdom_repo, "wisdom_hub", "loaders.py"),
     os.path.join(wisdom_repo, "wisdom_hub", "gui_app.py"),
     os.path.join(wisdom_repo, "1_1_textTo700Text", "manuscript_700_splitter.py"),
+    os.path.join(wisdom_repo, "1_1_textTo700Text", "genspark_chat.py"),
 ]
+_pw_datas, _pw_binaries, _pw_hidden = collect_all("playwright")
 
 _example = os.path.join(wisdom_repo, "2_1_ttsToVoice", "elsub_config.example.json")
-datas = [(_example, ".")] if os.path.isfile(_example) else []
+_image_guide = os.path.join(wisdom_repo, "2_2_srtToImage", "md", "image.md.txt")
+datas = []
+if os.path.isfile(_example):
+    datas.append((_example, "."))
+if os.path.isfile(_image_guide):
+    datas.append((_image_guide, "md"))
 
 _hidden_pkgs = (
     "elsub",
@@ -61,6 +68,11 @@ hiddenimports: list[str] = [
     "wisdom_workspace",
     "wisdom_gui_host",
     "manuscript_700_splitter",
+    "genspark_chat",
+    "browser_cookie3",
+    "playwright",
+    "playwright.async_api",
+    *_pw_hidden,
     "PIL",
     "PIL.Image",
     "PIL.ImageDraw",
@@ -74,8 +86,8 @@ for _pkg in _hidden_pkgs:
 a = Analysis(
     [os.path.join(wisdom_repo, "run_wisdom_hub_gui.py"), *_wisdom_scripts],
     pathex=_pathex,
-    binaries=[],
-    datas=datas,
+    binaries=_pw_binaries,
+    datas=datas + _pw_datas,
     hiddenimports=hiddenimports,
     hookspath=[],
     hooksconfig={},

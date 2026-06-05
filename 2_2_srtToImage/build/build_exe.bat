@@ -52,6 +52,10 @@ if errorlevel 1 (
 echo 빌드 도구 설치...
 "!PYEXE!" -m pip install -q -r "%~dp0requirements-build.txt"
 if errorlevel 1 exit /b 1
+echo Playwright ^(Genspark 자동 다운로드^)...
+"!PYEXE!" -m pip install -q -r "%~dp0..\requirements-automation.txt"
+if errorlevel 1 exit /b 1
+"!PYEXE!" -m playwright install chrome 2>nul
 
 if exist "%~dp0work" rmdir /s /q "%~dp0work"
 echo PyInstaller 실행 ^(CLI: "!PROOT!\dist\2_2_srtToImage.exe"^)...
@@ -66,5 +70,5 @@ if errorlevel 1 exit /b 1
 echo.
 echo 완료:
 echo   CLI  "!PROOT!\dist\2_2_srtToImage.exe"
-echo   GUI  "!PROOT!\dist\2_2_srtToImage_gui.exe"  ^(더블클릭 — 마크다운/장면/저장 폴더 선택^)
+echo   GUI  "!PROOT!\dist\2_2_srtToImage_gui.exe"  ^(Genspark 브라우저·SRT_XXX.png·OCR 미리보기^)
 exit /b 0

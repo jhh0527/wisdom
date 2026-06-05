@@ -97,7 +97,14 @@ def main(
     initial_srt: Path | None = None,
     initial_png_dir: Path | None = None,
 ) -> None:
-    from wisdom_gui_host import apply_window_chrome, bind_close, run_mainloop, tk_host
+    from wisdom_gui_host import (
+        apply_window_chrome,
+        bind_close,
+        bind_hub_destroy,
+        run_mainloop,
+        safe_after,
+        tk_host,
+    )
     if initial_srt is None and initial_png_dir is None and len(sys.argv) > 1:
         p = argparse.ArgumentParser(add_help=False)
         p.add_argument("--srt", type=Path, default=None)
@@ -1183,7 +1190,7 @@ def main(
                 if not _ocr_pending:
                     status_var.set(f"OCR 완료 · 전체 {len(_all_rows_cache)}행")
 
-            root.after(0, ui)
+            safe_after(root, ui)
 
         threading.Thread(target=work, daemon=True).start()
 
@@ -2155,9 +2162,9 @@ def main(
             if row is None:
                 return
 
-            row.srt_number = int(num)
-            _commit_script_number(row, str(num), iid)
-            win_status.set(f"대본 {num}번 → {srt_png_name(num)}")
+            if _commit_script_number(row, str(num), iid):
+                status_var.set(f"대본 {num}번 → {srt_png_name(num)}")
+                on_close()
 
         def on_close() -> None:
             nonlocal _search_win
@@ -2311,7 +2318,7 @@ def main(
                     prog.configure(value=pct)
                     status_var.set(f"OCR·매칭 중… {pct}% ({i}/{total}) {name}")
 
-                root.after(0, ui)
+                safe_after(root, ui)
 
             def show_skeleton_ui() -> None:
                 try:
@@ -2333,7 +2340,7 @@ def main(
                     f"대본 {len(_all_rows_cache)}행 (대본번호 오름차순) · OCR·매칭 분석 중…"
                 )
 
-            root.after(0, show_skeleton_ui)
+            safe_after(root, show_skeleton_ui)
 
             try:
                 all_rows = scan_srt_centric_matches(
@@ -2375,7 +2382,7 @@ def main(
                     f"이름변경 가능 {n_rename} · 선택 {n_sel}"
                 )
 
-            root.after(0, done)
+            safe_after(root, done)
 
         threading.Thread(target=work, daemon=True).start()
 
@@ -2501,7 +2508,7 @@ def main(
                             f"변경 중… {pct}% — {item.source.name} → {item.target.name}"
                         )
 
-                root.after(0, ui)
+                safe_after(root, ui)
 
             try:
                 results, apply_skips = apply_match_renames(
@@ -2547,7 +2554,7 @@ def main(
                     f"{skip_msg}\n\n목록을 다시 불러왔습니다.",
                 )
 
-            root.after(0, done)
+            safe_after(root, done)
 
         threading.Thread(target=work, daemon=True).start()
 
@@ -2663,9 +2670,19 @@ def main(
     action_widgets.extend([btn_scan, btn_save, btn_delete, btn_refresh])
 
     def on_close() -> None:
+        nonlocal _search_win
+        if _search_win is not None:
+            try:
+                if _search_win.winfo_exists():
+                    _search_win.destroy()
+            except tk.TclError:
+                pass
+            _search_win = None
         persist()
 
     bind_close(root, standalone, on_close)
+    if not standalone:
+        bind_hub_destroy(root, on_close)
 
     def startup_load_default_folder() -> None:
         png_var.set(str(resolve_initial_png_dir(None, cfg.get("png_dir"))))

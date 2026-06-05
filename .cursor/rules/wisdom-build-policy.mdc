@@ -3,6 +3,8 @@ description: wisdom 공통 정책 — GUI·exe 중심, CLI 미사용, 빌드·�
 alwaysApply: true
 ---
 
+<!-- YouTube API 키: 7_utube/config/youtube_api.json (git 제외, GUI 자동 로드) -->
+
 # wisdom 공통 정책
 
 ## CLI 사용 안 함
