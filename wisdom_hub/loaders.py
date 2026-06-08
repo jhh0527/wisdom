@@ -37,6 +37,8 @@ def _show_load_error(container: tk.Misc, module: str, tb: str) -> None:
 
 def load_tab_ui(module: str, container: tk.Misc) -> None:
     """모듈 GUI 를 ``container``(탭 Frame) 안에 구성합니다."""
+    if getattr(container, "_wisdom_tab_module", None) == module:
+        return
     _ensure_module_path(module)
     try:
         if module == "1_1_textTo700Text":
@@ -77,6 +79,7 @@ def load_tab_ui(module: str, container: tk.Misc) -> None:
             main(container=container)
         else:
             raise ValueError(f"알 수 없는 모듈: {module}")
+        setattr(container, "_wisdom_tab_module", module)
     except Exception:
         _show_load_error(container, module, traceback.format_exc())
 

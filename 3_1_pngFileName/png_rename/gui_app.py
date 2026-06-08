@@ -62,6 +62,7 @@ _THUMB_MAX = 560
 _VIEWER_SCREEN_RATIO = 0.92
 _SRT_NUM_IN_NAME = re.compile(r"(?:^|[^0-9])srt[-_ ]?0*(\d+)(?:[^0-9]|$)", re.IGNORECASE)
 _OCR_MATCH_BG = "#fff59d"
+_SKIP_NO_SOURCE = "__skip_no_source__"
 
 
 def _ocr_preview_tokens(ocr_preview: str) -> list[str]:
@@ -183,8 +184,13 @@ def main(
                     filetypes=[("SRT", "*.srt"), ("모든 파일", "*.*")],
                 )
             if p:
-                var.set(p)
                 touch_workspace_from_path(p)
+                if is_dir:
+                    png_var.set(str(default_png_dir()))
+                    srt_var.set(str(default_srt_file()))
+                else:
+                    var.set(p)
+                    png_var.set(str(default_png_dir()))
                 refresh_count()
 
         btn = ttk.Button(rf, text="찾아보기…", command=pick)
@@ -463,8 +469,13 @@ def main(
         if src is None or not src.is_file():
             src = _resolve_rename_source(row)
         if src is None:
-            no = row.srt_number if row.srt_number >= 0 else "?"
-            return f"원본 PNG 없음 (대본 {no}번 — 폴더에 이미지가 있는지 확인)"
+            row.target_name = tgt
+            n = _name_srt_num(tgt)
+            if n is not None:
+                row.srt_number = n
+                _sync_cue_text(row)
+            row.can_rename = False
+            return _SKIP_NO_SOURCE
         try:
             if src.resolve() == (src.parent / tgt).resolve():
                 return "이미 해당 파일명입니다"
@@ -494,6 +505,13 @@ def main(
             _sync_row_match_fields(row)
             _refresh_row_display(iid, row)
             status_var.set("파일명이 이미 동일합니다.")
+            return True
+        if err == _SKIP_NO_SOURCE:
+            row.status = f"변경 지정: {row.target_name} (저장 대기)"
+            _sync_row_match_fields(row)
+            _refresh_row_display(iid, row)
+            _save_row_override(row)
+            status_var.set(f"변경 지정: {row.target_name} (저장 대기)")
             return True
         if err:
             messagebox.showwarning("저장 실패", err)
@@ -1271,11 +1289,7 @@ def main(
         else:
             return
         _apply_script_number_to_row(row, n)
-        row.status = (
-            f"OCR매핑 선택: {row.srt_number}번 (저장 대기)"
-            if row.can_rename
-            else f"OCR매핑 선택: {row.srt_number}번 (원본 PNG 없음)"
-        )
+        row.status = f"OCR매핑 선택: {row.srt_number}번 (저장 대기)"
         _refresh_row_display(iid, row)
         show_preview_for_iid(iid)
         _save_row_override(row)
@@ -1451,11 +1465,7 @@ def main(
             except ValueError:
                 return False
             _apply_script_number_to_row(row, n)
-            row.status = (
-                f"OCR매핑 선택: {n}번 (저장 대기)"
-                if row.can_rename
-                else f"OCR매핑 선택: {n}번 (원본 PNG 없음)"
-            )
+            row.status = f"OCR매핑 선택: {n}번 (저장 대기)"
             _refresh_row_display(iid, row)
             show_preview_for_iid(iid)
             _save_row_override(row)
@@ -1589,12 +1599,8 @@ def main(
         except ValueError:
             messagebox.showwarning("입력", "대본 번호는 숫자여야 합니다.")
             return False
-        can = _apply_script_number_to_row(row, n)
-        row.status = (
-            f"변경 지정: {row.target_name} (저장 대기)"
-            if can
-            else f"대본 {n}번 · PNG 없음"
-        )
+        _apply_script_number_to_row(row, n)
+        row.status = f"변경 지정: {row.target_name} (저장 대기)"
         return True
 
     def _open_script_picker_for_row(iid: str) -> None:
@@ -1813,10 +1819,10 @@ def main(
                     if src is not None and src.is_file():
                         _rename_source_by_row[id(row)] = src
                     if src is None:
-                        messagebox.showwarning(
-                            "저장 실패",
-                            "원본 PNG 파일을 찾을 수 없습니다.",
-                        )
+                        row.can_rename = False
+                        row.status = f"변경 지정: {row.target_name} (저장 대기)"
+                        _close_cell_editor()
+                        finish_edit()
                         return
                     _close_cell_editor()
                     if _rename_row_filename_now(row, iid):
@@ -2439,6 +2445,8 @@ def main(
                 continue
             err = _prepare_row_for_rename(row)
             if err == "이미 해당 파일명입니다":
+                continue
+            if err == _SKIP_NO_SOURCE:
                 continue
             if err:
                 label = (

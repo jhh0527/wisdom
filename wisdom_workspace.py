@@ -124,23 +124,24 @@ def set_workspace_dir(path: Path) -> Path:
 
 
 def touch_workspace_from_path(path: str | Path) -> Path | None:
-    """사용자가 고른 경로가 wisdom 저장소 밖이면 작업 폴더로 저장."""
+    """사용자가 고른 경로가 wisdom 저장소 밖이면 콘텐츠 루트를 작업 폴더로 저장."""
     p = Path(path).expanduser()
     try:
         p = p.resolve()
     except OSError:
         return None
-    if p.is_file():
-        p = p.parent
-    if not p.is_dir():
+    check = p.parent if p.is_file() else p
+    if not check.is_dir():
         return None
     wisdom = resolve_wisdom_root()
     try:
-        p.relative_to(wisdom)
+        check.relative_to(wisdom)
         return get_workspace_dir()
     except ValueError:
         pass
-    return set_workspace_dir(p)
+    from wisdom_content_paths import touch_content_root_from_path
+
+    return touch_content_root_from_path(path)
 
 
 def workspace_module_dir(module: str) -> Path | None:

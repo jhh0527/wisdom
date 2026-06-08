@@ -45,7 +45,6 @@ from elsub.settings import (
 )
 from wisdom_workspace import (
     folder_dialog_initial,
-    get_workspace_dir,
     touch_workspace_from_path,
     workspace_module_output,
 )
@@ -175,13 +174,26 @@ def _resolve_dir(raw: str, fallback: Path) -> Path:
 
 
 def _sync_output_to_workspace() -> None:
+    inp = in_var.get().strip()
+    if inp and Path(inp).is_dir():
+        out_var.set(inp)
+        return
+    try:
+        from wisdom_content_paths import default_mp3_dir
+
+        mp3 = default_mp3_dir()
+        if mp3 is not None:
+            out_var.set(str(mp3))
+            return
+    except ImportError:
+        pass
     ws_out = workspace_module_output("2_1_ttsToVoice")
     if ws_out is not None:
         out_var.set(str(ws_out))
 
 
 def _coerce_saved_output(gui_cfg: dict[str, str], in_default: Path) -> Path:
-    """입력은 작업 폴더인데 출력만 wisdom 기본일 때 작업 폴더 하위로 맞춤."""
+    """저장 출력 경로가 없으면 입력(기본 mp3)과 동일."""
     out_saved = gui_cfg.get("output_dir", "").strip()
     if out_saved:
         p = Path(out_saved).expanduser()
@@ -190,10 +202,7 @@ def _coerce_saved_output(gui_cfg: dict[str, str], in_default: Path) -> Path:
                 return p.resolve()
         except OSError:
             pass
-    ws = get_workspace_dir()
-    if ws is not None:
-        return resolve_output_dir()
-    return _resolve_dir(out_saved, resolve_output_dir())
+    return in_default.resolve()
 
 
 def main(*, container: tk.Misc | None = None) -> None:
@@ -263,10 +272,18 @@ def main(*, container: tk.Misc | None = None) -> None:
             )
             chosen = filedialog.askdirectory(title=pick_title, initialdir=init_dir)
             if chosen:
-                var.set(chosen)
                 touch_workspace_from_path(chosen)
                 if var is in_var:
+                    try:
+                        from wisdom_content_paths import default_mp3_dir
+
+                        mp3 = default_mp3_dir()
+                        var.set(str(mp3 if mp3 is not None else chosen))
+                    except ImportError:
+                        var.set(chosen)
                     _sync_output_to_workspace()
+                else:
+                    var.set(chosen)
 
         ttk.Button(rf, text="찾아보기…", command=pick).grid(row=0, column=1)
 

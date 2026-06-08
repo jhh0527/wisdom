@@ -10,6 +10,7 @@ _wisdom_scripts = [
     os.path.join(wisdom_repo, "wisdom_root.py"),
     os.path.join(wisdom_repo, "wisdom_bootstrap.py"),
     os.path.join(wisdom_repo, "wisdom_workspace.py"),
+    os.path.join(wisdom_repo, "wisdom_content_paths.py"),
 ]
 
 a = Analysis(
@@ -32,6 +33,7 @@ a = Analysis(
         "wisdom_root",
         "wisdom_bootstrap",
         "wisdom_workspace",
+        "wisdom_content_paths",
         "PIL",
         "PIL.Image",
     ],

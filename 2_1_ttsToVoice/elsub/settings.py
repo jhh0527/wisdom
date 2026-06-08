@@ -96,7 +96,15 @@ def resolve_output_dir() -> Path:
 
 
 def default_input_dir() -> Path:
-    """기본 입력: 작업 폴더의 ``1_2_textToTts/output`` 또는 wisdom ``1_2_textToTts/output``."""
+    """기본 입력: 작업 폴더 ``mp3`` (없으면 ``1_2_textToTts/output``)."""
+    try:
+        from wisdom_content_paths import default_mp3_dir
+
+        mp3 = default_mp3_dir()
+        if mp3 is not None:
+            return mp3
+    except ImportError:
+        pass
     ws = get_workspace_dir()
     if ws is not None:
         tts_out = ws / "1_2_textToTts" / OUTPUT_DIRNAME

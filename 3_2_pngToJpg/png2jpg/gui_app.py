@@ -129,10 +129,11 @@ def main(
             )
             p = filedialog.askdirectory(title=label, initialdir=init_dir)
             if p:
-                var.set(p)
                 touch_workspace_from_path(p)
                 if on_pick:
                     on_pick()
+                else:
+                    var.set(p)
 
         btn = ttk.Button(rf, text="폴더 선택…", command=pick)
         btn.grid(row=0, column=1)
@@ -154,7 +155,21 @@ def main(
     def on_input_changed() -> None:
         refresh_target_count()
 
-    row_dir("변환 대상 폴더 (PNG·JPG)", in_var, 0, on_pick=on_input_changed)
+    def sync_paths_from_content_root() -> None:
+        try:
+            from wisdom_content_paths import default_jpg_dir, default_png_dir
+
+            png = default_png_dir()
+            jpg = default_jpg_dir()
+            if png is not None:
+                in_var.set(str(png))
+            if jpg is not None:
+                out_var.set(str(jpg))
+        except ImportError:
+            pass
+        refresh_target_count()
+
+    row_dir("변환 대상 폴더 (PNG·JPG)", in_var, 0, on_pick=sync_paths_from_content_root)
     row_dir("저장 폴더 (SRT_XXX.jpg)", out_var, 2)
 
     ttk.Label(

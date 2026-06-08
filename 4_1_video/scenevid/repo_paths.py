@@ -32,12 +32,28 @@ def default_scenevid_output_dir() -> Path:
 
 
 def default_tts_voice_output_dir() -> Path:
-    """TTS 단계 산출물 (part*.mp3, all.mp3, *.srt 등)."""
+    """TTS 산출물 (``mp3`` 폴더)."""
+    try:
+        from wisdom_content_paths import default_mp3_dir
+
+        mp3 = default_mp3_dir()
+        if mp3 is not None:
+            return mp3
+    except ImportError:
+        pass
     return resolve_module_output("2_1_ttsToVoice")
 
 
 def default_srt_image_output_dir() -> Path:
-    """SRT 이미지 단계 산출물 (SRT_NNN.jpg 등)."""
+    """이미지·영상 (``jpg`` 폴더)."""
+    try:
+        from wisdom_content_paths import default_jpg_dir
+
+        jpg = default_jpg_dir()
+        if jpg is not None:
+            return jpg
+    except ImportError:
+        pass
     return resolve_module_output("2_2_srtToImage")
 
 
@@ -47,6 +63,14 @@ def default_scenevid_compose_mp4_name() -> str:
 
 
 def default_scenevid_compose_mp4() -> Path:
+    try:
+        from wisdom_content_paths import content_root
+
+        root = content_root()
+        if root is not None:
+            return root / default_scenevid_compose_mp4_name()
+    except ImportError:
+        pass
     return default_scenevid_output_dir() / default_scenevid_compose_mp4_name()
 
 

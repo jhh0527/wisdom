@@ -43,6 +43,14 @@ def _wisdom_root() -> Path:
 
 
 def default_srt_file() -> Path:
+    try:
+        from wisdom_content_paths import default_mp3_dir
+
+        mp3 = default_mp3_dir()
+        if mp3 is not None:
+            return mp3 / "all.srt"
+    except ImportError:
+        pass
     ws = get_workspace_dir()
     if ws is not None:
         cand = ws / "2_1_ttsToVoice" / "output" / "all.srt"
@@ -52,7 +60,15 @@ def default_srt_file() -> Path:
 
 
 def default_png_dir() -> Path:
-    """기본 PNG 폴더: ``3_2_pngToJpg/input`` (작업 폴더 우선)."""
+    """기본 PNG 폴더: 작업 폴더 ``png`` (없으면 ``3_2_pngToJpg/input``)."""
+    try:
+        from wisdom_content_paths import default_png_dir as content_png_dir
+
+        png = content_png_dir()
+        if png is not None:
+            return png.resolve()
+    except ImportError:
+        pass
     ws = get_workspace_dir()
     if ws is not None:
         return (ws / "3_2_pngToJpg" / "input").resolve()
@@ -79,7 +95,7 @@ def resolve_initial_png_dir(
     cli: Path | None,
     saved: str | None,
 ) -> Path:
-    """저장 경로가 없거나 유효하지 않으면 ``3_2_pngToJpg/input``."""
+    """저장 경로가 없거나 유효하지 않으면 ``png`` 폴더."""
     fallback = default_png_dir()
     if cli is not None:
         p = cli.expanduser().resolve()

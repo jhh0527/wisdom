@@ -46,9 +46,13 @@ def main() -> None:
     def ensure_loaded(module: str) -> None:
         if module in loaded:
             return
-        fr = tab_frames[module]
-        LOADERS[module](fr)
         loaded.add(module)
+        fr = tab_frames[module]
+        try:
+            LOADERS[module](fr)
+        except Exception:
+            loaded.discard(module)
+            raise
 
     def on_tab_changed(_event: object | None = None) -> None:
         try:
@@ -56,7 +60,9 @@ def main() -> None:
         except tk.TclError:
             return
         if 0 <= idx < len(HUB_TABS):
-            ensure_loaded(HUB_TABS[idx][1])
+            mod = HUB_TABS[idx][1]
+            if mod not in loaded:
+                root.after_idle(lambda m=mod: ensure_loaded(m))
 
     nb.bind("<<NotebookTabChanged>>", on_tab_changed)
     ensure_loaded(HUB_TABS[0][1])

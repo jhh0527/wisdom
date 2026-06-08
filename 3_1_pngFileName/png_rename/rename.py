@@ -795,9 +795,7 @@ def apply_match_renames(
     for row in items:
         src = row.source
         if not src.is_file():
-            skipped.append(
-                RenameSkip(src, "원본 PNG 없음 — 파일이 폴더에 있는지 확인하세요")
-            )
+            skipped.append(RenameSkip(src, row.status or "변경 불가"))
             continue
         if not manual and not row.can_rename:
             skipped.append(RenameSkip(src, row.status or "변경 불가"))

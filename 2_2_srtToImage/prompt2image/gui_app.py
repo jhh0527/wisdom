@@ -5,7 +5,7 @@ from __future__ import annotations
 import threading
 import tkinter as tk
 from pathlib import Path
-from tkinter import filedialog, font as tkfont, messagebox, ttk
+from tkinter import filedialog, font as tkfont, ttk
 
 from PIL import Image, ImageTk
 
@@ -67,9 +67,12 @@ def main(*, container: tk.Misc | None = None) -> None:
     from wisdom_gui_host import (
         apply_window_chrome,
         bind_close,
-        is_hub_shutting_down,
+        bind_hub_destroy,
         run_mainloop,
+        safe_after,
+        safe_messagebox,
         tk_host,
+        ui_alive,
     )
 
     cfg = load_gui_settings()
@@ -94,6 +97,10 @@ def main(*, container: tk.Misc | None = None) -> None:
     preview_w_default = max(280, min(900, preview_w_default))
 
     root, standalone = tk_host(container)
+    if not standalone and getattr(root, "_prompt2image_gui_built", False):
+        return
+    if not standalone:
+        setattr(root, "_prompt2image_gui_built", True)
     apply_window_chrome(
         root,
         standalone,
@@ -136,7 +143,11 @@ def main(*, container: tk.Misc | None = None) -> None:
                 init = folder_dialog_initial(
                     Path(cur) if cur and Path(cur).is_dir() else png_default,
                 )
-                p = filedialog.askdirectory(title=label, initialdir=init)
+                p = filedialog.askdirectory(
+                    title=label,
+                    initialdir=init,
+                    parent=_dialog_parent(),
+                )
             else:
                 init = folder_dialog_initial(
                     Path(cur).parent if cur and Path(cur).parent.is_dir() else srt_default.parent,
@@ -145,6 +156,7 @@ def main(*, container: tk.Misc | None = None) -> None:
                     title=label,
                     initialdir=init,
                     filetypes=[("SRT", "*.srt"), ("모든 파일", "*.*")],
+                    parent=_dialog_parent(),
                 )
             if p:
                 var.set(p)
@@ -216,28 +228,13 @@ def main(*, container: tk.Misc | None = None) -> None:
         return _cues[idx]
 
     def _ui_alive() -> bool:
-        if _closing or is_hub_shutting_down():
-            return False
-        try:
-            return bool(root.winfo_exists())
-        except tk.TclError:
-            return False
+        return ui_alive(root, closing=_closing)
 
     def _ui_after(fn) -> None:
-        def wrapper() -> None:
-            if not _ui_alive():
-                return
-            try:
-                fn()
-            except tk.TclError:
-                pass
+        safe_after(root, fn, closing=_closing)
 
-        if not _ui_alive():
-            return
-        try:
-            root.after(0, wrapper)
-        except tk.TclError:
-            pass
+    def _dialog_parent() -> tk.Misc:
+        return root.winfo_toplevel()
 
     def png_path() -> Path:
         p = Path(png_var.get().strip()).expanduser()
@@ -256,7 +253,7 @@ def main(*, container: tk.Misc | None = None) -> None:
         try:
             return sorted(parse_srt_cues(sp), key=lambda c: int(c[0]))
         except OSError as e:
-            messagebox.showerror("SRT", f"대본을 읽을 수 없습니다.\n{e}")
+            safe_messagebox(root, "showerror", "SRT", f"대본을 읽을 수 없습니다.\n{e}")
             return []
 
     def _next_download_number() -> int:
@@ -426,7 +423,7 @@ def main(*, container: tk.Misc | None = None) -> None:
     def copy_guide() -> None:
         text = guide_txt.get("1.0", tk.END).strip()
         if not text:
-            messagebox.showwarning("지침", "붙여넣을 지침 내용이 없습니다.")
+            safe_messagebox(root, "showwarning", "지침", "붙여넣을 지침 내용이 없습니다.")
             return
         copy_to_clipboard(root, text)
         status_var.set("지침을 클립보드에 복사했습니다 — Genspark 지침·설정란에 붙여넣기")
@@ -434,7 +431,7 @@ def main(*, container: tk.Misc | None = None) -> None:
     def copy_srt_input() -> None:
         text = srt_input_txt.get("1.0", tk.END).strip()
         if not text:
-            messagebox.showwarning("대본", "붙여넣을 대본 내용이 없습니다.")
+            safe_messagebox(root, "showwarning", "대본", "붙여넣을 대본 내용이 없습니다.")
             return
         copy_to_clipboard(root, text)
         status_var.set("대본을 클립보드에 복사했습니다 — Genspark 입력란에 붙여넣기")
@@ -478,7 +475,7 @@ def main(*, container: tk.Misc | None = None) -> None:
                     pass
                 _progress_stop()
                 if err:
-                    messagebox.showerror("입력란 지정", str(err))
+                    safe_messagebox(root, "showerror", "입력란 지정", str(err))
                     status_var.set(f"입력란 지정 실패: {err}")
                     return
                 prompt_sel_var.set(picked)
@@ -498,7 +495,12 @@ def main(*, container: tk.Misc | None = None) -> None:
             return
         srt_text = srt_input_txt.get("1.0", tk.END).strip()
         if not srt_text:
-            messagebox.showwarning("자동 다운로드", "SRT 대본 입력란을 채우거나 목록에서 행을 선택하세요.")
+            safe_messagebox(
+                root,
+                "showwarning",
+                "자동 다운로드",
+                "SRT 대본 입력란을 채우거나 목록에서 행을 선택하세요.",
+            )
             return
         guide = guide_txt.get("1.0", tk.END).strip()
         target = _auto_target_number()
@@ -536,7 +538,7 @@ def main(*, container: tk.Misc | None = None) -> None:
                     pass
                 _progress_stop()
                 if err:
-                    messagebox.showerror("자동 다운로드", str(err))
+                    safe_messagebox(root, "showerror", "자동 다운로드", str(err))
                     status_var.set(f"자동 다운로드 실패: {err}")
                 elif saved:
                     refresh_list(select=saved)
@@ -559,7 +561,7 @@ def main(*, container: tk.Misc | None = None) -> None:
         try:
             open_genspark_in_chrome(png_path())
         except Exception as e:
-            messagebox.showerror("브라우저", str(e))
+            safe_messagebox(root, "showerror", "브라우저", str(e))
             return
         nxt = format_srt_filename(_next_download_number())
         copy_note = "지침 복사됨 · " if copied else ""
@@ -874,7 +876,7 @@ def main(*, container: tk.Misc | None = None) -> None:
             _close_cell_editor()
             err = _rename_cue_file(map_id, val)
             if err:
-                messagebox.showwarning("파일명", err)
+                safe_messagebox(root, "showwarning", "파일명", err)
             norm = normalize_png_name(val)
             refresh_list(select=(png_path() / norm) if norm else None)
 
@@ -935,13 +937,7 @@ def main(*, container: tk.Misc | None = None) -> None:
 
     bind_close(root, standalone, on_close)
     if not standalone:
-        hub_root = root.winfo_toplevel()
-
-        def _on_hub_destroy(event: tk.Event) -> None:
-            if event.widget is hub_root:
-                on_close()
-
-        hub_root.bind("<Destroy>", _on_hub_destroy, add="+")
+        bind_hub_destroy(root, on_close)
 
     reload_guide_text()
     reload_srt_input_full()

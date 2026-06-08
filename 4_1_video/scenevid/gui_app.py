@@ -158,7 +158,27 @@ def main(*, container: tk.Misc | None = None) -> None:
     }
 
     def _compose_assets_root() -> Path:
+        try:
+            from wisdom_content_paths import content_root
+
+            root = content_root()
+            if root is not None:
+                return root
+        except ImportError:
+            pass
         return wisdom_repo_root()
+
+    def _sync_compose_paths_from_workspace(
+        *,
+        audio: str | None = None,
+        srt: str | None = None,
+        images: str | None = None,
+    ) -> None:
+        mp3_dir = default_tts_voice_output_dir()
+        audio_var.set(audio or str(mp3_dir / "all.mp3"))
+        srt_var.set(srt or str(mp3_dir / "all.srt"))
+        images_var.set(images or str(default_srt_image_output_dir()))
+        out_var.set(str(default_scenevid_compose_mp4()))
 
     r = 0
     _compose_entries: dict[str, ttk.Entry] = {}
@@ -189,8 +209,8 @@ def main(*, container: tk.Misc | None = None) -> None:
             filetypes=[("MP3", "*.mp3"), ("모든 파일", "*.*")],
         )
         if p:
-            audio_var.set(p)
             touch_workspace_from_path(p)
+            _sync_compose_paths_from_workspace(audio=p)
             timeline_refresh(silent=True)
 
     def pick_srt() -> None:
@@ -205,8 +225,8 @@ def main(*, container: tk.Misc | None = None) -> None:
             filetypes=[("SRT", "*.srt"), ("모든 파일", "*.*")],
         )
         if p:
-            srt_var.set(p)
             touch_workspace_from_path(p)
+            _sync_compose_paths_from_workspace(srt=p)
             timeline_refresh(silent=True)
 
     def pick_images_dir() -> None:
@@ -218,8 +238,15 @@ def main(*, container: tk.Misc | None = None) -> None:
             initialdir=folder_dialog_initial(init),
         )
         if p:
-            images_var.set(p)
             touch_workspace_from_path(p)
+            try:
+                from wisdom_content_paths import default_jpg_dir
+
+                jpg = default_jpg_dir()
+                picked = str(jpg if jpg is not None else p)
+            except ImportError:
+                picked = p
+            _sync_compose_paths_from_workspace(images=picked)
             timeline_refresh(silent=True)
 
     def pick_out() -> None:
@@ -249,15 +276,12 @@ def main(*, container: tk.Misc | None = None) -> None:
     r += 1
 
     def apply_pipeline_defaults() -> None:
-        """videoPG 기본 경로: TTS output / SRT 이미지 output / 4_1_video output/yyyymmdd.mp4."""
-        default_scenevid_output_dir().mkdir(parents=True, exist_ok=True)
-        aud, sr = pick_default_compose_audio_srt()
-        if aud:
-            audio_var.set(str(aud))
-        if sr:
-            srt_var.set(str(sr))
-        images_var.set(str(default_srt_image_output_dir()))
-        out_var.set(str(default_scenevid_compose_mp4()))
+        """콘텐츠 루트 기준: mp3/all.*, jpg/, 루트/yyyymmdd.mp4."""
+        mp3_dir = default_tts_voice_output_dir()
+        mp3_dir.mkdir(parents=True, exist_ok=True)
+        default_srt_image_output_dir().mkdir(parents=True, exist_ok=True)
+        default_scenevid_compose_mp4().parent.mkdir(parents=True, exist_ok=True)
+        _sync_compose_paths_from_workspace()
 
     row_paths_btn = ttk.Frame(tab_c)
     row_paths_btn.grid(row=r, column=0, columnspan=3, sticky="w", pady=(0, 6))

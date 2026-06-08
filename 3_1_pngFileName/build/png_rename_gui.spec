@@ -11,6 +11,7 @@ _wisdom_scripts = [
     os.path.join(wisdom_repo, "wisdom_root.py"),
     os.path.join(wisdom_repo, "wisdom_bootstrap.py"),
     os.path.join(wisdom_repo, "wisdom_workspace.py"),
+    os.path.join(wisdom_repo, "wisdom_content_paths.py"),
 ]
 
 _hidden = collect_submodules("png_rename")
@@ -33,6 +34,7 @@ a = Analysis(
         "wisdom_root",
         "wisdom_bootstrap",
         "wisdom_workspace",
+        "wisdom_content_paths",
         *_hidden,
     ],
     hookspath=[],

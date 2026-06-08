@@ -40,11 +40,27 @@ def _project_root() -> Path:
 
 
 def default_output_dir() -> Path:
+    try:
+        from wisdom_content_paths import default_jpg_dir
+
+        jpg = default_jpg_dir()
+        if jpg is not None:
+            return jpg
+    except ImportError:
+        pass
     return resolve_module_output(PROJECT_DIRNAME)
 
 
 def default_input_dir() -> Path:
-    """기본 입력: ``2_2_srtToImage/output`` (작업 폴더 우선)."""
+    """기본 입력: 작업 폴더 ``png`` (없으면 ``2_2_srtToImage/output``)."""
+    try:
+        from wisdom_content_paths import default_png_dir
+
+        png = default_png_dir()
+        if png is not None:
+            return png
+    except ImportError:
+        pass
     ws = get_workspace_dir()
     if ws is not None:
         srt_out = ws / "2_2_srtToImage" / "output"
