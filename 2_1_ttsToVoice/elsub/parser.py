@@ -11,6 +11,7 @@ from dataclasses import dataclass
 
 PART_HEADER = re.compile(r"^\s*\d+\.\{\}\s*$")
 SUMMARY = re.compile(r"^\s*\*\*요약")
+_SENTENCE_END = frozenset(".!?…")
 
 
 @dataclass(frozen=True)
@@ -42,4 +43,59 @@ def parse_knowledgetts_block(text: str) -> list[CaptionLine]:
             continue
         orig, tts = rest.split(sep, 1)
         out.append(CaptionLine(m.group(1), orig.strip(), tts.strip()))
+    return merge_undersplit_captions(out)
+
+
+def _original_ends_sentence(text: str) -> bool:
+    t = text.rstrip()
+    return bool(t) and t[-1] in _SENTENCE_END
+
+
+def _join_original(a: str, b: str) -> str:
+    a, b = a.rstrip(), b.lstrip()
+    if not a:
+        return b
+    if not b:
+        return a
+    return f"{a} {b}"
+
+
+def _join_merged_tts(a: str, b: str) -> str:
+    a = a.rstrip()
+    if a.endswith(","):
+        a = a[:-1].rstrip()
+    b = re.sub(r"^\s*\[continues\]\s*", "", b.strip(), flags=re.IGNORECASE)
+    return f"{a} {b}".strip()
+
+
+def merge_undersplit_captions(
+    entries: list[CaptionLine],
+    *,
+    max_chars: int = 25,
+) -> list[CaptionLine]:
+    """인접 조각 원본 합이 max_chars 이하이면 한 자막으로 병합."""
+    if len(entries) < 2:
+        return entries
+    out: list[CaptionLine] = []
+    buf: CaptionLine | None = None
+    for e in entries:
+        if buf is None:
+            buf = e
+            continue
+        combined = _join_original(buf.original, e.original)
+        if (
+            buf.part_id == e.part_id
+            and len(combined) <= max_chars
+            and not _original_ends_sentence(buf.original)
+        ):
+            buf = CaptionLine(
+                buf.caption_id,
+                combined,
+                _join_merged_tts(buf.tts, e.tts),
+            )
+        else:
+            out.append(buf)
+            buf = e
+    if buf is not None:
+        out.append(buf)
     return out
