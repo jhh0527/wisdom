@@ -173,25 +173,6 @@ def _resolve_dir(raw: str, fallback: Path) -> Path:
     return fallback.resolve()
 
 
-def _sync_output_to_workspace() -> None:
-    inp = in_var.get().strip()
-    if inp and Path(inp).is_dir():
-        out_var.set(inp)
-        return
-    try:
-        from wisdom_content_paths import default_mp3_dir
-
-        mp3 = default_mp3_dir()
-        if mp3 is not None:
-            out_var.set(str(mp3))
-            return
-    except ImportError:
-        pass
-    ws_out = workspace_module_output("2_1_ttsToVoice")
-    if ws_out is not None:
-        out_var.set(str(ws_out))
-
-
 def _coerce_saved_output(gui_cfg: dict[str, str], in_default: Path) -> Path:
     """저장 출력 경로가 없으면 입력(기본 mp3)과 동일."""
     out_saved = gui_cfg.get("output_dir", "").strip()
@@ -237,6 +218,26 @@ def main(*, container: tk.Misc | None = None) -> None:
     status = tk.StringVar()
     in_var = tk.StringVar(value=str(in_default))
     out_var = tk.StringVar(value=str(out_default))
+
+    def _sync_output_to_workspace() -> None:
+        """입력 폴더 지정 시 출력 폴더를 동일 경로로 맞춤 (출력은 이후 수동 변경 가능)."""
+        inp = in_var.get().strip()
+        if inp and Path(inp).is_dir():
+            out_var.set(inp)
+            return
+        try:
+            from wisdom_content_paths import default_mp3_dir
+
+            mp3 = default_mp3_dir()
+            if mp3 is not None:
+                out_var.set(str(mp3))
+                return
+        except ImportError:
+            pass
+        ws_out = workspace_module_output("2_1_ttsToVoice")
+        if ws_out is not None:
+            out_var.set(str(ws_out))
+
     if cfg_path.is_file():
         status.set("대기 중")
     else:
