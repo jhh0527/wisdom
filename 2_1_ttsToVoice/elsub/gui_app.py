@@ -13,6 +13,7 @@
 
 from __future__ import annotations
 
+from collections.abc import Callable
 import json
 import re
 import threading
@@ -259,34 +260,36 @@ def main(*, container: tk.Misc | None = None) -> None:
         *,
         pick_title: str,
         pick_fallback: Path,
+        on_focus_out: Callable[[], None] | None = None,
     ) -> None:
         ttk.Label(frm, text=label).grid(row=row, column=0, sticky="w", pady=(0, 2))
         rf = ttk.Frame(frm)
         rf.grid(row=row + 1, column=0, sticky="ew", pady=(0, 8))
         rf.grid_columnconfigure(0, weight=1)
-        ttk.Entry(rf, textvariable=var).grid(row=0, column=0, sticky="ew", padx=(0, 6))
+        ent = ttk.Entry(rf, textvariable=var)
+        ent.grid(row=0, column=0, sticky="ew", padx=(0, 6))
+        if on_focus_out is not None:
+            ent.bind("<FocusOut>", lambda _e: on_focus_out())
 
         def pick() -> None:
             initial = var.get().strip()
             init_dir = folder_dialog_initial(
-                Path(initial) if initial else pick_fallback,
+                Path(initial) if initial and Path(initial).is_dir() else pick_fallback,
             )
             chosen = filedialog.askdirectory(title=pick_title, initialdir=init_dir)
             if chosen:
                 touch_workspace_from_path(chosen)
+                var.set(chosen)
                 if var is in_var:
-                    try:
-                        from wisdom_content_paths import default_mp3_dir
-
-                        mp3 = default_mp3_dir()
-                        var.set(str(mp3 if mp3 is not None else chosen))
-                    except ImportError:
-                        var.set(chosen)
                     _sync_output_to_workspace()
-                else:
-                    var.set(chosen)
 
         ttk.Button(rf, text="찾아보기…", command=pick).grid(row=0, column=1)
+
+    def on_input_path_committed() -> None:
+        p = in_var.get().strip()
+        if p and Path(p).is_dir():
+            touch_workspace_from_path(p)
+            _sync_output_to_workspace()
 
     row_dir(
         "입력 폴더 (*.txt)",
@@ -294,6 +297,7 @@ def main(*, container: tk.Misc | None = None) -> None:
         0,
         pick_title="TTS 텍스트 입력 폴더",
         pick_fallback=in_default,
+        on_focus_out=on_input_path_committed,
     )
     row_dir(
         "출력 폴더 (MP3·SRT·JSON)",

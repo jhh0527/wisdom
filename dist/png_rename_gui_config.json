@@ -1,7 +1,7 @@
 {
-  "srt_file": "C:/util/유튜브/똥냄새는 내코점막을 오염시킬까_tts까지만만듬/MP3/all.srt",
-  "png_dir": "C:\\util\\유튜브\\똥냄새는 내코점막을 오염시킬까_tts까지만만듬\\PNG",
-  "preview_pane_width": 460,
+  "srt_file": "C:\\util\\유튜브\\20260608_동물들은 인간이 어떻게 보일까\\short\\mp3\\all.srt",
+  "png_dir": "C:\\util\\유튜브\\20260608_동물들은 인간이 어떻게 보일까\\short\\png",
+  "preview_pane_width": 323,
   "manual_overrides": {
     "C:\\util\\유튜브\\고갈된다는석유\\png\\SRT_097.png": {
       "srt_number": 97,
@@ -883,6 +883,186 @@
       "word_srt_number": -1,
       "word_cue_text": "",
       "status": "즉시 저장 완료: SRT_510.png",
+      "match_reason": "—"
+    },
+    "C:\\util\\유튜브\\20260608_동물들은 인간이 어떻게 보일까\\short\\png\\SRT_001.png": {
+      "srt_number": 1,
+      "target_name": "SRT_001.png",
+      "cue_text": "그게 진짜 당신일까요?",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_001.png",
+      "match_reason": "—"
+    },
+    "C:\\util\\유튜브\\20260608_동물들은 인간이 어떻게 보일까\\short\\png\\SRT_003.png": {
+      "srt_number": 3,
+      "target_name": "SRT_003.png",
+      "cue_text": "강아지가 본 당신은, 완전히 다른 존재입니다.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "이미 해당 파일명 (변경 없음)",
+      "match_reason": "—"
+    },
+    "C:\\util\\유튜브\\20260608_동물들은 인간이 어떻게 보일까\\short\\png\\SRT_006.png": {
+      "srt_number": 6,
+      "target_name": "SRT_006.png",
+      "cue_text": "강아지에게 당신은 사람이 아닙니다.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "이미 해당 파일명 (변경 없음)",
+      "match_reason": "—"
+    },
+    "C:\\util\\유튜브\\20260608_동물들은 인간이 어떻게 보일까\\short\\png\\SRT_008.png": {
+      "srt_number": 6,
+      "target_name": "SRT_006.png",
+      "cue_text": "강아지에게 당신은 사람이 아닙니다.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "이미 해당 파일명 (변경 없음)",
+      "match_reason": "—"
+    },
+    "C:\\util\\유튜브\\20260608_동물들은 인간이 어떻게 보일까\\short\\png\\SRT_009.png": {
+      "srt_number": 9,
+      "target_name": "SRT_009.png",
+      "cue_text": "(대본 9번 — SRT 미등록)",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "이미 해당 파일명 (변경 없음)",
+      "match_reason": "—"
+    },
+    "C:\\util\\유튜브\\20260608_동물들은 인간이 어떻게 보일까\\short\\png\\SRT_011.png": {
+      "srt_number": 11,
+      "target_name": "SRT_011.png",
+      "cue_text": "스트레스 호르몬까지 읽힙니다.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_011.png",
+      "match_reason": "—"
+    },
+    "C:\\util\\유튜브\\20260608_동물들은 인간이 어떻게 보일까\\short\\png\\SRT_010.png": {
+      "srt_number": 10,
+      "target_name": "SRT_010.png",
+      "cue_text": "오늘 마신 커피 두 잔,",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_010.png",
+      "match_reason": "강아지·3/6번, 향기·8번"
+    },
+    "C:\\util\\유튜브\\20260608_동물들은 인간이 어떻게 보일까\\short\\png\\SRT_013.png": {
+      "srt_number": 13,
+      "target_name": "SRT_013.png",
+      "cue_text": "고양이에겐 느릿한 거인이고,",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_013.png",
+      "match_reason": "—"
+    },
+    "C:\\util\\유튜브\\20260608_동물들은 인간이 어떻게 보일까\\short\\png\\SRT_015.png": {
+      "srt_number": 15,
+      "target_name": "SRT_015.png",
+      "cue_text": "빠른 손짓도 슬로우로 보입니다.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_015.png",
+      "match_reason": "—"
+    },
+    "C:\\util\\유튜브\\20260608_동물들은 인간이 어떻게 보일까\\short\\png\\SRT_018.png": {
+      "srt_number": 18,
+      "target_name": "SRT_018.png",
+      "cue_text": "새는, 일억 가지 색을 봅니다.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_018.png",
+      "match_reason": "—"
+    },
+    "C:\\util\\유튜브\\20260608_동물들은 인간이 어떻게 보일까\\short\\png\\SRT_020.png": {
+      "srt_number": 20,
+      "target_name": "SRT_020.png",
+      "cue_text": "인간은 겨우 백만 색이죠.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_020.png",
+      "match_reason": "—"
+    },
+    "C:\\util\\유튜브\\20260608_동물들은 인간이 어떻게 보일까\\short\\png\\SRT_022.png": {
+      "srt_number": 22,
+      "target_name": "SRT_022.png",
+      "cue_text": "당신 피부는, 자외선으로 빛납니다.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_022.png",
+      "match_reason": "—"
+    },
+    "C:\\util\\유튜브\\20260608_동물들은 인간이 어떻게 보일까\\short\\png\\SRT_024.png": {
+      "srt_number": 24,
+      "target_name": "SRT_024.png",
+      "cue_text": "뱀에겐 삼십육 점 오 도의 빛 덩어리.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_024.png",
+      "match_reason": "—"
+    },
+    "C:\\util\\유튜브\\20260608_동물들은 인간이 어떻게 보일까\\short\\png\\SRT_027.png": {
+      "srt_number": 27,
+      "target_name": "SRT_027.png",
+      "cue_text": "어둠 속에서도 환히 타오릅니다.",
+      "word_srt_number": 27,
+      "word_cue_text": "어둠 속에서도 환히 타오릅니다.",
+      "status": "즉시 저장 완료: SRT_027.png",
+      "match_reason": "타오릅니다·27번, 환히·27번"
+    },
+    "C:\\util\\유튜브\\20260608_동물들은 인간이 어떻게 보일까\\short\\png\\SRT_029.png": {
+      "srt_number": 29,
+      "target_name": "SRT_029.png",
+      "cue_text": "박쥐는 초음파로 당신을 봅니다.",
+      "word_srt_number": 29,
+      "word_cue_text": "박쥐는 초음파로 당신을 봅니다.",
+      "status": "즉시 저장 완료: SRT_029.png",
+      "match_reason": "박쥐·29번"
+    },
+    "C:\\util\\유튜브\\20260608_동물들은 인간이 어떻게 보일까\\short\\png\\SRT_032.png": {
+      "srt_number": 32,
+      "target_name": "SRT_032.png",
+      "cue_text": "숨결의 떨림까지, 소리로 읽죠.",
+      "word_srt_number": 32,
+      "word_cue_text": "숨결의 떨림까지, 소리로 읽죠.",
+      "status": "즉시 저장 완료: SRT_032.png",
+      "match_reason": "숨결의·32번, 초음파·29번"
+    },
+    "C:\\util\\유튜브\\20260608_동물들은 인간이 어떻게 보일까\\short\\png\\SRT_034.png": {
+      "srt_number": 34,
+      "target_name": "SRT_034.png",
+      "cue_text": "돌고래는 몸속까지 봅니다.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "이미 해당 파일명 (변경 없음)",
+      "match_reason": "—"
+    },
+    "C:\\util\\유튜브\\20260608_동물들은 인간이 어떻게 보일까\\short\\png\\SRT_036.png": {
+      "srt_number": 36,
+      "target_name": "SRT_036.png",
+      "cue_text": "뼈, 폐, 심장 박동까지요.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_036.png",
+      "match_reason": "—"
+    },
+    "C:\\util\\유튜브\\20260608_동물들은 인간이 어떻게 보일까\\short\\png\\SRT_041.png": {
+      "srt_number": 41,
+      "target_name": "SRT_041.png",
+      "cue_text": "정답은. 모두가 진짜입니다!",
+      "word_srt_number": 41,
+      "word_cue_text": "정답은. 모두가 진짜입니다!",
+      "status": "즉시 저장 완료: SRT_041.png",
+      "match_reason": "모두가·41번, 자외선·22번"
+    },
+    "C:\\util\\유튜브\\20260608_동물들은 인간이 어떻게 보일까\\short\\png\\SRT_039.png": {
+      "srt_number": 39,
+      "target_name": "SRT_039.png",
+      "cue_text": "누구의 당신이, 진짜일까요?",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_039.png",
       "match_reason": "—"
     }
   }

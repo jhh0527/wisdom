@@ -77,6 +77,10 @@ def load_tab_ui(module: str, container: tk.Misc) -> None:
             from utube.gui_app import main
 
             main(container=container)
+        elif module == "8_fileExplorer":
+            from file_explorer.gui_app import main
+
+            main(container=container)
         else:
             raise ValueError(f"알 수 없는 모듈: {module}")
         setattr(container, "_wisdom_tab_module", module)
