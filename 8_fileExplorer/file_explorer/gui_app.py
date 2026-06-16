@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""C/S/T/U/X → W 드라이브 파일 복사 GUI."""
+"""C/S/T/U/X → W 반출, W → USB 복사 GUI."""
 
 from __future__ import annotations
 
@@ -10,14 +10,18 @@ from pathlib import Path
 from tkinter import filedialog, font as tkfont, messagebox, ttk
 
 from file_explorer import __version__
-from file_explorer.copier import copy_items
+from file_explorer.copier import copy_items, count_copy_targets
 from file_explorer.paths import (
     DEFAULT_DEST_DRIVE,
     SOURCE_DRIVES,
     available_source_drives,
+    available_usb_drives,
     default_dest_dir,
+    dest_on_export_drive,
+    dest_on_usb_drive,
     drive_root,
     first_available_source,
+    path_on_drive,
 )
 from file_explorer.settings import load_gui_settings, save_gui_settings
 from wisdom_workspace import folder_dialog_initial, touch_workspace_from_path
@@ -92,7 +96,9 @@ def main(*, container: tk.Misc | None = None) -> None:
     dest_var = tk.StringVar(value=str(dest_default))
     recursive_var = tk.BooleanVar(value=True)
     overwrite_var = tk.BooleanVar(value=True)
-    status_var = tk.StringVar(value="왼쪽에서 복사할 항목을 선택하고, 오른쪽에서 W 드라이브 결과를 확인하세요.")
+    status_var = tk.StringVar(
+        value="왼쪽에서 복사할 항목을 선택하고, W 반출 또는 W→USB 복사를 실행하세요."
+    )
     drive_status_var = tk.StringVar(value="")
 
     frm = ttk.Frame(root, padding=10)
@@ -108,10 +114,18 @@ def main(*, container: tk.Misc | None = None) -> None:
         avail = available_source_drives()
         w = drive_root(DEFAULT_DEST_DRIVE)
         w_txt = DEFAULT_DEST_DRIVE if w.exists() else f"{DEFAULT_DEST_DRIVE} (미연결)"
+        usb = available_usb_drives()
+        usb_txt = ", ".join(usb) if usb else "없음"
         if avail:
-            drive_status_var.set(f"소스: {', '.join(avail)}  |  대상: {w_txt}")
+            drive_status_var.set(
+                f"소스: {', '.join(avail)}  |  W: {w_txt}  |  USB: {usb_txt}"
+            )
         else:
-            drive_status_var.set(f"소스 드라이브 미연결  |  대상: {w_txt}")
+            drive_status_var.set(
+                f"소스 드라이브 미연결  |  W: {w_txt}  |  USB: {usb_txt}"
+            )
+        if usb_dest_row is not None:
+            rebuild_usb_dest_buttons()
 
     def refresh_src_list() -> None:
         _fill_listbox(src_listbox, src_entries, Path(src_var.get().strip()))
@@ -166,8 +180,37 @@ def main(*, container: tk.Misc | None = None) -> None:
         else:
             messagebox.showwarning("드라이브", f"{DEFAULT_DEST_DRIVE} 드라이브가 연결되어 있지 않습니다.")
 
+    def go_dest_usb(letter: str) -> None:
+        root_path = drive_root(letter)
+        if root_path.exists():
+            set_dest(root_path)
+        else:
+            messagebox.showwarning("드라이브", f"{letter} 드라이브가 연결되어 있지 않습니다.")
+
+    usb_dest_row: ttk.Frame | None = None
+    usb_dest_btns: list[ttk.Button] = []
+
+    def rebuild_usb_dest_buttons() -> None:
+        if usb_dest_row is None:
+            return
+        for btn in usb_dest_btns:
+            if btn in browse_widgets:
+                browse_widgets.remove(btn)
+            btn.destroy()
+        usb_dest_btns.clear()
+        for letter in available_usb_drives():
+            btn = ttk.Button(
+                usb_dest_row,
+                text=letter,
+                width=4,
+                command=lambda lp=letter: go_dest_usb(lp),
+            )
+            btn.pack(side=tk.LEFT, padx=(0, 4))
+            usb_dest_btns.append(btn)
+            browse_widgets.append(btn)
+
     # 소스 드라이브
-    ttk.Label(frm, text="소스 드라이브 (C / S / T / U / X)").grid(row=0, column=0, sticky="w")
+    ttk.Label(frm, text="소스 드라이브 (C / S / T / U / X · W)").grid(row=0, column=0, sticky="w")
     drive_row = ttk.Frame(frm)
     drive_row.grid(row=1, column=0, sticky="w", pady=(0, 4))
     for letter in SOURCE_DRIVES:
@@ -185,6 +228,18 @@ def main(*, container: tk.Misc | None = None) -> None:
         btn = ttk.Button(drive_row, text=letter, width=4, command=make_drive_cmd())
         btn.pack(side=tk.LEFT, padx=(0, 4))
         browse_widgets.append(btn)
+
+    w_src = drive_root(DEFAULT_DEST_DRIVE)
+
+    def go_w_source() -> None:
+        if w_src.exists():
+            set_source(w_src)
+        else:
+            messagebox.showwarning("드라이브", f"{DEFAULT_DEST_DRIVE} 드라이브가 연결되어 있지 않습니다.")
+
+    btn_w_src = ttk.Button(drive_row, text=f"{DEFAULT_DEST_DRIVE}*", width=5, command=go_w_source)
+    btn_w_src.pack(side=tk.LEFT, padx=(8, 0))
+    browse_widgets.append(btn_w_src)
     ttk.Label(frm, textvariable=drive_status_var).grid(row=2, column=0, sticky="w", pady=(0, 8))
 
     # 좌우 탐색기
@@ -234,7 +289,10 @@ def main(*, container: tk.Misc | None = None) -> None:
 
     src_listbox.bind("<Double-Button-1>", on_src_double)
 
-    ttk.Label(dest_pane, text=f"대상 폴더 ({DEFAULT_DEST_DRIVE}) — 복사 결과 확인").grid(
+    ttk.Label(
+        dest_pane,
+        text=f"대상 폴더 (W 반출 · USB) — 복사 결과 확인",
+    ).grid(
         row=0, column=0, sticky="w"
     )
     dest_row = ttk.Frame(dest_pane)
@@ -247,8 +305,11 @@ def main(*, container: tk.Misc | None = None) -> None:
     btn_dest_up = ttk.Button(dest_row, text="상위", width=5, command=go_dest_parent)
     btn_dest_up.grid(row=0, column=2, padx=(0, 4))
     btn_dest = ttk.Button(dest_row, text="선택…", command=pick_dest)
-    btn_dest.grid(row=0, column=3)
+    btn_dest.grid(row=0, column=3, padx=(0, 8))
+    usb_dest_row = ttk.Frame(dest_row)
+    usb_dest_row.grid(row=0, column=4, sticky="w")
     browse_widgets.extend([btn_w, dest_ent, btn_dest_up, btn_dest])
+    rebuild_usb_dest_buttons()
 
     dest_list_frm = ttk.Frame(dest_pane)
     dest_list_frm.grid(row=2, column=0, sticky="nsew")
@@ -290,11 +351,13 @@ def main(*, container: tk.Misc | None = None) -> None:
         log.see(tk.END)
         log.configure(state=tk.DISABLED)
 
-    btn_copy: ttk.Button
+    btn_copy_w: ttk.Button
+    btn_copy_usb: ttk.Button
 
     def set_busy(on: bool) -> None:
         state = tk.DISABLED if on else tk.NORMAL
-        btn_copy.configure(state=state)
+        btn_copy_w.configure(state=state)
+        btn_copy_usb.configure(state=state)
         for w in browse_widgets:
             try:
                 w.configure(state=state)
@@ -322,37 +385,64 @@ def main(*, container: tk.Misc | None = None) -> None:
                 out.append(src_entries[i][1])
         return out
 
-    def run_copy() -> None:
+    def run_copy(*, to_usb: bool) -> None:
         sources = selected_paths()
         if not sources:
             messagebox.showwarning("선택", "왼쪽 목록에서 복사할 파일·폴더를 선택하세요.")
             return
-        dest = Path(dest_var.get().strip())
         if not dest_var.get().strip():
-            messagebox.showwarning("대상", f"{DEFAULT_DEST_DRIVE} 대상 폴더를 지정하세요.")
+            messagebox.showwarning("대상", "오른쪽에서 대상 폴더를 지정하세요.")
+            return
+        dest = Path(dest_var.get().strip())
+        if to_usb:
+            if not dest_on_usb_drive(dest):
+                messagebox.showwarning(
+                    "대상",
+                    "USB 복사는 USB 드라이브를 대상으로 지정하세요.\n"
+                    "오른쪽 USB 버튼을 누르거나 USB 폴더를 선택하세요.",
+                )
+                return
+            off_w = [p for p in sources if not path_on_drive(p, DEFAULT_DEST_DRIVE)]
+            if off_w:
+                messagebox.showwarning(
+                    "소스",
+                    f"USB 복사는 {DEFAULT_DEST_DRIVE} 드라이브의 파일·폴더만 선택할 수 있습니다.",
+                )
+                return
+        elif not dest_on_export_drive(dest):
+            messagebox.showwarning(
+                "대상",
+                f"W 반출은 {DEFAULT_DEST_DRIVE} 드라이브를 대상으로 지정하세요.",
+            )
             return
         dest.mkdir(parents=True, exist_ok=True)
         persist_paths()
+        target_label = "USB" if to_usb else DEFAULT_DEST_DRIVE
 
         def work() -> None:
             err: Exception | None = None
-            ok = 0
+            file_ok = 0
             errors: list[str] = []
+            recursive = bool(recursive_var.get())
+            total_steps = max(count_copy_targets(sources, dest, recursive=recursive), 1)
 
-            def on_prog(i: int, total: int, item) -> None:
-                pct = 0 if total <= 0 else int(100 * i / total)
+            def on_prog(i: int, _total: int, item) -> None:
+                pct = int(100 * i / total_steps)
 
                 def ui() -> None:
                     prog.configure(value=pct)
-                    status_var.set(f"복사 중… {pct}% ({i}/{total}) — {item.source.name}")
+                    status_var.set(
+                        f"복사 중… {pct}% ({i}/{total_steps}) — "
+                        f"[{target_label}] {item.source.name}"
+                    )
 
                 root.after(0, ui)
 
             try:
-                ok, errors = copy_items(
+                file_ok, errors = copy_items(
                     sources,
                     dest,
-                    recursive=bool(recursive_var.get()),
+                    recursive=recursive,
                     overwrite=bool(overwrite_var.get()),
                     on_progress=on_prog,
                 )
@@ -363,6 +453,7 @@ def main(*, container: tk.Misc | None = None) -> None:
             def done() -> None:
                 set_busy(False)
                 prog.configure(value=100 if not err else 0)
+                refresh_drive_status()
                 refresh_dest_list()
                 if err:
                     messagebox.showerror("오류", str(err))
@@ -370,18 +461,18 @@ def main(*, container: tk.Misc | None = None) -> None:
                     return
                 for msg in errors:
                     log_line(msg)
-                status_var.set(
-                    f"완료: {ok}개 복사 → {dest.resolve()} (오른쪽 목록에서 W 드라이브 내용 확인)"
-                )
+                status_var.set(f"완료: {file_ok}개 파일 → {dest.resolve()}")
                 if errors:
                     messagebox.showwarning(
                         "완료 (일부 오류)",
-                        f"{ok}개 복사 완료\n오류 {len(errors)}건 — 로그를 확인하세요.",
+                        f"{file_ok}개 파일 → {dest.resolve()}\n"
+                        f"오류 {len(errors)}건 — 로그를 확인하세요.",
                     )
                 else:
                     messagebox.showinfo(
                         "완료",
-                        f"{ok}개 → {dest.resolve()}\n오른쪽 목록에서 복사 결과를 확인하세요.",
+                        f"{file_ok}개 파일 → {dest.resolve()}\n"
+                        "오른쪽 목록에서 복사 결과를 확인하세요.",
                     )
 
             root.after(0, done)
@@ -391,19 +482,25 @@ def main(*, container: tk.Misc | None = None) -> None:
         log.configure(state=tk.NORMAL)
         log.delete("1.0", tk.END)
         log.configure(state=tk.DISABLED)
-        status_var.set(f"복사 시작… 선택 {len(sources)}개 항목")
+        status_var.set(f"{target_label} 복사 시작… 선택 {len(sources)}개 항목")
         threading.Thread(target=work, daemon=True).start()
 
     row_btns = ttk.Frame(frm)
     row_btns.grid(row=8, column=0, sticky="ew", pady=(8, 0))
-    btn_copy = ttk.Button(
+    btn_copy_w = ttk.Button(
         row_btns,
         text=f"선택 항목 → {DEFAULT_DEST_DRIVE} 복사",
-        command=run_copy,
+        command=lambda: run_copy(to_usb=False),
     )
-    btn_copy.pack(side=tk.LEFT)
+    btn_copy_w.pack(side=tk.LEFT)
+    btn_copy_usb = ttk.Button(
+        row_btns,
+        text="선택 항목 → USB 복사 (W에서)",
+        command=lambda: run_copy(to_usb=True),
+    )
+    btn_copy_usb.pack(side=tk.LEFT, padx=(8, 0))
     ttk.Button(row_btns, text="소스 새로고침", command=refresh_src_list).pack(side=tk.LEFT, padx=(8, 0))
-    ttk.Button(row_btns, text="W 새로고침", command=refresh_dest_list).pack(side=tk.LEFT, padx=(8, 0))
+    ttk.Button(row_btns, text="대상 새로고침", command=refresh_dest_list).pack(side=tk.LEFT, padx=(8, 0))
 
     def on_close() -> None:
         persist_paths()

@@ -122,7 +122,7 @@ def group_entries_for_synthesis(entries: list[CaptionLine]) -> list[list[Caption
 
 
 def merge_group_tts(group: list[CaptionLine]) -> str:
-    """한 묶음 TTS. 문장부호 없이 이어지는 줄은 쉼 없이 붙여 한 번에 낭독합니다."""
+    """한 묶음 TTS. 문장부호 없이 이어지는 줄은 공백으로 이어 한 번에 낭독합니다."""
     if not group:
         return ""
     if len(group) == 1:
@@ -134,7 +134,7 @@ def merge_group_tts(group: list[CaptionLine]) -> str:
             parts.append(strip_leading_continues_marker(curr.tts))
         else:
             parts.append(curr.tts)
-    return "".join(parts)
+    return " ".join(p.strip() for p in parts if p.strip())
 
 
 def split_duration_ms(total_ms: int, weights: list[int], *, min_ms: int = 1) -> list[int]:

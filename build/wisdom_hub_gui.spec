@@ -17,7 +17,7 @@ _module_dirs = (
     "4_2_ShortVideo",
     "6_thumbnail",
     "7_utube",
-    "8_fileExplorer",
+    "9_mdFile",
 )
 _pathex = [wisdom_repo] + [
     os.path.join(wisdom_repo, d) for d in _module_dirs
@@ -55,7 +55,7 @@ _hidden_pkgs = (
     "shortvid",
     "utube",
     "thumbnail_gui",
-    "file_explorer",
+    "md_file",
     "wisdom_hub",
 )
 hiddenimports: list[str] = [

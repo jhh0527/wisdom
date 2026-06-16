@@ -81,6 +81,7 @@ imports:
     <a href="#__future__">__future__</a>
  &#8226;   <a href="#elsub.gui_app">elsub.gui_app</a>
  &#8226;   <a href="#manuscript_700_splitter">manuscript_700_splitter</a>
+ &#8226;   <a href="#md_file.gui_app">md_file.gui_app</a>
  &#8226;   <a href="#pathlib">pathlib</a>
  &#8226;   <a href="#png2jpg.gui_app">png2jpg.gui_app</a>
  &#8226;   <a href="#png_rename.gui_app">png_rename.gui_app</a>
@@ -539,7 +540,9 @@ imported by:
 imports:
     <a href="#__future__">__future__</a>
  &#8226;   <a href="#tkinter">tkinter</a>
+ &#8226;   <a href="#tkinter.font">tkinter.font</a>
  &#8226;   <a href="#tkinter.messagebox">tkinter.messagebox</a>
+ &#8226;   <a href="#tkinter.ttk">tkinter.ttk</a>
  &#8226;   <a href="#typing">typing</a>
 
   </div>
@@ -3246,6 +3249,10 @@ imported by:
  &#8226;   <a href="#loaders.py">loaders.py</a>
  &#8226;   <a href="#manuscript_700_splitter">manuscript_700_splitter</a>
  &#8226;   <a href="#manuscript_700_splitter.py">manuscript_700_splitter.py</a>
+ &#8226;   <a href="#md_file.gui_app">md_file.gui_app</a>
+ &#8226;   <a href="#md_file.paths">md_file.paths</a>
+ &#8226;   <a href="#md_file.scanner">md_file.scanner</a>
+ &#8226;   <a href="#md_file.settings">md_file.settings</a>
  &#8226;   <a href="#packaging.version">packaging.version</a>
  &#8226;   <a href="#pipeline.py">pipeline.py</a>
  &#8226;   <a href="#png2jpg.converter">png2jpg.converter</a>
@@ -3276,7 +3283,6 @@ imported by:
  &#8226;   <a href="#prompt2image.srt_naming">prompt2image.srt_naming</a>
  &#8226;   <a href="#run_wisdom_hub_gui.py">run_wisdom_hub_gui.py</a>
  &#8226;   <a href="#scenevid.assets">scenevid.assets</a>
- &#8226;   <a href="#scenevid.cli">scenevid.cli</a>
  &#8226;   <a href="#scenevid.compose_overrides">scenevid.compose_overrides</a>
  &#8226;   <a href="#scenevid.compose_render">scenevid.compose_render</a>
  &#8226;   <a href="#scenevid.ffmpeg_render">scenevid.ffmpeg_render</a>
@@ -3285,7 +3291,6 @@ imported by:
  &#8226;   <a href="#scenevid.motion">scenevid.motion</a>
  &#8226;   <a href="#scenevid.repo_paths">scenevid.repo_paths</a>
  &#8226;   <a href="#scenevid.schema">scenevid.schema</a>
- &#8226;   <a href="#scenevid.script_parse">scenevid.script_parse</a>
  &#8226;   <a href="#scenevid.srt_image_effects">scenevid.srt_image_effects</a>
  &#8226;   <a href="#scenevid.srt_parse">scenevid.srt_parse</a>
  &#8226;   <a href="#scenevid.subprocess_util">scenevid.subprocess_util</a>
@@ -4366,7 +4371,6 @@ imported by:
  &#8226;   <a href="#png2jpg.gui_app">png2jpg.gui_app</a>
  &#8226;   <a href="#png_rename.gui_app">png_rename.gui_app</a>
  &#8226;   <a href="#py_compile">py_compile</a>
- &#8226;   <a href="#scenevid.cli">scenevid.cli</a>
  &#8226;   <a href="#tarfile">tarfile</a>
  &#8226;   <a href="#tokenize">tokenize</a>
  &#8226;   <a href="#uuid">uuid</a>
@@ -5815,6 +5819,7 @@ imported by:
  &#8226;   <a href="#PIL._typing">PIL._typing</a>
  &#8226;   <a href="#asyncio.base_events">asyncio.base_events</a>
  &#8226;   <a href="#asyncio.coroutines">asyncio.coroutines</a>
+ &#8226;   <a href="#elsub.gui_app">elsub.gui_app</a>
  &#8226;   <a href="#genspark_chat">genspark_chat</a>
  &#8226;   <a href="#genspark_chat.py">genspark_chat.py</a>
  &#8226;   <a href="#http.client">http.client</a>
@@ -6334,6 +6339,7 @@ imported by:
 imports:
     <a href="#__future__">__future__</a>
  &#8226;   <a href="#collections">collections</a>
+ &#8226;   <a href="#collections.abc">collections.abc</a>
  &#8226;   <a href="#elsub">elsub</a>
  &#8226;   <a href="#elsub.elevenlabs_client">elsub.elevenlabs_client</a>
  &#8226;   <a href="#elsub.input_loader">elsub.input_loader</a>
@@ -10909,6 +10915,7 @@ imported by:
  &#8226;   <a href="#json.decoder">json.decoder</a>
  &#8226;   <a href="#json.encoder">json.encoder</a>
  &#8226;   <a href="#json.scanner">json.scanner</a>
+ &#8226;   <a href="#md_file.settings">md_file.settings</a>
  &#8226;   <a href="#playwright._impl._browser_context">playwright._impl._browser_context</a>
  &#8226;   <a href="#playwright._impl._browser_type">playwright._impl._browser_type</a>
  &#8226;   <a href="#playwright._impl._fetch">playwright._impl._fetch</a>
@@ -11212,6 +11219,107 @@ imported by:
  &#8226;   <a href="#shortvid.motion">shortvid.motion</a>
  &#8226;   <a href="#statistics">statistics</a>
  &#8226;   <a href="#urllib.parse">urllib.parse</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="md_file"></a>
+  <a target="code" href="///C:/intellij/wisdom/9_mdFile/md_file/__init__.py" type="text/plain"><tt>md_file</tt></a>
+<span class="moduletype">Package</span>  <div class="import">
+imported by:
+    <a href="#md_file.gui_app">md_file.gui_app</a>
+ &#8226;   <a href="#md_file.paths">md_file.paths</a>
+ &#8226;   <a href="#md_file.scanner">md_file.scanner</a>
+ &#8226;   <a href="#md_file.settings">md_file.settings</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="md_file.gui_app"></a>
+  <a target="code" href="///C:/intellij/wisdom/9_mdFile/md_file/gui_app.py" type="text/plain"><tt>md_file.gui_app</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#__future__">__future__</a>
+ &#8226;   <a href="#md_file">md_file</a>
+ &#8226;   <a href="#md_file.paths">md_file.paths</a>
+ &#8226;   <a href="#md_file.scanner">md_file.scanner</a>
+ &#8226;   <a href="#md_file.settings">md_file.settings</a>
+ &#8226;   <a href="#pathlib">pathlib</a>
+ &#8226;   <a href="#tkinter">tkinter</a>
+ &#8226;   <a href="#tkinter.filedialog">tkinter.filedialog</a>
+ &#8226;   <a href="#tkinter.font">tkinter.font</a>
+ &#8226;   <a href="#tkinter.messagebox">tkinter.messagebox</a>
+ &#8226;   <a href="#tkinter.ttk">tkinter.ttk</a>
+ &#8226;   <a href="#wisdom_gui_host">wisdom_gui_host</a>
+ &#8226;   <a href="#wisdom_workspace">wisdom_workspace</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#loaders.py">loaders.py</a>
+ &#8226;   <a href="#wisdom_hub.loaders">wisdom_hub.loaders</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="md_file.paths"></a>
+  <a target="code" href="///C:/intellij/wisdom/9_mdFile/md_file/paths.py" type="text/plain"><tt>md_file.paths</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#__future__">__future__</a>
+ &#8226;   <a href="#md_file">md_file</a>
+ &#8226;   <a href="#pathlib">pathlib</a>
+ &#8226;   <a href="#wisdom_root">wisdom_root</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#md_file.gui_app">md_file.gui_app</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="md_file.scanner"></a>
+  <a target="code" href="///C:/intellij/wisdom/9_mdFile/md_file/scanner.py" type="text/plain"><tt>md_file.scanner</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#__future__">__future__</a>
+ &#8226;   <a href="#md_file">md_file</a>
+ &#8226;   <a href="#pathlib">pathlib</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#md_file.gui_app">md_file.gui_app</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="md_file.settings"></a>
+  <a target="code" href="///C:/intellij/wisdom/9_mdFile/md_file/settings.py" type="text/plain"><tt>md_file.settings</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#__future__">__future__</a>
+ &#8226;   <a href="#json">json</a>
+ &#8226;   <a href="#md_file">md_file</a>
+ &#8226;   <a href="#pathlib">pathlib</a>
+ &#8226;   <a href="#sys">sys</a>
+ &#8226;   <a href="#wisdom_workspace">wisdom_workspace</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#md_file.gui_app">md_file.gui_app</a>
 
   </div>
 
@@ -17249,6 +17357,10 @@ imported by:
  &#8226;   <a href="#loaders.py">loaders.py</a>
  &#8226;   <a href="#manuscript_700_splitter">manuscript_700_splitter</a>
  &#8226;   <a href="#manuscript_700_splitter.py">manuscript_700_splitter.py</a>
+ &#8226;   <a href="#md_file.gui_app">md_file.gui_app</a>
+ &#8226;   <a href="#md_file.paths">md_file.paths</a>
+ &#8226;   <a href="#md_file.scanner">md_file.scanner</a>
+ &#8226;   <a href="#md_file.settings">md_file.settings</a>
  &#8226;   <a href="#playwright._impl._api_structures">playwright._impl._api_structures</a>
  &#8226;   <a href="#playwright._impl._artifact">playwright._impl._artifact</a>
  &#8226;   <a href="#playwright._impl._browser">playwright._impl._browser</a>
@@ -17298,7 +17410,6 @@ imported by:
  &#8226;   <a href="#prompt2image.srt_naming">prompt2image.srt_naming</a>
  &#8226;   <a href="#run_wisdom_hub_gui.py">run_wisdom_hub_gui.py</a>
  &#8226;   <a href="#scenevid.assets">scenevid.assets</a>
- &#8226;   <a href="#scenevid.cli">scenevid.cli</a>
  &#8226;   <a href="#scenevid.compose_overrides">scenevid.compose_overrides</a>
  &#8226;   <a href="#scenevid.compose_render">scenevid.compose_render</a>
  &#8226;   <a href="#scenevid.ffmpeg_render">scenevid.ffmpeg_render</a>
@@ -17307,7 +17418,6 @@ imported by:
  &#8226;   <a href="#scenevid.motion">scenevid.motion</a>
  &#8226;   <a href="#scenevid.repo_paths">scenevid.repo_paths</a>
  &#8226;   <a href="#scenevid.schema">scenevid.schema</a>
- &#8226;   <a href="#scenevid.script_parse">scenevid.script_parse</a>
  &#8226;   <a href="#scenevid.srt_image_effects">scenevid.srt_image_effects</a>
  &#8226;   <a href="#scenevid.srt_parse">scenevid.srt_parse</a>
  &#8226;   <a href="#scenevid.subtitles">scenevid.subtitles</a>
@@ -19531,6 +19641,7 @@ imports:
  &#8226;   <a href="#png_rename.srt_parse">png_rename.srt_parse</a>
  &#8226;   <a href="#png_rename.text_norm">png_rename.text_norm</a>
  &#8226;   <a href="#re">re</a>
+ &#8226;   <a href="#shutil">shutil</a>
  &#8226;   <a href="#sys">sys</a>
  &#8226;   <a href="#threading">threading</a>
  &#8226;   <a href="#tkinter">tkinter</a>
@@ -20478,7 +20589,6 @@ imported by:
  &#8226;   <a href="#scenevid.compose_overrides">scenevid.compose_overrides</a>
  &#8226;   <a href="#scenevid.compose_render">scenevid.compose_render</a>
  &#8226;   <a href="#scenevid.motion">scenevid.motion</a>
- &#8226;   <a href="#scenevid.script_parse">scenevid.script_parse</a>
  &#8226;   <a href="#scenevid.srt_image_effects">scenevid.srt_image_effects</a>
  &#8226;   <a href="#scenevid.srt_parse">scenevid.srt_parse</a>
  &#8226;   <a href="#scenevid.subtitles">scenevid.subtitles</a>
@@ -20658,7 +20768,6 @@ imported by:
 <span class="moduletype">Package</span>  <div class="import">
 imported by:
     <a href="#scenevid.assets">scenevid.assets</a>
- &#8226;   <a href="#scenevid.cli">scenevid.cli</a>
  &#8226;   <a href="#scenevid.compose_overrides">scenevid.compose_overrides</a>
  &#8226;   <a href="#scenevid.compose_render">scenevid.compose_render</a>
  &#8226;   <a href="#scenevid.ffmpeg_render">scenevid.ffmpeg_render</a>
@@ -20667,7 +20776,6 @@ imported by:
  &#8226;   <a href="#scenevid.motion">scenevid.motion</a>
  &#8226;   <a href="#scenevid.repo_paths">scenevid.repo_paths</a>
  &#8226;   <a href="#scenevid.schema">scenevid.schema</a>
- &#8226;   <a href="#scenevid.script_parse">scenevid.script_parse</a>
  &#8226;   <a href="#scenevid.srt_image_effects">scenevid.srt_image_effects</a>
  &#8226;   <a href="#scenevid.srt_parse">scenevid.srt_parse</a>
  &#8226;   <a href="#scenevid.subprocess_util">scenevid.subprocess_util</a>
@@ -20695,37 +20803,8 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#scenevid.cli">scenevid.cli</a>
- &#8226;   <a href="#scenevid.compose_render">scenevid.compose_render</a>
+    <a href="#scenevid.compose_render">scenevid.compose_render</a>
  &#8226;   <a href="#scenevid.ffmpeg_render">scenevid.ffmpeg_render</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="scenevid.cli"></a>
-  <a target="code" href="///C:/intellij/wisdom/4_1_video/scenevid/cli.py" type="text/plain"><tt>scenevid.cli</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#__future__">__future__</a>
- &#8226;   <a href="#argparse">argparse</a>
- &#8226;   <a href="#pathlib">pathlib</a>
- &#8226;   <a href="#scenevid">scenevid</a>
- &#8226;   <a href="#scenevid.assets">scenevid.assets</a>
- &#8226;   <a href="#scenevid.compose_render">scenevid.compose_render</a>
- &#8226;   <a href="#scenevid.ffmpeg_render">scenevid.ffmpeg_render</a>
- &#8226;   <a href="#scenevid.media_paths">scenevid.media_paths</a>
- &#8226;   <a href="#scenevid.repo_paths">scenevid.repo_paths</a>
- &#8226;   <a href="#scenevid.schema">scenevid.schema</a>
- &#8226;   <a href="#scenevid.script_parse">scenevid.script_parse</a>
- &#8226;   <a href="#scenevid.subtitles">scenevid.subtitles</a>
- &#8226;   <a href="#sys">sys</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#scenevid.gui_app">scenevid.gui_app</a>
 
   </div>
 
@@ -20781,8 +20860,7 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#scenevid.cli">scenevid.cli</a>
- &#8226;   <a href="#scenevid.gui_app">scenevid.gui_app</a>
+    <a href="#scenevid.gui_app">scenevid.gui_app</a>
 
   </div>
 
@@ -20808,8 +20886,7 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#scenevid.cli">scenevid.cli</a>
- &#8226;   <a href="#scenevid.compose_render">scenevid.compose_render</a>
+    <a href="#scenevid.compose_render">scenevid.compose_render</a>
 
   </div>
 
@@ -20824,7 +20901,6 @@ imports:
  &#8226;   <a href="#os">os</a>
  &#8226;   <a href="#pathlib">pathlib</a>
  &#8226;   <a href="#scenevid">scenevid</a>
- &#8226;   <a href="#scenevid.cli">scenevid.cli</a>
  &#8226;   <a href="#scenevid.compose_overrides">scenevid.compose_overrides</a>
  &#8226;   <a href="#scenevid.compose_render">scenevid.compose_render</a>
  &#8226;   <a href="#scenevid.media_paths">scenevid.media_paths</a>
@@ -20872,7 +20948,6 @@ imports:
   <div class="import">
 imported by:
     <a href="#scenevid.assets">scenevid.assets</a>
- &#8226;   <a href="#scenevid.cli">scenevid.cli</a>
  &#8226;   <a href="#scenevid.ffmpeg_render">scenevid.ffmpeg_render</a>
  &#8226;   <a href="#scenevid.gui_app">scenevid.gui_app</a>
 
@@ -20899,7 +20974,6 @@ imported by:
  &#8226;   <a href="#scenevid.ffmpeg_render">scenevid.ffmpeg_render</a>
  &#8226;   <a href="#scenevid.gui_app">scenevid.gui_app</a>
  &#8226;   <a href="#scenevid.schema">scenevid.schema</a>
- &#8226;   <a href="#scenevid.script_parse">scenevid.script_parse</a>
  &#8226;   <a href="#scenevid.srt_image_effects">scenevid.srt_image_effects</a>
 
   </div>
@@ -20923,8 +20997,7 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#scenevid.cli">scenevid.cli</a>
- &#8226;   <a href="#scenevid.compose_render">scenevid.compose_render</a>
+    <a href="#scenevid.compose_render">scenevid.compose_render</a>
  &#8226;   <a href="#scenevid.gui_app">scenevid.gui_app</a>
  &#8226;   <a href="#scenevid.media_paths">scenevid.media_paths</a>
 
@@ -20948,32 +21021,9 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#scenevid.cli">scenevid.cli</a>
- &#8226;   <a href="#scenevid.compose_render">scenevid.compose_render</a>
+    <a href="#scenevid.compose_render">scenevid.compose_render</a>
  &#8226;   <a href="#scenevid.ffmpeg_render">scenevid.ffmpeg_render</a>
  &#8226;   <a href="#scenevid.gui_app">scenevid.gui_app</a>
- &#8226;   <a href="#scenevid.script_parse">scenevid.script_parse</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="scenevid.script_parse"></a>
-  <a target="code" href="///C:/intellij/wisdom/4_1_video/scenevid/script_parse.py" type="text/plain"><tt>scenevid.script_parse</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#__future__">__future__</a>
- &#8226;   <a href="#pathlib">pathlib</a>
- &#8226;   <a href="#re">re</a>
- &#8226;   <a href="#scenevid">scenevid</a>
- &#8226;   <a href="#scenevid.motion">scenevid.motion</a>
- &#8226;   <a href="#scenevid.schema">scenevid.schema</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#scenevid.cli">scenevid.cli</a>
 
   </div>
 
@@ -21059,8 +21109,7 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#scenevid.cli">scenevid.cli</a>
- &#8226;   <a href="#scenevid.compose_render">scenevid.compose_render</a>
+    <a href="#scenevid.compose_render">scenevid.compose_render</a>
  &#8226;   <a href="#scenevid.ffmpeg_render">scenevid.ffmpeg_render</a>
  &#8226;   <a href="#scenevid.gui_app">scenevid.gui_app</a>
 
@@ -21530,6 +21579,7 @@ imported by:
  &#8226;   <a href="#elsub.elevenlabs_client">elsub.elevenlabs_client</a>
  &#8226;   <a href="#elsub.media_probe">elsub.media_probe</a>
  &#8226;   <a href="#multiprocessing.util">multiprocessing.util</a>
+ &#8226;   <a href="#png_rename.gui_app">png_rename.gui_app</a>
  &#8226;   <a href="#png_rename.ocr">png_rename.ocr</a>
  &#8226;   <a href="#prompt2image.download_watch">prompt2image.download_watch</a>
  &#8226;   <a href="#scenevid.ffmpeg_render">scenevid.ffmpeg_render</a>
@@ -21987,6 +22037,7 @@ imported by:
  &#8226;   <a href="#logging">logging</a>
  &#8226;   <a href="#manuscript_700_splitter">manuscript_700_splitter</a>
  &#8226;   <a href="#manuscript_700_splitter.py">manuscript_700_splitter.py</a>
+ &#8226;   <a href="#md_file.settings">md_file.settings</a>
  &#8226;   <a href="#mimetypes">mimetypes</a>
  &#8226;   <a href="#multiprocessing">multiprocessing</a>
  &#8226;   <a href="#multiprocessing.connection">multiprocessing.connection</a>
@@ -22041,7 +22092,6 @@ imported by:
  &#8226;   <a href="#re._compiler">re._compiler</a>
  &#8226;   <a href="#run_wisdom_hub_gui.py">run_wisdom_hub_gui.py</a>
  &#8226;   <a href="#runpy">runpy</a>
- &#8226;   <a href="#scenevid.cli">scenevid.cli</a>
  &#8226;   <a href="#scenevid.media_paths">scenevid.media_paths</a>
  &#8226;   <a href="#scenevid.repo_paths">scenevid.repo_paths</a>
  &#8226;   <a href="#scenevid.subprocess_util">scenevid.subprocess_util</a>
@@ -22390,6 +22440,7 @@ imported by:
  &#8226;   <a href="#loaders.py">loaders.py</a>
  &#8226;   <a href="#manuscript_700_splitter">manuscript_700_splitter</a>
  &#8226;   <a href="#manuscript_700_splitter.py">manuscript_700_splitter.py</a>
+ &#8226;   <a href="#md_file.gui_app">md_file.gui_app</a>
  &#8226;   <a href="#png2jpg.gui_app">png2jpg.gui_app</a>
  &#8226;   <a href="#png_rename.gui_app">png_rename.gui_app</a>
  &#8226;   <a href="#prompt2image.clipboard_util">prompt2image.clipboard_util</a>
@@ -22507,6 +22558,7 @@ imported by:
     <a href="#elsub.gui_app">elsub.gui_app</a>
  &#8226;   <a href="#manuscript_700_splitter">manuscript_700_splitter</a>
  &#8226;   <a href="#manuscript_700_splitter.py">manuscript_700_splitter.py</a>
+ &#8226;   <a href="#md_file.gui_app">md_file.gui_app</a>
  &#8226;   <a href="#png2jpg.gui_app">png2jpg.gui_app</a>
  &#8226;   <a href="#png_rename.gui_app">png_rename.gui_app</a>
  &#8226;   <a href="#prompt2image.gui_app">prompt2image.gui_app</a>
@@ -22535,6 +22587,7 @@ imported by:
     <a href="#elsub.gui_app">elsub.gui_app</a>
  &#8226;   <a href="#manuscript_700_splitter">manuscript_700_splitter</a>
  &#8226;   <a href="#manuscript_700_splitter.py">manuscript_700_splitter.py</a>
+ &#8226;   <a href="#md_file.gui_app">md_file.gui_app</a>
  &#8226;   <a href="#png2jpg.gui_app">png2jpg.gui_app</a>
  &#8226;   <a href="#png_rename.gui_app">png_rename.gui_app</a>
  &#8226;   <a href="#prompt2image.gui_app">prompt2image.gui_app</a>
@@ -22543,6 +22596,8 @@ imported by:
  &#8226;   <a href="#shortvid.gui_app">shortvid.gui_app</a>
  &#8226;   <a href="#thumbnail_gui.app">thumbnail_gui.app</a>
  &#8226;   <a href="#tkinter">tkinter</a>
+ &#8226;   <a href="#wisdom_gui_host">wisdom_gui_host</a>
+ &#8226;   <a href="#wisdom_gui_host.py">wisdom_gui_host.py</a>
 
   </div>
 
@@ -22563,6 +22618,7 @@ imported by:
  &#8226;   <a href="#loaders.py">loaders.py</a>
  &#8226;   <a href="#manuscript_700_splitter">manuscript_700_splitter</a>
  &#8226;   <a href="#manuscript_700_splitter.py">manuscript_700_splitter.py</a>
+ &#8226;   <a href="#md_file.gui_app">md_file.gui_app</a>
  &#8226;   <a href="#png2jpg.gui_app">png2jpg.gui_app</a>
  &#8226;   <a href="#png_rename.gui_app">png_rename.gui_app</a>
  &#8226;   <a href="#run_wisdom_hub_gui.py">run_wisdom_hub_gui.py</a>
@@ -22633,6 +22689,7 @@ imported by:
  &#8226;   <a href="#loaders.py">loaders.py</a>
  &#8226;   <a href="#manuscript_700_splitter">manuscript_700_splitter</a>
  &#8226;   <a href="#manuscript_700_splitter.py">manuscript_700_splitter.py</a>
+ &#8226;   <a href="#md_file.gui_app">md_file.gui_app</a>
  &#8226;   <a href="#png2jpg.gui_app">png2jpg.gui_app</a>
  &#8226;   <a href="#png_rename.gui_app">png_rename.gui_app</a>
  &#8226;   <a href="#prompt2image.gui_app">prompt2image.gui_app</a>
@@ -22642,6 +22699,8 @@ imported by:
  &#8226;   <a href="#thumbnail_gui.app">thumbnail_gui.app</a>
  &#8226;   <a href="#tkinter">tkinter</a>
  &#8226;   <a href="#utube.gui_app">utube.gui_app</a>
+ &#8226;   <a href="#wisdom_gui_host">wisdom_gui_host</a>
+ &#8226;   <a href="#wisdom_gui_host.py">wisdom_gui_host.py</a>
  &#8226;   <a href="#wisdom_hub.gui_app">wisdom_hub.gui_app</a>
  &#8226;   <a href="#wisdom_hub.loaders">wisdom_hub.loaders</a>
 
@@ -23674,7 +23733,9 @@ imported by:
 imports:
     <a href="#__future__">__future__</a>
  &#8226;   <a href="#tkinter">tkinter</a>
+ &#8226;   <a href="#tkinter.font">tkinter.font</a>
  &#8226;   <a href="#tkinter.messagebox">tkinter.messagebox</a>
+ &#8226;   <a href="#tkinter.ttk">tkinter.ttk</a>
  &#8226;   <a href="#typing">typing</a>
 
   </div>
@@ -23684,6 +23745,7 @@ imported by:
  &#8226;   <a href="#gui_app.py">gui_app.py</a>
  &#8226;   <a href="#manuscript_700_splitter">manuscript_700_splitter</a>
  &#8226;   <a href="#manuscript_700_splitter.py">manuscript_700_splitter.py</a>
+ &#8226;   <a href="#md_file.gui_app">md_file.gui_app</a>
  &#8226;   <a href="#png2jpg.gui_app">png2jpg.gui_app</a>
  &#8226;   <a href="#png_rename.gui_app">png_rename.gui_app</a>
  &#8226;   <a href="#prompt2image.gui_app">prompt2image.gui_app</a>
@@ -23743,6 +23805,7 @@ imports:
     <a href="#__future__">__future__</a>
  &#8226;   <a href="#elsub.gui_app">elsub.gui_app</a>
  &#8226;   <a href="#manuscript_700_splitter">manuscript_700_splitter</a>
+ &#8226;   <a href="#md_file.gui_app">md_file.gui_app</a>
  &#8226;   <a href="#pathlib">pathlib</a>
  &#8226;   <a href="#png2jpg.gui_app">png2jpg.gui_app</a>
  &#8226;   <a href="#png_rename.gui_app">png_rename.gui_app</a>
@@ -23811,6 +23874,7 @@ imported by:
  &#8226;   <a href="#loaders.py">loaders.py</a>
  &#8226;   <a href="#manuscript_700_splitter">manuscript_700_splitter</a>
  &#8226;   <a href="#manuscript_700_splitter.py">manuscript_700_splitter.py</a>
+ &#8226;   <a href="#md_file.paths">md_file.paths</a>
  &#8226;   <a href="#png2jpg.paths">png2jpg.paths</a>
  &#8226;   <a href="#png_rename.paths">png_rename.paths</a>
  &#8226;   <a href="#prompt2image.cue_match">prompt2image.cue_match</a>
@@ -23853,6 +23917,8 @@ imported by:
  &#8226;   <a href="#elsub.settings">elsub.settings</a>
  &#8226;   <a href="#manuscript_700_splitter">manuscript_700_splitter</a>
  &#8226;   <a href="#manuscript_700_splitter.py">manuscript_700_splitter.py</a>
+ &#8226;   <a href="#md_file.gui_app">md_file.gui_app</a>
+ &#8226;   <a href="#md_file.settings">md_file.settings</a>
  &#8226;   <a href="#png2jpg.gui_app">png2jpg.gui_app</a>
  &#8226;   <a href="#png2jpg.paths">png2jpg.paths</a>
  &#8226;   <a href="#png2jpg.settings">png2jpg.settings</a>

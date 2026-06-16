@@ -79,7 +79,7 @@ def _default_font() -> tuple[str, int]:
 
 
 def main(*, container: tk.Misc | None = None) -> None:
-    from wisdom_gui_host import apply_window_chrome, run_mainloop, tk_host
+    from wisdom_gui_host import apply_window_chrome, configure_notebook_tabs, run_mainloop, tk_host
 
     prepend_local_ffmpeg_bin_to_os_path()
     root, standalone = tk_host(container)
@@ -99,6 +99,7 @@ def main(*, container: tk.Misc | None = None) -> None:
 
     log = tk.Text(root, height=7, wrap=tk.WORD, state=tk.DISABLED)
     nb = ttk.Notebook(root, padding=6)
+    configure_notebook_tabs(root)
 
     status_bar = ttk.Label(root, textvariable=status_var, padding=(8, 4))
     progress_fr = ttk.Frame(root)

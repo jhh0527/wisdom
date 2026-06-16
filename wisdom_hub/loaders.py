@@ -77,8 +77,8 @@ def load_tab_ui(module: str, container: tk.Misc) -> None:
             from utube.gui_app import main
 
             main(container=container)
-        elif module == "8_fileExplorer":
-            from file_explorer.gui_app import main
+        elif module == "9_mdFile":
+            from md_file.gui_app import main
 
             main(container=container)
         else:

@@ -32,7 +32,7 @@ def export_videos_excel(path: Path, rows: list[VideoItem]) -> None:
 
     wb = Workbook()
     ws = wb.active
-    ws.title = "YouTube"
+    ws.title = "Utube"
 
     header_font = Font(bold=True)
     for col, title in enumerate(_EXCEL_HEADERS, start=1):

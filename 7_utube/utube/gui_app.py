@@ -1,4 +1,4 @@
-"""YouTube 인기·고조회 영상 조회 GUI."""
+"""Utube 인기·고조회 영상 조회 GUI."""
 
 from __future__ import annotations
 
@@ -85,7 +85,7 @@ def main(*, container: tk.Misc | None = None) -> None:
     apply_window_chrome(
         root,
         standalone,
-        title="7_utube — YouTube 인기·고조회 영상",
+        title="7_utube — Utube 인기·고조회 영상",
         minsize=(960, 520),
         geometry="1100x640",
     )
@@ -557,7 +557,7 @@ def main(*, container: tk.Misc | None = None) -> None:
         apply_sort()
         refresh_table()
         prefetch_thumbnails(rows_state)
-        status_var.set(f"{len(rows_state)}개 영상 · 헤더 클릭 정렬 · 더블클릭 YouTube 열기")
+        status_var.set(f"{len(rows_state)}개 영상 · 헤더 클릭 정렬 · 더블클릭 Utube 열기")
 
     def selected_regions() -> list[str]:
         if not selected_region_codes:
@@ -717,7 +717,7 @@ def main(*, container: tk.Misc | None = None) -> None:
         if v:
             webbrowser.open(v.url)
 
-    ttk.Button(btn_fr, text="YouTube에서 열기", command=open_youtube).pack(side=tk.LEFT, padx=(0, 6))
+    ttk.Button(btn_fr, text="Utube에서 열기", command=open_youtube).pack(side=tk.LEFT, padx=(0, 6))
 
     def copy_url() -> None:
         v = selected_video()

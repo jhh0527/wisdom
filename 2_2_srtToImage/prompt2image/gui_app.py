@@ -68,6 +68,7 @@ def main(*, container: tk.Misc | None = None) -> None:
         apply_window_chrome,
         bind_close,
         bind_hub_destroy,
+        configure_notebook_tabs,
         run_mainloop,
         safe_after,
         safe_messagebox,
@@ -169,6 +170,7 @@ def main(*, container: tk.Misc | None = None) -> None:
     _path_row("PNG 저장 폴더", png_var, 2, is_dir=True)
 
     nb = ttk.Notebook(frm)
+    configure_notebook_tabs(frm)
     nb.grid(row=4, column=0, sticky="nsew", pady=(4, 0))
     tab_genspark = ttk.Frame(nb, padding=6)
     tab_list = ttk.Frame(nb, padding=0)

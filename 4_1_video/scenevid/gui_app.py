@@ -1,4 +1,4 @@
-"""4_1_video scenevid — Tkinter GUI (프로젝트 전체 실행 + 산출물 compose)."""
+"""4_1_video scenevid — Tkinter GUI (산출물 compose)."""
 
 from __future__ import annotations
 
@@ -10,7 +10,6 @@ from pathlib import Path
 from tkinter import filedialog, font as tkfont, messagebox, ttk
 
 from scenevid import __version__
-from scenevid.cli import cmd_all
 from scenevid.compose_overrides import (
     InsertClipSpec,
     default_overrides_path,
@@ -20,7 +19,6 @@ from scenevid.compose_overrides import (
     per_cue_images_srt_mapping,
     resolve_cue_effect_override,
     resolved_motion_effects_per_cue,
-    save_compose_overrides_json,
 )
 from scenevid.compose_render import (
     default_compose_audio,
@@ -83,6 +81,7 @@ def main(*, container: tk.Misc | None = None) -> None:
     from wisdom_gui_host import (
         apply_window_chrome,
         bind_hub_destroy,
+        configure_notebook_tabs,
         run_mainloop,
         safe_after,
         safe_messagebox,
@@ -105,8 +104,9 @@ def main(*, container: tk.Misc | None = None) -> None:
     status_var = tk.StringVar(value="대기 중")
     progress_pct_var = tk.StringVar(value="")
 
-    log = tk.Text(root, height=7, wrap=tk.WORD, state=tk.DISABLED)
+    log = tk.Text(root, height=5, wrap=tk.WORD, state=tk.DISABLED)
     nb = ttk.Notebook(root, padding=6)
+    configure_notebook_tabs(root)
 
     status_bar = ttk.Label(root, textvariable=status_var, padding=(8, 4))
     progress_fr = ttk.Frame(root)
@@ -185,16 +185,15 @@ def main(*, container: tk.Misc | None = None) -> None:
 
     def _row_labeled(label: str, var: tk.StringVar, pick_cmd, *, entry_key: str | None = None) -> None:
         nonlocal r
-        ttk.Label(tab_c, text=label).grid(row=r, column=0, columnspan=3, sticky="w")
-        r += 1
         fr = ttk.Frame(tab_c)
-        fr.grid(row=r, column=0, columnspan=3, sticky="ew", pady=(0, 6))
-        fr.grid_columnconfigure(0, weight=1)
+        fr.grid(row=r, column=0, columnspan=3, sticky="ew", pady=2)
+        fr.grid_columnconfigure(1, weight=1)
+        ttk.Label(fr, text=label, width=14).grid(row=0, column=0, sticky="w")
         ent = ttk.Entry(fr, textvariable=var)
-        ent.grid(row=0, column=0, sticky="ew", padx=(0, 6))
+        ent.grid(row=0, column=1, sticky="ew", padx=(4, 6))
         if entry_key:
             _compose_entries[entry_key] = ent
-        ttk.Button(fr, text="찾기…", command=pick_cmd).grid(row=0, column=1)
+        ttk.Button(fr, text="찾기…", command=pick_cmd).grid(row=0, column=2)
         r += 1
 
     def pick_audio() -> None:
@@ -270,9 +269,11 @@ def main(*, container: tk.Misc | None = None) -> None:
         if not DEFAULT_OUTRO_TEXT.strip()
         else f"엔딩 메시지 (비우면 「{DEFAULT_OUTRO_TEXT}」)"
     )
-    ttk.Label(tab_c, text=_outro_hint).grid(row=r, column=0, columnspan=3, sticky="w")
-    r += 1
-    ttk.Entry(tab_c, textvariable=outro_msg_var).grid(row=r, column=0, columnspan=3, sticky="ew", pady=(0, 6))
+    _outro_fr = ttk.Frame(tab_c)
+    _outro_fr.grid(row=r, column=0, columnspan=3, sticky="ew", pady=(0, 4))
+    _outro_fr.grid_columnconfigure(1, weight=1)
+    ttk.Label(_outro_fr, text=_outro_hint, width=14).grid(row=0, column=0, sticky="w")
+    ttk.Entry(_outro_fr, textvariable=outro_msg_var).grid(row=0, column=1, sticky="ew", padx=(4, 0))
     r += 1
 
     def apply_pipeline_defaults() -> None:
@@ -283,29 +284,24 @@ def main(*, container: tk.Misc | None = None) -> None:
         default_scenevid_compose_mp4().parent.mkdir(parents=True, exist_ok=True)
         _sync_compose_paths_from_workspace()
 
-    row_paths_btn = ttk.Frame(tab_c)
-    row_paths_btn.grid(row=r, column=0, columnspan=3, sticky="w", pady=(0, 6))
-    ttk.Button(row_paths_btn, text="기본 경로 적용", command=apply_pipeline_defaults).pack(side=tk.LEFT)
-    r += 1
-
     def _fmt_ms(t0: int, t1: int) -> str:
         return f"{seconds_to_srt_ts(t0 / 1000.0)} → {seconds_to_srt_ts(t1 / 1000.0)}"
 
-    ttk.Label(
-        tab_c,
-        text="구간별 이미지 — images/SRT_NNN.* 의 NNN(초) ≤ 구간 시작 시각(초) 중 최대로 매칭(예: 0초→SRT_000, 150초→SRT_150). 없으면 직전 이미지 유지.",
-    ).grid(row=r, column=0, columnspan=3, sticky="w")
+    row_tl_toolbar = ttk.Frame(tab_c)
+    row_tl_toolbar.grid(row=r, column=0, columnspan=3, sticky="ew", pady=(4, 2))
+    row_tl_toolbar.grid_columnconfigure(1, weight=1)
     r += 1
+
     row_tl = ttk.Frame(tab_c)
-    row_tl.grid(row=r, column=0, columnspan=3, sticky="nsew", pady=(0, 8))
-    tab_c.grid_rowconfigure(r, weight=2)
+    row_tl.grid(row=r, column=0, columnspan=3, sticky="nsew", pady=(0, 4))
+    tab_c.grid_rowconfigure(r, weight=3)
     r += 1
     row_tl.grid_columnconfigure(0, weight=3)
     row_tl.grid_columnconfigure(2, weight=1)
     row_tl.grid_rowconfigure(0, weight=1)
 
     cols = ("seq", "kind", "ref", "time", "img", "fx", "hint")
-    tree = ttk.Treeview(row_tl, columns=cols, show="headings", height=12, selectmode="browse")
+    tree = ttk.Treeview(row_tl, columns=cols, show="headings", height=16, selectmode="browse")
     tree.heading("seq", text="#")
     tree.heading("kind", text="구분")
     tree.heading("ref", text="시작초")
@@ -570,10 +566,6 @@ def main(*, container: tk.Misc | None = None) -> None:
 
     _bind_images_folder_auto_refresh()
 
-    row_tl_btns = ttk.Frame(tab_c)
-    row_tl_btns.grid(row=r, column=0, columnspan=3, sticky="ew", pady=(0, 6))
-    r += 1
-
     def _selected_cue_no() -> int | None:
         sel = tree.selection()
         if not sel:
@@ -659,226 +651,18 @@ def main(*, container: tk.Misc | None = None) -> None:
         tl_state["cue_ov"][cue_no] = p.resolve()
         timeline_refresh(silent=True)
 
-    def cue_use_default() -> None:
-        cue_no = _selected_cue_no()
-        if cue_no is None:
-            messagebox.showinfo("기본", "큐 행을 선택하세요.")
-            return
-        tl_state["cue_ov"].pop(cue_no, None)
-        timeline_refresh(silent=True)
-
-    def cue_use_black() -> None:
-        cue_no = _selected_cue_no()
-        if cue_no is None:
-            messagebox.showinfo("검정", "큐 행을 선택하세요.")
-            return
-        tl_state["cue_ov"][cue_no] = None
-        timeline_refresh(silent=True)
-
-    def insert_delete() -> None:
-        sel = tree.selection()
-        if not sel or not str(sel[0]).startswith("ins-"):
-            messagebox.showinfo("삭제", "「삽입」행을 선택하세요.")
-            return
-        j = int(str(sel[0]).split("-", 1)[1])
-        insl = tl_state["inserts"]
-        if 0 <= j < len(insl):
-            insl.pop(j)
-            timeline_refresh(silent=True)
-
-    def insert_add() -> None:
-        cue_no = _selected_cue_no()
-        after = cue_no if cue_no is not None else 0
-        top = tk.Toplevel(root)
-        top.title("삽입 클립 추가")
-        top.transient(root)
-        top.grab_set()
-        v_after = tk.StringVar(value=str(after))
-        v_dur = tk.StringVar(value="2.0")
-        v_sub = tk.StringVar(value="")
-        v_img = tk.StringVar(value="")
-        fr = ttk.Frame(top, padding=10)
-        fr.pack(fill=tk.BOTH, expand=True)
-        ttk.Label(fr, text="삽입 위치 (큐 번호 뒤, 0=첫 큐 앞)").grid(row=0, column=0, sticky="w")
-        ttk.Entry(fr, textvariable=v_after, width=8).grid(row=0, column=1, sticky="w")
-        ttk.Label(fr, text="길이(초)").grid(row=1, column=0, sticky="w")
-        ttk.Entry(fr, textvariable=v_dur, width=8).grid(row=1, column=1, sticky="w")
-        ttk.Label(fr, text="자막(선택)").grid(row=2, column=0, sticky="w")
-        ttk.Entry(fr, textvariable=v_sub, width=40).grid(row=2, column=1, sticky="ew")
-        ttk.Label(fr, text="이미지 파일").grid(row=3, column=0, sticky="w")
-        ent_img = ttk.Entry(fr, textvariable=v_img, width=44)
-        ent_img.grid(row=3, column=1, sticky="ew")
-
-        def pick_img() -> None:
-            p = filedialog.askopenfilename(
-                title="삽입 이미지",
-                filetypes=[("Images", "*.png;*.jpg;*.jpeg;*.webp"), ("모든 파일", "*.*")],
-            )
-            if p:
-                v_img.set(p)
-
-        v_eff = tk.StringVar(value=normalize_effect(effect_var.get()))
-        ttk.Label(fr, text="이미지 모션").grid(row=4, column=0, sticky="w")
-        ttk.Combobox(
-            fr,
-            textvariable=v_eff,
-            values=list(FX_PALETTE_IDS),
-            state="readonly",
-            width=18,
-        ).grid(row=4, column=1, sticky="w")
-        ttk.Button(fr, text="찾기…", command=pick_img).grid(row=3, column=2, padx=(6, 0))
-
-        def ok() -> None:
-            try:
-                a = int(v_after.get().strip())
-                d = float(v_dur.get().strip())
-            except ValueError:
-                messagebox.showerror("삽입", "위치(정수)·길이(숫자)를 확인하세요.", parent=top)
-                return
-            if d <= 0:
-                messagebox.showerror("삽입", "길이는 0보다 커야 합니다.", parent=top)
-                return
-            ip = Path(v_img.get().strip())
-            if not ip.is_file():
-                messagebox.showerror("삽입", "이미지 파일을 선택하세요.", parent=top)
-                return
-            tl_state["inserts"].append(
-                InsertClipSpec(
-                    after_cue_index=a,
-                    duration_sec=d,
-                    image=ip.resolve(),
-                    subtitle=v_sub.get().strip(),
-                    effect=normalize_effect(v_eff.get()),
-                )
-            )
-            top.destroy()
-            timeline_refresh(silent=True)
-
-        ttk.Button(fr, text="추가", command=ok).grid(row=5, column=1, sticky="e", pady=(10, 0))
-        fr.grid_columnconfigure(1, weight=1)
-
-    def json_export() -> None:
-        if not tl_state.get("ready") or not tl_state.get("root"):
-            messagebox.showwarning("보내기", "먼저 타임라인을 불러오세요.")
-            return
-        root_dir = Path(tl_state["root"])
-        p = filedialog.asksaveasfilename(
-            title="compose_overrides.json 저장",
-            initialfile="compose_overrides.json",
-            defaultextension=".json",
-            filetypes=[("JSON", "*.json")],
-        )
-        if p:
-            save_compose_overrides_json(
-                Path(p),
-                root_dir,
-                tl_state["cue_ov"],
-                tl_state["inserts"],
-                cue_effects=dict(tl_state.get("cue_fx") or {}),
-                image_effects=dict(tl_state.get("img_fx") or {}),
-            )
-            messagebox.showinfo("보내기", f"저장했습니다.\n{p}")
-
-    def json_import() -> None:
-        p = filedialog.askopenfilename(title="compose_overrides.json", filetypes=[("JSON", "*.json"), ("모든 파일", "*.*")])
-        if not p:
-            return
-        root_dir = _compose_assets_root()
-        try:
-            co, insl, cue_fx, img_fx = load_compose_overrides(Path(p), root_dir)
-        except (OSError, ValueError) as e:
-            messagebox.showerror("가져오기", str(e))
-            return
-        tl_state["cue_ov"] = dict(co)
-        tl_state["cue_fx"] = dict(cue_fx)
-        tl_state["img_fx"] = dict(img_fx)
-        tl_state["inserts"] = list(insl)
-        timeline_refresh(silent=True)
-
-    ttk.Button(row_tl_btns, text="타임라인 새로고침", command=lambda: timeline_refresh(silent=False)).pack(
-        side=tk.LEFT, padx=(0, 6)
+    ttk.Button(
+        row_tl_toolbar,
+        text="타임라인 새로고침",
+        command=lambda: timeline_refresh(silent=False),
+    ).grid(row=0, column=0, sticky="w")
+    ttk.Label(row_tl_toolbar, textvariable=effect_summary_var, wraplength=720, justify="left").grid(
+        row=0, column=1, sticky="ew", padx=(12, 0)
     )
-    ttk.Button(row_tl_btns, text="기본 이미지로", command=cue_use_default).pack(side=tk.LEFT, padx=(0, 6))
-    ttk.Button(row_tl_btns, text="검은 화면", command=cue_use_black).pack(side=tk.LEFT, padx=(0, 6))
-    ttk.Button(row_tl_btns, text="팔레트 적용", command=apply_palette_image).pack(side=tk.LEFT, padx=(0, 6))
-    ttk.Button(row_tl_btns, text="삽입 추가…", command=insert_add).pack(side=tk.LEFT, padx=(0, 6))
-    ttk.Button(row_tl_btns, text="삽입 삭제", command=insert_delete).pack(side=tk.LEFT, padx=(0, 6))
-    ttk.Button(row_tl_btns, text="JSON보내기", command=json_export).pack(side=tk.LEFT, padx=(12, 6))
-    ttk.Button(row_tl_btns, text="JSON 가져오기", command=json_import).pack(side=tk.LEFT, padx=(0, 6))
 
     tree.bind("<Double-1>", on_tree_pick_image)
     lb.bind("<Double-1>", lambda _e: apply_palette_image())
     tree.bind("<<TreeviewSelect>>", lambda _e: update_effect_summary())
-
-    def cue_apply_effect() -> None:
-        cue_no = _selected_cue_no()
-        if cue_no is None:
-            messagebox.showinfo("효과", "타임라인에서 「큐」행을 선택하세요.")
-            return
-        tl_state["cue_fx"][cue_no] = normalize_effect(effect_var.get())
-        timeline_refresh(silent=True)
-
-    def cue_clear_effect() -> None:
-        cue_no = _selected_cue_no()
-        if cue_no is None:
-            messagebox.showinfo("효과", "큐 행을 선택하세요.")
-            return
-        mid, _t0, _t1, _txt = tl_state["cues"][cue_no - 1]  # type: ignore[index]
-        tl_state["cue_fx"].pop(cue_no, None)
-        tl_state["cue_fx"].pop(int(mid), None)
-        timeline_refresh(silent=True)
-
-    def palette_apply_image_effect() -> None:
-        p = _selected_palette_path()
-        if p is None:
-            messagebox.showinfo("이미지 효과", "오른쪽 팔레트에서 이미지를 선택하세요.")
-            return
-        if is_compose_video_path(p):
-            messagebox.showinfo("이미지 효과", "MP4 영상 구간에는 Ken Burns 효과를 적용할 수 없습니다.")
-            return
-        tl_state["img_fx"][str(p.resolve())] = normalize_effect(effect_var.get())
-        timeline_refresh(silent=True)
-
-    def palette_clear_image_effect() -> None:
-        p = _selected_palette_path()
-        if p is None:
-            messagebox.showinfo("이미지 효과", "팔레트에서 이미지를 선택하세요.")
-            return
-        tl_state["img_fx"].pop(str(p.resolve()), None)
-        timeline_refresh(silent=True)
-
-    def reload_json_motion_effects() -> None:
-        """``2_2_srtToImage/output`` 등의 효과 JSON 을 다시 읽어 큐 모션에 반영합니다."""
-        if not tl_state.get("ready"):
-            messagebox.showwarning("JSON 효과", "먼저 타임라인을 불러오세요.")
-            return
-        imd = Path(images_var.get().strip()) if images_var.get().strip() else None
-        root_dir = _compose_assets_root()
-        img_dir = imd if imd and imd.is_dir() else default_srt_image_output_dir()
-        json_path = find_srt_image_effects_json(img_dir, root_dir, default_srt_image_output_dir())
-        if not json_path:
-            messagebox.showinfo(
-                "JSON 효과",
-                "효과 JSON 을 찾지 못했습니다.\n\n"
-                f"다음 이름 중 하나를 이미지 폴더 또는 {default_srt_image_output_dir()} 에 두세요:\n"
-                "SRT_image_effects.json, srt_image_effects.json",
-            )
-            return
-        try:
-            json_fx = load_cue_effects_from_srt_image_json(json_path)
-        except (OSError, ValueError) as e:
-            messagebox.showerror("JSON 효과", str(e))
-            return
-        old_json_keys = set(tl_state.get("json_fx", {}).keys())
-        cue_fx_live: dict[int, str] = dict(tl_state.get("cue_fx") or {})
-        for k in old_json_keys:
-            cue_fx_live.pop(k, None)
-        cue_fx_live.update(json_fx)
-        tl_state["cue_fx"] = cue_fx_live
-        tl_state["json_fx"] = dict(json_fx)
-        tl_state["effects_json_path"] = str(json_path)
-        timeline_refresh(silent=True)
-        messagebox.showinfo("JSON 효과", f"{len(json_fx)}개 SRT 번호에 모션을 적용했습니다.\n{json_path}")
 
     def apply_image_random_effects() -> None:
         """videoPG: 이미지가 바뀔 때만 좌팬→우팬→상팬→하팬→줌인→줌아웃 순환 (큐마다 변경 안 함)."""
@@ -923,18 +707,16 @@ def main(*, container: tk.Misc | None = None) -> None:
         timeline_refresh(silent=True)
         update_effect_summary()
 
-    ttk.Label(
-        tab_c,
-        text="이미지 모션 — 팔레트에서 파일 선택 후 효과 버튼: 그 파일이 쓰이는 모든 큐에 적용. 큐만 선택 시: 해당 큐만. MP4는 효과 없음.",
-    ).grid(row=r, column=0, columnspan=3, sticky="w")
+    row_btns = ttk.Frame(tab_c)
+    row_btns.grid(row=r, column=0, columnspan=3, sticky="ew", pady=(2, 4))
+    row_btns.grid_columnconfigure(0, weight=1)
     r += 1
-    row_fx = ttk.Frame(tab_c)
-    row_fx.grid(row=r, column=0, columnspan=3, sticky="ew", pady=(0, 6))
-    r += 1
-    row_fx.grid_columnconfigure(0, weight=1)
 
-    btns_fx = ttk.Frame(row_fx)
-    btns_fx.grid(row=0, column=0, sticky="w")
+    grp_fx = ttk.LabelFrame(row_btns, text="이미지 모션", padding=6)
+    grp_fx.grid(row=0, column=0, sticky="nsew", padx=(0, 8))
+
+    btns_fx = ttk.Frame(grp_fx)
+    btns_fx.pack(anchor="w", fill=tk.X)
 
     def _make_pick_effect(eid: str):
         def _pick() -> None:
@@ -964,58 +746,22 @@ def main(*, container: tk.Misc | None = None) -> None:
         ttk.Button(btns_fx, text=FX_LABEL_KO.get(ei, ei), command=_make_pick_effect(ei), width=8).pack(
             side=tk.LEFT, padx=2
         )
-
-    ttk.Label(row_fx, textvariable=effect_summary_var, wraplength=920, justify="left").grid(
-        row=1, column=0, sticky="w", pady=(6, 4)
-    )
-    row_fx_apply = ttk.Frame(row_fx)
-    row_fx_apply.grid(row=2, column=0, sticky="w", pady=(0, 6))
-    ttk.Button(row_fx_apply, text="선택 큐에 적용", command=cue_apply_effect).pack(side=tk.LEFT, padx=(0, 8))
-    ttk.Button(row_fx_apply, text="선택 큐 효과 지우기", command=cue_clear_effect).pack(side=tk.LEFT, padx=(0, 8))
-    ttk.Button(row_fx_apply, text="팔레트 이미지에 적용", command=palette_apply_image_effect).pack(
-        side=tk.LEFT, padx=(12, 8)
-    )
-    ttk.Button(row_fx_apply, text="팔레트 이미지 효과 지우기", command=palette_clear_image_effect).pack(
-        side=tk.LEFT, padx=(0, 8)
-    )
-    ttk.Button(row_fx_apply, text="이미지랜덤효과", command=apply_image_random_effects).pack(
-        side=tk.LEFT, padx=(12, 8)
-    )
-    ttk.Button(row_fx_apply, text="JSON 효과 불러오기", command=reload_json_motion_effects).pack(
-        side=tk.LEFT, padx=(0, 8)
+    ttk.Button(btns_fx, text="이미지랜덤효과", command=apply_image_random_effects).pack(
+        side=tk.LEFT, padx=(8, 2)
     )
 
-    row_fx_file = ttk.Frame(row_fx)
-    row_fx_file.grid(row=3, column=0, sticky="ew", pady=(0, 0))
-    row_fx_file.grid_columnconfigure(1, weight=1)
-    ttk.Label(row_fx_file, text="줄별 효과 파일 (선택)").grid(row=0, column=0, padx=(0, 8), sticky="w")
+    grp_out = ttk.LabelFrame(row_btns, text="출력", padding=6)
+    grp_out.grid(row=0, column=1, sticky="nw", padx=(0, 8))
+    out_row = ttk.Frame(grp_out)
+    out_row.pack(anchor="w")
+    ttk.Label(out_row, text="가로").grid(row=0, column=0, padx=(0, 4))
+    ttk.Entry(out_row, textvariable=w_var, width=7).grid(row=0, column=1, padx=(0, 12))
+    ttk.Label(out_row, text="세로").grid(row=0, column=2, padx=(0, 4))
+    ttk.Entry(out_row, textvariable=h_var, width=7).grid(row=0, column=3)
 
-    def pick_eff_file() -> None:
-        p = filedialog.askopenfilename(
-            title="효과 목록 (한 줄에 하나: pan_left, zoom_in …)",
-            filetypes=[("Text", "*.txt"), ("모든 파일", "*.*")],
-        )
-        if p:
-            effects_file_var.set(p)
-            if tl_state.get("ready"):
-                timeline_refresh(silent=True)
-
-    ttk.Entry(row_fx_file, textvariable=effects_file_var).grid(row=0, column=1, sticky="ew", padx=(0, 6))
-    ttk.Button(row_fx_file, text="찾기…", command=pick_eff_file).grid(row=0, column=2)
-
-    row_opt = ttk.Frame(tab_c)
-    row_opt.grid(row=r, column=0, columnspan=3, sticky="w", pady=(4, 8))
-    ttk.Checkbutton(row_opt, text="자막 번인 안 함", variable=no_sub_c).grid(row=0, column=0, padx=(0, 12))
-    ttk.Label(row_opt, text="가로").grid(row=0, column=1, padx=(0, 4))
-    ttk.Entry(row_opt, textvariable=w_var, width=7).grid(row=0, column=2, padx=(0, 12))
-    ttk.Label(row_opt, text="세로").grid(row=0, column=3, padx=(0, 4))
-    ttk.Entry(row_opt, textvariable=h_var, width=7).grid(row=0, column=4)
-    r += 1
-
-    row_compose_btns = ttk.Frame(tab_c)
-    row_compose_btns.grid(row=r, column=0, sticky="w")
-    r += 1
-    btn_compose = ttk.Button(row_compose_btns, text="동영상 만들기")
+    grp_run = ttk.LabelFrame(row_btns, text="합성", padding=6)
+    grp_run.grid(row=0, column=2, sticky="nw")
+    btn_compose = ttk.Button(grp_run, text="동영상 만들기")
 
     def run_compose_bg(progress_cb=None):
         prepend_local_ffmpeg_bin_to_os_path()
@@ -1151,82 +897,7 @@ def main(*, container: tk.Misc | None = None) -> None:
         threading.Thread(target=work, daemon=True).start()
 
     btn_compose.configure(command=on_compose)
-    btn_compose.pack(side=tk.LEFT)
-
-    # --- Tab: project all ---
-    tab_p = ttk.Frame(nb, padding=10)
-    nb.add(tab_p, text="프로젝트 (script.md → final.mp4)")
-    tab_p.grid_columnconfigure(0, weight=1)
-    pr = 0
-    proj_var = tk.StringVar()
-    ph_var = tk.BooleanVar(value=False)
-    no_sub_p = tk.BooleanVar(value=False)
-    dummy_var = tk.StringVar(value="0")
-    ttk.Label(tab_p, text="프로젝트 폴더 (script.md, scene.json 생성 위치)").grid(row=pr, column=0, sticky="w")
-    pr += 1
-    row_p = ttk.Frame(tab_p)
-    row_p.grid(row=pr, column=0, columnspan=2, sticky="ew", pady=(0, 8))
-    row_p.grid_columnconfigure(0, weight=1)
-    ttk.Entry(row_p, textvariable=proj_var).grid(row=0, column=0, sticky="ew", padx=(0, 6))
-
-    def pick_proj() -> None:
-        p = filedialog.askdirectory(title="프로젝트 폴더")
-        if p:
-            proj_var.set(p)
-
-    ttk.Button(row_p, text="폴더…", command=pick_proj).grid(row=0, column=1)
-    pr += 1
-
-    ttk.Checkbutton(tab_p, text="없으면 이미지 플레이스홀더 생성", variable=ph_var).grid(row=pr, column=0, sticky="w")
-    pr += 1
-    ttk.Checkbutton(tab_p, text="자막 번인 안 함", variable=no_sub_p).grid(row=pr, column=0, sticky="w")
-    pr += 1
-    ttk.Label(tab_p, text="더미 오디오(초, TTS 없이 테스트)").grid(row=pr, column=0, sticky="w")
-    ttk.Entry(tab_p, textvariable=dummy_var, width=10).grid(row=pr, column=1, sticky="w")
-    pr += 1
-    btn_all = ttk.Button(tab_p, text="parse + assets + render (all)")
-
-    def on_all() -> None:
-        btn_all.configure(state=tk.DISABLED)
-
-        def work() -> None:
-            try:
-                p = Path(proj_var.get().strip() or ".").resolve()
-                try:
-                    dummy = float(dummy_var.get().strip() or "0")
-                except ValueError as e:
-                    raise ValueError("더미 오디오 초는 숫자여야 합니다.") from e
-                code = cmd_all(
-                    p,
-                    placeholder=bool(ph_var.get()),
-                    dummy_audio_sec=dummy,
-                    no_sub=bool(no_sub_p.get()),
-                )
-                if code != 0:
-                    raise RuntimeError(f"종료 코드 {code}")
-
-                def ok() -> None:
-                    btn_all.configure(state=tk.NORMAL)
-                    status_var.set(f"완료: {p / 'output' / 'final.mp4'}")
-                    log_line(f"프로젝트 all 완료 → {p / 'output' / 'final.mp4'}")
-
-                safe_after(root, ok)
-            except Exception as e:
-                tb = traceback.format_exc()
-
-                def err() -> None:
-                    btn_all.configure(state=tk.NORMAL)
-                    status_var.set("오류")
-                    log_line(tb)
-                    safe_messagebox(root, "showerror", "4_1_video", str(e))
-
-                safe_after(root, err)
-
-        threading.Thread(target=work, daemon=True).start()
-
-    btn_all.configure(command=on_all)
-    btn_all.grid(row=pr, column=0, sticky="w")
-    pr += 1
+    btn_compose.pack(anchor="w")
 
     apply_pipeline_defaults()
     timeline_refresh(silent=True)

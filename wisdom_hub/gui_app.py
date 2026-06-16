@@ -8,7 +8,7 @@ import sys
 import tkinter as tk
 from tkinter import ttk
 
-from wisdom_gui_host import request_shutdown
+from wisdom_gui_host import configure_notebook_tabs, request_shutdown
 from wisdom_hub.loaders import LOADERS
 from wisdom_hub.pipeline import HUB_TABS
 
@@ -31,6 +31,8 @@ def main() -> None:
             pass
 
     root.protocol("WM_DELETE_WINDOW", on_hub_close)
+
+    configure_notebook_tabs(root)
 
     nb = ttk.Notebook(root)
     nb.pack(fill=tk.BOTH, expand=True, padx=4, pady=4)

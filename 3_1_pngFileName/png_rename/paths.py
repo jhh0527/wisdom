@@ -106,3 +106,27 @@ def resolve_initial_png_dir(
         if p.is_dir():
             return p
     return fallback
+
+
+def default_download_dir() -> Path:
+    """기본 다운로드 폴더."""
+    return Path(r"C:\Users\nh2015005\Downloads")
+
+
+def resolve_initial_download_dir(
+    cli: Path | None,
+    saved: str | None,
+) -> Path:
+    fallback = default_download_dir()
+    if cli is not None:
+        p = cli.expanduser().resolve()
+        if p.is_dir():
+            return p
+    if saved:
+        p = Path(saved).expanduser().resolve()
+        if p.is_dir():
+            return p
+    if fallback.is_dir():
+        return fallback
+    home_dl = Path.home() / "Downloads"
+    return home_dl if home_dl.is_dir() else fallback

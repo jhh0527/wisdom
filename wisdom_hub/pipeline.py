@@ -12,6 +12,6 @@ HUB_TABS: tuple[tuple[str, str], ...] = (
     ("3_2 PNG→JPG", "3_2_pngToJpg"),
     ("4_1 동영상", "4_1_video"),
     ("4_2 쇼츠", "4_2_ShortVideo"),
-    ("7_ 유튜브", "7_utube"),
-    ("8 파일탐색", "8_fileExplorer"),
+    ("7_Utube", "7_utube"),
+    ("9 MD파일", "9_mdFile"),
 )

@@ -53,6 +53,15 @@ def _collect_targets(
     return items
 
 
+def count_copy_targets(
+    sources: list[Path],
+    dest_dir: Path,
+    *,
+    recursive: bool,
+) -> int:
+    return len(_collect_targets(sources, dest_dir, recursive=recursive))
+
+
 def copy_items(
     sources: list[Path],
     dest_dir: Path,

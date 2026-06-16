@@ -29,6 +29,10 @@ _SRT_STEM = re.compile(r"^srt[-_]?0*(\d+)\.png$", re.IGNORECASE)
 _SKIP_STEMS = frozenset({"thumbnail_youtube", "thumbnail"})
 
 
+class ScanCancelledError(Exception):
+    """목록 조회(OCR·매칭)가 사용자에 의해 취소됨."""
+
+
 @dataclass
 class MatchPreview:
     """목록 조회용 매칭 결과."""
@@ -278,6 +282,7 @@ def scan_png_matches(
     skip_already_named: bool = True,
     min_score: int = 6,
     on_progress: Callable[[int, int, str], None] | None = None,
+    should_cancel: Callable[[], bool] | None = None,
 ) -> list[MatchPreview]:
     """폴더 내 모든 PNG 를 OCR·대본 매칭하여 목록으로 반환."""
     cues = parse_srt_cues(srt_file.resolve())
@@ -290,6 +295,8 @@ def scan_png_matches(
 
     total = len(sources)
     for i, src in enumerate(sources, start=1):
+        if should_cancel and should_cancel():
+            raise ScanCancelledError()
         if on_progress:
             on_progress(i, total, src.name)
 
@@ -573,6 +580,22 @@ def _empty_cue_row(png_dir: Path, map_id: int, cue_text: str) -> MatchPreview:
     )
 
 
+def ensure_all_cue_rows(
+    rows: list[MatchPreview],
+    cue_map: dict[int, str],
+    png_dir: Path,
+) -> None:
+    """SRT 대본 번호별 행이 누락되지 않도록 이미지 없음 행을 보충."""
+    if not cue_map:
+        return
+    png_dir_r = png_dir.resolve()
+    present = {r.srt_number for r in rows if r.srt_number in cue_map}
+    for mid in sorted(cue_map):
+        if mid in present:
+            continue
+        rows.append(_empty_cue_row(png_dir_r, mid, cue_map[mid]))
+
+
 def build_srt_centric_skeleton(
     srt_file: Path,
     png_dir: Path,
@@ -688,6 +711,7 @@ def scan_srt_centric_matches(
     skip_already_named: bool = True,
     min_score: int = 6,
     on_progress: Callable[[int, int, str], None] | None = None,
+    should_cancel: Callable[[], bool] | None = None,
 ) -> list[MatchPreview]:
     """SRT 대본 번호마다 한 행(이미지 없으면 빈 행) + 미배정 PNG."""
     cues = sorted(parse_srt_cues(srt_file.resolve()), key=lambda c: int(c[0]))
@@ -703,6 +727,7 @@ def scan_srt_centric_matches(
         skip_already_named=skip_already_named,
         min_score=min_score,
         on_progress=on_progress,
+        should_cancel=should_cancel,
     )
 
     by_num: dict[int, MatchPreview] = {}

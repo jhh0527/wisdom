@@ -6,7 +6,7 @@ from __future__ import annotations
 from typing import Callable
 
 import tkinter as tk
-from tkinter import messagebox
+from tkinter import font as tkfont, messagebox, ttk
 
 _hub_shutting_down = False
 
@@ -102,6 +102,19 @@ def _destroy_toplevels(widget: tk.Misc) -> None:
                 child.destroy()
         except tk.TclError:
             pass
+
+
+def configure_notebook_tabs(host: tk.Misc, *, font_size: int | None = None) -> None:
+    """Notebook 탭 글꼴·패딩 — 허브·모듈 공통."""
+    try:
+        f = tkfont.nametofont("TkDefaultFont")
+        fam = f.actual("family")
+        base_sz = max(10, int(f.actual("size")))
+    except tk.TclError:
+        fam, base_sz = "맑은 고딕", 10
+    sz = font_size if font_size is not None else max(12, base_sz + 2)
+    style = ttk.Style(host)
+    style.configure("TNotebook.Tab", font=(fam, sz), padding=(20, 4))
 
 
 def tk_host(container: tk.Misc | None) -> tuple[tk.Misc, bool]:

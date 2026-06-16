@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import re
+import shutil
 import sys
 import threading
 import traceback
@@ -15,8 +16,10 @@ from tkinter import filedialog, font as tkfont, messagebox, ttk
 from png_rename import __version__
 from png_rename.naming import srt_png_name
 from png_rename.paths import (
+    default_download_dir,
     default_png_dir,
     default_srt_file,
+    resolve_initial_download_dir,
     resolve_initial_png_dir,
     resolve_initial_srt,
 )
@@ -25,9 +28,11 @@ from png_rename.rename import (
     MatchPreview,
     RenameResult,
     RenameSkip,
+    ScanCancelledError,
     apply_match_renames,
     apply_ocr_to_row,
     build_srt_centric_skeleton,
+    ensure_all_cue_rows,
     filename_matches_script_number,
     iter_png_files,
     remap_all_rows_from_filenames,
@@ -42,8 +47,10 @@ from png_rename.text_norm import (
     split_ocr_words_for_mapping,
 )
 from png_rename.settings import (
+    load_download_image_inputs,
     load_gui_settings,
     load_manual_overrides,
+    save_download_image_inputs,
     save_gui_settings,
     save_manual_overrides,
 )
@@ -58,11 +65,32 @@ _COL_APPLY = "apply_map"
 _COL_SRT = "srt_no"
 _COL_CUE = "cue"
 _COL_STATUS = "status"
+_COL_DOWNLOAD = "download_img"
 _THUMB_MAX = 560
+_APPLY_NEIGHBOR_ROWS = 5
+_THUMB_SIZE_MIN = 80
+_THUMB_SIZE_MAX = 1200
 _VIEWER_SCREEN_RATIO = 0.92
 _SRT_NUM_IN_NAME = re.compile(r"(?:^|[^0-9])srt[-_ ]?0*(\d+)(?:[^0-9]|$)", re.IGNORECASE)
 _OCR_MATCH_BG = "#fff59d"
 _SKIP_NO_SOURCE = "__skip_no_source__"
+
+
+def _center_modal_toplevel(win: tk.Toplevel, parent: tk.Misc) -> None:
+    """부모 최상위 창(듀얼 모니터 포함) 기준 화면 정중앙에 모달 배치."""
+    host = parent.winfo_toplevel()
+    win.update_idletasks()
+    host.update_idletasks()
+    ww = max(win.winfo_width(), win.winfo_reqwidth(), 1)
+    wh = max(win.winfo_height(), win.winfo_reqheight(), 1)
+    hx = host.winfo_rootx()
+    hy = host.winfo_rooty()
+    hw = max(host.winfo_width(), 1)
+    hh = max(host.winfo_height(), 1)
+    x = hx + max(0, (hw - ww) // 2)
+    y = hy + max(0, (hh - wh) // 2)
+    win.geometry(f"+{x}+{y}")
+    win.focus_force()
 
 
 def _ocr_preview_tokens(ocr_preview: str) -> list[str]:
@@ -117,6 +145,13 @@ def main(
     cfg = load_gui_settings()
     srt_default = resolve_initial_srt(initial_srt, cfg.get("srt_file"))
     png_default = resolve_initial_png_dir(initial_png_dir, cfg.get("png_dir"))
+    download_default = resolve_initial_download_dir(None, cfg.get("download_dir"))
+    thumb_size = [_THUMB_MAX]
+    try:
+        thumb_size[0] = int(cfg.get("preview_thumb_size", str(_THUMB_MAX)))
+    except ValueError:
+        pass
+    thumb_size[0] = max(_THUMB_SIZE_MIN, min(_THUMB_SIZE_MAX, thumb_size[0]))
 
     root, standalone = tk_host(container)
     apply_window_chrome(
@@ -132,12 +167,14 @@ def main(
 
     srt_var = tk.StringVar(value=str(srt_default))
     png_var = tk.StringVar(value=str(png_default))
+    download_var = tk.StringVar(value=str(download_default))
     recursive_var = tk.BooleanVar(value=False)
     skip_named_var = tk.BooleanVar(value=True)
     target_count_var = tk.StringVar(value="")
     status_var = tk.StringVar(value="기본 폴더를 불러오는 중…")
     _search_win: tk.Toplevel | None = None
     manual_overrides: dict[str, dict] = load_manual_overrides()
+    download_image_inputs: dict[str, str] = load_download_image_inputs()
     srt_name_choices: list[str] = []
     srt_number_choices: list[str] = []
     srt_cue_map: dict[int, str] = {}
@@ -153,6 +190,9 @@ def main(
     _thumb_photo: tk.PhotoImage | None = None
     _preview_path: Path | None = None
     _preview_ocr: str = ""
+    _ocr_apply_source_iid: str | None = None
+    _ocr_apply_srt_numbers: set[int] = set()
+    _last_sel_iid_for_apply: str | None = None
 
     frm = ttk.Frame(root, padding=10)
     frm.pack(fill=tk.BOTH, expand=True)
@@ -387,7 +427,10 @@ def main(
 
             with Image.open(path) as im:
                 im = im.convert("RGB")
-                im.thumbnail((_THUMB_MAX, _THUMB_MAX), Image.Resampling.LANCZOS)
+                im.thumbnail(
+                    (thumb_size[0], thumb_size[0]),
+                    Image.Resampling.LANCZOS,
+                )
                 _thumb_photo = ImageTk.PhotoImage(im)
             thumb_img_lbl.configure(image=_thumb_photo, text="")
         except OSError as e:
@@ -464,7 +507,12 @@ def main(
         """저장 전 행 준비. 실패 시 오류 메시지."""
         tgt = _normalize_target_name(row.target_name)
         if tgt is None:
-            return "현재파일명이 SRT_XXX.png 형식이 아닙니다"
+            raw = (row.target_name or "").strip()
+            stem = Path(raw).name
+            if stem.lower().endswith(".png") and stem not in ("", "—"):
+                tgt = stem
+            else:
+                return "현재파일명이 SRT_XXX.png 형식이 아닙니다"
         src = _rename_source_by_row.pop(id(row), None)
         if src is None or not src.is_file():
             src = _resolve_rename_source(row)
@@ -535,10 +583,12 @@ def main(
             pass
         _ocr_cache_keys.add(_ocr_cache_key(results[0].target))
         _rename_source_by_row.pop(id(row), None)
-        _refresh_row_display(iid, row)
-        show_preview_for_iid(iid)
         _save_row_override(row)
-        status_var.set(f"파일명 즉시 저장: {results[0].target.name}")
+        refresh_count()
+        reload_table(
+            status_msg=f"파일명 즉시 저장: {results[0].target.name}",
+            quiet=True,
+        )
         return True
 
     def _auto_resolve_row_mapping_for_save(row: MatchPreview) -> str | None:
@@ -588,6 +638,23 @@ def main(
         cues = sorted(((int(k), v) for k, v in srt_cue_map.items()), key=lambda c: c[0])
         return collect_ocr_mapping_candidates(row.ocr_preview, cues)
 
+    def _mapping_popup_row_items(row: MatchPreview) -> list[tuple[str, int, str]]:
+        cues = sorted(((int(k), v) for k, v in srt_cue_map.items()), key=lambda c: c[0])
+        cue_map_local = {int(k): v for k, v in srt_cue_map.items()}
+        words = split_ocr_words_for_mapping(row.ocr_preview, cues)
+        rows_local: list[tuple[str, int, str]] = []
+        seen: set[tuple[str, int]] = set()
+        for w in words:
+            for mid in cue_ids_for_word(w, cues):
+                key = (w, mid)
+                if key in seen:
+                    continue
+                seen.add(key)
+                cue_one = (cue_map_local.get(mid, "") or "").strip().replace("\n", " ")
+                rows_local.append((w, mid, cue_one))
+        rows_local.sort(key=lambda item: item[1])
+        return rows_local
+
     def _open_mapping_popup_for_row(iid: str) -> None:
         row = rows_by_iid.get(iid)
         if row is None:
@@ -600,7 +667,14 @@ def main(
         if not candidates:
             messagebox.showinfo("OCR 매핑", "매핑 가능한 대본 번호가 없습니다.")
             return
-        picked = _choose_mapping_candidate_with_words(row, candidates, iid)
+        rows_local = _mapping_popup_row_items(row)
+        if not rows_local:
+            messagebox.showinfo("OCR 매핑", "매핑 가능한 대본 번호가 없습니다.")
+            return
+        _set_ocr_apply_context(iid, {mid for _w, mid, _c in rows_local})
+        picked = _choose_mapping_candidate_with_words(
+            row, candidates, iid, rows_local
+        )
         if picked is None:
             return
         status_var.set(f"OCR매핑 적용값 설정: 대본 {picked}번 (저장 대기)")
@@ -659,6 +733,118 @@ def main(
             return pending
         return _disk_file_name(row)
 
+    def _download_img_key(row: MatchPreview) -> str:
+        if row.srt_number >= 0:
+            return str(row.srt_number)
+        try:
+            return _override_key(row.source)
+        except OSError:
+            return str(id(row))
+
+    def _download_img_display(row: MatchPreview) -> str:
+        return download_image_inputs.get(_download_img_key(row), "")
+
+    def _target_filename_for_download(row: MatchPreview) -> str | None:
+        pending = _pending_target_name(row)
+        if pending:
+            return pending
+        if row.srt_number >= 0:
+            return srt_png_name(row.srt_number)
+        disk = _disk_file_name(row)
+        if disk:
+            norm = _normalize_target_name(disk)
+            return norm or disk
+        return None
+
+    def _find_download_source(name: str) -> Path | None:
+        dl = Path(download_var.get().strip())
+        if not dl.is_dir():
+            return None
+        raw = name.strip()
+        if not raw:
+            return None
+        direct = dl / raw
+        if direct.is_file():
+            return direct
+        stem = Path(raw).stem
+        if stem and stem != raw:
+            for ext in (".png", ".jpg", ".jpeg", ".webp", ".gif", ".bmp"):
+                cand = dl / f"{stem}{ext}"
+                if cand.is_file():
+                    return cand
+        if not Path(raw).suffix:
+            for ext in (".png", ".jpg", ".jpeg", ".webp", ".gif", ".bmp"):
+                cand = dl / f"{raw}{ext}"
+                if cand.is_file():
+                    return cand
+        low = raw.lower()
+        try:
+            for child in dl.iterdir():
+                if child.is_file() and child.name.lower() == low:
+                    return child
+        except OSError:
+            return None
+        return None
+
+    def _copy_download_image_to_row(row: MatchPreview, source_name: str) -> str | None:
+        """다운로드 폴더 이미지 → PNG 폴더(현재파일명). 성공 시 None, 실패 시 메시지."""
+        png = Path(png_var.get().strip())
+        if not png.is_dir():
+            return f"PNG 폴더가 없습니다: {png}"
+        dl = Path(download_var.get().strip())
+        if not dl.is_dir():
+            return f"다운로드 폴더가 없습니다: {dl}"
+        src = _find_download_source(source_name)
+        if src is None:
+            return f"다운로드 폴더에 파일이 없습니다: {source_name}"
+        tgt_name = _target_filename_for_download(row)
+        if not tgt_name:
+            return "현재파일명(대본번호·SRT_XXX.png)을 먼저 지정하세요."
+        dest = png / tgt_name
+        try:
+            if dest.exists() and dest.resolve() != src.resolve():
+                dest.unlink()
+            shutil.copy2(src, dest)
+        except OSError as e:
+            return str(e)
+        row.source = dest
+        row.target_name = tgt_name
+        n = _name_srt_num(tgt_name)
+        if n is not None:
+            row.srt_number = n
+            _sync_cue_text(row)
+        row.can_rename = True
+        row.status = f"다운로드 복사: {tgt_name}"
+        _sync_row_match_fields(row)
+        return None
+
+    def _row_show_apply_button(row: MatchPreview) -> bool:
+        """OCR·대본 일치, OCR매핑 팝업 대본번호, 선택 행 ±5 이웃이면 적용 표시."""
+        row_iid = str(id(row))
+        sel = tree.selection()
+        if sel and sel[0] in rows_by_iid:
+            kids = list(tree.get_children(""))
+            if row_iid in kids and sel[0] in kids:
+                sel_idx = kids.index(sel[0])
+                row_idx = kids.index(row_iid)
+                if (
+                    row_iid != sel[0]
+                    and abs(row_idx - sel_idx) <= _APPLY_NEIGHBOR_ROWS
+                ):
+                    return True
+        if (
+            _ocr_apply_source_iid
+            and row_iid != _ocr_apply_source_iid
+            and row.srt_number in _ocr_apply_srt_numbers
+        ):
+            return True
+        ocr = (row.ocr_preview or "").strip()
+        cue = (row.cue_text or "").strip()
+        if not ocr or not cue:
+            return False
+        in_cue, _matched = ocr_words_in_cue_text(ocr, cue)
+        return in_cue
+
     def _insert_row(row: MatchPreview, *, default_checked: bool) -> None:
         iid = str(id(row))
         rows_by_iid[iid] = row
@@ -672,7 +858,8 @@ def main(
         cue_disp = (row.cue_text or "—")[:160]
         current_disp = _mapped_current_display(row)
         map_disp = (row.match_reason or "—")[:160]
-        apply_disp = "적용" if row.srt_number >= 0 and map_disp not in ("", "—") else ""
+        apply_disp = "적용" if _row_show_apply_button(row) else ""
+        download_disp = _download_img_display(row)[:80]
         tags: tuple[str, ...] = ()
         if not row.can_rename and not row.ocr_preview:
             tags = ("muted",)
@@ -689,10 +876,11 @@ def main(
                 srt_disp,
                 cue_disp,
                 current_disp,
-                row.match_label,
-                map_disp,
                 apply_disp,
+                row.match_label,
                 row.status,
+                download_disp,
+                map_disp,
             ),
             tags=tags,
         )
@@ -766,21 +954,42 @@ def main(
     row_file("대본 SRT 파일", srt_var, 0, is_dir=False)
     row_file("PNG 폴더 (이름 변경 위치)", png_var, 2, is_dir=True)
 
+    ttk.Label(frm, text="다운로드 폴더").grid(row=4, column=0, sticky="w", pady=(0, 4))
+    download_rf = ttk.Frame(frm)
+    download_rf.grid(row=5, column=0, sticky="ew", pady=(0, 8))
+    download_rf.grid_columnconfigure(0, weight=1)
+    download_ent = ttk.Entry(download_rf, textvariable=download_var)
+    download_ent.grid(row=0, column=0, sticky="ew", padx=(0, 6))
+
+    def pick_download_dir() -> None:
+        cur = download_var.get().strip()
+        init = folder_dialog_initial(
+            Path(cur) if cur and Path(cur).is_dir() else default_download_dir(),
+        )
+        p = filedialog.askdirectory(title="다운로드 폴더", initialdir=init)
+        if p:
+            download_var.set(p)
+            persist()
+
+    btn_dl = ttk.Button(download_rf, text="찾아보기…", command=pick_download_dir)
+    btn_dl.grid(row=0, column=1)
+    browse_widgets.extend([download_ent, btn_dl])
+
     ttk.Label(
         frm,
-        text="OCR매핑 번호 클릭 → 해당 행 OCR·매핑 · 적용=선택 번호 저장 대기 · 현재파일명 더블클릭 수정 · Tesseract(kor).",
-    ).grid(row=4, column=0, sticky="w", pady=(0, 6))
+        text="OCR매핑 번호 클릭 → 매핑 · 적용=선택 행 저장 · 다운로드이미지 입력+Enter=PNG 복사 · 썸네일·현재파일명 더블클릭.",
+    ).grid(row=6, column=0, sticky="w", pady=(0, 6))
 
     frm.grid_columnconfigure(0, weight=1)
 
     row_target = ttk.Frame(frm)
-    row_target.grid(row=5, column=0, sticky="ew", pady=(0, 6))
+    row_target.grid(row=7, column=0, sticky="ew", pady=(0, 6))
     ttk.Label(row_target, text="대상:").pack(side=tk.LEFT)
     ttk.Label(row_target, textvariable=target_count_var).pack(side=tk.LEFT, padx=(6, 12))
     ttk.Button(row_target, text="PNG 개수 확인", command=refresh_count).pack(side=tk.LEFT)
 
     opts = ttk.Frame(frm)
-    opts.grid(row=6, column=0, sticky="ew", pady=(0, 6))
+    opts.grid(row=8, column=0, sticky="ew", pady=(0, 6))
     ttk.Checkbutton(
         opts, text="하위 폴더 포함", variable=recursive_var, command=refresh_count
     ).pack(side=tk.LEFT)
@@ -791,8 +1000,8 @@ def main(
     ).pack(side=tk.LEFT, padx=(12, 0))
 
     table_frm = ttk.Frame(frm)
-    table_frm.grid(row=7, column=0, sticky="nsew", pady=(0, 6))
-    frm.grid_rowconfigure(7, weight=1)
+    table_frm.grid(row=10, column=0, sticky="nsew", pady=(0, 6))
+    frm.grid_rowconfigure(10, weight=1)
     table_frm.grid_columnconfigure(0, weight=1)
     table_frm.grid_rowconfigure(0, weight=1)
 
@@ -802,21 +1011,60 @@ def main(
     except ValueError:
         pass
     _default_preview_w = max(240, min(1200, _default_preview_w))
+    preview_pane_width = [_default_preview_w]
 
-    paned = ttk.Panedwindow(table_frm, orient=tk.HORIZONTAL)
-    paned.grid(row=0, column=0, sticky="nsew")
+    table_body = ttk.Frame(table_frm)
+    table_body.grid(row=0, column=0, sticky="nsew")
+    table_body.grid_columnconfigure(0, weight=1)
+    table_body.grid_columnconfigure(1, weight=0, minsize=preview_pane_width[0])
+    table_body.grid_rowconfigure(0, weight=1)
 
-    list_frm = ttk.Frame(paned)
-    preview_frm = ttk.LabelFrame(paned, text="미리보기 (왼쪽 경계 드래그)", padding=8)
-    paned.add(list_frm, weight=4)
-    paned.add(preview_frm, weight=1)
+    list_frm = ttk.Frame(table_body)
+    preview_frm = ttk.Frame(table_body, padding=8)
+    list_frm.grid(row=0, column=0, sticky="nsew")
+    preview_frm.grid(row=0, column=1, sticky="nsew")
 
     list_frm.grid_columnconfigure(0, weight=1)
     list_frm.grid_rowconfigure(0, weight=1)
 
+    ttk.Label(preview_frm, text="미리보기").pack(anchor=tk.W, pady=(0, 4))
+
     preview_name_var = tk.StringVar(value="")
     preview_ocr_var = tk.StringVar(value="")
     preview_cue_var = tk.StringVar(value="")
+    thumb_size_var = tk.IntVar(value=thumb_size[0])
+    thumb_ctrl = ttk.Frame(preview_frm)
+    thumb_ctrl.pack(anchor=tk.W, fill=tk.X, pady=(0, 4))
+    ttk.Label(thumb_ctrl, text="썸네일 크기(px)").pack(side=tk.LEFT)
+
+    def _apply_thumb_size_from_ui() -> None:
+        try:
+            n = int(thumb_size_var.get())
+        except (tk.TclError, ValueError):
+            return
+        n = max(_THUMB_SIZE_MIN, min(_THUMB_SIZE_MAX, n))
+        if thumb_size[0] == n:
+            return
+        thumb_size[0] = n
+        thumb_size_var.set(n)
+        persist()
+        sel = tree.selection()
+        if sel and sel[0] in rows_by_iid:
+            show_preview_for_iid(sel[0])
+
+    thumb_spin = ttk.Spinbox(
+        thumb_ctrl,
+        from_=_THUMB_SIZE_MIN,
+        to=_THUMB_SIZE_MAX,
+        increment=20,
+        width=6,
+        textvariable=thumb_size_var,
+        command=_apply_thumb_size_from_ui,
+    )
+    thumb_spin.pack(side=tk.LEFT, padx=(6, 0))
+    ttk.Button(
+        thumb_ctrl, text="적용", width=5, command=_apply_thumb_size_from_ui
+    ).pack(side=tk.LEFT, padx=(4, 0))
     thumb_img_lbl = ttk.Label(preview_frm, text="행을 클릭하세요.", anchor=tk.CENTER)
     thumb_img_lbl.pack(fill=tk.BOTH, expand=True, pady=(0, 8))
     preview_name_lbl = ttk.Label(preview_frm, textvariable=preview_name_var)
@@ -854,30 +1102,27 @@ def main(
 
     preview_frm.bind("<Configure>", _update_preview_wrap)
 
-    def _apply_pane_sash() -> None:
-        root.update_idletasks()
-        total = paned.winfo_width()
-        if total < 300:
-            return
-        preview_w = min(total - 200, max(240, _default_preview_w))
-        paned.sashpos(0, total - preview_w)
+    def _apply_preview_pane_width() -> None:
+        w = max(240, min(1200, preview_pane_width[0]))
+        preview_pane_width[0] = w
+        table_body.grid_columnconfigure(1, minsize=w)
 
     def _preview_pane_width() -> int:
-        root.update_idletasks()
-        return max(240, paned.winfo_width() - paned.sashpos(0))
-
-    def _save_pane_sash(_event: tk.Event | None = None) -> None:
-        _update_preview_wrap()
+        try:
+            return max(240, int(preview_frm.winfo_width()))
+        except (tk.TclError, ValueError):
+            return preview_pane_width[0]
 
     cols = (
         _COL_SEL,
         _COL_SRT,
         _COL_CUE,
         _COL_CURRENT,
-        _COL_MATCH,
-        _COL_MATCH_REASON,
         _COL_APPLY,
+        _COL_MATCH,
         _COL_STATUS,
+        _COL_DOWNLOAD,
+        _COL_MATCH_REASON,
     )
     _heading_labels = {
         _COL_SEL: "선택",
@@ -888,9 +1133,12 @@ def main(
         _COL_MATCH_REASON: "OCR매핑 번호",
         _COL_APPLY: "적용",
         _COL_STATUS: "상태",
+        _COL_DOWNLOAD: "다운로드이미지",
     }
     _sort_col: str | None = None
     _sort_rev = False
+
+    _tree_row_px = 22
 
     tree = ttk.Treeview(
         list_frm,
@@ -930,9 +1178,11 @@ def main(
         if col == _COL_MATCH_REASON:
             return ((row.match_reason or "").lower(), _row_name_key(row))
         if col == _COL_APPLY:
-            return (0 if row.srt_number >= 0 else 1, _row_name_key(row))
+            return (0 if _row_show_apply_button(row) else 1, _row_name_key(row))
         if col == _COL_STATUS:
             return (row.status.lower(), _row_name_key(row))
+        if col == _COL_DOWNLOAD:
+            return (_download_img_display(row).lower(), _row_name_key(row))
         return (_row_name_key(row),)
 
     def _refresh_headings() -> None:
@@ -973,17 +1223,45 @@ def main(
     tree.column(_COL_SRT, width=68, anchor=tk.CENTER, stretch=False)
     tree.column(_COL_CUE, width=300, anchor=tk.W, stretch=True)
     tree.column(_COL_CURRENT, width=140, anchor=tk.W)
-    tree.column(_COL_MATCH, width=60, anchor=tk.CENTER, stretch=False)
-    tree.column(_COL_MATCH_REASON, width=220, anchor=tk.W)
     tree.column(_COL_APPLY, width=64, anchor=tk.CENTER, stretch=False)
+    tree.column(_COL_MATCH, width=60, anchor=tk.CENTER, stretch=False)
     tree.column(_COL_STATUS, width=120, anchor=tk.W)
+    tree.column(_COL_DOWNLOAD, width=140, anchor=tk.W)
+    tree.column(_COL_MATCH_REASON, width=220, anchor=tk.W)
 
     vsb = ttk.Scrollbar(list_frm, orient=tk.VERTICAL, command=tree.yview)
     hsb = ttk.Scrollbar(list_frm, orient=tk.HORIZONTAL, command=tree.xview)
-    tree.configure(yscrollcommand=vsb.set, xscrollcommand=hsb.set)
+
+    def _sync_tree_height(_event: tk.Event | None = None) -> None:
+        try:
+            if _event is not None and _event.widget is not list_frm:
+                return
+            available = list_frm.winfo_height()
+            if available <= 1:
+                return
+            hsb_reserve = hsb.winfo_height() if hsb.winfo_ismapped() else 0
+            rows = max(3, (available - hsb_reserve - 2) // _tree_row_px)
+            if int(tree.cget("height")) != rows:
+                tree.configure(height=rows)
+        except tk.TclError:
+            pass
+
+    def _tree_xscroll(first: str, last: str) -> None:
+        f, l = float(first), float(last)
+        if f <= 0.0 and l >= 1.0:
+            hsb.grid_remove()
+        else:
+            hsb.grid(row=1, column=0, sticky="ew")
+        hsb.set(first, last)
+        root.after_idle(_sync_tree_height)
+
+    tree.configure(yscrollcommand=vsb.set, xscrollcommand=_tree_xscroll)
     tree.grid(row=0, column=0, sticky="nsew")
     vsb.grid(row=0, column=1, sticky="ns")
     hsb.grid(row=1, column=0, sticky="ew")
+    hsb.grid_remove()
+    list_frm.bind("<Configure>", _sync_tree_height)
+    root.after_idle(_sync_tree_height)
 
     def show_all_rows(*, select_first: bool = True) -> None:
         """캐시된 전체 대본 행을 목록에 표시."""
@@ -1099,18 +1377,49 @@ def main(
                 pass
         _all_rows_cache[:] = kept
 
-    def reload_table() -> None:
-        """파일명 변경 등 이후 전체 목록·미리보기를 디스크 기준으로 다시 그림."""
+    def reload_table(*, status_msg: str | None = None, quiet: bool = False) -> None:
+        """파일명 저장·변경 후 그리드 조회 데이터를 디스크 기준으로 새로고침."""
+        nonlocal _last_sel_iid_for_apply
         sel_srt: int | None = None
         sel = tree.selection()
         if sel and sel[0] in rows_by_iid:
             r = rows_by_iid[sel[0]]
             if r.srt_number >= 0:
                 sel_srt = r.srt_number
-        for row in _all_rows_cache:
-            _sync_cue_text(row)
-            _sync_row_source_from_disk(row)
-        show_all_rows(select_first=sel_srt is None)
+        srt = Path(srt_var.get().strip())
+        png = Path(png_var.get().strip())
+        reloaded = False
+        if srt.is_file() and png.is_dir():
+            try:
+                _refresh_srt_name_choices()
+                skel = build_srt_centric_skeleton(
+                    srt,
+                    png,
+                    recursive=bool(recursive_var.get()),
+                )
+                for row in skel:
+                    _apply_row_override(row)
+                selected_row_ids.clear()
+                _ocr_pending.clear()
+                _ocr_cache_keys.clear()
+                _all_rows_cache[:] = skel
+                _remap_rows_from_filenames()
+                _sort_tree_by_srt_asc(refresh_heading=True)
+                reloaded = True
+            except Exception as e:
+                traceback.print_exc()
+                if not quiet:
+                    messagebox.showerror("새로고침", str(e))
+                    status_var.set(f"새로고침 오류: {e}")
+        if not reloaded:
+            png = Path(png_var.get().strip())
+            if srt_cue_map and png.is_dir():
+                ensure_all_cue_rows(_all_rows_cache, srt_cue_map, png)
+            for row in _all_rows_cache:
+                _sync_cue_text(row)
+                _sync_row_source_from_disk(row)
+            _remap_rows_from_filenames()
+            show_all_rows(select_first=sel_srt is None)
         if sel_srt is not None:
             for iid in tree.get_children():
                 row = rows_by_iid.get(iid)
@@ -1118,7 +1427,15 @@ def main(
                     tree.selection_set(iid)
                     tree.see(iid)
                     show_preview_for_iid(iid)
+                    _last_sel_iid_for_apply = iid
+                    _refresh_apply_neighbor_columns(None, iid)
                     break
+        if status_msg is not None:
+            status_var.set(status_msg)
+        elif reloaded and not quiet:
+            status_var.set(
+                f"새로고침 완료: 대본 {len(_all_rows_cache)}행 (대본번호 오름차순)"
+            )
         root.update_idletasks()
 
     tree.tag_configure("muted", foreground="#888888")
@@ -1189,6 +1506,8 @@ def main(
                     used_numbers=_used_srt_numbers(row),
                     prefer_slot=row.srt_number if row.srt_number >= 0 else None,
                 )
+            except ScanCancelledError as e:
+                err = e
             except Exception as e:
                 err = e
                 traceback.print_exc()
@@ -1229,8 +1548,8 @@ def main(
         iid = tree.identify_row(event.y)
         if not iid or iid not in rows_by_iid:
             return
-        tree.selection_set(iid)
-        tree.focus(iid)
+        prev_sel = tree.selection()
+        prev_iid = prev_sel[0] if prev_sel else None
         if region == "cell":
             col = tree.identify_column(event.x)
             try:
@@ -1238,14 +1557,15 @@ def main(
             except ValueError:
                 cidx = -1
             if 0 <= cidx < len(cols) and cols[cidx] == _COL_MATCH_REASON:
+                tree.selection_set(iid)
+                tree.focus(iid)
                 _open_mapping_popup_for_row(iid)
                 return
-            if 0 <= cidx < len(cols) and cols[cidx] == _COL_STATUS:
-                _open_script_picker_for_row(iid)
-                return
             if 0 <= cidx < len(cols) and cols[cidx] == _COL_APPLY:
-                _apply_ocr_mapping_for_row(iid)
-                return
+                _apply_filename_from_apply_row(iid, prev_iid)
+                return "break"
+        tree.selection_set(iid)
+        tree.focus(iid)
         if region == "cell" and tree.identify_column(event.x) == "#1":
             toggle_iid(iid)
         show_preview_for_iid(iid)
@@ -1254,6 +1574,8 @@ def main(
             schedule_row_ocr(iid)
 
     def on_tree_select(_event: tk.Event | None = None) -> None:
+        nonlocal _last_sel_iid_for_apply
+        prev_iid = _last_sel_iid_for_apply
         sel = tree.selection()
         if sel and sel[0] in rows_by_iid:
             iid = sel[0]
@@ -1261,39 +1583,89 @@ def main(
             row = rows_by_iid.get(iid)
             if row is not None and _needs_row_ocr(row):
                 schedule_row_ocr(iid)
+            _last_sel_iid_for_apply = iid
+            _refresh_apply_neighbor_columns(prev_iid, iid)
+        else:
+            _last_sel_iid_for_apply = None
+            _refresh_apply_neighbor_columns(prev_iid, None)
 
     def _remap_rows_from_filenames() -> None:
         if srt_cue_map:
             remap_all_rows_from_filenames(_all_rows_cache, srt_cue_map)
 
-    def _apply_ocr_mapping_for_row(iid: str) -> None:
-        row = rows_by_iid.get(iid)
-        if row is None:
+    def _apply_filename_from_apply_row(apply_iid: str, target_iid: str | None) -> None:
+        """적용 행의 현재파일명으로 선택 행 파일명 즉시 변경·저장."""
+        apply_row = rows_by_iid.get(apply_iid)
+        if apply_row is None or not _row_show_apply_button(apply_row):
             return
-        if (row.match_reason or "").strip() in ("", "—"):
+        if not target_iid or target_iid not in rows_by_iid:
+            messagebox.showinfo("적용", "현재파일명을 바꿀 행을 먼저 선택하세요.")
             return
-        candidates = _mapping_candidates_for_row(row)
-        if not candidates and row.srt_number < 0:
+        if target_iid == apply_iid:
+            messagebox.showinfo("적용", "다른 행을 선택한 뒤 적용하세요.")
             return
-        if not candidates and row.srt_number >= 0:
-            candidates = [row.srt_number]
-        if len(candidates) > 1:
-            picked = _choose_mapping_candidate(candidates, row.srt_number)
-            if picked is None:
-                return
-            n = picked
-        elif row.srt_number >= 0:
-            n = row.srt_number
-        elif candidates:
-            n = candidates[0]
+
+        target_row = rows_by_iid[target_iid]
+        name = _edit_current_filename_value(apply_row)
+        if not name:
+            messagebox.showinfo("적용", "적용할 파일명이 없습니다.")
+            return
+        norm = _normalize_target_name(name)
+        if norm is not None:
+            applied_name = norm
+            target_row.target_name = norm
+            n = _name_srt_num(norm)
+            if n is not None:
+                target_row.srt_number = n
+                _sync_cue_text(target_row)
         else:
+            applied_name = Path(name.strip()).name
+            if not applied_name.lower().endswith(".png"):
+                messagebox.showinfo(
+                    "적용",
+                    "적용할 파일명이 .png 형식이 아닙니다.",
+                )
+                return
+            target_row.target_name = applied_name
+
+        src = _resolve_rename_source(target_row)
+        if src is None or not src.is_file():
+            apply_src = _resolve_rename_source(apply_row)
+            if apply_src is None and _ocr_apply_source_iid:
+                ocr_row = rows_by_iid.get(_ocr_apply_source_iid)
+                if ocr_row is not None:
+                    apply_src = _resolve_rename_source(ocr_row)
+            if apply_src is not None and apply_src.is_file():
+                try:
+                    _rename_source_by_row[id(target_row)] = apply_src.resolve()
+                except OSError:
+                    _rename_source_by_row[id(target_row)] = apply_src
+                src = apply_src
+        elif src.name != applied_name:
+            try:
+                _rename_source_by_row[id(target_row)] = src.resolve()
+            except OSError:
+                _rename_source_by_row[id(target_row)] = src
+
+        if src is None or not src.is_file():
+            messagebox.showinfo("적용", "저장할 PNG 파일이 없습니다.")
             return
-        _apply_script_number_to_row(row, n)
-        row.status = f"OCR매핑 선택: {row.srt_number}번 (저장 대기)"
-        _refresh_row_display(iid, row)
-        show_preview_for_iid(iid)
-        _save_row_override(row)
-        status_var.set(f"OCR매핑 적용값 설정: 대본 {row.srt_number}번")
+        target_row.can_rename = bool(src.name != applied_name)
+        if not _rename_row_filename_now(target_row, target_iid):
+            return
+        refresh_count()
+        reload_table(
+            status_msg=f"적용 저장: {applied_name}",
+            quiet=True,
+        )
+        if target_iid in rows_by_iid:
+            tree.selection_set(target_iid)
+            tree.focus(target_iid)
+            tree.see(target_iid)
+            show_preview_for_iid(target_iid)
+        status_var.set(
+            f"적용: 선택 행 → {applied_name} (원본: {_edit_current_filename_value(apply_row)})"
+        )
 
     def _choose_mapping_candidate(candidates: list[int], current: int) -> int | None:
         win = tk.Toplevel(root)
@@ -1330,37 +1702,17 @@ def main(
         cb.bind("<Return>", lambda _e: ok())
         cb.bind("<Escape>", lambda _e: cancel())
         win.protocol("WM_DELETE_WINDOW", cancel)
+        _center_modal_toplevel(win, root)
         root.wait_window(win)
         return picked["value"] if isinstance(picked["value"], int) else None
 
     def _choose_mapping_candidate_with_words(
-        row: MatchPreview, candidates: list[int], iid: str
+        row: MatchPreview,
+        candidates: list[int],
+        iid: str,
+        rows_local: list[tuple[str, int, str]],
     ) -> int | None:
-        cues = sorted(((int(k), v) for k, v in srt_cue_map.items()), key=lambda c: c[0])
         cue_map_local = {int(k): v for k, v in srt_cue_map.items()}
-        words = split_ocr_words_for_mapping(row.ocr_preview, cues)
-        rows_local: list[tuple[str, int, str]] = []
-        seen: set[tuple[str, int]] = set()
-        for w in words:
-            for mid in cue_ids_for_word(w, cues):
-                key = (w, mid)
-                if key in seen:
-                    continue
-                seen.add(key)
-                cue_one = (cue_map_local.get(mid, "") or "").strip().replace("\n", " ")
-                rows_local.append((w, mid, cue_one))
-
-        def _row_priority(item: tuple[str, int, str]) -> tuple[int, str, int]:
-            _w, mid, _cue = item
-            if mid == row.srt_number:
-                return (0, mid, 0)
-            if mid == row.word_srt_number:
-                return (1, mid, 0)
-            if mid in candidates:
-                return (2, mid, 0)
-            return (3, mid, 0)
-
-        rows_local.sort(key=lambda item: item[1])
 
         if not rows_local:
             return None
@@ -1369,7 +1721,6 @@ def main(
         win.title("OCR 매핑 선택")
         win.transient(root)
         win.grab_set()
-        win.minsize(520, 360)
         picked: dict[str, int | None] = {"value": None}
 
         frm_local = ttk.Frame(win, padding=10)
@@ -1503,6 +1854,7 @@ def main(
         tv.bind("<Return>", lambda _e: ok())
         win.bind("<Escape>", lambda _e: cancel())
         win.protocol("WM_DELETE_WINDOW", cancel)
+        _center_modal_toplevel(win, root)
         root.wait_window(win)
         return picked["value"] if isinstance(picked["value"], int) else None
 
@@ -1522,6 +1874,44 @@ def main(
 
     tree.bind("<Button-1>", on_tree_click, add="+")
     tree.bind("<<TreeviewSelect>>", on_tree_select)
+
+    _apply_col_hand_cursor = [False]
+
+    def on_tree_motion(event: tk.Event) -> None:
+        region = tree.identify_region(event.x, event.y)
+        show_hand = False
+        if region == "cell":
+            col = tree.identify_column(event.x)
+            try:
+                cidx = int(col.lstrip("#")) - 1
+            except ValueError:
+                cidx = -1
+            iid = tree.identify_row(event.y)
+            if (
+                0 <= cidx < len(cols)
+                and cols[cidx] == _COL_APPLY
+                and iid
+                and iid in rows_by_iid
+            ):
+                row = rows_by_iid[iid]
+                if row is not None and _row_show_apply_button(row):
+                    if tree.set(iid, _COL_APPLY) == "적용":
+                        show_hand = True
+        if show_hand:
+            if not _apply_col_hand_cursor[0]:
+                tree.configure(cursor="hand2")
+                _apply_col_hand_cursor[0] = True
+        elif _apply_col_hand_cursor[0]:
+            tree.configure(cursor="")
+            _apply_col_hand_cursor[0] = False
+
+    def on_tree_leave(_event: tk.Event) -> None:
+        if _apply_col_hand_cursor[0]:
+            tree.configure(cursor="")
+            _apply_col_hand_cursor[0] = False
+
+    tree.bind("<Motion>", on_tree_motion, add="+")
+    tree.bind("<Leave>", on_tree_leave, add="+")
 
     def _refresh_srt_name_choices() -> None:
         nonlocal srt_name_choices, srt_number_choices, srt_cue_map
@@ -1752,6 +2142,7 @@ def main(
         tv.bind("<Return>", lambda _e: ok())
         win.bind("<Escape>", lambda _e: cancel())
         win.protocol("WM_DELETE_WINDOW", cancel)
+        _center_modal_toplevel(win, root)
         root.wait_window(win)
         return
 
@@ -1771,7 +2162,7 @@ def main(
             return
         row = rows_by_iid[iid]
 
-        editable = {_COL_SRT, _COL_CURRENT, _COL_CUE}
+        editable = {_COL_SRT, _COL_CURRENT, _COL_CUE, _COL_DOWNLOAD}
         if col_id not in editable:
             return
 
@@ -1830,6 +2221,34 @@ def main(
                     return
             elif col_id == _COL_CUE:
                 row.cue_text = val
+            elif col_id == _COL_DOWNLOAD:
+                key = _download_img_key(row)
+                if val:
+                    download_image_inputs[key] = val
+                else:
+                    download_image_inputs.pop(key, None)
+                try:
+                    save_download_image_inputs(download_image_inputs)
+                except OSError:
+                    pass
+                err = _copy_download_image_to_row(row, val) if val else None
+                _close_cell_editor()
+                if err:
+                    messagebox.showwarning("다운로드 복사", err)
+                    _refresh_row_display(iid, row)
+                    return
+                if val:
+                    _save_row_override(row)
+                    reload_table(
+                        status_msg=f"다운로드 복사: {row.target_name}",
+                        quiet=True,
+                    )
+                    if iid in rows_by_iid:
+                        tree.selection_set(iid)
+                        show_preview_for_iid(iid)
+                else:
+                    finish_edit()
+                return
             finish_edit()
             _close_cell_editor()
 
@@ -1866,6 +2285,8 @@ def main(
             cur_val = _edit_current_filename_value(row)
         elif col_id == _COL_CUE:
             cur_val = row.cue_text or ""
+        elif col_id == _COL_DOWNLOAD:
+            cur_val = _download_img_display(row)
         else:
             cur_val = ""
 
@@ -1875,6 +2296,27 @@ def main(
         ent.insert(0, cur_val)
         ent.select_range(0, tk.END)
         ent.focus_set()
+        if col_id == _COL_DOWNLOAD:
+
+            def save_download_draft() -> None:
+                draft = ent.get().strip()
+                key = _download_img_key(row)
+                if draft:
+                    download_image_inputs[key] = draft
+                else:
+                    download_image_inputs.pop(key, None)
+                try:
+                    save_download_image_inputs(download_image_inputs)
+                except OSError:
+                    pass
+                _close_cell_editor()
+                _refresh_row_display(iid, row)
+
+            ent.bind("<Return>", lambda _e: commit_entry(ent.get().strip()))
+            ent.bind("<Escape>", lambda _e: cancel())
+            ent.bind("<FocusOut>", lambda _e: save_download_draft())
+            return
+
         ent.bind("<Return>", lambda _e: commit_entry(ent.get().strip()))
         ent.bind("<Escape>", lambda _e: cancel())
         ent.bind("<FocusOut>", lambda _e: commit_entry(ent.get().strip()))
@@ -1896,8 +2338,8 @@ def main(
         col_id = cols[idx]
         if col_id == _COL_SEL:
             return
-        if col_id == _COL_STATUS:
-            _open_script_picker_for_row(iid)
+        if col_id == _COL_MATCH_REASON:
+            _open_mapping_popup_for_row(iid)
             return
         _start_cell_edit(iid, col_id)
 
@@ -1941,7 +2383,8 @@ def main(
         cue_disp = (row.cue_text or "—")[:160]
         current_disp = _mapped_current_display(row)
         map_disp = (row.match_reason or "—")[:160]
-        apply_disp = "적용" if row.srt_number >= 0 and map_disp not in ("", "—") else ""
+        apply_disp = "적용" if _row_show_apply_button(row) else ""
+        download_disp = _download_img_display(row)[:80]
         tags: tuple[str, ...] = ()
         if not row.can_rename and not row.ocr_preview:
             tags = ("muted",)
@@ -1957,13 +2400,40 @@ def main(
                 srt_disp,
                 cue_disp,
                 current_disp,
-                row.match_label,
-                map_disp,
                 apply_disp,
+                row.match_label,
                 row.status,
+                download_disp,
+                map_disp,
             ),
             tags=tags,
         )
+
+    def _refresh_apply_neighbor_columns(
+        prev_iid: str | None,
+        new_iid: str | None,
+    ) -> None:
+        kids = list(tree.get_children(""))
+        to_refresh: set[str] = set()
+        for anchor in (prev_iid, new_iid):
+            if not anchor or anchor not in kids:
+                continue
+            si = kids.index(anchor)
+            for d in range(-_APPLY_NEIGHBOR_ROWS, _APPLY_NEIGHBOR_ROWS + 1):
+                j = si + d
+                if 0 <= j < len(kids):
+                    to_refresh.add(kids[j])
+        for iid in to_refresh:
+            row = rows_by_iid.get(iid)
+            if row is not None:
+                _refresh_row_display(iid, row)
+
+    def _set_ocr_apply_context(source_iid: str, srt_numbers: set[int]) -> None:
+        nonlocal _ocr_apply_source_iid, _ocr_apply_srt_numbers
+        _ocr_apply_source_iid = source_iid
+        _ocr_apply_srt_numbers = set(srt_numbers)
+        for rid, r in rows_by_iid.items():
+            _refresh_row_display(rid, r)
 
     def _override_key(path: Path) -> str:
         try:
@@ -2187,8 +2657,7 @@ def main(
         ocr_ent.bind("<Return>", lambda _e: do_search())
         win.protocol("WM_DELETE_WINDOW", on_close)
 
-    paned.bind("<ButtonRelease-1>", lambda _e: persist())
-    root.after(200, _apply_pane_sash)
+    root.after(200, _apply_preview_pane_width)
     root.after(250, _update_preview_wrap)
 
     def on_thumb_double_click(_event: tk.Event) -> None:
@@ -2198,7 +2667,7 @@ def main(
     thumb_img_lbl.bind("<Double-1>", on_thumb_double_click)
 
     sel_btns = ttk.Frame(frm)
-    sel_btns.grid(row=8, column=0, sticky="w", pady=(0, 6))
+    sel_btns.grid(row=9, column=0, sticky="w", pady=(0, 6))
     ttk.Button(sel_btns, text="대본·OCR 검색…", command=open_keyword_search_window).pack(
         side=tk.LEFT, padx=(16, 0)
     )
@@ -2213,10 +2682,11 @@ def main(
     ).pack(side=tk.LEFT)
 
     prog = ttk.Progressbar(frm, mode="determinate", maximum=100)
-    prog.grid(row=9, column=0, sticky="ew", pady=(0, 4))
-    ttk.Label(frm, textvariable=status_var).grid(row=10, column=0, sticky="w")
+    prog.grid(row=11, column=0, sticky="ew", pady=(0, 4))
+    ttk.Label(frm, textvariable=status_var).grid(row=12, column=0, sticky="w")
 
     btn_scan: ttk.Button
+    btn_cancel_scan: ttk.Button
     btn_save: ttk.Button
     btn_delete: ttk.Button
 
@@ -2230,39 +2700,20 @@ def main(
         if not png.is_dir():
             messagebox.showerror("PNG 폴더", f"폴더가 없습니다:\n{png}")
             return False
-        try:
-            _refresh_srt_name_choices()
-            skel = build_srt_centric_skeleton(
-                srt,
-                png,
-                recursive=bool(recursive_var.get()),
-            )
-            for row in skel:
-                _apply_row_override(row)
-            selected_row_ids.clear()
-            _ocr_pending.clear()
-            _ocr_cache_keys.clear()
-            _all_rows_cache[:] = skel
-            _remap_rows_from_filenames()
-            _sort_tree_by_srt_asc(refresh_heading=True)
-            status_var.set(
-                f"새로고침 완료: 대본 {len(_all_rows_cache)}행 (대본번호 오름차순)"
-            )
-            return True
-        except Exception as e:
-            traceback.print_exc()
-            messagebox.showerror("새로고침", str(e))
-            status_var.set(f"새로고침 오류: {e}")
-            return False
+        reload_table()
+        return True
 
     def run_refresh() -> None:
         persist()
         refresh_count()
         _load_table_from_disk()
 
+    scan_cancel_event = threading.Event()
+
     def set_busy(on: bool) -> None:
         state = tk.DISABLED if on else tk.NORMAL
         btn_scan.configure(state=state)
+        btn_cancel_scan.configure(state=tk.NORMAL if on else tk.DISABLED)
         btn_save.configure(state=state)
         btn_delete.configure(state=state)
         btn_refresh.configure(state=state)
@@ -2275,12 +2726,20 @@ def main(
     def persist(*, preview_width: int | None = None) -> None:
         try:
             pw = preview_width
-            if pw is None and paned.winfo_exists():
+            if pw is None and table_body.winfo_exists():
                 pw = _preview_pane_width()
+            try:
+                ts = int(thumb_size_var.get())
+            except (tk.TclError, ValueError):
+                ts = thumb_size[0]
+            ts = max(_THUMB_SIZE_MIN, min(_THUMB_SIZE_MAX, ts))
+            thumb_size[0] = ts
             save_gui_settings(
                 srt_file=srt_var.get().strip(),
                 png_dir=png_var.get().strip(),
+                download_dir=download_var.get().strip(),
                 preview_pane_width=pw,
+                preview_thumb_size=ts,
             )
         except (OSError, tk.TclError):
             pass
@@ -2303,6 +2762,12 @@ def main(
             return None
         return srt, png
 
+    def cancel_scan() -> None:
+        if not scan_cancel_event.is_set():
+            scan_cancel_event.set()
+            btn_cancel_scan.configure(state=tk.DISABLED)
+            status_var.set("목록 조회 취소 중…")
+
     def run_scan() -> None:
         paths = _validate_paths()
         if paths is None:
@@ -2310,6 +2775,7 @@ def main(
         srt, png = paths
         persist()
         clear_table()
+        scan_cancel_event.clear()
         set_busy(True)
         prog.configure(value=0)
         status_var.set("OCR·매칭 목록 조회 중…")
@@ -2355,13 +2821,22 @@ def main(
                     recursive=bool(recursive_var.get()),
                     skip_already_named=bool(skip_named_var.get()),
                     on_progress=on_prog,
+                    should_cancel=scan_cancel_event.is_set,
                 )
+            except ScanCancelledError as e:
+                err = e
             except Exception as e:
                 err = e
                 traceback.print_exc()
 
             def done() -> None:
                 set_busy(False)
+                if isinstance(err, ScanCancelledError):
+                    prog.configure(value=0)
+                    status_var.set(
+                        f"목록 조회 취소됨 · 대본 {len(_all_rows_cache)}행 (OCR·매칭 미완료)"
+                    )
+                    return
                 if err:
                     prog.configure(value=0)
                     messagebox.showerror("오류", str(err))
@@ -2522,6 +2997,8 @@ def main(
                 results, apply_skips = apply_match_renames(
                     pending, manual=True, on_progress=on_prog
                 )
+            except ScanCancelledError as e:
+                err = e
             except Exception as e:
                 err = e
                 traceback.print_exc()
@@ -2543,11 +3020,13 @@ def main(
                     except OSError:
                         pass
                     _ocr_cache_keys.add(_ocr_cache_key(r.target))
-                reload_table()
-                prog.configure(value=100)
-                status_var.set(
-                    f"완료: 변경 {len(results)}개, 실패 {len(apply_skips)}개 · 목록 갱신"
+                reload_table(
+                    status_msg=(
+                        f"완료: 변경 {len(results)}개, 실패 {len(apply_skips)}개 · 목록 갱신"
+                    ),
+                    quiet=True,
                 )
+                prog.configure(value=100)
                 skip_msg = ""
                 if apply_skips:
                     lines = [
@@ -2626,29 +3105,18 @@ def main(
 
         for row in selected_rows:
             selected_row_ids.discard(id(row))
-            path = _current_file_path(row)
-            if row.srt_number >= 0:
-                row.ocr_preview = ""
-                row.matched = False
-                row.can_rename = False
-                row.status = "이미지 없음"
-                row.match_reason = ""
-                if path is not None:
-                    row.source = path.parent / srt_png_name(row.srt_number)
-            elif row in _all_rows_cache:
-                _all_rows_cache.remove(row)
 
-        show_all_rows(select_first=False)
+        reload_table(quiet=True)
 
         if preview_path and not preview_path.is_file():
             clear_preview()
-        elif tree.selection():
-            show_preview_for_iid(tree.selection()[0])
-        else:
-            clear_preview()
 
         refresh_count()
-        status_var.set(f"삭제 완료: {deleted}개" + (f", 실패 {len(failed)}개" if failed else ""))
+        status_var.set(
+            f"삭제 완료: {deleted}개"
+            + (f", 실패 {len(failed)}개" if failed else "")
+            + f" · 대본 {len(_all_rows_cache)}행"
+        )
         if failed:
             messagebox.showwarning(
                 "삭제 일부 실패",
@@ -2658,9 +3126,13 @@ def main(
             messagebox.showinfo("삭제 완료", f"{deleted}개 파일을 삭제했습니다.")
 
     row_btns = ttk.Frame(frm)
-    row_btns.grid(row=11, column=0, sticky="ew", pady=(8, 0))
+    row_btns.grid(row=13, column=0, sticky="ew", pady=(8, 0))
     btn_scan = ttk.Button(row_btns, text="① 목록 조회 (OCR·매칭)", command=run_scan)
     btn_scan.pack(side=tk.LEFT, padx=(0, 10))
+    btn_cancel_scan = ttk.Button(
+        row_btns, text="조회 취소", command=cancel_scan, state=tk.DISABLED
+    )
+    btn_cancel_scan.pack(side=tk.LEFT, padx=(0, 10))
     btn_save = ttk.Button(row_btns, text="② 저장 (파일명 변경)", command=run_save_rename)
     btn_save.pack(side=tk.LEFT, padx=(0, 10))
     btn_delete = ttk.Button(row_btns, text="선택 줄 삭제", command=run_delete_selected)
