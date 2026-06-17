@@ -19,6 +19,8 @@
 # 3_1_pngFileName
 
 
+#2_3_stt (완료)
+- [x] MP3 → Whisper STT, 원본 대본과 다른 부분 색상 표시
 
 
 

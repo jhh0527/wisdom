@@ -27,3 +27,7 @@ config/wisdom_workspace.json
 /tools/ffmpeg/bin/*.dll
 # GitHub 100MB 제한 — 합성 영상은 로컬만 보관
 4_1_video/output/*.mp4
+
+build/
+dist/
+*.pkg

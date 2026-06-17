@@ -53,6 +53,10 @@ def load_tab_ui(module: str, container: tk.Misc) -> None:
             from prompt2image.gui_app import main
 
             main(container=container)
+        elif module == "2_3_stt":
+            from stt.gui_app import main
+
+            main(container=container)
         elif module == "3_1_pngFileName":
             from png_rename.gui_app import main
 
