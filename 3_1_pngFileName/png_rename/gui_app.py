@@ -31,9 +31,11 @@ from png_rename.rename import (
     ScanCancelledError,
     apply_match_renames,
     apply_ocr_to_row,
+    apply_srt_filename_normalizations,
     build_srt_centric_skeleton,
     ensure_all_cue_rows,
     filename_matches_script_number,
+    find_srt_filename_normalizations,
     iter_png_files,
     remap_all_rows_from_filenames,
     scan_srt_centric_matches,
@@ -2689,6 +2691,7 @@ def main(
     btn_cancel_scan: ttk.Button
     btn_save: ttk.Button
     btn_delete: ttk.Button
+    btn_normalize: ttk.Button
 
     def _load_table_from_disk() -> bool:
         """SRT·PNG 폴더 기준으로 목록을 다시 읽어 표시 (OCR 없음)."""
@@ -2716,6 +2719,7 @@ def main(
         btn_cancel_scan.configure(state=tk.NORMAL if on else tk.DISABLED)
         btn_save.configure(state=state)
         btn_delete.configure(state=state)
+        btn_normalize.configure(state=state)
         btn_refresh.configure(state=state)
         for w in browse_widgets:
             try:
@@ -3125,6 +3129,98 @@ def main(
         else:
             messagebox.showinfo("삭제 완료", f"{deleted}개 파일을 삭제했습니다.")
 
+    def run_normalize_filenames() -> None:
+        png = Path(png_var.get().strip())
+        if not png.is_dir():
+            messagebox.showerror("PNG 폴더", f"폴더가 없습니다:\n{png}")
+            return
+        persist()
+        pairs = find_srt_filename_normalizations(
+            png, recursive=bool(recursive_var.get())
+        )
+        if not pairs:
+            messagebox.showinfo(
+                "파일명 정규화",
+                "정규화할 파일이 없습니다.\n"
+                "(예: SRT_240_8084dc2e.png → SRT_240.png)",
+            )
+            return
+
+        preview = "\n".join(
+            f"  {src.name}  →  {tgt}" for src, tgt in pairs[:15]
+        )
+        extra = f"\n  … 외 {len(pairs) - 15}개" if len(pairs) > 15 else ""
+        if not messagebox.askyesno(
+            "파일명 정규화",
+            f"{len(pairs)}개 파일의 접미사를 제거합니다.\n\n{preview}{extra}\n\n"
+            "계속하시겠습니까?",
+        ):
+            return
+
+        set_busy(True)
+        prog.configure(value=0)
+        status_var.set("파일명 정규화 중…")
+
+        def work() -> None:
+            err: Exception | None = None
+            results: list[RenameResult] = []
+            skips: list[RenameSkip] = []
+
+            def on_prog(i: int, total: int, item: RenameResult | RenameSkip) -> None:
+                pct = 0 if total <= 0 else int(100 * i / total)
+
+                def ui() -> None:
+                    prog.configure(value=pct)
+                    if isinstance(item, RenameResult):
+                        status_var.set(
+                            f"정규화… {pct}% — {item.source.name} → {item.target.name}"
+                        )
+
+                safe_after(root, ui)
+
+            try:
+                results, skips = apply_srt_filename_normalizations(
+                    pairs, on_progress=on_prog
+                )
+            except Exception as e:
+                err = e
+                traceback.print_exc()
+
+            def done() -> None:
+                set_busy(False)
+                refresh_count()
+                if err:
+                    messagebox.showerror("오류", str(err))
+                    status_var.set("정규화 오류")
+                    return
+                if rows_by_iid:
+                    reload_table(
+                        status_msg=(
+                            f"정규화 완료: {len(results)}개, "
+                            f"건너뜀 {len(skips)}개 · 목록 갱신"
+                        ),
+                        quiet=True,
+                    )
+                else:
+                    status_var.set(
+                        f"정규화 완료: {len(results)}개, 건너뜀 {len(skips)}개"
+                    )
+                prog.configure(value=100)
+                skip_msg = ""
+                if skips:
+                    lines = [f"  {s.source.name}: {s.reason}" for s in skips[:8]]
+                    skip_msg = "\n\n건너뜀:\n" + "\n".join(lines)
+                    if len(skips) > 8:
+                        skip_msg += f"\n  … 외 {len(skips) - 8}건"
+                messagebox.showinfo(
+                    "정규화 완료",
+                    f"변경: {len(results)}개\n건너뜀: {len(skips)}개{skip_msg}",
+                )
+
+            safe_after(root, done)
+
+        threading.Thread(target=work, daemon=True).start()
+
     row_btns = ttk.Frame(frm)
     row_btns.grid(row=13, column=0, sticky="ew", pady=(8, 0))
     btn_scan = ttk.Button(row_btns, text="① 목록 조회 (OCR·매칭)", command=run_scan)
@@ -3137,6 +3233,10 @@ def main(
     btn_save.pack(side=tk.LEFT, padx=(0, 10))
     btn_delete = ttk.Button(row_btns, text="선택 줄 삭제", command=run_delete_selected)
     btn_delete.pack(side=tk.LEFT, padx=(0, 10))
+    btn_normalize = ttk.Button(
+        row_btns, text="파일명 정규화", command=run_normalize_filenames
+    )
+    btn_normalize.pack(side=tk.LEFT, padx=(0, 10))
     btn_refresh = ttk.Button(row_btns, text="새로고침", command=run_refresh)
     btn_refresh.pack(side=tk.LEFT)
     def on_delete_key(_event: tk.Event | None = None) -> None:
@@ -3147,7 +3247,7 @@ def main(
             run_delete_selected()
 
     root.bind("<Delete>", on_delete_key)
-    action_widgets.extend([btn_scan, btn_save, btn_delete, btn_refresh])
+    action_widgets.extend([btn_scan, btn_save, btn_delete, btn_normalize, btn_refresh])
 
     def on_close() -> None:
         nonlocal _search_win

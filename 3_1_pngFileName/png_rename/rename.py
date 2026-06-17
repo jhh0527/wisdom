@@ -3,12 +3,16 @@
 
 from __future__ import annotations
 
-import re
 from collections.abc import Callable
 from dataclasses import dataclass
 from pathlib import Path
 
-from png_rename.naming import srt_png_name
+from png_rename.naming import (
+    is_clean_srt_png_name,
+    normalized_srt_png_name,
+    parse_srt_number_from_filename,
+    srt_png_name,
+)
 from png_rename.ocr import (
     PNG_EXTS,
     analyze_image_text,
@@ -25,7 +29,6 @@ from png_rename.text_norm import (
     score_text_match_sized,
 )
 
-_SRT_STEM = re.compile(r"^srt[-_]?0*(\d+)\.png$", re.IGNORECASE)
 _SKIP_STEMS = frozenset({"thumbnail_youtube", "thumbnail"})
 
 
@@ -99,10 +102,7 @@ def _ocr_word_location(
 
 
 def _already_srt_named(path: Path) -> int | None:
-    m = _SRT_STEM.match(path.name)
-    if not m:
-        return None
-    return int(m.group(1))
+    return parse_srt_number_from_filename(path.name)
 
 
 def filename_matches_script_number(row: MatchPreview) -> bool:
@@ -185,10 +185,14 @@ def apply_ocr_to_row(
             can_rename = True
             status = "대본 일치"
             if skip_already_named and existing_n is not None:
-                if existing_n == slot and dst.resolve() == src.resolve():
+                if (
+                    existing_n == slot
+                    and is_clean_srt_png_name(src.name)
+                    and dst.resolve() == src.resolve()
+                ):
                     can_rename = False
                     status = "이미 올바른 이름"
-                elif existing_n == slot:
+                elif existing_n == slot and is_clean_srt_png_name(src.name):
                     can_rename = False
                     status = "이미 SRT 형식(변경 불필요)"
             if slot in used:
@@ -256,10 +260,14 @@ def apply_ocr_to_row(
     can_rename = True
     status = "대본 일치"
     if skip_already_named and existing_n is not None:
-        if existing_n == map_id and dst.resolve() == src.resolve():
+        if (
+            existing_n == map_id
+            and is_clean_srt_png_name(src.name)
+            and dst.resolve() == src.resolve()
+        ):
             can_rename = False
             status = "이미 올바른 이름"
-        elif existing_n == map_id:
+        elif existing_n == map_id and is_clean_srt_png_name(src.name):
             can_rename = False
             status = "이미 SRT 형식(변경 불필요)"
     if map_id in used:
@@ -799,6 +807,91 @@ def scan_srt_centric_matches(
             result.append(row)
 
     return result
+
+
+def find_srt_filename_normalizations(
+    png_dir: Path,
+    *,
+    recursive: bool = False,
+) -> list[tuple[Path, str]]:
+    """``SRT_XXX_접미사.png`` → ``SRT_XXX.png`` 로 바꿀 (원본, 대상파일명) 목록."""
+    pairs: list[tuple[Path, str]] = []
+    for src in iter_png_files(png_dir, recursive=recursive):
+        if src.stem.lower() in _SKIP_STEMS:
+            continue
+        clean = normalized_srt_png_name(src.name)
+        if clean and clean != src.name:
+            pairs.append((src, clean))
+    return pairs
+
+
+def apply_srt_filename_normalizations(
+    pairs: list[tuple[Path, str]],
+    *,
+    dry_run: bool = False,
+    on_progress: Callable[[int, int, RenameResult | RenameSkip], None] | None = None,
+) -> tuple[list[RenameResult], list[RenameSkip]]:
+    """접미사가 붙은 SRT 파일명을 일괄 정규화."""
+    results: list[RenameResult] = []
+    skipped: list[RenameSkip] = []
+
+    work: list[tuple[Path, Path]] = []
+    used_targets: set[str] = set()
+    for src, target_name in pairs:
+        if not src.is_file():
+            skipped.append(RenameSkip(src, "파일 없음"))
+            continue
+        dst = src.parent / target_name
+        try:
+            if dst.resolve() == src.resolve():
+                skipped.append(RenameSkip(src, "이미 정규 파일명"))
+                continue
+        except OSError:
+            pass
+        if target_name in used_targets:
+            skipped.append(RenameSkip(src, f"같은 대상 파일명 중복: {target_name}"))
+            continue
+        if dst.exists():
+            skipped.append(RenameSkip(src, f"대상 파일 존재: {target_name}"))
+            continue
+        used_targets.add(target_name)
+        work.append((src, dst))
+
+    total = len(work)
+    for i, (src, dst) in enumerate(work, start=1):
+        n = parse_srt_number_from_filename(src.name)
+        if dry_run:
+            r = RenameResult(
+                source=src,
+                target=dst,
+                srt_number=n if n is not None else -1,
+                score=0,
+                ocr_preview="",
+                cue_preview="",
+            )
+            results.append(r)
+            if on_progress:
+                on_progress(i, total, r)
+            continue
+
+        tmp = src.parent / f"__normalizing_{src.stem}__.png"
+        if tmp.exists():
+            tmp.unlink()
+        src.rename(tmp)
+        tmp.rename(dst)
+        r = RenameResult(
+            source=src,
+            target=dst,
+            srt_number=n if n is not None else -1,
+            score=0,
+            ocr_preview="",
+            cue_preview="",
+        )
+        results.append(r)
+        if on_progress:
+            on_progress(i, total, r)
+
+    return results, skipped
 
 
 def apply_match_renames(

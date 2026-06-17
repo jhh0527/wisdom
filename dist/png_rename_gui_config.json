@@ -1,6 +1,6 @@
 {
-  "srt_file": "C:/udoc/우주에서낙하산을메고뛰어내리면/mp3/all.srt",
-  "png_dir": "C:\\udoc\\우주에서낙하산을메고뛰어내리면\\png",
+  "srt_file": "C:\\udoc\\유럽에수백년된건물이많이이유\\mp3\\all.srt",
+  "png_dir": "C:\\udoc\\유럽에수백년된건물이많이이유\\png",
   "preview_pane_width": 506,
   "manual_overrides": {
     "C:\\util\\유튜브\\고갈된다는석유\\png\\SRT_097.png": {
@@ -2036,6 +2036,195 @@
       "word_cue_text": "",
       "status": "변경 지정: SRT_643.png (저장 대기)",
       "match_reason": "—"
+    },
+    "C:\\udoc\\유럽에수백년된건물이많이이유\\png\\SRT_044.png": {
+      "srt_number": 44,
+      "target_name": "SRT_044.png",
+      "cue_text": "역시 '재료'입니다.",
+      "word_srt_number": 50,
+      "word_cue_text": "석회암, 화강암, 사암 같은",
+      "status": "즉시 저장 완료: SRT_044.png",
+      "match_reason": "사암·50번, 석재·53/144번, 화강암·50번, 석회암·50/55번, 정도·567번, 건축·74/170번, 매우·121/486/535번, 시간이·8/108/269번, 단단한·53번"
+    },
+    "C:\\udoc\\유럽에수백년된건물이많이이유\\png\\SRT_053.png": {
+      "srt_number": 53,
+      "target_name": "SRT_053.png",
+      "cue_text": "단단한 석재가 풍부합니다.",
+      "word_srt_number": 50,
+      "word_cue_text": "석회암, 화강암, 사암 같은",
+      "status": "즉시 저장 완료: SRT_053.png",
+      "match_reason": "화강암·50번, 사암·50번, 석회암·50/55번, 시간·8/108/269/352/365/556번, 하고·20번, 가지·624번, 건축·74/170번, 건축물·246/323/333번, 됩니다·415/438/475번, 으로·236번, 유럽에서·167/390번, 알프스·48번"
+    },
+    "C:\\udoc\\유럽에수백년된건물이많이이유\\png\\SRT_086.png": {
+      "srt_number": 86,
+      "target_name": "SRT_086.png",
+      "cue_text": "그런데 나무는 치명적인 약점이 있습니다.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_086.png",
+      "match_reason": "—"
+    },
+    "C:\\udoc\\유럽에수백년된건물이많이이유\\png\\SRT_111.png": {
+      "srt_number": 111,
+      "target_name": "SRT_111.png",
+      "cue_text": "오히려 더 단단해지는 성질이 있고,",
+      "word_srt_number": 111,
+      "word_cue_text": "오히려 더 단단해지는 성질이 있고,",
+      "status": "즉시 저장 완료: SRT_111.png",
+      "match_reason": "단단해지는·111번, 콘크리트·105/108번, 지날수록·269번, 100·92번, 200·92/272/335/382번"
+    },
+    "C:\\udoc\\유럽에수백년된건물이많이이유\\png\\SRT_133.png": {
+      "srt_number": 133,
+      "target_name": "SRT_133.png",
+      "cue_text": "습도가 90%를 넘나드는 환경에서는",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_133.png",
+      "match_reason": "—"
+    },
+    "C:\\udoc\\유럽에수백년된건물이많이이유\\png\\SRT_161.png": {
+      "srt_number": 161,
+      "target_name": "SRT_161.png",
+      "cue_text": "바로 '교회'입니다.",
+      "word_srt_number": 339,
+      "word_cue_text": "정성스럽게 그린 프레스코화,",
+      "status": "즉시 저장 완료: SRT_161.png",
+      "match_reason": "건축·74/170번"
+    },
+    "C:\\udoc\\유럽에수백년된건물이많이이유\\png\\SRT_206.png": {
+      "srt_number": 206,
+      "target_name": "SRT_206.png",
+      "cue_text": "로마는 2700년 전에 세워진 이래",
+      "word_srt_number": 206,
+      "word_cue_text": "로마는 2700년 전에 세워진 이래",
+      "status": "즉시 저장 완료: SRT_206.png",
+      "match_reason": "로마·3/97/206/404/457/465번, 중세·167번, 2700·206번, 없이·165번"
+    },
+    "C:\\udoc\\유럽에수백년된건물이많이이유\\png\\SRT_221.png": {
+      "srt_number": 221,
+      "target_name": "SRT_221.png",
+      "cue_text": "폴란드 바르샤바 구시가지는",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_221.png",
+      "match_reason": "—"
+    },
+    "C:\\udoc\\유럽에수백년된건물이많이이유\\png\\SRT_250.png": {
+      "srt_number": 250,
+      "target_name": "SRT_250.png",
+      "cue_text": "국가 차원에서 지정·보호하기 시작했고,",
+      "word_srt_number": 333,
+      "word_cue_text": "셋째, 건축물의 미학적 우수성입니다.",
+      "status": "즉시 저장 완료: SRT_250.png",
+      "match_reason": "BUILDING·252번, 1840·246번, 프랑스·55/246/326번, 건축물의·333번"
+    },
+    "C:\\udoc\\유럽에수백년된건물이많이이유\\png\\SRT_272.png": {
+      "srt_number": 272,
+      "target_name": "SRT_272.png",
+      "cue_text": "200년 된 파리 아파트가 신축보다 비쌉니다.",
+      "word_srt_number": 92,
+      "word_cue_text": "아무리 잘 지어도 100년, 200년이 지나면",
+      "status": "즉시 저장 완료: SRT_272.png",
+      "match_reason": "—"
+    },
+    "C:\\udoc\\유럽에수백년된건물이많이이유\\png\\SRT_332.png": {
+      "srt_number": 332,
+      "target_name": "SRT_332.png",
+      "cue_text": "거위인 셈이죠.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "변경 지정: SRT_332.png (저장 대기)",
+      "match_reason": "—"
+    },
+    "C:\\udoc\\유럽에수백년된건물이많이이유\\png\\SRT_399.png": {
+      "srt_number": 399,
+      "target_name": "SRT_399.png",
+      "cue_text": "엘리베이터 없는 5층 아파트에",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_399.png",
+      "match_reason": "—"
+    },
+    "C:\\udoc\\유럽에수백년된건물이많이이유\\png\\SRT_421.png": {
+      "srt_number": 421,
+      "target_name": "SRT_421.png",
+      "cue_text": "둘째, 유지 관리 비용이 어마어마합니다.",
+      "word_srt_number": 426,
+      "word_cue_text": "지붕 수리, 벽 보수, 배관 교체.",
+      "status": "즉시 저장 완료: SRT_421.png",
+      "match_reason": "석재·53/144번, 보수·95/426번, 교체·426번, 수리·426번, 비용·421/438/559번, 배관·426번"
+    },
+    "C:\\udoc\\유럽에수백년된건물이많이이유\\png\\SRT_467.png": {
+      "srt_number": 467,
+      "target_name": "SRT_467.png",
+      "cue_text": "계획 단계부터 30년 넘게 걸렸습니다.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_467.png",
+      "match_reason": "—"
+    },
+    "C:\\udoc\\유럽에수백년된건물이많이이유\\png\\SRT_481.png": {
+      "srt_number": 481,
+      "target_name": "SRT_481.png",
+      "cue_text": "젊은이들은 도시 외곽으로 밀려납니다.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_481.png",
+      "match_reason": "도시·299/352/364/440/470/481번, 상대적·120번"
+    },
+    "C:\\udoc\\유럽에수백년된건물이많이이유\\png\\SRT_493.png": {
+      "srt_number": 493,
+      "target_name": "SRT_493.png",
+      "cue_text": "원래 주민들이 떠나고 있습니다.",
+      "word_srt_number": 495,
+      "word_cue_text": "1950년대에 17만 명이 살던 도시에",
+      "status": "즉시 저장 완료: SRT_493.png",
+      "match_reason": "인구·475번, 1950·495번, 년대·495번, 현재·622번"
+    },
+    "C:\\udoc\\유럽에수백년된건물이많이이유\\png\\SRT_515.png": {
+      "srt_number": 515,
+      "target_name": "SRT_515.png",
+      "cue_text": "2009년 이탈리아 라퀼라 지진,",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_515.png",
+      "match_reason": "2009·515번"
+    },
+    "C:\\udoc\\유럽에수백년된건물이많이이유\\png\\SRT_526.png": {
+      "srt_number": 526,
+      "target_name": "SRT_526.png",
+      "cue_text": "2019년 노트르담 대성당 화재를",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_526.png",
+      "match_reason": "—"
+    },
+    "C:\\udoc\\유럽에수백년된건물이많이이유\\png\\SRT_555.png": {
+      "srt_number": 555,
+      "target_name": "SRT_555.png",
+      "cue_text": "트레이드 오프입니다.",
+      "word_srt_number": 368,
+      "word_cue_text": "다섯째, 지속가능성이라는",
+      "status": "즉시 저장 완료: SRT_555.png",
+      "match_reason": "시간·8/108/269/352/365/556번, 역사·246/302번, 현대적·445/545번, 가치·269/571번, 비용·421/438/559번"
+    },
+    "C:\\udoc\\유럽에수백년된건물이많이이유\\png\\SRT_596.png": {
+      "srt_number": 596,
+      "target_name": "SRT_596.png",
+      "cue_text": "북촌, 익선동, 성수동, 을지로처럼",
+      "word_srt_number": 35,
+      "word_cue_text": "더 나아가 오래된 건물과 함께",
+      "status": "즉시 저장 완료: SRT_596.png",
+      "match_reason": "함께·35/552/629번, 현대·344번"
+    },
+    "C:\\udoc\\유럽에수백년된건물이많이이유\\png\\SRT_409.png": {
+      "srt_number": 409,
+      "target_name": "SRT_409.png",
+      "cue_text": "있어도 사람 두 명 들어가면",
+      "word_srt_number": 453,
+      "word_cue_text": "전기 배선을 바꾸려고 해도",
+      "status": "즉시 저장 완료: SRT_409.png",
+      "match_reason": "전기·453번, 배선·453번, 없는·313/399/503/541/581번, 허가·264번, 설치·445번"
     }
   },
   "preview_thumb_size": 360,
