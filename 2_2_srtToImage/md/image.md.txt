@@ -30,6 +30,7 @@ GPT Image 2 이미지 프롬프트 작성 지침 (SRT 버전 v1.3 - 지식채널
 --------------------------------------------------------------------------------
 - 사용자는 SRT 자막 파일을 제공한다.
 - SRT 파일은 번호, 타임코드, 자막 텍스트로 구성된다.
+- 썸네일 생성 개수는 **요청자가 명시**한다. (미명시 시 썸네일 0개 — 본문 씬만 생성)
 
 SRT 형식 예시:
   1
@@ -318,6 +319,9 @@ SRT 형식 예시:
 6. 공통 프롬프트 (필수 스타일 문구)
 --------------------------------------------------------------------------------
 
+★ 본문 씬 트랙과 썸네일(SRT_9997·9998·9999…) 프롬프트 모두에 동일하게 적용한다. ★
+★ 썸네일도 실사·다큐 스틸이 아닌 본문과 같은 만화체(illustration/cartoon)로 제작한다. ★
+
 모든 프롬프트 끝에 반드시 포함:
 
 "Korean knowledge YouTube explainer style illustration,
@@ -527,7 +531,7 @@ Korean text "[SRT 핵심 단어]" and "[SRT 숫자/연도]" displayed
 12-1. 출력 순서 (반드시 준수)
 
 1) 영상 분석 결과
-2) 씬 트랙 (SRT_{매칭SRT시작초}.png {프롬프트})
+2) 씬 트랙 (SRT_{매칭SRT시작초}.png {프롬프트} + 요청 개수만큼 썸네일 SRT_9997~)
 3) 검증 결과
 
 12-2. 영상 분석 결과 형식
@@ -540,7 +544,9 @@ Korean text "[SRT 핵심 단어]" and "[SRT 숫자/연도]" displayed
 - 총 영상 길이: ____초
 - 구간 1 (0~108초, 12초 간격): 10개
 - 구간 2 (120초~, 30초 간격): __개
-- 총 필요 이미지: __개
+- 총 필요 이미지: __개 (본문 씬)
+- 썸네일 요청 개수: __개
+- 썸네일 파일명: SRT_9997.png ~ SRT_999___.png (요청 개수만큼 연속)
 - 마지막 매칭 SRT 제한: ___번 이하
 - 1번 SRT 항목부터 시작
 - 파일명 규칙: SRT_{매칭SRT시작초, 최소3자리 zero-padding}.png
@@ -598,6 +604,63 @@ SRT_1089.png {... (1000초 이상은 자릿수 그대로 사용)}
 ✗ SRT_003 {프롬프트}               (.png 누락)
 ✗ SRT_120.png (구간2 타임스탬프 그대로) — 매칭 SRT 시작초가 아니면 금지
 
+12-5. ★★★ 썸네일 프롬프트 (씬 트랙 포함) ★★★
+
+★ 썸네일 개수는 요청자가 지정한 수만큼 생성한다. 미요청 시 썸네일 프롬프트를 출력하지 않는다. ★
+
+【썸네일 파일명 규칙】
+- 1번째 썸네일부터 순서대로: SRT_9997.png → SRT_9998.png → SRT_9999.png → …
+- 요청 N개 → SRT_9997.png 부터 연속 N개 (공식: SRT_{9996+k}.png, k=1…N)
+  · 1개 요청: SRT_9997.png
+  · 2개 요청: SRT_9997.png, SRT_9998.png
+  · 3개 요청: SRT_9997.png, SRT_9998.png, SRT_9999.png
+- ★ 9997 미만 번호·SRT 매칭 시작초를 썸네일 라벨로 쓰지 않는다 ★
+
+씬 트랙 맨 끝(라벨 숫자 오름차순)에 요청 개수만큼 썸네일 프롬프트를 추가한다.
+- SRT_9997.png : 1번째(메인) — 영상 핵심 질문·비교·반전 압축
+- SRT_9998.png : 2번째(대안) — 다른 구도·강조점 (2개 이상 요청 시)
+- SRT_9999.png : 3번째 — (3개 이상 요청 시, 4번째부터 SRT_10000.png … 순 연속)
+
+★★★ 썸네일도 본문 씬과 동일한 만화체로 제작한다 (최우선 규칙) ★★★
+- §6 필수 스타일 문구 반드시 포함
+- §8·§10 캐릭터 규칙 동일: 사람 캐릭터 주인공, 헤어스타일 필수, bald/balding 금지
+- `simple cartoon style human character as main subject, round head` 로 시작
+- 조연 개념 마스코트는 영상 주제 근거가 있을 때만 (§8 조연 규칙 동일)
+- ⛔ 금지 스타일: photoreal, hyper-realistic, semi-realistic 3D, cinematic documentary still,
+  editorial photoreal, live-action photo, realistic portrait photography
+
+【썸네일 구도 (만화체 기준)】
+- 만화체 사람 캐릭터(또는 주제 상징 오브젝트+사람)를 화면 상단 1/3 ~ 중앙에 배치
+- 하단 25%는 텍스트 삽입 공간 — 단순 배경·그라데이션·연한 인포그래픽만
+- 구도 키워드: "subject positioned in upper frame, clear bottom space for text overlay,
+  headroom composition, lower third kept simple for text insertion"
+- ⛔ 이미지 내 타이틀·배너·워터마크·채널 로고·자막 바 텍스트 금지
+- ✅ 허용: SRT·영상 핵심 숫자·단어만 Korean text " " 규칙(§7-2)으로 삽입
+
+【썸네일 내용】
+- 영상 전체 주제의 핵심 질문·비교·반전을 한 장면으로 압축
+- 본문 씬과 동일 캐릭터 톤(지식 호스트 등) · 색감 · museum-studio hybrid 분위기 유지
+- 말풍선 트리거(§7-1)·대머리(§7-3) 규칙 동일 적용
+
+썸네일 올바른 예시:
+SRT_9997.png {Korean knowledge YouTube explainer style illustration,
+simple cartoon style human host character as main subject, round head,
+with neat styled dark hair, wearing casual smart outfit,
+curious slightly worried expression, holding fork paused above plate,
+symbolic split midground — stylized lion silhouette vs herbivore silhouette,
+no gore, soft savanna dusk background with clean infographic accents,
+subject in upper third, bottom 25% clean gradient for text overlay,
+Korean text "사자" and "소" displayed,
+warm editorial illustration with museum-studio hybrid mood,
+soft paper texture hints and clean infographic accents,
+curiosity-driven cinematic lighting with readable focal hierarchy,
+16:9 aspect ratio, ultra high resolution digital art,
+no speech bubbles, no watermarks, no logos,
+no title text, no title banner, no bottom text overlay}
+
+SRT_9998.png {동일 §6 필수 스타일 + 만화체, 2번째 대안 구도}
+SRT_9999.png {동일 §6 필수 스타일 + 만화체, 3번째 대안 구도 — 3개 요청 시}
+
 12-4. 검증 결과 형식 (v1.3 수정)
 
 ================================================================================
@@ -624,6 +687,9 @@ SRT_1089.png {... (1000초 이상은 자릿수 그대로 사용)}
 □ bald/balding 표현 없음 확인 ✓
 □ 모든 프롬프트가 매칭된 SRT 내용을 직접 시각화함 확인 ✓
 □ SRT 핵심 명사·숫자·고유명사가 프롬프트에 반영됨 확인 ✓
+□ 썸네일 요청 개수 = SRT_9997~ 연속 파일명 개수 확인 ✓
+□ 썸네일도 본문과 동일 만화체·§6 필수 스타일 문구 확인 ✓
+□ 썸네일 photoreal/실사 스타일 표현 없음 확인 ✓
 ================================================================================
 
 
@@ -649,8 +715,11 @@ SRT_1089.png {... (1000초 이상은 자릿수 그대로 사용)}
    ✗ 잘못: SRT_3.png {프롬프트}             (zero-padding 누락)
    ✗ 잘못: SRT_120.png (타임스탬프 그대로 사용, 매칭 SRT 시작초 무시)
 
-   썸네일 라벨은 SRT_999X.png 형식으로 시작한다.
-   예 : SRT_9997.png, SRT_9998.png
+   썸네일 라벨은 요청 개수만큼 SRT_9997.png부터 연속 번호를 사용한다.
+   · 1개: SRT_9997.png
+   · 2개: SRT_9997.png, SRT_9998.png
+   · 3개: SRT_9997.png, SRT_9998.png, SRT_9999.png
+   썸네일도 본문 씬과 동일한 만화체(§6·§12-5)로 제작한다. 실사·다큐 스틸 금지.
 
 13-4. 프롬프트에 한글은 단순 단어만 " " 안에 넣는다.
    ○ 허용: Korean text "수면" and "8시간" displayed
@@ -678,7 +747,7 @@ SRT_1089.png {... (1000초 이상은 자릿수 그대로 사용)}
 
 13-13. 최종 출력물에는 오직 아래 3가지만 포함한다:
     ① 영상 분석 결과
-    ② 씬 트랙 (SRT_{매칭SRT시작초}.png {프롬프트})
+    ② 씬 트랙 (SRT_{매칭SRT시작초}.png {프롬프트} + 요청 개수만큼 SRT_9997~ 썸네일)
     ③ 검증 결과
 
     아래 항목은 절대 출력하지 않는다:
@@ -771,10 +840,10 @@ SRT_1089.png {... (1000초 이상은 자릿수 그대로 사용)}
   □ ★ 이미지 내용과 SRT 파일명이 일치하도록, 이미지내 글자와 대본의 글자가 매칭되는 단어 확인
   □ ★ 이미지의 내용을 시각정으로 분석하고, SRT 파일명을 정확히 매칭 (★매우 중요★)
   □ ★ 이미지 내용중 불필요한 한글 사용자제
-  □ ★ 모든 라벨 숫자가 매칭 SRT의 시작초와 일치
+  □ ★ 본문 씬 라벨 숫자가 매칭 SRT의 시작초와 일치 (썸네일 SRT_9997~ 제외)
   □ ★ 라벨 zero-padding 최소 3자리 유지
   □ ★ 모든 라벨 고유 (중복 시 +1초 조정 적용)
-  □ 총 프롬프트 수 = 총 타임스탬프 수
+  □ 총 프롬프트 수 = 총 타임스탬프 수 + 썸네일 요청 개수
   □ 1번 SRT 항목 포함 확인
   □ 중복 SRT 항목 없음
   □ 마지막 매칭 SRT ≤ (전체 SRT 수 - 5)
@@ -787,5 +856,8 @@ SRT_1089.png {... (1000초 이상은 자릿수 그대로 사용)}
   □ 조연 마스코트 근거·배치 확인
   □ 전체 프롬프트에서 헤어스타일 명시 확인
   □ bald/balding 표현 전수 확인 (0건이어야 함)
+  □ 썸네일 SRT_9997부터 요청 개수만큼 연속 번호 (9998·9999…)
+  □ 썸네일 만화체·§6 스타일·헤어스타일·주인공 규칙 준수
+  □ 썸네일 실사/photoreal 표현 0건
 
 ※ 이 섹션의 모든 내용은 내부 처리용이며 최종 출력에 절대 포함하지 않는다.
