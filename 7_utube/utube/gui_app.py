@@ -78,7 +78,9 @@ def _sort_key(col: str, v: VideoItem, index: int, *, title_ko: dict[str, str]) -
     if col == "title":
         return v.title.casefold()
     if col == "title_ko":
-        return title_ko.get(v.video_id, v.title).casefold()
+        if is_mostly_korean(v.title):
+            return ""
+        return title_ko.get(v.video_id, "").casefold()
     return index
 
 
@@ -401,11 +403,11 @@ def main(*, container: tk.Misc | None = None) -> None:
         rows_state[:] = [v for _, v in indexed]
 
     def _display_title_ko(v: VideoItem) -> str:
+        if is_mostly_korean(v.title):
+            return ""
         cached = title_translations.get(v.video_id)
         if cached is not None:
             return cached[:100]
-        if is_mostly_korean(v.title):
-            return v.title[:100]
         return "…"
 
     def refresh_table() -> None:
@@ -584,9 +586,6 @@ def main(*, container: tk.Misc | None = None) -> None:
         rows_state.clear()
         title_translations.clear()
         rows_state.extend(rows)
-        for v in rows:
-            if is_mostly_korean(v.title):
-                title_translations[v.video_id] = v.title
         sort_col = "views"
         sort_reverse = True
         apply_sort()

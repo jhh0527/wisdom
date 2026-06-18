@@ -36,7 +36,7 @@ def export_videos_excel(
     except ImportError as e:
         raise RuntimeError("엑셀 저장에 openpyxl 이 필요합니다: pip install openpyxl") from e
 
-    from utube.translate_util import translate_to_korean
+    from utube.translate_util import is_mostly_korean, translate_to_korean
 
     ko_map = title_ko or {}
 
@@ -51,7 +51,10 @@ def export_videos_excel(
         cell.alignment = Alignment(horizontal="center")
 
     for i, v in enumerate(rows, start=2):
-        translated = ko_map.get(v.video_id) or translate_to_korean(v.title)
+        if is_mostly_korean(v.title):
+            translated = ""
+        else:
+            translated = ko_map.get(v.video_id) or translate_to_korean(v.title)
         ws.cell(row=i, column=1, value=i - 1)
         ws.cell(row=i, column=2, value=v.title)
         ws.cell(row=i, column=3, value=translated)
