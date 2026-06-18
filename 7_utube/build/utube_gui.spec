@@ -32,6 +32,7 @@ a = Analysis(
         "utube.export_util",
         "utube.categories",
         "utube.thumb_util",
+        "utube.translate_util",
         "openpyxl",
         "PIL",
         "PIL.Image",

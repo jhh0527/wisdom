@@ -2109,15 +2109,6 @@
       "status": "즉시 저장 완료: SRT_221.png",
       "match_reason": "—"
     },
-    "C:\\udoc\\유럽에수백년된건물이많이이유\\png\\SRT_250.png": {
-      "srt_number": 250,
-      "target_name": "SRT_250.png",
-      "cue_text": "국가 차원에서 지정·보호하기 시작했고,",
-      "word_srt_number": 333,
-      "word_cue_text": "셋째, 건축물의 미학적 우수성입니다.",
-      "status": "즉시 저장 완료: SRT_250.png",
-      "match_reason": "BUILDING·252번, 1840·246번, 프랑스·55/246/326번, 건축물의·333번"
-    },
     "C:\\udoc\\유럽에수백년된건물이많이이유\\png\\SRT_272.png": {
       "srt_number": 272,
       "target_name": "SRT_272.png",
@@ -2144,15 +2135,6 @@
       "word_cue_text": "",
       "status": "즉시 저장 완료: SRT_399.png",
       "match_reason": "—"
-    },
-    "C:\\udoc\\유럽에수백년된건물이많이이유\\png\\SRT_421.png": {
-      "srt_number": 421,
-      "target_name": "SRT_421.png",
-      "cue_text": "둘째, 유지 관리 비용이 어마어마합니다.",
-      "word_srt_number": 426,
-      "word_cue_text": "지붕 수리, 벽 보수, 배관 교체.",
-      "status": "즉시 저장 완료: SRT_421.png",
-      "match_reason": "석재·53/144번, 보수·95/426번, 교체·426번, 수리·426번, 비용·421/438/559번, 배관·426번"
     },
     "C:\\udoc\\유럽에수백년된건물이많이이유\\png\\SRT_467.png": {
       "srt_number": 467,
@@ -2225,14 +2207,363 @@
       "word_cue_text": "전기 배선을 바꾸려고 해도",
       "status": "즉시 저장 완료: SRT_409.png",
       "match_reason": "전기·453번, 배선·453번, 없는·313/399/503/541/581번, 허가·264번, 설치·445번"
+    },
+    "C:\\udoc\\청계천의유래\\png\\SRT_004.png": {
+      "srt_number": 4,
+      "target_name": "SRT_004.png",
+      "cue_text": "도심 한복판에 흐르는 이 물길,",
+      "word_srt_number": 1,
+      "word_cue_text": "혹시 청계천을 걸어보신 적 있으세요?",
+      "status": "즉시 저장 완료: SRT_004.png",
+      "match_reason": "시기·284번, 자연·112/425번, 복원·415번, 만든·114번, 청계천의·33번, 물길이·62번, 길이·72/361번, 이야기·33/41번, 청계천은·38/82/93/284/290/325번, 입니다·217번, 역사·16번, 청계천·1/33/38/82/93/100번, 1958·345번, 2005·31/417번, 2003·407번"
+    },
+    "C:\\udoc\\청계천의유래\\png\\SRT_016.png": {
+      "srt_number": 16,
+      "target_name": "SRT_016.png",
+      "cue_text": "무려 600년의 역사가 흐르고 있다는 사실,",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_016.png",
+      "match_reason": "조선·44/85번, 500·103번"
+    },
+    "C:\\udoc\\청계천의유래\\png\\SRT_026.png": {
+      "srt_number": 26,
+      "target_name": "SRT_026.png",
+      "cue_text": "일제강점기에 이름이 바뀌었고,",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_026.png",
+      "match_reason": "인력·200번"
+    },
+    "C:\\udoc\\청계천의유래\\png\\SRT_049.png": {
+      "srt_number": 49,
+      "target_name": "SRT_049.png",
+      "cue_text": "다들 아시죠? 바로 풍수지리입니다.",
+      "word_srt_number": 52,
+      "word_cue_text": "북쪽엔 북악산, 남쪽엔 남산,",
+      "status": "즉시 저장 완료: SRT_049.png",
+      "match_reason": "흐르는·4번, 조선의·85번, 기운·87/89번, 북악산·52/64번"
+    },
+    "C:\\udoc\\청계천의유래\\png\\SRT_083.png": {
+      "srt_number": 83,
+      "target_name": "SRT_083.png",
+      "cue_text": "서에서 동으로 흐릅니다.",
+      "word_srt_number": 83,
+      "word_cue_text": "서에서 동으로 흐릅니다.",
+      "status": "즉시 저장 완료: SRT_083.png",
+      "match_reason": "서에서·83번, 동으로·83번"
+    },
+    "C:\\udoc\\청계천의유래\\png\\SRT_095.png": {
+      "srt_number": 95,
+      "target_name": "SRT_095.png",
+      "cue_text": "정화 시스템이었던 거죠.",
+      "word_srt_number": 87,
+      "word_cue_text": "\"도성의 좋은 기운은 안에 모이고,",
+      "status": "즉시 저장 완료: SRT_095.png",
+      "match_reason": "정화·95번, 으로·137/262/276번, 도성·87/120/124/172/227번, 북악산·52/64번, 안에·13/87번, 된다·289번, 청계천을·1/412/462번, 기운·87/89번, 기운은·87/89번, 남쪽·299번"
+    },
+    "C:\\udoc\\청계천의유래\\png\\SRT_116.png": {
+      "srt_number": 116,
+      "target_name": "SRT_116.png",
+      "cue_text": "인공 하천이라는 뜻입니다.",
+      "word_srt_number": 133,
+      "word_cue_text": "칼을 빼 듭니다.",
+      "status": "즉시 저장 완료: SRT_116.png",
+      "match_reason": "도시·306/317/341번, 듭니다·133번, 합니다·251/405번"
+    },
+    "C:\\udoc\\청계천의유래\\png\\SRT_127.png": {
+      "srt_number": 127,
+      "target_name": "SRT_127.png",
+      "cue_text": "안 빠져서 악취.",
+      "word_srt_number": 385,
+      "word_cue_text": "14시간, 15시간씩 일하던",
+      "status": "즉시 저장 완료: SRT_127.png",
+      "match_reason": "도시의·341번, 악취·127/325번, 22·393번"
+    },
+    "C:\\udoc\\청계천의유래\\png\\SRT_134.png": {
+      "srt_number": 134,
+      "target_name": "SRT_134.png",
+      "cue_text": "\"개거도감\"이라는 전담 기관을",
+      "word_srt_number": 134,
+      "word_cue_text": "\"개거도감\"이라는 전담 기관을",
+      "status": "즉시 저장 완료: SRT_134.png",
+      "match_reason": "개거도감·134번, 백성·470번, 사업을·196번, 물길을·108번, 조선·44/85번, 1411·130번, 14·385번, 11·75/390번, 행정·271번"
+    },
+    "C:\\udoc\\청계천의유래\\png\\SRT_146.png": {
+      "srt_number": 146,
+      "target_name": "SRT_146.png",
+      "cue_text": "무려 5만 2,800명을 동원합니다.",
+      "word_srt_number": 150,
+      "word_cue_text": "10만 명 수준이었던 점을 감안하면,",
+      "status": "즉시 저장 완료: SRT_146.png",
+      "match_reason": "충청·143번, 인구·148/153/172번, 인력·200번, 800·146번, 조선·44/85번, 동원·200번, 동원된·222번, 인구의·153번, 10·150/417번, 역사·16번, 입니다·217번, 18·177번, 1412·139번, 13·390번, 경상·143번, 11·75/390번"
+    },
+    "C:\\udoc\\청계천의유래\\png\\SRT_164.png": {
+      "srt_number": 164,
+      "target_name": "SRT_164.png",
+      "cue_text": "\"개천\"이 탄생한 겁니다.",
+      "word_srt_number": 108,
+      "word_cue_text": "\"물길을 열다\"라는 뜻이죠.",
+      "status": "즉시 저장 완료: SRT_164.png",
+      "match_reason": "백성을·470번, 석축·162번, 개천·105/164/168/177/253/260번, 위한·306번, 정비하·273번, 위에·350번, 백성·470번, 22·393번"
+    },
+    "C:\\udoc\\청계천의유래\\png\\SRT_192.png": {
+      "srt_number": 192,
+      "target_name": "SRT_192.png",
+      "cue_text": "백성들 만나서 의견 듣고,",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_192.png",
+      "match_reason": "20·350번"
+    },
+    "C:\\udoc\\청계천의유래\\png\\SRT_200.png": {
+      "srt_number": 200,
+      "target_name": "SRT_200.png",
+      "cue_text": "동원 인력 21만 5천 명.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_200.png",
+      "match_reason": "기간·204번, 조선·44/85번, 22·393번"
+    },
+    "C:\\udoc\\청계천의유래\\png\\SRT_211.png": {
+      "srt_number": 211,
+      "target_name": "SRT_211.png",
+      "cue_text": "\"준천사\"라는 상설 관청을 만들어서",
+      "word_srt_number": 211,
+      "word_cue_text": "\"준천사\"라는 상설 관청을 만들어서",
+      "status": "즉시 저장 완료: SRT_211.png",
+      "match_reason": "과정·273번, 으로·137/262/276번, 준천사·211번, 영조의·470번, 22·393번"
+    },
+    "C:\\udoc\\청계천의유래\\png\\SRT_244.png": {
+      "srt_number": 244,
+      "target_name": "SRT_244.png",
+      "cue_text": "청풍계(淸風溪)라는 골짜기가 있었어요.",
+      "word_srt_number": 249,
+      "word_cue_text": "안동 김씨 가문의 별서가 있던",
+      "status": "즉시 저장 완료: SRT_244.png",
+      "match_reason": "청풍계·244번, 바람·247번, 맑은·247/282번, 안동·249번, 김씨·249번, 청계·256번, 물길·4/31/62/108번, 개천·105/164/168/177/253/260번"
+    },
+    "C:\\udoc\\청계천의유래\\png\\SRT_276.png": {
+      "srt_number": 276,
+      "target_name": "SRT_276.png",
+      "cue_text": "\"개천\"이 \"청계천\"으로",
+      "word_srt_number": 103,
+      "word_cue_text": "조선시대 500년 동안 이 하천의",
+      "status": "즉시 저장 완료: SRT_276.png",
+      "match_reason": "이야기·33/41번, 조선시대·103번, 동안·103/139번, 500·103번, 년대·475번, 21·23/200/457번"
+    },
+    "C:\\udoc\\청계천의유래\\png\\SRT_265.png": {
+      "srt_number": 265,
+      "target_name": "SRT_265.png",
+      "cue_text": "일제강점기, 대략 1914년쯤입니다.",
+      "word_srt_number": 276,
+      "word_cue_text": "\"개천\"이 \"청계천\"으로",
+      "status": "즉시 저장 완료: SRT_265.png",
+      "match_reason": "으로·137/262/276번, 전국·273번, 지명·273번, 정비하·273번, 전국의·273번, 근대·306번, 편의·271번, 과정·273번, 1914·265번, 청계천·1/33/38/82/93/100번, 개천·105/164/168/177/253/260번"
+    },
+    "C:\\udoc\\청계천의유래\\png\\SRT_227.png": {
+      "srt_number": 227,
+      "target_name": "SRT_227.png",
+      "cue_text": "가뭄과 흉년으로 굶주리던 도성 빈민들에게는",
+      "word_srt_number": 234,
+      "word_cue_text": "공공근로 사업이었던 겁니다.",
+      "status": "즉시 저장 완료: SRT_227.png",
+      "match_reason": "문제·120/185번, 자연·112/425번, 공사·157/204/215/222번, 오늘·9/33번, 백성·470번, 임금·20/23/130/225번, 임금을·225번, 조선의·85번, 백성을·470번, 공공근로·234번, 사업·196/415번, 25·331번, 위한·306번"
+    },
+    "C:\\udoc\\청계천의유래\\png\\SRT_296.png": {
+      "srt_number": 296,
+      "target_name": "SRT_296.png",
+      "cue_text": "청계천 북쪽은 \"북촌\", 조선인 거주지.",
+      "word_srt_number": 296,
+      "word_cue_text": "청계천 북쪽은 \"북촌\", 조선인 거주지.",
+      "status": "즉시 저장 완료: SRT_296.png",
+      "match_reason": "20·350번, 인구·148/153/172번, 년대·475번, 경계선·293번, 북촌·296번, 한국·368/378/403번, 청계천·1/33/38/82/93/100번, 남촌·299번, 18·177번"
+    },
+    "C:\\udoc\\청계천의유래\\png\\SRT_331.png": {
+      "srt_number": 331,
+      "target_name": "SRT_331.png",
+      "cue_text": "6.25 전쟁이 터집니다.",
+      "word_srt_number": 165,
+      "word_cue_text": "자, 그런데 시간이 흐르면서",
+      "status": "즉시 저장 완료: SRT_331.png",
+      "match_reason": "서로·80번, 시기·284번, 터전·312번, 시간이·165번, 일대는·302/376번"
+    },
+    "C:\\udoc\\청계천의유래\\png\\SRT_345.png": {
+      "srt_number": 345,
+      "target_name": "SRT_345.png",
+      "cue_text": "\"덮어버리자.\" 1958년부터 1978년까지,",
+      "word_srt_number": 345,
+      "word_cue_text": "\"덮어버리자.\" 1958년부터 1978년까지,",
+      "status": "즉시 저장 완료: SRT_345.png",
+      "match_reason": "위해·271번, 년대·475번, 1970·390/475번, 도심·4/66/363/436번, 20·350번, 공사·157/204/215/222번, 콘크리트로·28번, 도시·306/317/341번, 덮어버리자·345번, 사업·196/415번, 1958·345번, 1978·345번, 콘크리트·28/352/363/455번, 청계천·1/33/38/82/93/100번, 하천·103/112/293/425번, 위에·350번, 구조물·363번"
+    },
+    "C:\\udoc\\청계천의유래\\png\\SRT_366.png": {
+      "srt_number": 366,
+      "target_name": "SRT_366.png",
+      "cue_text": "청계고가도로는 그 시절",
+      "word_srt_number": 475,
+      "word_cue_text": "1970년대 여공들의 눈물,",
+      "status": "즉시 저장 완료: SRT_366.png",
+      "match_reason": "1967·353번, 1970·390/475번, 공사·157/204/215/222번, 근대화의·368번, 산업의·378번, 년대·475번, 근대화·368번, 도시의·341번, 1971·356번, 도심을·363번, 콘크리트·28/352/363/455번"
+    },
+    "C:\\udoc\\청계천의유래\\png\\SRT_393.png": {
+      "srt_number": 393,
+      "target_name": "SRT_393.png",
+      "cue_text": "만 22세의 청년 노동자 전태일이",
+      "word_srt_number": 400,
+      "word_cue_text": "바로 이 청계천 평화시장 앞이었습니다.",
+      "status": "즉시 저장 완료: SRT_393.png",
+      "match_reason": "나는·325번, 성장의·381번, 전태일의·478번, 청년·393번, 22·393번, 전태일·393/478번, 근로기준법·396번, 13·390번, 평화시장·373/383/400번, 11·75/390번, 다락방·383번, 시간·165/385/484번, 14·385번, 15·385번, 한국·368/378/403번, 노동자·393번, 1970·390/475번, 당시·148번, 근로기준법을·396번, 으로·137/262/276번, 임금·20/23/130/225번, 반대·82번"
+    },
+    "C:\\udoc\\청계천의유래\\png\\SRT_407.png": {
+      "srt_number": 407,
+      "target_name": "SRT_407.png",
+      "cue_text": "자, 그리고 2003년.",
+      "word_srt_number": 28,
+      "word_cue_text": "산업화 시대에 콘크리트로 덮였다가,",
+      "status": "즉시 저장 완료: SRT_407.png",
+      "match_reason": "콘크리트로·28번, 하천·103/112/293/425번, 구조물·363번, 모습·422번, 복원·415번, 시민·412번"
+    },
+    "C:\\udoc\\청계천의유래\\png\\SRT_033.png": {
+      "srt_number": 33,
+      "target_name": "SRT_033.png",
+      "cue_text": "오늘은 청계천의 진짜 이야기,",
+      "word_srt_number": 1,
+      "word_cue_text": "혹시 청계천을 걸어보신 적 있으세요?",
+      "status": "즉시 저장 완료: SRT_033.png",
+      "match_reason": "청계천·1/33/38/82/93/100번, 복원·415번, 으로·137/262/276번, 합니다·251/405번, 2005·31/417번, 10·150/417번, 흐르는·4번, 개월·417번, 역사·16번"
+    },
+    "C:\\udoc\\청계천의유래\\png\\SRT_430.png": {
+      "srt_number": 430,
+      "target_name": "SRT_430.png",
+      "cue_text": "인공적으로 흘려보내는 거예요.",
+      "word_srt_number": 428,
+      "word_cue_text": "한강물과 지하수를 펌프로 끌어와",
+      "status": "즉시 저장 완료: SRT_430.png",
+      "match_reason": "펌프·428번, 위해·271번, 자연·112/425번, 있다는·16번, 청계천은·38/82/93/284/290/325번, 비판·423번, 인공적·430번, 지하수·428번"
+    },
+    "C:\\udoc\\청계천의유래\\png\\SRT_436.png": {
+      "srt_number": 436,
+      "target_name": "SRT_436.png",
+      "cue_text": "그래도 도심 한가운데에",
+      "word_srt_number": 217,
+      "word_cue_text": "그게 바로 그 유명한 「준천계첩」입니다.",
+      "status": "즉시 저장 완료: SRT_436.png",
+      "match_reason": "마음·470번, 도시·306/317/341번, 합니다·251/405번, 상상·156번, 도시의·341번, 됩니다·293/330/378번, 으로·137/262/276번, 성장의·381번"
+    },
+    "C:\\udoc\\청계천의유래\\png\\SRT_449.png": {
+      "srt_number": 449,
+      "target_name": "SRT_449.png",
+      "cue_text": "일제강점기에 \"청계천\"이라는 이름을 얻었고,",
+      "word_srt_number": 290,
+      "word_cue_text": "일제강점기, 청계천은 단순한",
+      "status": "즉시 저장 완료: SRT_449.png",
+      "match_reason": "마음·470번, 으로·137/262/276번, 하천·103/112/293/425번, 인공·116/118번, 일제강점기·26/265/290/449/473번, 10·150/417번, 청계천·1/33/38/82/93/100번, 역사·16번, 도성의·87번, 위해·271번, 도시·306/317/341번, 터전·312번, 일제가·271번, 정비하·273번, 백성·470번, 1411·130번, 하천이·112/293/425번, 이라·134/237/260/449번, 개천·105/164/168/177/253/260번"
+    },
+    "C:\\udoc\\유럽에수백년된건물이많이이유\\png\\SRT_178.png": {
+      "srt_number": 178,
+      "target_name": "SRT_178.png",
+      "cue_text": "쾰른 대성당은 1248년에 착공해서",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "다운로드 복사: SRT_178.png",
+      "match_reason": "—"
+    },
+    "C:\\udoc\\유럽에수백년된건물이많이이유\\png\\SRT_246.png": {
+      "srt_number": 246,
+      "target_name": "SRT_246.png",
+      "cue_text": "프랑스는 1840년부터 역사 건축물을",
+      "word_srt_number": 333,
+      "word_cue_text": "셋째, 건축물의 미학적 우수성입니다.",
+      "status": "즉시 저장 완료: SRT_246.png",
+      "match_reason": "BUILDING·252번, 1840·246번, 프랑스·55/246/326번, 건축물의·333번"
+    },
+    "C:\\udoc\\유럽에수백년된건물이많이이유\\png\\SRT_261.png": {
+      "srt_number": 261,
+      "target_name": "SRT_261.png",
+      "cue_text": "외벽 색깔 하나 바꾸는 것도",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_261.png",
+      "match_reason": "—"
+    },
+    "C:\\udoc\\유럽에수백년된건물이많이이유\\png\\SRT_299.png": {
+      "srt_number": 299,
+      "target_name": "SRT_299.png",
+      "cue_text": "유럽 도시 전체가 살아있는 박물관입니다.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "다운로드 복사: SRT_299.png",
+      "match_reason": "—"
+    },
+    "C:\\udoc\\유럽에수백년된건물이많이이유\\png\\SRT_321.png": {
+      "srt_number": 321,
+      "target_name": "SRT_321.png",
+      "cue_text": "외국인 관광객이 방문하고,",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "다운로드 복사: SRT_321.png",
+      "match_reason": "—"
+    },
+    "C:\\udoc\\유럽에수백년된건물이많이이유\\png\\SRT_347.png": {
+      "srt_number": 347,
+      "target_name": "SRT_347.png",
+      "cue_text": "보기 힘든 디테일과 정성이 살아있습니다.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "다운로드 복사: SRT_347.png",
+      "match_reason": "—"
+    },
+    "C:\\udoc\\유럽에수백년된건물이많이이유\\png\\SRT_376.png": {
+      "srt_number": 376,
+      "target_name": "SRT_376.png",
+      "cue_text": "탄소 배출이 훨씬 적습니다.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "다운로드 복사: SRT_376.png",
+      "match_reason": "—"
+    },
+    "C:\\udoc\\유럽에수백년된건물이많이이유\\png\\SRT_443.png": {
+      "srt_number": 443,
+      "target_name": "SRT_443.png",
+      "cue_text": "건물 유지비가 천문학적입니다.",
+      "word_srt_number": 426,
+      "word_cue_text": "지붕 수리, 벽 보수, 배관 교체.",
+      "status": "즉시 저장 완료: SRT_443.png",
+      "match_reason": "석재·53/144번, 교체·426번, 보수·95/426번, 비용·421/438/559번, 배관·426번, 전기·453번, 200·92/272/335/382번, 수리·426번, 90·133번"
+    },
+    "C:\\udoc\\유럽에수백년된건물이많이이유\\png\\SRT_629.png": {
+      "srt_number": 629,
+      "target_name": "SRT_629.png",
+      "cue_text": "이제 우리도 함께 고민해야 할 질문입니다.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "다운로드 복사: SRT_629.png",
+      "match_reason": "—"
+    },
+    "C:\\udoc\\유럽에수백년된건물이많이이유\\png\\SRT_008.png": {
+      "srt_number": 8,
+      "target_name": "SRT_008.png",
+      "cue_text": "거리를 걷다 보면 마치 시간이 멈춘 듯한",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_008.png",
+      "match_reason": "—"
     }
   },
-  "preview_thumb_size": 360,
+  "preview_thumb_size": 320,
   "download_image_inputs": {
     "538": "C:/Users/nh2015005/Downloads/A_friendly_Asian_male_presenter_with_neat_short_st-1781572343290.png",
     "568": "Simple_cartoon_style_human_character_as_main_subje-1781574659145",
     "600": "Simple_cartoon_style_human_character_as_main_subje-1781574681406",
-    "522": "Simple_cartoon_style_human_character_as_main_subje-1781574630389"
+    "522": "Simple_cartoon_style_human_character_as_main_subje-1781574630389",
+    "178": "Simple_cartoon_style_human_character_as_main_subje-1781686502956",
+    "299": "Simple_cartoon_style_human_character_as_main_subje-1781687500826",
+    "321": "Simple_cartoon_style_human_character_as_main_subje-1781687524269",
+    "347": "Simple_cartoon_style_human_character_as_main_subje-1781687822676",
+    "376": "Simple_cartoon_style_human_character_as_main_subje-1781687907002",
+    "423": "Simple_cartoon_style_human_character_as_main_subje-1781687999424",
+    "629": "Eye-catching_YouTube_thumbnail_illustration_in_kno-1781688087547"
   },
   "download_dir": "C:\\Users\\nh2015005\\Downloads"
 }

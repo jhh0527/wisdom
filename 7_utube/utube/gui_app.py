@@ -25,12 +25,13 @@ from utube.export_util import export_videos_excel
 from utube.format_util import duration_display_to_seconds, format_count, format_published
 from utube.models import KeywordItem, VideoItem
 from utube.thumb_util import load_thumbnail_photo
+from utube.translate_util import is_mostly_korean, translate_to_korean
 
 _REGIONS = ("KR", "US", "JP", "GB", "DE", "FR", "IN", "BR")
 _MODES = ("인기 급상승", "키워드 검색", "조회수 TOP 검색", "인기 키워드")
 _DAYS = ("7", "30", "90", "180", "365")
 
-_COLS = ("rank", "views", "likes", "date", "duration", "shorts", "region", "channel", "category", "title")
+_COLS = ("rank", "views", "likes", "date", "duration", "shorts", "region", "channel", "category", "title", "title_ko")
 _COL_LABELS = {
     "rank": "#",
     "views": "조회수",
@@ -42,6 +43,7 @@ _COL_LABELS = {
     "channel": "채널",
     "category": "카테고리",
     "title": "제목",
+    "title_ko": "번역",
 }
 _DEFAULT_DESC_COLS = frozenset({"views", "likes", "date", "duration"})
 
@@ -54,7 +56,7 @@ _KW_COL_LABELS = {
 }
 
 
-def _sort_key(col: str, v: VideoItem, index: int) -> object:
+def _sort_key(col: str, v: VideoItem, index: int, *, title_ko: dict[str, str]) -> object:
     if col == "rank":
         return index
     if col == "views":
@@ -75,6 +77,8 @@ def _sort_key(col: str, v: VideoItem, index: int) -> object:
         return category_label(v.category_id).casefold()
     if col == "title":
         return v.title.casefold()
+    if col == "title_ko":
+        return title_ko.get(v.video_id, v.title).casefold()
     return index
 
 
@@ -92,6 +96,7 @@ def main(*, container: tk.Misc | None = None) -> None:
 
     rows_state: list[VideoItem] = []
     keyword_rows_state: list[KeywordItem] = []
+    title_translations: dict[str, str] = {}
     table_kind: str = "videos"
     sort_col: str = "views"
     sort_reverse: bool = True
@@ -136,7 +141,7 @@ def main(*, container: tk.Misc | None = None) -> None:
     # 조회 옵션
     opt_fr = ttk.LabelFrame(frm, text="조회 조건", padding=6)
     opt_fr.grid(row=1, column=0, sticky="ew", pady=(0, 6))
-    mode_var = tk.StringVar(value=_MODES[1])
+    mode_var = tk.StringVar(value=_MODES[2])
     days_var = tk.StringVar(value="30")
     max_var = tk.StringVar(value="50")
     query_var = tk.StringVar(value="")
@@ -308,7 +313,7 @@ def main(*, container: tk.Misc | None = None) -> None:
     query_ent.bind("<Return>", lambda _e: do_fetch())
 
     status_var = tk.StringVar(
-        value="키워드·조회수 TOP: 검색어 비우면 기간·지역 전체 검색. Enter로 조회."
+        value="조회수 TOP: 검색어 비우면 기간·지역 전체 검색. Enter로 조회."
     )
     ttk.Label(frm, textvariable=status_var).grid(row=2, column=0, sticky="w", pady=(0, 4))
 
@@ -328,7 +333,8 @@ def main(*, container: tk.Misc | None = None) -> None:
     tree.column("region", width=40, anchor="center", stretch=False)
     tree.column("channel", width=120, anchor="w", stretch=False)
     tree.column("category", width=88, anchor="center", stretch=False)
-    tree.column("title", width=360, anchor="w", stretch=True)
+    tree.column("title", width=220, anchor="w", stretch=True)
+    tree.column("title_ko", width=220, anchor="w", stretch=True)
     ysb = ttk.Scrollbar(table_fr, orient="vertical", command=tree.yview)
     tree.configure(yscrollcommand=ysb.set)
     tree.grid(row=0, column=0, sticky="nsew")
@@ -365,7 +371,8 @@ def main(*, container: tk.Misc | None = None) -> None:
             tree.column("region", width=40, anchor="center", stretch=False)
             tree.column("channel", width=120, anchor="w", stretch=False)
             tree.column("category", width=88, anchor="center", stretch=False)
-            tree.column("title", width=320, anchor="w", stretch=True)
+            tree.column("title", width=200, anchor="w", stretch=True)
+            tree.column("title_ko", width=200, anchor="w", stretch=True)
             sort_col = "views"
             sort_reverse = True
         tree.delete(*tree.get_children())
@@ -387,8 +394,19 @@ def main(*, container: tk.Misc | None = None) -> None:
 
     def apply_sort() -> None:
         indexed = list(enumerate(rows_state))
-        indexed.sort(key=lambda pair: _sort_key(sort_col, pair[1], pair[0]), reverse=sort_reverse)
+        indexed.sort(
+            key=lambda pair: _sort_key(sort_col, pair[1], pair[0], title_ko=title_translations),
+            reverse=sort_reverse,
+        )
         rows_state[:] = [v for _, v in indexed]
+
+    def _display_title_ko(v: VideoItem) -> str:
+        cached = title_translations.get(v.video_id)
+        if cached is not None:
+            return cached[:100]
+        if is_mostly_korean(v.title):
+            return v.title[:100]
+        return "…"
 
     def refresh_table() -> None:
         sel_id = tree.selection()[0] if tree.selection() else None
@@ -418,6 +436,7 @@ def main(*, container: tk.Misc | None = None) -> None:
                         v.channel[:36],
                         category_label(v.category_id)[:16],
                         v.title[:100],
+                        _display_title_ko(v),
                     ),
                 )
         update_headings()
@@ -536,6 +555,18 @@ def main(*, container: tk.Misc | None = None) -> None:
             return rows_state[i]
         return None
 
+    def prefetch_title_translations(videos: list[VideoItem]) -> None:
+        pending = [v for v in videos if v.video_id not in title_translations and not is_mostly_korean(v.title)]
+        if not pending:
+            return
+
+        def work() -> None:
+            for v in pending:
+                title_translations[v.video_id] = translate_to_korean(v.title)
+            root.after(0, refresh_table)
+
+        threading.Thread(target=work, daemon=True).start()
+
     def fill_keyword_table(rows: list[KeywordItem]) -> None:
         nonlocal kw_sort_col, kw_sort_reverse
         keyword_rows_state.clear()
@@ -551,12 +582,17 @@ def main(*, container: tk.Misc | None = None) -> None:
     def fill_table(rows: list[VideoItem]) -> None:
         nonlocal sort_col, sort_reverse
         rows_state.clear()
+        title_translations.clear()
         rows_state.extend(rows)
+        for v in rows:
+            if is_mostly_korean(v.title):
+                title_translations[v.video_id] = v.title
         sort_col = "views"
         sort_reverse = True
         apply_sort()
         refresh_table()
         prefetch_thumbnails(rows_state)
+        prefetch_title_translations(rows_state)
         status_var.set(f"{len(rows_state)}개 영상 · 헤더 클릭 정렬 · 더블클릭 Utube 열기")
 
     def selected_regions() -> list[str]:
@@ -636,7 +672,11 @@ def main(*, container: tk.Misc | None = None) -> None:
             def done() -> None:
                 saved = persist_api_key_if_changed(key)
                 fill_table(data)
-                if saved:
+                if not data:
+                    status_var.set(
+                        "조회 결과 없음 — 카테고리 제외·쇼츠 제외 설정을 확인하세요."
+                    )
+                elif saved:
                     status_var.set(
                         f"{len(data)}개 · API 키 저장됨 ({api_key_path_display()})"
                     )
@@ -698,7 +738,7 @@ def main(*, container: tk.Misc | None = None) -> None:
         if p.suffix.lower() != ".xlsx":
             p = p.with_suffix(".xlsx")
         try:
-            export_videos_excel(p, rows)
+            export_videos_excel(p, rows, title_ko=title_translations)
         except RuntimeError as e:
             messagebox.showerror("엑셀", str(e))
             return
@@ -743,6 +783,8 @@ def main(*, container: tk.Misc | None = None) -> None:
         persist_api_key_if_changed(api_var.get())
 
     bind_close(root, standalone, on_close)
+    if api_var.get().strip():
+        root.after_idle(do_fetch)
     run_mainloop(root, standalone)
 
 

@@ -209,6 +209,14 @@ def _search_video_ids(
     q = query.strip()
     if require_query and not q:
         raise YouTubeApiError("검색어를 입력하세요.")
+    if not q:
+        return _search_video_ids_broad(
+            api_key,
+            region=region,
+            days=days,
+            max_results=max_results,
+            order=order,
+        )
     max_results = max(1, min(50, int(max_results)))
     days = max(1, min(365, int(days)))
     after = datetime.now(timezone.utc) - timedelta(days=days)
@@ -265,31 +273,67 @@ def _fetch_top_by_views_region(
     days: int,
     max_results: int,
 ) -> list[VideoItem]:
-    """지역·기간 내 조회수 순. API viewCount가 비면 date 검색 후 클라이언트 정렬."""
+    """지역·기간 내 조회수 순. 검색어 없으면 인기 급상승 + 넓은 시드 검색을 합친다."""
     reg = region.upper()[:2]
-    fetch_n = max(max_results, min(50, max_results * 5))
+    max_r = max(1, min(50, int(max_results)))
+    days_n = max(1, min(365, int(days)))
+    after = datetime.now(timezone.utc) - timedelta(days=days_n)
+    after_key = after.strftime("%Y-%m-%d")
+
+    def _within_days(videos: list[VideoItem]) -> list[VideoItem]:
+        kept = [v for v in videos if v.published_at and v.published_at[:10] >= after_key]
+        return kept or videos
+
+    if not query.strip():
+        lists: list[list[VideoItem]] = []
+        try:
+            trending = fetch_trending(api_key, region=reg, max_results=50)
+            if trending:
+                lists.append(_tag_videos_region(trending, reg))
+        except YouTubeApiError:
+            pass
+        fetch_n = max(max_r, min(50, max_r * 5))
+        ids = _search_video_ids(
+            api_key,
+            query="",
+            region=reg,
+            days=days_n,
+            max_results=fetch_n,
+            order="viewCount",
+            require_query=False,
+        )
+        if ids:
+            lists.append(_tag_videos_region(_videos_by_ids(api_key, ids, region_code=reg), reg))
+        if not lists:
+            return []
+        merged = _merge_videos(lists, max(max_r, 50), sort_by_views=True)
+        merged = _within_days(merged)
+        merged.sort(key=lambda v: v.view_count, reverse=True)
+        return merged[:max_r]
+
+    fetch_n = max(max_r, min(50, max_r * 5))
     ids = _search_video_ids(
         api_key,
         query=query,
         region=reg,
-        days=days,
+        days=days_n,
         max_results=fetch_n,
         order="viewCount",
         require_query=False,
     )
-    if not ids and not query.strip():
+    if not ids:
         ids = _search_video_ids(
             api_key,
             query=query,
             region=reg,
-            days=days,
+            days=days_n,
             max_results=50,
             order="date",
             require_query=False,
         )
     videos = _tag_videos_region(_videos_by_ids(api_key, ids, region_code=reg), reg)
     videos.sort(key=lambda v: v.view_count, reverse=True)
-    return videos[: max(1, min(50, int(max_results)))]
+    return videos[:max_r]
 
 
 def _fetch_search_videos(
@@ -416,6 +460,46 @@ _REGION_GL: dict[str, str] = {
 
 _SUGGEST_SEEDS_KO = ("", "가", "나", "다", "라", "마", "바", "사", "아", "오", "주", "한", "202")
 _SUGGEST_SEEDS_EN = ("", "a", "b", "c", "s", "t", "m", "n", "202")
+
+# search.list 는 q 없이 호출하면 결과가 비므로, 「전체」 조회 시 넓은 시드로 대체
+_BROAD_SEEDS_KR = ("*", "a", "2026", "영상", "뉴스", "한국", "드라마", "음악")
+_BROAD_SEEDS_EN = ("*", "a", "2026", "video", "news", "music", "movie", "sport")
+
+
+def _broad_seeds_for_region(region: str) -> tuple[str, ...]:
+    return _BROAD_SEEDS_KR if region.upper()[:2] == "KR" else _BROAD_SEEDS_EN
+
+
+def _search_video_ids_broad(
+    api_key: str,
+    *,
+    region: str,
+    days: int,
+    max_results: int,
+    order: str,
+) -> list[str]:
+    """검색어 없이 기간·지역 전체 조회 — 넓은 시드 검색 결과를 합친다."""
+    target = max(1, min(50, int(max_results)))
+    seen: set[str] = set()
+    out: list[str] = []
+    per_seed = min(50, max(10, target // 2))
+    for seed in _broad_seeds_for_region(region):
+        if len(out) >= target:
+            break
+        batch = _search_video_ids(
+            api_key,
+            query=seed,
+            region=region,
+            days=days,
+            max_results=per_seed,
+            order=order,
+            require_query=False,
+        )
+        for vid in batch:
+            if vid not in seen:
+                seen.add(vid)
+                out.append(vid)
+    return out[:target]
 
 
 def _youtube_suggest(query: str, *, region: str) -> list[str]:
