@@ -22,10 +22,10 @@ GPT Image 2 이미지 프롬프트 작성 지침 (SRT 버전 v1.3 - 지식채널
 ★★★ v1.3 핵심 변경 사항 ★★★
 - 이미지 파일명은 반드시 `SRT_XXX.png` 형식으로 출력한다.
 - 파일명의 XXX는 **매칭된 SRT 항목의 실제 시작 시간(초, floor된 정수, 최소 3자리 zero-padding)** 이다.
-- §3-2의 타임스탬프(0,12,24,…,120,150,…)는 **매칭 기준점일 뿐**, 파일명·라벨로 사용하지 않는다.
+- §3-2의 타임스탬프(0,15,30,…,180,200,220,…)는 **매칭 기준점일 뿐**, 파일명·라벨로 사용하지 않는다.
 - 라벨 = 매칭 SRT의 시작초 → 라벨과 대본이 1:1 일치한다.
 - ★★★ **실존 인물(역사상 실존 인물)을 제외하고는 실사 이미지를 생성하지 않는다.**
-  **§6·§8·§10 지침대로 만화·일러스트(cartoon / illustration)만 사용한다.** (§7-4)
+  **§6·§8·§10 지침대로 지브리 스타일 일러스트(Studio Ghibli style illustration)만 사용한다. 2D·3D·실사 금지.** (§7-4)
 
 
 2. 입력 형식
@@ -53,21 +53,20 @@ SRT 형식 예시:
 
 3-2. 타임스탬프 생성 규칙 (매칭 기준점 전용 — 파일명/라벨로 사용 금지)
 
-【구간 1: 0~108초 (그록 동영상 구간, 필수 고정)】
-- 12초 간격으로 10개 고정 생성 (무조건)
-- 타임스탬프: 0, 12, 24, 36, 48, 60, 72, 84, 96, 108
-- 그록 동영상 6초 × 반복 2회 = 12초 간격 기준
-- 이 10개는 영상 길이와 무관하게 항상 생성
+【구간 1: 0~180초 (3분까지, 필수 고정)】
+- 15초 간격으로 13개 고정 생성 (무조건)
+- 타임스탬프: 0, 15, 30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180
+- 이 13개는 영상 길이와 무관하게 항상 생성
 
-【구간 2: 120초 이후】
-- ★★★ 30초 간격으로 생성 (절대 규칙) ★★★
-- 시작: 120초
+【구간 2: 200초 이후】
+- ★★★ 20초 간격으로 생성 (절대 규칙) ★★★
+- 시작: 200초 (구간 1 종료 180초 다음 20초 배수)
 - 종료: (마지막 SRT 번호 - 5)번 항목의 시작시간 이하까지
 - 마지막 타임스탬프는 (마지막 SRT 번호 - 5)번 항목의 시작시간을
-  넘지 않는 가장 큰 값
-- ★ 20초 간격 사용 금지. 반드시 30초 간격. ★
+  넘지 않는 가장 큰 20초 배수 값
+- ★ 15초·30초 등 다른 간격 사용 금지. 구간 1은 15초, 구간 2는 20초. ★
 
-★★★ 중요: 위 타임스탬프(0,12,…,108,120,150,…)는 SRT 매칭을 위한 "기준점"일 뿐이며,
+★★★ 중요: 위 타임스탬프(0,15,…,180,200,220,…)는 SRT 매칭을 위한 "기준점"일 뿐이며,
 출력 시 파일명·라벨에는 절대 사용하지 않는다. 라벨은 항상 매칭된 SRT의 시작초이다. ★★★
 
 3-3. 마지막 이미지 제한 규칙 (필수)
@@ -77,13 +76,14 @@ SRT 형식 예시:
 - 이유: 마지막 이미지가 너무 늦게 나오면 잠깐 보이고 영상이 끝남
 
 3-4. 총 필요 이미지 수
-- 공식: 10 + 구간 2 타임스탬프 개수
-- 구간 2 개수 = floor((종료한도 - 120) / 30) + 1
+- 공식: 13 + 구간 2 타임스탬프 개수
+- 구간 2 개수 = floor((종료한도 - 200) / 20) + 1  (종료한도 ≥ 200일 때)
 - 예: 1097초 영상, SRT 494개
   → 489번 항목 시작시간 ≈ 1089초
-  → 구간 2: 120, 150, 180, ..., 1080
-  → floor((1080 - 120) / 30) + 1 = 33개
-  → 총: 10 + 33 = 43개
+  → 구간 1: 0, 15, 30, ..., 180 (13개)
+  → 구간 2: 200, 220, 240, ..., 1080
+  → floor((1080 - 200) / 20) + 1 = 45개
+  → 총: 13 + 45 = 58개
 
 
 4. 타임스탬프 → SRT 씬 매칭 알고리즘
@@ -322,23 +322,25 @@ SRT 형식 예시:
 --------------------------------------------------------------------------------
 
 ★ 본문 씬 트랙과 썸네일(SRT_9997·9998·9999…) 프롬프트 모두에 §6 필수 스타일 문구를 적용한다. ★
-★ 썸네일 전용: 본문 씬과 같은 깔끔한 일러스트 체이지만, 주인공은 반드시 **미소년** 캐릭터로 제작한다. ★
-★ 썸네일 실사 사진·다큐 스틸·실사 인물 초상·라이브 액션 스틸은 **절대 금지** (§12-5·§7-4 참조). ★
-★ 본문 씬: 일반 캐릭터는 일러스트만 · **역사적 실제인물만** 실사 허용 (§7-4). ★
+★ 모든 이미지(본문·썸네일) **2D·3D·실사(photoreal) 절대 금지** — **Studio Ghibli style illustration(지브리 스타일)만** 사용한다. ★
+★ 썸네일 전용: 본문과 동일한 지브리 스타일이며, 주인공은 **지브리 스타일 주인공 캐릭터 1명** (§12-5). ★
+★ 본문 씬: 모든 캐릭터는 **지브리 스타일** · **역사적 실제인물만** 실사 허용 (§7-4). ★
 
-★★★ 실존 인물 제외 = 만화·일러스트만 (절대 규칙) ★★★
+★★★ 실존 인물 제외 = 지브리 스타일 일러스트만 (절대 규칙) ★★★
 - **역사상 실존 인물** SRT 실명 직접 언급 시에만 §7-4 예외로 실사(historical portrait) 허용
 - **그 외 모든 장면**(캐릭터·배경·오브젝트·썸네일): **실사(photoreal) 이미지 생성 금지**
-- 반드시 §6 필수 스타일 문구 + §8·§10 **simple cartoon style … illustration** 템플릿으로 만화 이미지 작성
-- photoreal·live-action·DSLR·documentary still·stock photo 등 실사 키워드 **일체 사용 금지**
+- **2D·3D 이미지 일체 금지** — flat 2D, cartoon, 3D render, CGI 등 사용 불가
+- 반드시 §6 필수 스타일 문구 + §8·§10 **Studio Ghibli style … illustration** 템플릿으로 지브리 스타일 이미지 작성
+- photoreal·live-action·DSLR·documentary still·stock photo·2D·3D render 등 금지 키워드 **일체 사용 금지**
 
 모든 프롬프트 끝에 반드시 포함:
 
 "Korean knowledge YouTube explainer style illustration,
-warm editorial illustration with museum-studio hybrid mood,
-soft paper texture hints and clean infographic accents,
+Studio Ghibli inspired animation style with soft hand-painted watercolor texture,
+warm nostalgic atmosphere with lush natural lighting and clean infographic accents,
 curiosity-driven cinematic lighting with readable focal hierarchy,
 16:9 aspect ratio, ultra high resolution digital art,
+no 2D, no 3D, no 3D render, no flat illustration, no photoreal, no live-action photo,
 no speech bubbles, no watermarks, no logos"
 
 
@@ -368,23 +370,30 @@ no speech bubbles, no watermarks, no logos"
   "smooth head", "no hair"
 - ★ 모든 사람 캐릭터에 반드시 머리카락 스타일을 명시해야 한다 ★
 
-7-4. ★★★ 실사 금지 · 만화·일러스트만 (실존 인물 예외) ★★★
+7-4. ★★★ 실사·2D·3D 금지 · 지브리 스타일 일러스트만 (실존 인물 예외) ★★★
 
-【기본 원칙 — 실존 인물 제외 시 반드시 만화 이미지】
+【기본 원칙 — 실존 인물 제외 시 반드시 지브리 스타일 이미지】
 - SRT에 **역사상 실존 인물** 실명이 **직접** 언급되지 않는 한, **실사 이미지를 생성하지 않는다.**
-- 모든 프롬프트는 §6·§8·§10 지침에 따라 **cartoon / illustration / editorial illustration** 만화체로 작성한다.
-- 프롬프트 시작은 §10 템플릿 준수: `Simple cartoon style human character …` 또는 객체·환경 중심 `no characters … illustration`
+- 모든 프롬프트(본문·썸네일)는 §6·§8·§10 지침에 따라 **Studio Ghibli style illustration** 지브리 애니메이션 스타일로만 작성한다.
+- 프롬프트 시작은 §10 템플릿 준수: `Studio Ghibli style human character …` 또는 객체·환경 중심 `no characters … Ghibli style illustration`
 
-【실사 금지 대상 (만화·일러스트로만 표현)】
-- 일반 캐릭터·호스트·시청자·일반인·미소년·조연 마스코트·배경·환경·도표 장면 전체
-- 연예인·유튜버·현대 실존 인물·실명 언급 인물(역사 인물이 아닌 경우)
-- 금지 키워드: photoreal, hyper-realistic, semi-realistic, live-action photo,
+【2D·3D·실사 금지 — 지브리 스타일만 허용】
+- ⛔ **2D 금지**: 2D, flat illustration, flat animation, cartoon, hand-drawn generic,
+  cel-shaded 2D, anime 2D, vector art, digital painting (generic)
+- ⛔ **3D 금지**: 3D, 3D render, stylized 3D, semi-realistic 3D, CGI, blender render,
+  octane render, unreal engine, clay render, isometric 3D
+- ⛔ **실사 금지**: photoreal, hyper-realistic, live-action photo,
   realistic portrait photography, DSLR photo, stock photo, documentary still, cinematic photo
+- ✅ **유일 허용 스타일**: Studio Ghibli style illustration (지브리 애니메이션 일러스트)
+
+【실사 금지 대상 (지브리 스타일 일러스트로만 표현)】
+- 일반 캐릭터·호스트·시청자·일반인·지브리 주인공·조연 마스코트·배경·환경·도표·썸네일 전체
+- 연예인·유튜버·현대 실존 인물·실명 언급 인물(역사 인물이 아닌 경우)
 
 【유일한 예외 — 역사상 실존 인물】
-- SRT에 **역사상 실존 인물** 실명이 직접 언급될 때만 본문 씬에서 실사 허용
+- SRT에 **역사상 실존 인물** 실명이 직접 언급될 때만 **본문 씬**에서 실사 허용
   · historical portrait, archival photograph style, period-accurate realistic likeness
-- 썸네일(SRT_9997~)은 **예외 없이 만화·일러스트만** (실존 인물도 썸네일에 실사 금지)
+- 썸네일(SRT_9997~)은 **2D·3D·실사 모두 금지** — **지브리 스타일 일러스트만** (실존 인물도 썸네일에 실사 금지)
 
 7-5. ★★★ SRT 내용 무관 이미지 금지 ★★★
 - 매칭된 SRT 항목과 직접적인 연관이 없는 일반적·장식적 장면 생성 금지
@@ -398,6 +407,7 @@ no speech bubbles, no watermarks, no logos"
 
 ★★★ 핵심 원칙: 대본(SRT)에 사람이 등장하거나, 사람의 감정·행동·리액션이 꼭 필요한 장면만 사람 캐릭터를 사용한다. ★★★
 ★★★ 객체·동물·자연·유물·도표만으로 충분한 장면에는 사람을 넣지 않는다. ★★★
+★★★ 모든 캐릭터(주연·조연·마스코트)는 **지브리(Studio Ghibli) 애니메이션 스타일**로 작성한다 ★★★
 ★★★ 헤어스타일 필수 원칙: 사람 캐릭터 포함 시 대머리(bald/balding) 금지 ★★★
 
 [사람 캐릭터 기본 헤어스타일 라이브러리]
@@ -443,6 +453,7 @@ no speech bubbles, no watermarks, no logos"
 [조연 캐릭터 - 개념 마스코트 (Supporting Concept Mascots)]
 
 ★★★ 핵심 원칙: 마스코트는 **주제를 시각화하는 조연**이며, 사람이 포함될 때 main subject. ★★★
+★ 조연 마스코트도 **지브리(Studio Ghibli) 애니메이션 스타일**로 표현한다. ★
 ★ 조연은 SRT 항목 내용에 근거가 있을 때만 등장한다. ★
 
 - 책 마스코트: 역사, 이론, 인용, 문헌 근거
@@ -478,8 +489,8 @@ threatening, manic/euphoric (남용 금지)
   ○ historical portrait / archival photo style **실사 표현 허용**
   ○ 시대·복식·유명 특징 반영
 - **그 외 모든 인물**(일반 캐릭터·현대 유명인·연예인·가상 호스트):
-  ○ **일러스트·만화 캐릭터만** — 실사(photoreal) **절대 금지**
-  ○ 사람 만화 캐릭터 형태 + 시각적 특징 추가
+  ○ **지브리 스타일 일러스트 캐릭터만** — 실사(photoreal) **절대 금지**
+  ○ Studio Ghibli style 사람 캐릭터 형태 + 시각적 특징 추가
   ○ 반드시 머리카락이 있는 형태로 묘사
 - 출현 조건:
   ○ SRT에 실명 직접 언급: 필수 출현
@@ -495,7 +506,7 @@ threatening, manic/euphoric (남용 금지)
 [사람 캐릭터 포함 원칙 (기본값: 제외 우선)]
 - SRT 내용이 객체·동물·사물·자연·유물·도표 자체일 때 → 사람 캐릭터 제외
 - 대본에 사람·인물·인간 감정·리액션이 명시되거나, 시청자 공감을 위해 사람 표정이 꼭 필요할 때만 포함
-- 유명인·역사 인물 실명 언급 → 역사적 실제인물은 §7-4 실사 허용, 그 외 일러스트 캐릭터
+- 유명인·역사 인물 실명 언급 → 역사적 실제인물은 §7-4 실사 허용, 그 외 지브리 스타일 캐릭터
 - 극적인 감정·대립·선택 → 사람 표정/리액션이 메시지 핵심일 때만 포함
 - 전체 이미지의 상당수는 객체·환경·도표 중심으로 구성 가능 (사람은 필요한 곳만)
 
@@ -521,22 +532,22 @@ threatening, manic/euphoric (남용 금지)
 --------------------------------------------------------------------------------
 
 [사람 호스트 주인공 시 (기본 템플릿)]
-Simple cartoon style human character as main subject, round head,
-with [헤어스타일], neat approachable appearance, wearing [의상],
+Studio Ghibli style human character as main subject,
+with [헤어스타일], soft expressive Ghibli-style features, wearing [의상],
 [감정] facial expression, [SRT 내용 기반 구체적 행동/제스처],
-[조연: with small anthropomorphic [concept mascot] beside or on desk]
+[조연: with small anthropomorphic [concept mascot] in Studio Ghibli style beside or on desk]
 
 [당혹·공감 / 일반인 / 전문가 / 부정적 인물 / 사람+각 마스코트] — v1.2와 동일
 
 [캐릭터 제외 시 (기본·우선)]
 no characters, environment-focused composition,
 [SRT 내용에서 추출한 주요 오브젝트] as main focus,
-dramatic cinematic lighting, museum-studio hybrid background
+Studio Ghibli style background, soft hand-painted watercolor atmosphere
 
 [설정 템플릿]
 Setting: [SRT 내용 기반 구체적 장소/비유 공간],
 soft infographic panels showing [SRT 내용 기반 도표 주제] in background,
-warm dramatic lighting,
+Studio Ghibli style warm natural lighting,
 Korean text "[SRT 핵심 단어]" and "[SRT 숫자/연도]" displayed
 
 10-1. 장면 중심 구성 규칙
@@ -564,8 +575,8 @@ Korean text "[SRT 핵심 단어]" and "[SRT 숫자/연도]" displayed
 ★ 거대 오브젝트는 반드시 SRT 내용과 직접 연결된 것만 선택 ★
 
 스케일 대비 표현 (SRT에 사람·인간 스케일 언급이 있을 때만, 헤어스타일 필수):
-- tiny human character with [헤어스타일] looking up at massive [SRT 기반 object]
-- microscopic human figure with [헤어스타일] dwarfed by colossal [SRT 기반 object]
+- tiny Studio Ghibli style human character with [헤어스타일] looking up at massive [SRT 기반 object]
+- microscopic Ghibli-style human figure with [헤어스타일] dwarfed by colossal [SRT 기반 object]
 
 
 12. 최종 출력 형식
@@ -585,8 +596,8 @@ Korean text "[SRT 핵심 단어]" and "[SRT 숫자/연도]" displayed
 - 마지막 SRT 항목: ___번
 - 종료 시간: __:__:__
 - 총 영상 길이: ____초
-- 구간 1 (0~108초, 12초 간격): 10개
-- 구간 2 (120초~, 30초 간격): __개
+- 구간 1 (0~180초, 15초 간격): 13개
+- 구간 2 (200초~, 20초 간격): __개
 - 총 필요 이미지: __개 (본문 씬)
 - 썸네일 요청 개수: __개
 - 썸네일 파일명: SRT_9997.png ~ SRT_999___.png (요청 개수만큼 연속)
@@ -610,31 +621,33 @@ SRT_{매칭SRT시작초 3자리 이상}.png {prompt}
 
 올바른 예시:
 SRT_000.png {Korean knowledge YouTube explainer style illustration,
-simple cartoon style human host character as main subject,
-with neat styled dark hair, wearing casual smart outfit,
+Studio Ghibli style human host character as main subject,
+with neat styled dark hair, soft expressive Ghibli-style features, wearing casual smart outfit,
 curious sparkling eyes,
 pointing at floating sleep cycle diagram,
-with cute anthropomorphic light bulb character with glass bulb head
+with cute anthropomorphic light bulb character in Studio Ghibli style with glass bulb head
 as supporting character hovering near shoulder, happy expression,
 Setting: cozy studio with soft infographic moon phases in background,
 Korean text "수면" and "8" displayed,
-warm editorial illustration with museum-studio hybrid mood,
-soft paper texture hints and clean infographic accents,
+Studio Ghibli inspired animation style with soft hand-painted watercolor texture,
+warm nostalgic atmosphere with lush natural lighting and clean infographic accents,
 curiosity-driven cinematic lighting with readable focal hierarchy,
 16:9 aspect ratio, ultra high resolution digital art,
+no 2D, no 3D, no 3D render, no flat illustration, no photoreal, no live-action photo,
 no speech bubbles, no watermarks, no logos}
 
 SRT_150.png {Korean knowledge YouTube explainer style illustration,
-simple cartoon style human character as main subject,
-with messy disheveled dark hair,
+Studio Ghibli style human character as main subject,
+with messy disheveled dark hair, soft expressive Ghibli-style features,
 wearing casual hoodie, shocked wide eyes,
-tiny human looking up at colossal hourglass pouring sand storm,
+tiny Ghibli-style human looking up at colossal hourglass pouring sand storm,
 Setting: surreal timeline desert with floating calendar pages,
 Korean text "연도" and "476" displayed,
-warm editorial illustration with museum-studio hybrid mood,
-soft paper texture hints and clean infographic accents,
+Studio Ghibli inspired animation style with soft hand-painted watercolor texture,
+warm nostalgic atmosphere with lush natural lighting and clean infographic accents,
 curiosity-driven cinematic lighting with readable focal hierarchy,
 16:9 aspect ratio, ultra high resolution digital art,
+no 2D, no 3D, no 3D render, no flat illustration, no photoreal, no live-action photo,
 no speech bubbles, no watermarks, no logos}
 
 SRT_1089.png {... (1000초 이상은 자릿수 그대로 사용)}
@@ -645,7 +658,7 @@ SRT_1089.png {... (1000초 이상은 자릿수 그대로 사용)}
 ✗ SRT_2.png {프롬프트}             (zero-padding 누락)
 ✗ 씬 23. {프롬프트}                (씬 번호 사용)
 ✗ SRT_003 {프롬프트}               (.png 누락)
-✗ SRT_120.png (구간2 타임스탬프 그대로) — 매칭 SRT 시작초가 아니면 금지
+✗ SRT_120.png (타임스탬프 그대로) — 매칭 SRT 시작초가 아니면 금지
 
 12-5. ★★★ 썸네일 프롬프트 (씬 트랙 포함) ★★★
 
@@ -666,27 +679,25 @@ SRT_1089.png {... (1000초 이상은 자릿수 그대로 사용)}
 
 ★★★ 썸네일 스타일·주인공 규칙 (최우선 규칙) ★★★
 - §6 필수 스타일 문구 반드시 포함
-- 본문 씬과 동일한 **깔끔한 지식 채널 일러스트** 체이 유지 (warm editorial illustration)
-- 주인공은 반드시 **미소년(bishonen) 캐릭터 1명** — 영상·대본 핵심 주제를 직접 시각화
+- 썸네일도 본문과 동일하게 **지브리 스타일 일러스트**만 사용 (Studio Ghibli style illustration)
+- ⛔ 썸네일 **2D·3D·실사 절대 금지** — §7-4 금지 키워드 일체 사용 불가
+- 주인공은 반드시 **지브리 스타일 주인공 캐릭터 1명** — 영상·대본 핵심 주제를 직접 시각화
 - §8·§10 공통 규칙 적용: 헤어스타일 필수, bald/balding 금지, 말풍선 트리거 금지
 - 프롬프트 시작 문구(고정):
-  `clean bishonen style illustration, beautiful young boy character as main subject,
-  soft youthful features, large expressive eyes, neat styled dark hair,`
-- 미소년 표정·포즈·소품·배경 오브젝트는 **영상 전체 대본(SRT) 핵심 주제**와 1:1 대응
+  `Studio Ghibli style illustration, Ghibli-style young protagonist character as main subject,
+  soft expressive features, gentle large eyes, neat styled dark hair,`
+- 지브리 주인공 표정·포즈·소품·배경 오브젝트는 **영상 전체 대본(SRT) 핵심 주제**와 1:1 대응
   · 예: 수면 주제 → 졸린·호기심 표정 + 베개·달 아이콘
   · 예: 사자 vs 소 → 놀란 표정 + 상징 실루엣 (본문 씬과 동일 메타포)
-- 조연 개념 마스코트는 영상 주제 근거가 있을 때만 (§8 조연 규칙 동일), 미소년이 main subject
+- 조연 개념 마스코트는 영상 주제 근거가 있을 때만 (§8 조연 규칙 동일), 지브리 주인공이 main subject
 
-⛔ 썸네일 실사·사진 스타일 절대 금지 (위반 시 프롬프트 폐기·재생성)
-- photoreal, hyper-realistic, semi-realistic 3D, cinematic documentary still,
-  editorial photoreal, live-action photo, realistic portrait photography,
-  DSLR photo, stock photo, news photo, film still, real person likeness,
-  photographic texture, skin pore detail, real-world camera bokeh
-- ⛔ 썸네일·일반 캐릭터 실사 인물·연예인·유튜버 실제 얼굴 모방 금지 — 반드시 일러스트 미소년으로만 표현
-- ✅ 역사적 실제인물(본문 씬·SRT 실명): §7-4에 따라 historical portrait / archival photo style 허용
+⛔ 썸네일 2D·3D·실사·사진 스타일 절대 금지 (위반 시 프롬프트 폐기·재생성)
+- §7-4 【2D·3D·실사 금지】 키워드 전부 적용
+- ⛔ 썸네일·일반 캐릭터 실사 인물·연예인·유튜버 실제 얼굴 모방 금지 — 반드시 지브리 스타일 캐릭터로만 표현
+- ⛔ 썸네일에 역사적 실제인물도 실사 표현 금지 (본문 씬 §7-4 예외는 썸네일에 적용 안 함)
 
-【썸네일 구도 (미소년 일러스트 기준)】
-- 미소년 캐릭터(또는 주제 상징 오브젝트+미소년)를 화면 상단 1/3 ~ 중앙에 배치
+【썸네일 구도 (지브리 스타일 일러스트 기준)】
+- 지브리 스타일 주인공 캐릭터(또는 주제 상징 오브젝트+지브리 주인공)를 화면 상단 1/3 ~ 중앙에 배치
 - 하단 25%는 텍스트 삽입 공간 — 단순 배경·그라데이션·연한 인포그래픽만
 - 구도 키워드: "subject positioned in upper frame, clear bottom space for text overlay,
   headroom composition, lower third kept simple for text insertion"
@@ -694,37 +705,38 @@ SRT_1089.png {... (1000초 이상은 자릿수 그대로 사용)}
 - ✅ 허용: SRT·영상 핵심 숫자·단어만 Korean text " " 규칙(§7-2)으로 삽입
 
 【썸네일 내용】
-- 영상 전체 대본(SRT) 주제의 핵심 질문·비교·반전을 **미소년 1명** 장면으로 압축
-- 본문 씬 이미지와 동일한 깔끔한 일러스트 톤 · 색감 · museum-studio hybrid 분위기 유지
+- 영상 전체 대본(SRT) 주제의 핵심 질문·비교·반전을 **지브리 스타일 주인공 1명** 장면으로 압축
+- 본문 씬과 동일한 지브리 스타일 톤 · 색감 · 수채화 질감 유지
 - 본문 씬에서 쓰인 핵심 메타포·숫자·고유명사를 썸네일에도 동일하게 반영 (대본 일치)
 - 말풍선 트리거(§7-1)·대머리(§7-3) 규칙 동일 적용
 
 썸네일 올바른 예시:
 SRT_9997.png {Korean knowledge YouTube explainer style illustration,
-clean bishonen style illustration, beautiful young boy character as main subject,
-soft youthful features, large expressive eyes, with neat styled dark hair,
+Studio Ghibli style illustration, Ghibli-style young protagonist character as main subject,
+soft expressive features, gentle large eyes, with neat styled dark hair,
 wearing casual smart outfit, curious slightly worried expression,
 holding fork paused above plate, symbolic split midground —
 stylized lion silhouette vs herbivore silhouette matching script theme,
 no gore, soft savanna dusk background with clean infographic accents,
 subject in upper third, bottom 25% clean gradient for text overlay,
 Korean text "사자" and "소" displayed,
-warm editorial illustration with museum-studio hybrid mood,
-soft paper texture hints and clean infographic accents,
+Studio Ghibli inspired animation style with soft hand-painted watercolor texture,
+warm nostalgic atmosphere with lush natural lighting and clean infographic accents,
 curiosity-driven cinematic lighting with readable focal hierarchy,
 16:9 aspect ratio, ultra high resolution digital art,
+no 2D, no 3D, no 3D render, no flat illustration, no photoreal, no live-action photo,
 no speech bubbles, no watermarks, no logos,
-no title text, no title banner, no bottom text overlay,
-no photoreal, no live-action photo, no realistic portrait}
+no title text, no title banner, no bottom text overlay}
 
-SRT_9998.png {동일 §6 필수 스타일 + 미소년 일러스트, 2번째 대안 구도}
-SRT_9999.png {동일 §6 필수 스타일 + 미소년 일러스트, 3번째 대안 구도 — 3개 요청 시}
+SRT_9998.png {동일 §6 필수 스타일 + 지브리 스타일 일러스트, 2번째 대안 구도}
+SRT_9999.png {동일 §6 필수 스타일 + 지브리 스타일 일러스트, 3번째 대안 구도 — 3개 요청 시}
 
 썸네일 잘못된 예시 (금지):
+✗ 2D·3D·flat illustration·3D render·cartoon·CGI 스타일
 ✗ 실사 남성 해설자 사진 스타일, DSLR portrait, news anchor photo look
 ✗ 본문과 무관한 스톡 사진 배경 + 실사 인물
-✗ 지식 호스트 만화체만 쓰고 미소년 지정 없음
-✗ 대본 주제와 무관한 장식용 미소년 (SRT 핵심어 미반영)
+✗ 지브리 스타일 지정 없이 일반 일러스트만 사용
+✗ 대본 주제와 무관한 장식용 지브리 캐릭터 (SRT 핵심어 미반영)
 
 12-4. 검증 결과 형식 (v1.3 수정)
 
@@ -737,7 +749,7 @@ SRT_9999.png {동일 §6 필수 스타일 + 미소년 일러스트, 3번째 대�
 □ 1번 SRT 항목 포함 확인 ✓
 □ 중복 SRT 항목 없음 확인 ✓
 □ 마지막 매칭 SRT ≤ (전체 - 5) 확인 ✓
-□ 구간 2 간격 30초 확인 ✓
+□ 구간 1 간격 15초 · 구간 2 간격 20초 확인 ✓
 □ ★ 모든 라벨이 `SRT_{매칭SRT시작초, 최소3자리}.png` 형식임 확인 ✓
 □ ★ 모든 라벨의 숫자가 매칭된 SRT 항목의 실제 시작초(floor)와 일치 확인 ✓
 □ ★ 라벨 중복 없음 확인 (floor 충돌 시 +1초 조정 적용) ✓
@@ -754,11 +766,12 @@ SRT_9999.png {동일 §6 필수 스타일 + 미소년 일러스트, 3번째 대�
 □ 모든 프롬프트가 매칭된 SRT 내용을 직접 시각화함 확인 ✓
 □ SRT 핵심 명사·숫자·고유명사가 프롬프트에 반영됨 확인 ✓
 □ 썸네일 요청 개수 = SRT_9997~ 연속 파일명 개수 확인 ✓
-□ 썸네일 깔끔한 일러스트·§6 필수 스타일 문구 확인 ✓
-□ 썸네일 주인공 = 미소년(bishonen) 캐릭터 1명 확인 ✓
+□ 썸네일 지브리 스타일 일러스트·§6 필수 스타일 문구 확인 ✓
+□ 썸네일 주인공 = 지브리 스타일 주인공 캐릭터 1명 확인 ✓
 □ 썸네일 내용이 영상 대본(SRT) 핵심 주제와 일치 확인 ✓
+□ 전체 이미지 2D/3D/flat illustration/3D render 표현 0건 확인 ✓
 □ 썸네일 photoreal/실사 사진/실사 인물 표현 0건 확인 ✓
-□ 실존 인물(SRT 실명) 제외 시 만화·일러스트(cartoon)만 사용 확인 ✓
+□ 실존 인물(SRT 실명) 제외 시 지브리 스타일 일러스트(Studio Ghibli)만 사용 확인 ✓
 ================================================================================
 
 
@@ -774,7 +787,7 @@ SRT_9999.png {동일 §6 필수 스타일 + 미소년 일러스트, 3번째 대�
 13-3. ★★★ (v1.3 수정) 씬 트랙 라벨 규칙 ★★★
    씬 트랙 라벨은 **매칭된 SRT 항목의 시작 시간(초, floor)** 을 사용하며,
    반드시 `SRT_XXX.png` 형식이어야 한다.
-   §3-2의 타임스탬프(0,12,24,…,120,150,…)는 매칭 기준점일 뿐, 라벨로 쓰지 않는다.
+   §3-2의 타임스탬프(0,15,30,…,180,200,220,…)는 매칭 기준점일 뿐, 라벨로 쓰지 않는다.
 
    ○ 올바른 형식: SRT_003.png {프롬프트}    (매칭 SRT 시작 3초)
    ○ 올바른 형식: SRT_150.png {프롬프트}    (매칭 SRT 시작 150초)
@@ -788,8 +801,8 @@ SRT_9999.png {동일 §6 필수 스타일 + 미소년 일러스트, 3번째 대�
    · 1개: SRT_9997.png
    · 2개: SRT_9997.png, SRT_9998.png
    · 3개: SRT_9997.png, SRT_9998.png, SRT_9999.png
-   썸네일은 본문과 같은 깔끔한 일러스트(§6·§12-5)로 제작하며,
-   주인공은 미소년 캐릭터로 대본 핵심 주제를 시각화한다. 실사 사진·다큐 스틸 절대 금지.
+   썸네일은 본문과 동일한 **지브리 스타일 일러스트**(§6·§12-5)로 제작하며,
+   **2D·3D·실사 이미지는 절대 금지**. 주인공은 지브리 스타일 캐릭터로 대본 핵심 주제를 시각화한다.
 
 13-4. 프롬프트에 한글은 단순 단어만 " " 안에 넣는다.
    ○ 허용: Korean text "수면" and "8시간" displayed
@@ -804,12 +817,12 @@ SRT_9999.png {동일 §6 필수 스타일 + 미소년 일러스트, 3번째 대�
 
 13-8. 말풍선 트리거 동사를 사용하지 않는다.
 
-13-9. ★★★ 구간 2 간격은 반드시 30초이다. ★★★
+13-9. ★★★ 구간 1(3분까지)은 15초, 구간 2(200초~)는 20초 간격이다. ★★★
 
 13-10. ★★★ 캐릭터 사용 규칙 (지식채널·선택적 인물) ★★★
     - 사람 캐릭터는 대본(SRT)에 사람·인물·인간 감정이 꼭 필요한 장면만 포함
     - 객체·환경·도표만으로 충분하면 사람을 넣지 않음
-    - **실존 인물(역사상 실존 인물) 제외: 실사 금지 · §6·§8·§10 만화·일러스트만** (§7-4)
+    - **실존 인물(역사상 실존 인물) 제외: 2D·3D·실사 금지 · §6·§8·§10 지브리 스타일 일러스트만** (§7-4)
     - **역사상 실존 인물(SRT 실명): 본문 씬만 실사 허용** (§7-4)
     - 조연은 SRT 주제에 맞는 개념 마스코트만 등장
     - 경제·금융 대본일 때만 자산 마스코트 허용
@@ -847,8 +860,8 @@ SRT_9999.png {동일 §6 필수 스타일 + 미소년 일러스트, 3번째 대�
   3. 총 SRT 항목 수 기록
 
 [선행 작업 2] 타임스탬프 생성 (매칭 기준점 전용)
-  1. 구간 1: 0, 12, 24, 36, 48, 60, 72, 84, 96, 108 (10개 고정)
-  2. 구간 2: 120부터 ★30초 간격★, (마지막 SRT 번호 - 5)번 항목의 시작시간 이하까지
+  1. 구간 1: 0, 15, 30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180 (13개 고정)
+  2. 구간 2: 200부터 ★20초 간격★, (마지막 SRT 번호 - 5)번 항목의 시작시간 이하까지
   3. 총 타임스탬프 수 기록
 
 [선행 작업 3] 타임스탬프 → SRT 매칭
@@ -921,7 +934,7 @@ SRT_9999.png {동일 §6 필수 스타일 + 미소년 일러스트, 3번째 대�
   □ 1번 SRT 항목 포함 확인
   □ 중복 SRT 항목 없음
   □ 마지막 매칭 SRT ≤ (전체 SRT 수 - 5)
-  □ 구간 2 간격이 30초인지 확인
+  □ 구간 1 간격 15초 · 구간 2 간격 20초인지 확인
   □ 모든 프롬프트 { } 형식
   □ 필수 스타일 문구 전수 확인
   □ 말풍선 트리거 전수 확인
@@ -930,9 +943,10 @@ SRT_9999.png {동일 §6 필수 스타일 + 미소년 일러스트, 3번째 대�
   □ 사람 포함 시 헤어스타일 명시 확인
   □ bald/balding 표현 전수 확인 (0건이어야 함)
   □ 썸네일 SRT_9997부터 요청 개수만큼 연속 번호 (9998·9999…)
-  □ 썸네일 깔끔한 일러스트·§6 스타일·헤어스타일·미소년 주인공 규칙 준수
+  □ 썸네일 지브리 스타일 일러스트·§6 스타일·헤어스타일·지브리 주인공 규칙 준수
   □ 썸네일 내용이 영상 대본(SRT) 핵심 주제와 일치
+  □ 전체 이미지 2D/3D/flat illustration/3D render 표현 0건
   □ 썸네일 실사 사진/photoreal/실사 인물 표현 0건
-  □ 실존 인물(SRT 실명) 제외 시 만화·일러스트(cartoon)만 사용
+  □ 실존 인물(SRT 실명) 제외 시 지브리 스타일 일러스트(Studio Ghibli)만 사용
 
 ※ 이 섹션의 모든 내용은 내부 처리용이며 최종 출력에 절대 포함하지 않는다.
