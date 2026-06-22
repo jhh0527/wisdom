@@ -5,37 +5,37 @@
 
 
 # 4-1_video (완료)
-버튼을 기능별로 모으고, 정렬해서, 중앙 그리드가 좀더 잘 보이도록 해줘.
-자막 번인안됨 체크 항목도 안보이게해해
 
 # 2_1_ttsToVoice (완료)
 
 
+# 3_1_pngFileName (완료)
+
+
+# image.md_v1.1.txt (완료)
+
+# image.wonder.md.txt (완료)
+
 # 3_2_pngToJpg 프로그램
 
+# 2_1_ttsToVoiceWonder
+2_1_ttsToVoiceWonder 프로그램 삭제해
 
 
 
-# 3_1_pngFileName
-
-
-#2_3_stt (완료)
-- [x] MP3 → Whisper STT, 원본 대본과 다른 부분 색상 표시
-
+# 2_3_stt (완료)
 
 
 # 2_2_srtToImage 프로그램 수정 (완료)
 
 
 # 7_utube 프로그램 수정 
-유튜브 -> Utube 로 이름변경경
 
 
 # 4_2_ShortVideo 프로그램
 
 
 # 3_1_pngFileName 프로그램 수정 (완료)  
-삭제버튼 클릭후 대본이 안보이는 경우가 생기네? 파일만 삭제하고 대본은 항상 보여야해해
 
 
 
@@ -60,7 +60,4 @@ w드라이버, usb드라미버 동시 복사 기능은 삭제해해
 
 
 # 9_mdFile
-md 파일은 각 프로그램 폴더의 md 디렉토리를 뒤지고, txt로 끝나는 파일이 목록에 보이도록 한다.
-.md로 끝나는 파일은 목록에서 제외외
-
 

@@ -1,7 +1,7 @@
 {
-  "srt_file": "C:\\udoc\\유럽에수백년된건물이많이이유\\mp3\\all.srt",
-  "png_dir": "C:\\udoc\\유럽에수백년된건물이많이이유\\png",
-  "preview_pane_width": 506,
+  "srt_file": "C:\\udoc\\뉴스\\mp3\\all.srt",
+  "png_dir": "C:\\udoc\\뉴스\\png",
+  "preview_pane_width": 520,
   "manual_overrides": {
     "C:\\util\\유튜브\\고갈된다는석유\\png\\SRT_097.png": {
       "srt_number": 97,
@@ -2549,9 +2549,738 @@
       "word_cue_text": "",
       "status": "즉시 저장 완료: SRT_008.png",
       "match_reason": "—"
+    },
+    "C:\\udoc\\우주에서낙하산을메고뛰어내리면\\short\\png\\SRT_063.png": {
+      "srt_number": 63,
+      "target_name": "SRT_063.png",
+      "cue_text": "그게 미래의 여러분일지도 모르니까.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_063.png",
+      "match_reason": "—"
+    },
+    "C:\\udoc\\우주에서낙하산을메고뛰어내리면\\short\\png\\SRT_060.png": {
+      "srt_number": 60,
+      "target_name": "SRT_060.png",
+      "cue_text": "다음에 별똥별 보시면 소원 비세요.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_060.png",
+      "match_reason": "—"
+    },
+    "C:\\udoc\\우주에서낙하산을메고뛰어내리면\\short\\png\\SRT_056.png": {
+      "srt_number": 56,
+      "target_name": "SRT_056.png",
+      "cue_text": "운석이랑 똑같은 원리로 인간 별똥별 완성.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_056.png",
+      "match_reason": "—"
+    },
+    "C:\\udoc\\우주에서낙하산을메고뛰어내리면\\short\\png\\SRT_053.png": {
+      "srt_number": 53,
+      "target_name": "SRT_053.png",
+      "cue_text": "살 타고 뼈 타고, 공중에서 완전히 사라져요.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_053.png",
+      "match_reason": "—"
+    },
+    "C:\\udoc\\우주에서낙하산을메고뛰어내리면\\short\\png\\SRT_050.png": {
+      "srt_number": 50,
+      "target_name": "SRT_050.png",
+      "cue_text": "철도 녹는 온도에 우주복 증발,",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_050.png",
+      "match_reason": "—"
+    },
+    "C:\\udoc\\우주에서낙하산을메고뛰어내리면\\short\\png\\SRT_048.png": {
+      "srt_number": 48,
+      "target_name": "SRT_048.png",
+      "cue_text": "그 원리를 우주 스케일로 한 겁니다.",
+      "word_srt_number": 46,
+      "word_cue_text": "자전거 펌프 뜨거워지는 거,",
+      "status": "즉시 저장 완료: SRT_048.png",
+      "match_reason": "스케일·48번, 자전거·46번, 펌프·46번, 000·31번"
+    },
+    "C:\\udoc\\우주에서낙하산을메고뛰어내리면\\short\\png\\SRT_046.png": {
+      "srt_number": 46,
+      "target_name": "SRT_046.png",
+      "cue_text": "자전거 펌프 뜨거워지는 거,",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_046.png",
+      "match_reason": "—"
+    },
+    "C:\\udoc\\우주에서낙하산을메고뛰어내리면\\short\\png\\SRT_040.png": {
+      "srt_number": 40,
+      "target_name": "SRT_040.png",
+      "cue_text": "앞에 있는 공기가 확 압축되면서",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_040.png",
+      "match_reason": "—"
+    },
+    "C:\\udoc\\우주에서낙하산을메고뛰어내리면\\short\\png\\SRT_039.png": {
+      "srt_number": 39,
+      "target_name": "SRT_039.png",
+      "cue_text": "마찰 아닙니다.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_039.png",
+      "match_reason": "—"
+    },
+    "C:\\udoc\\우주에서낙하산을메고뛰어내리면\\short\\png\\SRT_037.png": {
+      "srt_number": 37,
+      "target_name": "SRT_037.png",
+      "cue_text": "운석이 왜 불탈까요?",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_037.png",
+      "match_reason": "—"
+    },
+    "C:\\udoc\\우주에서낙하산을메고뛰어내리면\\short\\png\\SRT_035.png": {
+      "srt_number": 35,
+      "target_name": "SRT_035.png",
+      "cue_text": "여기서 진짜 무서운 게 시작돼요.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_035.png",
+      "match_reason": "—"
+    },
+    "C:\\udoc\\우주에서낙하산을메고뛰어내리면\\short\\png\\SRT_043.png": {
+      "srt_number": 43,
+      "target_name": "SRT_043.png",
+      "cue_text": "1,500도까지 치솟는 '램 압력' 때문이에요.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_043.png",
+      "match_reason": "—"
+    },
+    "C:\\udoc\\우주에서낙하산을메고뛰어내리면\\short\\png\\SRT_034.png": {
+      "srt_number": 34,
+      "target_name": "SRT_034.png",
+      "cue_text": "음속의 7배입니다.",
+      "word_srt_number": 43,
+      "word_cue_text": "1,500도까지 치솟는 '램 압력' 때문이에요.",
+      "status": "즉시 저장 완료: SRT_034.png",
+      "match_reason": "음속·34번"
+    },
+    "C:\\udoc\\우주에서낙하산을메고뛰어내리면\\short\\png\\SRT_031.png": {
+      "srt_number": 31,
+      "target_name": "SRT_031.png",
+      "cue_text": "대기권 닿을 땐 시속 9,000km.",
+      "word_srt_number": 31,
+      "word_cue_text": "대기권 닿을 땐 시속 9,000km.",
+      "status": "즉시 저장 완료: SRT_031.png",
+      "match_reason": "대기권·31번, 000·31번"
+    },
+    "C:\\udoc\\우주에서낙하산을메고뛰어내리면\\short\\png\\SRT_029.png": {
+      "srt_number": 29,
+      "target_name": "SRT_029.png",
+      "cue_text": "멈출 게 없으니까 무한 가속.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_029.png",
+      "match_reason": "—"
+    },
+    "C:\\udoc\\우주에서낙하산을메고뛰어내리면\\short\\png\\SRT_027.png": {
+      "srt_number": 27,
+      "target_name": "SRT_027.png",
+      "cue_text": "1초마다 9.8m씩,",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_027.png",
+      "match_reason": "—"
+    },
+    "C:\\udoc\\우주에서낙하산을메고뛰어내리면\\short\\png\\SRT_024.png": {
+      "srt_number": 24,
+      "target_name": "SRT_024.png",
+      "cue_text": "공기 저항이 없으니까 종단속도도 없어요.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_024.png",
+      "match_reason": "—"
+    },
+    "C:\\udoc\\우주에서낙하산을메고뛰어내리면\\short\\png\\SRT_021.png": {
+      "srt_number": 21,
+      "target_name": "SRT_021.png",
+      "cue_text": "근데 우주는 공기가 없잖아요?",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_021.png",
+      "match_reason": "—"
+    },
+    "C:\\udoc\\우주에서낙하산을메고뛰어내리면\\short\\png\\SRT_020.png": {
+      "srt_number": 20,
+      "target_name": "SRT_020.png",
+      "cue_text": "억지로 떨어진다고 칩시다.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_020.png",
+      "match_reason": "—"
+    },
+    "C:\\udoc\\우주에서낙하산을메고뛰어내리면\\short\\png\\SRT_018.png": {
+      "srt_number": 18,
+      "target_name": "SRT_018.png",
+      "cue_text": "안 떨어져요.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_018.png",
+      "match_reason": "—"
+    },
+    "C:\\udoc\\우주에서낙하산을메고뛰어내리면\\short\\png\\SRT_016.png": {
+      "srt_number": 16,
+      "target_name": "SRT_016.png",
+      "cue_text": "여러분도 같이 궤도를 빙빙 돕니다.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_016.png",
+      "match_reason": "—"
+    },
+    "C:\\udoc\\우주에서낙하산을메고뛰어내리면\\short\\png\\SRT_014.png": {
+      "srt_number": 14,
+      "target_name": "SRT_014.png",
+      "cue_text": "그래서 그냥 점프하면?",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_014.png",
+      "match_reason": "—"
+    },
+    "C:\\udoc\\우주에서낙하산을메고뛰어내리면\\short\\png\\SRT_011.png": {
+      "srt_number": 11,
+      "target_name": "SRT_011.png",
+      "cue_text": "서울에서 부산까지 40초면 가는 미친 속도.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_011.png",
+      "match_reason": "—"
+    },
+    "C:\\udoc\\우주에서낙하산을메고뛰어내리면\\short\\png\\SRT_006.png": {
+      "srt_number": 6,
+      "target_name": "SRT_006.png",
+      "cue_text": "ISS는 시속 27,600km로 지구를 돌고 있어요.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_006.png",
+      "match_reason": "600·6번, 40·11번"
+    },
+    "C:\\udoc\\우주에서낙하산을메고뛰어내리면\\short\\png\\SRT_004.png": {
+      "srt_number": 4,
+      "target_name": "SRT_004.png",
+      "cue_text": "여러분, 별똥별 됩니다.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_004.png",
+      "match_reason": "—"
+    },
+    "C:\\udoc\\우주에서낙하산을메고뛰어내리면\\short\\png\\SRT_003.png": {
+      "srt_number": 3,
+      "target_name": "SRT_003.png",
+      "cue_text": "스포 하나 드릴게요.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_003.png",
+      "match_reason": "—"
+    },
+    "C:\\udoc\\우주에서낙하산을메고뛰어내리면\\short\\png\\SRT_001.png": {
+      "srt_number": 1,
+      "target_name": "SRT_001.png",
+      "cue_text": "우주에서 낙하산 메고 뛰어내리면 어떻게 될까요?",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_001.png",
+      "match_reason": "—"
+    },
+    "C:\\udoc\\진화또는 우주기원_이미지없음\\PNG\\SRT_316.png": {
+      "srt_number": 316,
+      "target_name": "SRT_316.png",
+      "cue_text": "인간과 바나나는 약 15억에서 16억 년 전에",
+      "word_srt_number": 316,
+      "word_cue_text": "인간과 바나나는 약 15억에서 16억 년 전에",
+      "status": "즉시 저장 완료: SRT_316.png",
+      "match_reason": "동물·635번, 15·316번, 원시·395번, 지구·336/358/370/382/399/426번, 갈라진·162번, 단세포·320/683번, 생명의·370/379/395/428/670/700번, 다세포·683번, 출현·204/390번, 우리는·707/710번, 16·316번, 우리·3/14/57/99/158/707번, 달라도·310번, 모습은·300번, 생존·322번, 진화·5/139/358/364/668/679번"
+    },
+    "C:\\udoc\\진화또는 우주기원_이미지없음\\PNG\\SRT_070.png": {
+      "srt_number": 70,
+      "target_name": "SRT_070.png",
+      "cue_text": "아프리카 곳곳에서 수백 점의 화석이 발굴됐고,",
+      "word_srt_number": 38,
+      "word_cue_text": "아프리카에서 침팬지와 인간의 공통 조상이",
+      "status": "즉시 저장 완료: SRT_070.png",
+      "match_reason": "화석·70/217/361/373번, 아프리카·38/70번, 이상·248/409번"
+    },
+    "C:\\udoc\\진화또는 우주기원_이미지없음\\PNG\\SRT_082.png": {
+      "srt_number": 82,
+      "target_name": "SRT_082.png",
+      "cue_text": "인간과 침팬지는 단백질을 코딩하는,",
+      "word_srt_number": 38,
+      "word_cue_text": "아프리카에서 침팬지와 인간의 공통 조상이",
+      "status": "즉시 저장 완료: SRT_082.png",
+      "match_reason": "인간과·82/229/316번, 유전체·170번, 유전자·229/252/255/266/322/344번, 인간·3/38/82/105/111/229번, 영역·85번, 침팬지·38/82번, 진화적·643번, 유전적·204번, 침팬지는·82번, DNA·79/85/209/242/266/270번, 비교·248번, 단백질을·82/261번, 만드는·261번, 46·111번"
+    },
+    "C:\\udoc\\진화또는 우주기원_이미지없음\\PNG\\SRT_094.png": {
+      "srt_number": 94,
+      "target_name": "SRT_094.png",
+      "cue_text": "삽입, 결실, 재배열까지 포함되어,",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_094.png",
+      "match_reason": "—"
+    },
+    "C:\\udoc\\진화또는 우주기원_이미지없음\\PNG\\SRT_105.png": {
+      "srt_number": 105,
+      "target_name": "SRT_105.png",
+      "cue_text": "인간의 2번 염색체 이야기입니다.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_105.png",
+      "match_reason": "—"
+    },
+    "C:\\udoc\\진화또는 우주기원_이미지없음\\PNG\\SRT_165.png": {
+      "srt_number": 165,
+      "target_name": "SRT_165.png",
+      "cue_text": "최소 두 개의 고대 집단이,",
+      "word_srt_number": 162,
+      "word_cue_text": "약 150만 년 전에 갈라진,",
+      "status": "즉시 저장 완료: SRT_165.png",
+      "match_reason": "20·173/178/625번, 갈라진·162번, 사피엔스·63/158번, 호모·51/63/158번, 30·61/167번, 60·229/242/252/270번, 아프리카·38/70번, 집단·165/170/173/178/194/214번, 인류·19/552번, 다른·41/43/108/173/273/496번, 유전적·204번, 능력·190/643번, 인지·594번, 150·162/192/718번, 유전자·229/252/255/266/322/344번, 가능성이·207번, 이야기의·696번, 80·170번, 유전체·170번, 기여한·178번, 6000·548번"
+    },
+    "C:\\udoc\\진화또는 우주기원_이미지없음\\PNG\\SRT_178.png": {
+      "srt_number": 178,
+      "target_name": "SRT_178.png",
+      "cue_text": "소수 집단, 그러니까 20퍼센트를 기여한 쪽에서 온",
+      "word_srt_number": 487,
+      "word_cue_text": "수백 개의 언어를 만들었잖아요.",
+      "status": "즉시 저장 완료: SRT_178.png",
+      "match_reason": "집단·165/170/173/178/194/214번, 퍼센트·86/170/173/178/229/242번, 유전적·204번, 자연선택·629번, 현대인·209번, 현대·24/441번, 인류·19/552번, 유전체·170번, 집단의·720번, 우리가·99번, 처리·182번, 유전자의·229/252번, 세대·739번, 유전자·229/252/255/266/322/344번, 고대·165/214/545번, 인지·594번, 능력·190/643번, 언어·487/489/728/732번, 환경·509/516번, 안에·746번, 아프리카·38/70번, 80·170번, 20·173/178/625번, 신경·182번"
+    },
+    "C:\\udoc\\진화또는 우주기원_이미지없음\\PNG\\SRT_190.png": {
+      "srt_number": 190,
+      "target_name": "SRT_190.png",
+      "cue_text": "질문을 떠올리는 그 능력,",
+      "word_srt_number": 178,
+      "word_cue_text": "소수 집단, 그러니까 20퍼센트를 기여한 쪽에서 온",
+      "status": "즉시 저장 완료: SRT_190.png",
+      "match_reason": "집단의·720번, 소수·178번, 20·173/178/625번, 기능·182번, 하는·223/276/278번, 문제·652번, 유전자·229/252/255/266/322/344번, 있습니다·73/79/97/103/232/238번, 유전적·204번, 전체·92/266/270번, 유전자의·229/252번, 가능성·207번, 에서·86번, 인지·594번, 집단·165/170/173/178/194/214번, 이를·530/580번, 개의·165/487번, 언어·487/489/728/732번, 평균·264번, 15·316번, 그리고·24/61/77/261/647/705번, 진화·5/139/358/364/668/679번, 처리·182번, 700·36번, 35·373번, 23·409번"
+    },
+    "C:\\udoc\\진화또는 우주기원_이미지없음\\PNG\\SRT_258.png": {
+      "srt_number": 258,
+      "target_name": "SRT_258.png",
+      "cue_text": "상동유전자가 발견됐습니다.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_258.png",
+      "match_reason": "—"
+    },
+    "C:\\udoc\\진화또는 우주기원_이미지없음\\PNG\\SRT_245.png": {
+      "srt_number": 245,
+      "target_name": "SRT_245.png",
+      "cue_text": "2013년 미국 국립인간유전체연구소의,",
+      "word_srt_number": 548,
+      "word_cue_text": "약 6000년 전 메소포타미아의 수메르 문명,",
+      "status": "즉시 저장 완료: SRT_245.png",
+      "match_reason": "연구·209/220/643번, 2013·245번, 16·316번"
+    },
+    "C:\\udoc\\진화또는 우주기원_이미지없음\\PNG\\SRT_275.png": {
+      "srt_number": 275,
+      "target_name": "SRT_275.png",
+      "cue_text": "브로디 박사의 설명입니다.",
+      "word_srt_number": 229,
+      "word_cue_text": "인간과 바나나는 유전자의 약 60퍼센트에서",
+      "status": "즉시 저장 완료: SRT_275.png",
+      "match_reason": "에너지·284/625번, 정확히·238번, 필요한·322번, 합니다·560번, 에너지를·284번, 생명·287/336/349/364/370/379번, 달라도·310번, 인간의·38/105/294/617번, 세포·282번, 하나입니다·652번, 인간과·82/229/316번, 바나나·229/278/297/316/336/686번, 과정·73/658번, 15·316번, DNA·79/85/209/242/266/270번"
+    },
+    "C:\\udoc\\진화또는 우주기원_이미지없음\\PNG\\SRT_297.png": {
+      "srt_number": 297,
+      "target_name": "SRT_297.png",
+      "cue_text": "바나나의 DNA는 단독주택 설계도입니다.",
+      "word_srt_number": 266,
+      "word_cue_text": "유전자는 전체 DNA의 약 2퍼센트에 불과합니다.",
+      "status": "즉시 저장 완료: SRT_297.png",
+      "match_reason": "설계도·302번, 전기·304번, 합니다·560번, 유전자는·266/322번, 기본·312번, 같은·14/307/320/342/344/347번, 설계·302/307번, 다른·41/43/108/173/273/496번, 생명체·480/504/509번, 하는·223/276/278번, 같습니다·132번"
+    },
+    "C:\\udoc\\진화또는 우주기원_이미지없음\\PNG\\SRT_344.png": {
+      "srt_number": 344,
+      "target_name": "SRT_344.png",
+      "cue_text": "같은 핵심 유전자를 공유하고,",
+      "word_srt_number": 728,
+      "word_cue_text": "그 같은 언어가 바나나에도, 대장균에도 적혀 있습니다.",
+      "status": "즉시 저장 완료: SRT_344.png",
+      "match_reason": "과정·73/658번, DNA·79/85/209/242/266/270번, 인간·3/38/82/105/111/229번, 유전·342/478/483/489/724번, 유전자의·229/252번, 됩니다·607/686번, 세포·282번, 생명·287/336/349/364/370/379번, 있습니다·73/79/97/103/232/238번, 유전자·229/252/255/266/322/344번, 유전자는·266/322번, 생존·322번, 대장균·336번, 에너지·284/625번, 바나나·229/278/297/316/336/686번, 20·173/178/625번"
+    },
+    "C:\\udoc\\진화또는 우주기원_이미지없음\\PNG\\SRT_364.png": {
+      "srt_number": 364,
+      "target_name": "SRT_364.png",
+      "cue_text": "그런데 진화를 시작하게 만든 최초의 생명,",
+      "word_srt_number": 349,
+      "word_cue_text": "모든 생명이 단 하나의 출발점에서 시작됐다는 뜻입니다.",
+      "status": "즉시 저장 완료: SRT_364.png",
+      "match_reason": "하나의·349/489/696번, 지구·336/358/370/382/399/426번, 60·229/242/252/270번, 생명체·480/504/509번, 하나·120/145/292/349/390/489번"
+    },
+    "C:\\udoc\\진화또는 우주기원_이미지없음\\PNG\\SRT_373.png": {
+      "srt_number": 373,
+      "target_name": "SRT_373.png",
+      "cue_text": "약 35억 년 전 스트로마톨라이트 화석이며,",
+      "word_srt_number": 373,
+      "word_cue_text": "약 35억 년 전 스트로마톨라이트 화석이며,",
+      "status": "즉시 저장 완료: SRT_373.png",
+      "match_reason": "바다·525/683번, 지구·336/358/370/382/399/426번, 산소·282번, 35·373번, 만드는·261번, 스트로마톨라이트·373번, 우리·3/14/57/99/158/707번, 46·111번, 생명·287/336/349/364/370/379번, 유사한·592번, 형성된·382번, 미생물·395/464번, 초기·677번, 구조·129/434/594번, 미지·720번, 만든·364/552번, 40·264번, 최초·364/552번, 출현·204/390번"
+    },
+    "C:\\udoc\\진화또는 우주기원_이미지없음\\PNG\\SRT_388.png": {
+      "srt_number": 388,
+      "target_name": "SRT_388.png",
+      "cue_text": "생명이 출현한 셈입니다.",
+      "word_srt_number": 382,
+      "word_cue_text": "지구가 형성된 것이 약 45억 년 전이니,",
+      "status": "즉시 저장 완료: SRT_388.png",
+      "match_reason": "지구·336/358/370/382/399/426번, 생명의·370/379/395/428/670/700번, 출현·204/390번, 40·264번, 바다·525/683번, 놀라울·307/385번, 45·382번, 20·173/178/625번, 초기·677번, 생명이·349/388/493/516번, 38·377/679/724번, 에서·86번"
+    },
+    "C:\\udoc\\진화또는 우주기원_이미지없음\\PNG\\SRT_397.png": {
+      "srt_number": 397,
+      "target_name": "SRT_397.png",
+      "cue_text": "혜성이나 소행성을 타고,",
+      "word_srt_number": 5,
+      "word_cue_text": "진화의 산물인가, 아니면 우주에서 온 건 아닌가.",
+      "status": "즉시 저장 완료: SRT_397.png",
+      "match_reason": "생명의·370/379/395/428/670/700번, 역할·207번, 바다·525/683번, 우주에서·5/399/670번, 분자·79/650번, 20·173/178/625번, 15·316번"
+    },
+    "C:\\udoc\\진화또는 우주기원_이미지없음\\PNG\\SRT_406.png": {
+      "srt_number": 406,
+      "target_name": "SRT_406.png",
+      "cue_text": "일본의 하야부사2 탐사선이 소행성 류구에서",
+      "word_srt_number": 409,
+      "word_cue_text": "회수한 시료에서 23종 이상의 아미노산이 확인됐습니다.",
+      "status": "즉시 저장 완료: SRT_406.png",
+      "match_reason": "지구·336/358/370/382/399/426번, 연구·209/220/643번, 2023·413번, 20·173/178/625번, 23·409번, 아미노산·409/417번, 시료에서·409번, 소행성·397/406번, 류구·406번, 시료·409번, 에서·86번, 아미노산이·409/417번, 기원·599/643/700번, 보편성·478/594번, 걸음·334번, 30·61/167번, 류구에서·406번, 종의·204번, 생명·287/336/349/364/370/379번, 초기·677번"
+    },
+    "C:\\udoc\\진화또는 우주기원_이미지없음\\PNG\\SRT_424.png": {
+      "srt_number": 424,
+      "target_name": "SRT_424.png",
+      "cue_text": "생존하는 극한미생물의 존재도,",
+      "word_srt_number": 420,
+      "word_cue_text": "우주의 진공과 극한 방사선 환경에서도",
+      "status": "즉시 저장 완료: SRT_424.png",
+      "match_reason": "방사선·420번, 생명체·480/504/509번, 세포·282번, 구조를·434번, 환경·509/516번, 유사한·592번, 심해·340번, 구조·129/434/594번, 진공·420번, 시스템·650번, DNA·79/85/209/242/266/270번, 극한미생물의·424번, 에서·86번, 최소·165번, 이들의·554번, 가능성·207번, 단백질·82/261번, 유전·342/478/483/489/724번, 극한미생물·424번, 30·61/167번, 보여줍니다·139번, 물질·707번"
+    },
+    "C:\\udoc\\진화또는 우주기원_이미지없음\\PNG\\SRT_705.png": {
+      "srt_number": 705,
+      "target_name": "SRT_705.png",
+      "cue_text": "그리고 칼 세이건은 이렇게 말했습니다.",
+      "word_srt_number": 707,
+      "word_cue_text": "우리는 별의 물질로 이루어져 있다.",
+      "status": "즉시 저장 완료: SRT_705.png",
+      "match_reason": "스스로를·710번, 원소의·499번, 안에서·504번, 우주의·420번, 98·86번, 별의·707/715번, 몸을·713번, 이루어져·707번, 있고·361/746번"
+    },
+    "C:\\udoc\\진화또는 우주기원_이미지없음\\PNG\\SRT_431.png": {
+      "srt_number": 431,
+      "target_name": "SRT_431.png",
+      "cue_text": "점점 분명해지고 있습니다.",
+      "word_srt_number": 417,
+      "word_cue_text": "다양한 운석에서도 아미노산이 반복적으로 검출됩니다.",
+      "status": "즉시 저장 완료: SRT_431.png",
+      "match_reason": "꼬리·735번, 혜성·677/735번, 생명의·370/379/395/428/670/700번, 에서·86번, 운석에서·417번, 다양한·417/632번, 아미노산·409/417번, 합니다·560번, 원시·395번, 유기물·674번, 외계·462/580번, 혜성의·735번, 발견·139번, 분자·79/650번, 지구·336/358/370/382/399/426번"
+    },
+    "C:\\udoc\\진화또는 우주기원_이미지없음\\PNG\\SRT_438.png": {
+      "srt_number": 438,
+      "target_name": "SRT_438.png",
+      "cue_text": "1962년 노벨 생리의학상을 수상한,",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_438.png",
+      "match_reason": "16·316번, 200·617번"
+    },
+    "C:\\udoc\\진화또는 우주기원_이미지없음\\PNG\\SRT_452.png": {
+      "srt_number": 452,
+      "target_name": "SRT_452.png",
+      "cue_text": "소련 아르메니아 뷰라칸 천문대에서 열린 자리였습니다.",
+      "word_srt_number": 639,
+      "word_cue_text": "아직 일어나지 않은 미래를 상상하는 건 인간뿐입니다.",
+      "status": "즉시 저장 완료: SRT_452.png",
+      "match_reason": "탐사·449번, 가설·390/459/540/542/632번, 소련·452번, 아르메니아·452번, 새로운·204번, 우주에서·5/399/670번, 과학의·661/700번, 미생물·395/464번, 1971·444번"
+    },
+    "C:\\udoc\\진화또는 우주기원_이미지없음\\PNG\\SRT_679.png": {
+      "srt_number": 679,
+      "target_name": "SRT_679.png",
+      "cue_text": "그 씨앗이 38억 년에 걸쳐 진화를 거듭합니다.",
+      "word_srt_number": 674,
+      "word_cue_text": "수십억 년 전, 아미노산이나 유기물이,",
+      "status": "즉시 저장 완료: SRT_679.png",
+      "match_reason": "지구의·336/480번, 원소·499/502번, 인류·19/552번, 진화·5/139/358/364/668/679번, 인간의·38/105/294/617번, 재료·428/670/692번, 생명·287/336/349/364/370/379번, 이루는·713번, 재료가·670번, 단세포·320/683번, 다세포·683번, 최초의·364/552번, 38·377/679/724번, 생명의·370/379/395/428/670/700번, 우주·5/356/399/420/428/670번, 기원·599/643/700번, 출현·204/390번, 바다·525/683번, 환경·509/516번, 35·373번, 45·382번, 다양한·417/632번, 에서·86번, 유기물이·674번, 지구·336/358/370/382/399/426번, 46·111번, 했습니다·248/533번, 아미노산·409/417번"
+    },
+    "C:\\udoc\\진화또는 우주기원_이미지없음\\PNG\\SRT_554.png": {
+      "srt_number": 554,
+      "target_name": "SRT_554.png",
+      "cue_text": "이들의 점토판에 아눈나키라는 존재가 등장합니다.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "다운로드 복사: SRT_554.png",
+      "match_reason": "—"
+    },
+    "C:\\udoc\\진화또는 우주기원_이미지없음\\PNG\\SRT_588.png": {
+      "srt_number": 588,
+      "target_name": "SRT_588.png",
+      "cue_text": "주류 학계에서 인정받지 못하는 해석입니다.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "다운로드 복사: SRT_588.png",
+      "match_reason": "—"
+    },
+    "C:\\udoc\\진화또는 우주기원_이미지없음\\PNG\\SRT_617.png": {
+      "srt_number": 617,
+      "target_name": "SRT_617.png",
+      "cue_text": "약 200만 년 전부터 인간의 뇌 용량이",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "다운로드 복사: SRT_617.png",
+      "match_reason": "—"
+    },
+    "C:\\udoc\\진화또는 우주기원_이미지없음\\PNG\\SRT_647.png": {
+      "srt_number": 647,
+      "target_name": "SRT_647.png",
+      "cue_text": "그리고 무기물에서 어떻게 자기복제가 가능한,",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "다운로드 복사: SRT_647.png",
+      "match_reason": "—"
+    },
+    "C:\\udoc\\진화또는 우주기원_이미지없음\\PNG\\SRT_459.png": {
+      "srt_number": 459,
+      "target_name": "SRT_459.png",
+      "cue_text": "발표한 가설의 이름은 지향적 판스퍼미아입니다.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "다운로드 복사: SRT_459.png",
+      "match_reason": "—"
+    },
+    "C:\\udoc\\진화또는 우주기원_이미지없음\\PNG\\SRT_469.png": {
+      "srt_number": 469,
+      "target_name": "SRT_469.png",
+      "cue_text": "1973년 학술지 이카루스에 정식 논문으로 발표됐습니다.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "다운로드 복사: SRT_469.png",
+      "match_reason": "—"
+    },
+    "C:\\udoc\\진화또는 우주기원_이미지없음\\PNG\\SRT_483.png": {
+      "srt_number": 483,
+      "target_name": "SRT_483.png",
+      "cue_text": "동일한 유전 코드를 사용합니다.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "다운로드 복사: SRT_483.png",
+      "match_reason": "—"
+    },
+    "C:\\udoc\\진화또는 우주기원_이미지없음\\PNG\\SRT_499.png": {
+      "srt_number": 499,
+      "target_name": "SRT_499.png",
+      "cue_text": "둘째, 몰리브덴이라는 원소의 수수께끼.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "다운로드 복사: SRT_499.png",
+      "match_reason": "—"
+    },
+    "C:\\udoc\\진화또는 우주기원_이미지없음\\PNG\\SRT_536.png": {
+      "srt_number": 536,
+      "target_name": "SRT_536.png",
+      "cue_text": "크릭은 1981년 저서 생명 그 자체에서,",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "다운로드 복사: SRT_536.png",
+      "match_reason": "—"
+    },
+    "C:\\udoc\\뉴스\\png\\SRT_069.png": {
+      "srt_number": 69,
+      "target_name": "SRT_069.png",
+      "cue_text": "외국인이 1조 2,776억 순매수.",
+      "word_srt_number": 375,
+      "word_cue_text": "시장 규모가 연 4조 원이라는 추정도 있어요.",
+      "status": "즉시 저장 완료: SRT_069.png",
+      "match_reason": "흐름·234/337/628번, 투자자·333번, 매도·87번, 장기·582번, 개인·75번, 25·596번"
+    },
+    "C:\\udoc\\뉴스\\png\\SRT_107.png": {
+      "srt_number": 107,
+      "target_name": "SRT_107.png",
+      "cue_text": "'마스가(MASGA)' 테마입니다.",
+      "word_srt_number": 108,
+      "word_cue_text": "Make American Shipbuilding Great Again,",
+      "status": "즉시 저장 완료: SRT_107.png",
+      "match_reason": "상승·36번, 정책·293/454/505/665번, 글로벌·371번, 투자가·512번, 협력·394번, 기회·144번, 정책이·454/505번, 다시·111/630번, 강화·262번, 확대·253/523번, 투자·459/512/708번, 테마·703번, 공급·213/439번, 11·52번, SHIPBUILDING·108번"
+    },
+    "C:\\udoc\\뉴스\\png\\SRT_116.png": {
+      "srt_number": 116,
+      "target_name": "SRT_116.png",
+      "cue_text": "아직 추가 확인이 필요합니다.",
+      "word_srt_number": 116,
+      "word_cue_text": "아직 추가 확인이 필요합니다.",
+      "status": "즉시 저장 완료: SRT_116.png",
+      "match_reason": "보고·396번, 시장·20/105/215/375/575/604번, 개발·281번, 확인·116/620번, 정책·293/454/505/665번, 사실·87번"
+    },
+    "C:\\udoc\\뉴스\\png\\SRT_144.png": {
+      "srt_number": 144,
+      "target_name": "SRT_144.png",
+      "cue_text": "진짜 기회는 이런 2차 기자재주에",
+      "word_srt_number": 144,
+      "word_cue_text": "진짜 기회는 이런 2차 기자재주에",
+      "status": "즉시 저장 완료: SRT_144.png",
+      "match_reason": "높은·500/507번, 에서·349번, 알파는·694번, 공급·213/439번, 기회·144번, 진짜·20/144/149/232/238/299번, 있다·60/146/268/336/410/459번"
+    },
+    "C:\\udoc\\뉴스\\png\\SRT_203.png": {
+      "srt_number": 203,
+      "target_name": "SRT_203.png",
+      "cue_text": "+17.51% 급등했어요.",
+      "word_srt_number": 90,
+      "word_cue_text": "두 번째는요, 오늘 시간외에서",
+      "status": "즉시 저장 완료: SRT_203.png",
+      "match_reason": "IN·285번, 흐름·234/337/628번, 시간외에서·90/167/242/382번, 정규장·201번, 시간외·90/122/205/242/306/382번"
+    },
+    "C:\\udoc\\뉴스\\png\\SRT_156.png": {
+      "srt_number": 156,
+      "target_name": "SRT_156.png",
+      "cue_text": "카카오에서 누구로?",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_156.png",
+      "match_reason": "IN·285번"
+    },
+    "C:\\udoc\\뉴스\\png\\SRT_220.png": {
+      "srt_number": 220,
+      "target_name": "SRT_220.png",
+      "cue_text": "MLCC가 전기차의 몇 배인지 아세요?",
+      "word_srt_number": 234,
+      "word_cue_text": "9월 실적 시즌까지 이 흐름",
+      "status": "즉시 저장 완료: SRT_220.png",
+      "match_reason": "분기·209/545번, 기반·283/371번, 기술·311번, 수요·223번, 전망·213번, MLCC·195/209/220/223/659번, 핵심·427/543번, 서버·218번, 확대·253/523번, 시즌까지·234번, 시즌·234번, 까지·85/599번, 전기차·220번, 10·101/336/396번, 15·489번, cmp·560번"
+    },
+    "C:\\udoc\\뉴스\\png\\SRT_250.png": {
+      "srt_number": 250,
+      "target_name": "SRT_250.png",
+      "cue_text": "이유는 \"중증 원형 탈모 치료제",
+      "word_srt_number": 253,
+      "word_cue_text": "건강보험 급여 확대 + 일반 탈모 치료",
+      "status": "즉시 저장 완료: SRT_250.png",
+      "match_reason": "에서·349번, 미용·264번, 급여·253번, 건강보험·253/260번, 의료·268번, 적용·256/266번, 17·203번, AI·218/283/316/512번, 10·101/336/396번, 이것·396번, IN·285번"
+    },
+    "C:\\udoc\\뉴스\\png\\SRT_293.png": {
+      "srt_number": 293,
+      "target_name": "SRT_293.png",
+      "cue_text": "정책 모멘텀 + 신약 모멘텀.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_293.png",
+      "match_reason": "—"
+    },
+    "C:\\udoc\\뉴스\\png\\SRT_313.png": {
+      "srt_number": 313,
+      "target_name": "SRT_313.png",
+      "cue_text": "내년 양산 추진\".",
+      "word_srt_number": 366,
+      "word_cue_text": "FDA 품목허가 신청 준비를 진행 중이에요.",
+      "status": "즉시 저장 완료: SRT_313.png",
+      "match_reason": "수혜·330번, 유리기판·314/659번, 아직·116번, 진행·366번, 생산·404/452번, 확대·253/523번, 시장·20/105/215/375/575/604번, 단계·362번, 본격·525번"
+    },
+    "C:\\udoc\\뉴스\\png\\SRT_352.png": {
+      "srt_number": 352,
+      "target_name": "SRT_352.png",
+      "cue_text": "오는 7월, 무릎 골관절염 치료제",
+      "word_srt_number": 357,
+      "word_cue_text": "탑라인 결과 발표가 임박했어요.",
+      "status": "즉시 저장 완료: SRT_352.png",
+      "match_reason": "FDA·349/366번, 골관절염·352/373번, 무릎·352번, 세포·371번, 치료제·250/352/371/373번, 발표·357/685번, IN·285번, 관찰·359번, 환자·359번, 64·306번, 020·359번"
+    },
+    "C:\\udoc\\뉴스\\png\\SRT_388.png": {
+      "srt_number": 388,
+      "target_name": "SRT_388.png",
+      "cue_text": "7월 단일 이벤트 모멘텀으로는",
+      "word_srt_number": 32,
+      "word_cue_text": "오늘 코스피 종목 몇 개가 올랐을까요?",
+      "status": "즉시 저장 완료: SRT_388.png",
+      "match_reason": "기회·144번, 하나·28/302/703번, 이벤트·388번, 종목·32/46/49/58/299/333번, 집중·705번"
+    },
+    "C:\\udoc\\뉴스\\png\\SRT_404.png": {
+      "srt_number": 404,
+      "target_name": "SRT_404.png",
+      "cue_text": "\"2026 회계연도 HBM 생산 물량,",
+      "word_srt_number": 420,
+      "word_cue_text": "공식 자료를 확인해보시길 권합니다.",
+      "status": "즉시 저장 완료: SRT_404.png",
+      "match_reason": "기억해·146/527번, 투자자는·333번, 출처별·416번, 입니다·160번, 투자·459/512/708번, 판단·708번, 공식·113/420번, 가장·701번, 확인·116/620번, Micro·311번, 자료·420번, 매출·223/416/548번, 출처·113번, 다른·16번, 시점·328번, 발표·357/685번, EPS·416번, 순이익·550번, 정확한·418번, 추정·375번, 차이·416번, 기준·593번, 핵심·427/543번, AI·218/283/316/512번, 51·203번, 15·489번, 18·382번, 25·596번"
+    },
+    "C:\\udoc\\뉴스\\png\\SRT_449.png": {
+      "srt_number": 449,
+      "target_name": "SRT_449.png",
+      "cue_text": "500억 달러를 투자해서 본토",
+      "word_srt_number": 359,
+      "word_cue_text": "이미 1,020명 환자 추적 관찰을 마쳤고,",
+      "status": "즉시 저장 완료: SRT_449.png",
+      "match_reason": "IN·285번, CU·311번, MICRO·311번, SK·456/582번, IP·175/183번, 020·359번"
+    },
+    "C:\\udoc\\뉴스\\png\\SRT_477.png": {
+      "srt_number": 477,
+      "target_name": "SRT_477.png",
+      "cue_text": "\"2026년 소형주가 중형주 및",
+      "word_srt_number": 477,
+      "word_cue_text": "\"2026년 소형주가 중형주 및",
+      "status": "즉시 저장 완료: SRT_477.png",
+      "match_reason": "500·449/492/518번, 000·2/166/637/643번, 2026·209/404/423/477/487/545번, 2000·483/487/523/679번, 소형주·471/477/507/679번, 다년간·485번, 대형주를·480번, 14·123번, 중형주·477번, 대형주·480번, 15.·489번"
+    },
+    "C:\\udoc\\뉴스\\png\\SRT_505.png": {
+      "srt_number": 505,
+      "target_name": "SRT_505.png",
+      "cue_text": "리쇼어링·관세 정책이 미국",
+      "word_srt_number": 473,
+      "word_cue_text": "질 케어리 홀(Jill Carey Hall)이",
+      "status": "즉시 저장 완료: SRT_505.png",
+      "match_reason": "In·285번, CU·311번, AI·218/283/316/512번"
+    },
+    "C:\\udoc\\뉴스\\png\\SRT_536.png": {
+      "srt_number": 536,
+      "target_name": "SRT_536.png",
+      "cue_text": "예상 시총 2조~3조 위안.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_536.png",
+      "match_reason": "400·539번"
+    },
+    "C:\\udoc\\뉴스\\png\\SRT_564.png": {
+      "srt_number": 564,
+      "target_name": "SRT_564.png",
+      "cue_text": "D램 공정 장비 전체를 중국산으로",
+      "word_srt_number": 108,
+      "word_cue_text": "Make American Shipbuilding Great Again,",
+      "status": "즉시 저장 완료: SRT_564.png",
+      "match_reason": "96·129번, IN·285번, iR·418번, 800·85번, cu·311번"
+    },
+    "C:\\udoc\\뉴스\\png\\SRT_622.png": {
+      "srt_number": 622,
+      "target_name": "SRT_622.png",
+      "cue_text": "셋째, 강달러.",
+      "word_srt_number": 630,
+      "word_cue_text": "신흥국에서 미국으로 자금이 다시 환류합니다.",
+      "status": "즉시 저장 완료: SRT_622.png",
+      "match_reason": "강달러·622번, 투자자·333번, 신흥국에서·630번, 신흥국·630번, 에서·349번, 미국으로·392/630번, 자금·630번, 자본·175번, 달러·449/624번, 미국·101/111/349/355/392/447번, 외국인·69/633번, 금리·498/596/606번, 상승·36번, 확대·253/523번, 외국인이·69번, 글로벌·371번, 자금이·630번, 한국·175/183/539/580/633번, 하락·38번, sk·456/582번, 15·489번, 흐름·234/337/628번, 12·24/596번"
+    },
+    "C:\\udoc\\뉴스\\png\\SRT_643.png": {
+      "srt_number": 643,
+      "target_name": "SRT_643.png",
+      "cue_text": "\"코스피 9,000! 미국 신고가!",
+      "word_srt_number": 108,
+      "word_cue_text": "Make American Shipbuilding Great Again,",
+      "status": "즉시 저장 완료: SRT_643.png",
+      "match_reason": "종목·32/46/49/58/299/333번, 지수·12/483번"
+    },
+    "C:\\udoc\\뉴스\\png\\SRT_685.png": {
+      "srt_number": 685,
+      "target_name": "SRT_685.png",
+      "cue_text": "코오롱티슈진 임상 3상 결과 발표가",
+      "word_srt_number": 101,
+      "word_cue_text": "\"트럼프 대통령이 미국 군함 10척",
+      "status": "즉시 저장 완료: SRT_685.png",
+      "match_reason": "15·489번, 결과·357/685번, 임상·355/663/685번, 한국·175/183/539/580/633번, 진짜·20/144/149/232/238/299번, 시장·20/105/215/375/575/604번, 중국·532/571번, 가지·24/480/610번, 미국·101/111/349/355/392/447번, CXMT·534/545/682번, 이벤트·388번, 25·596번, IN·285번"
     }
   },
-  "preview_thumb_size": 320,
+  "preview_thumb_size": 500,
   "download_image_inputs": {
     "538": "C:/Users/nh2015005/Downloads/A_friendly_Asian_male_presenter_with_neat_short_st-1781572343290.png",
     "568": "Simple_cartoon_style_human_character_as_main_subje-1781574659145",
@@ -2563,7 +3292,16 @@
     "347": "Simple_cartoon_style_human_character_as_main_subje-1781687822676",
     "376": "Simple_cartoon_style_human_character_as_main_subje-1781687907002",
     "423": "Simple_cartoon_style_human_character_as_main_subje-1781687999424",
-    "629": "Eye-catching_YouTube_thumbnail_illustration_in_kno-1781688087547"
+    "629": "Eye-catching_YouTube_thumbnail_illustration_in_kno-1781688087547",
+    "554": "Anunnaki_beings_from_Sumerian_mythology_depicted_o-1781941021954",
+    "588": "Mainstream_academic_explanation_for_similar_creati-1781941081801",
+    "617": "Human_brain_expansion_2_million_years_ago_showing_-1781941127146",
+    "647": "Origin_of_self-replicating_molecular_systems_from_-1781941161357",
+    "459": "Directed_panspermia_hypothesis_visualization_showi-1781941327302",
+    "469": "Historic_1973_scientific_publication_in_Icarus_jou-1781941374863",
+    "483": "Universal_genetic_code_visualization_showing_all_E-1781941414668",
+    "499": "Molybdenum_element_mystery_visualization_showing_t-1781941450427",
+    "536": "1981_book_Life_Itself_by_Francis_Crick_presenting_-1781941473984"
   },
-  "download_dir": "C:\\Users\\nh2015005\\Downloads"
+  "download_dir": "C:\\udoc\\뉴스"
 }

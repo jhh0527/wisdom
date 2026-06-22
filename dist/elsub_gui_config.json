@@ -1,4 +1,5 @@
 {
-  "input_dir": "C:/udoc/청계천의유래/mp3",
-  "output_dir": "C:/udoc/청계천의유래/mp3"
+  "input_dir": "C:\\udoc\\뉴스\\mp3",
+  "output_dir": "C:\\udoc\\뉴스\\mp3",
+  "config_file": "C:\\intellij\\wisdom\\dist\\elsub_config2.json"
 }

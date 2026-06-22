@@ -74,13 +74,9 @@ def load_gui_settings() -> dict[str, str]:
 
     migrated = False
     if "png_dir" in out:
-        png_p = Path(out["png_dir"])
-        if _is_legacy_png_dir(out["png_dir"]) or not png_p.is_dir():
+        if _is_legacy_png_dir(out["png_dir"]):
             out["png_dir"] = str(default_png_dir())
             migrated = True
-    if "srt_file" in out and not Path(out["srt_file"]).is_file():
-        out["srt_file"] = str(default_srt_file())
-        migrated = True
 
     if migrated:
         try:
@@ -198,6 +194,7 @@ def save_gui_settings(
 
     data["srt_file"] = srt_file
     data["png_dir"] = png_dir
+    data.pop("mp3_file", None)
     if download_dir is not None and download_dir.strip():
         data["download_dir"] = download_dir.strip()
     try:

@@ -53,8 +53,44 @@ from wisdom_workspace import (
 CONFIG_FILENAME = "elsub_config.json"
 EXAMPLE_FILENAME = "elsub_config.example.json"
 GUI_CONFIG_NAME = "elsub_gui_config.json"
+PRESET_CONFIG_FILENAMES: tuple[str, ...] = (
+    "elsub_config.json",
+    "elsub_config2.json",
+    "elsub_config3.json",
+    "elsub_config4.json",
+    "elsub_config5.json",
+)
 OUTPUT_DIRNAME = "output"
 INPUT_DIRNAME = "input"
+
+_config_path_override: Path | None = None
+
+
+def configure_module(
+    *,
+    project_dirname: str | None = None,
+    config_filename: str | None = None,
+    example_filename: str | None = None,
+    gui_config_name: str | None = None,
+) -> None:
+    """Wonder 등 파생 모듈에서 경로·설정 파일명을 바꿀 때 호출."""
+    global PROJECT_DIRNAME, CONFIG_FILENAME, EXAMPLE_FILENAME, GUI_CONFIG_NAME
+    if project_dirname is not None:
+        PROJECT_DIRNAME = project_dirname
+    if config_filename is not None:
+        CONFIG_FILENAME = config_filename
+    if example_filename is not None:
+        EXAMPLE_FILENAME = example_filename
+    if gui_config_name is not None:
+        GUI_CONFIG_NAME = gui_config_name
+
+
+def set_config_path_override(path: Path | str | None) -> None:
+    global _config_path_override
+    if path is None or (isinstance(path, str) and not path.strip()):
+        _config_path_override = None
+        return
+    _config_path_override = Path(path).expanduser().resolve()
 
 
 def _frozen_exe_dir() -> Path:
@@ -77,17 +113,58 @@ def _config_search_paths() -> list[Path]:
             out.append(_module_dist_dir() / CONFIG_FILENAME)
         out.append(_frozen_exe_dir() / CONFIG_FILENAME)
         return out
-    return [Path(__file__).resolve().parent.parent / CONFIG_FILENAME]
+    return [module_dir(PROJECT_DIRNAME) / CONFIG_FILENAME]
+
+
+def config_dist_dir() -> Path:
+    """Voice ID JSON이 있는 ``dist`` 폴더 (exe·허브·소스 실행 공통)."""
+    if getattr(sys, "frozen", False):
+        if _running_as_wisdom_hub():
+            return _module_dist_dir()
+        return _frozen_exe_dir()
+    return module_dir(PROJECT_DIRNAME) / "dist"
+
+
+def preset_config_paths() -> list[Path]:
+    return [config_dist_dir() / name for name in PRESET_CONFIG_FILENAMES]
+
+
+def resolve_preset_config(saved: str | None = None) -> Path:
+    """저장값·존재 파일 기준으로 사용할 Voice ID 설정 경로."""
+    presets = preset_config_paths()
+    by_name = {p.name: p for p in presets}
+    if saved and saved.strip():
+        raw = Path(saved.strip()).expanduser()
+        if raw.is_file():
+            return raw.resolve()
+        if raw.name in by_name:
+            return by_name[raw.name]
+        try:
+            resolved = raw.resolve()
+            for p in presets:
+                if p.resolve() == resolved:
+                    return p
+        except OSError:
+            pass
+    for p in presets:
+        if p.is_file():
+            return p
+    return presets[0]
 
 
 def config_file_path() -> Path:
+    if _config_path_override is not None:
+        return _config_path_override
     for p in _config_search_paths():
+        if p.is_file():
+            return p
+    for p in preset_config_paths():
         if p.is_file():
             return p
     paths = _config_search_paths()
     if paths:
         return paths[0]
-    return Path(__file__).resolve().parent.parent / CONFIG_FILENAME
+    return config_dist_dir() / CONFIG_FILENAME
 
 
 def resolve_output_dir() -> Path:
@@ -146,18 +223,23 @@ def load_gui_settings() -> dict[str, str]:
     if not isinstance(data, dict):
         return {}
     out: dict[str, str] = {}
-    for key in ("input_dir", "output_dir"):
+    for key in ("input_dir", "output_dir", "config_file"):
         v = data.get(key)
         if isinstance(v, str) and v.strip():
             out[key] = v.strip()
     return out
 
 
-def save_gui_settings(*, input_dir: str, output_dir: str) -> None:
+def save_gui_settings(*, input_dir: str, output_dir: str, config_file: str = "") -> None:
     touch_workspace_from_path(input_dir)
     p = gui_config_path()
     p.parent.mkdir(parents=True, exist_ok=True)
-    data = {"input_dir": input_dir.strip(), "output_dir": output_dir.strip()}
+    data = {
+        "input_dir": input_dir.strip(),
+        "output_dir": output_dir.strip(),
+    }
+    if config_file.strip():
+        data["config_file"] = config_file.strip()
     p.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 

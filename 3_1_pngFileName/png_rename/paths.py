@@ -48,7 +48,12 @@ def default_srt_file() -> Path:
 
         mp3 = default_mp3_dir()
         if mp3 is not None:
-            return mp3 / "all.srt"
+            all_srt = mp3 / "all.srt"
+            if all_srt.is_file():
+                return all_srt
+            for p in sorted(mp3.glob("*.srt")):
+                return p
+            return all_srt
     except ImportError:
         pass
     ws = get_workspace_dir()
@@ -57,6 +62,19 @@ def default_srt_file() -> Path:
         if cand.is_file():
             return cand
     return resolve_module_output("2_1_ttsToVoice") / "all.srt"
+
+
+def resolve_initial_srt(
+    cli: Path | None,
+    saved: str | None,
+) -> Path:
+    if cli is not None:
+        p = cli.expanduser().resolve()
+        if p.is_file():
+            return p
+    if saved and saved.strip():
+        return Path(saved.strip()).expanduser().resolve()
+    return default_srt_file().resolve()
 
 
 def default_png_dir() -> Path:
@@ -73,22 +91,6 @@ def default_png_dir() -> Path:
     if ws is not None:
         return (ws / "3_2_pngToJpg" / "input").resolve()
     return (module_dir("3_2_pngToJpg") / "input").resolve()
-
-
-def resolve_initial_srt(
-    cli: Path | None,
-    saved: str | None,
-) -> Path:
-    fallback = default_srt_file()
-    if cli is not None:
-        p = cli.expanduser().resolve()
-        if p.is_file():
-            return p
-    if saved:
-        p = Path(saved).expanduser().resolve()
-        if p.is_file():
-            return p
-    return fallback.resolve()
 
 
 def resolve_initial_png_dir(

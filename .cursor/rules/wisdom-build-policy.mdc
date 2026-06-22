@@ -34,6 +34,10 @@ wisdom **밖**에서 콘텐츠를 작업할 때, 한 GUI에서 처음 고른 폴
 - 폴더 선택 대화상자: 작업 폴더를 `initialdir` 우선
 - 기존 `png2jpg_gui_config.json` 등에 저장된 wisdom 밖 경로도 자동 인식
 
+## Git 접속 (Cursor 전면 금지)
+
+에이전트는 **`git`·`gh` 명령을 Cursor에서 실행하지 않는다** (pull·commit·push·status·diff 등 **모든 Git 이벤트 포함**). 사용자 요청이 있어도 파일 기준 변경 요약·커밋 메시지 초안만 텍스트로 안내하고, Git 작업은 IDE·외부 Git 클라이언트에서 사용자가 직접 한다. (상세: `.cursor/rules/wisdom-git-commit.mdc`)
+
 ## 공통 
 
 1. **변경된 프로그램이 있으면** 해당 모듈 `build/`의 **spec·`build.bat`을 수정**하여 반영한다.

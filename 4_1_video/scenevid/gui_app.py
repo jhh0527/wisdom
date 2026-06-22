@@ -81,7 +81,6 @@ def main(*, container: tk.Misc | None = None) -> None:
     from wisdom_gui_host import (
         apply_window_chrome,
         bind_hub_destroy,
-        configure_notebook_tabs,
         run_mainloop,
         safe_after,
         safe_messagebox,
@@ -105,8 +104,7 @@ def main(*, container: tk.Misc | None = None) -> None:
     progress_pct_var = tk.StringVar(value="")
 
     log = tk.Text(root, height=5, wrap=tk.WORD, state=tk.DISABLED)
-    nb = ttk.Notebook(root, padding=6)
-    configure_notebook_tabs(root)
+    body = ttk.Frame(root, padding=6)
 
     status_bar = ttk.Label(root, textvariable=status_var, padding=(8, 4))
     progress_fr = ttk.Frame(root)
@@ -118,7 +116,7 @@ def main(*, container: tk.Misc | None = None) -> None:
     ttk.Label(progress_fr, textvariable=progress_pct_var, width=14).pack(side=tk.RIGHT)
 
     log.pack(side=tk.BOTTOM, fill=tk.X, expand=False, padx=8, pady=(4, 4))
-    nb.pack(side=tk.TOP, fill=tk.BOTH, expand=True, padx=4, pady=(4, 0))
+    body.pack(side=tk.TOP, fill=tk.BOTH, expand=True, padx=4, pady=(4, 0))
 
     def log_line(msg: str) -> None:
         log.configure(state=tk.NORMAL)
@@ -126,9 +124,9 @@ def main(*, container: tk.Misc | None = None) -> None:
         log.see(tk.END)
         log.configure(state=tk.DISABLED)
 
-    # --- Tab: compose ---
-    tab_c = ttk.Frame(nb, padding=10)
-    nb.add(tab_c, text="산출물 합성 (SRT+MP3+이미지)")
+    # --- compose ---
+    tab_c = ttk.Frame(body, padding=10)
+    tab_c.pack(fill=tk.BOTH, expand=True)
     tab_c.grid_columnconfigure(0, weight=1)
 
     audio_var = tk.StringVar()

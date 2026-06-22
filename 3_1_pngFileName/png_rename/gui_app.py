@@ -171,9 +171,9 @@ def main(
     png_var = tk.StringVar(value=str(png_default))
     download_var = tk.StringVar(value=str(download_default))
     recursive_var = tk.BooleanVar(value=False)
-    skip_named_var = tk.BooleanVar(value=True)
+    skip_already_named = True
     target_count_var = tk.StringVar(value="")
-    status_var = tk.StringVar(value="기본 폴더를 불러오는 중…")
+    status_var = tk.StringVar(value="")
     _search_win: tk.Toplevel | None = None
     manual_overrides: dict[str, dict] = load_manual_overrides()
     download_image_inputs: dict[str, str] = load_download_image_inputs()
@@ -201,7 +201,14 @@ def main(
     browse_widgets: list[tk.Widget] = []
     action_widgets: list[tk.Widget] = []
 
-    def row_file(label: str, var: tk.StringVar, row: int, *, is_dir: bool) -> None:
+    def row_file(
+        label: str,
+        var: tk.StringVar,
+        row: int,
+        *,
+        is_dir: bool,
+        filetypes: list[tuple[str, str]] | None = None,
+    ) -> None:
         ttk.Label(frm, text=label).grid(row=row, column=0, sticky="w", pady=(0, 4))
         rf = ttk.Frame(frm)
         rf.grid(row=row + 1, column=0, sticky="ew", pady=(0, 8))
@@ -220,20 +227,17 @@ def main(
                 init = folder_dialog_initial(
                     Path(cur).parent if cur and Path(cur).parent.is_dir() else default_srt_file().parent,
                 )
+                ft = filetypes or [("SRT", "*.srt"), ("모든 파일", "*.*")]
                 p = filedialog.askopenfilename(
                     title=label,
                     initialdir=init,
-                    filetypes=[("SRT", "*.srt"), ("모든 파일", "*.*")],
+                    filetypes=ft,
                 )
             if p:
                 touch_workspace_from_path(p)
-                if is_dir:
-                    png_var.set(str(default_png_dir()))
-                    srt_var.set(str(default_srt_file()))
-                else:
-                    var.set(p)
-                    png_var.set(str(default_png_dir()))
+                var.set(p)
                 refresh_count()
+                persist()
 
         btn = ttk.Button(rf, text="찾아보기…", command=pick)
         btn.grid(row=0, column=1)
@@ -995,11 +999,6 @@ def main(
     ttk.Checkbutton(
         opts, text="하위 폴더 포함", variable=recursive_var, command=refresh_count
     ).pack(side=tk.LEFT)
-    ttk.Checkbutton(
-        opts,
-        text="이미 SRT_XXX.png 는 이름 변경 제외(목록에는 표시)",
-        variable=skip_named_var,
-    ).pack(side=tk.LEFT, padx=(12, 0))
 
     table_frm = ttk.Frame(frm)
     table_frm.grid(row=10, column=0, sticky="nsew", pady=(0, 6))
@@ -1435,9 +1434,7 @@ def main(
         if status_msg is not None:
             status_var.set(status_msg)
         elif reloaded and not quiet:
-            status_var.set(
-                f"새로고침 완료: 대본 {len(_all_rows_cache)}행 (대본번호 오름차순)"
-            )
+            status_var.set("")
         root.update_idletasks()
 
     tree.tag_configure("muted", foreground="#888888")
@@ -1504,7 +1501,7 @@ def main(
                 apply_ocr_to_row(
                     row,
                     cues,
-                    skip_already_named=bool(skip_named_var.get()),
+                    skip_already_named=skip_already_named,
                     used_numbers=_used_srt_numbers(row),
                     prefer_slot=row.srt_number if row.srt_number >= 0 else None,
                 )
@@ -2685,7 +2682,6 @@ def main(
 
     prog = ttk.Progressbar(frm, mode="determinate", maximum=100)
     prog.grid(row=11, column=0, sticky="ew", pady=(0, 4))
-    ttk.Label(frm, textvariable=status_var).grid(row=12, column=0, sticky="w")
 
     btn_scan: ttk.Button
     btn_cancel_scan: ttk.Button
@@ -2823,7 +2819,7 @@ def main(
                     srt,
                     png,
                     recursive=bool(recursive_var.get()),
-                    skip_already_named=bool(skip_named_var.get()),
+                    skip_already_named=skip_already_named,
                     on_progress=on_prog,
                     should_cancel=scan_cancel_event.is_set,
                 )
@@ -3271,15 +3267,8 @@ def main(
         png = Path(png_var.get().strip())
         srt = Path(srt_var.get().strip())
         if png.is_dir() and srt.is_file():
-            if _load_table_from_disk():
-                status_var.set(
-                    f"대본 {len(_all_rows_cache)}행 (대본번호 오름차순). "
-                    "OCR매핑 번호 열을 클릭하면 해당 행만 OCR·매핑합니다."
-                )
-        else:
-            status_var.set(
-                "PNG·SRT 경로를 확인한 뒤 「목록 조회」 또는 「새로고침」을 실행하세요."
-            )
+            _load_table_from_disk()
+        status_var.set("")
 
     refresh_count()
     root.after(200, startup_load_default_folder)

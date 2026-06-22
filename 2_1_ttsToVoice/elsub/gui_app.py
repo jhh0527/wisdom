@@ -36,13 +36,18 @@ from elsub.elevenlabs_client import (
 from elsub.media_probe import ffprobe_duration_sec
 from elsub.parser import CaptionLine, parse_knowledgetts_block
 from elsub.settings import (
+    PRESET_CONFIG_FILENAMES,
+    PROJECT_DIRNAME,
+    config_dist_dir,
     config_file_path,
     copy_bundled_example_if_needed,
     default_input_dir,
     load_gui_settings,
     load_settings,
     resolve_output_dir,
+    resolve_preset_config,
     save_gui_settings,
+    set_config_path_override,
 )
 from wisdom_workspace import (
     folder_dialog_initial,
@@ -187,7 +192,13 @@ def _coerce_saved_output(gui_cfg: dict[str, str], in_default: Path) -> Path:
     return in_default.resolve()
 
 
-def main(*, container: tk.Misc | None = None) -> None:
+def main(
+    *,
+    container: tk.Misc | None = None,
+    config_file_picker: bool = False,
+    config_preset_selector: bool = True,
+    window_title: str | None = None,
+) -> None:
     from wisdom_gui_host import (
         apply_window_chrome,
         bind_hub_destroy,
@@ -198,18 +209,27 @@ def main(*, container: tk.Misc | None = None) -> None:
     )
 
     copy_bundled_example_if_needed()
-    cfg_path = config_file_path()
     gui_cfg = load_gui_settings()
+    if config_file_picker:
+        if gui_cfg.get("config_file"):
+            set_config_path_override(gui_cfg["config_file"])
+    elif config_preset_selector:
+        preset_initial = resolve_preset_config(gui_cfg.get("config_file"))
+        set_config_path_override(preset_initial)
+    elif gui_cfg.get("config_file"):
+        set_config_path_override(gui_cfg["config_file"])
+    cfg_path = config_file_path()
     if gui_cfg.get("input_dir"):
         touch_workspace_from_path(gui_cfg["input_dir"])
     in_default = _resolve_dir(gui_cfg.get("input_dir", ""), default_input_dir())
     out_default = _coerce_saved_output(gui_cfg, in_default)
 
     root, standalone = tk_host(container)
+    title = window_title or f"2_1_ttsToVoice {__version__}"
     apply_window_chrome(
         root,
         standalone,
-        title=f"2_1_ttsToVoice {__version__}",
+        title=title,
         minsize=(640, 620),
         geometry="820x700",
     )
@@ -235,14 +255,24 @@ def main(*, container: tk.Misc | None = None) -> None:
                 return
         except ImportError:
             pass
-        ws_out = workspace_module_output("2_1_ttsToVoice")
+        ws_out = workspace_module_output(PROJECT_DIRNAME)
         if ws_out is not None:
             out_var.set(str(ws_out))
+
+    cfg_label_var = tk.StringVar(value=f"API 키·Voice ID·모델: {cfg_path}")
+
+    def refresh_cfg_status() -> None:
+        p = config_file_path()
+        cfg_label_var.set(f"API 키·Voice ID·모델: {p}")
+        if p.is_file():
+            status.set("대기 중")
+        else:
+            status.set(f"{p.name} 없음 — API 키·voice_id 등을 설정하세요.")
 
     if cfg_path.is_file():
         status.set("대기 중")
     else:
-        status.set(f"{cfg_path.name} 없음 — exe와 같은 폴더에 두고 elevenlabs_api_key 등을 설정하세요.")
+        status.set(f"{cfg_path.name} 없음 — API 키·voice_id 등을 설정하세요.")
 
     frm = ttk.Frame(root, padding=10)
     if standalone:
@@ -307,19 +337,96 @@ def main(*, container: tk.Misc | None = None) -> None:
         pick_fallback=out_default,
     )
 
+    cfg_var = tk.StringVar(value=str(cfg_path))
+    preset_name = (
+        cfg_path.name
+        if cfg_path.name in PRESET_CONFIG_FILENAMES
+        else PRESET_CONFIG_FILENAMES[0]
+    )
+    cfg_choice_var = tk.StringVar(value=preset_name)
+    next_row = 4
+
+    if config_preset_selector and not config_file_picker:
+        ttk.Label(frm, text="Voice ID 설정 파일").grid(
+            row=next_row, column=0, sticky="w", pady=(0, 2),
+        )
+        cfg_fr = ttk.Frame(frm)
+        cfg_fr.grid(row=next_row + 1, column=0, sticky="ew", pady=(0, 8))
+        cfg_fr.grid_columnconfigure(0, weight=1)
+
+        def apply_preset(_event: object | None = None) -> None:
+            name = cfg_choice_var.get().strip()
+            if name not in PRESET_CONFIG_FILENAMES:
+                return
+            p = config_dist_dir() / name
+            cfg_var.set(str(p))
+            set_config_path_override(p)
+            refresh_cfg_status()
+            persist_dirs()
+
+        cfg_cb = ttk.Combobox(
+            cfg_fr,
+            textvariable=cfg_choice_var,
+            values=list(PRESET_CONFIG_FILENAMES),
+            state="readonly",
+        )
+        cfg_cb.grid(row=0, column=0, sticky="ew")
+        cfg_cb.bind("<<ComboboxSelected>>", apply_preset)
+        next_row += 2
+
+    if config_file_picker:
+        ttk.Label(frm, text="Voice ID 설정 파일 (JSON)").grid(
+            row=next_row, column=0, sticky="w", pady=(0, 2),
+        )
+        cfg_fr = ttk.Frame(frm)
+        cfg_fr.grid(row=next_row + 1, column=0, sticky="ew", pady=(0, 8))
+        cfg_fr.grid_columnconfigure(0, weight=1)
+        cfg_ent = ttk.Entry(cfg_fr, textvariable=cfg_var)
+        cfg_ent.grid(row=0, column=0, sticky="ew", padx=(0, 6))
+
+        def pick_config() -> None:
+            initial = cfg_var.get().strip()
+            init_path = Path(initial) if initial else cfg_path.parent
+            init_dir = init_path.parent if init_path.is_file() else init_path
+            chosen = filedialog.askopenfilename(
+                title="Voice ID 설정 파일 (JSON)",
+                initialdir=str(folder_dialog_initial(init_dir)),
+                filetypes=[("JSON", "*.json"), ("모든 파일", "*.*")],
+            )
+            if chosen:
+                cfg_var.set(chosen)
+                set_config_path_override(chosen)
+                refresh_cfg_status()
+
+        def on_config_committed() -> None:
+            p = cfg_var.get().strip()
+            if p:
+                set_config_path_override(p)
+                refresh_cfg_status()
+
+        cfg_ent.bind("<FocusOut>", lambda _e: on_config_committed())
+        ttk.Button(cfg_fr, text="찾아보기…", command=pick_config).grid(row=0, column=1)
+        next_row += 2
+
     ttk.Label(
         frm,
-        text=f"API 키·Voice ID·모델: {cfg_path}",
+        textvariable=cfg_label_var,
         foreground="gray",
         justify="left",
-    ).grid(row=4, column=0, sticky="w", pady=(0, 4))
+    ).grid(row=next_row, column=0, sticky="w", pady=(0, 4))
 
     head_fr = ttk.Frame(frm)
-    head_fr.grid(row=5, column=0, sticky="ew", pady=(0, 4))
+    head_fr.grid(row=next_row + 1, column=0, sticky="ew", pady=(0, 4))
     ttk.Label(head_fr, text="TTS 변환 결과 (붙여넣기 또는 입력 폴더 불러오기)").pack(side=tk.LEFT)
 
     def persist_dirs() -> None:
-        save_gui_settings(input_dir=in_var.get(), output_dir=out_var.get())
+        save_gui_settings(
+            input_dir=in_var.get(),
+            output_dir=out_var.get(),
+            config_file=cfg_var.get()
+            if (config_file_picker or config_preset_selector)
+            else "",
+        )
 
     def load_from_input_dir(*, quiet: bool = False) -> bool:
         folder = _resolve_dir(in_var.get(), default_input_dir())
@@ -340,14 +447,14 @@ def main(*, container: tk.Misc | None = None) -> None:
     ttk.Button(head_fr, text="입력 폴더 불러오기", command=load_from_input_dir).pack(side=tk.RIGHT)
 
     txt = scrolledtext.ScrolledText(frm, height=16, wrap="word", font=(fam, sz))
-    txt.grid(row=6, column=0, sticky="nsew", pady=(4, 6))
-    frm.grid_rowconfigure(6, weight=1)
+    txt.grid(row=next_row + 2, column=0, sticky="nsew", pady=(4, 6))
+    frm.grid_rowconfigure(next_row + 2, weight=1)
 
     log_fr = ttk.LabelFrame(frm, text="실행 로그", padding=4)
-    log_fr.grid(row=7, column=0, sticky="nsew", pady=(0, 6))
+    log_fr.grid(row=next_row + 3, column=0, sticky="nsew", pady=(0, 6))
     log_fr.grid_rowconfigure(0, weight=1)
     log_fr.grid_columnconfigure(0, weight=1)
-    frm.grid_rowconfigure(7, weight=0)
+    frm.grid_rowconfigure(next_row + 3, weight=0)
     log = scrolledtext.ScrolledText(log_fr, height=8, wrap="word", font=(fam, max(9, sz - 1)))
 
     def log_line(s: str) -> None:
@@ -357,9 +464,91 @@ def main(*, container: tk.Misc | None = None) -> None:
     log.grid(row=0, column=0, sticky="nsew")
 
     busy = {"v": False}
+    gen_cancel = threading.Event()
 
     def _output_dir() -> Path:
         return _resolve_dir(out_var.get(), resolve_output_dir())
+
+    def _finalize_part(
+        *,
+        part_lbl: str,
+        part_entries: list,
+        part_seg_paths: list[Path],
+        part_seg_blobs: list[bytes],
+        seg_durs_ms: list[int],
+        line_segment_mp3: list[str],
+        model: str,
+        output_dir: Path,
+    ) -> None:
+        part_mp3 = output_dir / f"{part_lbl}.mp3"
+        part_srt = part_mp3.with_suffix(".srt")
+        part_json = part_mp3.with_suffix(".json")
+
+        part_merge_note = ""
+        try:
+            concat_mp3_files_ffmpeg(part_seg_paths, part_mp3)
+            part_merge_note = "ffmpeg-reencode"
+        except Exception as ff_err:
+            concat_mp3_files(part_seg_blobs, str(part_mp3))
+            part_merge_note = f"binary-fallback ({ff_err})"
+
+        try:
+            merged_ms = int(round(ffprobe_duration_sec(part_mp3) * 1000))
+        except Exception:
+            merged_ms = sum(seg_durs_ms)
+        ssum = sum(seg_durs_ms)
+        if merged_ms > 0 and ssum > 0 and merged_ms != ssum:
+            scaled = [max(1, int(round(d * merged_ms / ssum))) for d in seg_durs_ms]
+            drift = merged_ms - sum(scaled)
+            scaled[-1] = max(1, scaled[-1] + drift)
+            seg_durs_ms = scaled
+
+        part_cur_ms = 0
+        part_seg_json: list[dict] = []
+        for i, (e, dur) in enumerate(zip(part_entries, seg_durs_ms), start=1):
+            part_seg_json.append(
+                {
+                    "index": i,
+                    "caption_id": e.caption_id,
+                    "original": e.original,
+                    "tts": e.tts,
+                    "segment_mp3": line_segment_mp3[i - 1],
+                    "duration_ms_estimate": dur,
+                    "start_ms_estimate": part_cur_ms,
+                    "end_ms_estimate": part_cur_ms + dur,
+                }
+            )
+            part_cur_ms += dur
+
+        part_srt_body, _, _ = build_srt_from_durations(
+            [(e.original, d) for e, d in zip(part_entries, seg_durs_ms)]
+        )
+        part_srt.write_text(part_srt_body, encoding="utf-8")
+
+        part_doc = {
+            "part_id": part_entries[0].part_id if part_entries else "",
+            "part_mp3": str(part_mp3.resolve()),
+            "part_srt": str(part_srt.resolve()),
+            "model_id": model,
+            "merge_method": part_merge_note,
+            "segment_count": len(part_seg_paths),
+            "duration_ms_estimate": part_cur_ms,
+            "segments": part_seg_json,
+        }
+        part_json.write_text(
+            json.dumps(part_doc, ensure_ascii=False, indent=2),
+            encoding="utf-8",
+        )
+
+        def log_part(p: str = part_lbl, m: str = part_merge_note) -> None:
+            log_line(f"[{p}] mp3/srt/json 생성 완료 (mp3 병합: {m})")
+
+        safe_after(root, log_part)
+
+    def stop_gen() -> None:
+        if busy["v"]:
+            gen_cancel.set()
+            status.set("중지 요청… (현재 세그먼트 완료 후 멈춤)")
 
     def run_gen() -> None:
         if busy["v"]:
@@ -398,12 +587,16 @@ def main(*, container: tk.Misc | None = None) -> None:
         total_lines = len(entries)
 
         busy["v"] = True
+        gen_cancel.clear()
         btn_run.state(["disabled"])
         btn_merge.state(["disabled"])
+        btn_stop.state(["!disabled"])
         status.set(f"처리 중… (0/{total_lines})")
         log.delete("1.0", tk.END)
 
         def work() -> None:
+            cancelled = False
+            completed_parts = 0
             try:
                 output_dir = _output_dir()
                 output_dir.mkdir(parents=True, exist_ok=True)
@@ -414,11 +607,11 @@ def main(*, container: tk.Misc | None = None) -> None:
                 done = 0
 
                 for pid, group_entries in groups.items():
-                    part_lbl = _part_label(pid, pad)
-                    part_mp3 = output_dir / f"{part_lbl}.mp3"
-                    part_srt = part_mp3.with_suffix(".srt")
-                    part_json = part_mp3.with_suffix(".json")
+                    if gen_cancel.is_set():
+                        cancelled = True
+                        break
 
+                    part_lbl = _part_label(pid, pad)
                     part_seg_paths: list[Path] = []
                     part_seg_blobs: list[bytes] = []
                     seg_durs_ms: list[int] = []
@@ -426,6 +619,10 @@ def main(*, container: tk.Misc | None = None) -> None:
 
                     synth_groups = group_entries_for_synthesis(group_entries)
                     for gidx, grp in enumerate(synth_groups, start=1):
+                        if gen_cancel.is_set():
+                            cancelled = True
+                            break
+
                         merged_tts = merge_group_tts(grp)
                         pre_pause_ms = leading_pause_ms(merged_tts)
                         api_tts = (
@@ -460,84 +657,62 @@ def main(*, container: tk.Misc | None = None) -> None:
                             seg_durs_ms.append(dms)
                             line_segment_mp3.append(seg_path)
 
-                    part_merge_note = ""
-                    try:
-                        concat_mp3_files_ffmpeg(part_seg_paths, part_mp3)
-                        part_merge_note = "ffmpeg-reencode"
-                    except Exception as ff_err:
-                        concat_mp3_files(part_seg_blobs, str(part_mp3))
-                        part_merge_note = f"binary-fallback ({ff_err})"
-
-                    try:
-                        merged_ms = int(round(ffprobe_duration_sec(part_mp3) * 1000))
-                    except Exception:
-                        merged_ms = sum(seg_durs_ms)
-                    ssum = sum(seg_durs_ms)
-                    if merged_ms > 0 and ssum > 0 and merged_ms != ssum:
-                        scaled = [max(1, int(round(d * merged_ms / ssum))) for d in seg_durs_ms]
-                        drift = merged_ms - sum(scaled)
-                        scaled[-1] = max(1, scaled[-1] + drift)
-                        seg_durs_ms = scaled
-
-                    part_cur_ms = 0
-                    part_seg_json: list[dict] = []
-                    for i, (e, dur) in enumerate(zip(group_entries, seg_durs_ms), start=1):
-                        part_seg_json.append(
-                            {
-                                "index": i,
-                                "caption_id": e.caption_id,
-                                "original": e.original,
-                                "tts": e.tts,
-                                "segment_mp3": line_segment_mp3[i - 1],
-                                "duration_ms_estimate": dur,
-                                "start_ms_estimate": part_cur_ms,
-                                "end_ms_estimate": part_cur_ms + dur,
-                            }
+                    n_done = len(seg_durs_ms)
+                    if n_done > 0:
+                        _finalize_part(
+                            part_lbl=part_lbl,
+                            part_entries=group_entries[:n_done],
+                            part_seg_paths=part_seg_paths,
+                            part_seg_blobs=part_seg_blobs,
+                            seg_durs_ms=seg_durs_ms,
+                            line_segment_mp3=line_segment_mp3,
+                            model=model,
+                            output_dir=output_dir,
                         )
-                        part_cur_ms += dur
+                        completed_parts += 1
 
-                    part_srt_body, _, _ = build_srt_from_durations(
-                        [(e.original, d) for e, d in zip(group_entries, seg_durs_ms)]
-                    )
-                    part_srt.write_text(part_srt_body, encoding="utf-8")
+                    if cancelled:
+                        break
 
-                    part_doc = {
-                        "part_id": pid,
-                        "part_mp3": str(part_mp3.resolve()),
-                        "part_srt": str(part_srt.resolve()),
-                        "model_id": model,
-                        "merge_method": part_merge_note,
-                        "segment_count": len(part_seg_paths),
-                        "duration_ms_estimate": part_cur_ms,
-                        "segments": part_seg_json,
-                    }
-                    part_json.write_text(
-                        json.dumps(part_doc, ensure_ascii=False, indent=2),
-                        encoding="utf-8",
-                    )
+                if cancelled:
 
-                    def log_part(p: str = part_lbl, m: str = part_merge_note) -> None:
-                        log_line(f"[{p}] mp3/srt/json 생성 완료 (mp3 병합: {m})")
+                    def stopped() -> None:
+                        status.set(
+                            f"중지됨 — {done}/{total_lines}줄, {completed_parts}개 파트 저장"
+                        )
+                        log_line("")
+                        log_line(f"출력 폴더: {output_dir}")
+                        log_line("중지 시점까지 완료된 파트·세그먼트만 저장되었습니다.")
+                        safe_messagebox(
+                            root,
+                            "showinfo",
+                            "중지",
+                            f"음성 합성을 중지했습니다.\n\n"
+                            f"처리 줄: {done}/{total_lines}\n"
+                            f"저장 파트: {completed_parts}개\n"
+                            f"출력 폴더: {output_dir}",
+                        )
 
-                    safe_after(root, log_part)
+                    safe_after(root, stopped)
+                else:
 
-                def ok() -> None:
-                    status.set("완료")
-                    log_line("")
-                    log_line(f"출력 폴더: {output_dir}")
-                    log_line(f"세그먼트 폴더: {seg_root}")
-                    log_line("통합 all.* 은 「병합 파일 생성」 버튼으로 만드세요.")
-                    safe_messagebox(
-                        root,
-                        "showinfo",
-                        "완료",
-                        f"파트 수: {len(groups)}\n"
-                        f"출력 폴더: {output_dir}\n\n"
-                        "통합 all.{mp3,srt,json} 은 「병합 파일 생성」으로 수동 생성할 수 있습니다.\n"
-                        "자막 시간은 각 세그먼트 MP3(ffprobe) 길이에 맞춥니다. ffprobe 없으면 글자 수 추정으로 대체됩니다.",
-                    )
+                    def ok() -> None:
+                        status.set("완료")
+                        log_line("")
+                        log_line(f"출력 폴더: {output_dir}")
+                        log_line(f"세그먼트 폴더: {seg_root}")
+                        log_line("통합 all.* 은 「병합 파일 생성」 버튼으로 만드세요.")
+                        safe_messagebox(
+                            root,
+                            "showinfo",
+                            "완료",
+                            f"파트 수: {len(groups)}\n"
+                            f"출력 폴더: {output_dir}\n\n"
+                            "통합 all.{mp3,srt,json} 은 「병합 파일 생성」으로 수동 생성할 수 있습니다.\n"
+                            "자막 시간은 각 세그먼트 MP3(ffprobe) 길이에 맞춥니다. ffprobe 없으면 글자 수 추정으로 대체됩니다.",
+                        )
 
-                safe_after(root, ok)
+                    safe_after(root, ok)
             except Exception:
                 err = traceback.format_exc()
 
@@ -558,6 +733,7 @@ def main(*, container: tk.Misc | None = None) -> None:
                     busy["v"] = False
                     btn_run.state(["!disabled"])
                     btn_merge.state(["!disabled"])
+                    btn_stop.state(["disabled"])
 
                 safe_after(root, fin)
 
@@ -656,26 +832,32 @@ def main(*, container: tk.Misc | None = None) -> None:
         threading.Thread(target=work, daemon=True).start()
 
     btn_row = ttk.Frame(frm)
-    btn_row.grid(row=8, column=0, sticky="w", pady=(0, 4))
+    btn_row.grid(row=next_row + 4, column=0, sticky="w", pady=(0, 4))
     btn_run = ttk.Button(
         btn_row,
         text="파트별 MP3·SRT·JSON 생성 (TTS 합성)",
         command=run_gen,
     )
     btn_run.grid(row=0, column=0, sticky="w", padx=(0, 8))
+    btn_stop = ttk.Button(btn_row, text="중지", command=stop_gen, state=tk.DISABLED)
+    btn_stop.grid(row=0, column=1, sticky="w", padx=(0, 8))
     btn_merge = ttk.Button(
         btn_row,
         text="병합 파일 생성 (all.mp3 / all.srt / all.json)",
         command=run_merge_all,
     )
-    btn_merge.grid(row=0, column=1, sticky="w")
-    ttk.Label(frm, textvariable=status).grid(row=9, column=0, sticky="w")
+    btn_merge.grid(row=0, column=2, sticky="w")
+    ttk.Label(frm, textvariable=status).grid(row=next_row + 5, column=0, sticky="w")
 
+    hint = (
+        f"{config_file_path().name} 은 Git·공유에 넣지 마세요. "
+        "작업 폴더는 wisdom/config/wisdom_workspace.json 에 저장됩니다."
+    )
     ttk.Label(
         frm,
-        text="elsub_config.json 은 Git·공유에 넣지 마세요. 작업 폴더는 wisdom/config/wisdom_workspace.json 에 저장됩니다.",
+        text=hint,
         foreground="gray",
-    ).grid(row=10, column=0, sticky="w", pady=(10, 0))
+    ).grid(row=next_row + 6, column=0, sticky="w", pady=(10, 0))
 
     if not standalone:
         bind_hub_destroy(root, lambda: None)
