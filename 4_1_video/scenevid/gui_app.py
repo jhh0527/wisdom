@@ -134,7 +134,7 @@ def main(*, container: tk.Misc | None = None) -> None:
     images_var = tk.StringVar()
     out_var = tk.StringVar()
     outro_msg_var = tk.StringVar(value="")
-    no_sub_c = tk.BooleanVar(value=False)
+    add_sub_c = tk.BooleanVar(value=True)
     w_var = tk.StringVar(value="1920")
     h_var = tk.StringVar(value="1080")
     effects_file_var = tk.StringVar()
@@ -272,6 +272,11 @@ def main(*, container: tk.Misc | None = None) -> None:
     _outro_fr.grid_columnconfigure(1, weight=1)
     ttk.Label(_outro_fr, text=_outro_hint, width=14).grid(row=0, column=0, sticky="w")
     ttk.Entry(_outro_fr, textvariable=outro_msg_var).grid(row=0, column=1, sticky="ew", padx=(4, 0))
+    r += 1
+
+    _sub_fr = ttk.Frame(tab_c)
+    _sub_fr.grid(row=r, column=0, columnspan=3, sticky="w", pady=(0, 4))
+    ttk.Checkbutton(_sub_fr, text="영상에 자막추가", variable=add_sub_c).pack(anchor="w")
     r += 1
 
     def apply_pipeline_defaults() -> None:
@@ -819,7 +824,7 @@ def main(*, container: tk.Misc | None = None) -> None:
                 images_dir=img_dir,
                 out_mp4=out_p,
                 settings=st,
-                burn_subtitles=not bool(no_sub_c.get()),
+                burn_subtitles=bool(add_sub_c.get()),
                 default_effect=normalize_effect(effect_var.get()),
                 effects_file=eff_path,
                 assets_root=ar_root,
@@ -837,7 +842,7 @@ def main(*, container: tk.Misc | None = None) -> None:
                 images_dir=img_dir,
                 out_mp4=out_p,
                 settings=st,
-                burn_subtitles=not bool(no_sub_c.get()),
+                burn_subtitles=bool(add_sub_c.get()),
                 default_effect=normalize_effect(effect_var.get()),
                 effects_file=eff_path,
                 assets_root=ar_root,
