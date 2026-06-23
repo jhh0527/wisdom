@@ -14,7 +14,12 @@ from prompt2image.browser_launch import GENSPARK_URL, open_genspark_in_chrome
 from prompt2image.clipboard_util import copy_to_clipboard
 from prompt2image.cue_match import ocr_matches_cue
 from prompt2image.download_watch import DownloadWatcher
-from prompt2image.guide_loader import load_image_guide
+from prompt2image.guide_loader import (
+    GUIDE_OPTIONS,
+    guide_file_for_label,
+    guide_label_for_file,
+    load_image_guide,
+)
 from prompt2image.image_ocr import ocr_comma_words
 from prompt2image.settings import (
     default_png_dir,
@@ -113,8 +118,16 @@ def main(*, container: tk.Misc | None = None) -> None:
     fam, sz = _default_font()
     root.option_add("*Font", (fam, sz))
 
+    saved_guide = cfg.get("image_guide", "")
+    default_guide_label = "증시·스톡브리핑 (실사)"
+    if saved_guide:
+        default_guide_label = guide_label_for_file(saved_guide)
+        if default_guide_label == saved_guide and saved_guide not in GUIDE_OPTIONS.values():
+            default_guide_label = list(GUIDE_OPTIONS.keys())[0]
+
     srt_var = tk.StringVar(value=str(srt_default))
     png_var = tk.StringVar(value=str(png_default))
+    guide_var = tk.StringVar(value=default_guide_label)
     prompt_sel_var = tk.StringVar(value=cfg.get("genspark_prompt_selector", ""))
     status_var = tk.StringVar(
         value="SRT·PNG 폴더를 선택하세요. 브라우저: 기본 Chrome 계정"
@@ -128,7 +141,7 @@ def main(*, container: tk.Misc | None = None) -> None:
     else:
         frm.pack(fill=tk.BOTH, expand=True)
     frm.grid_columnconfigure(0, weight=1)
-    frm.grid_rowconfigure(4, weight=1)
+    frm.grid_rowconfigure(5, weight=1)
 
     def _path_row(label: str, var: tk.StringVar, row: int, *, is_dir: bool) -> None:
         ttk.Label(frm, text=label).grid(row=row, column=0, sticky="w")
@@ -169,9 +182,27 @@ def main(*, container: tk.Misc | None = None) -> None:
     _path_row("SRT 대본", srt_var, 0, is_dir=False)
     _path_row("PNG 저장 폴더", png_var, 2, is_dir=True)
 
+    guide_row = ttk.Frame(frm)
+    guide_row.grid(row=4, column=0, sticky="ew", pady=(0, 4))
+    ttk.Label(guide_row, text="이미지 지침").pack(side=tk.LEFT, padx=(0, 6))
+    guide_combo = ttk.Combobox(
+        guide_row,
+        textvariable=guide_var,
+        values=list(GUIDE_OPTIONS.keys()),
+        state="readonly",
+        width=28,
+    )
+    guide_combo.pack(side=tk.LEFT)
+    ttk.Label(
+        guide_row,
+        text="증시·실사 채널은 「증시·스톡브리핑 (실사)」 선택",
+        font=("", 8),
+        foreground="#555",
+    ).pack(side=tk.LEFT, padx=(8, 0))
+
     nb = ttk.Notebook(frm)
     configure_notebook_tabs(frm)
-    nb.grid(row=4, column=0, sticky="nsew", pady=(4, 0))
+    nb.grid(row=5, column=0, sticky="nsew", pady=(4, 0))
     tab_genspark = ttk.Frame(nb, padding=6)
     tab_list = ttk.Frame(nb, padding=0)
     nb.add(tab_genspark, text="Genspark 입력")
@@ -367,11 +398,22 @@ def main(*, container: tk.Misc | None = None) -> None:
         txt.insert("1.0", content)
         txt.configure(state=tk.NORMAL)
 
+    def _current_guide_file() -> str:
+        label = guide_var.get().strip()
+        if label in GUIDE_OPTIONS:
+            return GUIDE_OPTIONS[label]
+        return guide_file_for_label(label) if label else "image.stockbrief.md.txt"
+
     def reload_guide_text() -> None:
-        guide = load_image_guide()
+        fname = _current_guide_file()
+        guide = load_image_guide(fname)
         if not guide.strip():
-            guide = "(md/image.md.txt 를 찾을 수 없습니다.)"
+            guide = f"(md/{fname} 를 찾을 수 없습니다.)"
         _set_text_widget(guide_txt, guide)
+        try:
+            guide_frm.configure(text=f"이미지 지침 (md/{fname})")
+        except tk.TclError:
+            pass
 
     def reload_srt_input_full() -> None:
         sp = srt_path()
@@ -397,9 +439,25 @@ def main(*, container: tk.Misc | None = None) -> None:
                 png_dir=png_var.get().strip(),
                 srt_file=srt_var.get().strip(),
                 genspark_prompt_selector=prompt_sel_var.get().strip(),
+                image_guide=_current_guide_file(),
             )
         except OSError:
             pass
+
+    def on_guide_changed(_event=None) -> None:
+        reload_guide_text()
+        try:
+            save_gui_settings(
+                png_dir=png_var.get().strip(),
+                srt_file=srt_var.get().strip(),
+                genspark_prompt_selector=prompt_sel_var.get().strip(),
+                image_guide=_current_guide_file(),
+            )
+        except OSError:
+            pass
+        status_var.set(f"지침 변경: md/{_current_guide_file()}")
+
+    guide_combo.bind("<<ComboboxSelected>>", on_guide_changed)
 
     def on_paths_changed() -> None:
         # PNG 저장 폴더는 항상 ".../png" 로 정규화 + 없으면 생성
@@ -414,6 +472,7 @@ def main(*, container: tk.Misc | None = None) -> None:
                 png_dir=png_var.get().strip(),
                 srt_file=srt_var.get().strip(),
                 genspark_prompt_selector=prompt_sel_var.get().strip(),
+                image_guide=_current_guide_file(),
             )
         except OSError:
             pass
@@ -639,7 +698,7 @@ def main(*, container: tk.Misc | None = None) -> None:
     gen_paned = ttk.Panedwindow(tab_genspark, orient=tk.VERTICAL)
     gen_paned.grid(row=3, column=0, sticky="nsew")
 
-    guide_frm = ttk.LabelFrame(gen_paned, text="이미지 지침 (md/image.md.txt)", padding=4)
+    guide_frm = ttk.LabelFrame(gen_paned, text="이미지 지침", padding=4)
     srt_in_frm = ttk.LabelFrame(
         gen_paned,
         text="SRT 대본 입력 (목록에서 행 선택 시 해당 대본만 표시)",
@@ -908,7 +967,7 @@ def main(*, container: tk.Misc | None = None) -> None:
 
     # 상태바 (메시지 + 진행바)
     status_frm = ttk.Frame(frm)
-    status_frm.grid(row=5, column=0, sticky="ew", pady=(6, 0))
+    status_frm.grid(row=6, column=0, sticky="ew", pady=(6, 0))
     status_frm.grid_columnconfigure(0, weight=1)
     ttk.Label(status_frm, textvariable=status_var).grid(row=0, column=0, sticky="w")
     progress = ttk.Progressbar(status_frm, mode="determinate", length=220)
@@ -921,6 +980,7 @@ def main(*, container: tk.Misc | None = None) -> None:
                 srt_file=srt_var.get().strip(),
                 preview_pane_width=max(280, paned.winfo_width() - paned.sashpos(0)),
                 genspark_prompt_selector=prompt_sel_var.get().strip(),
+                image_guide=_current_guide_file(),
             )
         except (OSError, tk.TclError):
             pass

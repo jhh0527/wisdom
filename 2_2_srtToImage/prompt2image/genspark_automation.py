@@ -15,8 +15,8 @@ from prompt2image.browser_launch import (
     GENSPARK_URL,
     ensure_chrome_cdp,
 )
+from prompt2image.public_figure_hint import build_public_figure_hint
 from prompt2image.srt_naming import format_srt_filename
-
 StatusCb = Callable[[str], None] | None
 
 
@@ -774,9 +774,26 @@ async def automate_genspark_download(
         dest.unlink()
 
     prompt_body = srt_text
+    figure_hint = build_public_figure_hint(srt_text)
     if guide:
+        parts = [f"[시스템 지침]\n{guide}"]
+        if figure_hint:
+            parts.append(figure_hint)
+        parts.append(
+            f"[이번에 생성할 SRT 대본]\n{srt_text}\n\n"
+            "위 대본에 맞는 이미지 1장을 생성하세요. "
+            f"파일명은 {format_srt_filename(target_number)} 를 참고하세요."
+        )
+        if figure_hint:
+            parts.append(
+                "★ §7-2 필수 실존 인물: 위 [필수 실존 인물]에 해당하면 "
+                "반드시 해당 공인의 뉴스 실사를 중심 피사체로 포함하세요. "
+                "건물·연단만으로 대체하지 마세요."
+            )
+        prompt_body = "\n\n".join(parts)
+    elif figure_hint:
         prompt_body = (
-            f"[시스템 지침]\n{guide}\n\n"
+            f"{figure_hint}\n\n"
             f"[이번에 생성할 SRT 대본]\n{srt_text}\n\n"
             "위 대본에 맞는 이미지 1장을 생성하세요. "
             f"파일명은 {format_srt_filename(target_number)} 를 참고하세요."

@@ -1,6 +1,6 @@
 {
-  "srt_file": "C:\\udoc\\뉴스\\mp3\\all.srt",
-  "png_dir": "C:\\udoc\\뉴스\\png",
+  "srt_file": "C:/udoc/뉴스/mp3/all.srt",
+  "png_dir": "C:/udoc/뉴스/png",
   "preview_pane_width": 520,
   "manual_overrides": {
     "C:\\util\\유튜브\\고갈된다는석유\\png\\SRT_097.png": {
@@ -3090,15 +3090,6 @@
       "status": "다운로드 복사: SRT_536.png",
       "match_reason": "—"
     },
-    "C:\\udoc\\뉴스\\png\\SRT_069.png": {
-      "srt_number": 69,
-      "target_name": "SRT_069.png",
-      "cue_text": "외국인이 1조 2,776억 순매수.",
-      "word_srt_number": 375,
-      "word_cue_text": "시장 규모가 연 4조 원이라는 추정도 있어요.",
-      "status": "즉시 저장 완료: SRT_069.png",
-      "match_reason": "흐름·234/337/628번, 투자자·333번, 매도·87번, 장기·582번, 개인·75번, 25·596번"
-    },
     "C:\\udoc\\뉴스\\png\\SRT_107.png": {
       "srt_number": 107,
       "target_name": "SRT_107.png",
@@ -3278,9 +3269,225 @@
       "word_cue_text": "\"트럼프 대통령이 미국 군함 10척",
       "status": "즉시 저장 완료: SRT_685.png",
       "match_reason": "15·489번, 결과·357/685번, 임상·355/663/685번, 한국·175/183/539/580/633번, 진짜·20/144/149/232/238/299번, 시장·20/105/215/375/575/604번, 중국·532/571번, 가지·24/480/610번, 미국·101/111/349/355/392/447번, CXMT·534/545/682번, 이벤트·388번, 25·596번, IN·285번"
+    },
+    "C:\\udoc\\장어가정력에정말좋을까\\png\\SRT_259.png": {
+      "srt_number": 259,
+      "target_name": "SRT_259.png",
+      "cue_text": "뮤신은 위 점막을 보호하고",
+      "word_srt_number": 259,
+      "word_cue_text": "뮤신은 위 점막을 보호하고",
+      "status": "즉시 저장 완료: SRT_259.png",
+      "match_reason": "하여·94번, 점막을·259번, 줍니다·471번, 점막·196/259번, 기능·184/196/201/231/247/484번, 건강한·687번"
+    },
+    "C:\\udoc\\장어가정력에정말좋을까\\png\\SRT_468.png": {
+      "srt_number": 468,
+      "target_name": "SRT_468.png",
+      "cue_text": "비타민, 미네랄을 골고루 공급해서",
+      "word_srt_number": 307,
+      "word_cue_text": "오히려 단백질과 비타민A 함량은",
+      "status": "즉시 저장 완료: SRT_468.png",
+      "match_reason": "단백질·130/261/307/466/521번, 영양소가·290/428번, 단백질이·130/521번, 건강한·687번, 지방이·132/544/557번, 비타민·189/194/196/250/307/408번, 기능을·600/639번, 위한·404번, 회복·87/471번, 우리·47/116/163/327/435번, 건강과·196/659번, 236·142번"
+    },
+    "C:\\udoc\\장어가정력에정말좋을까\\png\\SRT_627.png": {
+      "srt_number": 627,
+      "target_name": "SRT_627.png",
+      "cue_text": "따라서 진짜 정력에 좋은 것은",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_627.png",
+      "match_reason": "—"
+    },
+    "C:\\udoc\\장어가정력에정말좋을까\\png\\SRT_687.png": {
+      "srt_number": 687,
+      "target_name": "SRT_687.png",
+      "cue_text": "건강한 생활 습관을 유지하는 것입니다.",
+      "word_srt_number": 687,
+      "word_cue_text": "건강한 생활 습관을 유지하는 것입니다.",
+      "status": "즉시 저장 완료: SRT_687.png",
+      "match_reason": "건강·196/216/339/589/610/615번, 건강한·687번, 함께·7/536/580번"
+    },
+    "C:\\udoc\\장어가정력에정말좋을까\\png\\SRT_667.png": {
+      "srt_number": 667,
+      "target_name": "SRT_667.png",
+      "cue_text": "따라서 보양식으로서 장어는 분명히",
+      "word_srt_number": 307,
+      "word_cue_text": "오히려 단백질과 비타민A 함량은",
+      "status": "즉시 저장 완료: SRT_667.png",
+      "match_reason": "단백질·130/261/307/466/521번, 영양소·290/428/685번, 균형·428/610/621/634/664번, 잡힌·634번, 비타민·189/194/196/250/307/408번, 다양한·426/685번, 가능한·226번, 다른·349/670번, 습관·645/687번, 압도적·673번, 미네랄·242/468번, 오메가·206/211/389/659번, 아연·234/238/244/395/400/659번, 효과·27/153/499/591번"
+    },
+    "C:\\udoc\\장어가정력에정말좋을까\\png\\SRT_001.png": {
+      "srt_number": 1,
+      "target_name": "SRT_001.png",
+      "cue_text": "오늘 이 자리에서는 우리나라 사람이라면",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_001.png",
+      "match_reason": "—"
+    },
+    "C:\\udoc\\뉴스\\png\\SRT_001.png": {
+      "srt_number": 1,
+      "target_name": "SRT_001.png",
+      "cue_text": "안녕하세요, 2026년 6월 22일 기준 미국 증시 주요 이슈를 정리해드립니다.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_001.png",
+      "match_reason": "—"
+    },
+    "C:\\udoc\\뉴스\\png\\SRT_016.png": {
+      "srt_number": 16,
+      "target_name": "SRT_016.png",
+      "cue_text": "S&P 500은 7,472로 -0.37%,",
+      "word_srt_number": 16,
+      "word_cue_text": "S&P 500은 7,472로 -0.37%,",
+      "status": "즉시 저장 완료: SRT_016.png",
+      "match_reason": "500·16번, 472·16번, 17·42번, 12·45번, 21·221번, 75.·48번, 32·21번, 51·9번, 26·21번"
+    },
+    "C:\\udoc\\뉴스\\png\\SRT_061.png": {
+      "srt_number": 61,
+      "target_name": "SRT_061.png",
+      "cue_text": "파월 의장은 기자회견에서",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_061.png",
+      "match_reason": "—"
+    },
+    "C:\\udoc\\뉴스\\png\\SRT_036.png": {
+      "srt_number": 36,
+      "target_name": "SRT_036.png",
+      "cue_text": "즉 '섹터 로테이션' 흐름이 반영된 결과로 해석됩니다.",
+      "word_srt_number": 146,
+      "word_cue_text": "연초 대비 120% 넘는 수익률을 기록하며",
+      "status": "즉시 저장 완료: SRT_036.png",
+      "match_reason": "500·16번, 300·104번, 12.·45번, ai·26/78/82/87/100/118번, 13·157번"
+    },
+    "C:\\udoc\\뉴스\\png\\SRT_026.png": {
+      "srt_number": 26,
+      "target_name": "SRT_026.png",
+      "cue_text": "그간 시장을 견인해 온 빅테크와 AI 관련주가",
+      "word_srt_number": 112,
+      "word_cue_text": "기업가치 1조 7,700억 달러로 평가받은",
+      "status": "즉시 저장 완료: SRT_026.png",
+      "match_reason": "13·157번, 12·45번, 32·21번"
+    },
+    "C:\\udoc\\뉴스\\png\\SRT_068.png": {
+      "srt_number": 68,
+      "target_name": "SRT_068.png",
+      "cue_text": "시장은 함께 공개된 점도표(SEP)를 토대로",
+      "word_srt_number": 1,
+      "word_cue_text": "안녕하세요, 2026년 6월 22일 기준 미국 증시 주요 이슈를 정리해드립니다.",
+      "status": "즉시 저장 완료: SRT_068.png",
+      "match_reason": "PCE·171번, Fed·40번, 17·42번, 2026·1/94/143번, 51·9번, Sep·68번, 16·129번, 21·221번, 50·48번, 13·157번, 22·1/221번, 500·16번, ai·26/78/82/87/100/118번"
+    },
+    "C:\\udoc\\뉴스\\png\\SRT_085.png": {
+      "srt_number": 85,
+      "target_name": "SRT_085.png",
+      "cue_text": "스페이스X는 엔비디아가 투자한",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_085.png",
+      "match_reason": "Sep·68번"
+    },
+    "C:\\udoc\\뉴스\\png\\SRT_104.png": {
+      "srt_number": 104,
+      "target_name": "SRT_104.png",
+      "cue_text": "리플렉션은 즉시 엔비디아 GB300 칩에",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_104.png",
+      "match_reason": "—"
+    },
+    "C:\\udoc\\뉴스\\png\\SRT_129.png": {
+      "srt_number": 129,
+      "target_name": "SRT_129.png",
+      "cue_text": "16% 급락했으나,",
+      "word_srt_number": 9,
+      "word_cue_text": "다우지수는 51,712를 기록하며",
+      "status": "즉시 저장 완료: SRT_129.png",
+      "match_reason": "12·45번, ai·26/78/82/87/100/118번"
+    },
+    "C:\\udoc\\뉴스\\png\\SRT_115.png": {
+      "srt_number": 115,
+      "target_name": "SRT_115.png",
+      "cue_text": "사상 최대 규모 IPO 이후 체결한",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_115.png",
+      "match_reason": "IPO·115/130번, AI·26/78/82/87/100/118번, 75·48번"
+    },
+    "C:\\udoc\\뉴스\\png\\SRT_140.png": {
+      "srt_number": 140,
+      "target_name": "SRT_140.png",
+      "cue_text": "주가는 210달러 부근에서 거래되고 있습니다.",
+      "word_srt_number": 140,
+      "word_cue_text": "주가는 210달러 부근에서 거래되고 있습니다.",
+      "status": "즉시 저장 완료: SRT_140.png",
+      "match_reason": "12·45번, ai·26/78/82/87/100/118번, 210·140번, 32·21번, 51·9번, 120·146번, 500·16번, 50·48번"
+    },
+    "C:\\udoc\\뉴스\\png\\SRT_171.png": {
+      "srt_number": 171,
+      "target_name": "SRT_171.png",
+      "cue_text": "PCE(개인소비지출) 물가지수 발표가 예정되어 있습니다.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_171.png",
+      "match_reason": "—"
+    },
+    "C:\\udoc\\뉴스\\png\\SRT_193.png": {
+      "srt_number": 193,
+      "target_name": "SRT_193.png",
+      "cue_text": "둘째, 섹터별 흐름입니다.",
+      "word_srt_number": 112,
+      "word_cue_text": "기업가치 1조 7,700억 달러로 평가받은",
+      "status": "즉시 저장 완료: SRT_193.png",
+      "match_reason": "500·16번, 13·157번, 700·112번, 50·48번, 21·221번, 120·146번, 16·129번, 29·12번, 12·45번, 750·108번, 63·90번"
+    },
+    "C:\\udoc\\뉴스\\png\\SRT_205.png": {
+      "srt_number": 205,
+      "target_name": "SRT_205.png",
+      "cue_text": "관련 밸류체인(반도체, 전력설비, 유틸리티, REITs)에",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_205.png",
+      "match_reason": "—"
+    },
+    "C:\\udoc\\뉴스\\png\\SRT_211.png": {
+      "srt_number": 211,
+      "target_name": "SRT_211.png",
+      "cue_text": "반면 그동안 시장을 주도해 온 매그니피센트7 빅테크는",
+      "word_srt_number": 87,
+      "word_cue_text": "오픈소스 AI 스타트업 '리플렉션 AI(Reflection AI)'와",
+      "status": "즉시 저장 완료: SRT_211.png",
+      "match_reason": "—"
+    },
+    "C:\\udoc\\뉴스\\png\\SRT_224.png": {
+      "srt_number": 224,
+      "target_name": "SRT_224.png",
+      "cue_text": "미국-카타르-이란 3자 회담의",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_224.png",
+      "match_reason": "—"
+    },
+    "C:\\udoc\\뉴스\\png\\SRT_229.png": {
+      "srt_number": 229,
+      "target_name": "SRT_229.png",
+      "cue_text": "그리고 AI 자본지출(CapEx)의 수익성 검증 이슈가",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_229.png",
+      "match_reason": "—"
+    },
+    "C:\\udoc\\뉴스\\png\\SRT_153.png": {
+      "srt_number": 153,
+      "target_name": "SRT_153.png",
+      "cue_text": "AMD와 브로드컴, 그리고 인텔(프리마켓 +4%),",
+      "word_srt_number": 140,
+      "word_cue_text": "주가는 210달러 부근에서 거래되고 있습니다.",
+      "status": "즉시 저장 완료: SRT_153.png",
+      "match_reason": "16·129번, 21.·221번, 13·157번, 22·1/221번, 210·140번, 12·45번, 37·16번, 17·42번, 120·146번, AMD·153번, UMC·157번"
     }
   },
-  "preview_thumb_size": 500,
+  "preview_thumb_size": 440,
   "download_image_inputs": {
     "538": "C:/Users/nh2015005/Downloads/A_friendly_Asian_male_presenter_with_neat_short_st-1781572343290.png",
     "568": "Simple_cartoon_style_human_character_as_main_subje-1781574659145",

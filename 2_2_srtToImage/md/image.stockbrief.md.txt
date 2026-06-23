@@ -10,8 +10,9 @@ GPT Image 2 실사 사진 프롬프트 작성 지침 (SRT v2.1 - 증시채널·�
 목표: SRT 자막을 바탕으로 **실제 촬영한 것 같은 스톡 사진(photoreal)** 프롬프트를 작성한다.
       **매칭 문장(기사·뉴스 내용)과 1:1로 맞는** 실제 현장·사건·오브젝트를 촬영한다.
       거래소, 금융가, 트레이딩 데스크, 기업·공장, 모니터 차트 등 **실제 현장**을 사용한다.
-      **연준 의장·대통령·유명 경제·기업 인물 등 실존 인물은 반드시 실사 사진으로 포함**한다 (§7-2).
-      SRT에 **실명 또는 직함·역할**로 언급되면 해당 **실존 인물** 뉴스 실사를 생성한다 (건물·연단만으로 대체 금지).
+      **§7-2에 열거된 실존 인물(연준 의장·대통령·중앙은행 총재·CEO·유명 경제인 등)은
+      SRT에 실명·직함·역할로 언급되면 반드시 GPT Image 2로 실사 인물 이미지를 생성**한다.
+      프롬프트에 이름만 적고 **인물 없는 장면(건물·연단·로고만)** 을 만들지 않는다 (§7-2).
       **AI가 만든 가상 인물·합성 얼굴·무명 인물은 절대 금지** (§7-2·§7-3).
       **10초마다 1장** 생성하되, §3-3·§3-4 생략 조건에 해당하면 만들지 않는다.
 
@@ -74,6 +75,11 @@ SRT 항목 텍스트를 종결 부호(`. ? ! …`) 기준으로 문장 단위 �
 
 ※ **직전 생성 사진**과만 비교 (생략된 타임스탬프는 비교 대상 아님).
 
+【§7-2 필수 실존 인물 — 생략 예외 ★】
+매칭 문장에 §7-2 **필수 실존 인물**(실명·직함·역할·기관 수장)이 포함되면
+**§3-3 의미 중복과 관계없이 해당 인물이 보이는 실사 이미지를 생성**한다.
+직함만 있어도(예: "연준 의장", "Fed") **인물 얼굴·상반신이 보이는 이미지 1장 필수**.
+
 3-4. 단문·무의미 문장 생략
 매칭 문장이 **10글자 미만**(공백·구두점 제외) **그리고** 시각화할 내용 없음 → **생성 안 함**
 
@@ -118,7 +124,7 @@ SRT 항목 텍스트를 종결 부호(`. ? ! …`) 기준으로 문장 단위 �
 
 5-4. 증시 키워드 → 촬영 대상 (예)
   지수·등락 → 거래소 LED·차트·모니터 (§7-2 필수 인물·실명 없으면 사람 제외)
-  금리·정책 → §7-2 **필수 실존 인물**(연준 의장·Fed·중앙은행 총재 등) **반드시** 해당 인물 연단·기자회견 실사
+  금리·정책 → §7-2 **필수 실존 인물**(연준 의장·Fed·중앙은행 총재 등) **반드시** 해당 인물 **얼굴·상반신이 보이는** 기자회견·연단 실사 **이미지 생성** (연단·건물만 금지)
   환율·코인 → 외환 창구·코인 거래소 **현장** (실명·필수 인물 유형 없으면 사람 제외)
   섹터·기업 → §7-2 **필수 실존 인물**(CEO·기업인·유명 경제인) **반드시** 해당 인물 발표·현장 실사 / 해당 없으면 공장·본사 전경
   물가·CPI → 마트·가격표·상품 **현장** (실명 없으면 사람 제외)
@@ -138,15 +144,29 @@ DSLR quality, real-world financial setting,
 (§7-2 실존 인물 장면에만 추가: archival news photo, press conference photo,
 real named public figure — **not AI-generated face, not synthetic person**)
 
-프롬프트 끝에 반드시 포함:
+프롬프트 끝에 반드시 포함 (§7-2 **필수 실존 인물·실명** 장면):
 
 "Professional editorial stock photography for Korean finance YouTube,
 documentary news photo style matching the SRT news content,
 photorealistic high quality, cinematic natural lighting,
 real-world trading floor and financial district settings,
 16:9 aspect ratio, ultra high resolution photography,
-no AI-generated people, no synthetic faces, no fictional characters,
+archival news photo of the named real public figure from SRT as main subject,
+no anonymous people, no AI-generated fictional people, no synthetic faces,
 no speech bubbles, no watermarks, no logos"
+
+프롬프트 끝에 반드시 포함 (필수 인물·실명 **없는** 장면):
+
+"Professional editorial stock photography for Korean finance YouTube,
+documentary news photo style matching the SRT news content,
+photorealistic high quality, cinematic natural lighting,
+real-world trading floor and financial district settings,
+16:9 aspect ratio, ultra high resolution photography,
+no people, no human figures, no AI-generated people, no synthetic faces, no fictional characters,
+no speech bubbles, no watermarks, no logos"
+
+★ **필수 실존 인물·실명** 장면에서는 `no people`·`no human figures` 를 **절대 쓰지 않는다** —
+  대신 위 첫 번째 푸터(실명 공인 중심)를 사용한다.
 
 프롬프트 시작 예 (§7-2 필수 실존 인물·SRT 실명·직함 — **반드시** 인물 포함):
 Photorealistic editorial stock photo,
@@ -178,14 +198,16 @@ cinematic natural lighting, shallow depth of field,
 - 문장·구절·키워드 2개 이상 한글 금지
 - ★ **썸네일(SRT_9997~)만 예외** — §8-2 텍스트 규칙 적용 (채널명·일자·주요 뉴스 제목)
 
-7-2. ★ 실제 인물만 포함 · 필수 실존 인물 사진 (사람 관련 이미지) ★
+7-2. ★ 실제 인물만 포함 · 필수 실존 인물 **이미지 생성** (사람 관련 이미지) ★
 - **사람이 들어가는 이미지에는 SRT 맥락의 실제 존재하는 공인(실존 인물)만** 넣는다.
 - **AI가 생성한 가상 인물·합성 얼굴·무명 인물은 절대 포함하지 않는다.**
 - 실존 인물 장면: archival news photo / press conference photo — **기사·뉴스에 실제 보도된 장면**과 같은 톤.
+- ★ **필수 실존 인물 = 프롬프트 문장이 아니라 GPT Image 2 출력 이미지에 인물이 보여야 함** ★
 
-【★ 반드시 실존 인물 사진 포함 — 실명 또는 직함·역할 언급 시 (건물·연단만으로 대체 금지) ★】
+【★ 반드시 실존 인물 **이미지** 생성 — 실명 또는 직함·역할 언급 시 (건물·연단만으로 대체 금지) ★】
 SRT 매칭 문장·영상 맥락에 아래가 **실명 또는 직함·역할·기관 수장**으로 언급되면,
-**반드시** 해당 **실존 인물**의 뉴스 실사 사진을 1장 이상 생성한다.
+**반드시** 해당 **실존 인물**의 뉴스 실사 **이미지**를 1장 이상 생성한다.
+**인물 얼굴·상반신이 화면에 보이지 않으면 생성 실패**로 간주한다.
 
   · **연준·Fed·FOMC·연준 의장·연준 총재·파월** → Jerome Powell (SRT에 다른 실명 있으면 그 실명)
   · **미국 대통령·백악관·트럼프·바이든** → SRT·영상 맥락의 미국 대통령 실명
@@ -211,9 +233,10 @@ SRT 매칭 문장·영상 맥락에 아래가 **실명 또는 직함·역할·�
   · "사람들", "투자자들", "시장 참여자" 등 **무명·일반 인간** 표현
   · → 차트·LED·건물·거래소·제품·가격표 등 **오브젝트·환경만** 촬영
 
-【구도 — 실명 인물 있을 때만】
+【구도 — 필수 실존 인물·실명 있을 때】
   · 실명 인물 + **SRT 기사 내용**에 맞는 오브젝트(연단·차트·건물·행사명)를 **한 화면**에
   · 클로즈업 초상(인물 중심) / 미디엄 샷(인물+환경)
+  · **인물 얼굴·상반신이 반드시 보이도록** — 연단·건물만 있는 와이드샷 금지
 
 【금지 — 절대 위반 불가】
   · **AI·합성·가상 인물** — AI-generated person, synthetic face, fictional character,
@@ -263,14 +286,16 @@ no speech bubbles, no watermarks, no logos}
 예 (§7-2 필수 실존 인물·SRT 실명·직함 — 인물 **필수**):
 SRT_120.png {Photorealistic editorial stock photo,
 archival news photo of real named public figure Jerome Powell at Federal Reserve press conference podium,
-microphone and Fed seal visible, policy announcement scene matching SRT news content,
+microphone and Fed seal visible, Jerome Powell face and upper body clearly visible as main subject,
+policy announcement scene matching SRT news content,
 cinematic natural lighting, shallow depth of field,
 Professional editorial stock photography for Korean finance YouTube,
 documentary news photo style matching the SRT news content,
 photorealistic high quality, cinematic natural lighting,
 real-world trading floor and financial district settings,
 16:9 aspect ratio, ultra high resolution photography,
-no AI-generated people, no synthetic faces, no fictional characters,
+archival news photo of the named real public figure Jerome Powell as main subject,
+no anonymous people, no AI-generated fictional people, no synthetic faces,
 no speech bubbles, no watermarks, no logos}
 
 8-2. 썸네일 (요청 시만)
@@ -302,14 +327,31 @@ SRT 전체를 분석해 **주요 뉴스 1~2건**을 압축한 제목을 썸네�
 Korean channel name and date in small font above headline,
 large bold Korean headline summarizing main news in lower third"
 
-예:
+예 (헤드라인에 §7-2 필수 인물·연준 언급 — **인물 이미지 포함**):
 SRT_9997.png {Photorealistic editorial stock photo,
+archival news photo of Jerome Powell at Federal Reserve press conference, Powell face and upper body clearly visible,
+NASDAQ record high chart on monitor in background, cinematic natural lighting,
+bottom third dark gradient overlay with Korean text,
+Korean text "미국주식브리핑" in small white font top-left of text area,
+Korean text "2026.06.22" in small white font beside channel name,
+Korean text "연준 금리 동결·나스닥 신고가" in large bold white sans-serif in lower third,
+Professional editorial stock photography for Korean finance YouTube,
+documentary news photo style matching the SRT news content,
+photorealistic high quality, cinematic natural lighting,
+real-world trading floor and financial district settings,
+16:9 aspect ratio, ultra high resolution photography,
+archival news photo of named real public figure Jerome Powell as main subject,
+no anonymous people, no AI-generated fictional people, no synthetic faces,
+no speech bubbles, no watermarks, no logos}
+
+예 (헤드라인에 §7-2 필수 인물 없음 — 사람 제외):
+SRT_9998.png {Photorealistic editorial stock photo,
 glowing NASDAQ chart on monitor showing record high, NYSE trading floor screens in background,
 no people, no human figures, cinematic natural lighting,
 bottom third dark gradient overlay with Korean text,
 Korean text "미국주식브리핑" in small white font top-left of text area,
 Korean text "2026.06.22" in small white font beside channel name,
-Korean text "연준 금리 동결·나스닥 신고가" in large bold white sans-serif in lower third,
+Korean text "나스닥 신고가·외국인 순매수" in large bold white sans-serif in lower third,
 Professional editorial stock photography for Korean finance YouTube,
 documentary news photo style matching the SRT news content,
 photorealistic high quality, cinematic natural lighting,
@@ -338,8 +380,10 @@ no speech bubbles, no watermarks, no logos}
 □ §6 실사 스타일 · documentary news photo · photorealistic 키워드 포함
 □ 각 사진 = 매칭 SRT(기사) 내용만 · 기관·장소·티커·숫자·사건 반영 확인
 □ AI 가상 인물·합성 얼굴·무명 인물·가상 캐릭터 **0건** 확인
-□ §7-2 **필수 실존 인물**(연준 의장·대통령·유명 경제·기업 인물 등) **실명·직함** 언급 시 **뉴스 실사 인물 사진** 포함 · 건물만으로 대체 0건 확인
-□ SRT **실명** 인물 언급 시 **뉴스 실사** 인물 포함 확인
+□ §7-2 **필수 실존 인물**(연준 의장·대통령·유명 경제·기업 인물 등) **실명·직함** 언급 시 **인물 얼굴·상반신이 보이는 실사 이미지** 생성 · 건물·연단만으로 대체 0건 확인
+□ SRT **실명** 인물 언급 시 **뉴스 실사 인물 이미지** 포함 확인 (프롬프트에 이름만 있고 인물 없음 0건)
+□ §3-3 의미 중복이어도 §7-2 필수 인물 장면 **생략 0건** 확인
+□ 썸네일 헤드라인에 §7-2 인물·기관(연준·Fed·대통령 등) 있으면 **인물 이미지** 포함 확인
 □ 무명·일반 역할(트레이더·소비자 등)만 있는 장면에 사람 없음 확인
 □ 본문 한글 키워드 0~1개 (썸네일 §8-2 텍스트 제외)
 □ 썸네일: 채널명 `미국주식브리핑`·일자(작은 폰트)·주요 뉴스 제목(큰 폰트) 포함

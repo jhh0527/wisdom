@@ -44,7 +44,7 @@ def load_gui_settings() -> dict[str, str]:
     if not isinstance(data, dict):
         return {}
     out: dict[str, str] = {}
-    for key in ("png_dir", "srt_file", "genspark_prompt_selector"):
+    for key in ("png_dir", "srt_file", "genspark_prompt_selector", "image_guide"):
         v = data.get(key)
         if isinstance(v, str) and v.strip():
             out[key] = v.strip()
@@ -62,6 +62,7 @@ def save_gui_settings(
     srt_file: str | None = None,
     preview_pane_width: int | None = None,
     genspark_prompt_selector: str | None = None,
+    image_guide: str | None = None,
 ) -> None:
     p = config_path()
     p.parent.mkdir(parents=True, exist_ok=True)
@@ -92,4 +93,10 @@ def save_gui_settings(
             data["genspark_prompt_selector"] = sel
         else:
             data.pop("genspark_prompt_selector", None)
+    if image_guide is not None:
+        g = image_guide.strip()
+        if g:
+            data["image_guide"] = g
+        else:
+            data.pop("image_guide", None)
     p.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
