@@ -9,7 +9,7 @@ from pathlib import Path
 from typing import Callable
 
 import tkinter as tk
-from tkinter import messagebox, scrolledtext, ttk
+from tkinter import scrolledtext, ttk
 
 from wisdom_hub.pipeline import HUB_TABS
 from wisdom_root import module_dir
@@ -41,48 +41,20 @@ def load_tab_ui(module: str, container: tk.Misc) -> None:
         return
     _ensure_module_path(module)
     try:
-        if module == "1_1_textTo700Text":
-            import manuscript_700_splitter as m
-
-            m.run_gui(container=container)
-        elif module == "2_1_ttsToVoice":
-            from elsub.gui_app import main
-
-            main(container=container)
-        elif module == "2_2_srtToImage":
-            from prompt2image.gui_app import main
-
-            main(container=container)
-        elif module == "2_3_stt":
-            from stt.gui_app import main
-
-            main(container=container)
-        elif module == "3_1_pngFileName":
-            from png_rename.gui_app import main
+        if module == "2_5_sceneImage":
+            from scene_image.gui_app import main
 
             main(container=container)
         elif module == "3_2_pngToJpg":
             from png2jpg.gui_app import main
 
             main(container=container)
-        elif module == "4_1_video":
-            from scenevid.gui_app import main
+        elif module == "7_3_mp4Search":
+            from mp4_search.gui_app import main
 
             main(container=container)
-        elif module == "4_2_ShortVideo":
-            from shortvid.gui_app import main
-
-            main(container=container)
-        elif module == "6_thumbnail":
-            from thumbnail_gui.app import main
-
-            main(container=container)
-        elif module == "7_utube":
-            from utube.gui_app import main
-
-            main(container=container)
-        elif module == "9_mdFile":
-            from md_file.gui_app import main
+        elif module == "7_4_mp4Merge":
+            from mp4_merge.gui_app import main
 
             main(container=container)
         else:

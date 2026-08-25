@@ -9,22 +9,17 @@ from pathlib import Path
 
 # wisdom 루트 판별용 (번호 체계 개편 후 폴더명)
 MARKER_DIRS = (
-    "2_1_ttsToVoice",
-    "4_1_video",
-    "2_2_srtToImage",
-    "1_1_textTo700Text",
+    "2_5_sceneImage",
+    "3_2_pngToJpg",
+    "7_3_mp4Search",
+    "7_4_mp4Merge",
 )
 
 # canonical → 예전 폴더명 (작업 폴더·저장 경로 호환)
 MODULE_LEGACY_ALIASES: dict[str, tuple[str, ...]] = {
-    "1_1_textTo700Text": ("1_textTo700Text",),
-    "1_2_textToTts": ("2_textToTts",),
-    "2_1_ttsToVoice": ("3_ttsToVoice",),
-    "2_2_srtToImage": ("4_srtToImage",),
-    "3_1_pngFileName": ("4_2pngFileName",),
+    "1_2_textToJson": ("1_2_textToTts", "2_textToTts"),
+    "2_2_scriptToVoice": ("2_1_ttsToVoice", "3_ttsToVoice"),
     "3_2_pngToJpg": ("4_1pngToJpg",),
-    "4_1_video": ("5_video",),
-    "4_2_ShortVideo": ("5_2_ShortVideo",),
 }
 
 _LEGACY_TO_CANONICAL: dict[str, str] = {
@@ -78,7 +73,6 @@ def looks_like_wisdom_root(p: Path) -> bool:
         "3_ttsToVoice",
         "5_video",
         "4_srtToImage",
-        "1_textTo700Text",
     )
     legacy_hits = sum(1 for name in legacy_markers if (r / name).is_dir())
     return legacy_hits >= 2

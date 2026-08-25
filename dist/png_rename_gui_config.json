@@ -1,6 +1,6 @@
 {
-  "srt_file": "C:/udoc/뉴스/mp3/all.srt",
-  "png_dir": "C:/udoc/뉴스/png",
+  "srt_file": "C:\\무협극장\\검신귀환록\\1부\\4장\\mp3\\all.srt",
+  "png_dir": "C:\\무협극장\\검신귀환록\\1부\\4장\\png",
   "preview_pane_width": 520,
   "manual_overrides": {
     "C:\\util\\유튜브\\고갈된다는석유\\png\\SRT_097.png": {
@@ -3485,13 +3485,949 @@
       "word_cue_text": "주가는 210달러 부근에서 거래되고 있습니다.",
       "status": "즉시 저장 완료: SRT_153.png",
       "match_reason": "16·129번, 21.·221번, 13·157번, 22·1/221번, 210·140번, 12·45번, 37·16번, 17·42번, 120·146번, AMD·153번, UMC·157번"
+    },
+    "C:\\원더\\png\\SRT_148.png": {
+      "srt_number": 148,
+      "target_name": "SRT_148.png",
+      "cue_text": "압도적 다수는 주식 투자자가 아니라",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_148.png",
+      "match_reason": "—"
+    },
+    "C:\\원더\\png\\SRT_167.png": {
+      "srt_number": 167,
+      "target_name": "SRT_167.png",
+      "cue_text": "여러분이 100만 원으로 시작한 사업이",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_167.png",
+      "match_reason": "—"
+    },
+    "C:\\원더\\png\\SRT_191.png": {
+      "srt_number": 191,
+      "target_name": "SRT_191.png",
+      "cue_text": "그보다 여러분이 통제할 수 있는",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_191.png",
+      "match_reason": "—"
+    },
+    "C:\\원더\\png\\SRT_234.png": {
+      "srt_number": 234,
+      "target_name": "SRT_234.png",
+      "cue_text": "복리 효과가 폭발합니다.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_234.png",
+      "match_reason": "AI·424/461/870번"
+    },
+    "C:\\원더\\png\\SRT_228.png": {
+      "srt_number": 228,
+      "target_name": "SRT_228.png",
+      "cue_text": "시드머니가 2억, 3억으로 늘어나고,",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_228.png",
+      "match_reason": "—"
+    },
+    "C:\\원더\\png\\SRT_397.png": {
+      "srt_number": 397,
+      "target_name": "SRT_397.png",
+      "cue_text": "네 번째, 시장의 큰 흐름을 이해합니다.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_397.png",
+      "match_reason": "—"
+    },
+    "C:\\원더\\png\\SRT_492.png": {
+      "srt_number": 492,
+      "target_name": "SRT_492.png",
+      "cue_text": "다섯 번째, 부동산은 여전히 강력한",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_492.png",
+      "match_reason": "—"
+    },
+    "C:\\원더\\png\\SRT_061.png": {
+      "srt_number": 61,
+      "target_name": "SRT_061.png",
+      "cue_text": "10배 수익률이거든요.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_061.png",
+      "match_reason": "—"
+    },
+    "C:\\원더\\png\\SRT_111.png": {
+      "srt_number": 111,
+      "target_name": "SRT_111.png",
+      "cue_text": "워런 버핏의 장기 평균과 맞먹거나",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_111.png",
+      "match_reason": "—"
+    },
+    "C:\\원더\\png\\SRT_511.png": {
+      "srt_number": 511,
+      "target_name": "SRT_511.png",
+      "cue_text": "첫째, 레버리지가 강력해요.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_511.png",
+      "match_reason": "ai·424/461/870번"
+    },
+    "C:\\원더\\png\\SRT_536.png": {
+      "srt_number": 536,
+      "target_name": "SRT_536.png",
+      "cue_text": "장기 보유가 자연스럽고,",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_536.png",
+      "match_reason": "—"
+    },
+    "C:\\원더\\png\\SRT_544.png": {
+      "srt_number": 544,
+      "target_name": "SRT_544.png",
+      "cue_text": "임대 소득으로 원금을 갚아나가면서",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_544.png",
+      "match_reason": "—"
+    },
+    "C:\\원더\\png\\SRT_575.png": {
+      "srt_number": 575,
+      "target_name": "SRT_575.png",
+      "cue_text": "여섯 번째, 세금과 비용을 진지하게 다룹니다.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_575.png",
+      "match_reason": "—"
+    },
+    "C:\\원더\\png\\SRT_955.png": {
+      "srt_number": 955,
+      "target_name": "SRT_955.png",
+      "cue_text": "\"고수익 보장\" \"월 10% 확정\" 같은 말을",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_955.png",
+      "match_reason": "—"
+    },
+    "C:\\원더\\png\\SRT_655.png": {
+      "srt_number": 655,
+      "target_name": "SRT_655.png",
+      "cue_text": "일곱 번째, 사이클을 활용하되",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_655.png",
+      "match_reason": "—"
+    },
+    "C:\\원더\\png\\SRT_611.png": {
+      "srt_number": 611,
+      "target_name": "SRT_611.png",
+      "cue_text": "부자들은 절세를 정말 진지하게 다뤄요.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_611.png",
+      "match_reason": "—"
+    },
+    "C:\\원더\\png\\SRT_647.png": {
+      "srt_number": 647,
+      "target_name": "SRT_647.png",
+      "cue_text": "인덱스 ETF를 선호하는 거예요.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_647.png",
+      "match_reason": "—"
+    },
+    "C:\\원더\\png\\SRT_318.png": {
+      "srt_number": 318,
+      "target_name": "SRT_318.png",
+      "cue_text": "균형.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_318.png",
+      "match_reason": "500·216번"
+    },
+    "C:\\원더\\png\\SRT_667.png": {
+      "srt_number": 667,
+      "target_name": "SRT_667.png",
+      "cue_text": "대부분의 사람들이 공포에 팔 때 사고,",
+      "word_srt_number": 667,
+      "word_cue_text": "대부분의 사람들이 공포에 팔 때 사고,",
+      "status": "즉시 저장 완료: SRT_667.png",
+      "match_reason": "공포에·667/678/703번, 대부분의·294/667/670/678/761번, 사람들·25/131/146/280/294/336번"
+    },
+    "C:\\원더\\png\\SRT_1041.png": {
+      "srt_number": 1041,
+      "target_name": "SRT_1041.png",
+      "cue_text": "적립식 매수를 기본으로 하고,",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_1041.png",
+      "match_reason": "—"
+    },
+    "C:\\원더\\png\\SRT_732.png": {
+      "srt_number": 732,
+      "target_name": "SRT_732.png",
+      "cue_text": "절대 하지 말아야 할 건 뉴스에",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_732.png",
+      "match_reason": "—"
+    },
+    "C:\\원더\\png\\SRT_747.png": {
+      "srt_number": 747,
+      "target_name": "SRT_747.png",
+      "cue_text": "여덟 번째, 심리와 인내가 진짜 실력입니다.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_747.png",
+      "match_reason": "—"
+    },
+    "C:\\원더\\png\\SRT_785.png": {
+      "srt_number": 785,
+      "target_name": "SRT_785.png",
+      "cue_text": "아마존 주식을 1997년 상장 때 사서",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_785.png",
+      "match_reason": "—"
+    },
+    "C:\\원더\\png\\SRT_810.png": {
+      "srt_number": 810,
+      "target_name": "SRT_810.png",
+      "cue_text": "\"이 자산은 5년 동안 팔지 않는다\" 같은",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_810.png",
+      "match_reason": "—"
+    },
+    "C:\\원더\\png\\SRT_825.png": {
+      "srt_number": 825,
+      "target_name": "SRT_825.png",
+      "cue_text": "아홉 번째, 자기 자신에게 투자합니다.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_825.png",
+      "match_reason": "—"
+    },
+    "C:\\원더\\png\\SRT_872.png": {
+      "srt_number": 872,
+      "target_name": "SRT_872.png",
+      "cue_text": "생산성을 몇 배로 늘려주는 도구들이",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_872.png",
+      "match_reason": "—"
+    },
+    "C:\\원더\\png\\SRT_902.png": {
+      "srt_number": 902,
+      "target_name": "SRT_902.png",
+      "cue_text": "절대 무너지지 않는 겁니다.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_902.png",
+      "match_reason": "—"
+    },
+    "C:\\원더\\png\\SRT_910.png": {
+      "srt_number": 910,
+      "target_name": "SRT_910.png",
+      "cue_text": "다시 원금으로 회복하려면 900% 수익이",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_910.png",
+      "match_reason": "—"
+    },
+    "C:\\원더\\png\\SRT_937.png": {
+      "srt_number": 937,
+      "target_name": "SRT_937.png",
+      "cue_text": "생활비 6개월치는 반드시 현금이나",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_937.png",
+      "match_reason": "—"
+    },
+    "C:\\원더\\png\\SRT_951.png": {
+      "srt_number": 951,
+      "target_name": "SRT_951.png",
+      "cue_text": "재앙의 지름길입니다.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_951.png",
+      "match_reason": "—"
+    },
+    "C:\\원더\\png\\SRT_971.png": {
+      "srt_number": 971,
+      "target_name": "SRT_971.png",
+      "cue_text": "있으면, 시간과 복리가 여러분 편입니다.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_971.png",
+      "match_reason": "—"
+    },
+    "C:\\원더\\png\\SRT_985.png": {
+      "srt_number": 985,
+      "target_name": "SRT_985.png",
+      "cue_text": "로드맵으로 정리해드릴게요.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_985.png",
+      "match_reason": "—"
+    },
+    "C:\\원더\\png\\SRT_975.png": {
+      "srt_number": 975,
+      "target_name": "SRT_975.png",
+      "cue_text": "조급함에 사로잡혀 큰 실수를 저지르는",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_975.png",
+      "match_reason": "—"
+    },
+    "C:\\원더\\png\\SRT_1173.png": {
+      "srt_number": 1173,
+      "target_name": "SRT_1173.png",
+      "cue_text": "알림 설정까지 해주시면 다음 영상도",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_1173.png",
+      "match_reason": "—"
+    },
+    "C:\\원더\\png\\SRT_854.png": {
+      "srt_number": 854,
+      "target_name": "SRT_854.png",
+      "cue_text": "투자는 여러분의 능력과 소득 창출력을",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_854.png",
+      "match_reason": "—"
+    },
+    "C:\\원더\\png\\SRT_1009.png": {
+      "srt_number": 1009,
+      "target_name": "SRT_1009.png",
+      "cue_text": "소득의 절반 이상을 자본화한다는 마음으로요.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_1009.png",
+      "match_reason": "—"
+    },
+    "C:\\원더\\png\\SRT_1016.png": {
+      "srt_number": 1016,
+      "target_name": "SRT_1016.png",
+      "cue_text": "연금저축, IRP, ISA 같은 계좌들이요.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_1016.png",
+      "match_reason": "—"
+    },
+    "C:\\원더\\png\\SRT_1166.png": {
+      "srt_number": 1166,
+      "target_name": "SRT_1166.png",
+      "cue_text": "좋은 힌트가 될 거예요.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_1166.png",
+      "match_reason": "—"
+    },
+    "C:\\원더\\png\\SRT_1023.png": {
+      "srt_number": 1023,
+      "target_name": "SRT_1023.png",
+      "cue_text": "나눠 관리하세요.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_1023.png",
+      "match_reason": "—"
+    },
+    "C:\\원더\\png\\SRT_1027.png": {
+      "srt_number": 1027,
+      "target_name": "SRT_1027.png",
+      "cue_text": "우량 자산으로 안정적으로 굴리고,",
+      "word_srt_number": 374,
+      "word_cue_text": "초반에는 세계 시장 인덱스 펀드 같은",
+      "status": "즉시 저장 완료: SRT_1027.png",
+      "match_reason": "시장·72/160/161/362/374/380번, 세계·117/374/1025번, 인덱스·374/647/1025번, 안정적으로·1027번"
+    },
+    "C:\\원더\\png\\SRT_1185.png": {
+      "srt_number": 1185,
+      "target_name": "SRT_1185.png",
+      "cue_text": "다음 영상에서 만나요.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_1185.png",
+      "match_reason": "—"
+    },
+    "C:\\원더\\png\\SRT_658.png": {
+      "srt_number": 658,
+      "target_name": "SRT_658.png",
+      "cue_text": "타이밍 게임은 하지 않습니다.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_658.png",
+      "match_reason": "—"
+    },
+    "C:\\원더\\png\\SRT_1050.png": {
+      "srt_number": 1050,
+      "target_name": "SRT_1050.png",
+      "cue_text": "지역 분석과 세금 구조를 깊이 공부하고",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_1050.png",
+      "match_reason": "—"
+    },
+    "C:\\원더\\png\\SRT_1071.png": {
+      "srt_number": 1071,
+      "target_name": "SRT_1071.png",
+      "cue_text": "자산가들은 예외 없이 지독한 공부벌레들입니다.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_1071.png",
+      "match_reason": "—"
+    },
+    "C:\\원더\\png\\SRT_1058.png": {
+      "srt_number": 1058,
+      "target_name": "SRT_1058.png",
+      "cue_text": "최소 1년 이상 관심 지역을 관찰한 뒤에",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_1058.png",
+      "match_reason": "—"
+    },
+    "C:\\원더\\png\\SRT_1077.png": {
+      "srt_number": 1077,
+      "target_name": "SRT_1077.png",
+      "cue_text": "여러분, 오늘 이야기 들으시면서",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_1077.png",
+      "match_reason": "—"
+    },
+    "C:\\원더\\png\\SRT_209.png": {
+      "srt_number": 209,
+      "target_name": "SRT_209.png",
+      "cue_text": "여러분이 직접 시간을 투입해서",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "다운로드 복사: SRT_209.png",
+      "match_reason": "—"
+    },
+    "C:\\원더\\png\\SRT_256.png": {
+      "srt_number": 256,
+      "target_name": "SRT_256.png",
+      "cue_text": "1억을 연 20% 수익률로 굴리면",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_256.png",
+      "match_reason": "—"
+    },
+    "C:\\원더\\png\\SRT_324.png": {
+      "srt_number": 324,
+      "target_name": "SRT_324.png",
+      "cue_text": "있어요.",
+      "word_srt_number": 325,
+      "word_cue_text": "\"분산 투자는 무지에 대한 방어책이다.",
+      "status": "즉시 저장 완료: SRT_324.png",
+      "match_reason": "70·277번"
+    },
+    "C:\\원더\\png\\SRT_384.png": {
+      "srt_number": 384,
+      "target_name": "SRT_384.png",
+      "cue_text": "생기면 그쪽으로 자산의 20에서 30%를",
+      "word_srt_number": 388,
+      "word_cue_text": "집중 배분하는 하이브리드 전략이 현실적입니다.",
+      "status": "다운로드 복사: SRT_384.png",
+      "match_reason": "ETF·647/1025번, 70·277번, 하이브리드·388번, 전략·1/388/627/1102/1155번"
+    },
+    "C:\\원더\\png\\SRT_461.png": {
+      "srt_number": 461,
+      "target_name": "SRT_461.png",
+      "cue_text": "주목하는 흐름은 AI와 그 인프라,",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "다운로드 복사: SRT_461.png",
+      "match_reason": "—"
+    },
+    "C:\\원더\\png\\SRT_550.png": {
+      "srt_number": 550,
+      "target_name": "SRT_550.png",
+      "cue_text": "물론 부동산도 리스크가 있어요.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "다운로드 복사: SRT_550.png",
+      "match_reason": "—"
+    },
+    "C:\\원더\\png\\SRT_600.png": {
+      "srt_number": 600,
+      "target_name": "SRT_600.png",
+      "cue_text": "절세를 잘 활용해서 세금이 1천만 원만",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "다운로드 복사: SRT_600.png",
+      "match_reason": "—"
+    },
+    "C:\\원더\\png\\SRT_718.png": {
+      "srt_number": 718,
+      "target_name": "SRT_718.png",
+      "cue_text": "이른바 적립식 투자입니다.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_718.png",
+      "match_reason": "—"
+    },
+    "C:\\원더\\png\\SRT_696.png": {
+      "srt_number": 696,
+      "target_name": "SRT_696.png",
+      "cue_text": "이건 \"최저점을 정확히 맞춰라\"는",
+      "word_srt_number": 696,
+      "word_cue_text": "이건 \"최저점을 정확히 맞춰라\"는",
+      "status": "즉시 저장 완료: SRT_696.png",
+      "match_reason": "최저점·696번, 타이밍·658/1035번"
+    },
+    "C:\\원더\\png\\SRT_1100.png": {
+      "srt_number": 1100,
+      "target_name": "SRT_1100.png",
+      "cue_text": "50대에 시작해도 늦지 않아요.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_1100.png",
+      "match_reason": "—"
+    },
+    "C:\\무협극장\\검신귀환록\\1부\\4장\\png\\SRT_079.png": {
+      "srt_number": 79,
+      "target_name": "SRT_079.png",
+      "cue_text": "오성 시험을 의심스럽게",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_079.png",
+      "match_reason": "—"
+    },
+    "C:\\무협극장\\검신귀환록\\1부\\4장\\png\\SRT_121.png": {
+      "srt_number": 121,
+      "target_name": "SRT_121.png",
+      "cue_text": "진무한은 눈을 내리깔았다.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_121.png",
+      "match_reason": "—"
+    },
+    "C:\\무협극장\\검신귀환록\\1부\\4장\\png\\SRT_136.png": {
+      "srt_number": 136,
+      "target_name": "SRT_136.png",
+      "cue_text": "무(武)의 길엔 위아래가 없다.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_136.png",
+      "match_reason": "—"
+    },
+    "C:\\무협극장\\검신귀환록\\1부\\4장\\png\\SRT_154.png": {
+      "srt_number": 154,
+      "target_name": "SRT_154.png",
+      "cue_text": "정통은 매일 새벽 검당에서",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_154.png",
+      "match_reason": "—"
+    },
+    "C:\\무협극장\\검신귀환록\\1부\\4장\\png\\SRT_201.png": {
+      "srt_number": 201,
+      "target_name": "SRT_201.png",
+      "cue_text": "시골 출신 두어 명.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_201.png",
+      "match_reason": "—"
+    },
+    "C:\\무협극장\\검신귀환록\\1부\\4장\\png\\SRT_221.png": {
+      "srt_number": 221,
+      "target_name": "SRT_221.png",
+      "cue_text": "그는 소리 없이 방을 빠져나왔다.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_221.png",
+      "match_reason": "—"
+    },
+    "C:\\무협극장\\검신귀환록\\1부\\4장\\png\\SRT_241.png": {
+      "srt_number": 241,
+      "target_name": "SRT_241.png",
+      "cue_text": "'후원 뒷산. 서쪽 봉우리의 뒤편.'",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_241.png",
+      "match_reason": "—"
+    },
+    "C:\\무협극장\\검신귀환록\\1부\\4장\\png\\SRT_261.png": {
+      "srt_number": 261,
+      "target_name": "SRT_261.png",
+      "cue_text": "자신의 검로(劍路)를 완성했다.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_261.png",
+      "match_reason": "—"
+    },
+    "C:\\무협극장\\검신귀환록\\1부\\4장\\png\\SRT_279.png": {
+      "srt_number": 279,
+      "target_name": "SRT_279.png",
+      "cue_text": "저 검총에 들어간다.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_279.png",
+      "match_reason": "—"
+    },
+    "C:\\무협극장\\검신귀환록\\1부\\4장\\png\\SRT_298.png": {
+      "srt_number": 298,
+      "target_name": "SRT_298.png",
+      "cue_text": "한 생의 검로가 남긴 몸놀림은 남아 있었다.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_298.png",
+      "match_reason": "—"
+    },
+    "C:\\무협극장\\검신귀환록\\1부\\4장\\png\\SRT_359.png": {
+      "srt_number": 359,
+      "target_name": "SRT_359.png",
+      "cue_text": "내공이, 지금은 좁쌀 다섯 톨쯤 되어 있었다.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_359.png",
+      "match_reason": "—"
+    },
+    "C:\\무협극장\\검신귀환록\\1부\\4장\\png\\SRT_379.png": {
+      "srt_number": 379,
+      "target_name": "SRT_379.png",
+      "cue_text": "몸이 땅에 닿기 전에 열 번은",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_379.png",
+      "match_reason": "—"
+    },
+    "C:\\무협극장\\검신귀환록\\1부\\4장\\png\\SRT_418.png": {
+      "srt_number": 418,
+      "target_name": "SRT_418.png",
+      "cue_text": "죽을지도 모르는 자리에 서서 웃는 웃음.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_418.png",
+      "match_reason": "—"
+    },
+    "C:\\무협극장\\검신귀환록\\1부\\4장\\png\\SRT_439.png": {
+      "srt_number": 439,
+      "target_name": "SRT_439.png",
+      "cue_text": "발에 걸리는 틈새가 넉넉했다.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_439.png",
+      "match_reason": "—"
+    },
+    "C:\\무협극장\\검신귀환록\\1부\\4장\\png\\SRT_459.png": {
+      "srt_number": 459,
+      "target_name": "SRT_459.png",
+      "cue_text": "왼손도 두 발도 허공에서 흔들렸다.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_459.png",
+      "match_reason": "—"
+    },
+    "C:\\무협극장\\검신귀환록\\1부\\4장\\png\\SRT_482.png": {
+      "srt_number": 482,
+      "target_name": "SRT_482.png",
+      "cue_text": "손가락 마디가 뜨거워졌다.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_482.png",
+      "match_reason": "—"
+    },
+    "C:\\무협극장\\검신귀환록\\1부\\4장\\png\\SRT_522.png": {
+      "srt_number": 522,
+      "target_name": "SRT_522.png",
+      "cue_text": "그러나 진무한은 이 자리에서 무언가를 보았다.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_522.png",
+      "match_reason": "—"
+    },
+    "C:\\무협극장\\검신귀환록\\1부\\4장\\png\\SRT_533.png": {
+      "srt_number": 533,
+      "target_name": "SRT_533.png",
+      "cue_text": "들어갈 만한 그 틈.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_533.png",
+      "match_reason": "—"
+    },
+    "C:\\무협극장\\검신귀환록\\1부\\4장\\png\\SRT_538.png": {
+      "srt_number": 538,
+      "target_name": "SRT_538.png",
+      "cue_text": "'……여기다.' 검총이었다.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_538.png",
+      "match_reason": "—"
+    },
+    "C:\\무협극장\\검신귀환록\\1부\\4장\\png\\SRT_550.png": {
+      "srt_number": 550,
+      "target_name": "SRT_550.png",
+      "cue_text": "자연적인 동굴이 아니라,",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_550.png",
+      "match_reason": "—"
+    },
+    "C:\\무협극장\\검신귀환록\\1부\\4장\\png\\SRT_557.png": {
+      "srt_number": 557,
+      "target_name": "SRT_557.png",
+      "cue_text": "꽂혀 있었다.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_557.png",
+      "match_reason": "—"
+    },
+    "C:\\무협극장\\검신귀환록\\1부\\4장\\png\\SRT_573.png": {
+      "srt_number": 573,
+      "target_name": "SRT_573.png",
+      "cue_text": "마지막으로 사용했다는 검.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_573.png",
+      "match_reason": "—"
+    },
+    "C:\\무협극장\\검신귀환록\\1부\\4장\\png\\SRT_586.png": {
+      "srt_number": 586,
+      "target_name": "SRT_586.png",
+      "cue_text": "'백 년 만에 다시 뵙습니다, 어르신.'",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_586.png",
+      "match_reason": "—"
+    },
+    "C:\\무협극장\\검신귀환록\\1부\\4장\\png\\SRT_601.png": {
+      "srt_number": 601,
+      "target_name": "SRT_601.png",
+      "cue_text": "답을 알지 못한다.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_601.png",
+      "match_reason": "—"
+    },
+    "C:\\무협극장\\검신귀환록\\1부\\4장\\png\\SRT_628.png": {
+      "srt_number": 628,
+      "target_name": "SRT_628.png",
+      "cue_text": "자란 두 개의 가지이다.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_628.png",
+      "match_reason": "—"
+    },
+    "C:\\무협극장\\검신귀환록\\1부\\4장\\png\\SRT_648.png": {
+      "srt_number": 648,
+      "target_name": "SRT_648.png",
+      "cue_text": "그는 소검의 손잡이에 손을 얹었다.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_648.png",
+      "match_reason": "—"
+    },
+    "C:\\무협극장\\검신귀환록\\1부\\4장\\png\\SRT_663.png": {
+      "srt_number": 663,
+      "target_name": "SRT_663.png",
+      "cue_text": "[감응 결과 — 검신혼(劍神魂)의",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_663.png",
+      "match_reason": "—"
+    },
+    "C:\\무협극장\\검신귀환록\\1부\\4장\\png\\SRT_687.png": {
+      "srt_number": 687,
+      "target_name": "SRT_687.png",
+      "cue_text": "\"…… 왔는가.\" 늙은 목소리였다.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_687.png",
+      "match_reason": "—"
+    },
+    "C:\\무협극장\\검신귀환록\\1부\\4장\\png\\SRT_712.png": {
+      "srt_number": 712,
+      "target_name": "SRT_712.png",
+      "cue_text": "\"내 마지막 검의(劍意)를 남기네.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_712.png",
+      "match_reason": "—"
+    },
+    "C:\\무협극장\\검신귀환록\\1부\\4장\\png\\SRT_721.png": {
+      "srt_number": 721,
+      "target_name": "SRT_721.png",
+      "cue_text": "이 검은 오직 하나만을 위해 존재하네.\"",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_721.png",
+      "match_reason": "—"
+    },
+    "C:\\무협극장\\검신귀환록\\1부\\4장\\png\\SRT_767.png": {
+      "srt_number": 767,
+      "target_name": "SRT_767.png",
+      "cue_text": "진무한은 검을 뽑았다.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_767.png",
+      "match_reason": "—"
+    },
+    "C:\\무협극장\\검신귀환록\\1부\\4장\\png\\SRT_758.png": {
+      "srt_number": 758,
+      "target_name": "SRT_758.png",
+      "cue_text": "이미 누군가가 걷고 남긴 길이었다는",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_758.png",
+      "match_reason": "—"
+    },
+    "C:\\무협극장\\검신귀환록\\1부\\4장\\png\\SRT_776.png": {
+      "srt_number": 776,
+      "target_name": "SRT_776.png",
+      "cue_text": "조용히 뽑혀 나왔다.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_776.png",
+      "match_reason": "—"
+    },
+    "C:\\무협극장\\검신귀환록\\1부\\4장\\png\\SRT_787.png": {
+      "srt_number": 787,
+      "target_name": "SRT_787.png",
+      "cue_text": "그의 가슴 속으로 스며들었다.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_787.png",
+      "match_reason": "—"
+    },
+    "C:\\무협극장\\검신귀환록\\1부\\4장\\png\\SRT_792.png": {
+      "srt_number": 792,
+      "target_name": "SRT_792.png",
+      "cue_text": "좁쌀 다섯 톨의 내공이,",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_792.png",
+      "match_reason": "—"
+    },
+    "C:\\무협극장\\검신귀환록\\1부\\4장\\png\\SRT_810.png": {
+      "srt_number": 810,
+      "target_name": "SRT_810.png",
+      "cue_text": "[검성(劍聖)의 검의(劍意) —",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_810.png",
+      "match_reason": "—"
+    },
+    "C:\\무협극장\\검신귀환록\\1부\\4장\\png\\SRT_740.png": {
+      "srt_number": 740,
+      "target_name": "SRT_740.png",
+      "cue_text": "진무한은 오래도록 검 위에 손을 얹고 있었다.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_740.png",
+      "match_reason": "—"
+    },
+    "C:\\무협극장\\검신귀환록\\1부\\4장\\png\\SRT_817.png": {
+      "srt_number": 817,
+      "target_name": "SRT_817.png",
+      "cue_text": "[내공(內功) 증가 — 삼 년 치.]",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_817.png",
+      "match_reason": "—"
+    },
+    "C:\\무협극장\\검신귀환록\\1부\\4장\\png\\SRT_842.png": {
+      "srt_number": 842,
+      "target_name": "SRT_842.png",
+      "cue_text": "검성의 여기가 통째로 이식되었다.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_842.png",
+      "match_reason": "—"
+    },
+    "C:\\무협극장\\검신귀환록\\1부\\4장\\png\\SRT_867.png": {
+      "srt_number": 867,
+      "target_name": "SRT_867.png",
+      "cue_text": "한매심법 역류법(逆流法).",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_867.png",
+      "match_reason": "—"
+    },
+    "C:\\무협극장\\검신귀환록\\1부\\4장\\png\\SRT_889.png": {
+      "srt_number": 889,
+      "target_name": "SRT_889.png",
+      "cue_text": "진무한은 소검을 조심스럽게 등에 멨다.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_889.png",
+      "match_reason": "—"
+    },
+    "C:\\무협극장\\검신귀환록\\1부\\4장\\png\\SRT_915.png": {
+      "srt_number": 915,
+      "target_name": "SRT_915.png",
+      "cue_text": "하늘엔 이미 새벽별이 지고 있었다.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_915.png",
+      "match_reason": "—"
+    },
+    "C:\\무협극장\\검신귀환록\\1부\\4장\\png\\SRT_899.png": {
+      "srt_number": 899,
+      "target_name": "SRT_899.png",
+      "cue_text": "그는 다시 절벽을 올랐다.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_899.png",
+      "match_reason": "—"
+    },
+    "C:\\무협극장\\검신귀환록\\1부\\4장\\png\\SRT_932.png": {
+      "srt_number": 932,
+      "target_name": "SRT_932.png",
+      "cue_text": "그는 이불을 얼굴 위까지 끌어 올렸다.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_932.png",
+      "match_reason": "—"
+    },
+    "C:\\무협극장\\검신귀환록\\1부\\4장\\png\\SRT_924.png": {
+      "srt_number": 924,
+      "target_name": "SRT_924.png",
+      "cue_text": "진무한은 소검을 이불 밑에 감추고,",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_924.png",
+      "match_reason": "—"
+    },
+    "C:\\무협극장\\검신귀환록\\1부\\4장\\png\\SRT_955.png": {
+      "srt_number": 955,
+      "target_name": "SRT_955.png",
+      "cue_text": "다음 기연은 이 년 뒤.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_955.png",
+      "match_reason": "—"
+    },
+    "C:\\무협극장\\검신귀환록\\1부\\4장\\png\\SRT_1069.png": {
+      "srt_number": 1069,
+      "target_name": "SRT_1069.png",
+      "cue_text": "청허진인은 잠시 침묵했다.",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_1069.png",
+      "match_reason": "—"
+    },
+    "C:\\무협극장\\검신귀환록\\1부\\4장\\png\\SRT_1014.png": {
+      "srt_number": 1014,
+      "target_name": "SRT_1014.png",
+      "cue_text": "청허진인(淸虛眞人)이 홀로 자신의",
+      "word_srt_number": -1,
+      "word_cue_text": "",
+      "status": "즉시 저장 완료: SRT_1014.png",
+      "match_reason": "—"
     }
   },
   "preview_thumb_size": 440,
   "download_image_inputs": {
     "538": "C:/Users/nh2015005/Downloads/A_friendly_Asian_male_presenter_with_neat_short_st-1781572343290.png",
     "568": "Simple_cartoon_style_human_character_as_main_subje-1781574659145",
-    "600": "Simple_cartoon_style_human_character_as_main_subje-1781574681406",
+    "600": "Studio_Ghibli_anime_style_illustration_a_dramatic-1783670667512.png",
     "522": "Simple_cartoon_style_human_character_as_main_subje-1781574630389",
     "178": "Simple_cartoon_style_human_character_as_main_subje-1781686502956",
     "299": "Simple_cartoon_style_human_character_as_main_subje-1781687500826",
@@ -3508,7 +4444,11 @@
     "469": "Historic_1973_scientific_publication_in_Icarus_jou-1781941374863",
     "483": "Universal_genetic_code_visualization_showing_all_E-1781941414668",
     "499": "Molybdenum_element_mystery_visualization_showing_t-1781941450427",
-    "536": "1981_book_Life_Itself_by_Francis_Crick_presenting_-1781941473984"
+    "536": "1981_book_Life_Itself_by_Francis_Crick_presenting_-1781941473984",
+    "209": "Studio_Ghibli_anime_style_illustration_a_young_ha-1783669514309.png",
+    "384": "Studio_Ghibli_anime_style_illustration_a_hybrid_s-1783670205071.png",
+    "461": "Studio_Ghibli_anime_style_illustration_a_panorami-1783670475166.png",
+    "550": "Studio_Ghibli_anime_style_illustration_a_dramatic-1783670590838.png"
   },
-  "download_dir": "C:\\udoc\\뉴스"
+  "download_dir": "C:\\Users\\nh2015005\\Downloads"
 }

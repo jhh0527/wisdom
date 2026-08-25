@@ -66,11 +66,10 @@ def _discover_from_module_configs() -> Path | None:
     wisdom = resolve_wisdom_root()
     candidates: list[Path] = [
         wisdom / "3_2_pngToJpg" / "dist" / "png2jpg_gui_config.json",
-        wisdom / "2_1_ttsToVoice" / "dist" / "elsub_gui_config.json",
-        wisdom / "3_1_pngFileName" / "dist" / "png_rename_gui_config.json",
-        wisdom / "3_2_pngToJpg" / "dist" / "png2jpg_gui_config.json",
-        wisdom / "2_1_ttsToVoice" / "dist" / "elsub_gui_config.json",
-        wisdom / "3_1_pngFileName" / "dist" / "png_rename_gui_config.json",
+        wisdom / "2_2_scriptToVoice" / "dist" / "script_voice_gui_config.json",
+        wisdom / "2_5_sceneImage" / "dist" / "scene_image_gui_config.json",
+        wisdom / "7_3_mp4Search" / "dist" / "mp4_search_gui_config.json",
+        wisdom / "7_4_mp4Merge" / "dist" / "mp4_merge_gui_config.json",
     ]
     import sys
 
@@ -78,8 +77,10 @@ def _discover_from_module_configs() -> Path | None:
         exe_dir = Path(sys.executable).resolve().parent
         for name in (
             "png2jpg_gui_config.json",
-            "elsub_gui_config.json",
-            "png_rename_gui_config.json",
+            "script_voice_gui_config.json",
+            "scene_image_gui_config.json",
+            "mp4_search_gui_config.json",
+            "mp4_merge_gui_config.json",
         ):
             candidates.append(exe_dir / name)
     for cfg in candidates:
@@ -168,11 +169,15 @@ def resolve_module_output(module: str) -> Path:
     return module_output(module)
 
 
-def folder_dialog_initial(preferred: Path | None = None) -> str:
+def folder_dialog_initial(preferred: Path | str | None = None) -> str:
     """폴더 선택 대화상자 ``initialdir`` — 작업 폴더 우선."""
-    if preferred is not None:
+    pref: Path | None = None
+    if preferred is not None and str(preferred).strip():
+        pref = Path(preferred).expanduser()
+
+    if pref is not None:
         try:
-            p = preferred.expanduser().resolve()
+            p = pref.resolve()
             if p.is_file():
                 p = p.parent
             if p.is_dir():
@@ -182,9 +187,9 @@ def folder_dialog_initial(preferred: Path | None = None) -> str:
     ws = get_workspace_dir()
     if ws is not None:
         return str(ws)
-    if preferred is not None:
+    if pref is not None:
         try:
-            p = preferred.expanduser().resolve()
+            p = pref.resolve()
             if p.is_file():
                 p = p.parent
             if p.parent.is_dir():

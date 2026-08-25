@@ -3,12 +3,21 @@
 
 from __future__ import annotations
 
-from typing import Callable
+import queue
+import weakref
+from collections.abc import Callable, Sequence
+from pathlib import Path
+from typing import Literal
 
 import tkinter as tk
 from tkinter import font as tkfont, messagebox, ttk
 
 _hub_shutting_down = False
+_drop_hooked: set[int] = set()
+_ui_queues: weakref.WeakKeyDictionary[tk.Misc, queue.Queue[Callable[[], None]]] = weakref.WeakKeyDictionary()
+_ui_pump_hosts: weakref.WeakKeyDictionary[tk.Misc, bool] = weakref.WeakKeyDictionary()
+
+PathDropMode = Literal["dir", "file", "path"]
 
 
 def is_hub_shutting_down() -> bool:
@@ -25,8 +34,53 @@ def ui_alive(root: tk.Misc, *, closing: bool = False) -> bool:
         return False
 
 
+def _ui_toplevel(root: tk.Misc) -> tk.Misc:
+    try:
+        return root.winfo_toplevel()
+    except tk.TclError:
+        return root
+
+
+def _ensure_ui_pump(root: tk.Misc) -> queue.Queue[Callable[[], None]]:
+    host = _ui_toplevel(root)
+    q = _ui_queues.get(host)
+    if q is None:
+        q = queue.Queue()
+        _ui_queues[host] = q
+
+    if _ui_pump_hosts.get(host):
+        return q
+
+    def pump() -> None:
+        if not ui_alive(host):
+            return
+        try:
+            while True:
+                fn = _ui_queues[host].get_nowait()
+                try:
+                    if ui_alive(host):
+                        fn()
+                except tk.TclError:
+                    pass
+        except queue.Empty:
+            pass
+        except (KeyError, tk.TclError):
+            return
+        try:
+            host.after(50, pump)
+        except tk.TclError:
+            pass
+
+    _ui_pump_hosts[host] = True
+    try:
+        host.after(50, pump)
+    except tk.TclError:
+        _ui_pump_hosts.pop(host, None)
+    return q
+
+
 def safe_after(root: tk.Misc, fn: Callable[[], None], *, closing: bool = False) -> None:
-    """``after(0, …)`` — 허브 종료 후 새 Tk 창이 뜨지 않도록 보호합니다."""
+    """worker 스레드에서도 안전한 UI 콜백 — 메인 루프 큐로 전달."""
 
     def wrapper() -> None:
         if not ui_alive(root, closing=closing):
@@ -36,12 +90,13 @@ def safe_after(root: tk.Misc, fn: Callable[[], None], *, closing: bool = False) 
         except tk.TclError:
             pass
 
-    if not ui_alive(root, closing=closing):
-        return
     try:
-        root.after(0, wrapper)
-    except tk.TclError:
-        pass
+        _ensure_ui_pump(root).put(wrapper)
+    except Exception:
+        try:
+            _ui_toplevel(root).after(0, wrapper)
+        except tk.TclError:
+            pass
 
 
 def safe_messagebox(
@@ -105,16 +160,180 @@ def _destroy_toplevels(widget: tk.Misc) -> None:
 
 
 def configure_notebook_tabs(host: tk.Misc, *, font_size: int | None = None) -> None:
-    """Notebook 탭 글꼴·패딩 — 허브·모듈 공통."""
+    """Notebook 탭 글꼴·패딩 — 허브·모듈 공통 (작은 굵은 글꼴로 라벨 잘림 방지)."""
     try:
         f = tkfont.nametofont("TkDefaultFont")
         fam = f.actual("family")
-        base_sz = max(10, int(f.actual("size")))
+        raw_sz = int(f.actual("size"))
+        base_sz = abs(raw_sz) if raw_sz else 9
     except tk.TclError:
-        fam, base_sz = "맑은 고딕", 10
-    sz = font_size if font_size is not None else max(12, base_sz + 2)
+        fam, base_sz = "맑은 고딕", 9
+    sz = font_size if font_size is not None else max(8, base_sz - 2)
     style = ttk.Style(host)
-    style.configure("TNotebook.Tab", font=(fam, sz), padding=(20, 4))
+    style.configure("TNotebook.Tab", font=(fam, sz, "bold"), padding=(8, 2))
+
+
+def _decode_drop_path(raw: bytes | str) -> str:
+    if isinstance(raw, str):
+        return raw
+    for enc in ("utf-8", "mbcs", "cp949"):
+        try:
+            return raw.decode(enc)
+        except UnicodeDecodeError:
+            continue
+    return raw.decode("utf-8", errors="replace")
+
+
+def _normalize_dropped_paths(files: Sequence[bytes | str]) -> list[str]:
+    out: list[str] = []
+    for raw in files:
+        p = _decode_drop_path(raw).strip().strip('"')
+        if p:
+            out.append(p)
+    return out
+
+
+def _read_text_file(path: Path) -> str:
+    for enc in ("utf-8-sig", "utf-8", "cp949"):
+        try:
+            return path.read_text(encoding=enc)
+        except (OSError, UnicodeDecodeError):
+            continue
+    return path.read_text(encoding="utf-8", errors="replace")
+
+
+def _resolve_drop_path(
+    raw_path: str,
+    *,
+    mode: PathDropMode,
+    extensions: Sequence[str],
+) -> str | None:
+    p = Path(raw_path)
+    try:
+        p = p.resolve()
+    except OSError:
+        return None
+    ext_set = {e.lower() if e.startswith(".") else f".{e.lower()}" for e in extensions}
+
+    if mode == "dir":
+        if p.is_dir():
+            return str(p)
+        if p.is_file():
+            return str(p.parent)
+        return None
+
+    if mode == "file":
+        if not p.is_file():
+            return None
+        if ext_set and p.suffix.lower() not in ext_set:
+            return None
+        return str(p)
+
+    if p.exists():
+        return str(p)
+    return None
+
+
+def bind_file_drop(widget: tk.Misc, on_paths: Callable[[list[str]], None]) -> None:
+    """Windows 탐색기에서 파일·폴더 드롭 (미지원 환경은 무시)."""
+    try:
+        import windnd
+    except ImportError:
+        return
+
+    def _handler(files: Sequence[bytes | str]) -> None:
+        paths = _normalize_dropped_paths(files)
+        if paths:
+            on_paths(paths)
+
+    def _install() -> None:
+        wid = widget.winfo_id()
+        if wid in _drop_hooked:
+            return
+        try:
+            windnd.hook_dropfiles(widget, func=_handler)
+            _drop_hooked.add(wid)
+        except Exception:
+            pass
+
+    try:
+        widget.after_idle(_install)
+    except tk.TclError:
+        pass
+
+
+def bind_path_entry_dnd(
+    entry: tk.Misc,
+    var: tk.StringVar,
+    *,
+    mode: PathDropMode = "path",
+    extensions: Sequence[str] = (),
+    on_set: Callable[[str], None] | None = None,
+) -> None:
+    """경로 Entry 에 파일·폴더 드롭."""
+
+    def _apply(paths: list[str]) -> None:
+        target = _resolve_drop_path(paths[0], mode=mode, extensions=extensions)
+        if not target:
+            return
+        var.set(target)
+        if on_set:
+            on_set(target)
+
+    bind_file_drop(entry, _apply)
+
+
+def bind_path_row_dnd(
+    entry: tk.Misc,
+    row: tk.Misc | None,
+    var: tk.StringVar,
+    *,
+    mode: PathDropMode = "path",
+    extensions: Sequence[str] = (),
+    on_set: Callable[[str], None] | None = None,
+) -> None:
+    """경로 Entry 와 그 행 Frame 에 드롭 영역 연결."""
+    bind_path_entry_dnd(
+        entry,
+        var,
+        mode=mode,
+        extensions=extensions,
+        on_set=on_set,
+    )
+    if row is not None:
+        bind_path_entry_dnd(
+            row,
+            var,
+            mode=mode,
+            extensions=extensions,
+            on_set=on_set,
+        )
+
+
+def bind_text_widget_file_dnd(
+    text_widget: tk.Text,
+    *,
+    extensions: Sequence[str] = (".txt", ".md", ".srt"),
+    on_loaded: Callable[[Path, str], None] | None = None,
+) -> None:
+    """Text·ScrolledText 에 텍스트 파일 드롭 시 내용 로드."""
+
+    def _apply(paths: list[str]) -> None:
+        p = Path(paths[0])
+        if not p.is_file():
+            return
+        if extensions and p.suffix.lower() not in {e.lower() for e in extensions}:
+            return
+        try:
+            content = _read_text_file(p)
+        except OSError:
+            return
+        text_widget.delete("1.0", tk.END)
+        text_widget.insert("1.0", content)
+        if on_loaded:
+            on_loaded(p, content)
+
+    bind_file_drop(text_widget, _apply)
 
 
 def tk_host(container: tk.Misc | None) -> tuple[tk.Misc, bool]:
