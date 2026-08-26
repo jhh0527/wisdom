@@ -1,6 +1,6 @@
 {
   "chapter": "1장. 검신의 마지막 밤",
-  "voices_file": "../../voices.json",
+  "voices_file": "../../../voices.json",
   "chunk_id": "A1",
   "inputs": [
     {

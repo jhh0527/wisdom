@@ -20,6 +20,58 @@ _PLACEHOLDER_TEXTS = frozenset(
     }
 )
 
+# CJK 한자(확장 A·본문·호환) — TTS 낭독에서 제외
+_HANJA_RE = re.compile(r"[\u3400-\u4DBF\u4E00-\u9FFF\uF900-\uFAFF]")
+_EMPTY_PAREN_RE = re.compile(r"[（(]\s*[）)]")
+_CHAPTER_TITLE_RE = re.compile(r"^제?\s*\d+\s*장\b")
+
+
+def strip_hanja(text: str) -> str:
+    """한자·빈 괄호(板 병기 등) 제거. 한글·숫자·허용 구두점은 유지."""
+    s = _HANJA_RE.sub("", text or "")
+    s = _EMPTY_PAREN_RE.sub("", s)
+    s = re.sub(r"[ \t]{2,}", " ", s)
+    return s.strip()
+
+
+def ensure_chapter_title_input(data: dict[str, Any]) -> dict[str, Any]:
+    """``chapter`` 를 한자 없이 정리하고, inputs[0] narrator 장 제목으로 보장."""
+    result = dict(data)
+    ch = strip_hanja(str(result.get("chapter") or "").strip())
+    if not ch or ch in _PLACEHOLDER_CHAPTERS:
+        return result
+    result["chapter"] = ch
+
+    inputs = result.get("inputs")
+    if not isinstance(inputs, list):
+        return result
+    out: list[Any] = list(inputs)
+    title_row = {"speaker": "narrator", "text": ch}
+
+    if not out:
+        result["inputs"] = [title_row]
+        return result
+
+    first = out[0] if isinstance(out[0], dict) else None
+    first_tx = strip_hanja(str((first or {}).get("text") or "").strip())
+    if first_tx == ch:
+        if first is not None:
+            row = dict(first)
+            row["speaker"] = "narrator"
+            row["text"] = ch
+            out[0] = row
+        result["inputs"] = out
+        return result
+    if first_tx and _CHAPTER_TITLE_RE.match(first_tx):
+        row = dict(first) if first is not None else {}
+        row["speaker"] = "narrator"
+        row["text"] = ch
+        out[0] = row
+    else:
+        out.insert(0, title_row)
+    result["inputs"] = out
+    return result
+
 # Genspark 채팅 UI가 스크래프에 섞이는 문구
 _GENSPARK_UI_NOISE_RE = re.compile(
     r"(?:"
@@ -348,7 +400,7 @@ def _wrap_inputs_list(inputs: list[Any]) -> dict[str, Any] | None:
         return None
     return {
         "chapter": "untitled",
-        "voices_file": "../../voices.json",
+        "voices_file": "../../../voices.json",
         "chunk_id": "A1",
         "inputs": inputs,
     }
@@ -473,7 +525,7 @@ def _rebuild_from_loose(text: str) -> str:
             pass
     data = {
         "chapter": chapter,
-        "voices_file": "../../voices.json",
+        "voices_file": "../../../voices.json",
         "chunk_id": chunk or "A1",
         "inputs": items,
     }
@@ -620,13 +672,31 @@ _SPEAKER_ALIASES: dict[str, str] = {
     "teacher": "elder",
     "master": "cheongheo",
     "hoesaek": "noin",
-    "umjungsan": "noin",
+    "umjungsan": "eom",
+    "eomjungsan": "eom",
+    "eomjungshan": "eom",
+    "umjungshan": "eom",
     "elder_board": "noin",
     "panjuin": "noin",
     "whiteelder": "noin",
     "imsochon": "sochon",
     "limsochon": "sochon",
     "imsocheon": "sochon",
+    "namgunglin": "namgung",
+    "namgungrin": "namgung",
+    "namgungho": "namgungho",
+    "namgungjun": "namgungjun",
+    "yurim": "yurim",
+    "yakjae": "yakjae",
+    "insudang": "yakjae",
+    "herbalist": "yakjae",
+    "ashjin": "ashjin",
+    "jaetbit": "ashjin",
+    "grayjin": "ashjin",
+    "jeokwi": "jeokwi",
+    "redguard": "jeokwi",
+    "dangga": "dangga",
+    "tangclan": "dangga",
 }
 
 _TAG_START_RE = re.compile(r"^\s*\[[A-Za-z][A-Za-z0-9_\-]*\]")
@@ -767,8 +837,9 @@ def normalize_dialogue_data(
     *,
     voices_path: Path | str | None = None,
 ) -> dict[str, Any]:
-    """speaker 별칭 교정 + 노인 문맥 재매핑 + 대사 감정 태그 보완 + UI 노이즈 제거."""
+    """장 제목 inputs[0] 보장·한자 제거·speaker 교정·감정 태그·UI 노이즈 제거."""
     data = strip_ui_noise_from_dialogue(data)
+    data = ensure_chapter_title_input(data)
     allowed = _load_voice_key_set(voices_path)
     inputs = data.get("inputs")
     if not isinstance(inputs, list):
@@ -778,7 +849,9 @@ def normalize_dialogue_data(
         if not isinstance(item, dict):
             continue
         sp = _map_speaker(str(item.get("speaker") or ""), allowed)
-        tx = strip_genspark_ui_noise(str(item.get("text") or "").strip())
+        tx = strip_hanja(
+            strip_genspark_ui_noise(str(item.get("text") or "").strip())
+        )
         if not tx:
             continue
         if sp.casefold() != "narrator" and tx:
@@ -789,9 +862,13 @@ def normalize_dialogue_data(
         out_inputs.append(row)
     out_inputs = _remap_noin_by_context(out_inputs, allowed=allowed)
     result = dict(data)
+    ch = strip_hanja(str(result.get("chapter") or "").strip())
+    if ch:
+        result["chapter"] = ch
     result["inputs"] = out_inputs
+    result = ensure_chapter_title_input(result)
     if not str(result.get("voices_file") or "").strip():
-        result["voices_file"] = "../../voices.json"
+        result["voices_file"] = "../../../voices.json"
     return result
 
 

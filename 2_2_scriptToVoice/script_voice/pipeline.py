@@ -57,8 +57,27 @@ def paragraph_mp3_path(out_dir: Path, num: int) -> Path:
 
 
 def line_sidecar_path(out_dir: Path, num: int) -> Path:
-    """``01.mp3`` 옆 ``01.txt`` — 파일명 ↔ 대사 매칭."""
+    """``01.mp3`` 옆 ``01.txt`` (레거시·정리용 경로)."""
     return Path(out_dir) / f"{part_file_stem(num)}.txt"
+
+
+def cleanup_part_sidecars(out_dir: Path) -> int:
+    """파트 ``NN.txt`` 사이드카 삭제. 매칭은 ``lines.json`` 만 유지."""
+    out_dir = Path(out_dir)
+    if not out_dir.is_dir():
+        return 0
+    n = 0
+    for p in out_dir.iterdir():
+        if not p.is_file():
+            continue
+        if not re.match(r"^\d+\.txt$", p.name, re.IGNORECASE):
+            continue
+        try:
+            p.unlink()
+            n += 1
+        except OSError:
+            pass
+    return n
 
 
 def lines_index_path(out_dir: Path) -> Path:
@@ -114,20 +133,6 @@ def discover_part_mp3s(out_dir: Path) -> list[Path]:
     return [p for _, p in found]
 
 
-def _write_line_sidecar(
-    out_dir: Path,
-    *,
-    index: int,
-    speaker: str,
-    text: str,
-) -> Path:
-    """``NN.txt`` — 같은 번호 MP3의 화자·대사."""
-    path = line_sidecar_path(out_dir, index)
-    body = f"[{(speaker or '').strip() or 'unknown'}]\n{(text or '').strip()}\n"
-    path.write_text(body, encoding="utf-8")
-    return path
-
-
 def write_lines_index(
     out_dir: Path,
     entries: list[dict],
@@ -155,7 +160,6 @@ def _line_entry(line: DialogueLine) -> dict:
     return {
         "index": line.index,
         "file": f"{stem}.mp3",
-        "sidecar": f"{stem}.txt",
         "speaker": line.speaker,
         "text": line.text,
     }
@@ -328,12 +332,10 @@ def convert_script_to_mp3s(
             model_id=model_id,
             trailing_pad_sec=trailing_pad_sec,
         )
-        _write_line_sidecar(out_dir, index=para.num, speaker="narrator", text=para.text)
         index_entries.append(
             {
                 "index": para.num,
                 "file": f"{part_file_stem(para.num)}.mp3",
-                "sidecar": f"{part_file_stem(para.num)}.txt",
                 "speaker": "narrator",
                 "text": para.text,
             }
@@ -343,29 +345,14 @@ def convert_script_to_mp3s(
         if on_progress:
             on_progress(f"변환 {i}/{total} ({pct_done:.0f}%) — {para.mp3_name}", pct_done)
     write_lines_index(out_dir, index_entries, source="[N] script")
+    cleanup_part_sidecars(out_dir)
     if on_progress:
         on_progress(f"변환 완료 — {len(saved)}개", 100.0)
     return saved
 
 
-def _safe_mp3_stem(raw: str, *, fallback: str = "all") -> str:
-    s = re.sub(r'[<>:"/\\|?*\s]+', "_", (raw or "").strip())
-    s = s.strip("._")
-    return s or fallback
-
-
 def dialogue_merged_mp3_name(json_path: Path | str) -> str:
-    """JSON ``chunk_id`` → ``A1.mp3``, 없으면 ``all.mp3``."""
-    p = Path(json_path)
-    try:
-        data = json.loads(p.read_text(encoding="utf-8"))
-    except (OSError, ValueError):
-        return "all.mp3"
-    if not isinstance(data, dict):
-        return "all.mp3"
-    chunk = data.get("chunk_id")
-    if isinstance(chunk, str) and chunk.strip():
-        return f"{_safe_mp3_stem(chunk.strip())}.mp3"
+    """병합 산출물 이름 — 항상 ``all.mp3`` (chunk_id 무시)."""
     return "all.mp3"
 
 
@@ -381,10 +368,11 @@ def convert_dialogue_json_to_mp3s(
     trailing_pad_sec: float = TRAILING_PAD_SEC,
     on_progress: ProgressCb | None = None,
 ) -> tuple[list[Path], Path | None]:
-    """dialogue JSON → ``01.mp3``… (+ ``01.txt`` / ``lines.json``) 후 자동 병합(기본).
+    """dialogue JSON → ``01.mp3``… + ``lines.json`` 후 자동 병합(기본).
 
     ``range_spec`` 예: ``1~5``, ``1~1`` — 해당 줄만 재합성. 빈 값이면 전체.
     중간 ``NN.mp3`` 는 병합 후에도 산출 폴더에 유지합니다.
+    ``NN.txt`` 사이드카는 완료 후 삭제합니다 (매칭은 ``lines.json``).
     반환: (이번에 합성한 파트 경로 목록, 병합 파일 경로 또는 None).
     """
     if not (api_key or "").strip():
@@ -435,9 +423,6 @@ def convert_dialogue_json_to_mp3s(
                     pct_start + (i - 0.5) / total * synth_span * 0.5,
                 )
             apply_mob_mix(dest, api_key=api_key, out_dir=out_dir)
-        _write_line_sidecar(
-            out_dir, index=line.index, speaker=line.speaker, text=line.text
-        )
         saved.append(dest)
         pct_done = i / total * synth_span
         if on_progress:
@@ -470,8 +455,10 @@ def convert_dialogue_json_to_mp3s(
                 f"JSON 완료 — {range_label} {len(saved)}줄 + 병합 → {merged.name}",
                 100.0,
             )
-    elif on_progress:
-        on_progress(f"JSON 변환 완료 — {range_label} {len(saved)}개", 100.0)
+    else:
+        cleanup_part_sidecars(out_dir)
+        if on_progress:
+            on_progress(f"JSON 변환 완료 — {range_label} {len(saved)}개", 100.0)
     return saved, merged
 
 
@@ -538,6 +525,7 @@ def merge_part_mp3s(
 
     if on_progress:
         on_progress(f"병합 완료 → {dest.name}", 100.0)
+    cleanup_part_sidecars(out_dir)
     return dest
 
 
@@ -546,6 +534,7 @@ __all__ = [
     "LINES_INDEX_NAME",
     "TRAILING_PAD_SEC",
     "Paragraph",
+    "cleanup_part_sidecars",
     "convert_dialogue_json_to_mp3s",
     "convert_script_to_mp3s",
     "dialogue_merged_mp3_name",

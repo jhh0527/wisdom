@@ -2094,11 +2094,12 @@ def _build_inline_payload(
         parts.extend(
             [
                 f"===== JSON 형식 참고: {sample.name} (아래는 스키마 요약) =====",
-                '{"chapter":"…","voices_file":"../../voices.json","chunk_id":"A1",'
+                '{"chapter":"…","voices_file":"../../../voices.json","chunk_id":"A1",'
                 '"inputs":[{"speaker":"narrator","text":"…"},'
                 '{"speaker":"jin","text":"[calm] \"…\""},'
                 '{"speaker":"cheongheo","text":"[calm] \"…\""}]}',
                 "※ 출력은 TXT 대본 내용으로 새로 만든 JSON만. 예시 chapter/inputs 를 그대로 복사하지 말 것.",
+                "※ 원문 첫 줄 장 제목은 chapter + inputs[0] narrator 에 넣고, 한자·한자 병기 괄호는 제외.",
                 "※ speaker 는 voices.json 키만. 청허=cheongheo. 대사마다 [감정·연기태그] 필수(2~3개 조합·분리 권장).",
                 "",
             ]

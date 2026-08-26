@@ -26,7 +26,7 @@
 ```json
 {
   "chapter": "장 제목",
-  "voices_file": "../../voices.json",
+  "voices_file": "../../../voices.json",
   "chunk_id": "A1",
   "inputs": [
     { "speaker": "narrator", "text": "나레이션 문장" },
@@ -36,12 +36,16 @@
 ```
 
 ### 필드
-1. **chapter** — 장·회차 제목 (원문에 있으면 그대로, 없으면 파일명·첫 줄 기준)
-2. **voices_file** — 기본값 `"../../voices.json"` (상대 경로 유지)
+1. **chapter** — 장·회차 제목 (원문 첫 줄 `제N장. …` 기준, **한자·한자 병기 괄호 제외**)
+2. **voices_file** — 기본값 `"../../../voices.json"` (대화 JSON=`{부}/{장}/tts/` 기준 → **소설 루트** `voices.json`. 1~5부 공용)
 3. **chunk_id** — 짧은 구간 ID (예: `A1`). 없으면 `A1`
 4. **inputs** — 순서대로의 낭독 단위 배열 (비우면 안 됨)
    - **speaker**: voices.json 의 영문 소문자 키만 (`narrator`, `jin`, `baek`, `cheongheo` …)
    - **text**: 실제 낭독 문자열. 대사는 반각 `"` 로 감싸고, 앞에 `[태그]` 필수
+5. **장 제목도 낭독 대상** — 원문 첫 줄 `제N장. …` 은 `chapter` 에 넣고,
+   **동시에 `inputs[0]`** 에 `{ "speaker": "narrator", "text": "제N장. …" }` 로 넣는다.
+   - 예: 원문 `제13장. 두 번째 판(板)` → chapter·inputs[0] 모두 `"제13장. 두 번째 판"`
+   - **한자·`(板)` 같은 한자 병기는 넣지 않는다.** 본문 나레이션은 그 다음부터.
 
 
 ================================================================================
@@ -57,12 +61,20 @@
    - 시험관 → `examiner`
    - 원로·서지원 등 원로급 → `elder`
    - 검성 → `geomseong`
-   - 회색 도포 노인·엄중산·마교 백발 노인·판의 주인 → `noin`  (**hoesaek 금지**, `noin` 사용)
+   - 회색 도포 노인·마교 백발 노인·판의 주인 → `noin`  (**hoesaek 금지**, `noin` 사용)
+   - 엄중산 → `eom`  (**noin 과 분리**)
+   - 유림 → `yurim`
    - 왕삼도 → `wang`
    - 임소천 → `sochon`
-   - 남궁린 / 남궁 → `namgung`
+   - 남궁린 → `namgung`  (**남**, 1·2부 통일)
+   - 남궁호 → `namgungho`
+   - 남궁준 → `namgungjun`
    - 성유 → `seongyu`
    - 서령란 → `seoryeong`  (**seo 금지**)
+   - 인수당·약재상 → `yakjae`
+   - 잿빛 「진」 → `ashjin`
+   - 적위대장·적위 → `jeokwi`
+   - 사천당가 사절 → `dangga`
 3. voices 에 없는 단역·군중·이름 없는 사형/제자 → `mob`
 4. `chung`, `seo`, `sahyung` 같은 **임의 로마자 키 금지**
 
@@ -237,6 +249,8 @@
 ================================================================================
 
 - [ ] 최상위가 객체이고 `inputs` 가 1개 이상인가
+- [ ] `inputs[0]` 이 장 제목 narrator 인가 (원문 첫 줄, 한자 제외)
+- [ ] chapter·inputs text 에 한자·한자 병기 괄호가 없는가
 - [ ] 모든 inputs 항목에 `speaker`·`text` 문자열이 있는가
 - [ ] speaker 가 전부 voices.json 키(또는 `mob`)인가 — `chung`/`seo` 등 없음
 - [ ] 나레이션이 아닌 text 는 모두 `[태그]` 로 시작하는가

@@ -38,16 +38,30 @@ def _is_placeholder_voice(vid: str) -> bool:
 
 
 def _resolve_voices_file_path(raw: str, *, json_path: Path) -> Path:
-    """voices_file 경로 — 절대/상대(대화 JSON 기준) 해석."""
-    vp = Path(raw.strip()).expanduser()
+    """voices_file 경로 — 절대/상대(대화 JSON 기준) 해석.
+
+    상대 경로가 없으면 상위 폴더를 올라가며 같은 파일명(``voices.json``)을 찾는다.
+    (소설 루트 공용 voices.json · 구 ``../../voices.json`` 호환)
+    """
+    raw_s = (raw or "").strip()
+    if not raw_s:
+        raise FileNotFoundError("voices_file 이 비어 있습니다.")
+    vp = Path(raw_s).expanduser()
     if vp.is_file():
         return vp.resolve()
-    rel = (json_path.parent / raw.strip()).resolve()
+    rel = (json_path.parent / raw_s).resolve()
     if rel.is_file():
         return rel
+    name = Path(raw_s).name or "voices.json"
+    for parent in [json_path.parent, *json_path.parents]:
+        cand = (parent / name).resolve()
+        if cand.is_file():
+            return cand
     raise FileNotFoundError(
-        f"voices_file 없음: {raw}\n"
-        f"(대화 JSON 기준: {rel})"
+        f"voices_file 없음: {raw_s}\n"
+        f"(대화 JSON 기준: {rel})\n"
+        f"소설 루트에 voices.json 을 두세요. "
+        f'권장: \"voices_file\": \"../../../voices.json\"'
     )
 
 
@@ -83,8 +97,9 @@ def _load_voices_map(
     if not merged:
         raise ValueError(
             "화자 voice 맵이 비어 있습니다.\n"
-            '예: \"voices_file\": \"../../voices.json\"\n'
+            '예: \"voices_file\": \"../../../voices.json\"\n'
             'voices.json 예: {\"narrator\": \"…\", \"jin\": \"…\"}'
+            ' (소설 루트·1~5부 공용)'
         )
     return merged
 

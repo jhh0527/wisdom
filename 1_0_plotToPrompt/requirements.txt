@@ -1,0 +1,1 @@
+# 런타임 의존성 없음 (stdlib + tkinter)

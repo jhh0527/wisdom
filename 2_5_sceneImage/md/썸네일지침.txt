@@ -1,0 +1,29 @@
+## 제미나이 이미지 프롬프트 — 썸네일 최종
+
+
+
+ Korean web novel thumbnail style, 16:9 wide, dark dramatic composition, bold and impactful promotional art.
+
+Center foreground** — A young pale thin man in aggressive forward stride. Short messy black hair, deep dark circles under sharp eyes, gaunt cheekbones. Wearing a black zip-up hoodie over white t-shirt, dark jeans. Right hand gripping a straight single-edged Korean sword (직검) with faint blue glow along the blade. Expression: cold, determined, dangerous. Wind blowing his hoodie and hair. He is the biggest figure in the frame.
+
+Behind him, looming large as a giant ghostly silhouette filling the upper half of the image** — A long straight black-haired swordsman in navy-grey traditional Korean robe (도포). Semi-transparent, blue-tinted, like a spirit watching over. His silhouette towers over the Seoul skyline.
+
+Right side, slightly behind** — A man walking from the opposite direction. Short black hair, scar above left eyebrow, angular jaw, cold smirk. Black leather jacket, black shirt. Faint red-crimson aura around him. Behind him, a ghostly crimson silhouette — wild long black hair, dark crimson robe, glowing red eyes, red demonic energy swirling.
+
+Background** — Dark Seoul night skyline, Namsan Tower visible. Red-orange ominous sky like burning sunset above the buildings. Cracked ground between the two characters. Embers and sparks floating in the air. Left side tinted blue, right side tinted red — color split composition.
+
+Text overlays (built into the image) — NO character names, NO ages, NO labels on characters. Only the following five text elements:**
+ - Top left, huge bold stylized text:"천하제일인, 서울에 서다"** in cracked brushstroke font. Left half glows blue, right half glows red.
+ - Top right corner, very large red stamp/badge style, prominent and eye-catching:"완결"** — big, bold white text on red background.
+ -Middle left area (vertically centered, not at the bottom edge)**, bold yellow text with black outline:"1화–10화"**
+ -Middle right area (vertically centered, not at the bottom edge)**, smaller red stamp/badge style:"회귀 무협"**
+ -Center of the image, slightly below middle (not at the bottom edge, leave space between text and bottom of frame)**, subtitle in white text with slight glow:"전생의 검성, 서울 빈민가에서 눈을 뜨다"**
+
+IMPORTANT: All bottom text elements ("1화–10화", "회귀 무협", subtitle) should be positioned higher — in the lower-middle area of the image, NOT touching or near the bottom edge. Leave at least 15% empty space below the lowest text and the bottom of the frame.**
+
+IMPORTANT: Do NOT add any character name labels, age numbers, or any text other than the five text elements listed above. No name tags. No floating text near characters.**
+
+ Style: Korean webtoon/web novel promotional thumbnail. Bold outlines, high contrast, dramatic lighting, semi-realistic with manhwa influence. Colors saturated and punchy. NOT anime style — Korean manhwa style.
+
+
+이대로 제미나이에 넣으시면 됩니다.

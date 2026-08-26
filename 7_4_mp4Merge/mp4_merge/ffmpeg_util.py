@@ -83,6 +83,48 @@ def probe_duration(path: Path) -> float | None:
         return None
 
 
+def parse_fps(rate: str | float | int | None) -> float | None:
+    """``30/1`` · ``30000/1001`` · ``29.97`` → float fps."""
+    if rate is None:
+        return None
+    if isinstance(rate, (int, float)):
+        v = float(rate)
+        return v if v > 0 else None
+    s = str(rate).strip()
+    if not s or s in ("0/0", "N/A"):
+        return None
+    try:
+        if "/" in s:
+            a, b = s.split("/", 1)
+            num, den = float(a), float(b)
+            if den == 0:
+                return None
+            v = num / den
+        else:
+            v = float(s)
+        return v if v > 0 else None
+    except ValueError:
+        return None
+
+
+def fps_key(fps: float | None) -> float | None:
+    """비교용 — 소수 2자리 (29.97 vs 30.00 구분)."""
+    if fps is None or fps <= 0:
+        return None
+    return round(float(fps), 2)
+
+
+def format_fps(fps: float | None) -> str:
+    if fps is None:
+        return "?"
+    k = fps_key(fps)
+    if k is None:
+        return "?"
+    if abs(k - round(k)) < 0.01:
+        return str(int(round(k)))
+    return f"{k:.2f}".rstrip("0").rstrip(".")
+
+
 def probe_video(path: Path) -> tuple[int, int, str, str] | None:
     """(width, height, avg_frame_rate, codec_name)."""
     fp = ffprobe_bin()
@@ -176,6 +218,70 @@ def probe_audio(path: Path) -> tuple[int, int, str] | None:
         return (rate, ch, codec)
     except (TypeError, ValueError, json.JSONDecodeError):
         return None
+
+
+def probe_clip_spec(path: Path) -> dict | None:
+    """병합 규격 비교용 dict — video/audio 없으면 None (영상 필수)."""
+    v = probe_video(path)
+    if not v:
+        return None
+    w, h, rate_s, vcodec = v
+    fps = parse_fps(rate_s)
+    a = probe_audio(path)
+    if a:
+        ar, ch, acodec = a
+    else:
+        ar, ch, acodec = 0, 0, ""
+    return {
+        "w": w,
+        "h": h,
+        "fps": fps,
+        "fps_k": fps_key(fps),
+        "vcodec": (vcodec or "").lower(),
+        "ar": ar,
+        "ch": ch,
+        "acodec": (acodec or "").lower(),
+    }
+
+
+def format_spec_short(spec: dict) -> str:
+    """예: ``1920x1080 @30fps h264/aac 44100Hz stereo``."""
+    fps_s = format_fps(spec.get("fps"))
+    vc = spec.get("vcodec") or "?"
+    ac = spec.get("acodec") or "none"
+    ar = int(spec.get("ar") or 0)
+    ch = int(spec.get("ch") or 0)
+    ch_s = "stereo" if ch >= 2 else ("mono" if ch == 1 else "noaudio")
+    if ar > 0:
+        return f"{spec['w']}x{spec['h']} @{fps_s}fps {vc}/{ac} {ar}Hz {ch_s}"
+    return f"{spec['w']}x{spec['h']} @{fps_s}fps {vc} (audio=none)"
+
+
+def format_spec_compact(spec: dict) -> str:
+    """예: ``1920x1080@29.98 44100Hz``."""
+    fps_s = format_fps(spec.get("fps"))
+    ar = int(spec.get("ar") or 0)
+    if ar > 0:
+        return f"{spec['w']}x{spec['h']}@{fps_s} {ar}Hz"
+    return f"{spec['w']}x{spec['h']}@{fps_s}"
+
+
+def specs_match_for_copy(a: dict, b: dict) -> bool:
+    """concat ``-c copy`` 가능 여부 (해상도·fps·샘플레이트·채널)."""
+    if not a or not b:
+        return False
+    if (a.get("w"), a.get("h")) != (b.get("w"), b.get("h")):
+        return False
+    if a.get("fps_k") != b.get("fps_k"):
+        return False
+    ar_a, ar_b = int(a.get("ar") or 0), int(b.get("ar") or 0)
+    ch_a, ch_b = int(a.get("ch") or 0), int(b.get("ch") or 0)
+    # 둘 다 음성 없음 → OK / 한쪽만 없음 → 불일치
+    if ar_a <= 0 and ar_b <= 0:
+        return True
+    if ar_a <= 0 or ar_b <= 0:
+        return False
+    return ar_a == ar_b and ch_a == ch_b
 
 
 def is_playable_mp4(path: Path) -> bool:
@@ -298,6 +404,92 @@ def remux_audio_match(
     return dest
 
 
+def reencode_to_spec(src: Path, dest: Path, *, target: dict) -> Path:
+    """본편 규격(해상도·fps·AAC)으로 해당 클립만 재인코딩."""
+    ff = ffmpeg_bin()
+    if not ff:
+        raise RuntimeError("ffmpeg 가 필요합니다 (tools/ffmpeg).")
+    dest = Path(dest)
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    if dest.is_file():
+        dest.unlink()
+
+    w = int(target["w"])
+    h = int(target["h"])
+    fps = float(target.get("fps") or 30.0)
+    if fps <= 0:
+        fps = 30.0
+    ar = int(target.get("ar") or _DEFAULT_AUDIO_RATE)
+    ch = int(target.get("ch") or _DEFAULT_AUDIO_CH)
+    if ar <= 0:
+        ar = _DEFAULT_AUDIO_RATE
+    if ch <= 0:
+        ch = _DEFAULT_AUDIO_CH
+
+    vf = (
+        f"scale={w}:{h}:force_original_aspect_ratio=decrease,"
+        f"pad={w}:{h}:(ow-iw)/2:(oh-ih)/2,"
+        f"fps={fps}"
+    )
+    has_audio = probe_audio(src) is not None
+    cmd = [
+        str(ff),
+        "-y",
+        "-i",
+        str(src),
+    ]
+    if not has_audio:
+        layout = "stereo" if ch >= 2 else "mono"
+        cmd += [
+            "-f",
+            "lavfi",
+            "-i",
+            f"anullsrc=channel_layout={layout}:sample_rate={ar}",
+        ]
+    cmd += [
+        "-vf",
+        vf,
+        "-map",
+        "0:v:0",
+        "-map",
+        "0:a:0" if has_audio else "1:a:0",
+        "-c:v",
+        "libx264",
+        "-preset",
+        "veryfast",
+        "-crf",
+        "18",
+        "-pix_fmt",
+        "yuv420p",
+        "-c:a",
+        "aac",
+        "-b:a",
+        "192k",
+        "-ar",
+        str(ar),
+        "-ac",
+        str(ch),
+        "-movflags",
+        "+faststart",
+    ]
+    if not has_audio:
+        dur = probe_duration(src) or 1.0
+        cmd += ["-t", f"{dur:.3f}", "-shortest"]
+    cmd.append(str(dest))
+
+    r = subprocess.run(
+        cmd,
+        capture_output=True,
+        text=True,
+        encoding="utf-8",
+        errors="replace",
+        **_win_flags(),
+    )
+    if r.returncode != 0 or not dest.is_file() or dest.stat().st_size < 512:
+        raise RuntimeError((r.stderr or "규격 맞춤 재인코딩 실패").strip()[:500])
+    return dest
+
+
 def concat_copy(
     clips: list[Path],
     dest: Path,
@@ -333,7 +525,7 @@ def concat_copy(
     list_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
     if on_log:
         on_log(f"concat list → {list_path.name} ({len(clips)}개)")
-        on_log("mode: -c copy (영상·음성 재인코딩 없음)")
+        on_log("mode: -c copy (무손실 이어붙이기)")
 
     total_dur = 0.0
     for c in clips:

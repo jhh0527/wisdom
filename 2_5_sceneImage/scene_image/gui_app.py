@@ -14,6 +14,7 @@ from scene_image import __version__
 from scene_image.credentials import load_credentials, save_credentials
 from scene_image.genspark_image import (
     build_generate_command_from_sources,
+    close_chrome_debug,
     get_image_session,
     has_playwright,
     image_profile_dir,
@@ -21,7 +22,13 @@ from scene_image.genspark_image import (
     preferred_genspark_url,
     set_tab_log_png_dir,
 )
-from scene_image.image_log import append_image_log
+from scene_image.chrome_slot import ensure_chrome_slot, release_chrome_slot
+from scene_image.image_log import append_fail_log, append_image_log
+from scene_image.limit_detect import (
+    AiImageLimitError,
+    text_is_near_limit_only,
+    text_looks_like_limit,
+)
 from scene_image.paths import (
     GENSPARK_AI_IMAGE_URL,
     build_paste_payload,
@@ -43,26 +50,39 @@ from scene_image.scene_parse import (
     png_already_exists,
     scene_png_path,
 )
-from scene_image.settings import load_gui_settings, load_model_selector, save_gui_settings
+from scene_image.settings import (
+    load_gui_settings,
+    load_model_selector,
+    save_gui_settings,
+    set_config_slot,
+)
 from wisdom_workspace import folder_dialog_initial, touch_workspace_from_path
 
 _INTERVAL_CHOICES = ("10", "15", "20")
 _REQUEST_WAIT_CHOICES = ("0", "1", "2", "3", "5")
 _SEC_SPLIT_RE = re.compile(r"[,;\s]+")
-# 한도 추정: 연속 실패 N회 → 1시간 대기 후 재시도
+# 한도: 배너 감지 → 재설정 시각까지 대기, 없으면 1시간마다 시험 생성 1회
 _LIMIT_FAIL_STREAK = 2
 _HOURLY_RETRY_SEC = 3600
 _HOURLY_WAIT_CHUNK_SEC = 15
 _LIMIT_ERR_RE = re.compile(
     r"rate\s*limit|usage\s*limit|fair[\s-]*use|try\s*again\s*later|"
     r"too\s*many|5[\s-]*hour|quota|"
-    r"한도|사용\s*제한|이용\s*제한|나중에\s*다시|제한에\s*걸",
+    r"AI\s*Image|"
+    r"한도|5\s*시간\s*제한|제한에\s*도달|재설정됩니다|"
+    r"사용\s*제한|이용\s*제한|나중에\s*다시|제한에\s*걸",
     re.IGNORECASE,
 )
 
 
 def _looks_like_limit_error(err: str) -> bool:
-    return bool(_LIMIT_ERR_RE.search(err or ""))
+    if isinstance(err, AiImageLimitError):
+        return True
+    s = err if isinstance(err, str) else str(err or "")
+    # 「5시간 제한에 근접했습니다」는 한도 대기·브라우저 종료 대상 아님
+    if text_is_near_limit_only(s):
+        return False
+    return bool(_LIMIT_ERR_RE.search(s)) or text_looks_like_limit(s)
 
 
 def _default_font() -> tuple[str, int]:
@@ -109,10 +129,24 @@ def main(*, container: tk.Misc | None = None) -> None:
     if not standalone:
         setattr(root, "_scene_image_gui_built", True)
 
+    try:
+        chrome_slot = ensure_chrome_slot()
+    except RuntimeError as e:
+        if standalone:
+            from tkinter import messagebox
+
+            messagebox.showerror("2_5 sceneImage", str(e))
+            return
+        raise
+    set_config_slot(chrome_slot.index)
+
     apply_window_chrome(
         root,
         standalone,
-        title=f"2_5 sceneImage {__version__}",
+        title=(
+            f"2_5 sceneImage {__version__} "
+            f"[{chrome_slot.label}]"
+        ),
         minsize=(780, 560),
         geometry="960x700",
     )
@@ -167,7 +201,10 @@ def main(*, container: tk.Misc | None = None) -> None:
     email_var = tk.StringVar(value=cred_email)
     pw_var = tk.StringVar(value=cred_pw)
     status_var = tk.StringVar(
-        value="「브라우저 열기」= 재오픈·붙여넣기·생성·다운로드 일괄"
+        value=(
+            f"슬롯 {chrome_slot.index} · CDP :{chrome_slot.port} · "
+            f"{chrome_slot.user_data} — 「브라우저 열기」로 시작"
+        )
     )
     scene_var = tk.StringVar(value="")
     busy = {"v": False}
@@ -409,7 +446,7 @@ def main(*, container: tk.Misc | None = None) -> None:
     request_cb.pack(side=tk.LEFT)
     ttk.Checkbutton(
         interval_row,
-        text="한도 시 1시간마다 재시도",
+        text="한도 시 재설정까지 대기·매시간 시험",
         variable=hourly_retry_var,
         command=persist,
     ).pack(side=tk.LEFT, padx=(16, 0))
@@ -541,16 +578,18 @@ def main(*, container: tk.Misc | None = None) -> None:
             time.sleep(0.5)
             append_image_log(
                 png_dir,
-                f"ChromeDebug 재시작 port={info.get('debug_port')} "
-                f"user_data={info.get('user_data')}",
+                f"ChromeDebug 재시작 slot={info.get('slot')} "
+                f"port={info.get('debug_port')} "
+                f"user_data={info.get('user_data')} reused={info.get('reused')}",
             )
         elif not browser_ready["v"]:
             info = open_browser_for_account(url, email=email)
             time.sleep(0.5)
             append_image_log(
                 png_dir,
-                f"ChromeDebug 열림 port={info.get('debug_port')} "
-                f"user_data={info.get('user_data')}",
+                f"ChromeDebug 열림 slot={info.get('slot')} "
+                f"port={info.get('debug_port')} "
+                f"user_data={info.get('user_data')} reused={info.get('reused')}",
             )
         if not has_playwright():
             raise RuntimeError("Playwright가 필요합니다.")
@@ -718,13 +757,18 @@ def main(*, container: tk.Misc | None = None) -> None:
         persist()
         wait_cancel["v"] = False
 
-        def _wait_hourly(reason: str) -> bool:
-            """1시간 대기. True=재개, False=취소·체크 해제."""
-            total = _HOURLY_RETRY_SEC
+        def _wait_until(
+            *,
+            total_sec: int,
+            reason: str,
+            mode: str = "hourly",
+        ) -> bool:
+            """지정 초만큼 대기. True=재개, False=취소."""
+            total = max(30, int(total_sec))
             chunk = _HOURLY_WAIT_CHUNK_SEC
             append_image_log(
                 png_dir,
-                f"한도 대기 {total // 60}분 시작 — {reason}",
+                f"한도 대기 {total // 60}분({mode}) 시작 — {reason}",
             )
             safe_after(root, lambda: set_hourly_waiting(True))
             elapsed = 0
@@ -738,15 +782,49 @@ def main(*, container: tk.Misc | None = None) -> None:
                 m, s = divmod(rem, 60)
                 safe_after(
                     root,
-                    lambda hh=h, mm=m, ss=s, r=reason: set_status(
-                        f"한도 대기 재시도까지 {hh:d}:{mm:02d}:{ss:02d} — {r}"
+                    lambda hh=h, mm=m, ss=s, r=reason, md=mode: set_status(
+                        f"한도 대기({md}) {hh:d}:{mm:02d}:{ss:02d} — {r}"
                     ),
                 )
                 time.sleep(min(chunk, left))
                 elapsed += chunk
             safe_after(root, lambda: set_hourly_waiting(False))
-            append_image_log(png_dir, "한도 대기 종료 — 재시도")
+            append_image_log(png_dir, f"한도 대기 종료({mode}) — 재시도")
             return True
+
+        def _wait_for_limit(reason: str, err: BaseException | str) -> bool:
+            """재설정 시각까지 대기, 없으면 1시간 후 시험 생성."""
+            from datetime import datetime
+
+            reset_at = None
+            if isinstance(err, AiImageLimitError):
+                reset_at = err.reset_at
+            if reset_at is not None:
+                now = datetime.now()
+                wait_sec = int((reset_at - now).total_seconds()) + 30
+                if wait_sec > 15:
+                    # 최대 6시간(한도 사이클) — 그 이상이면 1시간 시험으로
+                    if wait_sec > 6 * 3600:
+                        append_image_log(
+                            png_dir,
+                            f"재설정 시각이 너무 멀음({reset_at}) — 1시간 시험으로 대체",
+                        )
+                        return _wait_until(
+                            total_sec=_HOURLY_RETRY_SEC,
+                            reason=f"{reason} · 1h시험",
+                            mode="probe1h",
+                        )
+                    label = reset_at.strftime("%m/%d %H:%M")
+                    return _wait_until(
+                        total_sec=wait_sec,
+                        reason=f"{reason} · 재설정 {label}",
+                        mode="until_reset",
+                    )
+            return _wait_until(
+                total_sec=_HOURLY_RETRY_SEC,
+                reason=f"{reason} · 1h시험생성",
+                mode="probe1h",
+            )
 
         def work() -> None:
             try:
@@ -758,7 +836,7 @@ def main(*, container: tk.Misc | None = None) -> None:
                 append_image_log(
                     png_dir,
                     f"탭로그 ON — {title} · 씬 {len(todo)}개 · reopen={force_reopen}"
-                    + (f" · 한도1h재시도" if do_hourly_retry else ""),
+                    + (f" · 한도대기ON" if do_hourly_retry else ""),
                 )
                 sess, model_ok = _ensure_browser_and_paste(
                     email=email,
@@ -818,8 +896,11 @@ def main(*, container: tk.Misc | None = None) -> None:
                         interval_sec=gap,
                         png_dir=png_dir,
                     )
-                    # 첫 실행 씬: 입력창(SRT·프롬프트+명령) 그대로 전송
-                    use_box = ran_n == 0 and bool(input_prepared["v"])
+                    # 첫 실행·한도 재오픈 후: 입력창에 준비된 명령이 이 씬이면 그대로 전송
+                    use_box = (
+                        bool(input_prepared["v"])
+                        and input_prepared.get("cmd_sec") == int(sc.sec)
+                    )
                     done_i = total_n - len(remaining) + 1
                     safe_after(
                         root,
@@ -855,27 +936,103 @@ def main(*, container: tk.Misc | None = None) -> None:
                             input_prepared["cmd_sec"] = None
                         ran_n += 1
                         err_s = str(scene_err)
-                        limit_hit = _looks_like_limit_error(err_s) or (
-                            fail_streak >= _LIMIT_FAIL_STREAK
+                        is_limit = isinstance(scene_err, AiImageLimitError) or (
+                            _looks_like_limit_error(err_s)
+                        )
+                        limit_hit = is_limit or (fail_streak >= _LIMIT_FAIL_STREAK)
+                        # 실패 분석 로그
+                        kind = "limit" if is_limit else (
+                            "fail_streak" if limit_hit else "fail"
+                        )
+                        extra = f"streak={fail_streak}"
+                        if isinstance(scene_err, AiImageLimitError):
+                            if scene_err.reset_at:
+                                extra += (
+                                    " reset_at="
+                                    + scene_err.reset_at.strftime("%Y-%m-%d %H:%M")
+                                )
+                            page_snip = scene_err.raw or ""
+                        else:
+                            page_snip = ""
+                        append_fail_log(
+                            png_dir,
+                            scene=sc.label,
+                            error=err_s,
+                            kind=kind,
+                            page_snip=page_snip,
+                            extra=extra,
                         )
                         if do_hourly_retry and limit_hit and hourly_retry_var.get():
                             append_image_log(
                                 png_dir,
-                                f"{sc.label} 실패(한도 추정 streak={fail_streak}) "
-                                f"— 1시간 후 같은 씬 재시도\n{err_s}",
+                                f"{sc.label} 실패(한도 "
+                                f"{'확정' if is_limit else '추정'} "
+                                f"streak={fail_streak}) "
+                                f"— 브라우저 종료 후 대기·재오픈\n{err_s}",
                             )
                             safe_after(
                                 root,
                                 lambda s=sc, e=err_s: set_status(
-                                    f"{s.label} 한도 추정 — 1시간 후 재시도 — {e[:60]}"
+                                    f"{s.label} 한도 — 브라우저 종료·대기 — {e[:50]}"
                                 ),
                             )
-                            if not _wait_hourly(f"{sc.label} 한도"):
-                                cancelled_wait = True
-                                break
-                            # 대기 후 같은 씬부터 다시 (pop 안 함)
+                            # 한도 대기 전: 이미지용 브라우저·세션 종료
+                            try:
+                                close_chrome_debug()
+                                append_image_log(
+                                    png_dir, "한도 대기 전 ChromeDebug 종료"
+                                )
+                            except Exception as close_ex:
+                                append_image_log(
+                                    png_dir, f"브라우저 종료 경고: {close_ex}"
+                                )
+                            browser_ready["v"] = False
                             input_prepared["v"] = False
                             input_prepared["cmd_sec"] = None
+                            if not _wait_for_limit(f"{sc.label} 한도", scene_err):
+                                cancelled_wait = True
+                                break
+                            # 재개: 「브라우저 열기」와 동일 — 재오픈·로그인·붙여넣기·이 씬 명령
+                            append_image_log(
+                                png_dir,
+                                f"한도 대기 종료 — 브라우저 재오픈 후 {sc.label} 재개",
+                            )
+                            safe_after(
+                                root,
+                                lambda s=sc: set_status(
+                                    f"한도 해제 추정 — 브라우저 재오픈 · {s.label}"
+                                ),
+                            )
+                            try:
+                                sess, model_ok = _ensure_browser_and_paste(
+                                    email=email,
+                                    password=password,
+                                    url=url,
+                                    model_sel=model_sel,
+                                    model_texts=model_texts,
+                                    pipe=pipe,
+                                    png_dir=png_dir,
+                                    force_paste=True,
+                                    first_command_sec=int(sc.sec),
+                                    first_scene_prompt=sc.prompt,
+                                    submit_context=False,
+                                    force_reopen=True,
+                                    interval_for_cmd=gap,
+                                )
+                            except Exception as reopen_ex:
+                                append_fail_log(
+                                    png_dir,
+                                    scene=sc.label,
+                                    error=str(reopen_ex),
+                                    kind="reopen_fail",
+                                    extra="한도 대기 후 브라우저 재오픈 실패",
+                                )
+                                append_image_log(
+                                    png_dir,
+                                    f"재오픈 실패 — 중단\n{reopen_ex}",
+                                )
+                                cancelled_wait = True
+                                break
                             fail_streak = 0
                             continue
                         # 한도 재시도 OFF 또는 한도 아님 → 다음 씬
@@ -956,7 +1113,7 @@ def main(*, container: tk.Misc | None = None) -> None:
         set_status(
             f"{title} 준비 — 씬간격 {gap}초 · 요청대기 {wait_gap}초 · {len(todo)}개"
             + (" · 입력창 준비" if need_prepare else " · 입력창 전송")
-            + (" · 한도1h재시도" if do_hourly_retry else "")
+            + (" · 한도대기ON" if do_hourly_retry else "")
         )
         threading.Thread(target=work, daemon=True).start()
 
@@ -1110,12 +1267,15 @@ def main(*, container: tk.Misc | None = None) -> None:
     ttk.Label(frm, textvariable=status_var).grid(row=4, column=0, sticky="ew", pady=(8, 0))
     tip = (
         "「브라우저 열기」= 재오픈 → 생성·다운로드 반복"
-        " · 「한도 시 1시간마다 재시도」체크 시 한도 추정 후 대기·재개"
+        " · exe 여러 개 = 슬롯(포트) 자동 분리 · 장(루트)만 다르게"
+        " · 한도 시: 브라우저 종료 → 대기 → 재개"
+        " · 실패 로그: image_fail.log"
     )
     ttk.Label(frm, text=tip, foreground="#555").grid(row=5, column=0, sticky="w", pady=(4, 0))
 
     def on_close() -> None:
         persist()
+        release_chrome_slot()
 
     if standalone:
         bind_close(root, standalone, on_close)

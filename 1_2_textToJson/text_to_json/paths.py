@@ -209,7 +209,7 @@ def json_sample_path() -> Path | None:
 
 
 def find_voices_json(root: Path | str | None) -> Path | None:
-    """장 루트 기준 ``voices.json`` — ``{부}/voices.json`` 등."""
+    """장·부 루트 기준 ``voices.json`` — 소설 루트(1~5부 공용) 우선."""
     if root is None:
         return None
     r = Path(root).expanduser()
@@ -217,11 +217,13 @@ def find_voices_json(root: Path | str | None) -> Path | None:
         r / "voices.json",
         r.parent / "voices.json",
         r.parent.parent / "voices.json",
+        r.parent.parent.parent / "voices.json",
         r / "tts" / "voices.json",
     ]
-    # tts 파일에서 온 경우: …/4장/tts → …/1부/voices.json
+    # …/{부}/{장}/tts → 소설 루트 voices.json
     if r.name.casefold() == "tts":
-        candidates.insert(0, r.parent.parent / "voices.json")
+        candidates.insert(0, r.parent.parent.parent / "voices.json")
+        candidates.insert(1, r.parent.parent / "voices.json")
     seen: set[str] = set()
     for p in candidates:
         try:
@@ -310,6 +312,8 @@ def default_convert_command(
         f"{keys_bit}"
         f"아래 「{txt_name}」(대본 텍스트)를 "
         f"2_2 scriptToVoice용 dialogue JSON으로 변환해 주세요. "
+        f"원문 첫 줄 장 제목(예: 제13장. …)은 chapter 필드와 "
+        f"inputs[0] narrator 낭독에 모두 넣고, 한자·한자 병기 괄호는 제외하세요. "
         f"모든 대사·속마음에 [calm] 등 오디오 태그를 반드시 붙이세요 "
         f"(원문에 없어도 부여). 감정만 쓰지 말고 강도·목소리·멈춤을 2~3개 "
         f"조합하고, 강한 장면은 문장 분리·구두점(... ! ?)으로 연기하세요. "

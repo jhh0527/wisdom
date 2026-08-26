@@ -102,7 +102,7 @@ def main(*, container: tk.Misc | None = None) -> None:
     dialogue_var = tk.StringVar(value=dialogue_default)
     range_var = tk.StringVar(value=range_default)
     status_var = tk.StringVar(
-        value="루트/tts dialogue JSON → mp3/ (01.mp3+01.txt) · 구간 재합성 · 병합"
+        value="루트/tts dialogue JSON → mp3/ (01.mp3…) · 구간 재합성 · 병합"
     )
     prog_var = tk.DoubleVar(value=0.0)
     busy = {"v": False}
@@ -331,7 +331,7 @@ def main(*, container: tk.Misc | None = None) -> None:
 
     tip = ttk.Label(
         frm,
-        text="JSON → 루트/mp3 (01.mp3 + 01.txt + lines.json) · 구간 재합성 · 병합 · API 키만 elsub_config",
+        text="JSON → 루트/mp3 (01.mp3 + lines.json + all.mp3) · 구간 재합성 · API 키만 elsub_config",
         foreground="#555",
     )
     tip.grid(row=1, column=0, sticky="w", pady=(0, 4))
@@ -694,18 +694,33 @@ def main(*, container: tk.Misc | None = None) -> None:
                     voice_id=s.voice_id,
                     model_id=s.model_id,
                     on_progress=lambda m, p: safe_after(
-                        root, lambda msg=m, pct=p: set_progress(pct, msg)
+                        root,
+                        lambda msg=m, pct=p: set_progress(
+                            min(85.0, max(0.0, pct) * 0.85), msg
+                        ),
+                    ),
+                )
+                g = gap_sec()
+                dest = merge_part_mp3s(
+                    out,
+                    gap_sec=g,
+                    all_name="all.mp3",
+                    on_progress=lambda m, p: safe_after(
+                        root,
+                        lambda msg=m, pct=p: set_progress(
+                            85.0 + max(0.0, min(100.0, pct)) * 0.15, msg
+                        ),
                     ),
                 )
 
                 def done() -> None:
                     set_busy(False)
-                    set_progress(100.0, f"변환 완료 — {len(paths)}개 → {out}")
+                    set_progress(100.0, f"변환+병합 완료 → {dest.name}")
                     safe_messagebox(
                         root,
                         "showinfo",
                         "2_2 scriptToVoice",
-                        f"{len(paths)}개 MP3 생성\n{out}",
+                        f"{len(paths)}개 MP3 생성 + 병합(텀 {g:.2f}s)\n→ {dest}",
                     )
 
                 safe_after(root, done)
@@ -749,6 +764,7 @@ def main(*, container: tk.Misc | None = None) -> None:
                 dest = merge_part_mp3s(
                     out,
                     gap_sec=g,
+                    all_name="all.mp3",
                     on_progress=lambda m, p: safe_after(
                         root, lambda msg=m, pct=p: set_progress(pct, msg)
                     ),

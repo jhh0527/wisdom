@@ -16,6 +16,16 @@ import time
 from pathlib import Path
 from typing import Any
 
+from scene_image.chrome_slot import (
+    ensure_chrome_slot,
+    get_active_slot,
+    release_chrome_slot,
+)
+from scene_image.limit_detect import (
+    AiImageLimitError,
+    detect_limit_on_page,
+    raise_limit_error,
+)
 from scene_image.paths import GENSPARK_AI_IMAGE_URL
 from scene_image.scene_parse import png_already_exists, srt_png_name
 from scene_image.url_filter import (
@@ -36,11 +46,16 @@ _NANO_BANANA_PRO_TEXTS = (
 )
 _PROFILE_DIRNAME = ".genspark_scene_image_profile"
 _STORAGE_STATE_NAME = "storage_state.json"
-# 모듈 전용 ChromeDebug (다른 Genspark 모듈과 포트·프로필 분리)
-# chrome --remote-debugging-port=9242 --user-data-dir=C:\ChromeDebug_2_5
+# 모듈 전용 ChromeDebug — 슬롯 N: port 9242+N, C:\ChromeDebug_2_5_slotN
+# (인스턴스 동시 실행 시 chrome_slot.ensure_chrome_slot 이 자동 할당)
 _CDP_PORT = 9242
-_CDP_PORTS = (9242,)
 _CHROME_DEBUG_USER_DATA = Path(r"C:\ChromeDebug_2_5")
+
+
+def _slot_defaults() -> tuple[int, Path]:
+    """활성 슬롯의 (port, user_data). 없으면 확보 후 반환."""
+    slot = get_active_slot() or ensure_chrome_slot()
+    return int(slot.port), Path(slot.user_data)
 _GENSPARK_FILE_RE = re.compile(
     r"https?://(?:www\.)?genspark\.ai/api/files/[^\s\"'<>]+",
     re.IGNORECASE,
@@ -129,29 +144,31 @@ def find_chrome_exe() -> Path | None:
 
 
 def close_chrome_debug(*, user_data_dir: Path | None = None) -> None:
-    """이 모듈 ChromeDebug(CDP)만 종료 — 다른 모듈 포트·프로필은 건드리지 않음."""
+    """이 슬롯 ChromeDebug(CDP)만 종료 — 다른 슬롯·모듈은 건드리지 않음."""
     reset_image_session()
-    data = str(Path(user_data_dir or _CHROME_DEBUG_USER_DATA).resolve())
+    if user_data_dir is not None:
+        data_path = Path(user_data_dir)
+    else:
+        slot = get_active_slot()
+        if slot is None:
+            return
+        data_path = Path(slot.user_data)
+    data = str(data_path.resolve()).rstrip("\\/")
     data_esc = data.replace("'", "''")
     if sys.platform == "win32":
-        # 이 모듈 user-data-dir(또는 전용 포트+프로필) chrome.exe 만 종료
+        # --user-data-dir=경로 정확 매칭 (접두사 충돌 방지: …_2_5 vs …_2_5_slot1)
         ps = (
             "$ud='"
             + data_esc
             + "';"
-            "$ports=@("
-            + ",".join(str(p) for p in _CDP_PORTS)
-            + ");"
+            "$esc=[regex]::Escape($ud);"
+            "$re=('(?i)--user-data-dir=\"?'+$esc+'\"?(?:\\s|$)');"
             "Get-CimInstance Win32_Process -Filter \"Name='chrome.exe'\" | "
             "ForEach-Object {"
             "  $cl=$_.CommandLine; if(-not $cl){return};"
-            "  $hit=$false;"
-            "  if($cl -like ('*'+$ud+'*')){$hit=$true};"
-            "  foreach($p in $ports){"
-            "    if(($cl -like ('*--remote-debugging-port='+$p+'*')) -and "
-            "       ($cl -like ('*'+$ud+'*'))){$hit=$true}"
-            "  };"
-            "  if($hit){Stop-Process -Id $_.ProcessId -Force -ErrorAction SilentlyContinue}"
+            "  if($cl -match $re){"
+            "    Stop-Process -Id $_.ProcessId -Force -ErrorAction SilentlyContinue"
+            "  }"
             "}"
         )
         try:
@@ -176,7 +193,14 @@ def close_chrome_debug(*, user_data_dir: Path | None = None) -> None:
 
 def clear_chrome_session_restore(user_data_dir: Path | None = None) -> None:
     """이전 창·탭 복원을 막아 「브라우저 열기」 때 탭 1개만 뜨게 한다."""
-    root = Path(user_data_dir or _CHROME_DEBUG_USER_DATA)
+    if user_data_dir is not None:
+        root = Path(user_data_dir)
+    else:
+        slot = get_active_slot()
+        if slot is None:
+            root = _CHROME_DEBUG_USER_DATA
+        else:
+            root = Path(slot.user_data)
     default = root / "Default"
     if not default.is_dir():
         return
@@ -234,32 +258,42 @@ def wait_cdp_ready(*, debug_port: int = _CDP_PORT, timeout_sec: float = 45.0) ->
 def open_chrome_debug(
     url: str = GENSPARK_AI_IMAGE_URL,
     *,
-    debug_port: int = _CDP_PORT,
+    debug_port: int | None = None,
     user_data_dir: Path | None = None,
     restart: bool = False,
 ) -> dict[str, str]:
-    """고정 디버그 Chrome 실행.
+    """슬롯별 디버그 Chrome 실행.
 
-    ``chrome.exe --remote-debugging-port=9242 --user-data-dir=C:\\ChromeDebug_2_5``
-    ``restart=True`` 이면 기존 ChromeDebug 프로세스를 종료한 뒤 다시 연다.
-    Playwright 연결 전에는 about:blank 만 열고, 페이지 이동은 세션이 담당한다.
+    슬롯 N: ``--remote-debugging-port=9242+N --user-data-dir=C:\\ChromeDebug_2_5_slotN``
+    ``restart=True`` 이면 이 슬롯 Chrome만 종료한 뒤 다시 연다.
+    이미 CDP 가 떠 있으면 재사용한다 (restart 제외).
     """
+    slot_port, slot_ud = _slot_defaults()
+    port = int(debug_port if debug_port is not None else slot_port)
+    data_dir = Path(user_data_dir or slot_ud)
     if restart:
-        close_chrome_debug(user_data_dir=user_data_dir)
-        clear_chrome_session_restore(user_data_dir)
+        close_chrome_debug(user_data_dir=data_dir)
+        clear_chrome_session_restore(data_dir)
+    elif wait_cdp_ready(debug_port=port, timeout_sec=1.5):
+        return {
+            "mode": "chrome_debug",
+            "debug_port": str(port),
+            "user_data": str(data_dir.resolve()),
+            "reused": "1",
+            "slot": str((get_active_slot() or ensure_chrome_slot()).index),
+        }
     chrome = find_chrome_exe()
     if chrome is None:
         raise RuntimeError(
             "Google Chrome을 찾을 수 없습니다.\nChrome 설치 후 다시 시도하세요."
         )
-    data_dir = Path(user_data_dir or _CHROME_DEBUG_USER_DATA)
     data_dir.mkdir(parents=True, exist_ok=True)
     reset_image_session()
     # URL은 Playwright가 연 뒤에 이동 — 창만 뜨고 자동화가 안 붙는 착시 방지
     del url  # 호환 인자 (시작 URL은 세션 open_model 에서 처리)
     args: list[str] = [
         str(chrome),
-        f"--remote-debugging-port={int(debug_port)}",
+        f"--remote-debugging-port={port}",
         f"--user-data-dir={data_dir.resolve()}",
         "--no-first-run",
         "--no-default-browser-check",
@@ -273,15 +307,17 @@ def open_chrome_debug(
             subprocess.DETACHED_PROCESS | subprocess.CREATE_NEW_PROCESS_GROUP
         )
     subprocess.Popen(**kwargs)
-    if not wait_cdp_ready(debug_port=debug_port, timeout_sec=45.0):
+    if not wait_cdp_ready(debug_port=port, timeout_sec=45.0):
         raise RuntimeError(
-            f"ChromeDebug(CDP :{debug_port})에 연결하지 못했습니다.\n"
+            f"ChromeDebug(CDP :{port})에 연결하지 못했습니다.\n"
             "Chrome이 완전히 뜬 뒤 「브라우저 열기」를 다시 눌러 주세요."
         )
     return {
         "mode": "chrome_debug",
-        "debug_port": str(debug_port),
+        "debug_port": str(port),
         "user_data": str(data_dir.resolve()),
+        "reused": "0",
+        "slot": str((get_active_slot() or ensure_chrome_slot()).index),
     }
 
 
@@ -291,11 +327,13 @@ def open_genspark_in_chrome(
     profile_dir: Path | None = None,
     chrome_user_data: Path | None = None,
     chrome_profile_directory: str | None = None,
-    debug_port: int = _CDP_PORT,
+    debug_port: int | None = None,
 ) -> None:
-    """레거시 호환 — 기본은 ChromeDebug_2_5(9242)."""
+    """레거시 호환 — 기본은 활성 슬롯 ChromeDebug."""
+    slot_port, slot_ud = _slot_defaults()
+    port = int(debug_port if debug_port is not None else slot_port)
     if chrome_user_data is None and profile_dir is None:
-        open_chrome_debug(url, debug_port=debug_port)
+        open_chrome_debug(url, debug_port=port)
         return
     chrome = find_chrome_exe()
     if chrome is None:
@@ -306,14 +344,14 @@ def open_genspark_in_chrome(
     if chrome_user_data is not None and chrome_profile_directory:
         args.append(f"--user-data-dir={chrome_user_data.resolve()}")
         args.append(f"--profile-directory={chrome_profile_directory}")
-        args.append(f"--remote-debugging-port={debug_port}")
+        args.append(f"--remote-debugging-port={port}")
     elif profile_dir is not None:
         profile_dir.mkdir(parents=True, exist_ok=True)
         args.append(f"--user-data-dir={profile_dir.resolve()}")
-        args.append(f"--remote-debugging-port={debug_port}")
+        args.append(f"--remote-debugging-port={port}")
     else:
-        args.append(f"--remote-debugging-port={debug_port}")
-        args.append(f"--user-data-dir={_CHROME_DEBUG_USER_DATA.resolve()}")
+        args.append(f"--remote-debugging-port={port}")
+        args.append(f"--user-data-dir={slot_ud.resolve()}")
     args.append("--new-window")
     args.append(url)
     kwargs: dict = {"args": args, "close_fds": True}
@@ -329,13 +367,16 @@ def open_browser_for_account(
     *,
     email: str = "",
     fallback_profile_dir: Path | None = None,
-    debug_port: int = _CDP_PORT,
+    debug_port: int | None = None,
     restart_chrome: bool = False,
 ) -> dict[str, str]:
-    """브라우저 열기 — C:\\ChromeDebug_2_5 + port 9242."""
+    """브라우저 열기 — 활성 슬롯 포트·프로필."""
     del email, fallback_profile_dir  # 호환용 인자
+    ensure_chrome_slot()
+    slot_port, _ud = _slot_defaults()
+    port = int(debug_port if debug_port is not None else slot_port)
     return open_chrome_debug(
-        url, debug_port=debug_port, restart=restart_chrome
+        url, debug_port=port, restart=restart_chrome
     )
 
 
@@ -2644,6 +2685,14 @@ async def _wait_generation_done(
                     f"SRT_{(srt_sec or 0):03d} busy={busy} url_ok={url_ok} "
                     f"src={_short_src(near)}"
                 )
+                # 한도 배너/토스트 주기 점검
+                hit = await detect_limit_on_page(page)
+                if hit is not None:
+                    _tab_log(
+                        f"⏱ 생성대기 한도감지 {_timing_sec(t0)}s "
+                        f"SRT_{(srt_sec or 0):03d} · {hit.message} · {hit.snippet[:120]}"
+                    )
+                    raise_limit_error(hit)
 
             if url_ok and not busy:
                 stable += 1
@@ -2735,6 +2784,14 @@ async def _wait_generation_done(
             return True, page
     if await _page_shows_failure(page, baseline_failures=fail_base):
         return False, page
+    # 타임아웃 직전 — 한도 배너 우선
+    hit = await detect_limit_on_page(page)
+    if hit is not None:
+        _tab_log(
+            f"⏱ 생성대기 한도감지(시간초과) {_timing_sec(t0)}s "
+            f"SRT_{(srt_sec or 0):03d} · {hit.message} · {hit.snippet[:120]}"
+        )
+        raise_limit_error(hit)
     _tab_log(
         f"⏱ 생성대기 시간초과 {_timing_sec(t0)}s "
         f"SRT_{(srt_sec or 0):03d} "
@@ -3663,21 +3720,22 @@ async def _collect_images(page: Any) -> list[tuple[int | None, str]]:
 
 
 async def _launch_context(playwright: Any, profile_dir: Path) -> Any:
-    # 1) 이미 열린 Chrome(CDP)에 연결 — 재시작 직후 여유 있게 대기
+    # 1) 이 슬롯 Chrome(CDP)에만 연결 — 다른 인스턴스 포트는 보지 않음
+    del profile_dir  # CDP 연결 시 Playwright 프로필 미사용
+    port, _ud = _slot_defaults()
     for _ in range(60):
-        for port in _CDP_PORTS:
-            try:
-                browser = await playwright.chromium.connect_over_cdp(
-                    f"http://127.0.0.1:{port}"
-                )
-                if browser.contexts:
-                    return browser.contexts[0]
-            except Exception:
-                continue
+        try:
+            browser = await playwright.chromium.connect_over_cdp(
+                f"http://127.0.0.1:{port}"
+            )
+            if browser.contexts:
+                return browser.contexts[0]
+        except Exception:
+            pass
         await asyncio.sleep(0.5)
 
     raise RuntimeError(
-        "ChromeDebug(CDP)에 연결하지 못했습니다.\n"
+        f"ChromeDebug(CDP :{port})에 연결하지 못했습니다.\n"
         "「브라우저 열기」로 ChromeDebug를 먼저 띄운 뒤 다시 시도하세요."
     )
 
@@ -4388,6 +4446,10 @@ class GensparkSceneSession:
                                         "Failure 메시지 감지 — 다음 씬으로 진행"
                                     )
                                 if not ok:
+                                    # 한도 배너가 Failure/타임아웃보다 우선
+                                    hit = await detect_limit_on_page(page)
+                                    if hit is not None:
+                                        raise_limit_error(hit)
                                     if await _srt_success_message_seen(
                                         page, srt_sec
                                     ):
@@ -4460,14 +4522,56 @@ class GensparkSceneSession:
                                 last_err = str(ex)
                                 if srt_sec not in pending_fail_secs:
                                     pending_fail_secs.append(int(srt_sec))
+                                # 페이지 스니펫을 실패 로그에 남김
+                                page_snip = ""
+                                try:
+                                    from scene_image.limit_detect import (
+                                        read_page_visible_text,
+                                    )
+                                    from scene_image.image_log import append_fail_log
+
+                                    page_snip = await read_page_visible_text(
+                                        page, max_chars=2500
+                                    )
+                                    kind = (
+                                        "limit"
+                                        if isinstance(ex, AiImageLimitError)
+                                        else "fail"
+                                    )
+                                    extra = ""
+                                    if isinstance(ex, AiImageLimitError) and ex.reset_at:
+                                        extra = (
+                                            "reset_at="
+                                            + ex.reset_at.strftime("%Y-%m-%d %H:%M")
+                                        )
+                                    d = _TAB_LOG_PNG.get("dir")
+                                    if d is not None:
+                                        append_fail_log(
+                                            d,
+                                            scene=f"SRT_{int(srt_sec):03d}",
+                                            error=last_err,
+                                            kind=kind,
+                                            page_snip=page_snip or getattr(
+                                                ex, "raw", ""
+                                            ),
+                                            extra=extra,
+                                        )
+                                except Exception:
+                                    pass
                                 _tab_log(
                                     f"run_scene 실패(재시도 없음): {last_err}"
                                 )
+                                # AiImageLimitError 는 타입 유지해 GUI 가 구분
+                                err_out: BaseException
+                                if isinstance(ex, AiImageLimitError):
+                                    err_out = ex
+                                else:
+                                    err_out = RuntimeError(last_err)
                                 resp_q.put(
                                     (
                                         False,
                                         None,
-                                        RuntimeError(last_err),
+                                        err_out,
                                     )
                                 )
                                 break

@@ -318,10 +318,11 @@ def main(*, container: tk.Misc | None = None) -> None:
 
             ok = messagebox.askyesno(
                 "7_4 mp4Merge",
-                f"{len(clips)}개 파일을 concat(-c copy)로 병합합니다.\n"
+                f"{len(clips)}개 파일을 자연순서로 병합합니다.\n"
                 f"→ {ALL_MP4_NAME}{mute_hint}\n\n"
                 f"{preview}\n\n"
-                f"짧은 클립을 본편 해상도로 재인코딩하지 않습니다.\n"
+                f"규격이 다른 파일만 본편(다수) 규격으로 맞춘 뒤\n"
+                f"무손실 copy로 이어붙입니다.\n"
                 f"실패 시 로그: {MERGE_LOG_NAME}\n\n병합할까요?",
                 parent=root,
             )
@@ -406,7 +407,7 @@ def main(*, container: tk.Misc | None = None) -> None:
 
     ttk.Label(
         act,
-        text="음소거 열 클릭으로 전환 · concat copy (영상 재인코딩 없음)",
+        text="음소거 열 클릭 · 규격 다른 클립만 재인코딩 후 무손실 이어붙이기",
         foreground="#555",
     ).pack(side=tk.LEFT, padx=(16, 0))
 

@@ -25,11 +25,25 @@ _KEYS = (
     "manual_secs",
 )
 
+# 슬롯별 설정 파일 분리 (동시 인스턴스가 루트/png 를 덮어쓰지 않게)
+_config_slot_index: int | None = None
+
+
+def set_config_slot(index: int | None) -> None:
+    global _config_slot_index
+    _config_slot_index = None if index is None else int(index)
+
 
 def config_path() -> Path:
     if getattr(sys, "frozen", False):
-        return Path(sys.executable).resolve().parent / CONFIG_NAME
-    return Path(__file__).resolve().parents[1] / "dist" / CONFIG_NAME
+        base = Path(sys.executable).resolve().parent
+    else:
+        base = Path(__file__).resolve().parents[1] / "dist"
+    if _config_slot_index is None or _config_slot_index == 0:
+        name = CONFIG_NAME
+    else:
+        name = f"scene_image_gui_config_slot{_config_slot_index}.json"
+    return base / name
 
 
 def load_gui_settings() -> dict[str, str]:
