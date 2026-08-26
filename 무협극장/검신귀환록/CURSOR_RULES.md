@@ -6,12 +6,16 @@
 
 작업 전 반드시 읽기:
 
-1. `world.md`
-2. `characters.md`
-3. `martial_arts.md`
-4. `timeline.md`
-5. `relationships.md` (정보 격리)
-6. `foreshadowing.md` (새 복선·회수 시 갱신)
+1. `events.md` (사건 순서·확정 상태)
+2. `chapter_map.md` (해당 장의 사건 ID·제목)
+3. `world.md`
+4. `characters.md`
+5. `martial_arts.md`
+6. `timeline.md`
+7. `relationships.md` (정보 격리)
+8. `foreshadowing.md` (새 복선·회수 시 갱신)
+
+젠스파크로 쓸 때는 `WRITE_RULES.md` + `briefs/CHAPTER_NN.md`가 주입력이다. 부 전체 줄거리 전문은 넣지 않는다.
 
 ## 문체
 
@@ -31,12 +35,14 @@
 
 ## 새 장 작성 체크
 
-1. 시점 나이·계절을 `timeline.md`에 맞춰 표기
-2. 등장 인물 상태(생존/사망/정보) 확인
-3. 무공·경지가 `martial_arts.md`와 맞는지 확인
-4. 장소 이동에 충분한 시간 배분
-5. 새/회수 복선은 `foreshadowing.md` 갱신
-6. 충돌이 보이면 본문을 고치거나 `review.md`에 기록
+1. 시점 나이·계절을 `timeline.md`에 맞춰 표기 (**1부·2부 나이 충돌 시 BRIEF에 선택한 기준을 명시**)
+2. 이 장 사건 ID가 `events.md`에 있는지 확인. 없으면 승인 후 추가
+3. 등장 인물 상태(생존/사망/납치/정보) 확인
+4. 무공·경지가 `martial_arts.md`와 맞는지 확인
+5. 장소 이동에 충분한 시간 배분
+6. 새/회수 복선은 `foreshadowing.md` 갱신
+7. 충돌이 보이면 본문을 고치거나 `review.md`에 기록
+8. 젠스파크 사용 시: 신규 사건으로 분량 채우지 말 것 (`WRITE_RULES.md`)
 
 ## 추상 품질 (별도 리뷰)
 

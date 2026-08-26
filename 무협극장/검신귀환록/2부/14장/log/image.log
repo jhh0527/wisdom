@@ -1,0 +1,2620 @@
+[23:00:55] 탭로그 ON — 브라우저 열기·생성 · 씬 73개 · reopen=True · 한도1h재시도
+[23:01:00] ChromeDebug 재시작 port=9242 user_data=C:\ChromeDebug_2_5
+[23:01:05] 모델 이미 Pro: Nano Banana Pro
+[23:01:05] 세션 준비 — login=OK model=Nano Banana Pro auto=True
+[23:01:05] ensure_page cur_sc=10 prefer_sc=10 cur=https://www.genspark.ai/ai_image prefer=https://www.genspark.ai/ai_image
+[23:01:07] fill OK(clip) follow=False chars=68627
+[23:01:08] 입력창 붙여넣기 — 프롬프트 45379자 + SRT 23205자 = 합계 68627자
+  prompt=C:/cursor/videt/2_5_sceneImage/md/image.검신회귀록.txt
+  srt=C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\mp3\new.srt
+[23:01:09] ensure_page cur_sc=10 prefer_sc=10 cur=https://www.genspark.ai/ai_image prefer=https://www.genspark.ai/ai_image
+[23:01:10] 동일 입력창에 명령 추가(미실행): ===== CHARACTER LOOK (SRT_000) =====
+State keys: Jin≈19|base
+Jin Muhan, approximately nineteen years old, East-Asian young swordsman, sharp narrow phoenix eyes, high straight nose,…
+[23:01:11] 상태키 SRT_000 · Baek|base; Jin≈19|base
+[23:01:11] run_scene 시작 SRT_000 · seen_files=0 · last_saved=
+[23:01:11] ensure_page cur_sc=10 prefer_sc=10 cur=https://www.genspark.ai/ai_image prefer=https://www.genspark.ai/ai_image
+[23:01:11] 모델 선택 시작 현재=(없음)
+[23:01:11] 모델 선택 결과 ok=False 칩=(없음) picked=
+[23:01:11] ⏱ 준비 SRT_000 0.2s · chars=2152
+[23:01:11] submit 시작 composer=2152 url=https://www.genspark.ai/ai_image
+[23:01:11] submit geo 실패 hit=no-btn
+[23:01:11] submit 시도 method=geo geo=False
+[23:01:12] submit 미확인 method=geo generating=False composer=2152
+[23:01:12] submit geo 실패 hit=no-btn
+[23:01:12] submit 시도 method=send send=False
+[23:01:13] submit 미확인 method=send generating=False composer=2152
+[23:01:13] submit 시도 method=ctrl
+[23:01:13] submit 미확인 method=ctrl generating=False composer=2154
+[23:01:14] submit 시도 method=enter
+[23:01:15] submit 확인 method=enter generating=False composer=0
+[23:01:15] ⏱ 입력창전송 SRT_000 4.3s
+[23:01:15] 제출 후 last_saved=
+[23:01:15] ⏱ 생성대기 시작 SRT_000 max=120s
+[23:01:31] ⏱ 생성대기 진행 15.2s SRT_000 busy=False url_ok=False src=
+[23:01:32] ⏱ 생성대기 완료 16.4s SRT_000 https://www.genspark.ai/api/files/s/pec2kmma
+[23:01:32] ⏱ 생성대기구간 SRT_000 16.4s · ok=True
+[23:01:32] SRT_000 근접 이미지 https://www.genspark.ai/api/files/s/pec2kmma
+[23:01:32] 다운로드 files URL=https://www.genspark.ai/api/files/s/pec2kmma → SRT_000.png
+[23:01:32] ⏱ 다운로드 직접실패 0.3s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[23:01:32] ⏱ 다운로드 fetch 0.1s size=707372 SRT_000.png
+[23:01:32] ⏱ 다운로드구간 SRT_000 0.4s · SRT_000.png
+[23:01:33] ⏱ 다운로드후유휴 SRT_000 1.2s · idle=True
+[23:01:33] ⏱ 씬합계 SRT_000 22.7s · https://www.genspark.ai/api/files/s/pec2kmma
+[23:01:33] SRT_000 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_000.png
+[23:01:34] 상태키 SRT_020 · Baek|base; Jin≈19|base
+[23:01:34] run_scene 시작 SRT_020 · seen_files=1 · last_saved=https://www.genspark.ai/api/files/s/pec2kmma
+[23:01:34] ⏱ 준비 SRT_020 0.0s · chars=3828
+[23:01:35] ⏱ 다음명령유휴 SRT_020 1.2s · idle=True
+[23:01:35] fill OK(clip) follow=True chars=3828
+[23:01:35] submit 시작 composer=3828 url=https://www.genspark.ai/agents?id=d165cd99-481d-4134-aa14-46105d6f1408
+[23:01:36] submit geo 실패 hit=no-btn
+[23:01:36] submit 시도 method=geo geo=False
+[23:01:36] submit 미확인 method=geo generating=False composer=3828
+[23:01:36] submit geo 실패 hit=no-btn
+[23:01:36] submit 시도 method=send send=False
+[23:01:37] submit 미확인 method=send generating=False composer=3828
+[23:01:37] submit 시도 method=ctrl
+[23:01:38] submit 미확인 method=ctrl generating=False composer=3830
+[23:01:38] submit 시도 method=enter
+[23:01:39] submit 확인 method=enter generating=False composer=0
+[23:01:39] ⏱ 입력·전송 SRT_020 3.8s · chars=3828
+[23:01:39] 제출 후 last_saved=https://www.genspark.ai/api/files/s/pec2kmma
+[23:01:39] ⏱ 생성대기 시작 SRT_020 max=120s
+[23:01:52] ⏱ 생성대기 완료 13.5s SRT_020 https://www.genspark.ai/api/files/s/qtlrpguu
+[23:01:52] ⏱ 생성대기구간 SRT_020 13.5s · ok=True
+[23:01:52] SRT_020 근접 이미지 https://www.genspark.ai/api/files/s/qtlrpguu
+[23:01:52] 다운로드 files URL=https://www.genspark.ai/api/files/s/qtlrpguu → SRT_020.png
+[23:01:53] ⏱ 다운로드 직접실패 0.2s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[23:01:53] ⏱ 다운로드 fetch 0.1s size=825961 SRT_020.png
+[23:01:53] ⏱ 다운로드구간 SRT_020 0.3s · SRT_020.png
+[23:01:54] ⏱ 다운로드후유휴 SRT_020 1.3s · idle=True
+[23:01:54] ⏱ 씬합계 SRT_020 20.3s · https://www.genspark.ai/api/files/s/qtlrpguu
+[23:01:54] SRT_020 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_020.png
+[23:01:54] 상태키 SRT_040 · Baek|base; Jin≈19|base
+[23:01:54] run_scene 시작 SRT_040 · seen_files=2 · last_saved=https://www.genspark.ai/api/files/s/qtlrpguu
+[23:01:54] ⏱ 준비 SRT_040 0.0s · chars=2399
+[23:01:55] ⏱ 다음명령유휴 SRT_040 1.4s · idle=True
+[23:01:56] fill OK(clip) follow=True chars=2399
+[23:01:56] submit 시작 composer=2399 url=https://www.genspark.ai/agents?id=d165cd99-481d-4134-aa14-46105d6f1408
+[23:01:56] submit geo 실패 hit=no-btn
+[23:01:56] submit 시도 method=geo geo=False
+[23:01:57] submit 미확인 method=geo generating=False composer=2399
+[23:01:57] submit geo 실패 hit=no-btn
+[23:01:57] submit 시도 method=send send=False
+[23:01:58] submit 미확인 method=send generating=False composer=2399
+[23:01:58] submit 시도 method=ctrl
+[23:01:58] submit 미확인 method=ctrl generating=False composer=2401
+[23:01:59] submit 시도 method=enter
+[23:01:59] submit 확인 method=enter generating=False composer=0
+[23:01:59] ⏱ 입력·전송 SRT_040 3.8s · chars=2399
+[23:01:59] 제출 후 last_saved=https://www.genspark.ai/api/files/s/qtlrpguu
+[23:02:00] ⏱ 생성대기 시작 SRT_040 max=120s
+[23:02:15] ⏱ 생성대기 진행 15.3s SRT_040 busy=False url_ok=False src=
+[23:02:17] ⏱ 생성대기 완료 17.8s SRT_040 https://www.genspark.ai/api/files/s/h9s9fqv9
+[23:02:17] ⏱ 생성대기구간 SRT_040 17.8s · ok=True
+[23:02:17] SRT_040 근접 이미지 https://www.genspark.ai/api/files/s/h9s9fqv9
+[23:02:17] 다운로드 files URL=https://www.genspark.ai/api/files/s/h9s9fqv9 → SRT_040.png
+[23:02:18] ⏱ 다운로드 직접실패 0.3s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[23:02:18] ⏱ 다운로드 fetch 0.1s size=605094 SRT_040.png
+[23:02:18] ⏱ 다운로드구간 SRT_040 0.3s · SRT_040.png
+[23:02:19] ⏱ 다운로드후유휴 SRT_040 1.3s · idle=True
+[23:02:19] ⏱ 씬합계 SRT_040 24.9s · https://www.genspark.ai/api/files/s/h9s9fqv9
+[23:02:19] SRT_040 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_040.png
+[23:02:19] 상태키 SRT_060 · Baek|base; Jin≈19|base
+[23:02:19] run_scene 시작 SRT_060 · seen_files=3 · last_saved=https://www.genspark.ai/api/files/s/h9s9fqv9
+[23:02:19] ⏱ 준비 SRT_060 0.0s · chars=1390
+[23:02:20] ⏱ 다음명령유휴 SRT_060 1.3s · idle=True
+[23:02:21] fill OK(clip) follow=True chars=1390
+[23:02:21] submit 시작 composer=1390 url=https://www.genspark.ai/agents?id=d165cd99-481d-4134-aa14-46105d6f1408
+[23:02:21] submit geo 실패 hit=no-btn
+[23:02:21] submit 시도 method=geo geo=False
+[23:02:22] submit 미확인 method=geo generating=False composer=1390
+[23:02:22] submit geo 실패 hit=no-btn
+[23:02:22] submit 시도 method=send send=False
+[23:02:23] submit 미확인 method=send generating=False composer=1390
+[23:02:23] submit 시도 method=ctrl
+[23:02:23] submit 미확인 method=ctrl generating=False composer=1392
+[23:02:24] submit 시도 method=enter
+[23:02:24] submit 확인 method=enter generating=False composer=0
+[23:02:24] ⏱ 입력·전송 SRT_060 3.9s · chars=1390
+[23:02:24] 제출 후 last_saved=https://www.genspark.ai/api/files/s/h9s9fqv9
+[23:02:24] ⏱ 생성대기 시작 SRT_060 max=120s
+[23:02:34] ⏱ 생성대기 완료 9.3s SRT_060 https://www.genspark.ai/api/files/s/hhve1cv2
+[23:02:34] ⏱ 생성대기구간 SRT_060 9.3s · ok=True
+[23:02:34] SRT_060 근접 이미지 https://www.genspark.ai/api/files/s/hhve1cv2
+[23:02:34] 다운로드 files URL=https://www.genspark.ai/api/files/s/hhve1cv2 → SRT_060.png
+[23:02:34] ⏱ 다운로드 직접실패 0.3s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[23:02:34] ⏱ 다운로드 fetch 0.0s size=468824 SRT_060.png
+[23:02:34] ⏱ 다운로드구간 SRT_060 0.3s · SRT_060.png
+[23:02:36] ⏱ 다운로드후유휴 SRT_060 1.3s · idle=True
+[23:02:36] ⏱ 씬합계 SRT_060 16.4s · https://www.genspark.ai/api/files/s/hhve1cv2
+[23:02:36] SRT_060 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_060.png
+[23:02:36] 상태키 SRT_080 · Baek|base; Jin≈19|base
+[23:02:36] run_scene 시작 SRT_080 · seen_files=4 · last_saved=https://www.genspark.ai/api/files/s/hhve1cv2
+[23:02:36] ⏱ 준비 SRT_080 0.0s · chars=1927
+[23:02:37] ⏱ 다음명령유휴 SRT_080 1.3s · idle=True
+[23:02:38] fill OK(clip) follow=True chars=1927
+[23:02:38] submit 시작 composer=1927 url=https://www.genspark.ai/agents?id=d165cd99-481d-4134-aa14-46105d6f1408
+[23:02:38] submit geo 실패 hit=no-btn
+[23:02:38] submit 시도 method=geo geo=False
+[23:02:38] submit 미확인 method=geo generating=False composer=1927
+[23:02:39] submit geo 실패 hit=no-btn
+[23:02:39] submit 시도 method=send send=False
+[23:02:39] submit 미확인 method=send generating=False composer=1927
+[23:02:40] submit 시도 method=ctrl
+[23:02:40] submit 미확인 method=ctrl generating=False composer=1929
+[23:02:40] submit 시도 method=enter
+[23:02:41] submit 확인 method=enter generating=False composer=0
+[23:02:41] ⏱ 입력·전송 SRT_080 4.0s · chars=1927
+[23:02:41] 제출 후 last_saved=https://www.genspark.ai/api/files/s/hhve1cv2
+[23:02:41] ⏱ 생성대기 시작 SRT_080 max=120s
+[23:02:55] ⏱ 생성대기 완료 13.3s SRT_080 https://www.genspark.ai/api/files/s/zyvdlg6j
+[23:02:55] ⏱ 생성대기구간 SRT_080 13.3s · ok=True
+[23:02:55] SRT_080 근접 이미지 https://www.genspark.ai/api/files/s/zyvdlg6j
+[23:02:55] 다운로드 files URL=https://www.genspark.ai/api/files/s/zyvdlg6j → SRT_080.png
+[23:02:55] ⏱ 다운로드 직접실패 0.3s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[23:02:55] ⏱ 다운로드 fetch 0.1s size=488930 SRT_080.png
+[23:02:55] ⏱ 다운로드구간 SRT_080 0.4s · SRT_080.png
+[23:02:57] ⏱ 다운로드후유휴 SRT_080 1.7s · idle=True
+[23:02:57] ⏱ 씬합계 SRT_080 21.0s · https://www.genspark.ai/api/files/s/zyvdlg6j
+[23:02:57] SRT_080 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_080.png
+[23:02:57] 상태키 SRT_100 · Baek|blood_robe; Jin≈19|blood_robe
+[23:02:57] run_scene 시작 SRT_100 · seen_files=5 · last_saved=https://www.genspark.ai/api/files/s/zyvdlg6j
+[23:02:57] ⏱ 준비 SRT_100 0.0s · chars=2951
+[23:02:58] ⏱ 다음명령유휴 SRT_100 1.3s · idle=True
+[23:02:59] fill OK(clip) follow=True chars=2951
+[23:02:59] submit 시작 composer=2951 url=https://www.genspark.ai/agents?id=d165cd99-481d-4134-aa14-46105d6f1408
+[23:02:59] submit geo 실패 hit=no-btn
+[23:02:59] submit 시도 method=geo geo=False
+[23:03:00] submit 미확인 method=geo generating=False composer=2951
+[23:03:00] submit geo 실패 hit=no-btn
+[23:03:00] submit 시도 method=send send=False
+[23:03:01] submit 미확인 method=send generating=False composer=2951
+[23:03:01] submit 시도 method=ctrl
+[23:03:02] submit 미확인 method=ctrl generating=False composer=2953
+[23:03:02] submit 시도 method=enter
+[23:03:03] submit 확인 method=enter generating=False composer=0
+[23:03:03] ⏱ 입력·전송 SRT_100 4.3s · chars=2951
+[23:03:03] 제출 후 last_saved=https://www.genspark.ai/api/files/s/zyvdlg6j
+[23:03:03] ⏱ 생성대기 시작 SRT_100 max=120s
+[23:03:18] ⏱ 생성대기 진행 15.1s SRT_100 busy=False url_ok=False src=
+[23:03:33] ⏱ 생성대기 진행 30.2s SRT_100 busy=False url_ok=False src=
+[23:03:48] ⏱ 생성대기 진행 45.2s SRT_100 busy=False url_ok=False src=
+[23:04:03] ⏱ 생성대기 진행 60.2s SRT_100 busy=False url_ok=False src=
+[23:04:18] ⏱ 생성대기 진행 75.3s SRT_100 busy=False url_ok=False src=
+[23:04:33] ⏱ 생성대기 진행 90.6s SRT_100 busy=False url_ok=False src=
+[23:04:49] ⏱ 생성대기 진행 106.0s SRT_100 busy=False url_ok=False src=
+[23:05:29] ⏱ 생성대기 시간초과 146.0s SRT_100 (새 api/files 이미지 없음, max=120s)
+[23:05:29] ⏱ 생성대기구간 SRT_100 146.0s · ok=False
+[23:05:29] run_scene 실패(재시도 없음): 새 이미지 대기 초과 (120s) — 다음 씬으로 진행
+[23:05:29] SRT_100 실패 — 다음 씬 계속
+새 이미지 대기 초과 (120s) — 다음 씬으로 진행
+[23:05:29] 상태키 SRT_120 · Baek|blood_robe; Jin≈19|blood_robe
+[23:05:29] 늦은이미지 회수 실패 SRT_100: SRT_100 요청 아래 새 이미지가 없습니다.
+[23:05:29] run_scene 시작 SRT_120 · seen_files=5 · last_saved=https://www.genspark.ai/api/files/s/zyvdlg6j
+[23:05:29] ⏱ 준비 SRT_120 0.0s · chars=1408
+[23:05:31] ⏱ 다음명령유휴 SRT_120 1.5s · idle=True
+[23:05:31] fill OK(clip) follow=True chars=1408
+[23:05:31] submit 시작 composer=1408 url=https://www.genspark.ai/agents?id=d165cd99-481d-4134-aa14-46105d6f1408
+[23:05:31] submit geo 실패 hit=no-btn
+[23:05:31] submit 시도 method=geo geo=False
+[23:05:32] submit 미확인 method=geo generating=False composer=1408
+[23:05:32] submit geo 실패 hit=no-btn
+[23:05:32] submit 시도 method=send send=False
+[23:05:33] submit 미확인 method=send generating=False composer=1408
+[23:05:33] submit 시도 method=ctrl
+[23:05:34] submit 미확인 method=ctrl generating=False composer=1410
+[23:05:34] submit 시도 method=enter
+[23:05:35] submit 확인 method=enter generating=False composer=0
+[23:05:35] ⏱ 입력·전송 SRT_120 4.2s · chars=1408
+[23:05:35] 제출 후 last_saved=https://www.genspark.ai/api/files/s/zyvdlg6j
+[23:05:35] ⏱ 생성대기 시작 SRT_120 max=120s
+[23:05:50] ⏱ 생성대기 진행 15.1s SRT_120 busy=False url_ok=False src=
+[23:06:05] ⏱ 생성대기 진행 30.2s SRT_120 busy=False url_ok=False src=
+[23:06:20] ⏱ 생성대기 진행 45.2s SRT_120 busy=False url_ok=False src=
+[23:06:35] ⏱ 생성대기 진행 60.5s SRT_120 busy=False url_ok=False src=
+[23:06:51] ⏱ 생성대기 진행 75.9s SRT_120 busy=False url_ok=False src=
+[23:07:06] ⏱ 생성대기 진행 91.2s SRT_120 busy=False url_ok=False src=
+[23:07:22] ⏱ 생성대기 진행 106.6s SRT_120 busy=False url_ok=False src=
+[23:08:01] ⏱ 생성대기 시간초과 146.1s SRT_120 (새 api/files 이미지 없음, max=120s)
+[23:08:01] ⏱ 생성대기구간 SRT_120 146.1s · ok=False
+[23:08:01] run_scene 실패(재시도 없음): 새 이미지 대기 초과 (120s) — 다음 씬으로 진행
+[23:08:01] SRT_120 실패(한도 추정 streak=2) — 1시간 후 같은 씬 재시도
+새 이미지 대기 초과 (120s) — 다음 씬으로 진행
+[23:08:01] 한도 대기 60분 시작 — SRT_120 한도
+[23:15:08] 탭로그 ON — 브라우저 열기·생성 · 씬 68개 · reopen=True · 한도대기ON
+[23:15:14] ChromeDebug 재시작 port=9242 user_data=C:\ChromeDebug_2_5
+[23:15:18] 모델 이미 Pro: Nano Banana Pro
+[23:15:19] 세션 준비 — login=OK model=Nano Banana Pro auto=True
+[23:15:19] ensure_page cur_sc=10 prefer_sc=10 cur=https://www.genspark.ai/ai_image prefer=https://www.genspark.ai/ai_image
+[23:15:21] fill OK(clip) follow=False chars=68627
+[23:15:21] 입력창 붙여넣기 — 프롬프트 45379자 + SRT 23205자 = 합계 68627자
+  prompt=C:/cursor/videt/2_5_sceneImage/md/image.검신회귀록.txt
+  srt=C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\mp3\new.srt
+[23:15:22] ensure_page cur_sc=10 prefer_sc=10 cur=https://www.genspark.ai/ai_image prefer=https://www.genspark.ai/ai_image
+[23:15:23] 동일 입력창에 명령 추가(미실행): ===== CHARACTER LOOK (SRT_100) =====
+State keys: Jin≈19|blood_robe; Baek≈19|blood_robe; Namgung|base
+Jin Muhan, approximately nineteen years old, East-Asian young swordsman, sharp …
+[23:15:24] 상태키 SRT_100 · Baek|blood_robe; Jin≈19|blood_robe
+[23:15:24] run_scene 시작 SRT_100 · seen_files=5 · last_saved=https://www.genspark.ai/api/files/s/zyvdlg6j
+[23:15:24] ensure_page cur_sc=10 prefer_sc=10 cur=https://www.genspark.ai/ai_image prefer=https://www.genspark.ai/ai_image
+[23:15:24] 모델 선택 시작 현재=(없음)
+[23:15:24] 모델 선택 결과 ok=False 칩=(없음) picked=
+[23:15:24] ⏱ 준비 SRT_100 0.1s · chars=2951
+[23:15:24] submit 시작 composer=2951 url=https://www.genspark.ai/ai_image
+[23:15:24] submit geo 실패 hit=no-btn
+[23:15:24] submit 시도 method=geo geo=False
+[23:15:25] submit 미확인 method=geo generating=False composer=2951
+[23:15:25] submit geo 실패 hit=no-btn
+[23:15:25] submit 시도 method=send send=False
+[23:15:26] submit 미확인 method=send generating=False composer=2951
+[23:15:26] submit 시도 method=ctrl
+[23:15:27] submit 미확인 method=ctrl generating=False composer=2953
+[23:15:28] submit 시도 method=enter
+[23:15:29] submit 확인 method=enter generating=False composer=0
+[23:15:29] ⏱ 입력창전송 SRT_100 4.6s
+[23:15:29] 제출 후 last_saved=https://www.genspark.ai/api/files/s/zyvdlg6j
+[23:15:29] ⏱ 생성대기 시작 SRT_100 max=120s
+[23:15:44] ⏱ 생성대기 진행 15.2s SRT_100 busy=False url_ok=False src=
+[23:15:44] ⏱ 생성대기 한도감지 15.2s SRT_100 · AI Image 한도 - 재설정 2026-08-26 02:56 · AI Image 5시간 제한에 도달했습니다. 8월 26일 오전 2:56에 재설정됩니다 --- 5시간 제한 --- 세션 한도 도달 AI Image 5시간 제한에 도달했습니다. 8월 26일 오전 2:56에 재설정됩니다
+[23:15:44] run_scene 실패(재시도 없음): AI Image 한도 - 재설정 2026-08-26 02:56
+[23:15:44] SRT_100 실패(한도 확정 streak=1) — 대기 후 같은 씬 재시도
+AI Image 한도 - 재설정 2026-08-26 02:56
+[23:15:44] 한도 대기 220분(until_reset) 시작 — SRT_100 한도 · 재설정 08/26 02:56
+[23:19:47] 탭로그 ON — 브라우저 열기·생성 · 씬 68개 · reopen=True · 한도대기ON
+[23:19:52] ChromeDebug 재시작 port=9242 user_data=C:\ChromeDebug_2_5
+[23:19:59] 모델 이미 Pro: Nano Banana Pro
+[23:19:59] 세션 준비 — login=OK model=Nano Banana Pro auto=True
+[23:19:59] ensure_page cur_sc=10 prefer_sc=10 cur=https://www.genspark.ai/ai_image prefer=https://www.genspark.ai/ai_image
+[23:20:02] fill OK(clip) follow=False chars=68627
+[23:20:03] 입력창 붙여넣기 — 프롬프트 45379자 + SRT 23205자 = 합계 68627자
+  prompt=C:/cursor/videt/2_5_sceneImage/md/image.검신회귀록.txt
+  srt=C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\mp3\new.srt
+[23:20:04] ensure_page cur_sc=10 prefer_sc=10 cur=https://www.genspark.ai/ai_image prefer=https://www.genspark.ai/ai_image
+[23:20:05] 동일 입력창에 명령 추가(미실행): ===== CHARACTER LOOK (SRT_100) =====
+State keys: Jin≈19|blood_robe; Baek≈19|blood_robe; Namgung|base
+Jin Muhan, approximately nineteen years old, East-Asian young swordsman, sharp …
+[23:20:06] 상태키 SRT_100 · Baek|blood_robe; Jin≈19|blood_robe
+[23:20:06] run_scene 시작 SRT_100 · seen_files=5 · last_saved=https://www.genspark.ai/api/files/s/zyvdlg6j
+[23:20:06] ensure_page cur_sc=10 prefer_sc=10 cur=https://www.genspark.ai/ai_image prefer=https://www.genspark.ai/ai_image
+[23:20:06] 모델 이미 Pro: Nano Banana Pro
+[23:20:06] ⏱ 준비 SRT_100 0.0s · chars=2951
+[23:20:06] submit 시작 composer=2951 url=https://www.genspark.ai/ai_image
+[23:20:06] submit geo 실패 hit=no-btn
+[23:20:06] submit 시도 method=geo geo=False
+[23:20:06] submit 미확인 method=geo generating=False composer=2951
+[23:20:07] submit geo 실패 hit=no-btn
+[23:20:07] submit 시도 method=send send=False
+[23:20:07] submit 미확인 method=send generating=False composer=2951
+[23:20:08] submit 시도 method=ctrl
+[23:20:08] submit 미확인 method=ctrl generating=False composer=2953
+[23:20:09] submit 시도 method=enter
+[23:20:10] submit 확인 method=enter generating=False composer=0
+[23:20:10] ⏱ 입력창전송 SRT_100 3.8s
+[23:20:10] 제출 후 last_saved=https://www.genspark.ai/api/files/s/zyvdlg6j
+[23:20:10] ⏱ 생성대기 시작 SRT_100 max=120s
+[23:20:25] ⏱ 생성대기 진행 15.3s SRT_100 busy=False url_ok=False src=
+[23:20:25] ⏱ 생성대기 한도감지 15.3s SRT_100 · AI Image 한도 - 재설정 2026-08-26 02:56 · AI Image 5시간 제한에 도달했습니다. 8월 26일 오전 2:56에 재설정됩니다 --- 5시간 제한 --- New AI 이미지 홈 Skills 세컨드 브레인 더보기 SRT_100 무협 만화 장면 생성 요청 공유
+[23:20:25] run_scene 실패(재시도 없음): AI Image 한도 - 재설정 2026-08-26 02:56
+[23:20:25] SRT_100 실패(한도 확정 streak=1) — 브라우저 종료 후 대기·재오픈
+AI Image 한도 - 재설정 2026-08-26 02:56
+[23:20:29] 한도 대기 전 ChromeDebug 종료
+[23:20:29] 한도 대기 216분(until_reset) 시작 — SRT_100 한도 · 재설정 08/26 02:56
+[23:20:51] 탭로그 ON — 브라우저 열기·생성 · 씬 68개 · reopen=True · 한도대기ON
+[23:20:56] ChromeDebug 재시작 port=9242 user_data=C:\ChromeDebug_2_5
+[23:21:03] 모델 이미 Pro: Nano Banana Pro
+[23:21:03] 세션 준비 — login=OK model=Nano Banana Pro auto=True
+[23:21:03] ensure_page cur_sc=10 prefer_sc=10 cur=https://www.genspark.ai/ai_image prefer=https://www.genspark.ai/ai_image
+[23:21:05] fill OK(clip) follow=False chars=68627
+[23:21:05] 입력창 붙여넣기 — 프롬프트 45379자 + SRT 23205자 = 합계 68627자
+  prompt=C:/cursor/videt/2_5_sceneImage/md/image.검신회귀록.txt
+  srt=C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\mp3\new.srt
+[23:21:06] ensure_page cur_sc=10 prefer_sc=10 cur=https://www.genspark.ai/ai_image prefer=https://www.genspark.ai/ai_image
+[23:21:07] 동일 입력창에 명령 추가(미실행): ===== CHARACTER LOOK (SRT_100) =====
+State keys: Jin≈19|blood_robe; Baek≈19|blood_robe; Namgung|base
+Jin Muhan, approximately nineteen years old, East-Asian young swordsman, sharp …
+[23:21:08] 상태키 SRT_100 · Baek|blood_robe; Jin≈19|blood_robe
+[23:21:08] run_scene 시작 SRT_100 · seen_files=5 · last_saved=https://www.genspark.ai/api/files/s/zyvdlg6j
+[23:21:08] ensure_page cur_sc=10 prefer_sc=10 cur=https://www.genspark.ai/ai_image prefer=https://www.genspark.ai/ai_image
+[23:21:08] 모델 선택 시작 현재=(없음)
+[23:21:08] 모델 선택 결과 ok=False 칩=(없음) picked=
+[23:21:08] ⏱ 준비 SRT_100 0.1s · chars=2951
+[23:21:08] submit 시작 composer=2951 url=https://www.genspark.ai/ai_image
+[23:21:08] submit geo 실패 hit=no-btn
+[23:21:08] submit 시도 method=geo geo=False
+[23:21:09] submit 미확인 method=geo generating=False composer=2951
+[23:21:09] submit geo 실패 hit=no-btn
+[23:21:09] submit 시도 method=send send=False
+[23:21:10] submit 미확인 method=send generating=False composer=2951
+[23:21:10] submit 시도 method=ctrl
+[23:21:11] submit 미확인 method=ctrl generating=False composer=2953
+[23:21:11] submit 시도 method=enter
+[23:21:12] submit 확인 method=enter generating=False composer=0
+[23:21:12] ⏱ 입력창전송 SRT_100 3.7s
+[23:21:12] 제출 후 last_saved=https://www.genspark.ai/api/files/s/zyvdlg6j
+[23:21:12] ⏱ 생성대기 시작 SRT_100 max=120s
+[23:21:27] ⏱ 생성대기 진행 15.1s SRT_100 busy=False url_ok=False src=
+[23:21:27] ⏱ 생성대기 한도감지 15.1s SRT_100 · AI Image 한도 - 재설정 2026-08-26 02:56 · AI Image 5시간 제한에 도달했습니다. 8월 26일 오전 2:56에 재설정됩니다 --- 5시간 제한 --- 세션 한도 도달 AI Image 5시간 제한에 도달했습니다. 8월 26일 오전 2:56에 재설정됩니다
+[23:21:27] run_scene 실패(재시도 없음): AI Image 한도 - 재설정 2026-08-26 02:56
+[23:21:27] SRT_100 실패(한도 확정 streak=1) — 브라우저 종료 후 대기·재오픈
+AI Image 한도 - 재설정 2026-08-26 02:56
+[23:21:31] 한도 대기 전 ChromeDebug 종료
+[23:21:31] 한도 대기 214분(until_reset) 시작 — SRT_100 한도 · 재설정 08/26 02:56
+[02:56:30] 한도 대기 종료(until_reset) — 재시도
+[02:56:30] 한도 대기 종료 — 브라우저 재오픈 후 SRT_100 재개
+[02:56:36] ChromeDebug 재시작 port=9242 user_data=C:\ChromeDebug_2_5
+[02:56:39] 모델 이미 Pro: Nano Banana Pro
+[02:56:39] 세션 준비 — login=OK model=Nano Banana Pro auto=True
+[02:56:39] ensure_page cur_sc=10 prefer_sc=10 cur=https://www.genspark.ai/ai_image prefer=https://www.genspark.ai/ai_image
+[02:56:41] fill OK(clip) follow=False chars=68627
+[02:56:42] 입력창 붙여넣기 — 프롬프트 45379자 + SRT 23205자 = 합계 68627자
+  prompt=C:/cursor/videt/2_5_sceneImage/md/image.검신회귀록.txt
+  srt=C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\mp3\new.srt
+[02:56:43] ensure_page cur_sc=10 prefer_sc=10 cur=https://www.genspark.ai/ai_image prefer=https://www.genspark.ai/ai_image
+[02:56:44] 동일 입력창에 명령 추가(미실행): ===== CHARACTER LOOK (SRT_100) =====
+State keys: Jin≈19|blood_robe; Baek≈19|blood_robe; Namgung|base
+Jin Muhan, approximately nineteen years old, East-Asian young swordsman, sharp …
+[02:56:45] 상태키 SRT_100 · Baek|blood_robe; Jin≈19|blood_robe
+[02:56:45] run_scene 시작 SRT_100 · seen_files=5 · last_saved=https://www.genspark.ai/api/files/s/zyvdlg6j
+[02:56:45] ensure_page cur_sc=10 prefer_sc=10 cur=https://www.genspark.ai/ai_image prefer=https://www.genspark.ai/ai_image
+[02:56:45] ⏱ 준비 SRT_100 0.0s · chars=2951
+[02:56:45] submit 시작 composer=2951 url=https://www.genspark.ai/ai_image
+[02:56:45] submit geo 실패 hit=no-btn
+[02:56:45] submit 시도 method=geo geo=False
+[02:56:45] submit 미확인 method=geo generating=False composer=2951
+[02:56:46] submit geo 실패 hit=no-btn
+[02:56:46] submit 시도 method=send send=False
+[02:56:46] submit 미확인 method=send generating=False composer=2951
+[02:56:46] submit 시도 method=ctrl
+[02:56:47] submit 미확인 method=ctrl generating=False composer=2953
+[02:56:48] submit 시도 method=enter
+[02:56:49] submit 확인 method=enter generating=False composer=0
+[02:56:49] ⏱ 입력창전송 SRT_100 3.9s
+[02:56:49] 제출 후 last_saved=https://www.genspark.ai/api/files/s/zyvdlg6j
+[02:56:49] ⏱ 생성대기 시작 SRT_100 max=120s
+[02:57:04] ⏱ 생성대기 진행 15.0s SRT_100 busy=False url_ok=False src=
+[02:57:08] ⏱ 생성대기 완료 19.0s SRT_100 https://www.genspark.ai/api/files/s/qqb9dfvh
+[02:57:08] ⏱ 생성대기구간 SRT_100 19.0s · ok=True
+[02:57:08] SRT_100 근접 이미지 https://www.genspark.ai/api/files/s/qqb9dfvh
+[02:57:08] 다운로드 files URL=https://www.genspark.ai/api/files/s/qqb9dfvh → SRT_100.png
+[02:57:08] ⏱ 다운로드 직접실패 0.3s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[02:57:08] ⏱ 다운로드 fetch 0.1s size=690444 SRT_100.png
+[02:57:08] ⏱ 다운로드구간 SRT_100 0.4s · SRT_100.png
+[02:57:09] ⏱ 다운로드후유휴 SRT_100 1.3s · idle=True
+[02:57:09] ⏱ 씬합계 SRT_100 24.9s · https://www.genspark.ai/api/files/s/qqb9dfvh
+[02:57:09] SRT_100 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_100.png
+[02:57:10] 상태키 SRT_120 · Baek|blood_robe; Jin≈19|blood_robe
+[02:57:10] run_scene 시작 SRT_120 · seen_files=6 · last_saved=https://www.genspark.ai/api/files/s/qqb9dfvh
+[02:57:10] ⏱ 준비 SRT_120 0.0s · chars=1408
+[02:57:11] ⏱ 다음명령유휴 SRT_120 1.4s · idle=True
+[02:57:12] fill OK(clip) follow=True chars=1408
+[02:57:12] submit 시작 composer=1408 url=https://www.genspark.ai/agents?id=91f02444-1b14-469d-990c-7e05369630f6
+[02:57:12] submit geo 실패 hit=no-btn
+[02:57:12] submit 시도 method=geo geo=False
+[02:57:12] submit 미확인 method=geo generating=False composer=1408
+[02:57:13] submit geo 실패 hit=no-btn
+[02:57:13] submit 시도 method=send send=False
+[02:57:13] submit 미확인 method=send generating=False composer=1408
+[02:57:13] submit 시도 method=ctrl
+[02:57:14] submit 미확인 method=ctrl generating=False composer=1410
+[02:57:14] submit 시도 method=enter
+[02:57:15] submit 확인 method=enter generating=False composer=0
+[02:57:15] ⏱ 입력·전송 SRT_120 3.9s · chars=1408
+[02:57:15] 제출 후 last_saved=https://www.genspark.ai/api/files/s/qqb9dfvh
+[02:57:15] ⏱ 생성대기 시작 SRT_120 max=120s
+[02:57:28] ⏱ 생성대기 완료 13.3s SRT_120 https://www.genspark.ai/api/files/s/saxqm23x
+[02:57:28] ⏱ 생성대기구간 SRT_120 13.3s · ok=True
+[02:57:28] SRT_120 근접 이미지 https://www.genspark.ai/api/files/s/saxqm23x
+[02:57:28] 다운로드 files URL=https://www.genspark.ai/api/files/s/saxqm23x → SRT_120.png
+[02:57:29] ⏱ 다운로드 직접실패 0.2s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[02:57:29] ⏱ 다운로드 fetch 0.1s size=706983 SRT_120.png
+[02:57:29] ⏱ 다운로드구간 SRT_120 0.3s · SRT_120.png
+[02:57:30] ⏱ 다운로드후유휴 SRT_120 1.4s · idle=True
+[02:57:30] ⏱ 씬합계 SRT_120 20.6s · https://www.genspark.ai/api/files/s/saxqm23x
+[02:57:30] SRT_120 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_120.png
+[02:57:30] 상태키 SRT_140 · Baek|blood_robe; Jin≈19|blood_robe
+[02:57:30] run_scene 시작 SRT_140 · seen_files=7 · last_saved=https://www.genspark.ai/api/files/s/saxqm23x
+[02:57:30] ⏱ 준비 SRT_140 0.0s · chars=2484
+[02:57:32] ⏱ 다음명령유휴 SRT_140 1.5s · idle=True
+[02:57:33] fill OK(clip) follow=True chars=2484
+[02:57:33] submit 시작 composer=2484 url=https://www.genspark.ai/agents?id=91f02444-1b14-469d-990c-7e05369630f6
+[02:57:33] submit geo 실패 hit=no-btn
+[02:57:33] submit 시도 method=geo geo=False
+[02:57:33] submit 미확인 method=geo generating=False composer=2484
+[02:57:34] submit geo 실패 hit=no-btn
+[02:57:34] submit 시도 method=send send=False
+[02:57:34] submit 미확인 method=send generating=False composer=2484
+[02:57:34] submit 시도 method=ctrl
+[02:57:35] submit 미확인 method=ctrl generating=False composer=2486
+[02:57:35] submit 시도 method=enter
+[02:57:36] submit 확인 method=enter generating=False composer=0
+[02:57:36] ⏱ 입력·전송 SRT_140 4.1s · chars=2484
+[02:57:36] 제출 후 last_saved=https://www.genspark.ai/api/files/s/saxqm23x
+[02:57:36] ⏱ 생성대기 시작 SRT_140 max=120s
+[02:57:51] ⏱ 생성대기 진행 15.4s SRT_140 busy=False url_ok=False src=
+[02:57:53] ⏱ 생성대기 완료 17.0s SRT_140 https://www.genspark.ai/api/files/s/oqcpsglk
+[02:57:53] ⏱ 생성대기구간 SRT_140 17.0s · ok=True
+[02:57:53] SRT_140 근접 이미지 https://www.genspark.ai/api/files/s/oqcpsglk
+[02:57:53] 다운로드 files URL=https://www.genspark.ai/api/files/s/oqcpsglk → SRT_140.png
+[02:57:53] ⏱ 다운로드 직접실패 0.2s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[02:57:54] ⏱ 다운로드 fetch 0.1s size=725817 SRT_140.png
+[02:57:54] ⏱ 다운로드구간 SRT_140 0.4s · SRT_140.png
+[02:57:55] ⏱ 다운로드후유휴 SRT_140 1.3s · idle=True
+[02:57:55] ⏱ 씬합계 SRT_140 24.5s · https://www.genspark.ai/api/files/s/oqcpsglk
+[02:57:55] SRT_140 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_140.png
+[02:57:55] 상태키 SRT_160 · Baek|blood_robe; Jin≈19|blood_robe
+[02:57:55] run_scene 시작 SRT_160 · seen_files=8 · last_saved=https://www.genspark.ai/api/files/s/oqcpsglk
+[02:57:55] ⏱ 준비 SRT_160 0.0s · chars=1849
+[02:57:56] ⏱ 다음명령유휴 SRT_160 1.3s · idle=True
+[02:57:57] fill OK(clip) follow=True chars=1849
+[02:57:57] submit 시작 composer=1849 url=https://www.genspark.ai/agents?id=91f02444-1b14-469d-990c-7e05369630f6
+[02:57:57] submit geo 실패 hit=no-btn
+[02:57:57] submit 시도 method=geo geo=False
+[02:57:58] submit 미확인 method=geo generating=False composer=1849
+[02:57:58] submit geo 실패 hit=no-btn
+[02:57:58] submit 시도 method=send send=False
+[02:57:59] submit 미확인 method=send generating=False composer=1849
+[02:57:59] submit 시도 method=ctrl
+[02:57:59] submit 미확인 method=ctrl generating=False composer=1851
+[02:58:00] submit 시도 method=enter
+[02:58:00] submit 확인 method=enter generating=False composer=0
+[02:58:00] ⏱ 입력·전송 SRT_160 4.0s · chars=1849
+[02:58:00] 제출 후 last_saved=https://www.genspark.ai/api/files/s/oqcpsglk
+[02:58:00] ⏱ 생성대기 시작 SRT_160 max=120s
+[02:58:16] ⏱ 생성대기 진행 15.3s SRT_160 busy=False url_ok=False src=
+[02:58:31] ⏱ 생성대기 진행 30.6s SRT_160 busy=False url_ok=False src=
+[02:58:46] ⏱ 생성대기 진행 45.8s SRT_160 busy=False url_ok=False src=
+[02:58:49] ⏱ 생성대기 완료 48.1s SRT_160 https://www.genspark.ai/api/files/s/nzihkzmu
+[02:58:49] ⏱ 생성대기구간 SRT_160 48.1s · ok=True
+[02:58:49] SRT_160 근접 이미지 https://www.genspark.ai/api/files/s/nzihkzmu
+[02:58:49] 다운로드 files URL=https://www.genspark.ai/api/files/s/nzihkzmu → SRT_160.png
+[02:58:49] ⏱ 다운로드 직접실패 0.3s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[02:58:49] ⏱ 다운로드 fetch 0.2s size=655712 SRT_160.png
+[02:58:49] ⏱ 다운로드구간 SRT_160 0.5s · SRT_160.png
+[02:58:51] ⏱ 다운로드후유휴 SRT_160 2.2s · idle=True
+[02:58:51] ⏱ 씬합계 SRT_160 56.3s · https://www.genspark.ai/api/files/s/nzihkzmu
+[02:58:51] SRT_160 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_160.png
+[02:58:51] 상태키 SRT_180 · Baek|blood_robe; Jin≈19|blood_robe
+[02:58:52] run_scene 시작 SRT_180 · seen_files=9 · last_saved=https://www.genspark.ai/api/files/s/nzihkzmu
+[02:58:52] ⏱ 준비 SRT_180 0.0s · chars=1829
+[02:58:54] ⏱ 다음명령유휴 SRT_180 2.3s · idle=True
+[02:58:55] fill OK(clip) follow=True chars=1829
+[02:58:55] submit 시작 composer=1829 url=https://www.genspark.ai/agents?id=91f02444-1b14-469d-990c-7e05369630f6
+[02:58:55] submit geo 실패 hit=no-btn
+[02:58:55] submit 시도 method=geo geo=False
+[02:58:56] submit 미확인 method=geo generating=False composer=1829
+[02:58:56] submit geo 실패 hit=no-btn
+[02:58:56] submit 시도 method=send send=False
+[02:58:57] submit 미확인 method=send generating=False composer=1829
+[02:58:57] submit 시도 method=ctrl
+[02:58:58] submit 미확인 method=ctrl generating=False composer=1831
+[02:58:58] submit 시도 method=enter
+[02:58:58] submit 확인 method=enter generating=False composer=0
+[02:58:58] ⏱ 입력·전송 SRT_180 4.6s · chars=1829
+[02:58:58] 제출 후 last_saved=https://www.genspark.ai/api/files/s/nzihkzmu
+[02:58:59] ⏱ 생성대기 시작 SRT_180 max=120s
+[02:59:08] ⏱ 생성대기 완료 9.5s SRT_180 https://www.genspark.ai/api/files/s/wlyvtogu
+[02:59:08] ⏱ 생성대기구간 SRT_180 9.5s · ok=True
+[02:59:08] SRT_180 근접 이미지 https://www.genspark.ai/api/files/s/wlyvtogu
+[02:59:08] 다운로드 files URL=https://www.genspark.ai/api/files/s/wlyvtogu → SRT_180.png
+[02:59:08] ⏱ 다운로드 직접실패 0.2s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[02:59:08] ⏱ 다운로드 fetch 0.1s size=572497 SRT_180.png
+[02:59:08] ⏱ 다운로드구간 SRT_180 0.3s · SRT_180.png
+[02:59:10] ⏱ 다운로드후유휴 SRT_180 1.3s · idle=True
+[02:59:10] ⏱ 씬합계 SRT_180 18.2s · https://www.genspark.ai/api/files/s/wlyvtogu
+[02:59:10] SRT_180 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_180.png
+[02:59:10] 상태키 SRT_200 · Baek|blood_robe; Jin≈19|blood_robe
+[02:59:10] run_scene 시작 SRT_200 · seen_files=10 · last_saved=https://www.genspark.ai/api/files/s/wlyvtogu
+[02:59:10] ⏱ 준비 SRT_200 0.0s · chars=2519
+[02:59:11] ⏱ 다음명령유휴 SRT_200 1.3s · idle=True
+[02:59:12] fill OK(clip) follow=True chars=2519
+[02:59:12] submit 시작 composer=2519 url=https://www.genspark.ai/agents?id=91f02444-1b14-469d-990c-7e05369630f6
+[02:59:12] submit geo 실패 hit=no-btn
+[02:59:12] submit 시도 method=geo geo=False
+[02:59:12] submit 미확인 method=geo generating=False composer=2519
+[02:59:13] submit geo 실패 hit=no-btn
+[02:59:13] submit 시도 method=send send=False
+[02:59:13] submit 미확인 method=send generating=False composer=2519
+[02:59:14] submit 시도 method=ctrl
+[02:59:14] submit 미확인 method=ctrl generating=False composer=2521
+[02:59:14] submit 시도 method=enter
+[02:59:15] submit 확인 method=enter generating=False composer=0
+[02:59:15] ⏱ 입력·전송 SRT_200 3.9s · chars=2519
+[02:59:15] 제출 후 last_saved=https://www.genspark.ai/api/files/s/wlyvtogu
+[02:59:15] ⏱ 생성대기 시작 SRT_200 max=120s
+[02:59:27] ⏱ 생성대기 완료 11.6s SRT_200 https://www.genspark.ai/api/files/s/8rmsyvqo
+[02:59:27] ⏱ 생성대기구간 SRT_200 11.6s · ok=True
+[02:59:27] SRT_200 근접 이미지 https://www.genspark.ai/api/files/s/8rmsyvqo
+[02:59:27] 다운로드 files URL=https://www.genspark.ai/api/files/s/8rmsyvqo → SRT_200.png
+[02:59:27] ⏱ 다운로드 직접실패 0.3s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[02:59:27] ⏱ 다운로드 fetch 0.1s size=648845 SRT_200.png
+[02:59:27] ⏱ 다운로드구간 SRT_200 0.4s · SRT_200.png
+[02:59:29] ⏱ 다운로드후유휴 SRT_200 1.4s · idle=True
+[02:59:29] ⏱ 씬합계 SRT_200 18.7s · https://www.genspark.ai/api/files/s/8rmsyvqo
+[02:59:29] SRT_200 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_200.png
+[02:59:29] 상태키 SRT_220 · Baek|blood_robe; Jin≈19|blood_robe
+[02:59:29] run_scene 시작 SRT_220 · seen_files=11 · last_saved=https://www.genspark.ai/api/files/s/8rmsyvqo
+[02:59:29] ⏱ 준비 SRT_220 0.0s · chars=1883
+[02:59:30] ⏱ 다음명령유휴 SRT_220 1.3s · idle=True
+[02:59:31] fill OK(clip) follow=True chars=1883
+[02:59:31] submit 시작 composer=1883 url=https://www.genspark.ai/agents?id=91f02444-1b14-469d-990c-7e05369630f6
+[02:59:31] submit geo 실패 hit=no-btn
+[02:59:31] submit 시도 method=geo geo=False
+[02:59:31] submit 미확인 method=geo generating=False composer=1883
+[02:59:32] submit geo 실패 hit=no-btn
+[02:59:32] submit 시도 method=send send=False
+[02:59:32] submit 미확인 method=send generating=False composer=1883
+[02:59:33] submit 시도 method=ctrl
+[02:59:33] submit 미확인 method=ctrl generating=False composer=1885
+[02:59:33] submit 시도 method=enter
+[02:59:34] submit 확인 method=enter generating=False composer=0
+[02:59:34] ⏱ 입력·전송 SRT_220 3.9s · chars=1883
+[02:59:34] 제출 후 last_saved=https://www.genspark.ai/api/files/s/8rmsyvqo
+[02:59:34] ⏱ 생성대기 시작 SRT_220 max=120s
+[02:59:46] ⏱ 생성대기 완료 11.8s SRT_220 https://www.genspark.ai/api/files/s/geaef5ud
+[02:59:46] ⏱ 생성대기구간 SRT_220 11.8s · ok=True
+[02:59:46] SRT_220 근접 이미지 https://www.genspark.ai/api/files/s/geaef5ud
+[02:59:46] 다운로드 files URL=https://www.genspark.ai/api/files/s/geaef5ud → SRT_220.png
+[02:59:46] ⏱ 다운로드 직접실패 0.2s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[02:59:46] ⏱ 다운로드 fetch 0.1s size=488980 SRT_220.png
+[02:59:46] ⏱ 다운로드구간 SRT_220 0.3s · SRT_220.png
+[02:59:48] ⏱ 다운로드후유휴 SRT_220 1.8s · idle=True
+[02:59:48] ⏱ 씬합계 SRT_220 19.4s · https://www.genspark.ai/api/files/s/geaef5ud
+[02:59:48] SRT_220 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_220.png
+[02:59:48] 상태키 SRT_240 · Baek|blood_robe; Jin≈19|blood_robe
+[02:59:48] run_scene 시작 SRT_240 · seen_files=12 · last_saved=https://www.genspark.ai/api/files/s/geaef5ud
+[02:59:48] ⏱ 준비 SRT_240 0.0s · chars=2622
+[02:59:50] ⏱ 다음명령유휴 SRT_240 2.2s · idle=True
+[02:59:52] fill OK(clip) follow=True chars=2622
+[02:59:52] submit 시작 composer=2622 url=https://www.genspark.ai/agents?id=91f02444-1b14-469d-990c-7e05369630f6
+[02:59:52] submit geo 실패 hit=no-btn
+[02:59:52] submit 시도 method=geo geo=False
+[02:59:52] submit 미확인 method=geo generating=False composer=2622
+[02:59:53] submit geo 실패 hit=no-btn
+[02:59:53] submit 시도 method=send send=False
+[02:59:54] submit 미확인 method=send generating=False composer=2622
+[02:59:54] submit 시도 method=ctrl
+[02:59:55] submit 미확인 method=ctrl generating=False composer=2624
+[02:59:55] submit 시도 method=enter
+[02:59:56] submit 확인 method=enter generating=False composer=0
+[02:59:56] ⏱ 입력·전송 SRT_240 5.6s · chars=2622
+[02:59:56] 제출 후 last_saved=https://www.genspark.ai/api/files/s/geaef5ud
+[02:59:56] ⏱ 생성대기 시작 SRT_240 max=120s
+[03:00:07] ⏱ 생성대기 완료 10.8s SRT_240 https://www.genspark.ai/api/files/s/mg4oik2u
+[03:00:07] ⏱ 생성대기구간 SRT_240 10.8s · ok=True
+[03:00:07] SRT_240 근접 이미지 https://www.genspark.ai/api/files/s/mg4oik2u
+[03:00:07] 다운로드 files URL=https://www.genspark.ai/api/files/s/mg4oik2u → SRT_240.png
+[03:00:08] ⏱ 다운로드 직접실패 0.3s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[03:00:08] ⏱ 다운로드 fetch 0.2s size=608341 SRT_240.png
+[03:00:08] ⏱ 다운로드구간 SRT_240 0.5s · SRT_240.png
+[03:00:10] ⏱ 다운로드후유휴 SRT_240 2.4s · idle=True
+[03:00:10] ⏱ 씬합계 SRT_240 21.9s · https://www.genspark.ai/api/files/s/mg4oik2u
+[03:00:10] SRT_240 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_240.png
+[03:00:10] 상태키 SRT_260 · Baek|blood_robe; Jin≈19|blood_robe
+[03:00:10] run_scene 시작 SRT_260 · seen_files=13 · last_saved=https://www.genspark.ai/api/files/s/mg4oik2u
+[03:00:10] ⏱ 준비 SRT_260 0.0s · chars=2141
+[03:00:13] ⏱ 다음명령유휴 SRT_260 2.4s · idle=True
+[03:00:14] fill OK(clip) follow=True chars=2141
+[03:00:14] submit 시작 composer=2141 url=https://www.genspark.ai/agents?id=91f02444-1b14-469d-990c-7e05369630f6
+[03:00:14] submit geo 실패 hit=no-btn
+[03:00:14] submit 시도 method=geo geo=False
+[03:00:15] submit 미확인 method=geo generating=False composer=2141
+[03:00:16] submit geo 실패 hit=no-btn
+[03:00:16] submit 시도 method=send send=False
+[03:00:16] submit 미확인 method=send generating=False composer=2141
+[03:00:17] submit 시도 method=ctrl
+[03:00:17] submit 미확인 method=ctrl generating=False composer=2143
+[03:00:18] submit 시도 method=enter
+[03:00:18] submit 확인 method=enter generating=False composer=0
+[03:00:18] ⏱ 입력·전송 SRT_260 5.3s · chars=2141
+[03:00:18] 제출 후 last_saved=https://www.genspark.ai/api/files/s/mg4oik2u
+[03:00:18] ⏱ 생성대기 시작 SRT_260 max=120s
+[03:00:29] ⏱ 생성대기 완료 10.2s SRT_260 https://www.genspark.ai/api/files/s/rrsag9y9
+[03:00:29] ⏱ 생성대기구간 SRT_260 10.2s · ok=True
+[03:00:29] SRT_260 근접 이미지 https://www.genspark.ai/api/files/s/rrsag9y9
+[03:00:29] 다운로드 files URL=https://www.genspark.ai/api/files/s/rrsag9y9 → SRT_260.png
+[03:00:29] ⏱ 다운로드 직접실패 0.3s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[03:00:29] ⏱ 다운로드 fetch 0.0s size=400379 SRT_260.png
+[03:00:29] ⏱ 다운로드구간 SRT_260 0.3s · SRT_260.png
+[03:00:30] ⏱ 다운로드후유휴 SRT_260 1.4s · idle=True
+[03:00:30] ⏱ 씬합계 SRT_260 20.0s · https://www.genspark.ai/api/files/s/rrsag9y9
+[03:00:30] SRT_260 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_260.png
+[03:00:30] 상태키 SRT_280 · Baek|blood_robe; Jin≈19|blood_robe
+[03:00:31] run_scene 시작 SRT_280 · seen_files=14 · last_saved=https://www.genspark.ai/api/files/s/rrsag9y9
+[03:00:31] ⏱ 준비 SRT_280 0.0s · chars=2165
+[03:00:32] ⏱ 다음명령유휴 SRT_280 1.4s · idle=True
+[03:00:33] fill OK(clip) follow=True chars=2165
+[03:00:33] submit 시작 composer=2165 url=https://www.genspark.ai/agents?id=91f02444-1b14-469d-990c-7e05369630f6
+[03:00:33] submit geo 실패 hit=no-btn
+[03:00:33] submit 시도 method=geo geo=False
+[03:00:33] submit 미확인 method=geo generating=False composer=2165
+[03:00:34] submit geo 실패 hit=no-btn
+[03:00:34] submit 시도 method=send send=False
+[03:00:34] submit 미확인 method=send generating=False composer=2165
+[03:00:35] submit 시도 method=ctrl
+[03:00:35] submit 미확인 method=ctrl generating=False composer=2167
+[03:00:35] submit 시도 method=enter
+[03:00:36] submit 확인 method=enter generating=False composer=0
+[03:00:36] ⏱ 입력·전송 SRT_280 4.2s · chars=2165
+[03:00:36] 제출 후 last_saved=https://www.genspark.ai/api/files/s/rrsag9y9
+[03:00:36] ⏱ 생성대기 시작 SRT_280 max=120s
+[03:00:48] ⏱ 생성대기 완료 12.2s SRT_280 https://www.genspark.ai/api/files/s/qbiad5a1
+[03:00:48] ⏱ 생성대기구간 SRT_280 12.2s · ok=True
+[03:00:48] SRT_280 근접 이미지 https://www.genspark.ai/api/files/s/qbiad5a1
+[03:00:48] 다운로드 files URL=https://www.genspark.ai/api/files/s/qbiad5a1 → SRT_280.png
+[03:00:49] ⏱ 다운로드 직접실패 0.3s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[03:00:49] ⏱ 다운로드 fetch 0.0s size=379864 SRT_280.png
+[03:00:49] ⏱ 다운로드구간 SRT_280 0.3s · SRT_280.png
+[03:00:50] ⏱ 다운로드후유휴 SRT_280 1.3s · idle=True
+[03:00:50] ⏱ 씬합계 SRT_280 19.6s · https://www.genspark.ai/api/files/s/qbiad5a1
+[03:00:50] SRT_280 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_280.png
+[03:00:50] 상태키 SRT_300 · Baek|blood_robe; Jin≈19|blood_robe
+[03:00:50] run_scene 시작 SRT_300 · seen_files=15 · last_saved=https://www.genspark.ai/api/files/s/qbiad5a1
+[03:00:50] ⏱ 준비 SRT_300 0.0s · chars=2167
+[03:00:52] ⏱ 다음명령유휴 SRT_300 1.3s · idle=True
+[03:00:52] fill OK(clip) follow=True chars=2167
+[03:00:52] submit 시작 composer=2167 url=https://www.genspark.ai/agents?id=91f02444-1b14-469d-990c-7e05369630f6
+[03:00:52] submit geo 실패 hit=no-btn
+[03:00:52] submit 시도 method=geo geo=False
+[03:00:53] submit 미확인 method=geo generating=False composer=2167
+[03:00:53] submit geo 실패 hit=no-btn
+[03:00:53] submit 시도 method=send send=False
+[03:00:54] submit 미확인 method=send generating=False composer=2167
+[03:00:54] submit 시도 method=ctrl
+[03:00:55] submit 미확인 method=ctrl generating=False composer=2169
+[03:00:55] submit 시도 method=enter
+[03:00:56] submit 확인 method=enter generating=False composer=0
+[03:00:56] ⏱ 입력·전송 SRT_300 3.9s · chars=2167
+[03:00:56] 제출 후 last_saved=https://www.genspark.ai/api/files/s/qbiad5a1
+[03:00:56] ⏱ 생성대기 시작 SRT_300 max=120s
+[03:01:09] ⏱ 생성대기 완료 13.2s SRT_300 https://www.genspark.ai/api/files/s/gw5dicbx
+[03:01:09] ⏱ 생성대기구간 SRT_300 13.2s · ok=True
+[03:01:09] SRT_300 근접 이미지 https://www.genspark.ai/api/files/s/gw5dicbx
+[03:01:09] 다운로드 files URL=https://www.genspark.ai/api/files/s/gw5dicbx → SRT_300.png
+[03:01:09] ⏱ 다운로드 직접실패 0.3s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[03:01:09] ⏱ 다운로드 fetch 0.1s size=385508 SRT_300.png
+[03:01:09] ⏱ 다운로드구간 SRT_300 0.4s · SRT_300.png
+[03:01:12] ⏱ 다운로드후유휴 SRT_300 2.4s · idle=True
+[03:01:12] ⏱ 씬합계 SRT_300 21.6s · https://www.genspark.ai/api/files/s/gw5dicbx
+[03:01:12] SRT_300 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_300.png
+[03:01:12] 상태키 SRT_320 · Baek|blood_robe; Jin≈19|blood_robe
+[03:01:12] run_scene 시작 SRT_320 · seen_files=16 · last_saved=https://www.genspark.ai/api/files/s/gw5dicbx
+[03:01:12] ⏱ 준비 SRT_320 0.1s · chars=2157
+[03:01:15] ⏱ 다음명령유휴 SRT_320 2.8s · idle=True
+[03:01:16] fill OK(clip) follow=True chars=2157
+[03:01:16] submit 시작 composer=2157 url=https://www.genspark.ai/agents?id=91f02444-1b14-469d-990c-7e05369630f6
+[03:01:16] submit geo 실패 hit=no-btn
+[03:01:16] submit 시도 method=geo geo=False
+[03:01:17] submit 미확인 method=geo generating=False composer=2157
+[03:01:18] submit geo 실패 hit=no-btn
+[03:01:18] submit 시도 method=send send=False
+[03:01:19] submit 미확인 method=send generating=False composer=2157
+[03:01:19] submit 시도 method=ctrl
+[03:01:20] submit 미확인 method=ctrl generating=False composer=2159
+[03:01:20] submit 시도 method=enter
+[03:01:21] submit 확인 method=enter generating=False composer=0
+[03:01:21] ⏱ 입력·전송 SRT_320 5.6s · chars=2157
+[03:01:21] 제출 후 last_saved=https://www.genspark.ai/api/files/s/gw5dicbx
+[03:01:21] ⏱ 생성대기 시작 SRT_320 max=120s
+[03:01:32] ⏱ 생성대기 완료 11.3s SRT_320 https://www.genspark.ai/api/files/s/vs4wkmwe
+[03:01:32] ⏱ 생성대기구간 SRT_320 11.3s · ok=True
+[03:01:32] SRT_320 근접 이미지 https://www.genspark.ai/api/files/s/vs4wkmwe
+[03:01:32] 다운로드 files URL=https://www.genspark.ai/api/files/s/vs4wkmwe → SRT_320.png
+[03:01:32] ⏱ 다운로드 직접실패 0.2s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[03:01:32] ⏱ 다운로드 fetch 0.1s size=672605 SRT_320.png
+[03:01:32] ⏱ 다운로드구간 SRT_320 0.3s · SRT_320.png
+[03:01:34] ⏱ 다운로드후유휴 SRT_320 1.3s · idle=True
+[03:01:34] ⏱ 씬합계 SRT_320 21.7s · https://www.genspark.ai/api/files/s/vs4wkmwe
+[03:01:34] SRT_320 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_320.png
+[03:01:34] 상태키 SRT_340 · Baek|blood_robe; Jin≈19|blood_robe
+[03:01:34] run_scene 시작 SRT_340 · seen_files=17 · last_saved=https://www.genspark.ai/api/files/s/vs4wkmwe
+[03:01:34] ⏱ 준비 SRT_340 0.0s · chars=2148
+[03:01:35] ⏱ 다음명령유휴 SRT_340 1.3s · idle=True
+[03:01:36] fill OK(clip) follow=True chars=2148
+[03:01:36] submit 시작 composer=2148 url=https://www.genspark.ai/agents?id=91f02444-1b14-469d-990c-7e05369630f6
+[03:01:36] submit geo 실패 hit=no-btn
+[03:01:36] submit 시도 method=geo geo=False
+[03:01:37] submit 미확인 method=geo generating=False composer=2148
+[03:01:37] submit geo 실패 hit=no-btn
+[03:01:37] submit 시도 method=send send=False
+[03:01:38] submit 미확인 method=send generating=False composer=2148
+[03:01:38] submit 시도 method=ctrl
+[03:01:39] submit 미확인 method=ctrl generating=False composer=2150
+[03:01:39] submit 시도 method=enter
+[03:01:39] submit 확인 method=enter generating=False composer=0
+[03:01:39] ⏱ 입력·전송 SRT_340 4.1s · chars=2148
+[03:01:39] 제출 후 last_saved=https://www.genspark.ai/api/files/s/vs4wkmwe
+[03:01:40] ⏱ 생성대기 시작 SRT_340 max=120s
+[03:01:52] ⏱ 생성대기 완료 12.7s SRT_340 https://www.genspark.ai/api/files/s/kucrrbv7
+[03:01:52] ⏱ 생성대기구간 SRT_340 12.7s · ok=True
+[03:01:52] SRT_340 근접 이미지 https://www.genspark.ai/api/files/s/kucrrbv7
+[03:01:52] 다운로드 files URL=https://www.genspark.ai/api/files/s/kucrrbv7 → SRT_340.png
+[03:01:53] ⏱ 다운로드 직접실패 0.2s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[03:01:53] ⏱ 다운로드 fetch 0.1s size=640798 SRT_340.png
+[03:01:53] ⏱ 다운로드구간 SRT_340 0.3s · SRT_340.png
+[03:01:54] ⏱ 다운로드후유휴 SRT_340 1.4s · idle=True
+[03:01:54] ⏱ 씬합계 SRT_340 20.1s · https://www.genspark.ai/api/files/s/kucrrbv7
+[03:01:54] SRT_340 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_340.png
+[03:01:54] 상태키 SRT_360 · Baek|blood_robe; Jin≈19|blood_robe
+[03:01:54] run_scene 시작 SRT_360 · seen_files=18 · last_saved=https://www.genspark.ai/api/files/s/kucrrbv7
+[03:01:54] ⏱ 준비 SRT_360 0.0s · chars=2530
+[03:01:56] ⏱ 다음명령유휴 SRT_360 1.3s · idle=True
+[03:01:56] fill OK(clip) follow=True chars=2530
+[03:01:56] submit 시작 composer=2530 url=https://www.genspark.ai/agents?id=91f02444-1b14-469d-990c-7e05369630f6
+[03:01:56] submit geo 실패 hit=no-btn
+[03:01:56] submit 시도 method=geo geo=False
+[03:01:57] submit 미확인 method=geo generating=False composer=2530
+[03:01:57] submit geo 실패 hit=no-btn
+[03:01:57] submit 시도 method=send send=False
+[03:01:58] submit 미확인 method=send generating=False composer=2530
+[03:01:58] submit 시도 method=ctrl
+[03:01:59] submit 미확인 method=ctrl generating=False composer=2532
+[03:01:59] submit 시도 method=enter
+[03:02:00] submit 확인 method=enter generating=False composer=0
+[03:02:00] ⏱ 입력·전송 SRT_360 4.0s · chars=2530
+[03:02:00] 제출 후 last_saved=https://www.genspark.ai/api/files/s/kucrrbv7
+[03:02:00] ⏱ 생성대기 시작 SRT_360 max=120s
+[03:02:14] ⏱ 생성대기 완료 14.6s SRT_360 https://www.genspark.ai/api/files/s/xjnpv9no
+[03:02:14] ⏱ 생성대기구간 SRT_360 14.6s · ok=True
+[03:02:14] SRT_360 근접 이미지 https://www.genspark.ai/api/files/s/xjnpv9no
+[03:02:14] 다운로드 files URL=https://www.genspark.ai/api/files/s/xjnpv9no → SRT_360.png
+[03:02:15] ⏱ 다운로드 직접실패 0.3s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[03:02:15] ⏱ 다운로드 fetch 0.2s size=648970 SRT_360.png
+[03:02:15] ⏱ 다운로드구간 SRT_360 0.5s · SRT_360.png
+[03:02:18] ⏱ 다운로드후유휴 SRT_360 2.7s · idle=True
+[03:02:18] ⏱ 씬합계 SRT_360 23.4s · https://www.genspark.ai/api/files/s/xjnpv9no
+[03:02:18] SRT_360 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_360.png
+[03:02:18] 상태키 SRT_380 · Baek|blood_robe; Jin≈19|blood_robe
+[03:02:18] run_scene 시작 SRT_380 · seen_files=19 · last_saved=https://www.genspark.ai/api/files/s/xjnpv9no
+[03:02:18] ⏱ 준비 SRT_380 0.0s · chars=3297
+[03:02:21] ⏱ 다음명령유휴 SRT_380 2.7s · idle=True
+[03:02:22] fill OK(clip) follow=True chars=3297
+[03:02:22] submit 시작 composer=3297 url=https://www.genspark.ai/agents?id=91f02444-1b14-469d-990c-7e05369630f6
+[03:02:22] submit geo 실패 hit=no-btn
+[03:02:22] submit 시도 method=geo geo=False
+[03:02:23] submit 미확인 method=geo generating=False composer=3297
+[03:02:24] submit geo 실패 hit=no-btn
+[03:02:24] submit 시도 method=send send=False
+[03:02:24] submit 미확인 method=send generating=False composer=3297
+[03:02:25] submit 시도 method=ctrl
+[03:02:25] submit 미확인 method=ctrl generating=False composer=3299
+[03:02:26] submit 시도 method=enter
+[03:02:26] submit 확인 method=enter generating=False composer=0
+[03:02:26] ⏱ 입력·전송 SRT_380 5.7s · chars=3297
+[03:02:26] 제출 후 last_saved=https://www.genspark.ai/api/files/s/xjnpv9no
+[03:02:27] ⏱ 생성대기 시작 SRT_380 max=120s
+[03:02:42] ⏱ 생성대기 진행 15.1s SRT_380 busy=False url_ok=True src=https://www.genspark.ai/api/files/s/613hq3wq
+[03:02:42] ⏱ 생성대기 완료 15.4s SRT_380 https://www.genspark.ai/api/files/s/613hq3wq
+[03:02:42] ⏱ 생성대기구간 SRT_380 15.4s · ok=True
+[03:02:42] SRT_380 근접 이미지 https://www.genspark.ai/api/files/s/613hq3wq
+[03:02:42] 다운로드 files URL=https://www.genspark.ai/api/files/s/613hq3wq → SRT_380.png
+[03:02:42] ⏱ 다운로드 직접실패 0.2s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[03:02:42] ⏱ 다운로드 fetch 0.1s size=444868 SRT_380.png
+[03:02:42] ⏱ 다운로드구간 SRT_380 0.3s · SRT_380.png
+[03:02:44] ⏱ 다운로드후유휴 SRT_380 1.5s · idle=True
+[03:02:44] ⏱ 씬합계 SRT_380 25.9s · https://www.genspark.ai/api/files/s/613hq3wq
+[03:02:44] SRT_380 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_380.png
+[03:02:44] 상태키 SRT_400 · Baek|blood_robe; Jin≈19|blood_robe
+[03:02:44] run_scene 시작 SRT_400 · seen_files=20 · last_saved=https://www.genspark.ai/api/files/s/613hq3wq
+[03:02:44] ⏱ 준비 SRT_400 0.0s · chars=1955
+[03:02:45] ⏱ 다음명령유휴 SRT_400 1.4s · idle=True
+[03:02:46] fill OK(clip) follow=True chars=1955
+[03:02:46] submit 시작 composer=1955 url=https://www.genspark.ai/agents?id=91f02444-1b14-469d-990c-7e05369630f6
+[03:02:46] submit geo 실패 hit=no-btn
+[03:02:46] submit 시도 method=geo geo=False
+[03:02:47] submit 미확인 method=geo generating=False composer=1955
+[03:02:47] submit geo 실패 hit=no-btn
+[03:02:47] submit 시도 method=send send=False
+[03:02:48] submit 미확인 method=send generating=False composer=1955
+[03:02:48] submit 시도 method=ctrl
+[03:02:48] submit 미확인 method=ctrl generating=False composer=1957
+[03:02:49] submit 시도 method=enter
+[03:02:49] submit 확인 method=enter generating=False composer=0
+[03:02:49] ⏱ 입력·전송 SRT_400 3.9s · chars=1955
+[03:02:49] 제출 후 last_saved=https://www.genspark.ai/api/files/s/613hq3wq
+[03:02:49] ⏱ 생성대기 시작 SRT_400 max=120s
+[03:03:05] ⏱ 생성대기 진행 15.3s SRT_400 busy=False url_ok=False src=
+[03:03:06] ⏱ 생성대기 완료 16.1s SRT_400 https://www.genspark.ai/api/files/s/d1bbbleo
+[03:03:06] ⏱ 생성대기구간 SRT_400 16.1s · ok=True
+[03:03:06] SRT_400 근접 이미지 https://www.genspark.ai/api/files/s/d1bbbleo
+[03:03:06] 다운로드 files URL=https://www.genspark.ai/api/files/s/d1bbbleo → SRT_400.png
+[03:03:06] ⏱ 다운로드 직접실패 0.2s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[03:03:06] ⏱ 다운로드 fetch 0.1s size=562639 SRT_400.png
+[03:03:06] ⏱ 다운로드구간 SRT_400 0.3s · SRT_400.png
+[03:03:07] ⏱ 다운로드후유휴 SRT_400 1.5s · idle=True
+[03:03:07] ⏱ 씬합계 SRT_400 23.5s · https://www.genspark.ai/api/files/s/d1bbbleo
+[03:03:07] SRT_400 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_400.png
+[03:03:08] 상태키 SRT_420 · Baek|blood_robe; Jin≈19|blood_robe
+[03:03:08] run_scene 시작 SRT_420 · seen_files=21 · last_saved=https://www.genspark.ai/api/files/s/d1bbbleo
+[03:03:08] ⏱ 준비 SRT_420 0.0s · chars=1643
+[03:03:10] ⏱ 다음명령유휴 SRT_420 2.3s · idle=True
+[03:03:11] fill OK(clip) follow=True chars=1643
+[03:03:11] submit 시작 composer=1643 url=https://www.genspark.ai/agents?id=91f02444-1b14-469d-990c-7e05369630f6
+[03:03:11] submit geo 실패 hit=no-btn
+[03:03:11] submit 시도 method=geo geo=False
+[03:03:12] submit 미확인 method=geo generating=False composer=1643
+[03:03:12] submit geo 실패 hit=no-btn
+[03:03:12] submit 시도 method=send send=False
+[03:03:13] submit 미확인 method=send generating=False composer=1643
+[03:03:14] submit 시도 method=ctrl
+[03:03:14] submit 미확인 method=ctrl generating=False composer=1645
+[03:03:15] submit 시도 method=enter
+[03:03:15] submit 확인 method=enter generating=False composer=0
+[03:03:15] ⏱ 입력·전송 SRT_420 5.6s · chars=1643
+[03:03:15] 제출 후 last_saved=https://www.genspark.ai/api/files/s/d1bbbleo
+[03:03:16] ⏱ 생성대기 시작 SRT_420 max=120s
+[03:03:29] ⏱ 생성대기 완료 13.2s SRT_420 https://www.genspark.ai/api/files/s/itvktwg6
+[03:03:29] ⏱ 생성대기구간 SRT_420 13.2s · ok=True
+[03:03:29] SRT_420 근접 이미지 https://www.genspark.ai/api/files/s/itvktwg6
+[03:03:29] 다운로드 files URL=https://www.genspark.ai/api/files/s/itvktwg6 → SRT_420.png
+[03:03:29] ⏱ 다운로드 직접실패 0.3s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[03:03:29] ⏱ 다운로드 fetch 0.1s size=567774 SRT_420.png
+[03:03:29] ⏱ 다운로드구간 SRT_420 0.5s · SRT_420.png
+[03:03:32] ⏱ 다운로드후유휴 SRT_420 2.5s · idle=True
+[03:03:32] ⏱ 씬합계 SRT_420 24.4s · https://www.genspark.ai/api/files/s/itvktwg6
+[03:03:32] SRT_420 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_420.png
+[03:03:32] 상태키 SRT_440 · Baek|blood_robe; Jin≈19|blood_robe
+[03:03:32] run_scene 시작 SRT_440 · seen_files=22 · last_saved=https://www.genspark.ai/api/files/s/itvktwg6
+[03:03:32] ⏱ 준비 SRT_440 0.0s · chars=1662
+[03:03:35] ⏱ 다음명령유휴 SRT_440 2.9s · idle=True
+[03:03:36] fill OK(clip) follow=True chars=1662
+[03:03:37] submit 시작 composer=1662 url=https://www.genspark.ai/agents?id=91f02444-1b14-469d-990c-7e05369630f6
+[03:03:37] submit geo 실패 hit=no-btn
+[03:03:37] submit 시도 method=geo geo=False
+[03:03:37] submit 미확인 method=geo generating=False composer=1662
+[03:03:38] submit geo 실패 hit=no-btn
+[03:03:38] submit 시도 method=send send=False
+[03:03:38] submit 미확인 method=send generating=False composer=1662
+[03:03:39] submit 시도 method=ctrl
+[03:03:39] submit 미확인 method=ctrl generating=False composer=1664
+[03:03:40] submit 시도 method=enter
+[03:03:40] submit 확인 method=enter generating=False composer=0
+[03:03:40] ⏱ 입력·전송 SRT_440 5.0s · chars=1662
+[03:03:40] 제출 후 last_saved=https://www.genspark.ai/api/files/s/itvktwg6
+[03:03:40] ⏱ 생성대기 시작 SRT_440 max=120s
+[03:03:55] ⏱ 생성대기 완료 14.3s SRT_440 https://www.genspark.ai/api/files/s/ijxohqop
+[03:03:55] ⏱ 생성대기구간 SRT_440 14.3s · ok=True
+[03:03:55] SRT_440 근접 이미지 https://www.genspark.ai/api/files/s/ijxohqop
+[03:03:55] 다운로드 files URL=https://www.genspark.ai/api/files/s/ijxohqop → SRT_440.png
+[03:03:55] ⏱ 다운로드 직접실패 0.3s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[03:03:55] ⏱ 다운로드 fetch 0.0s size=445645 SRT_440.png
+[03:03:55] ⏱ 다운로드구간 SRT_440 0.3s · SRT_440.png
+[03:03:56] ⏱ 다운로드후유휴 SRT_440 1.4s · idle=True
+[03:03:56] ⏱ 씬합계 SRT_440 24.2s · https://www.genspark.ai/api/files/s/ijxohqop
+[03:03:56] SRT_440 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_440.png
+[03:03:57] 상태키 SRT_460 · Baek|blood_robe; Jin≈19|blood_robe
+[03:03:57] run_scene 시작 SRT_460 · seen_files=23 · last_saved=https://www.genspark.ai/api/files/s/ijxohqop
+[03:03:57] ⏱ 준비 SRT_460 0.0s · chars=2605
+[03:03:58] ⏱ 다음명령유휴 SRT_460 1.4s · idle=True
+[03:03:59] fill OK(clip) follow=True chars=2605
+[03:03:59] submit 시작 composer=2605 url=https://www.genspark.ai/agents?id=91f02444-1b14-469d-990c-7e05369630f6
+[03:03:59] submit geo 실패 hit=no-btn
+[03:03:59] submit 시도 method=geo geo=False
+[03:03:59] submit 미확인 method=geo generating=False composer=2605
+[03:04:00] submit geo 실패 hit=no-btn
+[03:04:00] submit 시도 method=send send=False
+[03:04:00] submit 미확인 method=send generating=False composer=2605
+[03:04:01] submit 시도 method=ctrl
+[03:04:01] submit 미확인 method=ctrl generating=False composer=2607
+[03:04:01] submit 시도 method=enter
+[03:04:02] submit 확인 method=enter generating=False composer=0
+[03:04:02] ⏱ 입력·전송 SRT_460 4.1s · chars=2605
+[03:04:02] 제출 후 last_saved=https://www.genspark.ai/api/files/s/ijxohqop
+[03:04:02] ⏱ 생성대기 시작 SRT_460 max=120s
+[03:04:18] ⏱ 생성대기 진행 15.2s SRT_460 busy=False url_ok=False src=
+[03:04:18] ⏱ 생성대기 완료 16.1s SRT_460 https://www.genspark.ai/api/files/s/gr1xkkym
+[03:04:18] ⏱ 생성대기구간 SRT_460 16.1s · ok=True
+[03:04:19] SRT_460 근접 이미지 https://www.genspark.ai/api/files/s/gr1xkkym
+[03:04:19] 다운로드 files URL=https://www.genspark.ai/api/files/s/gr1xkkym → SRT_460.png
+[03:04:19] ⏱ 다운로드 직접실패 0.2s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[03:04:19] ⏱ 다운로드 fetch 0.2s size=479419 SRT_460.png
+[03:04:19] ⏱ 다운로드구간 SRT_460 0.4s · SRT_460.png
+[03:04:22] ⏱ 다운로드후유휴 SRT_460 2.6s · idle=True
+[03:04:22] ⏱ 씬합계 SRT_460 25.0s · https://www.genspark.ai/api/files/s/gr1xkkym
+[03:04:22] SRT_460 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_460.png
+[03:04:22] 상태키 SRT_480 · Baek|blood_robe; Jin≈19|blood_robe
+[03:04:22] run_scene 시작 SRT_480 · seen_files=24 · last_saved=https://www.genspark.ai/api/files/s/gr1xkkym
+[03:04:22] ⏱ 준비 SRT_480 0.1s · chars=1411
+[03:04:25] ⏱ 다음명령유휴 SRT_480 3.0s · idle=True
+[03:04:26] fill OK(clip) follow=True chars=1411
+[03:04:26] submit 시작 composer=1411 url=https://www.genspark.ai/agents?id=91f02444-1b14-469d-990c-7e05369630f6
+[03:04:26] submit geo 실패 hit=no-btn
+[03:04:26] submit 시도 method=geo geo=False
+[03:04:27] submit 미확인 method=geo generating=False composer=1411
+[03:04:28] submit geo 실패 hit=no-btn
+[03:04:28] submit 시도 method=send send=False
+[03:04:29] submit 미확인 method=send generating=False composer=1411
+[03:04:29] submit 시도 method=ctrl
+[03:04:30] submit 미확인 method=ctrl generating=False composer=1413
+[03:04:30] submit 시도 method=enter
+[03:04:31] submit 확인 method=enter generating=False composer=0
+[03:04:31] ⏱ 입력·전송 SRT_480 5.9s · chars=1411
+[03:04:31] 제출 후 last_saved=https://www.genspark.ai/api/files/s/gr1xkkym
+[03:04:31] ⏱ 생성대기 시작 SRT_480 max=120s
+[03:04:44] ⏱ 생성대기 완료 13.0s SRT_480 https://www.genspark.ai/api/files/s/dyfaippt
+[03:04:44] ⏱ 생성대기구간 SRT_480 13.0s · ok=True
+[03:04:44] SRT_480 근접 이미지 https://www.genspark.ai/api/files/s/dyfaippt
+[03:04:44] 다운로드 files URL=https://www.genspark.ai/api/files/s/dyfaippt → SRT_480.png
+[03:04:44] ⏱ 다운로드 직접실패 0.2s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[03:04:44] ⏱ 다운로드 fetch 0.1s size=818229 SRT_480.png
+[03:04:44] ⏱ 다운로드구간 SRT_480 0.3s · SRT_480.png
+[03:04:46] ⏱ 다운로드후유휴 SRT_480 1.3s · idle=True
+[03:04:46] ⏱ 씬합계 SRT_480 23.9s · https://www.genspark.ai/api/files/s/dyfaippt
+[03:04:46] SRT_480 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_480.png
+[03:04:46] 상태키 SRT_500 · Baek|blood_robe; Jin≈19|blood_robe
+[03:04:46] run_scene 시작 SRT_500 · seen_files=25 · last_saved=https://www.genspark.ai/api/files/s/dyfaippt
+[03:04:46] ⏱ 준비 SRT_500 0.0s · chars=1543
+[03:04:47] ⏱ 다음명령유휴 SRT_500 1.4s · idle=True
+[03:04:48] fill OK(clip) follow=True chars=1543
+[03:04:48] submit 시작 composer=1543 url=https://www.genspark.ai/agents?id=91f02444-1b14-469d-990c-7e05369630f6
+[03:04:48] submit geo 실패 hit=no-btn
+[03:04:48] submit 시도 method=geo geo=False
+[03:04:49] submit 미확인 method=geo generating=False composer=1543
+[03:04:49] submit geo 실패 hit=no-btn
+[03:04:49] submit 시도 method=send send=False
+[03:04:50] submit 미확인 method=send generating=False composer=1543
+[03:04:50] submit 시도 method=ctrl
+[03:04:50] submit 미확인 method=ctrl generating=False composer=1545
+[03:04:51] submit 시도 method=enter
+[03:04:51] submit 확인 method=enter generating=False composer=0
+[03:04:51] ⏱ 입력·전송 SRT_500 4.1s · chars=1543
+[03:04:51] 제출 후 last_saved=https://www.genspark.ai/api/files/s/dyfaippt
+[03:04:52] ⏱ 생성대기 시작 SRT_500 max=120s
+[03:05:04] ⏱ 생성대기 완료 13.0s SRT_500 https://www.genspark.ai/api/files/s/aju1xfk5
+[03:05:04] ⏱ 생성대기구간 SRT_500 13.0s · ok=True
+[03:05:05] SRT_500 근접 이미지 https://www.genspark.ai/api/files/s/aju1xfk5
+[03:05:05] 다운로드 files URL=https://www.genspark.ai/api/files/s/aju1xfk5 → SRT_500.png
+[03:05:05] ⏱ 다운로드 직접실패 0.2s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[03:05:05] ⏱ 다운로드 fetch 0.1s size=661358 SRT_500.png
+[03:05:05] ⏱ 다운로드구간 SRT_500 0.3s · SRT_500.png
+[03:05:06] ⏱ 다운로드후유휴 SRT_500 1.3s · idle=True
+[03:05:06] ⏱ 씬합계 SRT_500 20.3s · https://www.genspark.ai/api/files/s/aju1xfk5
+[03:05:06] SRT_500 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_500.png
+[03:05:06] 상태키 SRT_520 · Baek|blood_robe; Jin≈19|blood_robe
+[03:05:06] run_scene 시작 SRT_520 · seen_files=26 · last_saved=https://www.genspark.ai/api/files/s/aju1xfk5
+[03:05:06] ⏱ 준비 SRT_520 0.0s · chars=2135
+[03:05:08] ⏱ 다음명령유휴 SRT_520 1.5s · idle=True
+[03:05:09] fill OK(clip) follow=True chars=2135
+[03:05:09] submit 시작 composer=2135 url=https://www.genspark.ai/agents?id=91f02444-1b14-469d-990c-7e05369630f6
+[03:05:09] submit geo 실패 hit=no-btn
+[03:05:09] submit 시도 method=geo geo=False
+[03:05:10] submit 미확인 method=geo generating=False composer=2135
+[03:05:10] submit geo 실패 hit=no-btn
+[03:05:10] submit 시도 method=send send=False
+[03:05:11] submit 미확인 method=send generating=False composer=2135
+[03:05:11] submit 시도 method=ctrl
+[03:05:12] submit 미확인 method=ctrl generating=False composer=2137
+[03:05:12] submit 시도 method=enter
+[03:05:13] submit 확인 method=enter generating=False composer=0
+[03:05:13] ⏱ 입력·전송 SRT_520 5.3s · chars=2135
+[03:05:13] 제출 후 last_saved=https://www.genspark.ai/api/files/s/aju1xfk5
+[03:05:13] ⏱ 생성대기 시작 SRT_520 max=120s
+[03:05:27] ⏱ 생성대기 완료 13.8s SRT_520 https://www.genspark.ai/api/files/s/onhxu536
+[03:05:27] ⏱ 생성대기구간 SRT_520 13.8s · ok=True
+[03:05:27] SRT_520 근접 이미지 https://www.genspark.ai/api/files/s/onhxu536
+[03:05:27] 다운로드 files URL=https://www.genspark.ai/api/files/s/onhxu536 → SRT_520.png
+[03:05:28] ⏱ 다운로드 직접실패 0.3s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[03:05:28] ⏱ 다운로드 fetch 0.3s size=718997 SRT_520.png
+[03:05:28] ⏱ 다운로드구간 SRT_520 0.6s · SRT_520.png
+[03:05:31] ⏱ 다운로드후유휴 SRT_520 3.5s · idle=True
+[03:05:31] ⏱ 씬합계 SRT_520 25.2s · https://www.genspark.ai/api/files/s/onhxu536
+[03:05:31] SRT_520 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_520.png
+[03:05:32] 상태키 SRT_540 · Baek|blood_robe; Jin≈19|blood_robe
+[03:05:32] run_scene 시작 SRT_540 · seen_files=27 · last_saved=https://www.genspark.ai/api/files/s/onhxu536
+[03:05:32] ⏱ 준비 SRT_540 0.1s · chars=1416
+[03:05:35] ⏱ 다음명령유휴 SRT_540 3.4s · idle=True
+[03:05:37] fill OK(clip) follow=True chars=1416
+[03:05:37] submit 시작 composer=1416 url=https://www.genspark.ai/agents?id=91f02444-1b14-469d-990c-7e05369630f6
+[03:05:37] submit geo 실패 hit=no-btn
+[03:05:37] submit 시도 method=geo geo=False
+[03:05:38] submit 미확인 method=geo generating=False composer=1416
+[03:05:39] submit geo 실패 hit=no-btn
+[03:05:39] submit 시도 method=send send=False
+[03:05:39] submit 미확인 method=send generating=False composer=1416
+[03:05:40] submit 시도 method=ctrl
+[03:05:41] submit 미확인 method=ctrl generating=False composer=1418
+[03:05:41] submit 시도 method=enter
+[03:05:42] submit 확인 method=enter generating=False composer=0
+[03:05:42] ⏱ 입력·전송 SRT_540 6.6s · chars=1416
+[03:05:42] 제출 후 last_saved=https://www.genspark.ai/api/files/s/onhxu536
+[03:05:42] ⏱ 생성대기 시작 SRT_540 max=120s
+[03:05:57] ⏱ 생성대기 진행 15.0s SRT_540 busy=False url_ok=False src=
+[03:05:59] ⏱ 생성대기 완료 16.7s SRT_540 https://www.genspark.ai/api/files/s/vfhhvi5a
+[03:05:59] ⏱ 생성대기구간 SRT_540 16.7s · ok=True
+[03:05:59] SRT_540 근접 이미지 https://www.genspark.ai/api/files/s/vfhhvi5a
+[03:05:59] 다운로드 files URL=https://www.genspark.ai/api/files/s/vfhhvi5a → SRT_540.png
+[03:05:59] ⏱ 다운로드 직접실패 0.3s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[03:05:59] ⏱ 다운로드 fetch 0.1s size=804410 SRT_540.png
+[03:05:59] ⏱ 다운로드구간 SRT_540 0.4s · SRT_540.png
+[03:06:01] ⏱ 다운로드후유휴 SRT_540 1.5s · idle=True
+[03:06:01] ⏱ 씬합계 SRT_540 28.9s · https://www.genspark.ai/api/files/s/vfhhvi5a
+[03:06:01] SRT_540 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_540.png
+[03:06:01] 상태키 SRT_560 · Baek|blood_robe; Jin≈19|blood_robe
+[03:06:01] run_scene 시작 SRT_560 · seen_files=28 · last_saved=https://www.genspark.ai/api/files/s/vfhhvi5a
+[03:06:01] ⏱ 준비 SRT_560 0.0s · chars=2508
+[03:06:02] ⏱ 다음명령유휴 SRT_560 1.4s · idle=True
+[03:06:03] fill OK(clip) follow=True chars=2508
+[03:06:03] submit 시작 composer=2508 url=https://www.genspark.ai/agents?id=91f02444-1b14-469d-990c-7e05369630f6
+[03:06:03] submit geo 실패 hit=no-btn
+[03:06:03] submit 시도 method=geo geo=False
+[03:06:04] submit 미확인 method=geo generating=False composer=2508
+[03:06:04] submit geo 실패 hit=no-btn
+[03:06:04] submit 시도 method=send send=False
+[03:06:05] submit 미확인 method=send generating=False composer=2508
+[03:06:05] submit 시도 method=ctrl
+[03:06:05] submit 미확인 method=ctrl generating=False composer=2510
+[03:06:06] submit 시도 method=enter
+[03:06:06] submit 확인 method=enter generating=False composer=0
+[03:06:06] ⏱ 입력·전송 SRT_560 4.1s · chars=2508
+[03:06:06] 제출 후 last_saved=https://www.genspark.ai/api/files/s/vfhhvi5a
+[03:06:06] ⏱ 생성대기 시작 SRT_560 max=120s
+[03:06:20] ⏱ 생성대기 완료 13.7s SRT_560 https://www.genspark.ai/api/files/s/oroknfv3
+[03:06:20] ⏱ 생성대기구간 SRT_560 13.7s · ok=True
+[03:06:20] SRT_560 근접 이미지 https://www.genspark.ai/api/files/s/oroknfv3
+[03:06:20] 다운로드 files URL=https://www.genspark.ai/api/files/s/oroknfv3 → SRT_560.png
+[03:06:21] ⏱ 다운로드 직접실패 0.3s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[03:06:21] ⏱ 다운로드 fetch 0.3s size=844740 SRT_560.png
+[03:06:21] ⏱ 다운로드구간 SRT_560 0.6s · SRT_560.png
+[03:06:24] ⏱ 다운로드후유휴 SRT_560 2.8s · idle=True
+[03:06:24] ⏱ 씬합계 SRT_560 22.9s · https://www.genspark.ai/api/files/s/oroknfv3
+[03:06:24] SRT_560 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_560.png
+[03:06:24] 상태키 SRT_580 · Baek|blood_robe; Jin≈19|blood_robe
+[03:06:24] run_scene 시작 SRT_580 · seen_files=29 · last_saved=https://www.genspark.ai/api/files/s/oroknfv3
+[03:06:24] ⏱ 준비 SRT_580 0.1s · chars=1826
+[03:06:27] ⏱ 다음명령유휴 SRT_580 2.9s · idle=True
+[03:06:28] fill OK(clip) follow=True chars=1826
+[03:06:28] submit 시작 composer=1826 url=https://www.genspark.ai/agents?id=91f02444-1b14-469d-990c-7e05369630f6
+[03:06:28] submit geo 실패 hit=no-btn
+[03:06:28] submit 시도 method=geo geo=False
+[03:06:29] submit 미확인 method=geo generating=False composer=1826
+[03:06:30] submit geo 실패 hit=no-btn
+[03:06:30] submit 시도 method=send send=False
+[03:06:31] submit 미확인 method=send generating=False composer=1826
+[03:06:31] submit 시도 method=ctrl
+[03:06:32] submit 미확인 method=ctrl generating=False composer=1828
+[03:06:32] submit 시도 method=enter
+[03:06:33] submit 확인 method=enter generating=False composer=0
+[03:06:33] ⏱ 입력·전송 SRT_580 6.3s · chars=1826
+[03:06:33] 제출 후 last_saved=https://www.genspark.ai/api/files/s/oroknfv3
+[03:06:33] ⏱ 생성대기 시작 SRT_580 max=120s
+[03:06:47] ⏱ 생성대기 완료 14.1s SRT_580 https://www.genspark.ai/api/files/s/qo80uxtd
+[03:06:47] ⏱ 생성대기구간 SRT_580 14.1s · ok=True
+[03:06:47] SRT_580 근접 이미지 https://www.genspark.ai/api/files/s/qo80uxtd
+[03:06:47] 다운로드 files URL=https://www.genspark.ai/api/files/s/qo80uxtd → SRT_580.png
+[03:06:48] ⏱ 다운로드 직접실패 0.3s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[03:06:48] ⏱ 다운로드 fetch 0.1s size=537034 SRT_580.png
+[03:06:48] ⏱ 다운로드구간 SRT_580 0.4s · SRT_580.png
+[03:06:49] ⏱ 다운로드후유휴 SRT_580 1.3s · idle=True
+[03:06:49] ⏱ 씬합계 SRT_580 25.3s · https://www.genspark.ai/api/files/s/qo80uxtd
+[03:06:49] SRT_580 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_580.png
+[03:06:49] 상태키 SRT_600 · Baek|blood_robe; Jin≈19|blood_robe
+[03:06:49] run_scene 시작 SRT_600 · seen_files=30 · last_saved=https://www.genspark.ai/api/files/s/qo80uxtd
+[03:06:49] ⏱ 준비 SRT_600 0.0s · chars=1410
+[03:06:51] ⏱ 다음명령유휴 SRT_600 1.5s · idle=True
+[03:06:51] fill OK(clip) follow=True chars=1410
+[03:06:51] submit 시작 composer=1410 url=https://www.genspark.ai/agents?id=91f02444-1b14-469d-990c-7e05369630f6
+[03:06:52] submit geo 실패 hit=no-btn
+[03:06:52] submit 시도 method=geo geo=False
+[03:06:52] submit 미확인 method=geo generating=False composer=1410
+[03:06:53] submit geo 실패 hit=no-btn
+[03:06:53] submit 시도 method=send send=False
+[03:06:53] submit 미확인 method=send generating=False composer=1410
+[03:06:53] submit 시도 method=ctrl
+[03:06:54] submit 미확인 method=ctrl generating=False composer=1412
+[03:06:54] submit 시도 method=enter
+[03:06:55] submit 확인 method=enter generating=False composer=0
+[03:06:55] ⏱ 입력·전송 SRT_600 4.2s · chars=1410
+[03:06:55] 제출 후 last_saved=https://www.genspark.ai/api/files/s/qo80uxtd
+[03:06:55] ⏱ 생성대기 시작 SRT_600 max=120s
+[03:07:08] ⏱ 생성대기 완료 13.3s SRT_600 https://www.genspark.ai/api/files/s/06hr7y7y
+[03:07:08] ⏱ 생성대기구간 SRT_600 13.3s · ok=True
+[03:07:09] SRT_600 근접 이미지 https://www.genspark.ai/api/files/s/06hr7y7y
+[03:07:09] 다운로드 files URL=https://www.genspark.ai/api/files/s/06hr7y7y → SRT_600.png
+[03:07:09] ⏱ 다운로드 직접실패 0.3s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[03:07:09] ⏱ 다운로드 fetch 0.2s size=704031 SRT_600.png
+[03:07:09] ⏱ 다운로드구간 SRT_600 0.6s · SRT_600.png
+[03:07:12] ⏱ 다운로드후유휴 SRT_600 2.5s · idle=True
+[03:07:12] ⏱ 씬합계 SRT_600 22.3s · https://www.genspark.ai/api/files/s/06hr7y7y
+[03:07:12] SRT_600 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_600.png
+[03:07:12] 상태키 SRT_620 · Baek|blood_robe; Jin≈19|blood_robe
+[03:07:12] run_scene 시작 SRT_620 · seen_files=31 · last_saved=https://www.genspark.ai/api/files/s/06hr7y7y
+[03:07:12] ⏱ 준비 SRT_620 0.1s · chars=2593
+[03:07:14] ⏱ 다음명령유휴 SRT_620 2.7s · idle=True
+[03:07:16] fill OK(clip) follow=True chars=2593
+[03:07:16] submit 시작 composer=2593 url=https://www.genspark.ai/agents?id=91f02444-1b14-469d-990c-7e05369630f6
+[03:07:16] submit geo 실패 hit=no-btn
+[03:07:16] submit 시도 method=geo geo=False
+[03:07:17] submit 미확인 method=geo generating=False composer=2593
+[03:07:18] submit geo 실패 hit=no-btn
+[03:07:18] submit 시도 method=send send=False
+[03:07:18] submit 미확인 method=send generating=False composer=2593
+[03:07:19] submit 시도 method=ctrl
+[03:07:20] submit 미확인 method=ctrl generating=False composer=2595
+[03:07:20] submit 시도 method=enter
+[03:07:21] submit 확인 method=enter generating=False composer=0
+[03:07:21] ⏱ 입력·전송 SRT_620 6.1s · chars=2593
+[03:07:21] 제출 후 last_saved=https://www.genspark.ai/api/files/s/06hr7y7y
+[03:07:21] ⏱ 생성대기 시작 SRT_620 max=120s
+[03:07:32] ⏱ 생성대기 완료 11.2s SRT_620 https://www.genspark.ai/api/files/s/hr5fxtk5
+[03:07:32] ⏱ 생성대기구간 SRT_620 11.2s · ok=True
+[03:07:32] SRT_620 근접 이미지 https://www.genspark.ai/api/files/s/hr5fxtk5
+[03:07:32] 다운로드 files URL=https://www.genspark.ai/api/files/s/hr5fxtk5 → SRT_620.png
+[03:07:32] ⏱ 다운로드 직접실패 0.3s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[03:07:33] ⏱ 다운로드 fetch 0.1s size=512752 SRT_620.png
+[03:07:33] ⏱ 다운로드구간 SRT_620 0.4s · SRT_620.png
+[03:07:34] ⏱ 다운로드후유휴 SRT_620 1.4s · idle=True
+[03:07:34] ⏱ 씬합계 SRT_620 22.2s · https://www.genspark.ai/api/files/s/hr5fxtk5
+[03:07:34] SRT_620 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_620.png
+[03:07:34] 상태키 SRT_640 · Baek|blood_robe; Jin≈19|blood_robe
+[03:07:34] run_scene 시작 SRT_640 · seen_files=32 · last_saved=https://www.genspark.ai/api/files/s/hr5fxtk5
+[03:07:34] ⏱ 준비 SRT_640 0.0s · chars=1853
+[03:07:36] ⏱ 다음명령유휴 SRT_640 1.5s · idle=True
+[03:07:36] fill OK(clip) follow=True chars=1853
+[03:07:36] submit 시작 composer=1853 url=https://www.genspark.ai/agents?id=91f02444-1b14-469d-990c-7e05369630f6
+[03:07:36] submit geo 실패 hit=no-btn
+[03:07:36] submit 시도 method=geo geo=False
+[03:07:37] submit 미확인 method=geo generating=False composer=1853
+[03:07:37] submit geo 실패 hit=no-btn
+[03:07:37] submit 시도 method=send send=False
+[03:07:38] submit 미확인 method=send generating=False composer=1853
+[03:07:38] submit 시도 method=ctrl
+[03:07:39] submit 미확인 method=ctrl generating=False composer=1855
+[03:07:39] submit 시도 method=enter
+[03:07:40] submit 확인 method=enter generating=False composer=0
+[03:07:40] ⏱ 입력·전송 SRT_640 4.1s · chars=1853
+[03:07:40] 제출 후 last_saved=https://www.genspark.ai/api/files/s/hr5fxtk5
+[03:07:40] ⏱ 생성대기 시작 SRT_640 max=120s
+[03:07:55] ⏱ 생성대기 진행 15.1s SRT_640 busy=False url_ok=True src=https://www.genspark.ai/api/files/s/yhey4a1k
+[03:07:55] ⏱ 생성대기 완료 15.4s SRT_640 https://www.genspark.ai/api/files/s/yhey4a1k
+[03:07:55] ⏱ 생성대기구간 SRT_640 15.4s · ok=True
+[03:07:55] SRT_640 근접 이미지 https://www.genspark.ai/api/files/s/yhey4a1k
+[03:07:55] 다운로드 files URL=https://www.genspark.ai/api/files/s/yhey4a1k → SRT_640.png
+[03:07:56] ⏱ 다운로드 직접실패 0.2s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[03:07:56] ⏱ 다운로드 fetch 0.1s size=499001 SRT_640.png
+[03:07:56] ⏱ 다운로드구간 SRT_640 0.3s · SRT_640.png
+[03:07:57] ⏱ 다운로드후유휴 SRT_640 1.5s · idle=True
+[03:07:57] ⏱ 씬합계 SRT_640 23.0s · https://www.genspark.ai/api/files/s/yhey4a1k
+[03:07:57] SRT_640 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_640.png
+[03:07:57] 상태키 SRT_660 · Baek|blood_robe; Jin≈19|blood_robe
+[03:07:57] run_scene 시작 SRT_660 · seen_files=33 · last_saved=https://www.genspark.ai/api/files/s/yhey4a1k
+[03:07:57] ⏱ 준비 SRT_660 0.0s · chars=2155
+[03:07:59] ⏱ 다음명령유휴 SRT_660 1.4s · idle=True
+[03:08:00] fill OK(clip) follow=True chars=2155
+[03:08:00] submit 시작 composer=2155 url=https://www.genspark.ai/agents?id=91f02444-1b14-469d-990c-7e05369630f6
+[03:08:00] submit geo 실패 hit=no-btn
+[03:08:00] submit 시도 method=geo geo=False
+[03:08:00] submit 미확인 method=geo generating=False composer=2155
+[03:08:01] submit geo 실패 hit=no-btn
+[03:08:01] submit 시도 method=send send=False
+[03:08:01] submit 미확인 method=send generating=False composer=2155
+[03:08:01] submit 시도 method=ctrl
+[03:08:02] submit 미확인 method=ctrl generating=False composer=2157
+[03:08:02] submit 시도 method=enter
+[03:08:03] submit 확인 method=enter generating=False composer=0
+[03:08:03] ⏱ 입력·전송 SRT_660 4.3s · chars=2155
+[03:08:03] 제출 후 last_saved=https://www.genspark.ai/api/files/s/yhey4a1k
+[03:08:03] ⏱ 생성대기 시작 SRT_660 max=120s
+[03:08:19] ⏱ 생성대기 진행 15.6s SRT_660 busy=False url_ok=False src=
+[03:08:20] ⏱ 생성대기 완료 16.6s SRT_660 https://www.genspark.ai/api/files/s/etuki3j5
+[03:08:20] ⏱ 생성대기구간 SRT_660 16.6s · ok=True
+[03:08:20] SRT_660 근접 이미지 https://www.genspark.ai/api/files/s/etuki3j5
+[03:08:20] 다운로드 files URL=https://www.genspark.ai/api/files/s/etuki3j5 → SRT_660.png
+[03:08:20] ⏱ 다운로드 직접실패 0.3s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[03:08:20] ⏱ 다운로드 fetch 0.2s size=482918 SRT_660.png
+[03:08:20] ⏱ 다운로드구간 SRT_660 0.5s · SRT_660.png
+[03:08:23] ⏱ 다운로드후유휴 SRT_660 2.5s · idle=True
+[03:08:23] ⏱ 씬합계 SRT_660 25.6s · https://www.genspark.ai/api/files/s/etuki3j5
+[03:08:23] SRT_660 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_660.png
+[03:08:23] 상태키 SRT_680 · Baek|blood_robe; Jin≈19|blood_robe
+[03:08:23] run_scene 시작 SRT_680 · seen_files=34 · last_saved=https://www.genspark.ai/api/files/s/etuki3j5
+[03:08:23] ⏱ 준비 SRT_680 0.0s · chars=2136
+[03:08:26] ⏱ 다음명령유휴 SRT_680 2.7s · idle=True
+[03:08:27] fill OK(clip) follow=True chars=2136
+[03:08:27] submit 시작 composer=2136 url=https://www.genspark.ai/agents?id=91f02444-1b14-469d-990c-7e05369630f6
+[03:08:27] submit geo 실패 hit=no-btn
+[03:08:27] submit 시도 method=geo geo=False
+[03:08:28] submit 미확인 method=geo generating=False composer=2136
+[03:08:29] submit geo 실패 hit=no-btn
+[03:08:29] submit 시도 method=send send=False
+[03:08:29] submit 미확인 method=send generating=False composer=2136
+[03:08:30] submit 시도 method=ctrl
+[03:08:31] submit 미확인 method=ctrl generating=False composer=2138
+[03:08:31] submit 시도 method=enter
+[03:08:32] submit 확인 method=enter generating=False composer=0
+[03:08:32] ⏱ 입력·전송 SRT_680 5.8s · chars=2136
+[03:08:32] 제출 후 last_saved=https://www.genspark.ai/api/files/s/etuki3j5
+[03:08:32] ⏱ 생성대기 시작 SRT_680 max=120s
+[03:08:47] ⏱ 생성대기 진행 15.1s SRT_680 busy=False url_ok=True src=https://www.genspark.ai/api/files/s/nlpsautd
+[03:08:47] ⏱ 생성대기 완료 15.3s SRT_680 https://www.genspark.ai/api/files/s/nlpsautd
+[03:08:47] ⏱ 생성대기구간 SRT_680 15.3s · ok=True
+[03:08:47] SRT_680 근접 이미지 https://www.genspark.ai/api/files/s/nlpsautd
+[03:08:47] 다운로드 files URL=https://www.genspark.ai/api/files/s/nlpsautd → SRT_680.png
+[03:08:48] ⏱ 다운로드 직접실패 0.3s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[03:08:48] ⏱ 다운로드 fetch 0.1s size=449847 SRT_680.png
+[03:08:48] ⏱ 다운로드구간 SRT_680 0.4s · SRT_680.png
+[03:08:49] ⏱ 다운로드후유휴 SRT_680 1.4s · idle=True
+[03:08:49] ⏱ 씬합계 SRT_680 26.0s · https://www.genspark.ai/api/files/s/nlpsautd
+[03:08:49] SRT_680 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_680.png
+[03:08:49] 상태키 SRT_700 · Baek|blood_robe; Jin≈19|blood_robe
+[03:08:49] run_scene 시작 SRT_700 · seen_files=35 · last_saved=https://www.genspark.ai/api/files/s/nlpsautd
+[03:08:49] ⏱ 준비 SRT_700 0.0s · chars=1828
+[03:08:51] ⏱ 다음명령유휴 SRT_700 1.4s · idle=True
+[03:08:51] fill OK(clip) follow=True chars=1828
+[03:08:51] submit 시작 composer=1828 url=https://www.genspark.ai/agents?id=91f02444-1b14-469d-990c-7e05369630f6
+[03:08:52] submit geo 실패 hit=no-btn
+[03:08:52] submit 시도 method=geo geo=False
+[03:08:52] submit 미확인 method=geo generating=False composer=1828
+[03:08:52] submit geo 실패 hit=no-btn
+[03:08:52] submit 시도 method=send send=False
+[03:08:53] submit 미확인 method=send generating=False composer=1828
+[03:08:53] submit 시도 method=ctrl
+[03:08:54] submit 미확인 method=ctrl generating=False composer=1830
+[03:08:54] submit 시도 method=enter
+[03:08:55] submit 확인 method=enter generating=False composer=0
+[03:08:55] ⏱ 입력·전송 SRT_700 4.1s · chars=1828
+[03:08:55] 제출 후 last_saved=https://www.genspark.ai/api/files/s/nlpsautd
+[03:08:55] ⏱ 생성대기 시작 SRT_700 max=120s
+[03:09:07] ⏱ 생성대기 완료 12.4s SRT_700 https://www.genspark.ai/api/files/s/p9kjjvzf
+[03:09:08] ⏱ 생성대기구간 SRT_700 12.4s · ok=True
+[03:09:08] SRT_700 근접 이미지 https://www.genspark.ai/api/files/s/p9kjjvzf
+[03:09:08] 다운로드 files URL=https://www.genspark.ai/api/files/s/p9kjjvzf → SRT_700.png
+[03:09:08] ⏱ 다운로드 직접실패 0.3s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[03:09:08] ⏱ 다운로드 fetch 0.1s size=515580 SRT_700.png
+[03:09:08] ⏱ 다운로드구간 SRT_700 0.3s · SRT_700.png
+[03:09:09] ⏱ 다운로드후유휴 SRT_700 1.5s · idle=True
+[03:09:09] ⏱ 씬합계 SRT_700 20.1s · https://www.genspark.ai/api/files/s/p9kjjvzf
+[03:09:09] SRT_700 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_700.png
+[03:09:10] 상태키 SRT_720 · Baek|blood_robe; Jin≈19|blood_robe
+[03:09:10] run_scene 시작 SRT_720 · seen_files=36 · last_saved=https://www.genspark.ai/api/files/s/p9kjjvzf
+[03:09:10] ⏱ 준비 SRT_720 0.0s · chars=2496
+[03:09:11] ⏱ 다음명령유휴 SRT_720 1.4s · idle=True
+[03:09:12] fill OK(clip) follow=True chars=2496
+[03:09:12] submit 시작 composer=2496 url=https://www.genspark.ai/agents?id=91f02444-1b14-469d-990c-7e05369630f6
+[03:09:12] submit geo 실패 hit=no-btn
+[03:09:12] submit 시도 method=geo geo=False
+[03:09:13] submit 미확인 method=geo generating=False composer=2496
+[03:09:13] submit geo 실패 hit=no-btn
+[03:09:13] submit 시도 method=send send=False
+[03:09:14] submit 미확인 method=send generating=False composer=2496
+[03:09:14] submit 시도 method=ctrl
+[03:09:15] submit 미확인 method=ctrl generating=False composer=2498
+[03:09:16] submit 시도 method=enter
+[03:09:16] submit 확인 method=enter generating=False composer=0
+[03:09:16] ⏱ 입력·전송 SRT_720 5.5s · chars=2496
+[03:09:16] 제출 후 last_saved=https://www.genspark.ai/api/files/s/p9kjjvzf
+[03:09:17] ⏱ 생성대기 시작 SRT_720 max=120s
+[03:09:30] ⏱ 생성대기 완료 13.8s SRT_720 https://www.genspark.ai/api/files/s/7viteern
+[03:09:30] ⏱ 생성대기구간 SRT_720 13.8s · ok=True
+[03:09:31] SRT_720 근접 이미지 https://www.genspark.ai/api/files/s/7viteern
+[03:09:31] 다운로드 files URL=https://www.genspark.ai/api/files/s/7viteern → SRT_720.png
+[03:09:31] ⏱ 다운로드 직접실패 0.3s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[03:09:31] ⏱ 다운로드 fetch 0.2s size=586067 SRT_720.png
+[03:09:31] ⏱ 다운로드구간 SRT_720 0.5s · SRT_720.png
+[03:09:34] ⏱ 다운로드후유휴 SRT_720 2.6s · idle=True
+[03:09:34] ⏱ 씬합계 SRT_720 24.1s · https://www.genspark.ai/api/files/s/7viteern
+[03:09:34] SRT_720 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_720.png
+[03:09:34] 상태키 SRT_740 · Baek|blood_robe; Jin≈19|blood_robe
+[03:09:34] run_scene 시작 SRT_740 · seen_files=37 · last_saved=https://www.genspark.ai/api/files/s/7viteern
+[03:09:34] ⏱ 준비 SRT_740 0.0s · chars=1855
+[03:09:36] ⏱ 다음명령유휴 SRT_740 2.6s · idle=True
+[03:09:38] fill OK(clip) follow=True chars=1855
+[03:09:38] submit 시작 composer=1855 url=https://www.genspark.ai/agents?id=91f02444-1b14-469d-990c-7e05369630f6
+[03:09:38] submit geo 실패 hit=no-btn
+[03:09:38] submit 시도 method=geo geo=False
+[03:09:39] submit 미확인 method=geo generating=False composer=1855
+[03:09:40] submit geo 실패 hit=no-btn
+[03:09:40] submit 시도 method=send send=False
+[03:09:41] submit 미확인 method=send generating=False composer=1855
+[03:09:41] submit 시도 method=ctrl
+[03:09:42] submit 미확인 method=ctrl generating=False composer=1857
+[03:09:42] submit 시도 method=enter
+[03:09:43] submit 확인 method=enter generating=False composer=0
+[03:09:43] ⏱ 입력·전송 SRT_740 6.3s · chars=1855
+[03:09:43] 제출 후 last_saved=https://www.genspark.ai/api/files/s/7viteern
+[03:09:43] ⏱ 생성대기 시작 SRT_740 max=120s
+[03:09:56] ⏱ 생성대기 완료 12.8s SRT_740 https://www.genspark.ai/api/files/s/eidjivvg
+[03:09:56] ⏱ 생성대기구간 SRT_740 12.9s · ok=True
+[03:09:56] SRT_740 근접 이미지 https://www.genspark.ai/api/files/s/eidjivvg
+[03:09:56] 다운로드 files URL=https://www.genspark.ai/api/files/s/eidjivvg → SRT_740.png
+[03:09:56] ⏱ 다운로드 직접실패 0.3s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[03:09:56] ⏱ 다운로드 fetch 0.1s size=520572 SRT_740.png
+[03:09:56] ⏱ 다운로드구간 SRT_740 0.4s · SRT_740.png
+[03:09:58] ⏱ 다운로드후유휴 SRT_740 1.4s · idle=True
+[03:09:58] ⏱ 씬합계 SRT_740 23.8s · https://www.genspark.ai/api/files/s/eidjivvg
+[03:09:58] SRT_740 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_740.png
+[03:09:58] 상태키 SRT_760 · Baek|blood_robe; Jin≈19|blood_robe
+[03:09:58] run_scene 시작 SRT_760 · seen_files=38 · last_saved=https://www.genspark.ai/api/files/s/eidjivvg
+[03:09:58] ⏱ 준비 SRT_760 0.0s · chars=2494
+[03:09:59] ⏱ 다음명령유휴 SRT_760 1.5s · idle=True
+[03:10:00] fill OK(clip) follow=True chars=2494
+[03:10:00] submit 시작 composer=2494 url=https://www.genspark.ai/agents?id=91f02444-1b14-469d-990c-7e05369630f6
+[03:10:00] submit geo 실패 hit=no-btn
+[03:10:00] submit 시도 method=geo geo=False
+[03:10:01] submit 미확인 method=geo generating=False composer=2494
+[03:10:01] submit geo 실패 hit=no-btn
+[03:10:01] submit 시도 method=send send=False
+[03:10:02] submit 미확인 method=send generating=False composer=2494
+[03:10:02] submit 시도 method=ctrl
+[03:10:03] submit 미확인 method=ctrl generating=False composer=2496
+[03:10:03] submit 시도 method=enter
+[03:10:04] submit 확인 method=enter generating=False composer=0
+[03:10:04] ⏱ 입력·전송 SRT_760 4.3s · chars=2494
+[03:10:04] 제출 후 last_saved=https://www.genspark.ai/api/files/s/eidjivvg
+[03:10:04] ⏱ 생성대기 시작 SRT_760 max=120s
+[03:10:19] ⏱ 생성대기 진행 15.1s SRT_760 busy=False url_ok=False src=
+[03:10:20] ⏱ 생성대기 완료 16.0s SRT_760 https://www.genspark.ai/api/files/s/yncvuaef
+[03:10:20] ⏱ 생성대기구간 SRT_760 16.0s · ok=True
+[03:10:20] SRT_760 근접 이미지 https://www.genspark.ai/api/files/s/yncvuaef
+[03:10:20] 다운로드 files URL=https://www.genspark.ai/api/files/s/yncvuaef → SRT_760.png
+[03:10:20] ⏱ 다운로드 직접실패 0.2s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[03:10:20] ⏱ 다운로드 fetch 0.1s size=552524 SRT_760.png
+[03:10:20] ⏱ 다운로드구간 SRT_760 0.3s · SRT_760.png
+[03:10:21] ⏱ 다운로드후유휴 SRT_760 1.4s · idle=True
+[03:10:22] ⏱ 씬합계 SRT_760 23.7s · https://www.genspark.ai/api/files/s/yncvuaef
+[03:10:22] SRT_760 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_760.png
+[03:10:22] 상태키 SRT_780 · Baek|blood_robe; Jin≈19|blood_robe
+[03:10:22] run_scene 시작 SRT_780 · seen_files=39 · last_saved=https://www.genspark.ai/api/files/s/yncvuaef
+[03:10:22] ⏱ 준비 SRT_780 0.0s · chars=1853
+[03:10:24] ⏱ 다음명령유휴 SRT_780 2.0s · idle=True
+[03:10:25] fill OK(clip) follow=True chars=1853
+[03:10:25] submit 시작 composer=1853 url=https://www.genspark.ai/agents?id=91f02444-1b14-469d-990c-7e05369630f6
+[03:10:25] submit geo 실패 hit=no-btn
+[03:10:25] submit 시도 method=geo geo=False
+[03:10:26] submit 미확인 method=geo generating=False composer=1853
+[03:10:27] submit geo 실패 hit=no-btn
+[03:10:27] submit 시도 method=send send=False
+[03:10:27] submit 미확인 method=send generating=False composer=1853
+[03:10:28] submit 시도 method=ctrl
+[03:10:28] submit 미확인 method=ctrl generating=False composer=1855
+[03:10:29] submit 시도 method=enter
+[03:10:30] submit 확인 method=enter generating=False composer=0
+[03:10:30] ⏱ 입력·전송 SRT_780 5.9s · chars=1853
+[03:10:30] 제출 후 last_saved=https://www.genspark.ai/api/files/s/yncvuaef
+[03:10:30] ⏱ 생성대기 시작 SRT_780 max=120s
+[03:10:42] ⏱ 생성대기 완료 12.1s SRT_780 https://www.genspark.ai/api/files/s/s3zq1yvz
+[03:10:42] ⏱ 생성대기구간 SRT_780 12.1s · ok=True
+[03:10:42] SRT_780 근접 이미지 https://www.genspark.ai/api/files/s/s3zq1yvz
+[03:10:42] 다운로드 files URL=https://www.genspark.ai/api/files/s/s3zq1yvz → SRT_780.png
+[03:10:42] ⏱ 다운로드 직접실패 0.3s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[03:10:43] ⏱ 다운로드 fetch 0.2s size=450223 SRT_780.png
+[03:10:43] ⏱ 다운로드구간 SRT_780 0.6s · SRT_780.png
+[03:10:46] ⏱ 다운로드후유휴 SRT_780 3.2s · idle=True
+[03:10:46] ⏱ 씬합계 SRT_780 24.2s · https://www.genspark.ai/api/files/s/s3zq1yvz
+[03:10:46] SRT_780 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_780.png
+[03:10:46] 상태키 SRT_800 · Baek|blood_robe; Jin≈19|blood_robe
+[03:10:46] run_scene 시작 SRT_800 · seen_files=40 · last_saved=https://www.genspark.ai/api/files/s/s3zq1yvz
+[03:10:46] ⏱ 준비 SRT_800 0.1s · chars=2445
+[03:10:49] ⏱ 다음명령유휴 SRT_800 2.6s · idle=True
+[03:10:50] fill OK(clip) follow=True chars=2445
+[03:10:50] submit 시작 composer=2445 url=https://www.genspark.ai/agents?id=91f02444-1b14-469d-990c-7e05369630f6
+[03:10:50] submit geo 실패 hit=no-btn
+[03:10:50] submit 시도 method=geo geo=False
+[03:10:51] submit 미확인 method=geo generating=False composer=2445
+[03:10:52] submit geo 실패 hit=no-btn
+[03:10:52] submit 시도 method=send send=False
+[03:10:53] submit 미확인 method=send generating=False composer=2445
+[03:10:53] submit 시도 method=ctrl
+[03:10:54] submit 미확인 method=ctrl generating=False composer=2447
+[03:10:54] submit 시도 method=enter
+[03:10:55] submit 확인 method=enter generating=False composer=0
+[03:10:55] ⏱ 입력·전송 SRT_800 6.1s · chars=2445
+[03:10:55] 제출 후 last_saved=https://www.genspark.ai/api/files/s/s3zq1yvz
+[03:10:55] ⏱ 생성대기 시작 SRT_800 max=120s
+[03:11:08] ⏱ 생성대기 완료 12.5s SRT_800 https://www.genspark.ai/api/files/s/s0r82u07
+[03:11:08] ⏱ 생성대기구간 SRT_800 12.5s · ok=True
+[03:11:08] SRT_800 근접 이미지 https://www.genspark.ai/api/files/s/s0r82u07
+[03:11:08] 다운로드 files URL=https://www.genspark.ai/api/files/s/s0r82u07 → SRT_800.png
+[03:11:08] ⏱ 다운로드 직접실패 0.3s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[03:11:08] ⏱ 다운로드 fetch 0.1s size=437262 SRT_800.png
+[03:11:08] ⏱ 다운로드구간 SRT_800 0.3s · SRT_800.png
+[03:11:10] ⏱ 다운로드후유휴 SRT_800 1.7s · idle=True
+[03:11:10] ⏱ 씬합계 SRT_800 23.5s · https://www.genspark.ai/api/files/s/s0r82u07
+[03:11:10] SRT_800 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_800.png
+[03:11:10] 상태키 SRT_820 · Baek|blood_robe; Jin≈19|blood_robe
+[03:11:10] run_scene 시작 SRT_820 · seen_files=41 · last_saved=https://www.genspark.ai/api/files/s/s0r82u07
+[03:11:10] ⏱ 준비 SRT_820 0.0s · chars=2512
+[03:11:11] ⏱ 다음명령유휴 SRT_820 1.7s · idle=True
+[03:11:12] fill OK(clip) follow=True chars=2512
+[03:11:12] submit 시작 composer=2512 url=https://www.genspark.ai/agents?id=91f02444-1b14-469d-990c-7e05369630f6
+[03:11:12] submit geo 실패 hit=no-btn
+[03:11:12] submit 시도 method=geo geo=False
+[03:11:13] submit 미확인 method=geo generating=False composer=2512
+[03:11:13] submit geo 실패 hit=no-btn
+[03:11:13] submit 시도 method=send send=False
+[03:11:14] submit 미확인 method=send generating=False composer=2512
+[03:11:14] submit 시도 method=ctrl
+[03:11:15] submit 미확인 method=ctrl generating=False composer=2514
+[03:11:15] submit 시도 method=enter
+[03:11:16] submit 확인 method=enter generating=False composer=0
+[03:11:16] ⏱ 입력·전송 SRT_820 4.3s · chars=2512
+[03:11:16] 제출 후 last_saved=https://www.genspark.ai/api/files/s/s0r82u07
+[03:11:16] ⏱ 생성대기 시작 SRT_820 max=120s
+[03:11:31] ⏱ 생성대기 진행 15.4s SRT_820 busy=False url_ok=True src=https://www.genspark.ai/api/files/s/06wsxtmt
+[03:11:32] ⏱ 생성대기 완료 15.8s SRT_820 https://www.genspark.ai/api/files/s/06wsxtmt
+[03:11:32] ⏱ 생성대기구간 SRT_820 15.8s · ok=True
+[03:11:32] SRT_820 근접 이미지 https://www.genspark.ai/api/files/s/06wsxtmt
+[03:11:32] 다운로드 files URL=https://www.genspark.ai/api/files/s/06wsxtmt → SRT_820.png
+[03:11:32] ⏱ 다운로드 직접실패 0.3s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[03:11:32] ⏱ 다운로드 fetch 0.2s size=449991 SRT_820.png
+[03:11:33] ⏱ 다운로드구간 SRT_820 0.6s · SRT_820.png
+[03:11:36] ⏱ 다운로드후유휴 SRT_820 3.3s · idle=True
+[03:11:36] ⏱ 씬합계 SRT_820 26.1s · https://www.genspark.ai/api/files/s/06wsxtmt
+[03:11:36] SRT_820 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_820.png
+[03:11:36] 상태키 SRT_840 · Baek|blood_robe; Jin≈19|blood_robe
+[03:11:36] run_scene 시작 SRT_840 · seen_files=42 · last_saved=https://www.genspark.ai/api/files/s/06wsxtmt
+[03:11:36] ⏱ 준비 SRT_840 0.1s · chars=1389
+[03:11:39] ⏱ 다음명령유휴 SRT_840 3.2s · idle=True
+[03:11:41] fill OK(clip) follow=True chars=1389
+[03:11:41] submit 시작 composer=1389 url=https://www.genspark.ai/agents?id=91f02444-1b14-469d-990c-7e05369630f6
+[03:11:41] submit geo 실패 hit=no-btn
+[03:11:41] submit 시도 method=geo geo=False
+[03:11:42] submit 미확인 method=geo generating=False composer=1389
+[03:11:43] submit geo 실패 hit=no-btn
+[03:11:43] submit 시도 method=send send=False
+[03:11:44] submit 미확인 method=send generating=False composer=1389
+[03:11:44] submit 시도 method=ctrl
+[03:11:45] submit 미확인 method=ctrl generating=False composer=1391
+[03:11:45] submit 시도 method=enter
+[03:11:46] submit 확인 method=enter generating=False composer=0
+[03:11:46] ⏱ 입력·전송 SRT_840 6.7s · chars=1389
+[03:11:46] 제출 후 last_saved=https://www.genspark.ai/api/files/s/06wsxtmt
+[03:11:46] ⏱ 생성대기 시작 SRT_840 max=120s
+[03:11:58] ⏱ 생성대기 완료 11.9s SRT_840 https://www.genspark.ai/api/files/s/bkntl376
+[03:11:58] ⏱ 생성대기구간 SRT_840 11.9s · ok=True
+[03:11:58] SRT_840 근접 이미지 https://www.genspark.ai/api/files/s/bkntl376
+[03:11:58] 다운로드 files URL=https://www.genspark.ai/api/files/s/bkntl376 → SRT_840.png
+[03:11:59] ⏱ 다운로드 직접실패 0.3s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[03:11:59] ⏱ 다운로드 fetch 0.1s size=466276 SRT_840.png
+[03:11:59] ⏱ 다운로드구간 SRT_840 0.5s · SRT_840.png
+[03:12:02] ⏱ 다운로드후유휴 SRT_840 2.7s · idle=True
+[03:12:02] ⏱ 씬합계 SRT_840 25.5s · https://www.genspark.ai/api/files/s/bkntl376
+[03:12:02] SRT_840 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_840.png
+[03:12:02] 상태키 SRT_860 · Baek|blood_robe; Jin≈19|blood_robe
+[03:12:02] run_scene 시작 SRT_860 · seen_files=43 · last_saved=https://www.genspark.ai/api/files/s/bkntl376
+[03:12:02] ⏱ 준비 SRT_860 0.1s · chars=2616
+[03:12:04] ⏱ 다음명령유휴 SRT_860 2.4s · idle=True
+[03:12:05] fill OK(clip) follow=True chars=2616
+[03:12:05] submit 시작 composer=2616 url=https://www.genspark.ai/agents?id=91f02444-1b14-469d-990c-7e05369630f6
+[03:12:05] submit geo 실패 hit=no-btn
+[03:12:05] submit 시도 method=geo geo=False
+[03:12:06] submit 미확인 method=geo generating=False composer=2616
+[03:12:06] submit geo 실패 hit=no-btn
+[03:12:06] submit 시도 method=send send=False
+[03:12:07] submit 미확인 method=send generating=False composer=2616
+[03:12:07] submit 시도 method=ctrl
+[03:12:08] submit 미확인 method=ctrl generating=False composer=2618
+[03:12:08] submit 시도 method=enter
+[03:12:08] submit 확인 method=enter generating=False composer=0
+[03:12:08] ⏱ 입력·전송 SRT_860 4.3s · chars=2616
+[03:12:08] 제출 후 last_saved=https://www.genspark.ai/api/files/s/bkntl376
+[03:12:09] ⏱ 생성대기 시작 SRT_860 max=120s
+[03:12:22] ⏱ 생성대기 완료 12.9s SRT_860 https://www.genspark.ai/api/files/s/ap40i9o8
+[03:12:22] ⏱ 생성대기구간 SRT_860 12.9s · ok=True
+[03:12:22] SRT_860 근접 이미지 https://www.genspark.ai/api/files/s/ap40i9o8
+[03:12:22] 다운로드 files URL=https://www.genspark.ai/api/files/s/ap40i9o8 → SRT_860.png
+[03:12:22] ⏱ 다운로드 직접실패 0.3s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[03:12:22] ⏱ 다운로드 fetch 0.1s size=368771 SRT_860.png
+[03:12:22] ⏱ 다운로드구간 SRT_860 0.4s · SRT_860.png
+[03:12:24] ⏱ 다운로드후유휴 SRT_860 1.6s · idle=True
+[03:12:24] ⏱ 씬합계 SRT_860 21.9s · https://www.genspark.ai/api/files/s/ap40i9o8
+[03:12:24] SRT_860 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_860.png
+[03:12:24] 상태키 SRT_880 · Baek|blood_robe; Jin≈19|blood_robe
+[03:12:24] run_scene 시작 SRT_880 · seen_files=44 · last_saved=https://www.genspark.ai/api/files/s/ap40i9o8
+[03:12:24] ⏱ 준비 SRT_880 0.0s · chars=2138
+[03:12:26] ⏱ 다음명령유휴 SRT_880 2.0s · idle=True
+[03:12:27] fill OK(clip) follow=True chars=2138
+[03:12:27] submit 시작 composer=2138 url=https://www.genspark.ai/agents?id=91f02444-1b14-469d-990c-7e05369630f6
+[03:12:27] submit geo 실패 hit=no-btn
+[03:12:27] submit 시도 method=geo geo=False
+[03:12:28] submit 미확인 method=geo generating=False composer=2138
+[03:12:29] submit geo 실패 hit=no-btn
+[03:12:29] submit 시도 method=send send=False
+[03:12:30] submit 미확인 method=send generating=False composer=2138
+[03:12:30] submit 시도 method=ctrl
+[03:12:31] submit 미확인 method=ctrl generating=False composer=2140
+[03:12:31] submit 시도 method=enter
+[03:12:32] submit 확인 method=enter generating=False composer=0
+[03:12:32] ⏱ 입력·전송 SRT_880 6.2s · chars=2138
+[03:12:32] 제출 후 last_saved=https://www.genspark.ai/api/files/s/ap40i9o8
+[03:12:32] ⏱ 생성대기 시작 SRT_880 max=120s
+[03:12:47] ⏱ 생성대기 진행 15.0s SRT_880 busy=False url_ok=True src=https://www.genspark.ai/api/files/s/m0lflnoa
+[03:12:47] ⏱ 생성대기 완료 15.3s SRT_880 https://www.genspark.ai/api/files/s/m0lflnoa
+[03:12:47] ⏱ 생성대기구간 SRT_880 15.3s · ok=True
+[03:12:48] SRT_880 근접 이미지 https://www.genspark.ai/api/files/s/m0lflnoa
+[03:12:48] 다운로드 files URL=https://www.genspark.ai/api/files/s/m0lflnoa → SRT_880.png
+[03:12:48] ⏱ 다운로드 직접실패 0.3s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[03:12:48] ⏱ 다운로드 fetch 0.1s size=442699 SRT_880.png
+[03:12:48] ⏱ 다운로드구간 SRT_880 0.5s · SRT_880.png
+[03:12:51] ⏱ 다운로드후유휴 SRT_880 2.7s · idle=True
+[03:12:51] ⏱ 씬합계 SRT_880 27.0s · https://www.genspark.ai/api/files/s/m0lflnoa
+[03:12:51] SRT_880 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_880.png
+[03:12:51] 상태키 SRT_900 · Baek|blood_robe; Jin≈19|blood_robe
+[03:12:51] run_scene 시작 SRT_900 · seen_files=45 · last_saved=https://www.genspark.ai/api/files/s/m0lflnoa
+[03:12:51] ⏱ 준비 SRT_900 0.0s · chars=1960
+[03:12:54] ⏱ 다음명령유휴 SRT_900 2.8s · idle=True
+[03:12:55] fill OK(clip) follow=True chars=1960
+[03:12:55] submit 시작 composer=1960 url=https://www.genspark.ai/agents?id=91f02444-1b14-469d-990c-7e05369630f6
+[03:12:56] submit geo 실패 hit=no-btn
+[03:12:56] submit 시도 method=geo geo=False
+[03:12:56] submit 미확인 method=geo generating=False composer=1960
+[03:12:57] submit geo 실패 hit=no-btn
+[03:12:57] submit 시도 method=send send=False
+[03:12:58] submit 미확인 method=send generating=False composer=1960
+[03:12:58] submit 시도 method=ctrl
+[03:12:59] submit 미확인 method=ctrl generating=False composer=1962
+[03:13:00] submit 시도 method=enter
+[03:13:00] submit 확인 method=enter generating=False composer=0
+[03:13:00] ⏱ 입력·전송 SRT_900 6.6s · chars=1960
+[03:13:00] 제출 후 last_saved=https://www.genspark.ai/api/files/s/m0lflnoa
+[03:13:01] ⏱ 생성대기 시작 SRT_900 max=120s
+[03:13:16] ⏱ 생성대기 진행 15.4s SRT_900 busy=True url_ok=False src=
+[03:13:20] ⏱ 생성대기 완료 19.2s SRT_900 https://www.genspark.ai/api/files/s/li3jw0nx
+[03:13:20] ⏱ 생성대기구간 SRT_900 19.2s · ok=True
+[03:13:20] SRT_900 근접 이미지 https://www.genspark.ai/api/files/s/li3jw0nx
+[03:13:20] 다운로드 files URL=https://www.genspark.ai/api/files/s/li3jw0nx → SRT_900.png
+[03:13:20] ⏱ 다운로드 직접실패 0.3s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[03:13:20] ⏱ 다운로드 fetch 0.1s size=720494 SRT_900.png
+[03:13:20] ⏱ 다운로드구간 SRT_900 0.4s · SRT_900.png
+[03:13:22] ⏱ 다운로드후유휴 SRT_900 1.5s · idle=True
+[03:13:22] ⏱ 씬합계 SRT_900 30.9s · https://www.genspark.ai/api/files/s/li3jw0nx
+[03:13:22] SRT_900 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_900.png
+[03:13:22] 상태키 SRT_920 · Baek|blood_robe; Jin≈19|blood_robe
+[03:13:22] run_scene 시작 SRT_920 · seen_files=46 · last_saved=https://www.genspark.ai/api/files/s/li3jw0nx
+[03:13:22] ⏱ 준비 SRT_920 0.0s · chars=1972
+[03:13:23] ⏱ 다음명령유휴 SRT_920 1.3s · idle=True
+[03:13:24] fill OK(clip) follow=True chars=1972
+[03:13:24] submit 시작 composer=1972 url=https://www.genspark.ai/agents?id=91f02444-1b14-469d-990c-7e05369630f6
+[03:13:24] submit geo 실패 hit=no-btn
+[03:13:24] submit 시도 method=geo geo=False
+[03:13:25] submit 미확인 method=geo generating=False composer=1972
+[03:13:25] submit geo 실패 hit=no-btn
+[03:13:25] submit 시도 method=send send=False
+[03:13:26] submit 미확인 method=send generating=False composer=1972
+[03:13:26] submit 시도 method=ctrl
+[03:13:27] submit 미확인 method=ctrl generating=False composer=1974
+[03:13:27] submit 시도 method=enter
+[03:13:28] submit 확인 method=enter generating=False composer=0
+[03:13:28] ⏱ 입력·전송 SRT_920 4.2s · chars=1972
+[03:13:28] 제출 후 last_saved=https://www.genspark.ai/api/files/s/li3jw0nx
+[03:13:28] ⏱ 생성대기 시작 SRT_920 max=120s
+[03:13:44] ⏱ 생성대기 진행 15.8s SRT_920 busy=False url_ok=True src=https://www.genspark.ai/api/files/s/kuas18ny
+[03:13:44] ⏱ 생성대기 완료 16.1s SRT_920 https://www.genspark.ai/api/files/s/kuas18ny
+[03:13:44] ⏱ 생성대기구간 SRT_920 16.1s · ok=True
+[03:13:44] SRT_920 근접 이미지 https://www.genspark.ai/api/files/s/kuas18ny
+[03:13:44] 다운로드 files URL=https://www.genspark.ai/api/files/s/kuas18ny → SRT_920.png
+[03:13:44] ⏱ 다운로드 직접실패 0.3s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[03:13:45] ⏱ 다운로드 fetch 0.7s size=758824 SRT_920.png
+[03:13:45] ⏱ 다운로드구간 SRT_920 1.1s · SRT_920.png
+[03:13:49] ⏱ 다운로드후유휴 SRT_920 4.2s · idle=True
+[03:13:49] ⏱ 씬합계 SRT_920 27.4s · https://www.genspark.ai/api/files/s/kuas18ny
+[03:13:49] SRT_920 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_920.png
+[03:13:50] 상태키 SRT_940 · Baek|blood_robe; Jin≈19|blood_robe
+[03:13:50] run_scene 시작 SRT_940 · seen_files=47 · last_saved=https://www.genspark.ai/api/files/s/kuas18ny
+[03:13:50] ⏱ 준비 SRT_940 0.1s · chars=1983
+[03:13:53] ⏱ 다음명령유휴 SRT_940 3.6s · idle=True
+[03:13:55] fill OK(clip) follow=True chars=1983
+[03:13:55] submit 시작 composer=1983 url=https://www.genspark.ai/agents?id=91f02444-1b14-469d-990c-7e05369630f6
+[03:13:55] submit geo 실패 hit=no-btn
+[03:13:55] submit 시도 method=geo geo=False
+[03:13:56] submit 미확인 method=geo generating=False composer=1983
+[03:13:58] submit geo 실패 hit=no-btn
+[03:13:58] submit 시도 method=send send=False
+[03:13:58] submit 미확인 method=send generating=False composer=1983
+[03:13:59] submit 시도 method=ctrl
+[03:13:59] submit 미확인 method=ctrl generating=False composer=1985
+[03:14:00] submit 시도 method=enter
+[03:14:01] submit 확인 method=enter generating=False composer=0
+[03:14:01] ⏱ 입력·전송 SRT_940 7.3s · chars=1983
+[03:14:01] 제출 후 last_saved=https://www.genspark.ai/api/files/s/kuas18ny
+[03:14:01] ⏱ 생성대기 시작 SRT_940 max=120s
+[03:14:14] ⏱ 생성대기 완료 13.6s SRT_940 https://www.genspark.ai/api/files/s/oksdrhdc
+[03:14:14] ⏱ 생성대기구간 SRT_940 13.6s · ok=True
+[03:14:15] SRT_940 근접 이미지 https://www.genspark.ai/api/files/s/oksdrhdc
+[03:14:15] 다운로드 files URL=https://www.genspark.ai/api/files/s/oksdrhdc → SRT_940.png
+[03:14:15] ⏱ 다운로드 직접실패 0.3s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[03:14:15] ⏱ 다운로드 fetch 0.2s size=774438 SRT_940.png
+[03:14:15] ⏱ 다운로드구간 SRT_940 0.6s · SRT_940.png
+[03:14:18] ⏱ 다운로드후유휴 SRT_940 2.9s · idle=True
+[03:14:18] ⏱ 씬합계 SRT_940 28.4s · https://www.genspark.ai/api/files/s/oksdrhdc
+[03:14:18] SRT_940 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_940.png
+[03:14:18] 상태키 SRT_960 · Baek|blood_robe; Jin≈19|blood_robe
+[03:14:18] run_scene 시작 SRT_960 · seen_files=48 · last_saved=https://www.genspark.ai/api/files/s/oksdrhdc
+[03:14:18] ⏱ 준비 SRT_960 0.0s · chars=1983
+[03:14:20] ⏱ 다음명령유휴 SRT_960 1.7s · idle=True
+[03:14:21] fill OK(clip) follow=True chars=1983
+[03:14:21] submit 시작 composer=1983 url=https://www.genspark.ai/agents?id=91f02444-1b14-469d-990c-7e05369630f6
+[03:14:21] submit geo 실패 hit=no-btn
+[03:14:21] submit 시도 method=geo geo=False
+[03:14:21] submit 미확인 method=geo generating=False composer=1983
+[03:14:22] submit geo 실패 hit=no-btn
+[03:14:22] submit 시도 method=send send=False
+[03:14:22] submit 미확인 method=send generating=False composer=1983
+[03:14:23] submit 시도 method=ctrl
+[03:14:23] submit 미확인 method=ctrl generating=False composer=1985
+[03:14:24] submit 시도 method=enter
+[03:14:24] submit 확인 method=enter generating=False composer=0
+[03:14:24] ⏱ 입력·전송 SRT_960 4.1s · chars=1983
+[03:14:24] 제출 후 last_saved=https://www.genspark.ai/api/files/s/oksdrhdc
+[03:14:24] ⏱ 생성대기 시작 SRT_960 max=120s
+[03:14:39] ⏱ 생성대기 진행 15.2s SRT_960 busy=False url_ok=False src=
+[03:14:41] ⏱ 생성대기 완료 17.0s SRT_960 https://www.genspark.ai/api/files/s/ydmhnwfj
+[03:14:41] ⏱ 생성대기구간 SRT_960 17.0s · ok=True
+[03:14:41] SRT_960 근접 이미지 https://www.genspark.ai/api/files/s/ydmhnwfj
+[03:14:41] 다운로드 files URL=https://www.genspark.ai/api/files/s/ydmhnwfj → SRT_960.png
+[03:14:42] ⏱ 다운로드 직접실패 0.3s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[03:14:42] ⏱ 다운로드 fetch 0.1s size=670944 SRT_960.png
+[03:14:42] ⏱ 다운로드구간 SRT_960 0.3s · SRT_960.png
+[03:14:43] ⏱ 다운로드후유휴 SRT_960 1.4s · idle=True
+[03:14:43] ⏱ 씬합계 SRT_960 24.9s · https://www.genspark.ai/api/files/s/ydmhnwfj
+[03:14:43] SRT_960 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_960.png
+[03:14:43] 상태키 SRT_980 · Baek|blood_robe; Jin≈19|blood_robe
+[03:14:43] run_scene 시작 SRT_980 · seen_files=49 · last_saved=https://www.genspark.ai/api/files/s/ydmhnwfj
+[03:14:43] ⏱ 준비 SRT_980 0.0s · chars=1412
+[03:14:45] ⏱ 다음명령유휴 SRT_980 1.4s · idle=True
+[03:14:46] fill OK(clip) follow=True chars=1412
+[03:14:46] submit 시작 composer=1412 url=https://www.genspark.ai/agents?id=91f02444-1b14-469d-990c-7e05369630f6
+[03:14:46] submit geo 실패 hit=no-btn
+[03:14:46] submit 시도 method=geo geo=False
+[03:14:46] submit 미확인 method=geo generating=False composer=1412
+[03:14:47] submit geo 실패 hit=no-btn
+[03:14:47] submit 시도 method=send send=False
+[03:14:47] submit 미확인 method=send generating=False composer=1412
+[03:14:47] submit 시도 method=ctrl
+[03:14:48] submit 미확인 method=ctrl generating=False composer=1414
+[03:14:48] submit 시도 method=enter
+[03:14:49] submit 확인 method=enter generating=False composer=0
+[03:14:49] ⏱ 입력·전송 SRT_980 4.2s · chars=1412
+[03:14:49] 제출 후 last_saved=https://www.genspark.ai/api/files/s/ydmhnwfj
+[03:14:49] ⏱ 생성대기 시작 SRT_980 max=120s
+[03:15:03] ⏱ 생성대기 완료 14.0s SRT_980 https://www.genspark.ai/api/files/s/sfvmb9yf
+[03:15:03] ⏱ 생성대기구간 SRT_980 14.1s · ok=True
+[03:15:03] SRT_980 근접 이미지 https://www.genspark.ai/api/files/s/sfvmb9yf
+[03:15:04] 다운로드 files URL=https://www.genspark.ai/api/files/s/sfvmb9yf → SRT_980.png
+[03:15:04] ⏱ 다운로드 직접실패 0.3s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[03:15:04] ⏱ 다운로드 fetch 0.3s size=715791 SRT_980.png
+[03:15:04] ⏱ 다운로드구간 SRT_980 0.8s · SRT_980.png
+[03:15:08] ⏱ 다운로드후유휴 SRT_980 4.0s · idle=True
+[03:15:08] ⏱ 씬합계 SRT_980 24.9s · https://www.genspark.ai/api/files/s/sfvmb9yf
+[03:15:08] SRT_980 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_980.png
+[03:15:08] 상태키 SRT_1000 · Baek|blood_robe; Jin≈19|blood_robe
+[03:15:08] run_scene 시작 SRT_1000 · seen_files=50 · last_saved=https://www.genspark.ai/api/files/s/sfvmb9yf
+[03:15:08] ⏱ 준비 SRT_1000 0.1s · chars=2475
+[03:15:12] ⏱ 다음명령유휴 SRT_1000 4.0s · idle=True
+[03:15:14] fill OK(clip) follow=True chars=2475
+[03:15:14] submit 시작 composer=2475 url=https://www.genspark.ai/agents?id=91f02444-1b14-469d-990c-7e05369630f6
+[03:15:14] submit geo 실패 hit=no-btn
+[03:15:14] submit 시도 method=geo geo=False
+[03:15:15] submit 미확인 method=geo generating=False composer=2475
+[03:15:16] submit geo 실패 hit=no-btn
+[03:15:16] submit 시도 method=send send=False
+[03:15:17] submit 미확인 method=send generating=False composer=2475
+[03:15:18] submit 시도 method=ctrl
+[03:15:18] submit 미확인 method=ctrl generating=False composer=2477
+[03:15:19] submit 시도 method=enter
+[03:15:20] submit 확인 method=enter generating=False composer=0
+[03:15:20] ⏱ 입력·전송 SRT_1000 7.5s · chars=2475
+[03:15:20] 제출 후 last_saved=https://www.genspark.ai/api/files/s/sfvmb9yf
+[03:15:20] ⏱ 생성대기 시작 SRT_1000 max=120s
+[03:15:34] ⏱ 생성대기 완료 13.5s SRT_1000 https://www.genspark.ai/api/files/s/rdvbcsvf
+[03:15:34] ⏱ 생성대기구간 SRT_1000 13.5s · ok=True
+[03:15:34] SRT_1000 근접 이미지 https://www.genspark.ai/api/files/s/rdvbcsvf
+[03:15:34] 다운로드 files URL=https://www.genspark.ai/api/files/s/rdvbcsvf → SRT_1000.png
+[03:15:34] ⏱ 다운로드 직접실패 0.3s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[03:15:34] ⏱ 다운로드 fetch 0.1s size=844421 SRT_1000.png
+[03:15:34] ⏱ 다운로드구간 SRT_1000 0.4s · SRT_1000.png
+[03:15:36] ⏱ 다운로드후유휴 SRT_1000 1.5s · idle=True
+[03:15:36] ⏱ 씬합계 SRT_1000 27.2s · https://www.genspark.ai/api/files/s/rdvbcsvf
+[03:15:36] SRT_1000 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_1000.png
+[03:15:36] 상태키 SRT_1020 · Baek|blood_robe; Jin≈19|blood_robe
+[03:15:36] run_scene 시작 SRT_1020 · seen_files=51 · last_saved=https://www.genspark.ai/api/files/s/rdvbcsvf
+[03:15:36] ⏱ 준비 SRT_1020 0.0s · chars=2493
+[03:15:37] ⏱ 다음명령유휴 SRT_1020 1.4s · idle=True
+[03:15:38] fill OK(clip) follow=True chars=2493
+[03:15:38] submit 시작 composer=2493 url=https://www.genspark.ai/agents?id=91f02444-1b14-469d-990c-7e05369630f6
+[03:15:38] submit geo 실패 hit=no-btn
+[03:15:38] submit 시도 method=geo geo=False
+[03:15:39] submit 미확인 method=geo generating=False composer=2493
+[03:15:39] submit geo 실패 hit=no-btn
+[03:15:39] submit 시도 method=send send=False
+[03:15:40] submit 미확인 method=send generating=False composer=2493
+[03:15:40] submit 시도 method=ctrl
+[03:15:41] submit 미확인 method=ctrl generating=False composer=2495
+[03:15:41] submit 시도 method=enter
+[03:15:41] submit 확인 method=enter generating=False composer=0
+[03:15:41] ⏱ 입력·전송 SRT_1020 4.2s · chars=2493
+[03:15:41] 제출 후 last_saved=https://www.genspark.ai/api/files/s/rdvbcsvf
+[03:15:42] ⏱ 생성대기 시작 SRT_1020 max=120s
+[03:15:56] ⏱ 생성대기 완료 14.5s SRT_1020 https://www.genspark.ai/api/files/s/0hdo7jvs
+[03:15:56] ⏱ 생성대기구간 SRT_1020 14.5s · ok=True
+[03:15:56] SRT_1020 근접 이미지 https://www.genspark.ai/api/files/s/0hdo7jvs
+[03:15:56] 다운로드 files URL=https://www.genspark.ai/api/files/s/0hdo7jvs → SRT_1020.png
+[03:15:56] ⏱ 다운로드 직접실패 0.3s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[03:15:57] ⏱ 다운로드 fetch 0.1s size=774478 SRT_1020.png
+[03:15:57] ⏱ 다운로드구간 SRT_1020 0.4s · SRT_1020.png
+[03:15:58] ⏱ 다운로드후유휴 SRT_1020 1.5s · idle=True
+[03:15:58] ⏱ 씬합계 SRT_1020 22.3s · https://www.genspark.ai/api/files/s/0hdo7jvs
+[03:15:58] SRT_1020 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_1020.png
+[03:15:58] 상태키 SRT_1040 · Baek|blood_robe; Jin≈19|blood_robe
+[03:15:58] run_scene 시작 SRT_1040 · seen_files=52 · last_saved=https://www.genspark.ai/api/files/s/0hdo7jvs
+[03:15:58] ⏱ 준비 SRT_1040 0.0s · chars=2469
+[03:16:00] ⏱ 다음명령유휴 SRT_1040 1.8s · idle=True
+[03:16:01] fill OK(clip) follow=True chars=2469
+[03:16:01] submit 시작 composer=2469 url=https://www.genspark.ai/agents?id=91f02444-1b14-469d-990c-7e05369630f6
+[03:16:01] submit geo 실패 hit=no-btn
+[03:16:01] submit 시도 method=geo geo=False
+[03:16:02] submit 미확인 method=geo generating=False composer=2469
+[03:16:03] submit geo 실패 hit=no-btn
+[03:16:03] submit 시도 method=send send=False
+[03:16:04] submit 미확인 method=send generating=False composer=2469
+[03:16:04] submit 시도 method=ctrl
+[03:16:05] submit 미확인 method=ctrl generating=False composer=2471
+[03:16:06] submit 시도 method=enter
+[03:16:06] submit 확인 method=enter generating=False composer=0
+[03:16:06] ⏱ 입력·전송 SRT_1040 6.2s · chars=2469
+[03:16:06] 제출 후 last_saved=https://www.genspark.ai/api/files/s/0hdo7jvs
+[03:16:07] ⏱ 생성대기 시작 SRT_1040 max=120s
+[03:16:21] ⏱ 생성대기 진행 15.0s SRT_1040 busy=False url_ok=True src=https://www.genspark.ai/api/files/s/nnrgxf2f
+[03:16:22] ⏱ 생성대기 완료 15.3s SRT_1040 https://www.genspark.ai/api/files/s/nnrgxf2f
+[03:16:22] ⏱ 생성대기구간 SRT_1040 15.3s · ok=True
+[03:16:22] SRT_1040 근접 이미지 https://www.genspark.ai/api/files/s/nnrgxf2f
+[03:16:22] 다운로드 files URL=https://www.genspark.ai/api/files/s/nnrgxf2f → SRT_1040.png
+[03:16:22] ⏱ 다운로드 직접실패 0.4s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[03:16:23] ⏱ 다운로드 fetch 0.3s size=678818 SRT_1040.png
+[03:16:23] ⏱ 다운로드구간 SRT_1040 0.9s · SRT_1040.png
+[03:16:27] ⏱ 다운로드후유휴 SRT_1040 3.8s · idle=True
+[03:16:27] ⏱ 씬합계 SRT_1040 28.4s · https://www.genspark.ai/api/files/s/nnrgxf2f
+[03:16:27] SRT_1040 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_1040.png
+[03:16:27] 상태키 SRT_1060 · Baek|blood_robe; Jin≈19|blood_robe
+[03:16:27] run_scene 시작 SRT_1060 · seen_files=53 · last_saved=https://www.genspark.ai/api/files/s/nnrgxf2f
+[03:16:27] ⏱ 준비 SRT_1060 0.1s · chars=2510
+[03:16:30] ⏱ 다음명령유휴 SRT_1060 3.5s · idle=True
+[03:16:32] fill OK(clip) follow=True chars=2510
+[03:16:32] submit 시작 composer=2510 url=https://www.genspark.ai/agents?id=91f02444-1b14-469d-990c-7e05369630f6
+[03:16:32] submit geo 실패 hit=no-btn
+[03:16:32] submit 시도 method=geo geo=False
+[03:16:33] submit 미확인 method=geo generating=False composer=2510
+[03:16:35] submit geo 실패 hit=no-btn
+[03:16:35] submit 시도 method=send send=False
+[03:16:35] submit 미확인 method=send generating=False composer=2510
+[03:16:36] submit 시도 method=ctrl
+[03:16:36] submit 미확인 method=ctrl generating=False composer=2512
+[03:16:37] submit 시도 method=enter
+[03:16:38] submit 확인 method=enter generating=False composer=0
+[03:16:38] ⏱ 입력·전송 SRT_1060 7.4s · chars=2510
+[03:16:38] 제출 후 last_saved=https://www.genspark.ai/api/files/s/nnrgxf2f
+[03:16:38] ⏱ 생성대기 시작 SRT_1060 max=120s
+[03:16:53] ⏱ 생성대기 진행 15.1s SRT_1060 busy=False url_ok=False src=
+[03:16:57] ⏱ 생성대기 완료 19.3s SRT_1060 https://www.genspark.ai/api/files/s/lfyl1nyi
+[03:16:57] ⏱ 생성대기구간 SRT_1060 19.3s · ok=True
+[03:16:57] SRT_1060 근접 이미지 https://www.genspark.ai/api/files/s/lfyl1nyi
+[03:16:57] 다운로드 files URL=https://www.genspark.ai/api/files/s/lfyl1nyi → SRT_1060.png
+[03:16:58] ⏱ 다운로드 직접실패 0.3s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[03:16:58] ⏱ 다운로드 fetch 0.1s size=594128 SRT_1060.png
+[03:16:58] ⏱ 다운로드구간 SRT_1060 0.3s · SRT_1060.png
+[03:16:59] ⏱ 다운로드후유휴 SRT_1060 1.5s · idle=True
+[03:16:59] ⏱ 씬합계 SRT_1060 32.4s · https://www.genspark.ai/api/files/s/lfyl1nyi
+[03:16:59] SRT_1060 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_1060.png
+[03:16:59] 상태키 SRT_1080 · Baek|blood_robe; Jin≈19|blood_robe
+[03:16:59] run_scene 시작 SRT_1080 · seen_files=54 · last_saved=https://www.genspark.ai/api/files/s/lfyl1nyi
+[03:16:59] ⏱ 준비 SRT_1080 0.0s · chars=2470
+[03:17:01] ⏱ 다음명령유휴 SRT_1080 1.6s · idle=True
+[03:17:02] fill OK(clip) follow=True chars=2470
+[03:17:02] submit 시작 composer=2470 url=https://www.genspark.ai/agents?id=91f02444-1b14-469d-990c-7e05369630f6
+[03:17:02] submit geo 실패 hit=no-btn
+[03:17:02] submit 시도 method=geo geo=False
+[03:17:02] submit 미확인 method=geo generating=False composer=2470
+[03:17:03] submit geo 실패 hit=no-btn
+[03:17:03] submit 시도 method=send send=False
+[03:17:03] submit 미확인 method=send generating=False composer=2470
+[03:17:04] submit 시도 method=ctrl
+[03:17:04] submit 미확인 method=ctrl generating=False composer=2472
+[03:17:05] submit 시도 method=enter
+[03:17:05] submit 확인 method=enter generating=False composer=0
+[03:17:05] ⏱ 입력·전송 SRT_1080 4.2s · chars=2470
+[03:17:05] 제출 후 last_saved=https://www.genspark.ai/api/files/s/lfyl1nyi
+[03:17:05] ⏱ 생성대기 시작 SRT_1080 max=120s
+[03:17:17] ⏱ 생성대기 완료 11.7s SRT_1080 https://www.genspark.ai/api/files/s/pxi5icbe
+[03:17:17] ⏱ 생성대기구간 SRT_1080 11.7s · ok=True
+[03:17:17] SRT_1080 근접 이미지 https://www.genspark.ai/api/files/s/pxi5icbe
+[03:17:17] 다운로드 files URL=https://www.genspark.ai/api/files/s/pxi5icbe → SRT_1080.png
+[03:17:17] ⏱ 다운로드 직접실패 0.3s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[03:17:17] ⏱ 다운로드 fetch 0.1s size=790374 SRT_1080.png
+[03:17:17] ⏱ 다운로드구간 SRT_1080 0.4s · SRT_1080.png
+[03:17:19] ⏱ 다운로드후유휴 SRT_1080 1.6s · idle=True
+[03:17:19] ⏱ 씬합계 SRT_1080 19.6s · https://www.genspark.ai/api/files/s/pxi5icbe
+[03:17:19] SRT_1080 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_1080.png
+[03:17:19] 상태키 SRT_1100 · Baek|blood_robe; Jin≈19|blood_robe
+[03:17:19] run_scene 시작 SRT_1100 · seen_files=55 · last_saved=https://www.genspark.ai/api/files/s/pxi5icbe
+[03:17:19] ⏱ 준비 SRT_1100 0.0s · chars=2497
+[03:17:21] ⏱ 다음명령유휴 SRT_1100 1.5s · idle=True
+[03:17:21] fill OK(clip) follow=True chars=2497
+[03:17:21] submit 시작 composer=2497 url=https://www.genspark.ai/agents?id=91f02444-1b14-469d-990c-7e05369630f6
+[03:17:22] submit geo 실패 hit=no-btn
+[03:17:22] submit 시도 method=geo geo=False
+[03:17:22] submit 미확인 method=geo generating=False composer=2497
+[03:17:22] submit geo 실패 hit=no-btn
+[03:17:22] submit 시도 method=send send=False
+[03:17:23] submit 미확인 method=send generating=False composer=2497
+[03:17:23] submit 시도 method=ctrl
+[03:17:24] submit 미확인 method=ctrl generating=False composer=2499
+[03:17:24] submit 시도 method=enter
+[03:17:25] submit 확인 method=enter generating=False composer=0
+[03:17:25] ⏱ 입력·전송 SRT_1100 4.3s · chars=2497
+[03:17:25] 제출 후 last_saved=https://www.genspark.ai/api/files/s/pxi5icbe
+[03:17:25] ⏱ 생성대기 시작 SRT_1100 max=120s
+[03:17:38] ⏱ 생성대기 완료 12.5s SRT_1100 https://www.genspark.ai/api/files/s/on08lpql
+[03:17:38] ⏱ 생성대기구간 SRT_1100 12.5s · ok=True
+[03:17:38] SRT_1100 근접 이미지 https://www.genspark.ai/api/files/s/on08lpql
+[03:17:38] 다운로드 files URL=https://www.genspark.ai/api/files/s/on08lpql → SRT_1100.png
+[03:17:38] ⏱ 다운로드 직접실패 0.3s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[03:17:39] ⏱ 다운로드 fetch 0.3s size=748934 SRT_1100.png
+[03:17:39] ⏱ 다운로드구간 SRT_1100 0.7s · SRT_1100.png
+[03:17:42] ⏱ 다운로드후유휴 SRT_1100 3.2s · idle=True
+[03:17:42] ⏱ 씬합계 SRT_1100 22.6s · https://www.genspark.ai/api/files/s/on08lpql
+[03:17:42] SRT_1100 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_1100.png
+[03:17:42] 상태키 SRT_1120 · Baek|blood_robe; Jin≈19|blood_robe
+[03:17:42] run_scene 시작 SRT_1120 · seen_files=56 · last_saved=https://www.genspark.ai/api/files/s/on08lpql
+[03:17:42] ⏱ 준비 SRT_1120 0.1s · chars=1400
+[03:17:45] ⏱ 다음명령유휴 SRT_1120 3.2s · idle=True
+[03:17:47] fill OK(clip) follow=True chars=1400
+[03:17:47] submit 시작 composer=1400 url=https://www.genspark.ai/agents?id=91f02444-1b14-469d-990c-7e05369630f6
+[03:17:47] submit geo 실패 hit=no-btn
+[03:17:47] submit 시도 method=geo geo=False
+[03:17:48] submit 미확인 method=geo generating=False composer=1400
+[03:17:49] submit geo 실패 hit=no-btn
+[03:17:49] submit 시도 method=send send=False
+[03:17:50] submit 미확인 method=send generating=False composer=1400
+[03:17:50] submit 시도 method=ctrl
+[03:17:51] submit 미확인 method=ctrl generating=False composer=1402
+[03:17:51] submit 시도 method=enter
+[03:17:52] submit 확인 method=enter generating=False composer=0
+[03:17:52] ⏱ 입력·전송 SRT_1120 7.0s · chars=1400
+[03:17:52] 제출 후 last_saved=https://www.genspark.ai/api/files/s/on08lpql
+[03:17:52] ⏱ 생성대기 시작 SRT_1120 max=120s
+[03:18:05] ⏱ 생성대기 완료 13.0s SRT_1120 https://www.genspark.ai/api/files/s/murc8ppj
+[03:18:05] ⏱ 생성대기구간 SRT_1120 13.0s · ok=True
+[03:18:05] SRT_1120 근접 이미지 https://www.genspark.ai/api/files/s/murc8ppj
+[03:18:05] 다운로드 files URL=https://www.genspark.ai/api/files/s/murc8ppj → SRT_1120.png
+[03:18:06] ⏱ 다운로드 직접실패 0.2s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[03:18:06] ⏱ 다운로드 fetch 0.1s size=756202 SRT_1120.png
+[03:18:06] ⏱ 다운로드구간 SRT_1120 0.3s · SRT_1120.png
+[03:18:07] ⏱ 다운로드후유휴 SRT_1120 1.5s · idle=True
+[03:18:07] ⏱ 씬합계 SRT_1120 25.4s · https://www.genspark.ai/api/files/s/murc8ppj
+[03:18:07] SRT_1120 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_1120.png
+[03:18:07] 상태키 SRT_1140 · Baek|blood_robe; Jin≈19|blood_robe
+[03:18:07] run_scene 시작 SRT_1140 · seen_files=57 · last_saved=https://www.genspark.ai/api/files/s/murc8ppj
+[03:18:08] ⏱ 준비 SRT_1140 0.0s · chars=1398
+[03:18:09] ⏱ 다음명령유휴 SRT_1140 1.6s · idle=True
+[03:18:10] fill OK(clip) follow=True chars=1398
+[03:18:10] submit 시작 composer=1398 url=https://www.genspark.ai/agents?id=91f02444-1b14-469d-990c-7e05369630f6
+[03:18:10] submit geo 실패 hit=no-btn
+[03:18:10] submit 시도 method=geo geo=False
+[03:18:11] submit 미확인 method=geo generating=False composer=1398
+[03:18:11] submit geo 실패 hit=no-btn
+[03:18:11] submit 시도 method=send send=False
+[03:18:12] submit 미확인 method=send generating=False composer=1398
+[03:18:12] submit 시도 method=ctrl
+[03:18:13] submit 미확인 method=ctrl generating=False composer=1400
+[03:18:13] submit 시도 method=enter
+[03:18:14] submit 확인 method=enter generating=False composer=0
+[03:18:14] ⏱ 입력·전송 SRT_1140 4.4s · chars=1398
+[03:18:14] 제출 후 last_saved=https://www.genspark.ai/api/files/s/murc8ppj
+[03:18:14] ⏱ 생성대기 시작 SRT_1140 max=120s
+[03:18:29] ⏱ 생성대기 진행 15.0s SRT_1140 busy=False url_ok=True src=https://www.genspark.ai/api/files/s/qfq0n0yx
+[03:18:29] ⏱ 생성대기 완료 15.2s SRT_1140 https://www.genspark.ai/api/files/s/qfq0n0yx
+[03:18:29] ⏱ 생성대기구간 SRT_1140 15.2s · ok=True
+[03:18:29] SRT_1140 근접 이미지 https://www.genspark.ai/api/files/s/qfq0n0yx
+[03:18:29] 다운로드 files URL=https://www.genspark.ai/api/files/s/qfq0n0yx → SRT_1140.png
+[03:18:29] ⏱ 다운로드 직접실패 0.3s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[03:18:29] ⏱ 다운로드 fetch 0.1s size=668348 SRT_1140.png
+[03:18:29] ⏱ 다운로드구간 SRT_1140 0.4s · SRT_1140.png
+[03:18:31] ⏱ 다운로드후유휴 SRT_1140 1.7s · idle=True
+[03:18:31] ⏱ 씬합계 SRT_1140 23.5s · https://www.genspark.ai/api/files/s/qfq0n0yx
+[03:18:31] SRT_1140 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_1140.png
+[03:18:31] 상태키 SRT_1160 · Baek|blood_robe; Jin≈19|blood_robe
+[03:18:31] run_scene 시작 SRT_1160 · seen_files=58 · last_saved=https://www.genspark.ai/api/files/s/qfq0n0yx
+[03:18:31] ⏱ 준비 SRT_1160 0.0s · chars=2465
+[03:18:33] ⏱ 다음명령유휴 SRT_1160 1.5s · idle=True
+[03:18:33] fill OK(clip) follow=True chars=2465
+[03:18:33] submit 시작 composer=2465 url=https://www.genspark.ai/agents?id=91f02444-1b14-469d-990c-7e05369630f6
+[03:18:34] submit geo 실패 hit=no-btn
+[03:18:34] submit 시도 method=geo geo=False
+[03:18:34] submit 미확인 method=geo generating=False composer=2465
+[03:18:35] submit geo 실패 hit=no-btn
+[03:18:35] submit 시도 method=send send=False
+[03:18:35] submit 미확인 method=send generating=False composer=2465
+[03:18:36] submit 시도 method=ctrl
+[03:18:36] submit 미확인 method=ctrl generating=False composer=2467
+[03:18:37] submit 시도 method=enter
+[03:18:38] submit 확인 method=enter generating=False composer=0
+[03:18:38] ⏱ 입력·전송 SRT_1160 5.0s · chars=2465
+[03:18:38] 제출 후 last_saved=https://www.genspark.ai/api/files/s/qfq0n0yx
+[03:18:38] ⏱ 생성대기 시작 SRT_1160 max=120s
+[03:18:53] ⏱ 생성대기 완료 14.8s SRT_1160 https://www.genspark.ai/api/files/s/d5jsk56f
+[03:18:53] ⏱ 생성대기구간 SRT_1160 14.8s · ok=True
+[03:18:53] SRT_1160 근접 이미지 https://www.genspark.ai/api/files/s/d5jsk56f
+[03:18:53] 다운로드 files URL=https://www.genspark.ai/api/files/s/d5jsk56f → SRT_1160.png
+[03:18:53] ⏱ 다운로드 직접실패 0.3s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[03:18:54] ⏱ 다운로드 fetch 0.3s size=807957 SRT_1160.png
+[03:18:54] ⏱ 다운로드구간 SRT_1160 0.7s · SRT_1160.png
+[03:18:57] ⏱ 다운로드후유휴 SRT_1160 3.8s · idle=True
+[03:18:57] ⏱ 씬합계 SRT_1160 26.3s · https://www.genspark.ai/api/files/s/d5jsk56f
+[03:18:57] SRT_1160 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_1160.png
+[03:18:58] 상태키 SRT_1180 · Baek|blood_robe; Jin≈19|blood_robe
+[03:18:58] run_scene 시작 SRT_1180 · seen_files=59 · last_saved=https://www.genspark.ai/api/files/s/d5jsk56f
+[03:18:58] ⏱ 준비 SRT_1180 0.1s · chars=2491
+[03:19:01] ⏱ 다음명령유휴 SRT_1180 3.2s · idle=True
+[03:19:03] fill OK(clip) follow=True chars=2491
+[03:19:03] submit 시작 composer=2491 url=https://www.genspark.ai/agents?id=91f02444-1b14-469d-990c-7e05369630f6
+[03:19:03] submit geo 실패 hit=no-btn
+[03:19:03] submit 시도 method=geo geo=False
+[03:19:03] submit 미확인 method=geo generating=False composer=2491
+[03:19:05] submit geo 실패 hit=no-btn
+[03:19:05] submit 시도 method=send send=False
+[03:19:05] submit 미확인 method=send generating=False composer=2491
+[03:19:06] submit 시도 method=ctrl
+[03:19:07] submit 미확인 method=ctrl generating=False composer=2493
+[03:19:07] submit 시도 method=enter
+[03:19:08] submit 확인 method=enter generating=False composer=0
+[03:19:08] ⏱ 입력·전송 SRT_1180 7.2s · chars=2491
+[03:19:08] 제출 후 last_saved=https://www.genspark.ai/api/files/s/d5jsk56f
+[03:19:08] ⏱ 생성대기 시작 SRT_1180 max=120s
+[03:19:23] ⏱ 생성대기 진행 15.1s SRT_1180 busy=False url_ok=False src=
+[03:19:25] ⏱ 생성대기 완료 16.3s SRT_1180 https://www.genspark.ai/api/files/s/ydumx9kw
+[03:19:25] ⏱ 생성대기구간 SRT_1180 16.3s · ok=True
+[03:19:25] SRT_1180 근접 이미지 https://www.genspark.ai/api/files/s/ydumx9kw
+[03:19:25] 다운로드 files URL=https://www.genspark.ai/api/files/s/ydumx9kw → SRT_1180.png
+[03:19:25] ⏱ 다운로드 직접실패 0.3s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[03:19:25] ⏱ 다운로드 fetch 0.2s size=743804 SRT_1180.png
+[03:19:25] ⏱ 다운로드구간 SRT_1180 0.6s · SRT_1180.png
+[03:19:29] ⏱ 다운로드후유휴 SRT_1180 3.3s · idle=True
+[03:19:29] ⏱ 씬합계 SRT_1180 30.9s · https://www.genspark.ai/api/files/s/ydumx9kw
+[03:19:29] SRT_1180 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_1180.png
+[03:19:29] 상태키 SRT_1200 · Baek|blood_robe; Jin≈19|blood_robe
+[03:19:29] run_scene 시작 SRT_1200 · seen_files=60 · last_saved=https://www.genspark.ai/api/files/s/ydumx9kw
+[03:19:29] ⏱ 준비 SRT_1200 0.0s · chars=1973
+[03:19:30] ⏱ 다음명령유휴 SRT_1200 1.7s · idle=True
+[03:19:31] fill OK(clip) follow=True chars=1973
+[03:19:31] submit 시작 composer=1973 url=https://www.genspark.ai/agents?id=91f02444-1b14-469d-990c-7e05369630f6
+[03:19:31] submit geo 실패 hit=no-btn
+[03:19:31] submit 시도 method=geo geo=False
+[03:19:32] submit 미확인 method=geo generating=False composer=1973
+[03:19:32] submit geo 실패 hit=no-btn
+[03:19:32] submit 시도 method=send send=False
+[03:19:33] submit 미확인 method=send generating=False composer=1973
+[03:19:33] submit 시도 method=ctrl
+[03:19:34] submit 미확인 method=ctrl generating=False composer=1975
+[03:19:34] submit 시도 method=enter
+[03:19:35] submit 확인 method=enter generating=False composer=0
+[03:19:35] ⏱ 입력·전송 SRT_1200 4.4s · chars=1973
+[03:19:35] 제출 후 last_saved=https://www.genspark.ai/api/files/s/ydumx9kw
+[03:19:35] ⏱ 생성대기 시작 SRT_1200 max=120s
+[03:19:50] ⏱ 생성대기 진행 15.0s SRT_1200 busy=False url_ok=False src=
+[03:19:57] ⏱ 생성대기 완료 21.7s SRT_1200 https://www.genspark.ai/api/files/s/xreyerb3
+[03:19:57] ⏱ 생성대기구간 SRT_1200 21.7s · ok=True
+[03:19:57] SRT_1200 근접 이미지 https://www.genspark.ai/api/files/s/xreyerb3
+[03:19:57] 다운로드 files URL=https://www.genspark.ai/api/files/s/xreyerb3 → SRT_1200.png
+[03:19:57] ⏱ 다운로드 직접실패 0.3s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[03:19:57] ⏱ 다운로드 fetch 0.1s size=719955 SRT_1200.png
+[03:19:57] ⏱ 다운로드구간 SRT_1200 0.4s · SRT_1200.png
+[03:19:59] ⏱ 다운로드후유휴 SRT_1200 1.6s · idle=True
+[03:19:59] ⏱ 씬합계 SRT_1200 30.0s · https://www.genspark.ai/api/files/s/xreyerb3
+[03:19:59] SRT_1200 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_1200.png
+[03:19:59] 상태키 SRT_1220 · Baek|blood_robe; Jin≈19|blood_robe
+[03:19:59] run_scene 시작 SRT_1220 · seen_files=61 · last_saved=https://www.genspark.ai/api/files/s/xreyerb3
+[03:19:59] ⏱ 준비 SRT_1220 0.0s · chars=2462
+[03:20:01] ⏱ 다음명령유휴 SRT_1220 2.3s · idle=True
+[03:20:02] fill OK(clip) follow=True chars=2462
+[03:20:02] submit 시작 composer=2462 url=https://www.genspark.ai/agents?id=91f02444-1b14-469d-990c-7e05369630f6
+[03:20:03] submit geo 실패 hit=no-btn
+[03:20:03] submit 시도 method=geo geo=False
+[03:20:03] submit 미확인 method=geo generating=False composer=2462
+[03:20:05] submit geo 실패 hit=no-btn
+[03:20:05] submit 시도 method=send send=False
+[03:20:05] submit 미확인 method=send generating=False composer=2462
+[03:20:06] submit 시도 method=ctrl
+[03:20:06] submit 미확인 method=ctrl generating=False composer=2464
+[03:20:07] submit 시도 method=enter
+[03:20:08] submit 확인 method=enter generating=False composer=0
+[03:20:08] ⏱ 입력·전송 SRT_1220 6.8s · chars=2462
+[03:20:08] 제출 후 last_saved=https://www.genspark.ai/api/files/s/xreyerb3
+[03:20:08] ⏱ 생성대기 시작 SRT_1220 max=120s
+[03:20:23] ⏱ 생성대기 완료 14.8s SRT_1220 https://www.genspark.ai/api/files/s/nv5mbncd
+[03:20:23] ⏱ 생성대기구간 SRT_1220 14.8s · ok=True
+[03:20:23] SRT_1220 근접 이미지 https://www.genspark.ai/api/files/s/nv5mbncd
+[03:20:23] 다운로드 files URL=https://www.genspark.ai/api/files/s/nv5mbncd → SRT_1220.png
+[03:20:24] ⏱ 다운로드 직접실패 0.3s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[03:20:24] ⏱ 다운로드 fetch 0.3s size=854744 SRT_1220.png
+[03:20:24] ⏱ 다운로드구간 SRT_1220 0.6s · SRT_1220.png
+[03:20:27] ⏱ 다운로드후유휴 SRT_1220 3.2s · idle=True
+[03:20:27] ⏱ 씬합계 SRT_1220 28.1s · https://www.genspark.ai/api/files/s/nv5mbncd
+[03:20:27] SRT_1220 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_1220.png
+[03:20:27] 상태키 SRT_1240 · Baek|blood_robe; Jin≈19|blood_robe
+[03:20:27] run_scene 시작 SRT_1240 · seen_files=62 · last_saved=https://www.genspark.ai/api/files/s/nv5mbncd
+[03:20:27] ⏱ 준비 SRT_1240 0.0s · chars=2474
+[03:20:30] ⏱ 다음명령유휴 SRT_1240 2.9s · idle=True
+[03:20:32] fill OK(clip) follow=True chars=2474
+[03:20:32] submit 시작 composer=2474 url=https://www.genspark.ai/agents?id=91f02444-1b14-469d-990c-7e05369630f6
+[03:20:33] submit geo 실패 hit=no-btn
+[03:20:33] submit 시도 method=geo geo=False
+[03:20:33] submit 미확인 method=geo generating=False composer=2474
+[03:20:35] submit geo 실패 hit=no-btn
+[03:20:35] submit 시도 method=send send=False
+[03:20:35] submit 미확인 method=send generating=False composer=2474
+[03:20:36] submit 시도 method=ctrl
+[03:20:37] submit 미확인 method=ctrl generating=False composer=2476
+[03:20:37] submit 시도 method=enter
+[03:20:38] submit 확인 method=enter generating=False composer=0
+[03:20:38] ⏱ 입력·전송 SRT_1240 7.7s · chars=2474
+[03:20:38] 제출 후 last_saved=https://www.genspark.ai/api/files/s/nv5mbncd
+[03:20:38] ⏱ 생성대기 시작 SRT_1240 max=120s
+[03:20:53] ⏱ 생성대기 진행 15.4s SRT_1240 busy=False url_ok=False src=
+[03:20:54] ⏱ 생성대기 완료 16.2s SRT_1240 https://www.genspark.ai/api/files/s/mkl50qei
+[03:20:54] ⏱ 생성대기구간 SRT_1240 16.2s · ok=True
+[03:20:54] SRT_1240 근접 이미지 https://www.genspark.ai/api/files/s/mkl50qei
+[03:20:54] 다운로드 files URL=https://www.genspark.ai/api/files/s/mkl50qei → SRT_1240.png
+[03:20:55] ⏱ 다운로드 직접실패 0.2s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[03:20:55] ⏱ 다운로드 fetch 0.1s size=750054 SRT_1240.png
+[03:20:55] ⏱ 다운로드구간 SRT_1240 0.4s · SRT_1240.png
+[03:20:56] ⏱ 다운로드후유휴 SRT_1240 1.7s · idle=True
+[03:20:56] ⏱ 씬합계 SRT_1240 29.1s · https://www.genspark.ai/api/files/s/mkl50qei
+[03:20:56] SRT_1240 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_1240.png
+[03:20:57] 상태키 SRT_1260 · Baek|blood_robe; Jin≈19|blood_robe
+[03:20:57] run_scene 시작 SRT_1260 · seen_files=63 · last_saved=https://www.genspark.ai/api/files/s/mkl50qei
+[03:20:57] ⏱ 준비 SRT_1260 0.0s · chars=2933
+[03:20:58] ⏱ 다음명령유휴 SRT_1260 1.5s · idle=True
+[03:20:59] fill OK(clip) follow=True chars=2933
+[03:20:59] submit 시작 composer=2933 url=https://www.genspark.ai/agents?id=91f02444-1b14-469d-990c-7e05369630f6
+[03:20:59] submit geo 실패 hit=no-btn
+[03:20:59] submit 시도 method=geo geo=False
+[03:21:00] submit 미확인 method=geo generating=False composer=2933
+[03:21:00] submit geo 실패 hit=no-btn
+[03:21:00] submit 시도 method=send send=False
+[03:21:01] submit 미확인 method=send generating=False composer=2933
+[03:21:01] submit 시도 method=ctrl
+[03:21:02] submit 미확인 method=ctrl generating=False composer=2935
+[03:21:02] submit 시도 method=enter
+[03:21:03] submit 확인 method=enter generating=False composer=0
+[03:21:03] ⏱ 입력·전송 SRT_1260 4.4s · chars=2933
+[03:21:03] 제출 후 last_saved=https://www.genspark.ai/api/files/s/mkl50qei
+[03:21:03] ⏱ 생성대기 시작 SRT_1260 max=120s
+[03:21:18] ⏱ 생성대기 진행 15.1s SRT_1260 busy=False url_ok=False src=
+[03:21:19] ⏱ 생성대기 완료 16.7s SRT_1260 https://www.genspark.ai/api/files/s/kcp1k0hc
+[03:21:19] ⏱ 생성대기구간 SRT_1260 16.7s · ok=True
+[03:21:20] SRT_1260 근접 이미지 https://www.genspark.ai/api/files/s/kcp1k0hc
+[03:21:20] 다운로드 files URL=https://www.genspark.ai/api/files/s/kcp1k0hc → SRT_1260.png
+[03:21:20] ⏱ 다운로드 직접실패 0.2s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[03:21:20] ⏱ 다운로드 fetch 0.1s size=517653 SRT_1260.png
+[03:21:20] ⏱ 다운로드구간 SRT_1260 0.4s · SRT_1260.png
+[03:21:23] ⏱ 다운로드후유휴 SRT_1260 2.9s · idle=True
+[03:21:23] ⏱ 씬합계 SRT_1260 26.3s · https://www.genspark.ai/api/files/s/kcp1k0hc
+[03:21:23] SRT_1260 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_1260.png
+[03:21:23] 상태키 SRT_1280 · Baek|blood_robe; Jin≈19|blood_robe
+[03:21:23] run_scene 시작 SRT_1280 · seen_files=64 · last_saved=https://www.genspark.ai/api/files/s/kcp1k0hc
+[03:21:23] ⏱ 준비 SRT_1280 0.2s · chars=2936
+[03:21:27] ⏱ 다음명령유휴 SRT_1280 3.6s · idle=True
+[03:21:29] fill OK(clip) follow=True chars=2936
+[03:21:29] submit 시작 composer=2936 url=https://www.genspark.ai/agents?id=91f02444-1b14-469d-990c-7e05369630f6
+[03:21:29] submit geo 실패 hit=no-btn
+[03:21:29] submit 시도 method=geo geo=False
+[03:21:30] submit 미확인 method=geo generating=False composer=2936
+[03:21:32] submit geo 실패 hit=no-btn
+[03:21:32] submit 시도 method=send send=False
+[03:21:32] submit 미확인 method=send generating=False composer=2936
+[03:21:33] submit 시도 method=ctrl
+[03:21:34] submit 미확인 method=ctrl generating=False composer=2938
+[03:21:34] submit 시도 method=enter
+[03:21:35] submit 확인 method=enter generating=False composer=0
+[03:21:35] ⏱ 입력·전송 SRT_1280 8.2s · chars=2936
+[03:21:35] 제출 후 last_saved=https://www.genspark.ai/api/files/s/kcp1k0hc
+[03:21:35] ⏱ 생성대기 시작 SRT_1280 max=120s
+[03:21:51] ⏱ 생성대기 진행 15.4s SRT_1280 busy=False url_ok=True src=https://www.genspark.ai/api/files/s/70phka6a
+[03:21:51] ⏱ 생성대기 완료 15.7s SRT_1280 https://www.genspark.ai/api/files/s/70phka6a
+[03:21:51] ⏱ 생성대기구간 SRT_1280 15.7s · ok=True
+[03:21:51] SRT_1280 근접 이미지 https://www.genspark.ai/api/files/s/70phka6a
+[03:21:51] 다운로드 files URL=https://www.genspark.ai/api/files/s/70phka6a → SRT_1280.png
+[03:21:51] ⏱ 다운로드 직접실패 0.3s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[03:21:52] ⏱ 다운로드 fetch 0.2s size=581575 SRT_1280.png
+[03:21:52] ⏱ 다운로드구간 SRT_1280 0.7s · SRT_1280.png
+[03:21:55] ⏱ 다운로드후유휴 SRT_1280 3.6s · idle=True
+[03:21:55] ⏱ 씬합계 SRT_1280 32.2s · https://www.genspark.ai/api/files/s/70phka6a
+[03:21:55] SRT_1280 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_1280.png
+[03:21:55] 상태키 SRT_1300 · Baek|blood_robe; Jin≈19|blood_robe
+[03:21:55] run_scene 시작 SRT_1300 · seen_files=65 · last_saved=https://www.genspark.ai/api/files/s/70phka6a
+[03:21:56] ⏱ 준비 SRT_1300 0.2s · chars=2941
+[03:21:59] ⏱ 다음명령유휴 SRT_1300 3.1s · idle=True
+[03:22:00] fill OK(clip) follow=True chars=2941
+[03:22:00] submit 시작 composer=2941 url=https://www.genspark.ai/agents?id=91f02444-1b14-469d-990c-7e05369630f6
+[03:22:01] submit geo 실패 hit=no-btn
+[03:22:01] submit 시도 method=geo geo=False
+[03:22:01] submit 미확인 method=geo generating=False composer=2941
+[03:22:02] submit geo 실패 hit=no-btn
+[03:22:02] submit 시도 method=send send=False
+[03:22:03] submit 미확인 method=send generating=False composer=2941
+[03:22:03] submit 시도 method=ctrl
+[03:22:04] submit 미확인 method=ctrl generating=False composer=2943
+[03:22:04] submit 시도 method=enter
+[03:22:05] submit 확인 method=enter generating=False composer=0
+[03:22:05] ⏱ 입력·전송 SRT_1300 6.0s · chars=2941
+[03:22:05] 제출 후 last_saved=https://www.genspark.ai/api/files/s/70phka6a
+[03:22:05] ⏱ 생성대기 시작 SRT_1300 max=120s
+[03:22:20] ⏱ 생성대기 진행 15.0s SRT_1300 busy=False url_ok=False src=
+[03:22:25] ⏱ 생성대기 완료 19.6s SRT_1300 https://www.genspark.ai/api/files/s/srpy5dsk
+[03:22:25] ⏱ 생성대기구간 SRT_1300 19.6s · ok=True
+[03:22:25] SRT_1300 근접 이미지 https://www.genspark.ai/api/files/s/srpy5dsk
+[03:22:25] 다운로드 files URL=https://www.genspark.ai/api/files/s/srpy5dsk → SRT_1300.png
+[03:22:25] ⏱ 다운로드 직접실패 0.3s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[03:22:25] ⏱ 다운로드 fetch 0.2s size=536124 SRT_1300.png
+[03:22:25] ⏱ 다운로드구간 SRT_1300 0.6s · SRT_1300.png
+[03:22:28] ⏱ 다운로드후유휴 SRT_1300 3.1s · idle=True
+[03:22:28] ⏱ 씬합계 SRT_1300 32.9s · https://www.genspark.ai/api/files/s/srpy5dsk
+[03:22:28] SRT_1300 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_1300.png
+[03:22:29] 상태키 SRT_1320 · Baek|blood_robe; Jin≈19|blood_robe
+[03:22:29] run_scene 시작 SRT_1320 · seen_files=66 · last_saved=https://www.genspark.ai/api/files/s/srpy5dsk
+[03:22:29] ⏱ 준비 SRT_1320 0.1s · chars=2472
+[03:22:32] ⏱ 다음명령유휴 SRT_1320 3.6s · idle=True
+[03:22:34] fill OK(clip) follow=True chars=2472
+[03:22:34] submit 시작 composer=2472 url=https://www.genspark.ai/agents?id=91f02444-1b14-469d-990c-7e05369630f6
+[03:22:34] submit geo 실패 hit=no-btn
+[03:22:34] submit 시도 method=geo geo=False
+[03:22:35] submit 미확인 method=geo generating=False composer=2472
+[03:22:37] submit geo 실패 hit=no-btn
+[03:22:37] submit 시도 method=send send=False
+[03:22:37] submit 미확인 method=send generating=False composer=2472
+[03:22:38] submit 시도 method=ctrl
+[03:22:39] submit 미확인 method=ctrl generating=False composer=2474
+[03:22:39] submit 시도 method=enter
+[03:22:40] submit 확인 method=enter generating=False composer=0
+[03:22:40] ⏱ 입력·전송 SRT_1320 8.0s · chars=2472
+[03:22:40] 제출 후 last_saved=https://www.genspark.ai/api/files/s/srpy5dsk
+[03:22:40] ⏱ 생성대기 시작 SRT_1320 max=120s
+[03:22:55] ⏱ 생성대기 완료 14.4s SRT_1320 https://www.genspark.ai/api/files/s/qlo6wxbc
+[03:22:55] ⏱ 생성대기구간 SRT_1320 14.4s · ok=True
+[03:22:55] SRT_1320 근접 이미지 https://www.genspark.ai/api/files/s/qlo6wxbc
+[03:22:55] 다운로드 files URL=https://www.genspark.ai/api/files/s/qlo6wxbc → SRT_1320.png
+[03:22:55] ⏱ 다운로드 직접실패 0.3s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[03:22:56] ⏱ 다운로드 fetch 0.2s size=523173 SRT_1320.png
+[03:22:56] ⏱ 다운로드구간 SRT_1320 0.6s · SRT_1320.png
+[03:22:59] ⏱ 다운로드후유휴 SRT_1320 3.3s · idle=True
+[03:22:59] ⏱ 씬합계 SRT_1320 30.3s · https://www.genspark.ai/api/files/s/qlo6wxbc
+[03:22:59] SRT_1320 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_1320.png
+[03:22:59] 상태키 SRT_1340 · Baek|blood_robe; Jin≈19|blood_robe
+[03:22:59] run_scene 시작 SRT_1340 · seen_files=67 · last_saved=https://www.genspark.ai/api/files/s/qlo6wxbc
+[03:22:59] ⏱ 준비 SRT_1340 0.1s · chars=2493
+[03:23:02] ⏱ 다음명령유휴 SRT_1340 3.2s · idle=True
+[03:23:04] fill OK(clip) follow=True chars=2493
+[03:23:04] submit 시작 composer=2493 url=https://www.genspark.ai/agents?id=91f02444-1b14-469d-990c-7e05369630f6
+[03:23:04] submit geo 실패 hit=no-btn
+[03:23:04] submit 시도 method=geo geo=False
+[03:23:05] submit 미확인 method=geo generating=False composer=2493
+[03:23:05] submit geo 실패 hit=no-btn
+[03:23:05] submit 시도 method=send send=False
+[03:23:06] submit 미확인 method=send generating=False composer=2493
+[03:23:06] submit 시도 method=ctrl
+[03:23:07] submit 미확인 method=ctrl generating=False composer=2495
+[03:23:07] submit 시도 method=enter
+[03:23:08] submit 확인 method=enter generating=False composer=0
+[03:23:08] ⏱ 입력·전송 SRT_1340 5.1s · chars=2493
+[03:23:08] 제출 후 last_saved=https://www.genspark.ai/api/files/s/qlo6wxbc
+[03:23:08] ⏱ 생성대기 시작 SRT_1340 max=120s
+[03:23:22] ⏱ 생성대기 완료 14.8s SRT_1340 https://www.genspark.ai/api/files/s/y8v7mdtq
+[03:23:22] ⏱ 생성대기구간 SRT_1340 14.8s · ok=True
+[03:23:23] SRT_1340 근접 이미지 https://www.genspark.ai/api/files/s/y8v7mdtq
+[03:23:23] 다운로드 files URL=https://www.genspark.ai/api/files/s/y8v7mdtq → SRT_1340.png
+[03:23:23] ⏱ 다운로드 직접실패 0.2s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[03:23:23] ⏱ 다운로드 fetch 0.1s size=524781 SRT_1340.png
+[03:23:23] ⏱ 다운로드구간 SRT_1340 0.3s · SRT_1340.png
+[03:23:24] ⏱ 다운로드후유휴 SRT_1340 1.5s · idle=True
+[03:23:24] ⏱ 씬합계 SRT_1340 25.3s · https://www.genspark.ai/api/files/s/y8v7mdtq
+[03:23:24] SRT_1340 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_1340.png
+[03:23:25] 상태키 SRT_1360 · Baek|blood_robe; Jin≈19|blood_robe
+[03:23:25] run_scene 시작 SRT_1360 · seen_files=68 · last_saved=https://www.genspark.ai/api/files/s/y8v7mdtq
+[03:23:25] ⏱ 준비 SRT_1360 0.0s · chars=2952
+[03:23:26] ⏱ 다음명령유휴 SRT_1360 1.7s · idle=True
+[03:23:27] fill OK(clip) follow=True chars=2952
+[03:23:27] submit 시작 composer=2952 url=https://www.genspark.ai/agents?id=91f02444-1b14-469d-990c-7e05369630f6
+[03:23:27] submit geo 실패 hit=no-btn
+[03:23:27] submit 시도 method=geo geo=False
+[03:23:28] submit 미확인 method=geo generating=False composer=2952
+[03:23:28] submit geo 실패 hit=no-btn
+[03:23:28] submit 시도 method=send send=False
+[03:23:29] submit 미확인 method=send generating=False composer=2952
+[03:23:29] submit 시도 method=ctrl
+[03:23:30] submit 미확인 method=ctrl generating=False composer=2954
+[03:23:30] submit 시도 method=enter
+[03:23:31] submit 확인 method=enter generating=False composer=0
+[03:23:31] ⏱ 입력·전송 SRT_1360 4.5s · chars=2952
+[03:23:31] 제출 후 last_saved=https://www.genspark.ai/api/files/s/y8v7mdtq
+[03:23:31] ⏱ 생성대기 시작 SRT_1360 max=120s
+[03:23:45] ⏱ 생성대기 완료 14.2s SRT_1360 https://www.genspark.ai/api/files/s/n116pk3t
+[03:23:45] ⏱ 생성대기구간 SRT_1360 14.2s · ok=True
+[03:23:45] SRT_1360 근접 이미지 https://www.genspark.ai/api/files/s/n116pk3t
+[03:23:45] 다운로드 files URL=https://www.genspark.ai/api/files/s/n116pk3t → SRT_1360.png
+[03:23:46] ⏱ 다운로드 직접실패 0.2s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[03:23:46] ⏱ 다운로드 fetch 0.2s size=484305 SRT_1360.png
+[03:23:46] ⏱ 다운로드구간 SRT_1360 0.6s · SRT_1360.png
+[03:23:49] ⏱ 다운로드후유휴 SRT_1360 3.6s · idle=True
+[03:23:49] ⏱ 씬합계 SRT_1360 24.9s · https://www.genspark.ai/api/files/s/n116pk3t
+[03:23:49] SRT_1360 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_1360.png
+[03:23:50] 상태키 SRT_1380 · Baek|blood_robe; Jin≈19|blood_robe
+[03:23:50] run_scene 시작 SRT_1380 · seen_files=69 · last_saved=https://www.genspark.ai/api/files/s/n116pk3t
+[03:23:50] ⏱ 준비 SRT_1380 0.0s · chars=2488
+[03:23:53] ⏱ 다음명령유휴 SRT_1380 3.2s · idle=True
+[03:23:55] fill OK(clip) follow=True chars=2488
+[03:23:55] submit 시작 composer=2488 url=https://www.genspark.ai/agents?id=91f02444-1b14-469d-990c-7e05369630f6
+[03:23:55] submit geo 실패 hit=no-btn
+[03:23:55] submit 시도 method=geo geo=False
+[03:23:56] submit 미확인 method=geo generating=False composer=2488
+[03:23:58] submit geo 실패 hit=no-btn
+[03:23:58] submit 시도 method=send send=False
+[03:23:58] submit 미확인 method=send generating=False composer=2488
+[03:23:59] submit 시도 method=ctrl
+[03:23:59] submit 미확인 method=ctrl generating=False composer=2490
+[03:24:00] submit 시도 method=enter
+[03:24:01] submit 확인 method=enter generating=False composer=0
+[03:24:01] ⏱ 입력·전송 SRT_1380 8.1s · chars=2488
+[03:24:01] 제출 후 last_saved=https://www.genspark.ai/api/files/s/n116pk3t
+[03:24:01] ⏱ 생성대기 시작 SRT_1380 max=120s
+[03:24:16] ⏱ 생성대기 완료 14.2s SRT_1380 https://www.genspark.ai/api/files/s/sqow9bm9
+[03:24:16] ⏱ 생성대기구간 SRT_1380 14.2s · ok=True
+[03:24:16] SRT_1380 근접 이미지 https://www.genspark.ai/api/files/s/sqow9bm9
+[03:24:16] 다운로드 files URL=https://www.genspark.ai/api/files/s/sqow9bm9 → SRT_1380.png
+[03:24:16] ⏱ 다운로드 직접실패 0.4s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[03:24:17] ⏱ 다운로드 fetch 0.5s size=828282 SRT_1380.png
+[03:24:17] ⏱ 다운로드구간 SRT_1380 1.1s · SRT_1380.png
+[03:24:21] ⏱ 다운로드후유휴 SRT_1380 4.6s · idle=True
+[03:24:21] ⏱ 씬합계 SRT_1380 31.8s · https://www.genspark.ai/api/files/s/sqow9bm9
+[03:24:21] SRT_1380 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_1380.png
+[03:24:22] 상태키 SRT_1400 · Baek|blood_robe; Jin≈19|blood_robe
+[03:24:22] run_scene 시작 SRT_1400 · seen_files=70 · last_saved=https://www.genspark.ai/api/files/s/sqow9bm9
+[03:24:22] ⏱ 준비 SRT_1400 0.1s · chars=2957
+[03:24:25] ⏱ 다음명령유휴 SRT_1400 3.6s · idle=True
+[03:24:27] fill OK(clip) follow=True chars=2957
+[03:24:27] submit 시작 composer=2957 url=https://www.genspark.ai/agents?id=91f02444-1b14-469d-990c-7e05369630f6
+[03:24:27] submit geo 실패 hit=no-btn
+[03:24:27] submit 시도 method=geo geo=False
+[03:24:27] submit 미확인 method=geo generating=False composer=2957
+[03:24:28] submit geo 실패 hit=no-btn
+[03:24:28] submit 시도 method=send send=False
+[03:24:28] submit 미확인 method=send generating=False composer=2957
+[03:24:29] submit 시도 method=ctrl
+[03:24:29] submit 미확인 method=ctrl generating=False composer=2959
+[03:24:30] submit 시도 method=enter
+[03:24:30] submit 확인 method=enter generating=False composer=0
+[03:24:30] ⏱ 입력·전송 SRT_1400 4.9s · chars=2957
+[03:24:30] 제출 후 last_saved=https://www.genspark.ai/api/files/s/sqow9bm9
+[03:24:30] ⏱ 생성대기 시작 SRT_1400 max=120s
+[03:24:46] ⏱ 생성대기 진행 15.4s SRT_1400 busy=False url_ok=False src=
+[03:24:46] ⏱ 생성대기 한도감지 15.4s SRT_1400 · AI Image 한도 감지 · 5시간 제한에 근접했습니다. --- ry eyes, cool fair skin with porcelain complexion, slender wiry physique, calm unreadable expression
+[03:24:46] run_scene 실패(재시도 없음): AI Image 한도 감지
+[03:24:46] SRT_1400 실패(한도 확정 streak=1) — 브라우저 종료 후 대기·재오픈
+AI Image 한도 감지
+[03:24:51] 한도 대기 전 ChromeDebug 종료
+[03:24:51] 한도 대기 60분(probe1h) 시작 — SRT_1400 한도 · 1h시험생성
+[04:24:51] 한도 대기 종료(probe1h) — 재시도
+[04:24:51] 한도 대기 종료 — 브라우저 재오픈 후 SRT_1400 재개
+[04:24:56] ChromeDebug 재시작 port=9242 user_data=C:\ChromeDebug_2_5
+[04:25:00] 모델 이미 Pro: Nano Banana Pro
+[04:25:00] 세션 준비 — login=OK model=Nano Banana Pro auto=True
+[04:25:00] ensure_page cur_sc=10 prefer_sc=10 cur=https://www.genspark.ai/ai_image prefer=https://www.genspark.ai/ai_image
+[04:25:02] fill OK(clip) follow=False chars=68627
+[04:25:03] 입력창 붙여넣기 — 프롬프트 45379자 + SRT 23205자 = 합계 68627자
+  prompt=C:/cursor/videt/2_5_sceneImage/md/image.검신회귀록.txt
+  srt=C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\mp3\new.srt
+[04:25:04] ensure_page cur_sc=10 prefer_sc=10 cur=https://www.genspark.ai/ai_image prefer=https://www.genspark.ai/ai_image
+[04:25:05] 동일 입력창에 명령 추가(미실행): ===== CHARACTER LOOK (SRT_1400) =====
+State keys: Jin≈19|blood_robe; Baek≈19|blood_robe; Namgung|base
+Jin Muhan, approximately nineteen years old, East-Asian young swordsman, sharp…
+[04:25:06] 상태키 SRT_1400 · Baek|blood_robe; Jin≈19|blood_robe
+[04:25:06] run_scene 시작 SRT_1400 · seen_files=70 · last_saved=https://www.genspark.ai/api/files/s/sqow9bm9
+[04:25:06] ensure_page cur_sc=10 prefer_sc=10 cur=https://www.genspark.ai/ai_image prefer=https://www.genspark.ai/ai_image
+[04:25:06] ⏱ 준비 SRT_1400 0.0s · chars=2957
+[04:25:06] submit 시작 composer=2957 url=https://www.genspark.ai/ai_image
+[04:25:06] submit geo 실패 hit=no-btn
+[04:25:06] submit 시도 method=geo geo=False
+[04:25:06] submit 미확인 method=geo generating=False composer=2957
+[04:25:07] submit geo 실패 hit=no-btn
+[04:25:07] submit 시도 method=send send=False
+[04:25:07] submit 미확인 method=send generating=False composer=2957
+[04:25:07] submit 시도 method=ctrl
+[04:25:08] submit 미확인 method=ctrl generating=False composer=2959
+[04:25:09] submit 시도 method=enter
+[04:25:10] submit 확인 method=enter generating=False composer=0
+[04:25:10] ⏱ 입력창전송 SRT_1400 4.1s
+[04:25:10] 제출 후 last_saved=https://www.genspark.ai/api/files/s/sqow9bm9
+[04:25:10] ⏱ 생성대기 시작 SRT_1400 max=120s
+[04:25:25] ⏱ 생성대기 진행 15.2s SRT_1400 busy=False url_ok=False src=
+[04:25:25] ⏱ 생성대기 한도감지 15.2s SRT_1400 · AI Image 한도 감지 · 5시간 제한에 근접했습니다. --- New AI 이미지 홈 Skills 세컨드 브레인 더보기 SRT_1400 무협 만화 스타일 일러스트 생성 요청 공유 pasted-text-1787685902565.txt 102.0
+[04:25:25] run_scene 실패(재시도 없음): AI Image 한도 감지
+[04:25:25] SRT_1400 실패(한도 확정 streak=1) — 브라우저 종료 후 대기·재오픈
+AI Image 한도 감지
+[04:25:30] 한도 대기 전 ChromeDebug 종료
+[04:25:30] 한도 대기 60분(probe1h) 시작 — SRT_1400 한도 · 1h시험생성
+[04:39:15] 한도 대기 취소됨
+[04:39:22] 탭로그 ON — 브라우저 열기·생성 · 씬 3개 · reopen=True · 한도대기ON
+[04:39:27] ChromeDebug 재시작 port=9242 user_data=C:\ChromeDebug_2_5
+[04:39:31] 모델 이미 Pro: Nano Banana Pro
+[04:39:31] 세션 준비 — login=OK model=Nano Banana Pro auto=True
+[04:39:31] ensure_page cur_sc=10 prefer_sc=10 cur=https://www.genspark.ai/ai_image prefer=https://www.genspark.ai/ai_image
+[04:39:33] fill OK(clip) follow=False chars=68627
+[04:39:33] 입력창 붙여넣기 — 프롬프트 45379자 + SRT 23205자 = 합계 68627자
+  prompt=C:/cursor/videt/2_5_sceneImage/md/image.검신회귀록.txt
+  srt=C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\mp3\new.srt
+[04:39:34] ensure_page cur_sc=10 prefer_sc=10 cur=https://www.genspark.ai/ai_image prefer=https://www.genspark.ai/ai_image
+[04:39:35] 동일 입력창에 명령 추가(미실행): ===== CHARACTER LOOK (SRT_1400) =====
+State keys: Jin≈19|blood_robe; Baek≈19|blood_robe; Namgung|base
+Jin Muhan, approximately nineteen years old, East-Asian young swordsman, sharp…
+[04:39:36] 상태키 SRT_1400 · Baek|blood_robe; Jin≈19|blood_robe
+[04:39:36] run_scene 시작 SRT_1400 · seen_files=70 · last_saved=https://www.genspark.ai/api/files/s/sqow9bm9
+[04:39:36] ensure_page cur_sc=10 prefer_sc=10 cur=https://www.genspark.ai/ai_image prefer=https://www.genspark.ai/ai_image
+[04:39:36] 모델 선택 시작 현재=(없음)
+[04:39:36] 모델 선택 결과 ok=False 칩=(없음) picked=
+[04:39:36] ⏱ 준비 SRT_1400 0.1s · chars=2957
+[04:39:36] submit 시작 composer=2957 url=https://www.genspark.ai/ai_image
+[04:39:36] submit geo 실패 hit=no-btn
+[04:39:36] submit 시도 method=geo geo=False
+[04:39:37] submit 미확인 method=geo generating=False composer=2957
+[04:39:37] submit geo 실패 hit=no-btn
+[04:39:37] submit 시도 method=send send=False
+[04:39:38] submit 미확인 method=send generating=False composer=2957
+[04:39:38] submit 시도 method=ctrl
+[04:39:39] submit 미확인 method=ctrl generating=False composer=2959
+[04:39:39] submit 시도 method=enter
+[04:39:40] submit 확인 method=enter generating=False composer=0
+[04:39:40] ⏱ 입력창전송 SRT_1400 3.7s
+[04:39:40] 제출 후 last_saved=https://www.genspark.ai/api/files/s/sqow9bm9
+[04:39:40] ⏱ 생성대기 시작 SRT_1400 max=120s
+[04:39:55] ⏱ 생성대기 진행 15.2s SRT_1400 busy=False url_ok=False src=
+[04:39:55] ⏱ 생성대기 한도감지 15.2s SRT_1400 · AI Image 한도 감지 · 5시간 제한에 근접했습니다. --- New AI 이미지 홈 Skills 세컨드 브레인 더보기 SRT_1400 무협 만화 스타일 일러스트 생성 요청 공유 pasted-text-1787686773159.txt 102.0
+[04:39:55] run_scene 실패(재시도 없음): AI Image 한도 감지
+[04:39:55] SRT_1400 실패(한도 확정 streak=1) — 브라우저 종료 후 대기·재오픈
+AI Image 한도 감지
+[04:40:00] 한도 대기 전 ChromeDebug 종료
+[04:40:00] 한도 대기 60분(probe1h) 시작 — SRT_1400 한도 · 1h시험생성
+[04:40:15] 한도 대기 취소됨
+[04:40:27] 탭로그 ON — 브라우저 열기·생성 · 씬 3개 · reopen=True · 한도대기ON
+[04:40:32] ChromeDebug 재시작 port=9242 user_data=C:\ChromeDebug_2_5
+[04:40:36] 모델 이미 Pro: Nano Banana Pro
+[04:40:36] 세션 준비 — login=OK model=Nano Banana Pro auto=True
+[04:40:36] ensure_page cur_sc=10 prefer_sc=10 cur=https://www.genspark.ai/ai_image prefer=https://www.genspark.ai/ai_image
+[04:40:37] fill OK(clip) follow=False chars=68627
+[04:40:38] 입력창 붙여넣기 — 프롬프트 45379자 + SRT 23205자 = 합계 68627자
+  prompt=C:/cursor/videt/2_5_sceneImage/md/image.검신회귀록.txt
+  srt=C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\mp3\new.srt
+[04:40:39] ensure_page cur_sc=10 prefer_sc=10 cur=https://www.genspark.ai/ai_image prefer=https://www.genspark.ai/ai_image
+[04:40:40] 동일 입력창에 명령 추가(미실행): ===== CHARACTER LOOK (SRT_1400) =====
+State keys: Jin≈19|blood_robe; Baek≈19|blood_robe; Namgung|base
+Jin Muhan, approximately nineteen years old, East-Asian young swordsman, sharp…
+[04:40:40] 상태키 SRT_1400 · Baek|blood_robe; Jin≈19|blood_robe
+[04:40:40] run_scene 시작 SRT_1400 · seen_files=70 · last_saved=https://www.genspark.ai/api/files/s/sqow9bm9
+[04:40:40] ensure_page cur_sc=10 prefer_sc=10 cur=https://www.genspark.ai/ai_image prefer=https://www.genspark.ai/ai_image
+[04:40:40] 모델 선택 시작 현재=(없음)
+[04:40:41] 모델 선택 결과 ok=False 칩=(없음) picked=
+[04:40:41] ⏱ 준비 SRT_1400 0.1s · chars=2957
+[04:40:41] submit 시작 composer=2957 url=https://www.genspark.ai/ai_image
+[04:40:41] submit geo 실패 hit=no-btn
+[04:40:41] submit 시도 method=geo geo=False
+[04:40:41] submit 미확인 method=geo generating=False composer=2957
+[04:40:42] submit geo 실패 hit=no-btn
+[04:40:42] submit 시도 method=send send=False
+[04:40:42] submit 미확인 method=send generating=False composer=2957
+[04:40:42] submit 시도 method=ctrl
+[04:40:43] submit 미확인 method=ctrl generating=False composer=2959
+[04:40:44] submit 시도 method=enter
+[04:40:44] submit 확인 method=enter generating=False composer=0
+[04:40:44] ⏱ 입력창전송 SRT_1400 3.8s
+[04:40:44] 제출 후 last_saved=https://www.genspark.ai/api/files/s/sqow9bm9
+[04:40:45] ⏱ 생성대기 시작 SRT_1400 max=120s
+[04:41:00] ⏱ 생성대기 진행 15.1s SRT_1400 busy=True url_ok=False src=
+[04:41:00] ⏱ 생성대기 한도감지 15.1s SRT_1400 · AI Image 한도 감지 · 5시간 제한에 근접했습니다. --- New AI 이미지 홈 Skills 세컨드 브레인 더보기 SRT_1400 무협 만화 스타일 일러스트 생성 요청 공유 pasted-text-1787686837502.txt 102.0
+[04:41:00] run_scene 실패(재시도 없음): AI Image 한도 감지
+[04:41:00] SRT_1400 실패(한도 확정 streak=1) — 브라우저 종료 후 대기·재오픈
+AI Image 한도 감지
+[04:41:03] 한도 대기 전 ChromeDebug 종료
+[04:41:03] 한도 대기 60분(probe1h) 시작 — SRT_1400 한도 · 1h시험생성
+[04:41:48] 한도 대기 취소됨
+[04:43:15] 탭로그 ON — 브라우저 열기·생성 · 씬 3개 · reopen=True
+[04:43:20] ChromeDebug 재시작 port=9242 user_data=C:\ChromeDebug_2_5
+[04:43:26] 모델 이미 Pro: Nano Banana Pro
+[04:43:26] 세션 준비 — login=OK model=Nano Banana Pro auto=True
+[04:43:26] ensure_page cur_sc=10 prefer_sc=10 cur=https://www.genspark.ai/ai_image prefer=https://www.genspark.ai/ai_image
+[04:43:28] fill OK(clip) follow=False chars=68627
+[04:43:28] 입력창 붙여넣기 — 프롬프트 45379자 + SRT 23205자 = 합계 68627자
+  prompt=C:/cursor/videt/2_5_sceneImage/md/image.검신회귀록.txt
+  srt=C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\mp3\new.srt
+[04:43:29] ensure_page cur_sc=10 prefer_sc=10 cur=https://www.genspark.ai/ai_image prefer=https://www.genspark.ai/ai_image
+[04:43:30] 동일 입력창에 명령 추가(미실행): ===== CHARACTER LOOK (SRT_1400) =====
+State keys: Jin≈19|blood_robe; Baek≈19|blood_robe; Namgung|base
+Jin Muhan, approximately nineteen years old, East-Asian young swordsman, sharp…
+[04:43:31] 상태키 SRT_1400 · Baek|blood_robe; Jin≈19|blood_robe
+[04:43:31] run_scene 시작 SRT_1400 · seen_files=70 · last_saved=https://www.genspark.ai/api/files/s/sqow9bm9
+[04:43:31] ensure_page cur_sc=10 prefer_sc=10 cur=https://www.genspark.ai/ai_image prefer=https://www.genspark.ai/ai_image
+[04:43:31] 모델 선택 시작 현재=(없음)
+[04:43:31] 모델 선택 결과 ok=False 칩=(없음) picked=
+[04:43:31] ⏱ 준비 SRT_1400 0.1s · chars=2957
+[04:43:31] submit 시작 composer=2957 url=https://www.genspark.ai/ai_image
+[04:43:31] submit geo 실패 hit=no-btn
+[04:43:31] submit 시도 method=geo geo=False
+[04:43:32] submit 미확인 method=geo generating=False composer=2957
+[04:43:32] submit geo 실패 hit=no-btn
+[04:43:32] submit 시도 method=send send=False
+[04:43:33] submit 미확인 method=send generating=False composer=2957
+[04:43:33] submit 시도 method=ctrl
+[04:43:33] submit 미확인 method=ctrl generating=False composer=2959
+[04:43:34] submit 시도 method=enter
+[04:43:35] submit 확인 method=enter generating=False composer=0
+[04:43:35] ⏱ 입력창전송 SRT_1400 3.8s
+[04:43:35] 제출 후 last_saved=https://www.genspark.ai/api/files/s/sqow9bm9
+[04:43:35] ⏱ 생성대기 시작 SRT_1400 max=120s
+[04:43:51] ⏱ 생성대기 진행 15.6s SRT_1400 busy=True url_ok=False src=
+[04:43:57] ⏱ 생성대기 완료 21.6s SRT_1400 https://www.genspark.ai/api/files/s/pnswpoxj
+[04:43:57] ⏱ 생성대기구간 SRT_1400 21.6s · ok=True
+[04:43:57] SRT_1400 근접 이미지 https://www.genspark.ai/api/files/s/pnswpoxj
+[04:43:57] 다운로드 files URL=https://www.genspark.ai/api/files/s/pnswpoxj → SRT_1400.png
+[04:43:57] ⏱ 다운로드 직접실패 0.3s · 페이지 fetch 재시도: HTTP Error 403: Forbidden
+[04:43:57] ⏱ 다운로드 fetch 0.1s size=757457 SRT_1400.png
+[04:43:57] ⏱ 다운로드구간 SRT_1400 0.4s · SRT_1400.png
+[04:43:58] ⏱ 다운로드후유휴 SRT_1400 1.2s · idle=True
+[04:43:58] ⏱ 씬합계 SRT_1400 27.3s · https://www.genspark.ai/api/files/s/pnswpoxj
+[04:43:58] SRT_1400 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\png\SRT_1400.png
+[04:43:58] 상태키 SRT_1420 · Baek|blood_robe; Jin≈19|blood_robe
+[04:43:58] run_scene 시작 SRT_1420 · seen_files=71 · last_saved=https://www.genspark.ai/api/files/s/pnswpoxj
+[04:43:58] ⏱ 준비 SRT_1420 0.0s · chars=1341
+[04:43:59] ⏱ 다음명령유휴 SRT_1420 1.1s · idle=True
+[04:44:00] fill OK(clip) follow=True chars=1341
+[04:44:00] submit 시작 composer=1341 url=https://www.genspark.ai/agents?id=10d71aff-fc5b-44c7-916b-df5c65d90a41
+[04:44:00] submit geo 실패 hit=no-btn
+[04:44:00] submit 시도 method=geo geo=False
+[04:44:01] submit 미확인 method=geo generating=False composer=1341
+[04:44:01] submit geo 실패 hit=no-btn
+[04:44:01] submit 시도 method=send send=False
+[04:44:01] submit 미확인 method=send generating=False composer=1341
+[04:44:02] submit 시도 method=ctrl
+[04:44:02] submit 미확인 method=ctrl generating=False composer=1343
+[04:44:03] submit 시도 method=enter
+[04:44:03] submit 확인 method=enter generating=False composer=0
+[04:44:03] ⏱ 입력·전송 SRT_1420 3.7s · chars=1341
+[04:44:03] 제출 후 last_saved=https://www.genspark.ai/api/files/s/pnswpoxj
+[04:44:03] ⏱ 생성대기 시작 SRT_1420 max=120s
+[04:44:19] ⏱ 생성대기 진행 15.4s SRT_1420 busy=False url_ok=False src=
+[04:44:19] ⏱ 생성대기 한도감지 15.4s SRT_1420 · AI Image 한도 - 재설정 2026-08-26 07:57 · AI Image 5시간 제한에 도달했습니다. 8월 26일 오전 7:57에 재설정됩니다 --- 5시간 제한 --- New AI 이미지 홈 Skills 세컨드 브레인 더보기 SRT_1400 무협 만화 스타일 일러스트 생
+[04:44:19] run_scene 실패(재시도 없음): AI Image 한도 - 재설정 2026-08-26 07:57
+[04:44:19] SRT_1420 실패 — 다음 씬 계속
+AI Image 한도 - 재설정 2026-08-26 07:57
+[04:44:19] 상태키 SRT_1431 · Baek|blood_robe; Jin≈19|blood_robe
+[04:44:19] 늦은이미지 회수 실패 SRT_1420: SRT_1420 요청 아래 새 이미지가 없습니다.
+[04:44:19] run_scene 시작 SRT_1431 · seen_files=71 · last_saved=https://www.genspark.ai/api/files/s/pnswpoxj
+[04:44:19] ⏱ 준비 SRT_1431 0.0s · chars=2012
+[04:44:20] ⏱ 다음명령유휴 SRT_1431 1.2s · idle=True
+[04:44:21] fill OK(clip) follow=True chars=2012
+[04:44:21] submit 시작 composer=2012 url=https://www.genspark.ai/agents?id=10d71aff-fc5b-44c7-916b-df5c65d90a41
+[04:44:21] submit geo 실패 hit=no-btn
+[04:44:21] submit 시도 method=geo geo=False
+[04:44:21] submit 미확인 method=geo generating=False composer=2012
+[04:44:22] submit geo 실패 hit=no-btn
+[04:44:22] submit 시도 method=send send=False
+[04:44:22] submit 미확인 method=send generating=False composer=2012
+[04:44:23] submit 시도 method=ctrl
+[04:44:23] submit 미확인 method=ctrl generating=False composer=2014
+[04:44:23] submit 시도 method=enter
+[04:44:24] submit 확인 method=enter generating=False composer=0
+[04:44:24] ⏱ 입력·전송 SRT_1431 3.8s · chars=2012
+[04:44:24] 제출 후 last_saved=https://www.genspark.ai/api/files/s/pnswpoxj
+[04:44:24] ⏱ 생성대기 시작 SRT_1431 max=120s
+[04:44:39] ⏱ 생성대기 진행 15.3s SRT_1431 busy=False url_ok=False src=
+[04:44:39] ⏱ 생성대기 한도감지 15.3s SRT_1431 · AI Image 한도 - 재설정 2026-08-26 07:57 · AI Image 5시간 제한에 도달했습니다. 8월 26일 오전 7:57에 재설정됩니다 --- 5시간 제한 --- 세션 한도 도달 AI Image 5시간 제한에 도달했습니다. 8월 26일 오전 7:57에 재설정됩니다
+[04:44:39] run_scene 실패(재시도 없음): AI Image 한도 - 재설정 2026-08-26 07:57
+[04:44:39] SRT_1431 실패 — 다음 씬 계속
+AI Image 한도 - 재설정 2026-08-26 07:57
+[04:45:37] 탭로그 ON — 브라우저 열기·생성 · 씬 2개 · reopen=True · 한도대기ON
+[04:45:42] ChromeDebug 재시작 port=9242 user_data=C:\ChromeDebug_2_5
+[04:45:46] 모델 이미 Pro: Nano Banana Pro
+[04:45:46] 세션 준비 — login=OK model=Nano Banana Pro auto=True
+[04:45:47] ensure_page cur_sc=10 prefer_sc=10 cur=https://www.genspark.ai/ai_image prefer=https://www.genspark.ai/ai_image
+[04:45:48] fill OK(clip) follow=False chars=68627
+[04:45:49] 입력창 붙여넣기 — 프롬프트 45379자 + SRT 23205자 = 합계 68627자
+  prompt=C:/cursor/videt/2_5_sceneImage/md/image.검신회귀록.txt
+  srt=C:\cursor\wuxia\무협극장\검신귀환록\2부\14장\mp3\new.srt
+[04:45:50] ensure_page cur_sc=10 prefer_sc=10 cur=https://www.genspark.ai/ai_image prefer=https://www.genspark.ai/ai_image
+[04:45:51] 동일 입력창에 명령 추가(미실행): ===== CHARACTER LOOK (SRT_1420) =====
+State keys: Namgung|base
+Namgung Rin, approximately nineteen years old, quiet sharp-eyed East-Asian youth from a fallen clan branch, tall thin…
+[04:45:51] 상태키 SRT_1420 · Baek|blood_robe; Jin≈19|blood_robe
+[04:45:51] run_scene 시작 SRT_1420 · seen_files=71 · last_saved=https://www.genspark.ai/api/files/s/pnswpoxj
+[04:45:51] ensure_page cur_sc=10 prefer_sc=10 cur=https://www.genspark.ai/ai_image prefer=https://www.genspark.ai/ai_image
+[04:45:51] 모델 선택 시작 현재=(없음)
+[04:45:51] 모델 선택 결과 ok=False 칩=(없음) picked=
+[04:45:51] ⏱ 준비 SRT_1420 0.1s · chars=1341
+[04:45:52] submit 시작 composer=1341 url=https://www.genspark.ai/ai_image
+[04:45:52] submit geo 실패 hit=no-btn
+[04:45:52] submit 시도 method=geo geo=False
+[04:45:52] submit 미확인 method=geo generating=False composer=1341
+[04:45:52] submit geo 실패 hit=no-btn
+[04:45:52] submit 시도 method=send send=False
+[04:45:53] submit 미확인 method=send generating=False composer=1341
+[04:45:53] submit 시도 method=ctrl
+[04:45:54] submit 미확인 method=ctrl generating=False composer=1343
+[04:45:54] submit 시도 method=enter
+[04:45:55] submit 확인 method=enter generating=False composer=0
+[04:45:55] ⏱ 입력창전송 SRT_1420 3.8s
+[04:45:55] 제출 후 last_saved=https://www.genspark.ai/api/files/s/pnswpoxj
+[04:45:55] ⏱ 생성대기 시작 SRT_1420 max=120s
+[04:46:10] ⏱ 생성대기 진행 15.0s SRT_1420 busy=False url_ok=False src=
+[04:46:10] ⏱ 생성대기 한도감지 15.0s SRT_1420 · AI Image 한도 - 재설정 2026-08-26 07:57 · AI Image 5시간 제한에 도달했습니다. 8월 26일 오전 7:57에 재설정됩니다 --- 5시간 제한 --- 세션 한도 도달 AI Image 5시간 제한에 도달했습니다. 8월 26일 오전 7:57에 재설정됩니다
+[04:46:10] run_scene 실패(재시도 없음): AI Image 한도 - 재설정 2026-08-26 07:57
+[04:46:10] SRT_1420 실패(한도 확정 streak=1) — 브라우저 종료 후 대기·재오픈
+AI Image 한도 - 재설정 2026-08-26 07:57
+[04:46:14] 한도 대기 전 ChromeDebug 종료
+[04:46:14] 한도 대기 191분(until_reset) 시작 — SRT_1420 한도 · 재설정 08/26 07:57

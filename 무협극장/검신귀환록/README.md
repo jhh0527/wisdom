@@ -1,33 +1,47 @@
 # 검신귀환록 — 프로젝트 구조
 
-유튜브 무협 소설용 Cursor 작업 공간. **한 개의 긴 파일** 대신 바이블 + 장별 파일로 관리한다.
+유튜브 무협 소설용 Cursor 작업 공간. **바이블 + 사건 ID + 장 맵**으로 관리한다.
 
 ```
 검신귀환록/
 ├── README.md
-├── CURSOR_RULES.md      ← 작품 규칙
-├── REVIEW_PROMPT.md     ← 검수 프롬프트 (복붙용)
+├── CURSOR_RULES.md
+├── WRITE_RULES.md       ← 젠스파크 작성 헌법
+├── REVIEW_PROMPT.md
+├── events.md            ← 사건 ID·선후 (장 번호 없음)
+├── chapter_map.md       ← 장 ↔ 사건 ID ↔ 유튜브 제목
 ├── world.md
 ├── characters.md
 ├── martial_arts.md
 ├── timeline.md
 ├── relationships.md
 ├── foreshadowing.md
-├── review.md            ← 검수 결과 누적
-├── art/
-│   └── character_sheet_prompt.md
-└── chapters/
-    ├── 001.md … 012.md  ← 1부
-    └── 013.md …         ← 이후 장
+├── review.md
+├── briefs/
+│   └── _TEMPLATE.md     ← 장별 BRIEF (젠스파크 주입력)
+├── 1부/ … 5부/          ← 부별 줄거리·본문
+└── art/
 ```
-
-루트의 `.cursor/rules/`에 일관성·장 작성 규칙이 등록되어 있다.
 
 ## 추천 작업 흐름
 
-1. **쓸 때**: Agent에게 「013장 작성. 바이블 참조」 — Rules가 자동 참조를 유도한다.
-2. **고칠 때**: 충돌이 보이면 `review.md`에 남기거나 바로 수정.
-3. **검수할 때**: `REVIEW_PROMPT.md`의 7단계를 **한 번에 하나**씩 Agent에 돌린다.
+### 이미 쓴 부 (예: 2부)
+
+1. 본문을 원본으로 `events.md` 갱신
+2. `chapter_map.md`·부 줄거리·유튜브 제목을 본문에 맞춤
+3. `timeline` / `foreshadowing` / `characters` 동기화
+
+### 새로 쓸 장 (젠스파크)
+
+1. `events.md`에 이 장 ID가 있는지 확인 (없으면 승인 후 추가)
+2. `briefs/CHAPTER_NN.md` 작성 (`_TEMPLATE` 복사)
+3. 젠스파크 **새 채팅**에 `WRITE_RULES` + BRIEF + 인물 발췌 + 직전 장 꼬리만 첨부
+4. 산출 후 비트·신규사건·글자 수 점검 → 본문 파일 저장
+5. 제목은 본문 확정 후 `chapter_map`에만 확정
+
+### 검수
+
+`REVIEW_PROMPT.md` 단계를 한 번에 하나. 사건 순서·사망 시점은 `events.md` 기준.
 
 ## 추상 품질
 
