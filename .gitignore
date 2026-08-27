@@ -28,7 +28,6 @@ config/wisdom_workspace.json
 **/build/**
 !**/build/**/*.bat
 
-*.pkg
-*.pyz
-*.exe
-dist/
+*.mp4
+
+

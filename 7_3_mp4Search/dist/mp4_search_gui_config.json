@@ -1,0 +1,22 @@
+{
+  "mp4_dir": "C:/cursor/videt/무협극장/검신귀환록/1부/완결",
+  "download_dir": "C:\\Users\\nh2015005\\Downloads",
+  "preview_pane_width": 520,
+  "burn_subtitles": false,
+  "srt_file": "C:/cursor/videt/무협극장/검신귀환록/1부/11장/mp3/new.srt",
+  "mp3_file": "C:\\cursor\\videt\\무협극장\\검신귀환록\\1부\\11장\\mp3\\all.mp3",
+  "play_loop": false,
+  "download_mp4_inputs": {},
+  "mp4_play_modes": {
+    "13": "loop"
+  },
+  "add_announcer": false,
+  "announcer_file": "C:\\cursor\\videt\\무협극장\\anouncer\\jwhShirt.mp4",
+  "mp4_mute": {},
+  "folder_merge": true,
+  "mp4_mute_files": {
+    "2.mp4": "mute",
+    "3.mp4": "mute",
+    "5.mp4": "mute"
+  }
+}
