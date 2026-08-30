@@ -64,7 +64,14 @@ def main(
     initial_input: Path | None = None,
     initial_output: Path | None = None,
 ) -> None:
-    from wisdom_gui_host import apply_window_chrome, bind_close, bind_path_row_dnd, run_mainloop, tk_host
+    from wisdom_gui_host import (
+        apply_window_chrome,
+        bind_close,
+        bind_path_row_dnd,
+        run_mainloop,
+        show_toast,
+        tk_host,
+    )
     if initial_input is None and initial_output is None and len(sys.argv) > 1:
         p = argparse.ArgumentParser(add_help=False)
         p.add_argument("-i", "--input", type=Path, default=None)
@@ -320,11 +327,12 @@ def main(
                     f"완료: {len(results)}개 저장, 건너뜀 {len(skipped)}개 "
                     f"(절약 {total_saved // 1024}KB) → {out.resolve()}"
                 )
-                messagebox.showinfo(
-                    "완료",
+                show_toast(
+                    root,
                     f"{len(results)}개 → {out.resolve()}\n"
                     f"건너뜀: {len(skipped)}개\n"
                     f"용량 절약: 약 {total_saved // 1024} KB",
+                    title="3_2 pngToJpg · 완료",
                 )
 
             root.after(0, done)
@@ -376,9 +384,10 @@ def main(
                 log_line(f"mp4 기존 JPG 삭제: {deleted}개")
                 log_line(f"mp4 복사: {copied}개 → {dest}")
                 status_var.set(f"mp4 복사 완료: {copied}개 → {dest}")
-                messagebox.showinfo(
-                    "mp4 복사 완료",
+                show_toast(
+                    root,
                     f"삭제: {deleted}개\n복사: {copied}개\n→ {dest}",
+                    title="3_2 pngToJpg · mp4 복사 완료",
                 )
 
             root.after(0, done)

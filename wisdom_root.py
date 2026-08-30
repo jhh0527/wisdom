@@ -17,7 +17,7 @@ MARKER_DIRS = (
 
 # canonical → 예전 폴더명 (작업 폴더·저장 경로 호환)
 MODULE_LEGACY_ALIASES: dict[str, tuple[str, ...]] = {
-    "1_2_textToJson": ("1_2_textToTts", "2_textToTts"),
+    "1_5_textToJson": ("1_2_textToJson", "1_2_textToTts", "2_textToTts"),
     "2_2_scriptToVoice": ("2_1_ttsToVoice", "3_ttsToVoice"),
     "3_2_pngToJpg": ("4_1pngToJpg",),
 }

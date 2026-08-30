@@ -16,7 +16,6 @@ PRESET_NAMES: tuple[str, ...] = (
     "elsub_config2.json",
     "elsub_config3.json",
     "elsub_config4.json",
-    "elsub_config5.json",
 )
 
 
@@ -170,8 +169,15 @@ def load_gui_settings() -> dict[str, str]:
         "script_text",
         "gap_sec",
         "range_spec",
+        "auto_play_range",
     ):
         v = data.get(key)
+        if key == "auto_play_range":
+            if isinstance(v, bool):
+                out[key] = "true" if v else "false"
+            elif isinstance(v, str) and v.strip():
+                out[key] = v.strip().lower()
+            continue
         if isinstance(v, str) and v.strip():
             out[key] = v.strip()
         elif key == "gap_sec" and isinstance(v, (int, float)):
@@ -190,6 +196,7 @@ def save_gui_settings(
     script_text: str = "",
     gap_sec: str = "1",
     range_spec: str = "",
+    auto_play_range: bool = False,
 ) -> None:
     root = (root_dir or "").strip()
     outp = (mp3_path or tts_path or output_dir or "").strip()
@@ -199,8 +206,9 @@ def save_gui_settings(
         touch_workspace_from_path(outp)
     p = gui_config_path()
     p.parent.mkdir(parents=True, exist_ok=True)
-    data: dict[str, str] = {
+    data: dict[str, str | bool] = {
         "gap_sec": (gap_sec or "1").strip(),
+        "auto_play_range": bool(auto_play_range),
     }
     if root:
         data["root_dir"] = root

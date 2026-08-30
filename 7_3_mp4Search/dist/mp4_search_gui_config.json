@@ -1,17 +1,17 @@
 {
-  "mp4_dir": "C:/cursor/videt/무협극장/검신귀환록/1부/완결",
+  "mp4_dir": "C:\\cursor\\wuxia\\workspace\\swardmaster\\2부\\20장\\mp4",
   "download_dir": "C:\\Users\\nh2015005\\Downloads",
   "preview_pane_width": 520,
-  "burn_subtitles": false,
-  "srt_file": "C:/cursor/videt/무협극장/검신귀환록/1부/11장/mp3/new.srt",
-  "mp3_file": "C:\\cursor\\videt\\무협극장\\검신귀환록\\1부\\11장\\mp3\\all.mp3",
+  "burn_subtitles": true,
+  "srt_file": "C:/cursor/wuxia/workspace/swardmaster/2부/20장/mp3/new.srt",
+  "mp3_file": "C:\\cursor\\wuxia\\workspace\\swardmaster\\2부\\20장\\mp3\\all.mp3",
   "play_loop": false,
   "download_mp4_inputs": {},
   "mp4_play_modes": {
     "13": "loop"
   },
   "add_announcer": false,
-  "announcer_file": "C:\\cursor\\videt\\무협극장\\anouncer\\jwhShirt.mp4",
+  "announcer_file": "",
   "mp4_mute": {},
   "folder_merge": true,
   "mp4_mute_files": {

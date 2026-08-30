@@ -19,9 +19,10 @@ _KEYS = (
     "scene_index",
     "srt_path",
     "prompt_path",
-    "interval_sec",
-    "request_wait_sec",
     "hourly_limit_retry",
+    "limit_session_start",
+    "shutdown_after_complete",
+    "shutdown_after_hours",
     "manual_secs",
 )
 
@@ -61,7 +62,7 @@ def load_gui_settings() -> dict[str, str]:
         v = data.get(k)
         if isinstance(v, str):
             out[k] = v
-        elif k in ("scene_index", "interval_sec", "request_wait_sec") and isinstance(
+        elif k in ("scene_index",) and isinstance(
             v, int
         ):
             out[k] = str(v)

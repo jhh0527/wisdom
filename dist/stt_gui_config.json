@@ -1,3 +1,8 @@
 {
-  "whisper_model": "base"
+  "root_dir": "C:\\cursor\\videt\\무협극장\\검신귀환록\\1부\\11장",
+  "mp3_dir": "C:\\cursor\\videt\\무협극장\\검신귀환록\\1부\\11장\\mp3",
+  "output_dir": "C:\\cursor\\videt\\무협극장\\검신귀환록\\1부\\11장\\mp3",
+  "audio_path": "",
+  "whisper_model": "base",
+  "language": "ko"
 }

@@ -3,20 +3,26 @@
 
 from __future__ import annotations
 
+import os
+import shutil
+import subprocess
+import sys
 import threading
 import tkinter as tk
+from dataclasses import replace
 from pathlib import Path
 from tkinter import filedialog, font as tkfont, scrolledtext, ttk
 
 from script_voice import __version__
 from script_voice.dialogue import (
     check_speakers_against_voices,
-    format_dialogue_for_textarea,
     load_dialogue_json,
+    update_dialogue_texts,
 )
 from script_voice.parser import parse_numbered_paragraphs
 from script_voice.pipeline import (
     DEFAULT_GAP_SEC,
+    all_mp3_start_sec,
     convert_dialogue_json_to_mp3s,
     convert_script_to_mp3s,
     discover_part_mp3s,
@@ -39,6 +45,90 @@ from script_voice.settings import (
 from wisdom_workspace import touch_workspace_from_path
 
 
+def _play_mp3(path: Path | str) -> None:
+    """기본 재생 앱으로 MP3 재생."""
+    p = Path(path).expanduser().resolve()
+    if not p.is_file():
+        raise FileNotFoundError(str(p))
+    if sys.platform == "win32":
+        os.startfile(str(p))  # type: ignore[attr-defined]
+        return
+    if sys.platform == "darwin":
+        subprocess.Popen(["open", str(p)], start_new_session=True)
+        return
+    subprocess.Popen(["xdg-open", str(p)], start_new_session=True)
+
+
+def _play_mp3s(paths: list[Path]) -> None:
+    """재합성된 MP3 재생 — 1개는 기본 앱, 여러 개는 ffplay 순차 재생."""
+    files = [Path(p).resolve() for p in paths if Path(p).is_file()]
+    if not files:
+        return
+    if len(files) == 1:
+        _play_mp3(files[0])
+        return
+    for p in files:
+        subprocess.run(
+            ["ffplay", "-nodisp", "-autoexit", "-loglevel", "quiet", str(p)],
+            check=True,
+        )
+
+
+def _play_all_mp3_from_sec(path: Path | str, start_sec: float) -> None:
+    """``all.mp3`` 를 지정 시각(초)부터 재생. ffplay 없으면 처음부터."""
+    p = Path(path).expanduser().resolve()
+    if not p.is_file():
+        raise FileNotFoundError(str(p))
+    start = max(0.0, float(start_sec))
+    ffplay = shutil.which("ffplay")
+    if ffplay:
+        kw: dict = {}
+        if sys.platform == "win32":
+            kw["creationflags"] = subprocess.CREATE_NO_WINDOW  # type: ignore[attr-defined]
+        subprocess.run(
+            [
+                ffplay,
+                "-nodisp",
+                "-autoexit",
+                "-loglevel",
+                "quiet",
+                "-ss",
+                f"{start:.3f}",
+                str(p),
+            ],
+            check=True,
+            **kw,
+        )
+        return
+    _play_mp3(p)
+
+
+def _play_all_mp3_async(path: Path | str, start_sec: float) -> None:
+    def work() -> None:
+        try:
+            _play_all_mp3_from_sec(path, start_sec)
+        except (FileNotFoundError, subprocess.CalledProcessError, OSError):
+            try:
+                _play_mp3(path)
+            except OSError:
+                pass
+
+    threading.Thread(target=work, daemon=True).start()
+
+
+def _play_mp3s_async(paths: list[Path]) -> None:
+    def work() -> None:
+        try:
+            _play_mp3s(paths)
+        except (FileNotFoundError, subprocess.CalledProcessError, OSError):
+            try:
+                _play_mp3(paths[0])
+            except OSError:
+                pass
+
+    threading.Thread(target=work, daemon=True).start()
+
+
 def _default_font() -> tuple[str, int]:
     try:
         f = tkfont.nametofont("TkDefaultFont")
@@ -57,6 +147,7 @@ def main(*, container: tk.Misc | None = None) -> None:
         run_mainloop,
         safe_after,
         safe_messagebox,
+        show_toast,
         tk_host,
     )
 
@@ -90,6 +181,7 @@ def main(*, container: tk.Misc | None = None) -> None:
     else:
         gap_default = _gap_saved
     script_default = cfg.get("script_text") or ""
+    script_store: dict[str, str] = {"text": script_default}
     dialogue_default = (cfg.get("dialogue_json") or "").strip()
     range_default = (cfg.get("range_spec") or "").strip()
     cfg_path = resolve_preset_config(cfg.get("config_file"))
@@ -104,7 +196,7 @@ def main(*, container: tk.Misc | None = None) -> None:
     status_var = tk.StringVar(
         value="루트/tts dialogue JSON → mp3/ (01.mp3…) · 구간 재합성 · 병합"
     )
-    prog_var = tk.DoubleVar(value=0.0)
+    prog_pct_var = tk.StringVar(value="")
     busy = {"v": False}
 
     frm = ttk.Frame(root, padding=10)
@@ -113,21 +205,25 @@ def main(*, container: tk.Misc | None = None) -> None:
     frm.grid_rowconfigure(2, weight=1)
 
     def persist() -> None:
+        if preview_mode["v"] == "script":
+            script_store["text"] = text.get("1.0", tk.END)
         save_gui_settings(
             root_dir=root_var.get().strip(),
             mp3_path=mp3_var.get().strip(),
             config_file=cfg_var.get().strip(),
             dialogue_json=dialogue_var.get().strip(),
-            script_text=text.get("1.0", tk.END),
+            script_text=script_store["text"],
             gap_sec=gap_var.get().strip() or str(DEFAULT_GAP_SEC),
             range_spec=range_var.get().strip(),
+            auto_play_range=False,
         )
 
     def set_status(msg: str) -> None:
         status_var.set(msg)
 
     def set_progress(pct: float, msg: str = "") -> None:
-        prog_var.set(max(0.0, min(100.0, float(pct))))
+        p = max(0.0, min(100.0, float(pct)))
+        prog_pct_var.set(f"{int(round(p))}%완료/100%")
         if msg:
             status_var.set(msg)
 
@@ -331,19 +427,27 @@ def main(*, container: tk.Misc | None = None) -> None:
 
     tip = ttk.Label(
         frm,
-        text="JSON → 루트/mp3 (01.mp3 + lines.json + all.mp3) · 구간 재합성 · API 키만 elsub_config",
+        text="JSON 그리드 대사 편집 → x.json 저장 · 구간 재합성은 MP3만 · 병합은 「병합」버튼",
         foreground="#555",
     )
     tip.grid(row=1, column=0, sticky="w", pady=(0, 4))
 
     text_fr = ttk.LabelFrame(
         frm,
-        text="대본 미리보기 (JSON 줄번호 [n] · [N] 변환 시에도 사용)",
+        text="대본 · JSON 그리드 (대사 더블클릭 → 원본 JSON 저장)",
         padding=4,
     )
     text_fr.grid(row=2, column=0, sticky="nsew")
     text_fr.grid_columnconfigure(0, weight=1)
     text_fr.grid_rowconfigure(1, weight=1)
+
+    preview_body = ttk.Frame(text_fr)
+    preview_body.grid(row=1, column=0, sticky="nsew")
+    preview_body.grid_columnconfigure(0, weight=1)
+    preview_body.grid_rowconfigure(0, weight=1)
+    preview_mode: dict[str, str] = {"v": "script"}
+    dialogue_lines_cache: list = []
+    tree_edit: dict = {"entry": None, "item": None}
 
     search_fr = ttk.Frame(text_fr)
     search_fr.grid(row=0, column=0, sticky="ew", pady=(0, 4))
@@ -357,11 +461,121 @@ def main(*, container: tk.Misc | None = None) -> None:
         row=0, column=4, sticky="e", padx=(8, 0)
     )
 
-    text = scrolledtext.ScrolledText(text_fr, wrap=tk.WORD, height=18)
-    text.grid(row=1, column=0, sticky="nsew")
+    text = scrolledtext.ScrolledText(preview_body, wrap=tk.WORD, height=18)
+    text.grid(row=0, column=0, sticky="nsew")
     text.tag_configure("search_hit", background="#ffe08a")
     if script_default:
         text.insert("1.0", script_default)
+
+    tree_fr = ttk.Frame(preview_body)
+    tree_cols = ("idx", "speaker", "text")
+    tree = ttk.Treeview(tree_fr, columns=tree_cols, show="headings", height=18)
+    tree.heading("idx", text="#")
+    tree.heading("speaker", text="화자")
+    tree.heading("text", text="대사")
+    tree.column("idx", width=44, stretch=False, anchor="center")
+    tree.column("speaker", width=100, stretch=False)
+    tree.column("text", width=520, stretch=True)
+    tree_vsb = ttk.Scrollbar(tree_fr, orient=tk.VERTICAL, command=tree.yview)
+    tree.configure(yscrollcommand=tree_vsb.set)
+    tree.grid(row=0, column=0, sticky="nsew")
+    tree_vsb.grid(row=0, column=1, sticky="ns")
+    tree_fr.grid_columnconfigure(0, weight=1)
+    tree_fr.grid_rowconfigure(0, weight=1)
+    tree_fr.grid(row=0, column=0, sticky="nsew")
+    tree_fr.grid_remove()
+
+    def _show_script_preview() -> None:
+        preview_mode["v"] = "script"
+        tree_fr.grid_remove()
+        text.grid(row=0, column=0, sticky="nsew")
+
+    def _show_dialogue_preview() -> None:
+        preview_mode["v"] = "dialogue"
+        text.grid_remove()
+        tree_fr.grid(row=0, column=0, sticky="nsew")
+
+    def _cancel_tree_edit() -> None:
+        ent = tree_edit.get("entry")
+        if ent is not None:
+            try:
+                ent.destroy()
+            except tk.TclError:
+                pass
+        tree_edit["entry"] = None
+        tree_edit["item"] = None
+
+    def _commit_tree_edit(*_args: object) -> None:
+        ent = tree_edit.get("entry")
+        item = tree_edit.get("item")
+        if ent is None or not item:
+            return
+        new_text = ent.get().strip()
+        _cancel_tree_edit()
+        if not new_text:
+            set_status("대사는 비울 수 없습니다.")
+            return
+        vals = tree.item(item, "values")
+        if not vals:
+            return
+        try:
+            line_idx = int(str(vals[0]))
+        except ValueError:
+            return
+        old_text = str(vals[2] if len(vals) > 2 else "")
+        if new_text == old_text:
+            return
+        jp = dialogue_var.get().strip()
+        if not jp or not Path(jp).expanduser().is_file():
+            set_status("dialogue JSON 경로가 없습니다.")
+            return
+        try:
+            n = update_dialogue_texts(jp, {line_idx: new_text})
+        except Exception as e:
+            safe_messagebox(root, "showerror", "2_2 scriptToVoice", str(e))
+            return
+        speaker = str(vals[1] if len(vals) > 1 else "")
+        tree.item(item, values=(line_idx, speaker, new_text))
+        for i, ln in enumerate(dialogue_lines_cache):
+            if ln.index == line_idx:
+                dialogue_lines_cache[i] = replace(ln, text=new_text)
+                break
+        set_status(
+            f"JSON 저장 — [{line_idx}] {speaker} ({n}줄 변경) · {Path(jp).name}"
+        )
+
+    def _start_tree_edit(_event: object | None = None) -> None:
+        if busy["v"]:
+            return
+        if preview_mode["v"] != "dialogue":
+            return
+        if tree_edit.get("entry") is not None:
+            _commit_tree_edit()
+        sel = tree.selection()
+        if not sel:
+            return
+        item = sel[0]
+        col = tree.identify_column(getattr(_event, "x", 0) or 0)
+        if col != "#3":
+            return
+        bbox = tree.bbox(item, column="text")
+        if not bbox:
+            return
+        x, y, w, h = bbox
+        vals = tree.item(item, "values")
+        cur = str(vals[2] if len(vals) > 2 else "")
+        ent = ttk.Entry(tree_fr)
+        ent.insert(0, cur)
+        ent.place(x=x, y=y, width=w, height=h)
+        ent.focus_set()
+        ent.select_range(0, tk.END)
+        tree_edit["entry"] = ent
+        tree_edit["item"] = item
+        ent.bind("<Return>", _commit_tree_edit)
+        ent.bind("<Escape>", lambda _e: (_cancel_tree_edit(), "break")[1])
+        ent.bind("<FocusOut>", _commit_tree_edit)
+
+    tree.bind("<Double-1>", _start_tree_edit)
 
     def _clear_search_tags() -> None:
         try:
@@ -375,6 +589,35 @@ def main(*, container: tk.Misc | None = None) -> None:
             search_status.set("")
             _clear_search_tags()
             set_status("검색어를 입력하세요.")
+            return
+        if preview_mode["v"] == "dialogue":
+            items = tree.get_children("")
+            hits: list[str] = []
+            for item in items:
+                vals = tree.item(item, "values")
+                hay = " ".join(str(v) for v in vals)
+                if needle in hay:
+                    hits.append(item)
+            if not hits:
+                search_status.set("없음")
+                set_status(f"검색 결과 없음: {needle}")
+                return
+            cur = tree.selection()
+            start_i = 0
+            if cur and cur[0] in hits:
+                start_i = hits.index(cur[0])
+                if backward:
+                    start_i = (start_i - 1) % len(hits)
+                else:
+                    start_i = (start_i + 1) % len(hits)
+            elif backward:
+                start_i = len(hits) - 1
+            pick = hits[start_i]
+            tree.selection_set(pick)
+            tree.focus(pick)
+            tree.see(pick)
+            search_status.set(f"{len(hits)}건")
+            set_status(f"검색: {needle} — {len(hits)}건")
             return
         _clear_search_tags()
         start = text.index(tk.INSERT)
@@ -434,7 +677,7 @@ def main(*, container: tk.Misc | None = None) -> None:
     root.bind("<Shift-F3>", lambda _e: (find_in_textarea(backward=True), "break")[1])
 
     def show_dialogue_in_textarea(path: str | Path) -> None:
-        """dialogue JSON → textarea 에 ``[1] speaker | text`` 줄번호 표시."""
+        """dialogue JSON → 그리드 (# · 화자 · 대사)."""
         raw = str(path or "").strip()
         if not raw:
             return
@@ -443,17 +686,29 @@ def main(*, container: tk.Misc | None = None) -> None:
             set_status(f"JSON 없음: {p}")
             return
         try:
+            _cancel_tree_edit()
             lines = load_dialogue_json(p)
-            preview = format_dialogue_for_textarea(lines)
+            dialogue_lines_cache.clear()
+            dialogue_lines_cache.extend(lines)
         except Exception as e:
             set_status(f"JSON 미리보기 실패: {e}")
             safe_messagebox(root, "showerror", "2_2 scriptToVoice", str(e))
             return
-        text.delete("1.0", tk.END)
-        text.insert("1.0", preview)
+        for item in tree.get_children(""):
+            tree.delete(item)
+        for line in lines:
+            tree.insert(
+                "",
+                tk.END,
+                iid=str(line.index),
+                values=(line.index, line.speaker, line.text),
+            )
+        _show_dialogue_preview()
         dialogue_var.set(str(p.resolve()) if p.exists() else raw)
         persist()
-        set_status(f"JSON: {p.name} — {len(lines)}줄 (본문에 줄번호 표시)")
+        set_status(
+            f"JSON: {p.name} — {len(lines)}줄 (대사 더블클릭 → 원본 JSON 저장)"
+        )
 
     def refresh_settings() -> None:
         """저장된 GUI·API 설정을 다시 불러온다."""
@@ -493,6 +748,7 @@ def main(*, container: tk.Misc | None = None) -> None:
             if dj and Path(dj).expanduser().is_file():
                 show_dialogue_in_textarea(dj)
             elif fresh.get("script_text"):
+                _show_script_preview()
                 text.delete("1.0", tk.END)
                 text.insert("1.0", fresh["script_text"])
             set_status(f"설정 다시 불러옴 · {Path(cfg_var.get()).name}")
@@ -517,9 +773,11 @@ def main(*, container: tk.Misc | None = None) -> None:
         range_spec: str,
         require_range: bool,
         auto_merge: bool,
+        play_paths: bool = False,
     ) -> None:
         if busy["v"]:
             return
+        _commit_tree_edit()
         jp = dialogue_var.get().strip()
         if not jp or not Path(jp).expanduser().is_file():
             safe_messagebox(
@@ -590,33 +848,83 @@ def main(*, container: tk.Misc | None = None) -> None:
                     names = ", ".join(p.name for p in paths[:8])
                     if len(paths) > 8:
                         names += f" … (+{len(paths) - 8})"
-                    if merged:
+                    played = False
+                    play_label = ""
+                    if play_paths and require_range:
+                        all_path = merged if merged and merged.is_file() else out / "all.mp3"
+                        if all_path.is_file():
+                            offset = all_mp3_start_sec(out, from_line=lo, gap_sec=g)
+                            _play_all_mp3_async(all_path, offset)
+                            played = True
+                            play_label = (
+                                f"all.mp3 [{lo}]부터 ({offset:.1f}s)"
+                                if offset > 0.05
+                                else f"all.mp3 [{lo}]부터"
+                            )
+                        elif paths:
+                            _play_mp3s_async(paths)
+                            played = True
+                            play_label = paths[0].name
+                    elif play_paths and paths:
+                        _play_mp3s_async(paths)
+                        played = True
+                        play_label = paths[0].name
+                    if merged and require_range:
+                        set_progress(
+                            100.0,
+                            f"구간 재합성+병합 — {range_note} → {merged.name}"
+                            + (f" · {play_label} 재생" if played else ""),
+                        )
+                        show_toast(
+                            root,
+                            f"구간 {range_note} ({len(paths)}줄) 재합성 + 병합(텀 {g:.2f}s)\n"
+                            f"→ {merged}\n\n"
+                            f"재생성: {names}\n"
+                            + (f"재생: {play_label}\n" if played else "")
+                            + f"폴더: {out}",
+                            title="2_2 scriptToVoice · 완료",
+                        )
+                    elif merged:
                         set_progress(
                             100.0,
                             f"JSON 완료 — {range_note} {len(paths)}줄 → {merged.name}",
                         )
-                        safe_messagebox(
+                        show_toast(
                             root,
-                            "showinfo",
-                            "2_2 scriptToVoice",
                             f"JSON 구간 {range_note} ({len(paths)}줄) 합성 + 병합(텀 {g:.2f}s)\n"
                             f"→ {merged}\n\n"
                             f"재생성: {names}\n"
                             f"폴더: {out}",
+                            title="2_2 scriptToVoice · 완료",
+                        )
+                    elif require_range:
+                        play_note = f"재생: {play_label}\n" if played and play_label else ""
+                        set_progress(
+                            100.0,
+                            f"구간 재합성 완료 — {range_note} {len(paths)}개"
+                            + (f" · {play_label} 재생" if played and play_label else ""),
+                        )
+                        show_toast(
+                            root,
+                            f"구간 {range_note} MP3 재생성 ({len(paths)}개)\n"
+                            f"{names}\n\n"
+                            f"{play_note}"
+                            f"폴더: {out}\n"
+                            f"(all.mp3 없음 — 「병합」으로 합치세요)",
+                            title="2_2 scriptToVoice · 완료",
                         )
                     else:
                         set_progress(
                             100.0,
                             f"구간 재합성 완료 — {range_note} {len(paths)}개 → {out}",
                         )
-                        safe_messagebox(
+                        show_toast(
                             root,
-                            "showinfo",
-                            "2_2 scriptToVoice",
                             f"구간 {range_note} MP3 재생성 ({len(paths)}개)\n"
                             f"{names}\n\n"
                             f"폴더: {out}\n"
                             f"(전체 병합은 「병합」 버튼)",
+                            title="2_2 scriptToVoice · 완료",
                         )
 
                 safe_after(root, done)
@@ -631,7 +939,12 @@ def main(*, container: tk.Misc | None = None) -> None:
                 safe_after(root, fail)
 
         set_busy(True)
-        if auto_merge:
+        if require_range and auto_merge:
+            set_progress(
+                0.0,
+                f"구간 재합성+병합 {lo}~{hi} ({n_target}줄) · 텀 {g:.2f}s → {out}",
+            )
+        elif auto_merge:
             set_progress(
                 0.0,
                 f"JSON {lo}~{hi} ({n_target}줄) 변환+병합 · 텀 {g:.2f}s → {out}",
@@ -648,11 +961,12 @@ def main(*, container: tk.Misc | None = None) -> None:
         _run_json_convert(range_spec="", require_range=False, auto_merge=True)
 
     def do_convert_range() -> None:
-        # 해당 구간 NN.mp3 만 재생성 (병합은 별도)
+        # 구간 재합성만 — all.mp3 자동 병합·재생 없음
         _run_json_convert(
             range_spec=range_var.get(),
             require_range=True,
             auto_merge=False,
+            play_paths=False,
         )
 
     def do_convert() -> None:
@@ -716,11 +1030,10 @@ def main(*, container: tk.Misc | None = None) -> None:
                 def done() -> None:
                     set_busy(False)
                     set_progress(100.0, f"변환+병합 완료 → {dest.name}")
-                    safe_messagebox(
+                    show_toast(
                         root,
-                        "showinfo",
-                        "2_2 scriptToVoice",
                         f"{len(paths)}개 MP3 생성 + 병합(텀 {g:.2f}s)\n→ {dest}",
+                        title="2_2 scriptToVoice · 완료",
                     )
 
                 safe_after(root, done)
@@ -773,11 +1086,10 @@ def main(*, container: tk.Misc | None = None) -> None:
                 def done() -> None:
                     set_busy(False)
                     set_progress(100.0, f"병합 완료 → {dest}")
-                    safe_messagebox(
+                    show_toast(
                         root,
-                        "showinfo",
-                        "2_2 scriptToVoice",
                         f"{len(parts)}개 + 텀 {g:.2f}s\n→ {dest}",
+                        title="2_2 scriptToVoice · 완료",
                     )
 
                 safe_after(root, done)
@@ -861,15 +1173,10 @@ def main(*, container: tk.Misc | None = None) -> None:
     prog_fr = ttk.Frame(frm)
     prog_fr.grid(row=4, column=0, sticky="ew", pady=(10, 0))
     prog_fr.grid_columnconfigure(0, weight=1)
-    prog_bar = ttk.Progressbar(
-        prog_fr,
-        maximum=100,
-        mode="determinate",
-        variable=prog_var,
+    ttk.Label(prog_fr, textvariable=prog_pct_var).grid(row=0, column=0, sticky="w")
+    ttk.Label(prog_fr, textvariable=status_var).grid(
+        row=1, column=0, sticky="ew", pady=(4, 0)
     )
-    prog_bar.grid(row=0, column=0, sticky="ew")
-    prog_lbl = ttk.Label(prog_fr, textvariable=status_var)
-    prog_lbl.grid(row=1, column=0, sticky="ew", pady=(4, 0))
 
     def on_close() -> None:
         persist()

@@ -171,6 +171,7 @@ def main(*, container: tk.Misc | None = None) -> None:
         run_mainloop,
         safe_after,
         safe_messagebox,
+        show_toast,
         tk_host,
     )
 
@@ -1736,7 +1737,7 @@ def main(*, container: tk.Misc | None = None) -> None:
                     if iid:
                         refresh_tree_values(iid)
                     status_var.set(f"이미지 저장 — {dest}")
-                    safe_messagebox(root, "showinfo", "7_3 mp4Search", f"이미지 저장:\n{dest}")
+                    show_toast(root, f"이미지 저장:\n{dest}", title="7_3 mp4Search · 완료")
                     set_busy(False)
                 safe_after(root, ui)
             except Exception as e:
@@ -1787,7 +1788,11 @@ def main(*, container: tk.Misc | None = None) -> None:
                     else:
                         seg += "~끝"
                     status_var.set(f"저장 완료 ({seg}) — {dest.name}")
-                    safe_messagebox(root, "showinfo", "7_3 mp4Search", f"저장했습니다.\n\n{dest}\n구간: {seg}")
+                    show_toast(
+                        root,
+                        f"저장했습니다.\n\n{dest}\n구간: {seg}",
+                        title="7_3 mp4Search · 완료",
+                    )
                     set_busy(False)
 
                 safe_after(root, ui)
@@ -1841,7 +1846,11 @@ def main(*, container: tk.Misc | None = None) -> None:
                     else:
                         seg += "~끝"
                     status_var.set(f"저장 완료 ({seg}) — {dest.name}")
-                    safe_messagebox(root, "showinfo", "7_3 mp4Search", f"저장했습니다.\n\n{dest}\n구간: {seg}")
+                    show_toast(
+                        root,
+                        f"저장했습니다.\n\n{dest}\n구간: {seg}",
+                        title="7_3 mp4Search · 완료",
+                    )
                     set_busy(False)
 
                 safe_after(root, ui)
@@ -2622,11 +2631,10 @@ def main(*, container: tk.Misc | None = None) -> None:
                     n = len(pairs)
                     if n:
                         status_var.set(f"이미지 최적화 완료 — {n}개 (JPG 저장)")
-                        safe_messagebox(
+                        show_toast(
                             root,
-                            "showinfo",
-                            "7_3 mp4Search",
                             f"이미지 {n}개를 JPG로 최적화하고 합성 해상도에 맞췄습니다.\n\n{detail}",
+                            title="7_3 mp4Search · 완료",
                         )
                     else:
                         status_var.set("최적화할 이미지 없음 (mp4 폴더)")
@@ -2891,13 +2899,12 @@ def main(*, container: tk.Misc | None = None) -> None:
                                     stopped=True,
                                 )
                             )
-                            safe_messagebox(
+                            show_toast(
                                 root,
-                                "showinfo",
-                                "7_3 mp4Search",
                                 f"합성을 중지했습니다.\n\n저장: {out_file}\n"
                                 f"▶ 재생 또는 「조회」로 all.mp4를 확인하세요.\n\n{folder}\n\n"
                                 f"하단 「합성 로그」→ 로그 복사 후 제출해 주세요.",
+                                title="7_3 mp4Search · 중지",
                             )
                         else:
                             progress_var.set(0.0)
@@ -2929,12 +2936,11 @@ def main(*, container: tk.Misc | None = None) -> None:
                             miss_hint = "\n\n[주의]\n" + "\n".join(missing_rows[:8])
                             if len(missing_rows) > 8:
                                 miss_hint += f"\n… 외 {len(missing_rows) - 8}개"
-                        safe_messagebox(
+                        show_toast(
                             root,
-                            "showinfo",
-                            "7_3 mp4Search",
                             f"타임라인 합성 완료\n\n{out_file}\n\n[재생 시각]\n{summary}"
                             f"{miss_hint}\n\n하단 「합성 로그」→ 로그 복사 후 제출해 주세요.",
+                            title="7_3 mp4Search · 완료",
                         )
                     else:
                         progress_var.set(0.0)

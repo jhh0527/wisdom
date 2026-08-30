@@ -41,6 +41,7 @@ def main(*, container: tk.Misc | None = None) -> None:
         run_mainloop,
         safe_after,
         safe_messagebox,
+        show_toast,
         tk_host,
     )
 
@@ -291,8 +292,10 @@ def main(*, container: tk.Misc | None = None) -> None:
                 def done() -> None:
                     set_busy(False)
                     set_progress(100.0, f"완료 → {dest}")
-                    safe_messagebox(
-                        root, "showinfo", "2_3 STT", f"SRT 저장\n{dest}"
+                    show_toast(
+                        root,
+                        f"SRT 저장\n{dest}",
+                        title="2_3 STT · 완료",
                     )
 
                 safe_after(root, done)

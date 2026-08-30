@@ -16,8 +16,10 @@ from script_voice.elevenlabs_client import (
     concat_mp3_files_binary_from_paths,
     concat_mp3_files_ffmpeg,
     fade_out_trailing_mp3,
+    ffprobe_duration_sec,
     mute_trailing_spike_mp3,
     prepare_tts_for_api,
+    prepend_silence_mp3,
     silence_sec_from_prepared,
     synthesize_mp3,
     trim_trailing_silence_mp3,
@@ -43,6 +45,8 @@ _CLAUSE_JOIN_SILENCE_SEC = 0.50
 DEFAULT_GAP_SEC = 1.0
 # 개별 클립 ffmpeg 후처리 패딩 비활성 — 재인코딩이 끝 음절을 깎음. 텀은 병합 gap 만 사용.
 TRAILING_PAD_SEC = 0.0
+# 클립 앞 무음 — 플레이어/TTS 초성 잘림 체감 완화
+LEADING_PAD_SEC = 0.15
 LINES_INDEX_NAME = "lines.json"
 
 
@@ -133,6 +137,31 @@ def discover_part_mp3s(out_dir: Path) -> list[Path]:
     return [p for _, p in found]
 
 
+def all_mp3_start_sec(
+    out_dir: Path,
+    *,
+    from_line: int,
+    gap_sec: float = DEFAULT_GAP_SEC,
+) -> float:
+    """병합 ``all.mp3`` 에서 1-based 줄 번호가 시작되는 시각(초). 텀 포함."""
+    n = max(1, int(from_line))
+    if n <= 1:
+        return 0.0
+    gap = max(0.0, float(gap_sec))
+    total = 0.0
+    for i in range(1, n):
+        p = paragraph_mp3_path(out_dir, i)
+        if not p.is_file():
+            continue
+        d = ffprobe_duration_sec(p)
+        if d <= 0.0:
+            continue
+        total += d
+        if gap > 0.001:
+            total += gap
+    return total
+
+
 def write_lines_index(
     out_dir: Path,
     entries: list[dict],
@@ -191,6 +220,12 @@ def _postprocess_clip(dest: Path, *, allow_mute: bool = True) -> None:
     fade_out_trailing_mp3(dest)
 
 
+def _apply_leading_pad(dest: Path, leading_pad_sec: float) -> None:
+    pad = max(0.0, float(leading_pad_sec))
+    if pad >= 0.05:
+        prepend_silence_mp3(dest, pad)
+
+
 def _synthesize_to_file(
     *,
     api_key: str,
@@ -200,6 +235,7 @@ def _synthesize_to_file(
     model_id: str,
     trailing_pad_sec: float,
     gap_sec: float | None = None,
+    leading_pad_sec: float = LEADING_PAD_SEC,
 ) -> str:
     """한 줄 합성. 반환: ``ok`` | ``silence`` (구두점·말줄임만 등).
 
@@ -240,6 +276,7 @@ def _synthesize_to_file(
         )
         dest.write_bytes(audio)
         _postprocess_clip(dest)
+        _apply_leading_pad(dest, leading_pad_sec)
         pad = max(0.0, float(trailing_pad_sec))
         if pad >= 0.05:
             append_silence_mp3(dest, pad)
@@ -287,6 +324,7 @@ def _synthesize_to_file(
         # 문장 경계 quiet 를 말미 글리치로 오인하지 않도록 mute 생략
         trim_trailing_silence_mp3(dest, keep_silence_sec=0.28)
         fade_out_trailing_mp3(dest)
+        _apply_leading_pad(dest, leading_pad_sec)
         pad = max(0.0, float(trailing_pad_sec))
         if pad >= 0.05:
             append_silence_mp3(dest, pad)
@@ -531,9 +569,11 @@ def merge_part_mp3s(
 
 __all__ = [
     "DEFAULT_GAP_SEC",
+    "LEADING_PAD_SEC",
     "LINES_INDEX_NAME",
     "TRAILING_PAD_SEC",
     "Paragraph",
+    "all_mp3_start_sec",
     "cleanup_part_sidecars",
     "convert_dialogue_json_to_mp3s",
     "convert_script_to_mp3s",

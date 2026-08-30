@@ -1,0 +1,64 @@
+===== 2026-08-26 20:03:50 브라우저 열기 =====
+[20:03:50] 준비 txt=C:\cursor\wuxia\무협극장\검신귀환록\2부\15장\tts\15.txt md=C:\cursor\wuxia\1_2_textToJson\md\dialogue_json.txt
+[20:04:00] ChromeDebug reused=0 port=9222 restart=True
+[20:04:04] 모델 선택 시작 현재=Claude Haiku 4.5 → Claude Opus 4.6
+[20:04:04] 모델 칩 클릭: Claude Haiku 4.5
+[20:04:05] 모델 선택 결과 ok=True 칩=Claude Opus 4.6 picked=Claude Opus 4.6
+[20:04:05] 합본텍스트 입력 chars=28508 path=C:\cursor\wuxia\무협극장\검신귀환록\2부\15장\tts\text_to_json_bundle.txt
+[20:04:07] 입력창채움 ok=True chars_in=28508 chars_ui=28508
+[20:04:07] 전송후보 n=4 composer={'x': 29, 'y': 618, 'w': 1000, 'h': 216} top=[('DIV', 36, 36, 1011, 862, 'input-icon ml-[8px]'), ('DIV', 36, 36, 1011, 862, 'enter-icon items-end cursor-pointer active'), ('DIV', 36, 36, 1011, 862, 'enter-icon-wrapper rounded-[35%] md:hover:opacit'), ('DIV', 36, 36, 967, 862, 'cursor-pointer flex items-center p-[8px] rounded')]
+[20:04:08] 전송시도#1 method=send how=geo:DIV:input-icon ml-[8px] ok=False composer_len=28508 grew=False generating=False
+[20:04:10] 전송후보 n=7 composer=None top=[('BUTTON', 72, 56, 733, 873, '아래로 스크롤 vfppkd-lgbsse vfppkd-lgbsse-owxexe-k8qpj'), ('BUTTON', 74, 40, 876, 562, 'vfppkd-lgbsse vfppkd-lgbsse-owxexe-k8qpj vfppkd-'), ('BUTTON', 100, 40, 765, 562, 'vfppkd-lgbsse vfppkd-lgbsse-owxexe-dgl2hf ksbjec'), ('BUTTON', 130, 20, 618, 426, '이메일을 잊으셨나요?'), ('A', 46, 48, 922, 650, 'google 서비스 약관(외부, 새 창에서 열림) avaq4d trzeuc 약관')]
+[20:04:11] 전송시도#2 method=corner how=geo:BUTTON:아래로 스크롤 vfppkd-lgbsse vfppkd-lgbsse-owxexe-k8qpj ok=True composer_len=0 grew=False generating=False
+[20:04:11] 전송확인 — 입력창 비움
+[20:04:11] 변환제출 mode=inline_text composer_remain=False generating=False txt=15.txt md=dialogue_json.txt sample=jsonSample.json voices=voices.json
+[20:04:11] 스크래프시작 wait_ms=600000 min_inputs=30 accept_n=20 src_chars=16557
+[20:04:11] 스크래프 tick=1 chars=97 inputs=0 gen=idle page_stable=0 json_ok=False finished=False best_inputs=0 speakers=0 loose=0
+[20:04:29] 스크래프 tick=10 chars=98 inputs=0 gen=idle page_stable=4 json_ok=False finished=False best_inputs=0 speakers=0 loose=0
+[20:04:43] 키보드복사시도 chars=0 inputs=0
+[20:04:51] 스크래프 tick=20 chars=0 inputs=0 gen=idle page_stable=3 json_ok=False finished=False best_inputs=0 speakers=0 loose=0
+[20:05:01] 키보드복사시도 chars=0 inputs=0
+===== 2026-08-26 20:05:03 브라우저 열기 =====
+[20:05:03] 준비 txt=C:\cursor\wuxia\무협극장\검신귀환록\2부\15장\tts\15.txt md=C:\cursor\wuxia\1_2_textToJson\md\dialogue_json.txt
+===== 2026-08-26 20:05:14 브라우저 열기 =====
+[20:05:14] 준비 txt=C:\cursor\wuxia\무협극장\검신귀환록\2부\15장\tts\15.txt md=C:\cursor\wuxia\1_2_textToJson\md\dialogue_json.txt
+[20:05:24] ChromeDebug reused=0 port=9222 restart=True
+[20:05:27] 모델 이미 Opus 4.6: Claude Opus 4.6
+[20:05:27] 합본텍스트 입력 chars=28508 path=C:\cursor\wuxia\무협극장\검신귀환록\2부\15장\tts\text_to_json_bundle.txt
+[20:05:29] 입력창채움 ok=True chars_in=28508 chars_ui=28508
+[20:05:30] 전송후보 n=4 composer={'x': 29, 'y': 584, 'w': 1000, 'h': 216} top=[('DIV', 36, 36, 1011, 828, 'input-icon ml-[8px]'), ('DIV', 36, 36, 1011, 828, 'enter-icon items-end cursor-pointer active'), ('DIV', 36, 36, 1011, 828, 'enter-icon-wrapper rounded-[35%] md:hover:opacit'), ('DIV', 36, 36, 967, 828, 'cursor-pointer flex items-center p-[8px] rounded')]
+[20:05:31] 전송시도#1 method=send how=geo:DIV:input-icon ml-[8px] ok=True composer_len=0 grew=False generating=False
+[20:05:31] 전송확인 — 입력창 비움
+[20:05:31] 변환제출 mode=inline_text composer_remain=False generating=False txt=15.txt md=dialogue_json.txt sample=jsonSample.json voices=voices.json
+[20:05:31] 스크래프시작 wait_ms=600000 min_inputs=30 accept_n=20 src_chars=16557
+[20:05:31] 스크래프 tick=1 chars=28530 inputs=3 gen=idle page_stable=0 json_ok=False finished=False best_inputs=0 speakers=14 loose=3
+[20:05:33] 스크래프 tick=2 chars=28543 inputs=3 gen=generating page_stable=0 json_ok=False finished=False best_inputs=3 speakers=14 loose=3
+[20:05:50] 스크래프 tick=10 chars=29795 inputs=3 gen=idle page_stable=0 json_ok=False finished=False best_inputs=3 speakers=29 loose=3
+[20:06:02] 키보드복사시도 chars=32269 inputs=3
+[20:06:11] 스크래프 tick=20 chars=31497 inputs=3 gen=idle page_stable=0 json_ok=False finished=False best_inputs=3 speakers=49 loose=3
+[20:06:22] 키보드복사시도 chars=34148 inputs=3
+[20:06:24] 클립보드시도 chars=4423 inputs=50
+[20:06:24] 클립보드 채택 inputs=50
+[20:06:33] 스크래프 tick=30 chars=33873 inputs=3 gen=idle page_stable=0 json_ok=False finished=False best_inputs=50 speakers=79 loose=3
+[20:06:54] 스크래프 tick=40 chars=35797 inputs=3 gen=idle page_stable=0 json_ok=False finished=False best_inputs=50 speakers=102 loose=3
+[20:07:14] 스크래프 tick=50 chars=37759 inputs=3 gen=idle page_stable=0 json_ok=False finished=False best_inputs=50 speakers=128 loose=3
+[20:07:35] 스크래프 tick=60 chars=39303 inputs=3 gen=idle page_stable=0 json_ok=False finished=False best_inputs=50 speakers=145 loose=3
+[20:07:57] 스크래프 tick=70 chars=41237 inputs=3 gen=idle page_stable=0 json_ok=False finished=False best_inputs=50 speakers=171 loose=3
+[20:08:18] 스크래프 tick=80 chars=42903 inputs=3 gen=idle page_stable=0 json_ok=False finished=False best_inputs=50 speakers=189 loose=3
+[20:08:39] 스크래프 tick=90 chars=44965 inputs=3 gen=idle page_stable=0 json_ok=False finished=False best_inputs=50 speakers=214 loose=3
+[20:09:01] 스크래프 tick=100 chars=47139 inputs=3 gen=idle page_stable=0 json_ok=False finished=False best_inputs=50 speakers=242 loose=3
+[20:09:23] 스크래프 tick=110 chars=48959 inputs=3 gen=idle page_stable=0 json_ok=False finished=False best_inputs=50 speakers=262 loose=3
+[20:09:44] 스크래프 tick=120 chars=51111 inputs=3 gen=idle page_stable=0 json_ok=False finished=False best_inputs=50 speakers=291 loose=3
+[20:10:07] 스크래프 tick=130 chars=53533 inputs=3 gen=idle page_stable=0 json_ok=False finished=False best_inputs=50 speakers=325 loose=3
+[20:10:29] 스크래프 tick=140 chars=55930 inputs=3 gen=idle page_stable=0 json_ok=False finished=False best_inputs=50 speakers=361 loose=3
+[20:10:53] 스크래프 tick=150 chars=57775 inputs=3 gen=idle page_stable=0 json_ok=False finished=False best_inputs=50 speakers=384 loose=3
+[20:11:20] 스크래프 tick=160 chars=60187 inputs=3 gen=idle page_stable=0 json_ok=False finished=False best_inputs=50 speakers=413 loose=3
+[20:11:42] 스크래프 tick=170 chars=62188 inputs=3 gen=idle page_stable=0 json_ok=False finished=False best_inputs=50 speakers=440 loose=3
+[20:12:04] 스크래프 tick=180 chars=64004 inputs=3 gen=idle page_stable=0 json_ok=False finished=False best_inputs=50 speakers=464 loose=3
+[20:12:27] 스크래프 tick=190 chars=66111 inputs=3 gen=idle page_stable=0 json_ok=False finished=False best_inputs=50 speakers=494 loose=3
+[20:12:49] 스크래프 tick=200 chars=68397 inputs=3 gen=idle page_stable=0 json_ok=False finished=False best_inputs=50 speakers=526 loose=3
+[20:13:12] 스크래프 tick=210 chars=69906 inputs=533 gen=idle page_stable=3 json_ok=True finished=True best_inputs=533 speakers=547 loose=533
+[20:13:12] 스크래프완료 chars=38152 inputs=533
+[20:13:12] 스크래프결과 chars=38152 head={"chapter": "제15장. 서령란의 경고", "voices_file": "../../../voices.json", "chunk_id": "A1", "inputs": [{"speaker": "narrator",…
+[20:13:12] 플로우종료 mode=inline_text logged_in=True scraped_chars=38152
+[20:13:13] JSON 저장OK → C:\cursor\wuxia\무협극장\검신귀환록\2부\15장\tts\15.json inputs=533 voices=C:\cursor\wuxia\무협극장\검신귀환록\voices.json

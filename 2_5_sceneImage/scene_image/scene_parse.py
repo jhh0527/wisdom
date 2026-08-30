@@ -204,6 +204,27 @@ def parse_srt_cues(srt_path: str | Path | None) -> list[SrtCue]:
     return cues
 
 
+def _dedupe_srt_texts(parts: list[str]) -> str:
+    """큐 단위 중복 제거(경계 겹침 유지하되 동일 문장 반복만 제거)."""
+    out: list[str] = []
+    seen: set[str] = set()
+    for t in parts:
+        key = re.sub(r"\s+", " ", t).strip()
+        if not key or key in seen:
+            continue
+        seen.add(key)
+        out.append(t.strip())
+    return "\n".join(out).strip()
+
+
+def _srt_texts_in_range(
+    cues: list[SrtCue],
+    t0: float,
+    t1: float,
+) -> list[str]:
+    return [c.text for c in cues if c.end > t0 and c.start < t1]
+
+
 def srt_dialogue_for_window(
     srt_path: str | Path | None,
     sec: int,
@@ -220,22 +241,30 @@ def srt_dialogue_for_window(
     t0 = float(max(0, int(sec)))
     t1 = t0 + float(gap)
 
-    def _collect(a: float, b: float) -> list[str]:
-        return [c.text for c in cues if c.end > a and c.start < b]
-
-    parts = _collect(t0, t1)
+    parts = _srt_texts_in_range(cues, t0, t1)
     if not parts:
-        parts = _collect(max(0.0, t0 - float(gap)), t0)
-    # 큐 단위 중복 제거(경계 겹침 유지하되 동일 문장 반복만 제거)
-    out: list[str] = []
-    seen: set[str] = set()
-    for t in parts:
-        key = re.sub(r"\s+", " ", t).strip()
-        if not key or key in seen:
-            continue
-        seen.add(key)
-        out.append(t.strip())
-    return "\n".join(out).strip()
+        parts = _srt_texts_in_range(cues, max(0.0, t0 - float(gap)), t0)
+    return _dedupe_srt_texts(parts)
+
+
+def srt_context_before(
+    srt_path: str | Path | None,
+    sec: int,
+    lookback_sec: int = 60,
+) -> str:
+    """현재 씬 직전 문맥 — ``[max(0, T-lookback), T)`` 대본.
+
+    이미지에 그릴 내용이 아니라 장소·인물·인과 파악용.
+    """
+    cues = parse_srt_cues(srt_path)
+    if not cues:
+        return ""
+    t1 = float(max(0, int(sec)))
+    if t1 <= 0:
+        return ""
+    look = max(1, int(lookback_sec))
+    t0 = max(0.0, t1 - float(look))
+    return _dedupe_srt_texts(_srt_texts_in_range(cues, t0, t1))
 
 
 def is_real_scene_prompt(prompt: str | None) -> bool:

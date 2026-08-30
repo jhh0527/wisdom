@@ -274,6 +274,68 @@ def format_dialogue_for_textarea(lines: list[DialogueLine]) -> str:
     return "\n".join(out) + ("\n" if out else "")
 
 
+def _nonempty_input_indices(inputs: list) -> list[int]:
+    """text 가 비어 있지 않은 inputs 배열 인덱스 (load_dialogue_json 순서)."""
+    indices: list[int] = []
+    for i, item in enumerate(inputs):
+        if not isinstance(item, dict):
+            continue
+        text = str(item.get("text", "") or "").strip()
+        if text:
+            indices.append(i)
+    return indices
+
+
+def update_dialogue_texts(
+    path: Path | str,
+    updates: dict[int, str],
+) -> int:
+    """``inputs[].text`` 를 1-based 대화 줄 번호 기준으로 갱신 후 JSON 저장.
+
+    ``load_dialogue_json`` 이 건너뛴 빈 text 줄은 번호에 포함되지 않습니다.
+    반환: 실제로 바뀐 줄 수.
+    """
+    if not updates:
+        return 0
+    p = Path(path).expanduser().resolve()
+    if not p.is_file():
+        raise FileNotFoundError(str(p))
+    try:
+        data = json.loads(p.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as e:
+        raise ValueError(f"JSON 파싱 실패: {p.name}\n{e}") from e
+    if not isinstance(data, dict):
+        raise ValueError("dialogue JSON 루트는 객체여야 합니다.")
+    inputs = data.get("inputs")
+    if not isinstance(inputs, list):
+        raise ValueError("dialogue JSON 에 inputs 배열이 필요합니다.")
+
+    idx_map = _nonempty_input_indices(inputs)
+    changed = 0
+    for line_idx, new_text in updates.items():
+        li = int(line_idx)
+        if li < 1 or li > len(idx_map):
+            continue
+        input_i = idx_map[li - 1]
+        item = inputs[input_i]
+        if not isinstance(item, dict):
+            continue
+        old = str(item.get("text", "") or "")
+        new = str(new_text or "")
+        if old == new:
+            continue
+        if not new.strip():
+            raise ValueError(f"[{li}] 대사는 비울 수 없습니다.")
+        item["text"] = new
+        changed += 1
+    if changed:
+        p.write_text(
+            json.dumps(data, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
+    return changed
+
+
 __all__ = [
     "DialogueLine",
     "SpeakerCheckResult",
@@ -281,4 +343,5 @@ __all__ = [
     "format_dialogue_for_textarea",
     "load_dialogue_json",
     "resolve_voice_id",
+    "update_dialogue_texts",
 ]

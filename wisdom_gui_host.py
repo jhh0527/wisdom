@@ -16,6 +16,8 @@ _hub_shutting_down = False
 _drop_hooked: set[int] = set()
 _ui_queues: weakref.WeakKeyDictionary[tk.Misc, queue.Queue[Callable[[], None]]] = weakref.WeakKeyDictionary()
 _ui_pump_hosts: weakref.WeakKeyDictionary[tk.Misc, bool] = weakref.WeakKeyDictionary()
+_toast_after: weakref.WeakKeyDictionary[tk.Misc, str] = weakref.WeakKeyDictionary()
+_toast_widget: weakref.WeakKeyDictionary[tk.Misc, tk.Frame] = weakref.WeakKeyDictionary()
 
 PathDropMode = Literal["dir", "file", "path"]
 
@@ -99,6 +101,95 @@ def safe_after(root: tk.Misc, fn: Callable[[], None], *, closing: bool = False) 
             pass
 
 
+def _dismiss_toast(host: tk.Misc) -> None:
+    prev_after = _toast_after.pop(host, None)
+    if prev_after:
+        try:
+            host.after_cancel(prev_after)
+        except tk.TclError:
+            pass
+    prev_frame = _toast_widget.pop(host, None)
+    if prev_frame is not None:
+        try:
+            if prev_frame.winfo_exists():
+                prev_frame.destroy()
+        except tk.TclError:
+            pass
+
+
+def show_toast(
+    root: tk.Misc,
+    message: str,
+    *,
+    title: str = "",
+    duration_ms: int | None = None,
+    wraplength: int = 420,
+) -> None:
+    """작업 완료 알림 — 잠시 표시 후 자동 사라짐.
+
+    하단 버튼(실행 등)을 가리지 않도록 **우상단**에 두고,
+    토스트를 클릭하면 즉시 닫혀 클릭이 막히지 않게 한다.
+    실패는 ``safe_messagebox``.
+    """
+    if not ui_alive(root):
+        return
+    msg = (message or "").strip()
+    if not msg:
+        return
+    ttl = duration_ms
+    if ttl is None:
+        ttl = min(8000, max(3500, 2800 + len(msg) * 18))
+
+    def _show() -> None:
+        if not ui_alive(root):
+            return
+        host = _ui_toplevel(root)
+        _dismiss_toast(host)
+        try:
+            fr = tk.Frame(host, bg="#1e5631", padx=14, pady=10, highlightthickness=1)
+            fr.configure(highlightbackground="#3d8f5a")
+            _toast_widget[host] = fr
+            if title.strip():
+                tk.Label(
+                    fr,
+                    text=title.strip(),
+                    fg="#c8f5d8",
+                    bg="#1e5631",
+                    font=("", 10, "bold"),
+                    anchor="w",
+                    cursor="hand2",
+                ).pack(anchor="w", pady=(0, 4))
+            tk.Label(
+                fr,
+                text=msg,
+                fg="white",
+                bg="#1e5631",
+                justify=tk.LEFT,
+                anchor="w",
+                wraplength=wraplength,
+                cursor="hand2",
+            ).pack(anchor="w")
+            # 우상단 — 하단 실행/저장 버튼과 겹치지 않음
+            fr.place(relx=1.0, rely=0.0, anchor="ne", x=-12, y=12)
+            fr.lift()
+            fr.configure(cursor="hand2")
+
+            def _hide(_event: tk.Event | None = None) -> str | None:
+                _dismiss_toast(host)
+                return "break"
+
+            # 클릭 시 즉시 닫기 (아래 위젯 클릭이 막힌 채 대기하지 않음)
+            fr.bind("<Button-1>", _hide)
+            for child in fr.winfo_children():
+                child.bind("<Button-1>", _hide)
+
+            _toast_after[host] = host.after(max(1500, int(ttl)), lambda: _hide(None))
+        except tk.TclError:
+            pass
+
+    safe_after(root, _show)
+
+
 def safe_messagebox(
     root: tk.Misc,
     kind: str,
@@ -134,6 +225,7 @@ def request_shutdown(root: tk.Misc) -> None:
     global _hub_shutting_down
     _hub_shutting_down = True
     top = root.winfo_toplevel()
+    _dismiss_toast(top)
     try:
         for aid in top.tk.call("after", "info"):
             try:

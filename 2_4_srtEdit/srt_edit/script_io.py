@@ -11,6 +11,11 @@ from pathlib import Path
 _EL_TAG_RE = re.compile(r"\[[^\]]*\]")
 # TTS 대본의 대사 따옴표 — 자막에는 넣지 않음
 _QUOTE_RE = re.compile(r'["\u201c\u201d\u201e\u201f\u00ab\u00bb\u300c\u300d\u300e\u300f]')
+# 장 제목 선두 (1_5 dialogue JSON inputs[0] / 원문 첫 줄과 동일 관례)
+_CHAPTER_TITLE_RE = re.compile(r"^제?\s*\d+\s*장\b")
+_PLACEHOLDER_CHAPTERS = frozenset(
+    {"장 제목", "chapter title", "제목", "untitled"}
+)
 
 
 def strip_elevenlabs_tags(text: str) -> str:
@@ -20,6 +25,23 @@ def strip_elevenlabs_tags(text: str) -> str:
     s = re.sub(r"[^\S\n]{2,}", " ", s)
     s = re.sub(r" *\n *", "\n", s)
     return s.strip()
+
+
+def detect_chapter_title(script_lines: list[str]) -> str | None:
+    """대본 첫 발화가 장 제목이면 그 문자열, 아니면 None.
+
+    장 제목이 없거나 플레이스홀더면 None — 호출측은 일반 정렬만 한다.
+    """
+    if not script_lines:
+        return None
+    first = strip_elevenlabs_tags((script_lines[0] or "").strip())
+    if not first:
+        return None
+    if first.casefold() in _PLACEHOLDER_CHAPTERS:
+        return None
+    if not _CHAPTER_TITLE_RE.match(first):
+        return None
+    return first
 
 
 def read_script_text(path: str | Path, *, limit: int = 500_000) -> str:

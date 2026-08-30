@@ -43,9 +43,10 @@ def module_md_dir() -> Path:
     if getattr(sys, "frozen", False):
         meipass = getattr(sys, "_MEIPASS", "")
         if meipass:
-            p = Path(meipass) / "md"
-            if p.is_dir():
-                return p
+            for sub in ("md_2_4_srtEdit", "md"):
+                p = Path(meipass) / sub
+                if p.is_dir():
+                    return p
         beside = Path(sys.executable).resolve().parent / "md"
         if beside.is_dir():
             return beside

@@ -1,16 +1,4 @@
 {
   "mp4_folder": "C:/cursor/videt/무협극장/검신귀환록/1부/완결",
-  "mute_files": {
-    "1장.mp4": "sound",
-    "7장.mp4": "sound",
-    "8장.mp4": "sound",
-    "9장.mp4": "sound",
-    "10장.mp4": "sound",
-    "11장.mp4": "sound",
-    "12장.mp4": "sound",
-    "13장.mp4": "sound",
-    "14장.mp4": "sound",
-    "15장.mp4": "sound",
-    "16장.mp4": "sound"
-  }
+  "mute_files": {}
 }

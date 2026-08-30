@@ -27,11 +27,11 @@ def default_root_dir() -> Path:
 
 
 def ensure_root_layout(root: Path | str) -> dict[str, Path]:
-    """루트 하위에 tts / stt / md / png 폴더 생성."""
+    """루트 하위에 tts / stt / md / png / mp3 폴더 생성."""
     r = Path(root).expanduser()
     r.mkdir(parents=True, exist_ok=True)
     out: dict[str, Path] = {}
-    for name in ("tts", "stt", "md", "png"):
+    for name in ("tts", "stt", "md", "png", "mp3"):
         p = r / name
         p.mkdir(parents=True, exist_ok=True)
         out[name] = p

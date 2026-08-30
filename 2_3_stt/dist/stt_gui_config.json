@@ -1,8 +1,8 @@
 {
-  "root_dir": "C:/cursor/wuxia/무협극장/검신귀환록/2부/14장",
-  "mp3_dir": "C:\\cursor\\wuxia\\무협극장\\검신귀환록\\2부\\14장\\mp3",
-  "output_dir": "C:\\cursor\\wuxia\\무협극장\\검신귀환록\\2부\\14장\\mp3",
-  "audio_path": "C:\\cursor\\wuxia\\무협극장\\검신귀환록\\2부\\14장\\mp3\\A1.mp3",
+  "root_dir": "C:/cursor/wuxia/workspace/swardmaster/2부/16장",
+  "mp3_dir": "C:\\cursor\\wuxia\\workspace\\swardmaster\\2부\\16장\\mp3",
+  "output_dir": "C:\\cursor\\wuxia\\workspace\\swardmaster\\2부\\16장\\mp3",
+  "audio_path": "C:\\cursor\\wuxia\\workspace\\swardmaster\\2부\\16장\\mp3\\all.mp3",
   "whisper_model": "base",
   "language": "ko"
 }

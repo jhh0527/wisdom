@@ -71,6 +71,7 @@ def main(*, container: tk.Misc | None = None) -> None:
         run_mainloop,
         safe_after,
         safe_messagebox,
+        show_toast,
         tk_host,
     )
 
@@ -462,7 +463,7 @@ def main(*, container: tk.Misc | None = None) -> None:
 
     tip = ttk.Label(
         frm,
-        text="브라우저 열기=로그인·보정·new.srt 자동 · 실패 시에만 「비교 표시」",
+        text="실행=로그인·보정·new.srt 자동 · 실패 시에만 「비교 표시」",
         foreground="#555",
     )
     tip.grid(row=6, column=0, columnspan=3, sticky="w", pady=(8, 0))
@@ -537,18 +538,18 @@ def main(*, container: tk.Misc | None = None) -> None:
         return read_script_text(resolved)
 
     def _apply_script_compare(body: str) -> str:
-        """tts/xx.json 의 text 원문과 비교해 큐 본문을 맞춘 뒤 new.srt 후보로 씀."""
-        script = _read_script_text()
-        if not script.strip() or not body.strip():
+        """Genspark 본문 유지 · 장 제목 뒤 잔여만 다음 큐로 이동."""
+        if not body.strip():
             return body
+        script = _read_script_text()
         src = resolve_tts_json(
             Path(tts_var.get().strip()) if tts_var.get().strip() else None,
             root=Path(root_var.get().strip()) if root_var.get().strip() else None,
         )
         fixed, n = correct_srt_with_script(body, script)
         diag_log.log(
-            f"대본비교 xx.json={src.name if src else '-'} "
-            f"변경큐={n} script_chars={len(script)}"
+            f"제목잔여이동 xx.json={src.name if src else '-'} "
+            f"변경={n} (Genspark본문유지)"
         )
         return fixed
 
@@ -729,7 +730,7 @@ def main(*, container: tk.Misc | None = None) -> None:
         if prep is None:
             return
         email, password, srt, tts_attach, md, cmd, script_src = prep
-        log_path = begin_diag("브라우저 열기")
+        log_path = begin_diag("실행")
         diag_log.log(
             f"준비 srt={srt} tts={tts_attach} md={md} "
             f"대본원본={script_src.name}"
@@ -772,15 +773,14 @@ def main(*, container: tk.Misc | None = None) -> None:
                                 100.0,
                                 f"보정 완료{login_note} — 수정 {n}블록 · new.srt → {exported}",
                             )
-                            safe_messagebox(
+                            show_toast(
                                 root,
-                                "showinfo",
-                                "2_4 srtEdit",
                                 f"브라우저·로그인·보정까지 완료했습니다.\n"
                                 f"원본과 다른 {n}곳을 노란색으로 표시했습니다.\n"
                                 f"대본: {script_src.name}\n"
                                 f"mp3/new.srt 저장:\n{exported}\n\n"
                                 f"진단로그:\n{log_path}",
+                                title="2_4 srtEdit · 완료",
                             )
                         else:
                             set_progress(
@@ -788,14 +788,13 @@ def main(*, container: tk.Misc | None = None) -> None:
                                 f"보정 결과 표시{login_note} — 수정 {n}블록 "
                                 f"(저장 안 됨) · 로그 {log_path}",
                             )
-                            safe_messagebox(
+                            show_toast(
                                 root,
-                                "showinfo",
-                                "2_4 srtEdit",
                                 f"Genspark 응답에서 SRT를 가져와\n"
                                 f"원본과 다른 {n}곳을 노란색으로 표시했습니다.\n"
                                 f"(new.srt 저장은 검증에서 건너뜀)\n\n"
                                 f"진단로그:\n{log_path}",
+                                title="2_4 srtEdit · 완료",
                             )
                         return
                     set_progress(
@@ -837,10 +836,10 @@ def main(*, container: tk.Misc | None = None) -> None:
         threading.Thread(target=work, daemon=True).start()
 
     def do_browser() -> None:
-        """브라우저 열기 = ChromeDebug 재시작부터 new.srt 까지 일괄."""
+        """실행 = ChromeDebug 재시작부터 new.srt 까지 일괄."""
         _start_genspark_correct()
 
-    btn_browser = ttk.Button(act, text="브라우저 열기", command=do_browser)
+    btn_browser = ttk.Button(act, text="실행", command=do_browser)
     btn_browser.pack(side=tk.LEFT, padx=(0, 8))
     btn_compare = ttk.Button(act, text="비교 표시", command=do_compare_paste)
     btn_compare.pack(side=tk.LEFT, padx=(0, 8))

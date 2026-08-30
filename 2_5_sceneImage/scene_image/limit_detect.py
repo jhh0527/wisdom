@@ -144,7 +144,6 @@ def parse_reset_at(text: str, *, now: datetime | None = None) -> datetime | None
                     dt = datetime(year + 1, mon, day, hour, minute)
                 except ValueError:
                     return None
-            # 같은 날 오전이 이미 지났으면 파싱 실패로 두고 매시간 폴백
             elif dt.date() == now.date() and dt < now:
                 return None
         return dt
@@ -251,3 +250,72 @@ def raise_limit_error(hit: LimitHit) -> None:
         reset_at=hit.reset_at,
         raw=hit.snippet,
     )
+
+
+_GENSPARK_LIMIT_HOURS = 5
+
+_SESSION_START_RE = re.compile(
+    r"(?P<hour>\d{1,2})\s*[:시h]\s*(?P<minute>\d{1,2})?\s*(?:분)?",
+)
+
+
+def parse_session_start_hm(text: str) -> tuple[int, int] | None:
+    """실행 시작 시각 ``14:30`` / ``14시 30분``."""
+    s = (text or "").strip()
+    if not s:
+        return None
+    m = _SESSION_START_RE.fullmatch(s) or _SESSION_START_RE.search(s)
+    if not m:
+        return None
+    hour = int(m.group("hour"))
+    minute = int(m.group("minute") or 0)
+    if not (0 <= hour <= 23 and 0 <= minute <= 59):
+        return None
+    return hour, minute
+
+
+def reset_at_from_session_start(
+    hour: int,
+    minute: int,
+    *,
+    now: datetime | None = None,
+) -> datetime:
+    """실행 시작 + 5시간 = 정상화 예상. 이미 지났으면 5시간씩 앞으로."""
+    now = now or datetime.now()
+    try:
+        start = now.replace(hour=hour, minute=minute, second=0, microsecond=0)
+    except ValueError:
+        return now + timedelta(hours=_GENSPARK_LIMIT_HOURS)
+    reset = start + timedelta(hours=_GENSPARK_LIMIT_HOURS)
+    while reset <= now + timedelta(seconds=30):
+        reset += timedelta(hours=_GENSPARK_LIMIT_HOURS)
+    return reset
+
+
+def resolve_limit_reset_at(
+    err: BaseException | str,
+    *,
+    session_start_hm: tuple[int, int] | None = None,
+    now: datetime | None = None,
+) -> datetime | None:
+    """배너 재설정 시각 → 없으면 실행 시작+5시간."""
+    now = now or datetime.now()
+    reset_at: datetime | None = None
+    raw = ""
+    if isinstance(err, AiImageLimitError):
+        reset_at = err.reset_at
+        raw = err.raw or ""
+    text = raw + "\n" + (str(err) if not isinstance(err, str) else err)
+    if reset_at is None:
+        reset_at = parse_reset_at(text, now=now)
+    if reset_at is None and session_start_hm:
+        reset_at = reset_at_from_session_start(
+            session_start_hm[0], session_start_hm[1], now=now
+        )
+    return reset_at
+
+
+def format_reset_at(dt: datetime | None) -> str:
+    if dt is None:
+        return "—"
+    return dt.strftime("%Y-%m-%d %H:%M")

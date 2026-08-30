@@ -35,14 +35,46 @@ GPT Image 2 이미지 프롬프트 작성 지침 (image.무협.v2.1 / mage v2.1 
 【작품 메타 — 교체 시 필수 기입】
 - 작품명: 검신귀환록
 - 출처: characters.md (나이·설정 우선) + art/character_sheet_prompt.md (비주얼)
+- character_data: characters.json
 - 주인공 영문명: Jin Muhan
 - 주인공 LOOK 변형: 입문≈15 / 기본≈19(하산·이대) / 전생≈35 최후 — 나이 숫자 구간(18-to-19) 금지, 하나로 고정
 - 주인공 상태: Face Identity(얼굴) 고정 + State Layer(머리·옷·상처)는 매칭표 상태키·프리셋으로만 변경
 - 프롬프트 인물명: 영문만 (한글 이름·라벨 금지)
 - SRT에 없는 인물 난입 금지
 - ★ 주인공 이미지: §0-A LOOK(나이) + State Layer + 장면 끝 Character Anchor(얼굴만 고정) 필수 ★
+- ★ 캐릭터 차별: §0-L 매트릭스 · 2인 이상 Contrast 절 · 등장 인물마다 Character Anchor ★
+- ★ 장 시작 권장: art/character_sheet_prompt.md 로 9인 전신 시트 1장 생성 → png/ref_characters.png 저장 ★
 
 【상태 범례】생존 / 사망 / 전생만 / 미등장 — 장면 시점과 맞는 LOOK만 사용
+
+--------------------------------------------------------------------------------
+0-L. 캐릭터 차별 매트릭스 · Character Differentiation
+--------------------------------------------------------------------------------
+목적: 정파·동기·비악당 인물이 Genspark에서 미소년 한 얼굴로 수렴하는 것 방지.
+원칙: Face Identity 축을 **서로 다른 축**으로 분배 · 2인 이상 장면에 Contrast 절 필수.
+
+【5축 차별 표 — 겹치지 않게】
+| 인물 | 눈 | 피부·체형 | 머리 실루엣 | 복색·무기 |
+| Jin | sharp narrow phoenix, ancient weary | porcelain fair, slender wiry | warrior topknot, jade pin | white-teal, silver plum |
+| Baek | wolf-like slanted, red iris hint | slightly tanned, lean athletic | low rough ponytail | gray-black, red collar, White Night |
+| Seong | round warm (NOT phoenix) | fair, healthy broader build | high topknot, golden pin | white-gold, golden guard sword |
+| Namgung | long narrow cold analytical | pale hollow cheeks, tall thin | low ponytail, white mourning ribbon | plain gray, hidden daggers |
+| Seo | phoenix + crimson iris (female) | porcelain, slender graceful | waist-length half-tied | crimson-black, vermilion brow mark |
+| Cheongheo | kind piercing elderly | weathered serene | silver beard to chest | deep indigo elder robes |
+
+【Anti-default — 모든 현생 비악당 인물】
+✗ NOT generic bishonen / NOT same face as other Huashan disciples
+✗ NOT interchangeable pretty boy — must keep §0 Face Identity + color code
+
+【2인 이상 Contrast 절 — CHARACTER LOOK 또는 프롬프트에 포함】
+Distinct faces side by side — do NOT merge into one generic pretty boy:
+[Jin: porcelain + phoenix + white-teal]; [Baek: tanned + wolf eyes + scar + gray-black]; …
+Each character keeps unique Face Identity from Character Bible.
+
+【장 시작 — 캐릭터 시트 앵커 (권장)】
+1) art/character_sheet_prompt.md 로 Genspark에서 9인 전신 시트 1장 생성
+2) png 폴더에 ref_characters.png 저장 (또는 Genspark reference 첨부)
+3) 이후 씬: Match established Character Bible faces from reference lineup
 
 --------------------------------------------------------------------------------
 0-A. Jin Muhan — 진무한(陳武寒) 주인공
@@ -58,6 +90,8 @@ GPT Image 2 이미지 프롬프트 작성 지침 (image.무협.v2.1 / mage v2.1 
 sharp narrow phoenix eyes · high straight nose · thin lips · defined jawline ·
 youthful East-Asian face with ancient weary eyes · cool porcelain fair skin ·
 slender wiry physique · calm unreadable face (기본 표정)
+
+【Anti-default】NOT generic bishonen · NOT same face as Seong Yu or Namgung Rin · porcelain + phoenix eyes 고유
 
 【State Layer — 머리·옷·상처·소품 · 매칭표 상태키로만 변경】
 기본(base): jet-black waist-length hair in warrior topknot with jade hairpin ·
@@ -134,6 +168,8 @@ Do not change facial identity, eye shape, or physique across scenes.
 wolf-like slanted eyes with faint red iris undertone · thick straight eyebrows ·
 small scar under left ear · slightly tanned skin · lean athletic build · deceptively warm smile (표면)
 
+【Anti-default】NOT porcelain fair skin · NOT phoenix eyes · NOT Jin Muhan's face · tanned + wolf eyes + ear scar 고유
+
 【State Layer — 기본 base】
 dark brown hair in low rough ponytail with leather cord ·
 gray-black Huashan branch-disciple robes with worn edges and red inner collar lining ·
@@ -150,6 +186,9 @@ slightly tanned skin, wolf-like slanted eyes with faint red iris undertone, thic
 small scar under left ear, [State Layer hair/robe/wound],
 athletic agile build, white-hilted jian "White Night", optional small black jade shard glowing faint red in palm
 
+【Character Anchor】
+Always preserve Han Baekgang facial identity: wolf-like slanted eyes with faint red iris undertone, thick straight eyebrows, small scar under left ear, slightly tanned skin, deceptively warm smile, lean athletic build. NOT porcelain fair skin, NOT phoenix eyes, NOT Jin Muhan's face.
+
 
 --------------------------------------------------------------------------------
 0-C. Seo Ryeongran — 서령란(徐嶺蘭)
@@ -157,6 +196,8 @@ athletic agile build, white-hilted jian "White Night", optional small black jade
 설정: 첫 만남 16 → 봄 재회 17. 마교 방외 지파 소성녀. 냉철하되 사람다운 마교의 얼굴.
 핵심: 매화 잎 세 장 암호. 전생 30세 본산 숙청 사망 → 현생 생존.
 말투: 절제된 품위. 감정은 행동·매화 잎으로.
+
+【Anti-default】여성 인물 고유 · 이마 vermilion mark · crimson-black 복색 — 남성 제자 얼굴과 혼동 금지
 
 【영문 LOOK — 현생 ≈17】
 Seo Ryeongran, approximately seventeen years old, strikingly beautiful East-Asian young woman of a demon-cult outer branch,
@@ -184,10 +225,18 @@ Taoist eight-trigram jade pendant, horsehair whisk in hand, aura of quiet author
 설정: 동기 약 18~19. 성가장 셋째, 화산 정통. 밝고 자신만만. 하산 조장. 음모 핵심 밖.
 말투: 밝고 직설. 음모 용어를 너무 잘 알면 경고.
 
+【Face Identity — 고정】
+round warm eyes (NOT phoenix) · small beauty mark near mouth · healthy well-fed athletic build (broader than slender swordsman) · golden hairpin high topknot · open friendly mischievous expression
+
+【Anti-default】NOT phoenix eyes · NOT slender wiry build · NOT Jin Muhan face · round eyes + beauty mark + white-gold 고유
+
+【Character Anchor】
+Always preserve Seong Yu facial identity: round warm eyes (NOT phoenix eyes), small beauty mark near mouth, healthy well-fed athletic build, golden hairpin high topknot, white-and-gold robes. NOT generic bishonen, NOT same face as Jin Muhan or Namgung Rin.
+
 【영문 LOOK】
-Seong Yu, approximately nineteen years old, handsome East-Asian noble youth, bright cheerful features,
-round warm eyes, neatly combed black hair in high topknot with golden hairpin, small beauty mark near mouth,
-healthy athletic build, luxurious white-and-gold Huashan orthodox robes with finer silk,
+Seong Yu, approximately nineteen years old, East-Asian noble disciple with round warm eyes (NOT phoenix eyes),
+small beauty mark near the right corner of mouth, neatly combed black hair in high topknot with golden hairpin,
+healthy well-fed athletic build broader than slender swordsmen, luxurious white-and-gold Huashan orthodox robes with finer silk,
 clan crest on sleeve, polished longsword with golden guard, open friendly slightly mischievous expression
 
 
@@ -197,12 +246,20 @@ clan crest on sleeve, polished longsword with golden guard, open friendly slight
 설정: 동기 약 18~19. 남궁세가 방계. 과묵·관찰력. 노인 추적 세력 접점.
 말투: 과묵. 갑자기 수다스러워지면 경고.
 
+【Face Identity — 고정】
+long narrow cold analytical eyes (NOT round, NOT phoenix) · hollow cheeks · tall thin pale build · white mourning ribbon in low ponytail · stoic silent expression
+
+【Anti-default】NOT cheerful noble youth · NOT round warm eyes · NOT Seong Yu face · hollow cheeks + mourning ribbon + gray 고유
+
+【Character Anchor】
+Always preserve Namgung Rin facial identity: long narrow cold analytical eyes (NOT round, NOT phoenix), hollow cheeks, tall thin pale build, white mourning ribbon in low ponytail, stoic silent expression. NOT same face as Seong Yu or Jin Muhan.
+
 【영문 LOOK】
-Namgung Rin, approximately nineteen years old, quiet sharp-eyed East-Asian youth from a fallen clan branch,
-tall thin pale complexion hollow cheeks, long narrow cold analytical eyes, thin lips pressed tight,
-dark hair in low ponytail with plain black cord and a single white mourning ribbon,
+Namgung Rin, approximately nineteen years old, tall thin East-Asian youth from a fallen clan branch,
+pale complexion with hollow cheeks and sharp cheekbones, long narrow cold analytical eyes (NOT round, NOT phoenix),
+thin lips pressed tight, dark hair in low ponytail with plain black cord and a single white mourning ribbon,
 neat gray branch-disciple robes, thin dark blue sash, thin straight sword at back,
-hidden sleeve daggers, optional small wooden mourning tablet at chest
+hidden sleeve daggers, optional small wooden mourning tablet at chest, stoic silent expression
 
 
 --------------------------------------------------------------------------------
@@ -254,8 +311,8 @@ humble rural cottage atmosphere, emotional anchor of the reincarnation story
 1) SRT에서 인물 확정 → 타임라인(`현재`/`회상·전생`) 판정 → 나이 LOOK 1개 + State 프리셋 선택
 2) `현재`면 §0-K: Face Identity 고정 · State Layer는 앞 칸 상태키 복사 (대본 변화 시에만 프리셋 갱신)
 3) 나이 LOOK은 하나로 고정 (18-to-19 금지). 머리·옷·상처는 상태키 프리셋만 사용 · 임의 꾸며넣기 금지
-4) Chinese wuxia manhua illustration of [Face+나이 LOOK+State], [장면 영문], [Character Anchor if Jin Muhan], [§6 스타일]
-5) 상태키 형식: `Jin≈19|base` 또는 `Jin≈19|blood_robe` · 복수 인물: `Jin≈19|base; Baek≈19|battle_torn`
+4) Chinese wuxia manhua illustration of [Face+나이 LOOK+State], [장면 영문], [등장 인물 Character Anchor], [2인↑ Contrast 절], [§6-A 또는 §6-B 스타일]
+5) 상태키 형식: `Jin≈19|base` 또는 `Jin≈19|blood_robe` · 복수 인물: `Jin≈19|base; Baek≈19|battle_torn` · 2인↑ Contrast 절 필수
 6) 예시 (≈19 Face + State base + Face-only Anchor) — 라벨=영상 초 (예: SRT_140 = 140초 이미지):
 SRT_140: Chinese wuxia manhua illustration of Jin Muhan, approximately nineteen years old, East-Asian young swordsman, a youthful face with ancient weary eyes, sharp narrow phoenix eyes, high straight nose, thin lips, defined jawline, cool fair skin with porcelain complexion, jet-black waist-length hair in warrior topknot with jade hairpin, slender wiry build, white Huashan orthodox robes with pale teal accents and flowing layered sleeves, silver plum-blossom embroidery, dark blue sash, refined orthodox Huashan jian at waist, no visible wound, calm unreadable expression, standing alone beneath the ancient plum tree on Huashan south peak, Always preserve facial identity: same face, sharp narrow phoenix eyes, high straight nose, thin lips, defined jawline, youthful East-Asian face with ancient weary eyes, cool fair skin with porcelain complexion, slender wiry swordsman physique, calm unreadable expression. Hair, robe damage, blood, and wounds must follow the matching-table State Layer only — do not invent random outfit changes. Do not change facial identity, eye shape, or physique across scenes., Chinese wuxia manhua (중국 무협 만화) style illustration, classic Chinese manhua panel composition, epic mountain-river jianghu backdrop, 16:9 aspect ratio, ultra high resolution digital manhua art, [§6 나머지 금지 문구…]
 <<<<<<<< END_CHARACTER_BIBLE <<<<<<<<
@@ -467,16 +524,40 @@ SRT_140: … Jin Muhan, approximately nineteen … alone beneath plum tree … C
    · ✗ hanbok, Korean traditional dress, jeogori, chima, durumagi, gat (갓)
    · ✗ 한국식 저고리·치마·두루마기·갓·댕기 묘사
    · ✅ Chinese hanfu, ancient Chinese robes, taoist robes, jianghu sect robes only
-4) 끝: 아래 통합 스타일 문구
+4) 끝: 아래 §6-A(인물) 또는 §6-B(풍경-only) 스타일 문구 — 인물 없으면 §6-B
 
-모든 프롬프트 끝에 반드시 포함:
 ★★★ 비율: 반드시 `16:9 aspect ratio` (가로 와이드). 1:1·9:16·portrait·square 금지. ★★★
+
+【§6-A — 인물 등장 장면 (기본)】
+✗ `intense sharp eyes and heroic expression` 사용 금지 — 모든 인물을 미소년 영웅 얼굴로 수렴시킴
+✓ 표정은 §0 Face Identity 따름 (Jin=calm unreadable, Seong=cheerful, Namgung=stoic 등)
 
 "Chinese wuxia manhua (중국 무협 만화) style illustration,
 bold ink outlines with dramatic ink-wash and vibrant cel-shaded coloring,
 flowing ancient Chinese hanfu robes, ornate jian sword ornaments and swirling qi energy effects,
 cinematic high-contrast lighting with mystical cyan/crimson/golden aura,
-dynamic martial arts action pose with intense sharp eyes and heroic expression,
+distinct individualized faces matching Character Bible Face Identity,
+each character visually unique, NOT generic bishonen, NOT same face as other disciples,
+expression follows each character's Face Identity (not uniform heroic pretty-boy look),
+classic Chinese manhua panel composition, epic mountain-river jianghu backdrop,
+16:9 aspect ratio, ultra high resolution digital manhua art,
+no Studio Ghibli style, no Korean manhwa, no Japanese anime, no 3D render,
+no flat cartoon, no photoreal, no live-action photo,
+no speech bubbles, no comic balloons, no dialogue balloons, no thought bubbles,
+no tooltips, no help balloons, no UI tips, no callout boxes, no caption boxes, no chat bubbles,
+no watermarks, no logos,
+no Hangul, no Korean characters, no Korean written text on image,
+no hanbok, no Korean traditional clothing, no jeogori, no chima,
+no Japanese text on image,
+no English text on image, no Latin letters on image, no Chinese hanzi on image,
+no written text, no letters, no captions, no signs with readable writing, no watermarks, no logos"
+
+【§6-B — 인물 없는 풍경·배경-only 장면】
+"Chinese wuxia manhua (중국 무협 만화) style illustration,
+bold ink outlines with dramatic ink-wash and vibrant cel-shaded coloring,
+flowing ancient Chinese hanfu robes, ornate jian sword ornaments and swirling qi energy effects,
+cinematic high-contrast lighting with mystical cyan/crimson/golden aura,
+dynamic martial arts action pose, scenic atmospheric composition,
 classic Chinese manhua panel composition, epic mountain-river jianghu backdrop,
 16:9 aspect ratio, ultra high resolution digital manhua art,
 no Studio Ghibli style, no Korean manhwa, no Japanese anime, no 3D render,
@@ -958,22 +1039,25 @@ SRT_1080: …
 ※ 이 섹션의 모든 내용은 내부 처리용이며 최종 출력에 절대 포함하지 않는다.
 
 
-🚀 §6 통합 스타일 (프롬프트 끝에 붙임)
+🚀 §6 통합 스타일 (프롬프트 끝에 붙임 — 인물 있으면 §6-A, 없으면 §6-B)
 ★ 반드시 포함: `16:9 aspect ratio` (가로 와이드 · 1:1/9:16 금지)
+
+§6-A (인물 등장 — NOT generic bishonen, Face Identity별 표정):
 Chinese wuxia manhua (중국 무협 만화) style illustration,
 bold ink outlines with dramatic ink-wash and vibrant cel-shaded coloring,
 flowing ancient Chinese hanfu robes, ornate jian sword ornaments and swirling qi energy effects,
 cinematic high-contrast lighting with mystical cyan/crimson/golden aura,
-dynamic martial arts action pose with intense sharp eyes and heroic expression,
+distinct individualized faces matching Character Bible Face Identity,
+each character visually unique, NOT generic bishonen, NOT same face as other disciples,
+expression follows each character's Face Identity (not uniform heroic pretty-boy look),
 classic Chinese manhua panel composition, epic mountain-river jianghu backdrop,
 16:9 aspect ratio, ultra high resolution digital manhua art,
-no Studio Ghibli style, no Korean manhwa, no Japanese anime, no 3D render,
-no flat cartoon, no photoreal, no live-action photo,
-no speech bubbles, no comic balloons, no dialogue balloons, no thought bubbles,
-no tooltips, no help balloons, no UI tips, no callout boxes, no caption boxes, no chat bubbles,
-no watermarks, no logos,
-no Hangul, no Korean characters, no Korean written text on image,
-no hanbok, no Korean traditional clothing, no jeogori, no chima,
-no Japanese text on image,
-no English text on image, no Latin letters on image, no Chinese hanzi on image,
-no written text, no letters, no captions, no signs with readable writing, no watermarks, no logos
+[금지 문구 — 본문 §6-A와 동일]
+
+§6-B (풍경-only):
+Chinese wuxia manhua (중국 무협 만화) style illustration,
+[공통 앞부분 동일],
+dynamic martial arts action pose, scenic atmospheric composition,
+classic Chinese manhua panel composition, epic mountain-river jianghu backdrop,
+16:9 aspect ratio, ultra high resolution digital manhua art,
+[금지 문구 — 본문 §6-B와 동일]

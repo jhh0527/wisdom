@@ -2,7 +2,7 @@
   "srt_file": "C:/무협극장/검신귀환록/1부/3장/mp3/all.srt",
   "mp4_dir": "C:\\무협극장\\검신귀환록\\1부\\3장\\mp4",
   "download_dir": "C:\\Users\\nh2015005\\Downloads",
-  "preview_pane_width": 646,
+  "preview_pane_width": 520,
   "mp3_file": "C:\\무협극장\\검신귀환록\\1부\\3장\\mp3\\all.mp3",
   "download_mp4_inputs": {
     "28": "https://www.reddit.com/r/Wolverine/comments/njinif/wallpaper_worthy_wolverine_photos/?tl=ko#lightbox"
@@ -15,5 +15,7 @@
     "53": "loop"
   },
   "add_announcer": true,
-  "announcer_file": "jwhShirt.mp4"
+  "announcer_file": "",
+  "mp4_mute": {},
+  "mp4_mute_files": {}
 }

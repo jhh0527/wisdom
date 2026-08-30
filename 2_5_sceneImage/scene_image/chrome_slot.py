@@ -74,6 +74,29 @@ def get_active_slot() -> ChromeSlot | None:
         return _active
 
 
+def count_claimable_slots() -> int:
+    """다른 프로세스가 점유하지 않은 슬롯 수 (신규 인스턴스용)."""
+    _LOCK_DIR.mkdir(parents=True, exist_ok=True)
+    me = os.getpid()
+    free = 0
+    for i in range(_MAX_SLOTS):
+        lock_path = _LOCK_DIR / f"slot_{i}.pid"
+        if not lock_path.is_file():
+            free += 1
+            continue
+        try:
+            old = int(lock_path.read_text(encoding="utf-8").strip().splitlines()[0])
+        except (OSError, ValueError, IndexError):
+            free += 1
+            continue
+        if not _pid_alive(old):
+            free += 1
+        elif old != me:
+            pass  # 다른 프로세스 점유
+        # old == me: 이 창이 사용 중 — 신규 인스턴스용으로 세지 않음
+    return free
+
+
 def ensure_chrome_slot() -> ChromeSlot:
     """이 프로세스용 슬롯을 확보(이미 있으면 재사용)."""
     global _active

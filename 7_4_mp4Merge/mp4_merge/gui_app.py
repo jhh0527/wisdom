@@ -38,6 +38,7 @@ def main(*, container: tk.Misc | None = None) -> None:
         run_mainloop,
         safe_after,
         safe_messagebox,
+        show_toast,
         tk_host,
     )
 
@@ -368,11 +369,10 @@ def main(*, container: tk.Misc | None = None) -> None:
                     progress_var.set(100.0)
                     progress_text_var.set("완료 100%")
                     status_var.set(f"병합 완료 — {ALL_MP4_NAME}")
-                    safe_messagebox(
+                    show_toast(
                         root,
-                        "showinfo",
-                        "7_4 mp4Merge",
                         f"병합 완료\n\n{out}\n\n로그: {folder / MERGE_LOG_NAME}",
+                        title="7_4 mp4Merge · 완료",
                     )
 
                 safe_after(root, done)

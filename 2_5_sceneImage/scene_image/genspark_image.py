@@ -192,7 +192,7 @@ def close_chrome_debug(*, user_data_dir: Path | None = None) -> None:
 
 
 def clear_chrome_session_restore(user_data_dir: Path | None = None) -> None:
-    """이전 창·탭 복원을 막아 「브라우저 열기」 때 탭 1개만 뜨게 한다."""
+    """이전 창·탭 복원을 막아 「실행」 때 탭 1개만 뜨게 한다."""
     if user_data_dir is not None:
         root = Path(user_data_dir)
     else:
@@ -310,7 +310,7 @@ def open_chrome_debug(
     if not wait_cdp_ready(debug_port=port, timeout_sec=45.0):
         raise RuntimeError(
             f"ChromeDebug(CDP :{port})에 연결하지 못했습니다.\n"
-            "Chrome이 완전히 뜬 뒤 「브라우저 열기」를 다시 눌러 주세요."
+            "Chrome이 완전히 뜬 뒤 「실행」를 다시 눌러 주세요."
         )
     return {
         "mode": "chrome_debug",
@@ -397,33 +397,45 @@ def _is_followup_command(text: str) -> bool:
     return len(t) < 500 and t.upper().startswith("SRT_")
 
 
+# 씬 직전 문맥(초). DRAW 구간과 분리해 넣음.
+CONTEXT_LOOKBACK_SEC = 60
+
+
 def build_generate_command(
     srt_sec: int,
     *,
     scene_prompt: str | None = None,
     srt_dialogue: str | None = None,
+    srt_context: str | None = None,
     interval_sec: int = 20,
+    context_lookback_sec: int = CONTEXT_LOOKBACK_SEC,
     character_look: str | None = None,
     png_dir: Path | str | None = None,
     state_tracker: Any | None = None,
+    prompt_path: Path | str | None = None,
 ) -> str:
-    """입력창 명령: 구간 대사(+실장면 프롬프트) + CHARACTER LOOK + 생성 지시.
+    """입력창 명령: 문맥(+실장면) + CHARACTER LOOK + 현재 구간 대본 + 생성 지시.
 
-    Face Identity·State Layer 를 매 장 재삽입해 인물 일관성을 유지한다.
+    Face Identity·LOOK 을 매 장 재삽입. 상태 추적은 character_consistency 플래그.
+    직전 ``context_lookback_sec`` 대본은 CONTEXT(그리지 말 것)로만 넣고,
+    이미지 사건은 ``[T, T+interval)`` SRT(+ SCENE PROMPT)만 그린다.
     """
     from scene_image.character_consistency import (
         CharacterStateTracker,
-        _STYLE_TAIL,
         build_character_look_for_scene,
+        style_tail_for_scene,
     )
     from scene_image.scene_parse import is_real_scene_prompt
 
     n = max(0, int(srt_sec))
     label = f"SRT_{n:03d}"
     gap = max(1, int(interval_sec))
+    lookback = max(1, int(context_lookback_sec))
     dialogue = (srt_dialogue or "").strip()
+    context = (srt_context or "").strip()
     real = scene_prompt if is_real_scene_prompt(scene_prompt) else None
 
+    # LOOK·인물 탐지·상처 판정은 현재 구간(+실프롬프트)만 — CONTEXT 미포함
     look = (character_look or "").strip()
     tr = state_tracker
     if not look:
@@ -433,6 +445,7 @@ def build_generate_command(
             scene_prompt=real or scene_prompt,
             png_dir=png_dir,
             tracker=tr if isinstance(tr, CharacterStateTracker) else None,
+            prompt_path=prompt_path,
         )
     elif isinstance(tr, CharacterStateTracker) and png_dir:
         tr.save(png_dir)
@@ -442,21 +455,46 @@ def build_generate_command(
         parts.append(f"===== CHARACTER LOOK ({label}) =====\n{look}")
     if real:
         parts.append(f"===== SCENE PROMPT ({label}) =====\n{real}")
+    if context and n > 0:
+        c0 = max(0, n - lookback)
+        parts.append(
+            f"===== CONTEXT [{c0}, {n}) — background only; do NOT draw =====\n"
+            f"{context}\n"
+            f"(Prior ~{lookback}s of dialogue for place, who, and cause only. "
+            f"Do NOT illustrate events from CONTEXT. "
+            f"Draw ONLY the SRT [{n}, {n + gap}) block below"
+            + (" and SCENE PROMPT" if real else "")
+            + ".)"
+        )
     if dialogue:
-        parts.append(f"===== SRT [{n}, {n + gap}) =====\n{dialogue}")
+        parts.append(
+            f"===== SRT [{n}, {n + gap}) — DRAW THIS SCENE ONLY =====\n{dialogue}"
+        )
     if not real:
-        parts.append(f"===== STYLE =====\n{_STYLE_TAIL}")
+        has_chars = bool(look)
+        parts.append(f"===== STYLE =====\n{style_tail_for_scene(has_characters=has_chars)}")
     tr_obj = tr if isinstance(tr, CharacterStateTracker) else None
+    multi = False
+    if tr_obj and look:
+        present = tr_obj.detect_present(dialogue, real or scene_prompt)
+        multi = len(present) >= 2
     instr = (
-        tr_obj.build_scene_instruction(label)
+        tr_obj.build_scene_instruction(label, multi_character=multi)
         if tr_obj
         else (
             f"{label} Chinese wuxia manhua illustration — generate now. "
             f"Keep character face and outfit consistent with Character Bible. "
             f"No text or speech bubbles. "
-            f"After image appears: 「{label} 이미지가 성공적으로 생성되었습니다.」"
+            f"After the image, output exactly one line only: "
+            f"「{label} 이미지가 성공적으로 생성되었습니다.」 "
+            f"No summary, caption, analysis, tips, table, or other prose."
         )
     )
+    if context and n > 0:
+        instr += (
+            f" Ignore CONTEXT for what appears in the image; "
+            f"show only what belongs to SRT [{n}, {n + gap})."
+        )
     parts.append(instr)
     return "\n\n".join(parts)
 
@@ -467,23 +505,33 @@ def build_generate_command_from_sources(
     scene_prompt: str | None = None,
     srt_path: str | Path | None = None,
     interval_sec: int = 20,
+    context_lookback_sec: int = CONTEXT_LOOKBACK_SEC,
     prompt_path: str | Path | None = None,
     png_dir: Path | str | None = None,
     state_tracker: Any | None = None,
 ) -> str:
     """SRT 파일·장면 프롬프트에서 매 장 전송 문구를 만든다."""
-    del prompt_path  # 향후 NOVEL PACK 파싱용
-    from scene_image.scene_parse import is_real_scene_prompt, srt_dialogue_for_window
+    from scene_image.scene_parse import (
+        is_real_scene_prompt,
+        srt_context_before,
+        srt_dialogue_for_window,
+    )
 
     dialogue = srt_dialogue_for_window(srt_path, srt_sec, interval_sec)
+    context = srt_context_before(
+        srt_path, srt_sec, lookback_sec=context_lookback_sec
+    )
     real = scene_prompt if is_real_scene_prompt(scene_prompt) else None
     return build_generate_command(
         srt_sec,
         scene_prompt=real,
         srt_dialogue=dialogue or None,
+        srt_context=context or None,
         interval_sec=interval_sec,
+        context_lookback_sec=context_lookback_sec,
         png_dir=png_dir,
         state_tracker=state_tracker,
+        prompt_path=prompt_path,
     )
 
 
@@ -3400,7 +3448,7 @@ async def _install_context_same_tab_guards(context: Any) -> None:
 
 
 async def _leave_single_tab(context: Any, url: str, page: Any | None = None) -> Any:
-    """탭을 1개만 남기고 url로 연다. 「브라우저 열기」용."""
+    """탭을 1개만 남기고 url로 연다. 「실행」용."""
     pages = [p for p in list(getattr(context, "pages", []) or []) if not p.is_closed()]
     keep = page if page is not None and not page.is_closed() else (pages[0] if pages else None)
     if keep is None:
@@ -3447,7 +3495,7 @@ async def _alive_page(context: Any, page: Any) -> Any:
             pass
         return best
     raise RuntimeError(
-        "브라우저 탭이 닫혔습니다. 「브라우저 열기」를 다시 눌러 주세요."
+        "브라우저 탭이 닫혔습니다. 「실행」를 다시 눌러 주세요."
     )
 
 
@@ -3736,7 +3784,7 @@ async def _launch_context(playwright: Any, profile_dir: Path) -> Any:
 
     raise RuntimeError(
         f"ChromeDebug(CDP :{port})에 연결하지 못했습니다.\n"
-        "「브라우저 열기」로 ChromeDebug를 먼저 띄운 뒤 다시 시도하세요."
+        "「실행」로 ChromeDebug를 먼저 띄운 뒤 다시 시도하세요."
     )
 
 
@@ -3924,6 +3972,25 @@ class GensparkSceneSession:
                 "prompt_path": str(prompt_path) if prompt_path else "",
             },
             timeout=float(max(300, generate_timeout_sec + 120)),
+        )
+
+    def salvage_pending(
+        self,
+        *,
+        png_dir: Path,
+        secs: list[int] | None = None,
+    ) -> dict[str, Any]:
+        """중간에 다운로드 실패한 SRT를 페이지에서 한 번 더 회수.
+
+        반환: ``recovered``(개수), ``still_missing``(초 목록), ``saved``(경로 목록).
+        """
+        return self._call(
+            "salvage",
+            {
+                "png_dir": str(png_dir),
+                "secs": [int(s) for s in (secs or [])],
+            },
+            timeout=180.0,
         )
 
     async def _async_worker(self) -> None:
@@ -4207,7 +4274,7 @@ class GensparkSceneSession:
                         if not ok:
                             raise RuntimeError(
                                 "파일 첨부 UI를 찾지 못했습니다. "
-                                "페이지 로드·로그인 후 다시 「브라우저 열기」하세요."
+                                "페이지 로드·로그인 후 다시 「실행」하세요."
                             )
                         await page.wait_for_timeout(800)
                         resp_q.put(
@@ -4266,11 +4333,18 @@ class GensparkSceneSession:
                         png_dir = Path(data.get("png_dir") or ".")
                         srt_sec = int(data.get("srt_sec") or 0)
                         srt_path = (data.get("srt_path") or "").strip() or None
+                        prompt_path = (data.get("prompt_path") or "").strip() or None
                         interval_sec = max(1, int(data.get("interval_sec") or 20))
+                        from scene_image.character_bible import get_registry
                         from scene_image.character_consistency import CharacterStateTracker
 
                         if char_state_tracker is None:
-                            char_state_tracker = CharacterStateTracker.load(png_dir)
+                            reg = get_registry(
+                                prompt_path=prompt_path, png_dir=png_dir
+                            )
+                            char_state_tracker = CharacterStateTracker.load(
+                                png_dir, registry=reg
+                            )
                         prompt = build_generate_command_from_sources(
                             srt_sec,
                             scene_prompt=prompt_raw or None,
@@ -4278,6 +4352,7 @@ class GensparkSceneSession:
                             interval_sec=interval_sec,
                             png_dir=png_dir,
                             state_tracker=char_state_tracker,
+                            prompt_path=prompt_path,
                         )
                         if isinstance(char_state_tracker, CharacterStateTracker):
                             _tab_log(
@@ -4623,6 +4698,65 @@ class GensparkSceneSession:
                                 download_url(url, dest)
                             saved.append(str(dest))
                         resp_q.put((True, saved, None))
+                    elif op == "salvage":
+                        data = arg or {}
+                        png_dir = Path(data.get("png_dir") or ".")
+                        png_dir.mkdir(parents=True, exist_ok=True)
+                        seen_file_urls.update(_load_seen_file_urls(png_dir))
+                        requested: list[int] = []
+                        for s in data.get("secs") or []:
+                            try:
+                                sec_i = int(s)
+                            except (TypeError, ValueError):
+                                continue
+                            requested.append(sec_i)
+                            if sec_i not in pending_fail_secs:
+                                pending_fail_secs.append(sec_i)
+                        check_secs = sorted(set(requested) | set(pending_fail_secs))
+                        missing_before = [
+                            s for s in check_secs if not png_already_exists(png_dir, s)
+                        ]
+                        page = await _alive_page(context, page)
+                        if pending_fail_secs:
+                            late = await _salvage_late_images(
+                                page,
+                                png_dir,
+                                pending_fail_secs,
+                                seen_file_urls,
+                            )
+                            if late:
+                                last_saved_file_url = late
+                        still_missing = [
+                            s for s in check_secs if not png_already_exists(png_dir, s)
+                        ]
+                        recovered_secs = [
+                            s for s in missing_before if s not in still_missing
+                        ]
+                        saved_paths = [
+                            str((png_dir / srt_png_name(s)).resolve())
+                            for s in recovered_secs
+                        ]
+                        _tab_log(
+                            f"salvage 완료 · 회수 {len(recovered_secs)} · "
+                            f"미수신 {len(still_missing)}"
+                            + (
+                                f" · {still_missing[:12]}"
+                                if still_missing
+                                else ""
+                            )
+                        )
+                        resp_q.put(
+                            (
+                                True,
+                                {
+                                    "recovered": len(recovered_secs),
+                                    "still_missing": still_missing,
+                                    "saved": saved_paths,
+                                    "recovered_secs": recovered_secs,
+                                },
+                                None,
+                            )
+                        )
                     elif op == "stop":
                         resp_q.put((True, None, None))
                         break

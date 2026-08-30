@@ -207,7 +207,7 @@ def open_chrome_debug(
     if not wait_cdp_ready(debug_port=debug_port, timeout_sec=45.0):
         raise RuntimeError(
             f"ChromeDebug(CDP :{debug_port})에 연결하지 못했습니다.\n"
-            "Chrome이 완전히 뜬 뒤 「브라우저 열기」를 다시 눌러 주세요."
+            "Chrome이 완전히 뜬 뒤 「실행」를 다시 눌러 주세요."
         )
     return {
         "mode": "chrome_debug",
@@ -703,7 +703,7 @@ async def _wait_chat_ready(page: Any, *, timeout_ms: int = 90_000) -> None:
         await page.wait_for_timeout(350)
     raise RuntimeError(
         "Genspark 채팅 화면을 찾지 못했습니다.\n"
-        "브라우저에서 로그인한 뒤 「브라우저 열기」→「보정」을 다시 시도하세요."
+        "브라우저에서 로그인한 뒤 「실행」→「보정」을 다시 시도하세요."
     )
 
 
