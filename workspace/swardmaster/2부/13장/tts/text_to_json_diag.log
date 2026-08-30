@@ -1,0 +1,142 @@
+===== 2026-08-25 20:22:48 브라우저 열기 =====
+[20:22:48] 준비 txt=C:\cursor\wuxia\무협극장\검신귀환록\2부\13장\tts\13.txt md=C:\cursor\wuxia\1_2_textToJson\md\dialogue_json.txt
+[20:22:59] ChromeDebug reused=0 port=9222 restart=True
+[20:23:04] 모델 이미 Opus 4.6: Claude Opus 4.6
+[20:23:04] 합본텍스트 입력 chars=18689 path=C:\cursor\wuxia\무협극장\검신귀환록\2부\13장\tts\text_to_json_bundle.txt
+[20:23:06] 입력창채움 ok=True chars_in=18689 chars_ui=18689
+[20:23:06] 전송후보 n=4 composer={'x': 361.5, 'y': 618, 'w': 734, 'h': 216} top=[('DIV', 36, 36, 1078, 862, 'input-icon ml-[8px]'), ('DIV', 36, 36, 1078, 862, 'enter-icon items-end cursor-pointer active'), ('DIV', 36, 36, 1078, 862, 'enter-icon-wrapper rounded-[35%] md:hover:opacit'), ('DIV', 36, 36, 1034, 862, 'cursor-pointer flex items-center p-[8px] rounded')]
+[20:23:08] 전송시도#1 method=send how=geo:DIV:input-icon ml-[8px] ok=True composer_len=0 grew=False generating=False
+[20:23:08] 전송확인 — 입력창 비움
+[20:23:08] 변환제출 mode=inline_text composer_remain=False generating=False txt=13.txt md=dialogue_json.txt sample=jsonSample.json voices=-
+[20:23:08] 스크래프시작 wait_ms=600000 min_inputs=30 accept_n=20 src_chars=8779
+[20:23:08] 스크래프 tick=1 chars=18742 inputs=3 gen=idle page_stable=0 json_ok=False finished=False best_inputs=0 speakers=13 loose=3
+[20:23:10] 스크래프 tick=2 chars=18783 inputs=3 gen=generating page_stable=0 json_ok=False finished=False best_inputs=3 speakers=13 loose=3
+[20:23:18] 스크래프 tick=6 chars=19262 inputs=3 gen=interrupted page_stable=0 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:23:20] 스크래프 tick=7 chars=19262 inputs=3 gen=interrupted page_stable=1 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:23:23] 스크래프 tick=8 chars=19262 inputs=3 gen=interrupted page_stable=2 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:23:25] 스크래프 tick=9 chars=19262 inputs=3 gen=interrupted page_stable=3 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:23:28] 스크래프 tick=10 chars=19262 inputs=3 gen=interrupted page_stable=4 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:23:30] 스크래프 tick=11 chars=19262 inputs=3 gen=interrupted page_stable=5 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:23:33] 스크래프 tick=12 chars=19262 inputs=3 gen=interrupted page_stable=6 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:23:35] 스크래프 tick=13 chars=19262 inputs=3 gen=interrupted page_stable=7 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:23:38] 스크래프 tick=14 chars=19262 inputs=3 gen=interrupted page_stable=8 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:23:41] 스크래프 tick=15 chars=19262 inputs=3 gen=interrupted page_stable=9 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:23:43] 스크래프 tick=16 chars=19262 inputs=3 gen=interrupted page_stable=10 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:23:46] 스크래프 tick=17 chars=19262 inputs=3 gen=interrupted page_stable=11 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:23:48] 스크래프 tick=18 chars=19262 inputs=3 gen=interrupted page_stable=12 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:23:51] 스크래프 tick=19 chars=19262 inputs=3 gen=interrupted page_stable=13 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:23:54] 스크래프 tick=20 chars=19262 inputs=3 gen=interrupted page_stable=14 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:23:56] 스크래프 tick=21 chars=19262 inputs=3 gen=interrupted page_stable=15 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:23:59] 스크래프 tick=22 chars=19262 inputs=3 gen=interrupted page_stable=16 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:24:01] 스크래프 tick=23 chars=19262 inputs=3 gen=interrupted page_stable=17 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:24:04] 스크래프 tick=24 chars=19262 inputs=3 gen=interrupted page_stable=18 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:24:06] 스크래프 tick=25 chars=19262 inputs=3 gen=interrupted page_stable=19 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:24:09] 스크래프 tick=26 chars=19262 inputs=3 gen=interrupted page_stable=20 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:24:12] 스크래프 tick=27 chars=19262 inputs=3 gen=interrupted page_stable=21 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:24:14] 스크래프 tick=28 chars=19262 inputs=3 gen=interrupted page_stable=22 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:24:17] 스크래프 tick=29 chars=19262 inputs=3 gen=interrupted page_stable=23 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:24:19] 스크래프 tick=30 chars=19262 inputs=3 gen=interrupted page_stable=24 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:24:22] 스크래프 tick=31 chars=19262 inputs=3 gen=interrupted page_stable=25 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:24:25] 스크래프 tick=32 chars=19262 inputs=3 gen=interrupted page_stable=26 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:24:27] 스크래프 tick=33 chars=19262 inputs=3 gen=interrupted page_stable=27 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:24:30] 스크래프 tick=34 chars=19262 inputs=3 gen=interrupted page_stable=28 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:24:32] 스크래프 tick=35 chars=19262 inputs=3 gen=interrupted page_stable=29 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:24:35] 스크래프 tick=36 chars=19262 inputs=3 gen=interrupted page_stable=30 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:24:38] 스크래프 tick=37 chars=19262 inputs=3 gen=interrupted page_stable=31 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:24:40] 스크래프 tick=38 chars=19262 inputs=3 gen=interrupted page_stable=32 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:24:43] 스크래프 tick=39 chars=19262 inputs=3 gen=interrupted page_stable=33 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:24:45] 스크래프 tick=40 chars=19262 inputs=3 gen=interrupted page_stable=34 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:24:48] 스크래프 tick=41 chars=19262 inputs=3 gen=interrupted page_stable=35 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:24:51] 스크래프 tick=42 chars=19262 inputs=3 gen=interrupted page_stable=36 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:24:53] 스크래프 tick=43 chars=19262 inputs=3 gen=interrupted page_stable=37 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:24:56] 스크래프 tick=44 chars=19262 inputs=3 gen=interrupted page_stable=38 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:24:58] 스크래프 tick=45 chars=19262 inputs=3 gen=interrupted page_stable=39 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:25:01] 스크래프 tick=46 chars=19262 inputs=3 gen=interrupted page_stable=40 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:25:03] 스크래프 tick=47 chars=19262 inputs=3 gen=interrupted page_stable=41 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:25:06] 스크래프 tick=48 chars=19262 inputs=3 gen=interrupted page_stable=42 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:25:09] 스크래프 tick=49 chars=19262 inputs=3 gen=interrupted page_stable=43 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:25:11] 스크래프 tick=50 chars=19262 inputs=3 gen=interrupted page_stable=44 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:25:14] 스크래프 tick=51 chars=19262 inputs=3 gen=interrupted page_stable=45 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:25:16] 스크래프 tick=52 chars=19262 inputs=3 gen=interrupted page_stable=46 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:25:19] 스크래프 tick=53 chars=19262 inputs=3 gen=interrupted page_stable=47 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:25:21] 스크래프 tick=54 chars=19262 inputs=3 gen=interrupted page_stable=48 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:25:24] 스크래프 tick=55 chars=19262 inputs=3 gen=interrupted page_stable=49 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:25:27] 스크래프 tick=56 chars=19262 inputs=3 gen=interrupted page_stable=50 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:25:29] 스크래프 tick=57 chars=19262 inputs=3 gen=interrupted page_stable=51 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:25:32] 스크래프 tick=58 chars=19262 inputs=3 gen=interrupted page_stable=52 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:25:34] 스크래프 tick=59 chars=19262 inputs=3 gen=interrupted page_stable=53 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:25:37] 스크래프 tick=60 chars=19262 inputs=3 gen=interrupted page_stable=54 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:25:40] 스크래프 tick=61 chars=19262 inputs=3 gen=interrupted page_stable=55 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:25:42] 스크래프 tick=62 chars=19262 inputs=3 gen=interrupted page_stable=56 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:25:45] 스크래프 tick=63 chars=19262 inputs=3 gen=interrupted page_stable=57 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:25:47] 스크래프 tick=64 chars=19262 inputs=3 gen=interrupted page_stable=58 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:25:50] 스크래프 tick=65 chars=19262 inputs=3 gen=interrupted page_stable=59 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:25:53] 스크래프 tick=66 chars=19262 inputs=3 gen=interrupted page_stable=60 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:25:55] 스크래프 tick=67 chars=19262 inputs=3 gen=interrupted page_stable=61 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:25:58] 스크래프 tick=68 chars=19262 inputs=3 gen=interrupted page_stable=62 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:26:00] 스크래프 tick=69 chars=19262 inputs=3 gen=interrupted page_stable=63 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:26:03] 스크래프 tick=70 chars=19262 inputs=3 gen=interrupted page_stable=64 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:26:05] 스크래프 tick=71 chars=19262 inputs=3 gen=interrupted page_stable=65 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:26:08] 스크래프 tick=72 chars=19262 inputs=3 gen=interrupted page_stable=66 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:26:11] 스크래프 tick=73 chars=19262 inputs=3 gen=interrupted page_stable=67 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:26:13] 스크래프 tick=74 chars=19262 inputs=3 gen=interrupted page_stable=68 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:26:16] 스크래프 tick=75 chars=19262 inputs=3 gen=interrupted page_stable=69 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:26:18] 스크래프 tick=76 chars=19262 inputs=3 gen=interrupted page_stable=70 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:26:21] 스크래프 tick=77 chars=19262 inputs=3 gen=interrupted page_stable=71 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:26:24] 스크래프 tick=78 chars=19262 inputs=3 gen=interrupted page_stable=72 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:26:26] 스크래프 tick=79 chars=19262 inputs=3 gen=interrupted page_stable=73 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:26:29] 스크래프 tick=80 chars=19262 inputs=3 gen=interrupted page_stable=74 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:26:31] 스크래프 tick=81 chars=19262 inputs=3 gen=interrupted page_stable=75 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:26:34] 스크래프 tick=82 chars=19262 inputs=3 gen=interrupted page_stable=76 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:26:36] 스크래프 tick=83 chars=19262 inputs=3 gen=interrupted page_stable=77 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:26:39] 스크래프 tick=84 chars=19262 inputs=3 gen=interrupted page_stable=78 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+[20:26:42] 스크래프 tick=85 chars=19262 inputs=3 gen=interrupted page_stable=79 json_ok=False finished=False best_inputs=3 speakers=17 loose=3
+===== 2026-08-25 20:27:55 브라우저 열기 =====
+[20:27:55] 준비 txt=C:\cursor\wuxia\무협극장\검신귀환록\2부\13장\tts\13.txt md=C:\cursor\wuxia\1_2_textToJson\md\dialogue_json.txt
+[20:27:55] ChromeDebug reused=1 port=9222 restart=False
+[20:27:57] 모델 이미 Opus 4.6: Claude Opus 4.6
+[20:27:57] 합본텍스트 입력 chars=19207 path=C:\cursor\wuxia\무협극장\검신귀환록\2부\13장\tts\text_to_json_bundle.txt
+[20:27:58] 입력창채움 ok=True chars_in=19207 chars_ui=19207
+[20:27:59] 전송후보 n=4 composer={'x': 361.5, 'y': 618, 'w': 734, 'h': 216} top=[('DIV', 36, 36, 1078, 862, 'input-icon ml-[8px]'), ('DIV', 36, 36, 1078, 862, 'enter-icon items-end cursor-pointer active'), ('DIV', 36, 36, 1078, 862, 'enter-icon-wrapper rounded-[35%] md:hover:opacit'), ('DIV', 36, 36, 1034, 862, 'cursor-pointer flex items-center p-[8px] rounded')]
+[20:28:00] 전송시도#1 method=send how=geo:DIV:input-icon ml-[8px] ok=True composer_len=0 grew=False generating=False
+[20:28:00] 전송확인 — 입력창 비움
+[20:28:00] 변환제출 mode=inline_text composer_remain=False generating=False txt=13.txt md=dialogue_json.txt sample=jsonSample.json voices=-
+[20:28:00] 스크래프시작 wait_ms=600000 min_inputs=30 accept_n=20 src_chars=8779
+[20:28:00] 스크래프 tick=1 chars=38470 inputs=3 gen=interrupted page_stable=0 json_ok=False finished=False best_inputs=0 speakers=31 loose=3
+[20:28:02] 스크래프 tick=2 chars=38483 inputs=3 gen=interrupted page_stable=0 json_ok=False finished=False best_inputs=3 speakers=31 loose=3
+[20:28:05] 스크래프 tick=3 chars=38483 inputs=3 gen=interrupted page_stable=1 json_ok=False finished=False best_inputs=3 speakers=31 loose=3
+[20:28:07] 스크래프 tick=4 chars=38569 inputs=3 gen=interrupted page_stable=0 json_ok=False finished=False best_inputs=3 speakers=31 loose=3
+[20:28:10] 스크래프 tick=5 chars=38782 inputs=3 gen=interrupted page_stable=0 json_ok=False finished=False best_inputs=3 speakers=34 loose=3
+[20:28:12] 스크래프 tick=6 chars=38900 inputs=3 gen=interrupted page_stable=0 json_ok=False finished=False best_inputs=3 speakers=35 loose=3
+===== 2026-08-25 20:28:18 브라우저 열기 =====
+[20:28:18] 준비 txt=C:\cursor\wuxia\무협극장\검신귀환록\2부\13장\tts\13.txt md=C:\cursor\wuxia\1_2_textToJson\md\dialogue_json.txt
+===== 2026-08-25 20:28:36 브라우저 열기 =====
+[20:28:36] 준비 txt=C:\cursor\wuxia\무협극장\검신귀환록\2부\13장\tts\13.txt md=C:\cursor\wuxia\1_2_textToJson\md\dialogue_json.txt
+[20:28:47] ChromeDebug reused=0 port=9222 restart=True
+[20:28:53] 모델 이미 Opus 4.6: Claude Opus 4.6
+[20:28:53] 합본텍스트 입력 chars=19207 path=C:\cursor\wuxia\무협극장\검신귀환록\2부\13장\tts\text_to_json_bundle.txt
+[20:28:54] 입력창채움 ok=True chars_in=19207 chars_ui=19207
+[20:28:55] 전송후보 n=4 composer={'x': 361.5, 'y': 618, 'w': 734, 'h': 216} top=[('DIV', 36, 36, 1078, 862, 'input-icon ml-[8px]'), ('DIV', 36, 36, 1078, 862, 'enter-icon items-end cursor-pointer active'), ('DIV', 36, 36, 1078, 862, 'enter-icon-wrapper rounded-[35%] md:hover:opacit'), ('DIV', 36, 36, 1034, 862, 'cursor-pointer flex items-center p-[8px] rounded')]
+[20:28:56] 전송시도#1 method=send how=geo:DIV:input-icon ml-[8px] ok=True composer_len=0 grew=False generating=False
+[20:28:56] 전송확인 — 입력창 비움
+[20:28:56] 변환제출 mode=inline_text composer_remain=False generating=False txt=13.txt md=dialogue_json.txt sample=jsonSample.json voices=-
+[20:28:56] 스크래프시작 wait_ms=600000 min_inputs=30 accept_n=20 src_chars=8779
+[20:28:57] 스크래프 tick=1 chars=19260 inputs=3 gen=idle page_stable=0 json_ok=False finished=False best_inputs=0 speakers=14 loose=3
+[20:28:59] 스크래프 tick=2 chars=19298 inputs=3 gen=generating page_stable=0 json_ok=False finished=False best_inputs=3 speakers=14 loose=3
+[20:29:15] 스크래프 tick=10 chars=20292 inputs=3 gen=idle page_stable=0 json_ok=False finished=False best_inputs=3 speakers=23 loose=3
+[20:29:28] 키보드복사시도 chars=21953 inputs=3
+[20:29:37] 스크래프 tick=20 chars=21804 inputs=3 gen=idle page_stable=0 json_ok=False finished=False best_inputs=3 speakers=38 loose=3
+[20:29:48] 키보드복사시도 chars=23282 inputs=3
+[20:29:51] 클립보드시도 chars=3433 inputs=31
+[20:29:51] 클립보드 채택 inputs=31
+[20:30:00] 스크래프 tick=30 chars=23552 inputs=3 gen=idle page_stable=0 json_ok=False finished=False best_inputs=31 speakers=56 loose=3
+[20:30:21] 스크래프 tick=40 chars=25130 inputs=3 gen=idle page_stable=0 json_ok=False finished=False best_inputs=31 speakers=72 loose=3
+[20:30:43] 스크래프 tick=50 chars=26812 inputs=3 gen=idle page_stable=0 json_ok=False finished=False best_inputs=31 speakers=90 loose=3
+[20:31:07] 스크래프 tick=60 chars=28768 inputs=3 gen=idle page_stable=0 json_ok=False finished=False best_inputs=31 speakers=111 loose=3
+[20:31:29] 스크래프 tick=70 chars=30413 inputs=3 gen=idle page_stable=0 json_ok=False finished=False best_inputs=31 speakers=129 loose=3
+[20:32:09] 스크래프 tick=80 chars=34273 inputs=3 gen=idle page_stable=0 json_ok=False finished=False best_inputs=31 speakers=179 loose=3
+[20:32:52] 스크래프 tick=89 chars=37336 inputs=206 gen=idle page_stable=3 json_ok=True finished=True best_inputs=206 speakers=220 loose=206
+[20:32:52] 스크래프완료 chars=16789 inputs=206
+[20:32:52] 스크래프결과 chars=16789 head={"chapter": "제13장. 두 번째 판", "voices_file": "../../voices.json", "chunk_id": "A1", "inputs": [{"speaker": "narrator", "te…
+[20:32:52] 플로우종료 mode=inline_text logged_in=True scraped_chars=16789
+[20:32:53] JSON 저장OK → C:\cursor\wuxia\무협극장\검신귀환록\2부\13장\tts\13.json inputs=206 voices=-

@@ -1,0 +1,129 @@
+{
+  "title": "검신귀환록",
+  "protagonist_id": "Jin",
+  "default_states": {
+    "Jin": "base",
+    "Baek": "base"
+  },
+  "characters": [
+    {
+      "id": "Jin",
+      "display_name": "Jin Muhan",
+      "detect": ["진무한", "무한", "진 무한", "Jin Muhan", "Jin Mu-han"],
+      "stateful": true,
+      "default_age": 19,
+      "face": "sharp narrow phoenix eyes, high straight nose, thin lips, defined jawline, youthful East-Asian face with ancient weary eyes, cool fair skin with porcelain complexion, slender wiry physique, calm unreadable expression",
+      "default_expression": "calm unreadable expression",
+      "look_by_age": {
+        "15": "Jin Muhan, approximately fifteen years old, East-Asian youth with the soul of a fallen sword god, {face}, {state}, slender wiry build, {expression}",
+        "19": "Jin Muhan, approximately nineteen years old, East-Asian young swordsman, {face}, {state}, slender wiry build, {expression}"
+      },
+      "states": {
+        "base": "jet-black waist-length hair in warrior topknot with jade hairpin, white Huashan orthodox robes with pale teal accents and flowing layered sleeves, silver plum-blossom embroidery, dark blue sash, refined orthodox Huashan jian at waist, no visible wound",
+        "hair_loose": "jet-black waist-length hair partially loosened from topknot, jade hairpin askew, loose strands over face, same white Huashan pale-teal robes and sash, refined jian, no wound",
+        "battle_torn": "jet-black waist-length hair in warrior topknot with jade hairpin (slightly disheveled), white Huashan robes with pale teal torn at sleeves and hem, silver plum embroidery dust-stained, dark blue sash, refined jian drawn, light dust and frayed cloth, no blood, no bleeding, no deep wound",
+        "blood_robe": "jet-black waist-length hair in warrior topknot with jade hairpin, white Huashan pale-teal robes with fresh blood spatters on chest and sleeves, silver plum embroidery, dark blue sash, refined jian, optional light blood on cheek, no deep wound",
+        "wounded_shoulder": "jet-black waist-length hair in warrior topknot with jade hairpin, white Huashan pale-teal robes torn at left shoulder with bleeding cut and blood stain, dark blue sash, refined jian, visible left-shoulder wound"
+      },
+      "state_rules": [
+        {"pattern": "갈아입|옷을\\s*갈아|새\\s*(?:옷|도포)|깨끗한\\s*(?:옷|도포)|도포를\\s*갈아|상처가\\s*아물|피가\\s*씻|핏자국을\\s*씻|clean(?:ed)?\\s*robes|fresh\\s*(?:robes|clothes)|changed\\s*(?:robes|clothes)", "state": "base"},
+        {"pattern": "어깨.{0,12}(?:찢|베어|베이|상처|부상|다치|관통)|wound(?:ed)?\\s*shoulder|shoulder.{0,12}(?:wound|cut|bleed|torn|slash)", "state": "wounded_shoulder"},
+        {"pattern": "핏물|선혈|피\\s*묻|피\\s*얼룩|피\\s*튀|피\\s*흘|피\\s*범벅|피\\s*젖|핏빛|핏자국|(?:도포|옷|소매|가슴).{0,10}피|피.{0,6}(?:도포|옷|소매)|\\bblood(?:stain|y|ed)?\\b|blood\\s*spatter", "state": "blood_robe"},
+        {"pattern": "찢긴|찢어(?:진|져)|torn|tear|전투|격투|싸움|battle|clash|duel", "state": "battle_torn"},
+        {"pattern": "풀린|흩어|머리를\\s*풀|loosened hair|hair loose", "state": "hair_loose"}
+      ],
+      "age_rules": [
+        {"pattern": "열\\s*다\\s*섯|십\\s*오\\s*세|15\\s*세|입문", "age": 15}
+      ],
+      "emotion_rules": [
+        {
+          "pattern": "살의|살기|killing intent|restrained killing",
+          "expression": "calm unreadable expression, eyes filled with restrained killing intent"
+        }
+      ],
+      "look_variants": [
+        {
+          "pattern": "핏빛\\s*비|blood-red\\s*rain|최후\\s*의\\s*밤|전생\\s*최후|전생의\\s*마지막|검신의\\s*마지막\\s*밤|fallen\\s*sword\\s*god|deep\\s*bleeding\\s*chest",
+          "look": "Jin Muhan, approximately thirty-five years old, legendary swordsman under blood-red rain, tall and gaunt, sharp narrow phoenix eyes, high straight nose, thin lips, defined jawline, hollow cheeks, cool fair skin with porcelain complexion turned pale from blood loss, jet-black waist-length hair soaked with white strands at temples, jade hairpin loosened, deep bleeding chest wound, torn white Huashan robes with pale teal accents and silver plum embroidery, broken orthodox Huashan jian used as a walking staff, tragic grief-stricken expression",
+          "skip_anchor": true
+        }
+      ],
+      "anchor": "Always preserve Jin Muhan facial identity: same face, sharp narrow phoenix eyes, high straight nose, thin lips, defined jawline, youthful East-Asian face with ancient weary eyes, cool fair skin with porcelain complexion, slender wiry swordsman physique, calm unreadable expression (unless emotion scene). NOT generic bishonen. Hair, robe damage, blood, and wounds must follow the State Layer only — do not invent random outfit changes. Do not change facial identity, eye shape, or physique across scenes.",
+      "contrast": "porcelain fair skin, sharp narrow phoenix eyes, slender wiry build, white-teal Huashan robes, warrior topknot with jade pin"
+    },
+    {
+      "id": "Baek",
+      "display_name": "Han Baekgang",
+      "detect": ["한백강", "백강", "Han Baekgang", "Baekgang"],
+      "stateful": true,
+      "default_age": 19,
+      "face": "slightly tanned skin, wolf-like slanted eyes with faint red iris undertone, thick straight eyebrows, small scar under left ear, deceptively warm smile, lean athletic build",
+      "look_template": "Han Baekgang, approximately nineteen years old, lean East-Asian youth with a deceptively warm smile hiding assassin coldness, {face}, {state}, athletic agile build",
+      "states": {
+        "base": "dark brown hair in low rough ponytail with leather cord, gray-black Huashan branch-disciple robes with worn edges and red inner collar lining, dark cloth forearm wraps, white-hilted jian White Night",
+        "battle_torn": "same face, ponytail disheveled, gray-black robes torn at hem, forearm wraps frayed, White Night drawn, dust and frayed cloth, no blood, no bleeding, no deep wound",
+        "blood_robe": "same face and ponytail, gray-black robes with blood spatters, red collar lining visible, White Night, optional jade shard"
+      },
+      "state_rules": [
+        {"pattern": "갈아입|옷을\\s*갈아|새\\s*(?:옷|도포)|깨끗한\\s*(?:옷|도포)|도포를\\s*갈아|상처가\\s*아물|피가\\s*씻|핏자국을\\s*씻|clean(?:ed)?\\s*robes|fresh\\s*(?:robes|clothes)|changed\\s*(?:robes|clothes)", "state": "base"},
+        {"pattern": "핏물|선혈|피\\s*묻|피\\s*얼룩|피\\s*튀|피\\s*흘|피\\s*범벅|피\\s*젖|핏빛|핏자국|(?:도포|옷|소매|가슴).{0,10}피|피.{0,6}(?:도포|옷|소매)|\\bblood(?:stain|y|ed)?\\b|blood\\s*spatter", "state": "blood_robe"},
+        {"pattern": "찢긴|찢어(?:진|져)|torn|tear|전투|격투|싸움|battle|clash|duel", "state": "battle_torn"}
+      ],
+      "anchor": "Always preserve Han Baekgang facial identity: wolf-like slanted eyes with faint red iris undertone, thick straight eyebrows, small scar under left ear, slightly tanned skin, deceptively warm smile, lean athletic build. NOT porcelain fair skin, NOT phoenix eyes, NOT Jin Muhan's face. Hair and robes follow State Layer only.",
+      "contrast": "slightly tanned skin, wolf-like slanted eyes, scar under left ear, gray-black branch robes with red collar, low rough ponytail"
+    },
+    {
+      "id": "Seo",
+      "display_name": "Seo Ryeongran",
+      "detect": ["서령란", "령란", "Seo Ryeongran", "Ryeongran"],
+      "look": "Seo Ryeongran, approximately seventeen years old, strikingly beautiful East-Asian young woman of a demon-cult outer branch, pale porcelain skin, phoenix eyes with faint crimson iris, long straight raven-black hair to the waist, half-tied with black-and-red silk ribbon, small vermilion plum-petal mark between brows, slender graceful figure, crimson-and-black layered silk robes with dark lotus and flame embroidery, jade belt ornament, slender curved dao with red tassel",
+      "anchor": "Always preserve Seo Ryeongran facial identity: vermilion plum-petal mark between brows, phoenix eyes with faint crimson iris, crimson-black demon cult robes, half-tied waist-length raven hair. Distinct female figure — NOT male disciple faces.",
+      "contrast": "vermilion plum-petal mark between brows, crimson-black demon cult robes, half-tied raven hair, female graceful figure"
+    },
+    {
+      "id": "Cheongheo",
+      "display_name": "Cheongheo Jinin",
+      "detect": ["청허", "진인", "Cheongheo", "Jinin"],
+      "look": "Cheongheo Jinin, an elderly Taoist grandmaster in his late 60s, tall straight-backed, long silver-white hair and beard to the chest, kind but piercing eyes, weathered serene face, highest-rank Huashan elder robes deep indigo over white inner layer, silver plum blossom crest, Taoist eight-trigram jade pendant, horsehair whisk in hand",
+      "anchor": "Always preserve Cheongheo Jinin as elderly Taoist grandmaster: silver-white hair and beard to chest, weathered serene face, deep indigo elder robes. NOT young disciple, NOT bishonen.",
+      "contrast": "elderly Taoist, silver-white beard to chest, deep indigo elder robes, horsehair whisk"
+    },
+    {
+      "id": "Seong",
+      "display_name": "Seong Yu",
+      "detect": ["성유", "Seong Yu", "Seong-Yu"],
+      "look": "Seong Yu, approximately nineteen years old, East-Asian noble disciple with round warm eyes (NOT phoenix eyes), small beauty mark near the right corner of mouth, neatly combed black hair in high topknot with golden hairpin, healthy well-fed athletic build broader than slender swordsmen, luxurious white-and-gold Huashan orthodox robes with clan crest on sleeve, polished longsword with golden guard, open friendly slightly mischievous expression",
+      "anchor": "Always preserve Seong Yu facial identity: round warm eyes (NOT phoenix eyes), small beauty mark near mouth, healthy well-fed athletic build (broader than slender swordsman), golden hairpin high topknot, white-and-gold robes. NOT generic bishonen, NOT same face as Jin Muhan or Namgung Rin.",
+      "contrast": "round warm eyes, beauty mark near mouth, white-and-gold luxurious robes, golden hairpin topknot, cheerful open expression"
+    },
+    {
+      "id": "Namgung",
+      "display_name": "Namgung Rin",
+      "detect": ["남궁린", "남궁", "Namgung Rin", "Namgung"],
+      "look": "Namgung Rin, approximately nineteen years old, tall thin East-Asian youth from a fallen clan branch, pale complexion with hollow cheeks and sharp cheekbones, long narrow cold analytical eyes (NOT round, NOT phoenix), thin lips pressed tight, dark hair in low ponytail with plain black cord and a single white mourning ribbon, neat gray branch-disciple robes, thin dark blue sash, thin straight sword at back, hidden sleeve daggers, optional small wooden mourning tablet at chest, stoic silent expression",
+      "anchor": "Always preserve Namgung Rin facial identity: long narrow cold analytical eyes (NOT round, NOT phoenix), hollow cheeks, tall thin pale build, white mourning ribbon in low ponytail, stoic silent expression. NOT cheerful noble youth, NOT same face as Seong Yu or Jin Muhan.",
+      "contrast": "hollow cheeks, long narrow cold eyes, white mourning ribbon in ponytail, plain gray robes, stoic thin build"
+    },
+    {
+      "id": "Wang",
+      "display_name": "Wang Samdo",
+      "detect": ["왕삼도", "삼도", "Wang Samdo"],
+      "look": "Wang Samdo, a brutal bandit chief in his 40s, muscular thick-necked, sun-darkened scarred skin, shaved head with wolf scalp tattoo, thick beard, gold left earring, one milky blind eye and one bloodshot eye, black leather armor over red inner shirt, wolf-fur cloak, three curved sabers on body",
+      "contrast": "shaved head with wolf tattoo, thick beard, one blind milky eye, black leather armor, savage scarred face"
+    },
+    {
+      "id": "Elder",
+      "display_name": "White-Haired Elder",
+      "detect": ["백발 노인", "백발노인", "판의 주인", "White-Haired Elder"],
+      "look": "the White-Haired Elder, mysterious ancient master, extremely long snow-white hair and beard, face half-hidden in shadow, one visible pale gray pupil-less eye, layered black robes with faint gold constellation patterns, optional black jade board with red points",
+      "contrast": "snow-white hair and beard, face half in shadow, pupil-less gray eye, black constellation robes"
+    },
+    {
+      "id": "Mother",
+      "display_name": "Jin Muhan's mother",
+      "detect": ["어머니", "모친", "Jin Muhan's mother", "진무한의 어머니"],
+      "look": "Jin Muhan's mother, a middle-aged East-Asian village woman with gentle tired eyes and warm smile, simple faded cloth dress and apron, hair neatly tied with plain pin, humble rural cottage atmosphere",
+      "contrast": "middle-aged village woman, gentle tired eyes, simple faded dress and apron"
+    }
+  ]
+}

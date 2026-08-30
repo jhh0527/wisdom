@@ -1,0 +1,40 @@
+{
+  "title": "{TITLE}",
+  "protagonist_id": "Hero",
+  "default_states": {
+    "Hero": "base"
+  },
+  "characters": [
+    {
+      "id": "Hero",
+      "display_name": "Hero Name",
+      "detect": ["주인공한글", "Hero Name"],
+      "stateful": true,
+      "default_age": 19,
+      "face": "REPLACE — unique Face Identity (eyes, skin, jaw, physique)",
+      "default_expression": "calm unreadable expression",
+      "look_by_age": {
+        "19": "Hero Name, approximately nineteen years old, East-Asian young swordsman, {face}, {state}, {expression}"
+      },
+      "states": {
+        "base": "REPLACE — hair, robes, weapon, no wound",
+        "battle_torn": "same face, torn robes, dust and light cuts, no deep wound",
+        "blood_robe": "same face, robes with blood spatters, optional light blood on cheek"
+      },
+      "state_rules": [
+        {"pattern": "피|핏물|선혈|blood", "state": "blood_robe"},
+        {"pattern": "찢|찢어|찢긴|torn|tear|전투|싸움|battle|clash|duel", "state": "battle_torn"}
+      ],
+      "anchor": "Always preserve Hero Name facial identity: REPLACE. NOT generic bishonen. Hair/robe/wound follow State Layer only.",
+      "contrast": "REPLACE — short silhouette for multi-character contrast"
+    },
+    {
+      "id": "Ally",
+      "display_name": "Ally Name",
+      "detect": ["아군한글", "Ally Name"],
+      "look": "REPLACE — full English LOOK with face axes different from Hero",
+      "anchor": "Always preserve Ally Name facial identity: REPLACE. NOT same face as Hero.",
+      "contrast": "REPLACE"
+    }
+  ]
+}

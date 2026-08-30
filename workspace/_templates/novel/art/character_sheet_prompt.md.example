@@ -1,0 +1,18 @@
+Create a character sheet for the wuxia novel "{TITLE}". Generate all listed characters in one unified 16:9 image as a full-body lineup. No text, letters, captions, or name labels on the image. Chinese wuxia manhua style only. No Studio Ghibli, no Korean hanbok, no speech bubbles.
+
+===== WORKFLOW =====
+1) Generate this sheet once in Genspark AI Image
+2) Save as png/ref_characters.png for the chapter
+3) Runtime faces use art/characters.json
+4) Multi-character scenes: keep Distinct faces (Contrast)
+
+===== GLOBAL STYLE =====
+Chinese wuxia manhua illustration, bold ink outlines, ink-wash and cel-shaded color, ancient Chinese hanfu only, dramatic lighting, 16:9, ultra high resolution, no on-image text.
+
+===== CHARACTERS (replace from BRIEF) =====
+1) … Face Identity + outfit color code …
+2) …
+(Each must differ on eyes / skin / hair silhouette / robe color.)
+
+===== LAYOUT =====
+Full-body lineup, misty jianghu backdrop, consistent lighting, no labels on image.

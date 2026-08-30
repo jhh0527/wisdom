@@ -1,0 +1,2348 @@
+[22:59:25] 탭로그 ON — 실행·생성 · 씬 66개 · reopen=True · 한도대기ON
+[22:59:32] ChromeDebug 재시작 slot=0 port=9242 user_data=C:\ChromeDebug_2_5 reused=0
+[22:59:41] 모델 이미 Pro: Nano Banana Pro
+[22:59:42] 세션 준비 — login=OK model=Nano Banana Pro auto=True
+[22:59:42] ensure_page cur_sc=10 prefer_sc=10 cur=https://www.genspark.ai/ai_image prefer=https://www.genspark.ai/ai_image
+[22:59:44] fill OK(clip) follow=True chars=69541
+[22:59:44] 입력창 붙여넣기 — 프롬프트 50827자 + SRT 18671자 = 합계 69541자
+  prompt=C:/cursor/wuxia/2_5_sceneImage/md/image.wuxiz.txt
+  srt=C:\cursor\wuxia\workspace\swardmaster\2부\20장\mp3\new.srt
+[22:59:45] ensure_page cur_sc=10 prefer_sc=10 cur=https://www.genspark.ai/ai_image prefer=https://www.genspark.ai/ai_image
+[22:59:46] 동일 입력창에 명령 추가(미실행): ===== CHARACTER LOOK (SRT_000) =====
+Look keys (state tracking OFF): Jin≈19|base
+Jin Muhan, approximately nineteen years old, East-Asian young swordsman, sharp narrow phoenix eyes,…
+[22:59:47] 상태키 SRT_000 · tracking=OFF; Baek|base; Jin|base
+[22:59:47] run_scene 시작 SRT_000 · seen_files=0 · last_saved=
+[22:59:47] ensure_page cur_sc=10 prefer_sc=10 cur=https://www.genspark.ai/ai_image prefer=https://www.genspark.ai/ai_image
+[22:59:47] 모델 선택 시작 현재=(없음)
+[22:59:47] 모델 선택 결과 ok=False 칩=(없음) picked=
+[22:59:47] ⏱ 준비 SRT_000 0.2s · chars=3643
+[22:59:47] submit 시작 composer=3643 url=https://www.genspark.ai/ai_image
+[22:59:47] submit geo 실패 hit=no-btn
+[22:59:47] submit 시도 method=geo geo=False
+[22:59:48] submit 미확인 method=geo generating=False composer=3643
+[22:59:48] submit geo 실패 hit=no-btn
+[22:59:48] submit 시도 method=send send=False
+[22:59:49] submit 미확인 method=send generating=False composer=3643
+[22:59:49] submit 시도 method=ctrl
+[22:59:50] submit 미확인 method=ctrl generating=False composer=3645
+[22:59:51] submit 시도 method=enter
+[22:59:52] submit 확인 method=enter generating=False composer=0
+[22:59:52] ⏱ 입력창전송 SRT_000 4.8s
+[22:59:52] 제출 후 last_saved=https://www.genspark.ai/api/files/s/wgnqlgfa
+[22:59:52] ⏱ 생성대기 시작 SRT_000 max=120s
+[23:00:04] ⏱ 생성대기 완료 12.1s SRT_000 https://www.genspark.ai/api/files/s/q3k6m0eb
+[23:00:04] ⏱ 생성대기구간 SRT_000 12.1s · ok=True
+[23:00:04] SRT_000 근접 이미지 https://www.genspark.ai/api/files/s/q3k6m0eb
+[23:00:04] 다운로드 files URL=https://www.genspark.ai/api/files/s/q3k6m0eb → SRT_000.png
+[23:00:05] ⏱ 다운로드 직접 0.7s size=937867 SRT_000.png
+[23:00:05] ⏱ 다운로드구간 SRT_000 0.7s · SRT_000.png
+[23:00:08] ⏱ 다운로드후유휴 SRT_000 2.8s · idle=True
+[23:00:08] ⏱ 씬합계 SRT_000 20.9s · https://www.genspark.ai/api/files/s/q3k6m0eb
+[23:00:08] SRT_000 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\20장\png\SRT_000.png
+[23:00:08] 상태키 SRT_020 · tracking=OFF; Baek|base; Jin|base
+[23:00:08] run_scene 시작 SRT_020 · seen_files=1 · last_saved=https://www.genspark.ai/api/files/s/q3k6m0eb
+[23:00:08] ⏱ 준비 SRT_020 0.0s · chars=5135
+[23:00:10] ⏱ 다음명령유휴 SRT_020 1.6s · idle=True
+[23:00:10] fill OK(clip) follow=True chars=5135
+[23:00:10] submit 시작 composer=5135 url=https://www.genspark.ai/agents?id=5d99801e-0bc7-4d10-803f-7c2c7922cecb
+[23:00:11] submit geo 실패 hit=no-btn
+[23:00:11] submit 시도 method=geo geo=False
+[23:00:11] submit 미확인 method=geo generating=False composer=5135
+[23:00:12] submit geo 실패 hit=no-btn
+[23:00:12] submit 시도 method=send send=False
+[23:00:12] submit 미확인 method=send generating=False composer=5135
+[23:00:13] submit 시도 method=ctrl
+[23:00:13] submit 미확인 method=ctrl generating=False composer=5137
+[23:00:14] submit 시도 method=enter
+[23:00:14] submit 확인 method=enter generating=False composer=0
+[23:00:14] ⏱ 입력·전송 SRT_020 4.4s · chars=5135
+[23:00:14] 제출 후 last_saved=https://www.genspark.ai/api/files/s/q3k6m0eb
+[23:00:14] ⏱ 생성대기 시작 SRT_020 max=120s
+[23:00:28] ⏱ 생성대기 완료 13.7s SRT_020 https://www.genspark.ai/api/files/s/ilsxg0uj
+[23:00:28] ⏱ 생성대기구간 SRT_020 13.7s · ok=True
+[23:00:28] SRT_020 근접 이미지 https://www.genspark.ai/api/files/s/ilsxg0uj
+[23:00:28] 다운로드 files URL=https://www.genspark.ai/api/files/s/ilsxg0uj → SRT_020.png
+[23:00:29] ⏱ 다운로드 직접 0.8s size=697855 SRT_020.png
+[23:00:29] ⏱ 다운로드구간 SRT_020 0.8s · SRT_020.png
+[23:00:31] ⏱ 다운로드후유휴 SRT_020 2.4s · idle=True
+[23:00:31] ⏱ 씬합계 SRT_020 23.4s · https://www.genspark.ai/api/files/s/ilsxg0uj
+[23:00:31] SRT_020 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\20장\png\SRT_020.png
+[23:00:32] 상태키 SRT_040 · tracking=OFF; Baek|base; Jin|base
+[23:00:32] run_scene 시작 SRT_040 · seen_files=2 · last_saved=https://www.genspark.ai/api/files/s/ilsxg0uj
+[23:00:32] ⏱ 준비 SRT_040 0.0s · chars=5262
+[23:00:33] ⏱ 다음명령유휴 SRT_040 1.5s · idle=True
+[23:00:34] fill OK(clip) follow=True chars=5262
+[23:00:34] submit 시작 composer=5262 url=https://www.genspark.ai/agents?id=5d99801e-0bc7-4d10-803f-7c2c7922cecb
+[23:00:34] submit geo 실패 hit=no-btn
+[23:00:34] submit 시도 method=geo geo=False
+[23:00:35] submit 미확인 method=geo generating=False composer=5262
+[23:00:36] submit geo 실패 hit=no-btn
+[23:00:36] submit 시도 method=send send=False
+[23:00:36] submit 미확인 method=send generating=False composer=5262
+[23:00:36] submit 시도 method=ctrl
+[23:00:37] submit 미확인 method=ctrl generating=False composer=5264
+[23:00:37] submit 시도 method=enter
+[23:00:38] submit 확인 method=enter generating=False composer=0
+[23:00:38] ⏱ 입력·전송 SRT_040 4.8s · chars=5262
+[23:00:38] 제출 후 last_saved=https://www.genspark.ai/api/files/s/ilsxg0uj
+[23:00:38] ⏱ 생성대기 시작 SRT_040 max=120s
+[23:00:52] ⏱ 생성대기 완료(busy무시) 13.6s SRT_040 https://www.genspark.ai/api/files/s/9sqdpoga
+[23:00:52] ⏱ 생성대기구간 SRT_040 13.6s · ok=True
+[23:00:52] SRT_040 근접 이미지 https://www.genspark.ai/api/files/s/9sqdpoga
+[23:00:52] 다운로드 files URL=https://www.genspark.ai/api/files/s/9sqdpoga → SRT_040.png
+[23:00:53] ⏱ 다운로드 직접 0.8s size=627196 SRT_040.png
+[23:00:53] ⏱ 다운로드구간 SRT_040 0.8s · SRT_040.png
+[23:00:54] ⏱ 다운로드후유휴 SRT_040 1.6s · idle=True
+[23:00:54] ⏱ 씬합계 SRT_040 22.5s · https://www.genspark.ai/api/files/s/9sqdpoga
+[23:00:54] SRT_040 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\20장\png\SRT_040.png
+[23:00:54] 상태키 SRT_060 · tracking=OFF; Baek|base; Jin|base
+[23:00:54] run_scene 시작 SRT_060 · seen_files=3 · last_saved=https://www.genspark.ai/api/files/s/9sqdpoga
+[23:00:54] ⏱ 준비 SRT_060 0.0s · chars=4334
+[23:00:56] ⏱ 다음명령유휴 SRT_060 1.6s · idle=True
+[23:00:57] fill OK(clip) follow=True chars=4334
+[23:00:57] submit 시작 composer=4334 url=https://www.genspark.ai/agents?id=5d99801e-0bc7-4d10-803f-7c2c7922cecb
+[23:00:57] submit geo 실패 hit=no-btn
+[23:00:57] submit 시도 method=geo geo=False
+[23:00:57] submit 미확인 method=geo generating=False composer=4334
+[23:00:58] submit geo 실패 hit=no-btn
+[23:00:58] submit 시도 method=send send=False
+[23:00:58] submit 미확인 method=send generating=False composer=4334
+[23:00:59] submit 시도 method=ctrl
+[23:00:59] submit 미확인 method=ctrl generating=False composer=4336
+[23:01:00] submit 시도 method=enter
+[23:01:00] submit 확인 method=enter generating=False composer=0
+[23:01:00] ⏱ 입력·전송 SRT_060 4.2s · chars=4334
+[23:01:00] 제출 후 last_saved=https://www.genspark.ai/api/files/s/9sqdpoga
+[23:01:00] ⏱ 생성대기 시작 SRT_060 max=120s
+[23:01:13] ⏱ 생성대기 완료(busy무시) 12.4s SRT_060 https://www.genspark.ai/api/files/s/dqtuhceu
+[23:01:13] ⏱ 생성대기구간 SRT_060 12.4s · ok=True
+[23:01:13] SRT_060 근접 이미지 https://www.genspark.ai/api/files/s/dqtuhceu
+[23:01:13] 다운로드 files URL=https://www.genspark.ai/api/files/s/dqtuhceu → SRT_060.png
+[23:01:15] ⏱ 다운로드 직접 2.4s size=690335 SRT_060.png
+[23:01:15] ⏱ 다운로드구간 SRT_060 2.5s · SRT_060.png
+[23:01:17] ⏱ 다운로드후유휴 SRT_060 1.6s · idle=True
+[23:01:17] ⏱ 씬합계 SRT_060 22.5s · https://www.genspark.ai/api/files/s/dqtuhceu
+[23:01:17] SRT_060 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\20장\png\SRT_060.png
+[23:01:17] 상태키 SRT_080 · tracking=OFF; Baek|base; Jin|base
+[23:01:17] run_scene 시작 SRT_080 · seen_files=4 · last_saved=https://www.genspark.ai/api/files/s/dqtuhceu
+[23:01:17] ⏱ 준비 SRT_080 0.0s · chars=4352
+[23:01:19] ⏱ 다음명령유휴 SRT_080 1.6s · idle=True
+[23:01:19] fill OK(clip) follow=True chars=4352
+[23:01:19] submit 시작 composer=4352 url=https://www.genspark.ai/agents?id=5d99801e-0bc7-4d10-803f-7c2c7922cecb
+[23:01:20] submit geo 실패 hit=no-btn
+[23:01:20] submit 시도 method=geo geo=False
+[23:01:20] submit 미확인 method=geo generating=False composer=4352
+[23:01:21] submit geo 실패 hit=no-btn
+[23:01:21] submit 시도 method=send send=False
+[23:01:21] submit 미확인 method=send generating=False composer=4352
+[23:01:21] submit 시도 method=ctrl
+[23:01:22] submit 미확인 method=ctrl generating=False composer=4354
+[23:01:22] submit 시도 method=enter
+[23:01:23] submit 확인 method=enter generating=False composer=0
+[23:01:23] ⏱ 입력·전송 SRT_080 4.3s · chars=4352
+[23:01:23] 제출 후 last_saved=https://www.genspark.ai/api/files/s/dqtuhceu
+[23:01:23] ⏱ 생성대기 시작 SRT_080 max=120s
+[23:01:38] ⏱ 생성대기 완료(busy무시) 14.7s SRT_080 https://www.genspark.ai/api/files/s/wqau7kkq
+[23:01:38] ⏱ 생성대기구간 SRT_080 14.7s · ok=True
+[23:01:38] SRT_080 근접 이미지 https://www.genspark.ai/api/files/s/wqau7kkq
+[23:01:38] 다운로드 files URL=https://www.genspark.ai/api/files/s/wqau7kkq → SRT_080.png
+[23:01:39] ⏱ 다운로드 직접 0.7s size=658457 SRT_080.png
+[23:01:39] ⏱ 다운로드구간 SRT_080 0.7s · SRT_080.png
+[23:01:41] ⏱ 다운로드후유휴 SRT_080 2.6s · idle=True
+[23:01:41] ⏱ 씬합계 SRT_080 24.2s · https://www.genspark.ai/api/files/s/wqau7kkq
+[23:01:41] SRT_080 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\20장\png\SRT_080.png
+[23:01:41] 상태키 SRT_100 · tracking=OFF; Baek|base; Jin|base
+[23:01:41] run_scene 시작 SRT_100 · seen_files=5 · last_saved=https://www.genspark.ai/api/files/s/wqau7kkq
+[23:01:41] ⏱ 준비 SRT_100 0.0s · chars=5367
+[23:01:43] ⏱ 다음명령유휴 SRT_100 1.4s · idle=True
+[23:01:43] fill OK(clip) follow=True chars=5367
+[23:01:43] submit 시작 composer=5367 url=https://www.genspark.ai/agents?id=5d99801e-0bc7-4d10-803f-7c2c7922cecb
+[23:01:44] submit geo 실패 hit=no-btn
+[23:01:44] submit 시도 method=geo geo=False
+[23:01:44] submit 미확인 method=geo generating=False composer=5367
+[23:01:45] submit geo 실패 hit=no-btn
+[23:01:45] submit 시도 method=send send=False
+[23:01:45] submit 미확인 method=send generating=False composer=5367
+[23:01:45] submit 시도 method=ctrl
+[23:01:46] submit 미확인 method=ctrl generating=False composer=5369
+[23:01:46] submit 시도 method=enter
+[23:01:47] submit 확인 method=enter generating=False composer=0
+[23:01:47] ⏱ 입력·전송 SRT_100 4.2s · chars=5367
+[23:01:47] 제출 후 last_saved=https://www.genspark.ai/api/files/s/wqau7kkq
+[23:01:47] ⏱ 생성대기 시작 SRT_100 max=120s
+[23:02:00] ⏱ 생성대기 완료 12.4s SRT_100 https://www.genspark.ai/api/files/s/6gh21w8h
+[23:02:00] ⏱ 생성대기구간 SRT_100 12.4s · ok=True
+[23:02:00] SRT_100 근접 이미지 https://www.genspark.ai/api/files/s/6gh21w8h
+[23:02:00] 다운로드 files URL=https://www.genspark.ai/api/files/s/6gh21w8h → SRT_100.png
+[23:02:00] ⏱ 다운로드 직접 0.7s size=613039 SRT_100.png
+[23:02:00] ⏱ 다운로드구간 SRT_100 0.7s · SRT_100.png
+[23:02:03] ⏱ 다운로드후유휴 SRT_100 2.8s · idle=True
+[23:02:03] ⏱ 씬합계 SRT_100 21.9s · https://www.genspark.ai/api/files/s/6gh21w8h
+[23:02:03] SRT_100 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\20장\png\SRT_100.png
+[23:02:03] 상태키 SRT_120 · tracking=OFF; Baek|base; Jin|base
+[23:02:03] run_scene 시작 SRT_120 · seen_files=6 · last_saved=https://www.genspark.ai/api/files/s/6gh21w8h
+[23:02:03] ⏱ 준비 SRT_120 0.0s · chars=5345
+[23:02:05] ⏱ 다음명령유휴 SRT_120 1.4s · idle=True
+[23:02:05] fill OK(clip) follow=True chars=5345
+[23:02:05] submit 시작 composer=5345 url=https://www.genspark.ai/agents?id=5d99801e-0bc7-4d10-803f-7c2c7922cecb
+[23:02:06] submit geo 실패 hit=no-btn
+[23:02:06] submit 시도 method=geo geo=False
+[23:02:06] submit 미확인 method=geo generating=False composer=5345
+[23:02:06] submit geo 실패 hit=no-btn
+[23:02:06] submit 시도 method=send send=False
+[23:02:07] submit 미확인 method=send generating=False composer=5345
+[23:02:07] submit 시도 method=ctrl
+[23:02:08] submit 미확인 method=ctrl generating=False composer=5347
+[23:02:08] submit 시도 method=enter
+[23:02:09] submit 확인 method=enter generating=False composer=0
+[23:02:09] ⏱ 입력·전송 SRT_120 4.1s · chars=5345
+[23:02:09] 제출 후 last_saved=https://www.genspark.ai/api/files/s/6gh21w8h
+[23:02:09] ⏱ 생성대기 시작 SRT_120 max=120s
+[23:02:23] ⏱ 생성대기 완료 14.5s SRT_120 https://www.genspark.ai/api/files/s/nhdhqxtm
+[23:02:23] ⏱ 생성대기구간 SRT_120 14.5s · ok=True
+[23:02:24] SRT_120 근접 이미지 https://www.genspark.ai/api/files/s/nhdhqxtm
+[23:02:24] 다운로드 files URL=https://www.genspark.ai/api/files/s/nhdhqxtm → SRT_120.png
+[23:02:24] ⏱ 다운로드 직접 0.9s size=658450 SRT_120.png
+[23:02:24] ⏱ 다운로드구간 SRT_120 0.9s · SRT_120.png
+[23:02:26] ⏱ 다운로드후유휴 SRT_120 1.3s · idle=True
+[23:02:26] ⏱ 씬합계 SRT_120 22.4s · https://www.genspark.ai/api/files/s/nhdhqxtm
+[23:02:26] SRT_120 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\20장\png\SRT_120.png
+[23:02:26] 상태키 SRT_140 · tracking=OFF; Baek|base; Jin|base
+[23:02:26] run_scene 시작 SRT_140 · seen_files=7 · last_saved=https://www.genspark.ai/api/files/s/nhdhqxtm
+[23:02:26] ⏱ 준비 SRT_140 0.0s · chars=5369
+[23:02:27] ⏱ 다음명령유휴 SRT_140 1.3s · idle=True
+[23:02:28] fill OK(clip) follow=True chars=5369
+[23:02:28] submit 시작 composer=5369 url=https://www.genspark.ai/agents?id=5d99801e-0bc7-4d10-803f-7c2c7922cecb
+[23:02:28] submit geo 실패 hit=no-btn
+[23:02:28] submit 시도 method=geo geo=False
+[23:02:29] submit 미확인 method=geo generating=False composer=5369
+[23:02:29] submit geo 실패 hit=no-btn
+[23:02:29] submit 시도 method=send send=False
+[23:02:30] submit 미확인 method=send generating=False composer=5369
+[23:02:30] submit 시도 method=ctrl
+[23:02:30] submit 미확인 method=ctrl generating=False composer=5371
+[23:02:31] submit 시도 method=enter
+[23:02:31] submit 확인 method=enter generating=False composer=0
+[23:02:31] ⏱ 입력·전송 SRT_140 4.1s · chars=5369
+[23:02:31] 제출 후 last_saved=https://www.genspark.ai/api/files/s/nhdhqxtm
+[23:02:32] ⏱ 생성대기 시작 SRT_140 max=120s
+[23:02:45] ⏱ 생성대기 완료 13.0s SRT_140 https://www.genspark.ai/api/files/s/ua5dikm1
+[23:02:45] ⏱ 생성대기구간 SRT_140 13.0s · ok=True
+[23:02:45] SRT_140 근접 이미지 https://www.genspark.ai/api/files/s/ua5dikm1
+[23:02:45] 다운로드 files URL=https://www.genspark.ai/api/files/s/ua5dikm1 → SRT_140.png
+[23:02:45] ⏱ 다운로드 직접 0.9s size=607836 SRT_140.png
+[23:02:45] ⏱ 다운로드구간 SRT_140 0.9s · SRT_140.png
+[23:02:47] ⏱ 다운로드후유휴 SRT_140 1.5s · idle=True
+[23:02:47] ⏱ 씬합계 SRT_140 21.0s · https://www.genspark.ai/api/files/s/ua5dikm1
+[23:02:47] SRT_140 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\20장\png\SRT_140.png
+[23:02:47] 상태키 SRT_160 · tracking=OFF; Baek|base; Jin|base
+[23:02:47] run_scene 시작 SRT_160 · seen_files=8 · last_saved=https://www.genspark.ai/api/files/s/ua5dikm1
+[23:02:47] ⏱ 준비 SRT_160 0.0s · chars=4309
+[23:02:49] ⏱ 다음명령유휴 SRT_160 1.4s · idle=True
+[23:02:49] fill OK(clip) follow=True chars=4309
+[23:02:49] submit 시작 composer=4309 url=https://www.genspark.ai/agents?id=5d99801e-0bc7-4d10-803f-7c2c7922cecb
+[23:02:49] submit geo 실패 hit=no-btn
+[23:02:49] submit 시도 method=geo geo=False
+[23:02:50] submit 미확인 method=geo generating=False composer=4309
+[23:02:50] submit geo 실패 hit=no-btn
+[23:02:50] submit 시도 method=send send=False
+[23:02:51] submit 미확인 method=send generating=False composer=4309
+[23:02:51] submit 시도 method=ctrl
+[23:02:52] submit 미확인 method=ctrl generating=False composer=4311
+[23:02:52] submit 시도 method=enter
+[23:02:53] submit 확인 method=enter generating=False composer=0
+[23:02:53] ⏱ 입력·전송 SRT_160 4.0s · chars=4309
+[23:02:53] 제출 후 last_saved=https://www.genspark.ai/api/files/s/ua5dikm1
+[23:02:53] ⏱ 생성대기 시작 SRT_160 max=120s
+[23:03:07] ⏱ 생성대기 완료 13.9s SRT_160 https://www.genspark.ai/api/files/s/mlwvuawb
+[23:03:07] ⏱ 생성대기구간 SRT_160 13.9s · ok=True
+[23:03:07] SRT_160 근접 이미지 https://www.genspark.ai/api/files/s/mlwvuawb
+[23:03:07] 다운로드 files URL=https://www.genspark.ai/api/files/s/mlwvuawb → SRT_160.png
+[23:03:07] ⏱ 다운로드 직접 0.7s size=581246 SRT_160.png
+[23:03:07] ⏱ 다운로드구간 SRT_160 0.7s · SRT_160.png
+[23:03:09] ⏱ 다운로드후유휴 SRT_160 1.4s · idle=True
+[23:03:09] ⏱ 씬합계 SRT_160 21.7s · https://www.genspark.ai/api/files/s/mlwvuawb
+[23:03:09] SRT_160 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\20장\png\SRT_160.png
+[23:03:09] 상태키 SRT_180 · tracking=OFF; Baek|base; Jin|base
+[23:03:09] run_scene 시작 SRT_180 · seen_files=9 · last_saved=https://www.genspark.ai/api/files/s/mlwvuawb
+[23:03:09] ⏱ 준비 SRT_180 0.0s · chars=5329
+[23:03:10] ⏱ 다음명령유휴 SRT_180 1.3s · idle=True
+[23:03:11] fill OK(clip) follow=True chars=5329
+[23:03:11] submit 시작 composer=5329 url=https://www.genspark.ai/agents?id=5d99801e-0bc7-4d10-803f-7c2c7922cecb
+[23:03:11] submit geo 실패 hit=no-btn
+[23:03:11] submit 시도 method=geo geo=False
+[23:03:12] submit 미확인 method=geo generating=False composer=5329
+[23:03:12] submit geo 실패 hit=no-btn
+[23:03:12] submit 시도 method=send send=False
+[23:03:13] submit 미확인 method=send generating=False composer=5329
+[23:03:13] submit 시도 method=ctrl
+[23:03:13] submit 미확인 method=ctrl generating=False composer=5331
+[23:03:14] submit 시도 method=enter
+[23:03:14] submit 확인 method=enter generating=False composer=0
+[23:03:14] ⏱ 입력·전송 SRT_180 4.0s · chars=5329
+[23:03:14] 제출 후 last_saved=https://www.genspark.ai/api/files/s/mlwvuawb
+[23:03:15] ⏱ 생성대기 시작 SRT_180 max=120s
+[23:03:27] ⏱ 생성대기 완료 12.6s SRT_180 https://www.genspark.ai/api/files/s/vm6kf9wc
+[23:03:27] ⏱ 생성대기구간 SRT_180 12.6s · ok=True
+[23:03:27] SRT_180 근접 이미지 https://www.genspark.ai/api/files/s/vm6kf9wc
+[23:03:27] 다운로드 files URL=https://www.genspark.ai/api/files/s/vm6kf9wc → SRT_180.png
+[23:03:28] ⏱ 다운로드 직접 0.8s size=570716 SRT_180.png
+[23:03:28] ⏱ 다운로드구간 SRT_180 0.8s · SRT_180.png
+[23:03:31] ⏱ 다운로드후유휴 SRT_180 3.5s · idle=True
+[23:03:31] ⏱ 씬합계 SRT_180 22.5s · https://www.genspark.ai/api/files/s/vm6kf9wc
+[23:03:31] SRT_180 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\20장\png\SRT_180.png
+[23:03:32] 상태키 SRT_200 · tracking=OFF; Baek|base; Jin|base
+[23:03:32] run_scene 시작 SRT_200 · seen_files=10 · last_saved=https://www.genspark.ai/api/files/s/vm6kf9wc
+[23:03:32] ⏱ 준비 SRT_200 0.0s · chars=6372
+[23:03:33] ⏱ 다음명령유휴 SRT_200 1.3s · idle=True
+[23:03:34] fill OK(clip) follow=True chars=6372
+[23:03:34] submit 시작 composer=6372 url=https://www.genspark.ai/agents?id=5d99801e-0bc7-4d10-803f-7c2c7922cecb
+[23:03:34] submit geo 실패 hit=no-btn
+[23:03:34] submit 시도 method=geo geo=False
+[23:03:34] submit 미확인 method=geo generating=False composer=6372
+[23:03:35] submit geo 실패 hit=no-btn
+[23:03:35] submit 시도 method=send send=False
+[23:03:35] submit 미확인 method=send generating=False composer=6372
+[23:03:36] submit 시도 method=ctrl
+[23:03:36] submit 미확인 method=ctrl generating=False composer=6374
+[23:03:36] submit 시도 method=enter
+[23:03:37] submit 확인 method=enter generating=False composer=0
+[23:03:37] ⏱ 입력·전송 SRT_200 4.0s · chars=6372
+[23:03:37] 제출 후 last_saved=https://www.genspark.ai/api/files/s/vm6kf9wc
+[23:03:37] ⏱ 생성대기 시작 SRT_200 max=120s
+[23:03:53] ⏱ 생성대기 진행 15.3s SRT_200 busy=False url_ok=False src=
+[23:03:53] ⏱ 생성대기 한도감지 15.3s SRT_200 · AI Image 한도 - 재설정 2026-08-30 03:33 · AI Image 5시간 제한에 도달했습니다. 8월 30일 오전 3:33에 재설정됩니다 --- 5시간 제한 --- 세션 한도 도달 AI Image 5시간 제한에 도달했습니다. 8월 30일 오전 3:33에 재설정됩니다
+[23:03:53] run_scene 실패(재시도 없음): AI Image 한도 - 재설정 2026-08-30 03:33
+[23:03:53] SRT_200 실패(한도 확정 streak=1) — 브라우저 종료 후 대기·재오픈
+AI Image 한도 - 재설정 2026-08-30 03:33
+[23:03:59] 한도 대기 전 ChromeDebug 종료
+[23:03:59] 한도 대기 시작 — 정상화 예상 2026-08-30 03:33 (269분) — SRT_200 한도
+[03:33:30] 한도 대기 종료 — 정상화 예상 2026-08-30 03:33 — 재시도
+[03:33:30] 한도 대기 종료 — 브라우저 재오픈 후 SRT_200 재개
+[03:33:36] ChromeDebug 재시작 slot=0 port=9242 user_data=C:\ChromeDebug_2_5 reused=0
+[03:33:39] 모델 이미 Pro: Nano Banana Pro
+[03:33:39] 세션 준비 — login=OK model=Nano Banana Pro auto=True
+[03:33:39] ensure_page cur_sc=10 prefer_sc=10 cur=https://www.genspark.ai/ai_image prefer=https://www.genspark.ai/ai_image
+[03:33:41] fill OK(clip) follow=True chars=69541
+[03:33:42] 입력창 붙여넣기 — 프롬프트 50827자 + SRT 18671자 = 합계 69541자
+  prompt=C:/cursor/wuxia/2_5_sceneImage/md/image.wuxiz.txt
+  srt=C:\cursor\wuxia\workspace\swardmaster\2부\20장\mp3\new.srt
+[03:33:43] ensure_page cur_sc=10 prefer_sc=10 cur=https://www.genspark.ai/ai_image prefer=https://www.genspark.ai/ai_image
+[03:33:44] 동일 입력창에 명령 추가(미실행): ===== CHARACTER LOOK (SRT_200) =====
+Look keys (state tracking OFF): Jin≈19|base; Baek≈19|base; Cheongheo|base
+Jin Muhan, approximately nineteen years old, East-Asian young swordsm…
+[03:33:44] 상태키 SRT_200 · tracking=OFF; Baek|base; Jin|base
+[03:33:44] run_scene 시작 SRT_200 · seen_files=10 · last_saved=https://www.genspark.ai/api/files/s/vm6kf9wc
+[03:33:44] ensure_page cur_sc=10 prefer_sc=10 cur=https://www.genspark.ai/ai_image prefer=https://www.genspark.ai/ai_image
+[03:33:44] ⏱ 준비 SRT_200 0.0s · chars=6372
+[03:33:44] submit 시작 composer=6372 url=https://www.genspark.ai/ai_image
+[03:33:45] submit geo 실패 hit=no-btn
+[03:33:45] submit 시도 method=geo geo=False
+[03:33:45] submit 미확인 method=geo generating=False composer=6372
+[03:33:46] submit geo 실패 hit=no-btn
+[03:33:46] submit 시도 method=send send=False
+[03:33:46] submit 미확인 method=send generating=False composer=6372
+[03:33:46] submit 시도 method=ctrl
+[03:33:47] submit 미확인 method=ctrl generating=False composer=6374
+[03:33:48] submit 시도 method=enter
+[03:33:48] submit 확인 method=enter generating=False composer=0
+[03:33:48] ⏱ 입력창전송 SRT_200 4.0s
+[03:33:48] 제출 후 last_saved=https://www.genspark.ai/api/files/s/vm6kf9wc
+[03:33:49] ⏱ 생성대기 시작 SRT_200 max=120s
+[03:34:04] ⏱ 생성대기 진행 15.0s SRT_200 busy=False url_ok=False src=
+[03:34:07] ⏱ 생성대기 완료 18.7s SRT_200 https://www.genspark.ai/api/files/s/mf7kgnsm
+[03:34:07] ⏱ 생성대기구간 SRT_200 18.7s · ok=True
+[03:34:07] SRT_200 근접 이미지 https://www.genspark.ai/api/files/s/mf7kgnsm
+[03:34:07] 다운로드 files URL=https://www.genspark.ai/api/files/s/mf7kgnsm → SRT_200.png
+[03:34:08] ⏱ 다운로드 직접 0.7s size=776102 SRT_200.png
+[03:34:08] ⏱ 다운로드구간 SRT_200 0.7s · SRT_200.png
+[03:34:09] ⏱ 다운로드후유휴 SRT_200 1.3s · idle=True
+[03:34:09] ⏱ 씬합계 SRT_200 25.0s · https://www.genspark.ai/api/files/s/mf7kgnsm
+[03:34:09] SRT_200 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\20장\png\SRT_200.png
+[03:34:10] 상태키 SRT_220 · tracking=OFF; Baek|base; Jin|base
+[03:34:10] run_scene 시작 SRT_220 · seen_files=11 · last_saved=https://www.genspark.ai/api/files/s/mf7kgnsm
+[03:34:10] ⏱ 준비 SRT_220 0.0s · chars=5600
+[03:34:11] ⏱ 다음명령유휴 SRT_220 1.4s · idle=True
+[03:34:12] fill OK(clip) follow=True chars=5600
+[03:34:12] submit 시작 composer=5600 url=https://www.genspark.ai/agents?id=960e4afa-f771-4976-8274-d99de8a96b37
+[03:34:12] submit geo 실패 hit=no-btn
+[03:34:12] submit 시도 method=geo geo=False
+[03:34:12] submit 미확인 method=geo generating=False composer=5600
+[03:34:13] submit geo 실패 hit=no-btn
+[03:34:13] submit 시도 method=send send=False
+[03:34:13] submit 미확인 method=send generating=False composer=5600
+[03:34:14] submit 시도 method=ctrl
+[03:34:14] submit 미확인 method=ctrl generating=False composer=5602
+[03:34:14] submit 시도 method=enter
+[03:34:15] submit 확인 method=enter generating=False composer=0
+[03:34:15] ⏱ 입력·전송 SRT_220 4.0s · chars=5600
+[03:34:15] 제출 후 last_saved=https://www.genspark.ai/api/files/s/mf7kgnsm
+[03:34:15] ⏱ 생성대기 시작 SRT_220 max=120s
+[03:34:30] ⏱ 생성대기 완료 15.1s SRT_220 https://www.genspark.ai/api/files/s/zvliby3j
+[03:34:30] ⏱ 생성대기구간 SRT_220 15.1s · ok=True
+[03:34:30] SRT_220 근접 이미지 https://www.genspark.ai/api/files/s/zvliby3j
+[03:34:30] 다운로드 files URL=https://www.genspark.ai/api/files/s/zvliby3j → SRT_220.png
+[03:34:31] ⏱ 다운로드 직접 0.7s size=643268 SRT_220.png
+[03:34:31] ⏱ 다운로드구간 SRT_220 0.8s · SRT_220.png
+[03:34:32] ⏱ 다운로드후유휴 SRT_220 1.3s · idle=True
+[03:34:32] ⏱ 씬합계 SRT_220 22.9s · https://www.genspark.ai/api/files/s/zvliby3j
+[03:34:32] SRT_220 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\20장\png\SRT_220.png
+[03:34:33] 상태키 SRT_240 · tracking=OFF; Baek|base; Jin|base
+[03:34:33] run_scene 시작 SRT_240 · seen_files=12 · last_saved=https://www.genspark.ai/api/files/s/zvliby3j
+[03:34:33] ⏱ 준비 SRT_240 0.0s · chars=5362
+[03:34:34] ⏱ 다음명령유휴 SRT_240 1.4s · idle=True
+[03:34:35] fill OK(clip) follow=True chars=5362
+[03:34:35] submit 시작 composer=5362 url=https://www.genspark.ai/agents?id=960e4afa-f771-4976-8274-d99de8a96b37
+[03:34:35] submit geo 실패 hit=no-btn
+[03:34:35] submit 시도 method=geo geo=False
+[03:34:35] submit 미확인 method=geo generating=False composer=5362
+[03:34:36] submit geo 실패 hit=no-btn
+[03:34:36] submit 시도 method=send send=False
+[03:34:36] submit 미확인 method=send generating=False composer=5362
+[03:34:37] submit 시도 method=ctrl
+[03:34:37] submit 미확인 method=ctrl generating=False composer=5364
+[03:34:37] submit 시도 method=enter
+[03:34:38] submit 확인 method=enter generating=False composer=0
+[03:34:38] ⏱ 입력·전송 SRT_240 4.0s · chars=5362
+[03:34:38] 제출 후 last_saved=https://www.genspark.ai/api/files/s/zvliby3j
+[03:34:38] ⏱ 생성대기 시작 SRT_240 max=120s
+[03:34:51] ⏱ 생성대기 완료 12.4s SRT_240 https://www.genspark.ai/api/files/s/mpglowwc
+[03:34:51] ⏱ 생성대기구간 SRT_240 12.4s · ok=True
+[03:34:51] SRT_240 근접 이미지 https://www.genspark.ai/api/files/s/mpglowwc
+[03:34:51] 다운로드 files URL=https://www.genspark.ai/api/files/s/mpglowwc → SRT_240.png
+[03:34:51] ⏱ 다운로드 직접 0.7s size=614020 SRT_240.png
+[03:34:51] ⏱ 다운로드구간 SRT_240 0.7s · SRT_240.png
+[03:34:55] ⏱ 다운로드후유휴 SRT_240 4.1s · idle=True
+[03:34:55] ⏱ 씬합계 SRT_240 22.8s · https://www.genspark.ai/api/files/s/mpglowwc
+[03:34:55] SRT_240 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\20장\png\SRT_240.png
+[03:34:56] 상태키 SRT_260 · tracking=OFF; Baek|base; Jin|base
+[03:34:56] run_scene 시작 SRT_260 · seen_files=13 · last_saved=https://www.genspark.ai/api/files/s/mpglowwc
+[03:34:56] ⏱ 준비 SRT_260 0.0s · chars=5738
+[03:34:57] ⏱ 다음명령유휴 SRT_260 1.3s · idle=True
+[03:34:58] fill OK(clip) follow=True chars=5738
+[03:34:58] submit 시작 composer=5738 url=https://www.genspark.ai/agents?id=960e4afa-f771-4976-8274-d99de8a96b37
+[03:34:58] submit geo 실패 hit=no-btn
+[03:34:58] submit 시도 method=geo geo=False
+[03:34:58] submit 미확인 method=geo generating=False composer=5738
+[03:34:59] submit geo 실패 hit=no-btn
+[03:34:59] submit 시도 method=send send=False
+[03:34:59] submit 미확인 method=send generating=False composer=5738
+[03:34:59] submit 시도 method=ctrl
+[03:35:00] submit 미확인 method=ctrl generating=False composer=5740
+[03:35:00] submit 시도 method=enter
+[03:35:01] submit 확인 method=enter generating=False composer=0
+[03:35:01] ⏱ 입력·전송 SRT_260 4.0s · chars=5738
+[03:35:01] 제출 후 last_saved=https://www.genspark.ai/api/files/s/mpglowwc
+[03:35:01] ⏱ 생성대기 시작 SRT_260 max=120s
+[03:35:14] ⏱ 생성대기 완료 13.3s SRT_260 https://www.genspark.ai/api/files/s/c582pyez
+[03:35:14] ⏱ 생성대기구간 SRT_260 13.3s · ok=True
+[03:35:14] SRT_260 근접 이미지 https://www.genspark.ai/api/files/s/c582pyez
+[03:35:14] 다운로드 files URL=https://www.genspark.ai/api/files/s/c582pyez → SRT_260.png
+[03:35:15] ⏱ 다운로드 직접 0.7s size=675630 SRT_260.png
+[03:35:15] ⏱ 다운로드구간 SRT_260 0.7s · SRT_260.png
+[03:35:17] ⏱ 다운로드후유휴 SRT_260 1.5s · idle=True
+[03:35:17] ⏱ 씬합계 SRT_260 21.0s · https://www.genspark.ai/api/files/s/c582pyez
+[03:35:17] SRT_260 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\20장\png\SRT_260.png
+[03:35:17] 상태키 SRT_280 · tracking=OFF; Baek|base; Jin|base
+[03:35:17] run_scene 시작 SRT_280 · seen_files=14 · last_saved=https://www.genspark.ai/api/files/s/c582pyez
+[03:35:17] ⏱ 준비 SRT_280 0.0s · chars=7309
+[03:35:18] ⏱ 다음명령유휴 SRT_280 1.3s · idle=True
+[03:35:19] fill OK(clip) follow=True chars=7309
+[03:35:19] submit 시작 composer=7309 url=https://www.genspark.ai/agents?id=960e4afa-f771-4976-8274-d99de8a96b37
+[03:35:19] submit geo 실패 hit=no-btn
+[03:35:19] submit 시도 method=geo geo=False
+[03:35:19] submit 미확인 method=geo generating=False composer=7309
+[03:35:20] submit geo 실패 hit=no-btn
+[03:35:20] submit 시도 method=send send=False
+[03:35:20] submit 미확인 method=send generating=False composer=7309
+[03:35:21] submit 시도 method=ctrl
+[03:35:21] submit 미확인 method=ctrl generating=False composer=7311
+[03:35:21] submit 시도 method=enter
+[03:35:22] submit 확인 method=enter generating=False composer=0
+[03:35:22] ⏱ 입력·전송 SRT_280 4.0s · chars=7309
+[03:35:22] 제출 후 last_saved=https://www.genspark.ai/api/files/s/c582pyez
+[03:35:22] ⏱ 생성대기 시작 SRT_280 max=120s
+[03:35:36] ⏱ 생성대기 완료(busy무시) 13.7s SRT_280 https://www.genspark.ai/api/files/s/dl8zs7lj
+[03:35:36] ⏱ 생성대기구간 SRT_280 13.8s · ok=True
+[03:35:36] SRT_280 근접 이미지 https://www.genspark.ai/api/files/s/dl8zs7lj
+[03:35:36] 다운로드 files URL=https://www.genspark.ai/api/files/s/dl8zs7lj → SRT_280.png
+[03:35:37] ⏱ 다운로드 직접 0.9s size=654669 SRT_280.png
+[03:35:37] ⏱ 다운로드구간 SRT_280 0.9s · SRT_280.png
+[03:35:39] ⏱ 다운로드후유휴 SRT_280 1.6s · idle=True
+[03:35:39] ⏱ 씬합계 SRT_280 21.9s · https://www.genspark.ai/api/files/s/dl8zs7lj
+[03:35:39] SRT_280 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\20장\png\SRT_280.png
+[03:35:39] 상태키 SRT_300 · tracking=OFF; Baek|base; Jin|base
+[03:35:39] run_scene 시작 SRT_300 · seen_files=15 · last_saved=https://www.genspark.ai/api/files/s/dl8zs7lj
+[03:35:39] ⏱ 준비 SRT_300 0.0s · chars=4304
+[03:35:40] ⏱ 다음명령유휴 SRT_300 1.3s · idle=True
+[03:35:41] fill OK(clip) follow=True chars=4304
+[03:35:41] submit 시작 composer=4304 url=https://www.genspark.ai/agents?id=960e4afa-f771-4976-8274-d99de8a96b37
+[03:35:41] submit geo 실패 hit=no-btn
+[03:35:41] submit 시도 method=geo geo=False
+[03:35:41] submit 미확인 method=geo generating=False composer=4304
+[03:35:42] submit geo 실패 hit=no-btn
+[03:35:42] submit 시도 method=send send=False
+[03:35:42] submit 미확인 method=send generating=False composer=4304
+[03:35:42] submit 시도 method=ctrl
+[03:35:43] submit 미확인 method=ctrl generating=False composer=4306
+[03:35:43] submit 시도 method=enter
+[03:35:44] submit 확인 method=enter generating=False composer=0
+[03:35:44] ⏱ 입력·전송 SRT_300 3.8s · chars=4304
+[03:35:44] 제출 후 last_saved=https://www.genspark.ai/api/files/s/dl8zs7lj
+[03:35:44] ⏱ 생성대기 시작 SRT_300 max=120s
+[03:35:57] ⏱ 생성대기 완료(busy무시) 13.2s SRT_300 https://www.genspark.ai/api/files/s/t4fxa67e
+[03:35:57] ⏱ 생성대기구간 SRT_300 13.2s · ok=True
+[03:35:57] SRT_300 근접 이미지 https://www.genspark.ai/api/files/s/t4fxa67e
+[03:35:57] 다운로드 files URL=https://www.genspark.ai/api/files/s/t4fxa67e → SRT_300.png
+[03:35:58] ⏱ 다운로드 직접 0.7s size=596519 SRT_300.png
+[03:35:58] ⏱ 다운로드구간 SRT_300 0.7s · SRT_300.png
+[03:36:00] ⏱ 다운로드후유휴 SRT_300 1.4s · idle=True
+[03:36:00] ⏱ 씬합계 SRT_300 20.7s · https://www.genspark.ai/api/files/s/t4fxa67e
+[03:36:00] SRT_300 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\20장\png\SRT_300.png
+[03:36:00] 상태키 SRT_320 · tracking=OFF; Baek|base; Jin|base
+[03:36:00] run_scene 시작 SRT_320 · seen_files=16 · last_saved=https://www.genspark.ai/api/files/s/t4fxa67e
+[03:36:00] ⏱ 준비 SRT_320 0.0s · chars=4327
+[03:36:01] ⏱ 다음명령유휴 SRT_320 1.4s · idle=True
+[03:36:02] fill OK(clip) follow=True chars=4327
+[03:36:02] submit 시작 composer=4327 url=https://www.genspark.ai/agents?id=960e4afa-f771-4976-8274-d99de8a96b37
+[03:36:02] submit geo 실패 hit=no-btn
+[03:36:02] submit 시도 method=geo geo=False
+[03:36:03] submit 미확인 method=geo generating=False composer=4327
+[03:36:03] submit geo 실패 hit=no-btn
+[03:36:03] submit 시도 method=send send=False
+[03:36:03] submit 미확인 method=send generating=False composer=4327
+[03:36:04] submit 시도 method=ctrl
+[03:36:04] submit 미확인 method=ctrl generating=False composer=4329
+[03:36:05] submit 시도 method=enter
+[03:36:05] submit 확인 method=enter generating=False composer=0
+[03:36:05] ⏱ 입력·전송 SRT_320 4.0s · chars=4327
+[03:36:05] 제출 후 last_saved=https://www.genspark.ai/api/files/s/t4fxa67e
+[03:36:05] ⏱ 생성대기 시작 SRT_320 max=120s
+[03:36:21] ⏱ 생성대기 진행 15.5s SRT_320 busy=False url_ok=False src=
+[03:36:30] ⏱ 생성대기 완료 25.2s SRT_320 https://www.genspark.ai/api/files/s/w3gxyayr
+[03:36:30] ⏱ 생성대기구간 SRT_320 25.2s · ok=True
+[03:36:31] SRT_320 근접 이미지 https://www.genspark.ai/api/files/s/w3gxyayr
+[03:36:31] 다운로드 files URL=https://www.genspark.ai/api/files/s/w3gxyayr → SRT_320.png
+[03:36:31] ⏱ 다운로드 직접 0.7s size=602788 SRT_320.png
+[03:36:31] ⏱ 다운로드구간 SRT_320 0.7s · SRT_320.png
+[03:36:32] ⏱ 다운로드후유휴 SRT_320 1.3s · idle=True
+[03:36:32] ⏱ 씬합계 SRT_320 32.8s · https://www.genspark.ai/api/files/s/w3gxyayr
+[03:36:32] SRT_320 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\20장\png\SRT_320.png
+[03:36:33] 상태키 SRT_340 · tracking=OFF; Baek|base; Jin|base
+[03:36:33] run_scene 시작 SRT_340 · seen_files=17 · last_saved=https://www.genspark.ai/api/files/s/w3gxyayr
+[03:36:33] ⏱ 준비 SRT_340 0.0s · chars=4370
+[03:36:34] ⏱ 다음명령유휴 SRT_340 1.3s · idle=True
+[03:36:35] fill OK(clip) follow=True chars=4370
+[03:36:35] submit 시작 composer=4370 url=https://www.genspark.ai/agents?id=960e4afa-f771-4976-8274-d99de8a96b37
+[03:36:35] submit geo 실패 hit=no-btn
+[03:36:35] submit 시도 method=geo geo=False
+[03:36:35] submit 미확인 method=geo generating=False composer=4370
+[03:36:36] submit geo 실패 hit=no-btn
+[03:36:36] submit 시도 method=send send=False
+[03:36:36] submit 미확인 method=send generating=False composer=4370
+[03:36:37] submit 시도 method=ctrl
+[03:36:37] submit 미확인 method=ctrl generating=False composer=4372
+[03:36:37] submit 시도 method=enter
+[03:36:38] submit 확인 method=enter generating=False composer=0
+[03:36:38] ⏱ 입력·전송 SRT_340 3.9s · chars=4370
+[03:36:38] 제출 후 last_saved=https://www.genspark.ai/api/files/s/w3gxyayr
+[03:36:38] ⏱ 생성대기 시작 SRT_340 max=120s
+[03:36:50] ⏱ 생성대기 완료(busy무시) 11.8s SRT_340 https://www.genspark.ai/api/files/s/xbm8btzj
+[03:36:50] ⏱ 생성대기구간 SRT_340 11.8s · ok=True
+[03:36:50] SRT_340 근접 이미지 https://www.genspark.ai/api/files/s/xbm8btzj
+[03:36:50] 다운로드 files URL=https://www.genspark.ai/api/files/s/xbm8btzj → SRT_340.png
+[03:36:51] ⏱ 다운로드 직접 0.7s size=472381 SRT_340.png
+[03:36:51] ⏱ 다운로드구간 SRT_340 0.7s · SRT_340.png
+[03:36:52] ⏱ 다운로드후유휴 SRT_340 1.3s · idle=True
+[03:36:52] ⏱ 씬합계 SRT_340 19.3s · https://www.genspark.ai/api/files/s/xbm8btzj
+[03:36:52] SRT_340 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\20장\png\SRT_340.png
+[03:36:52] 상태키 SRT_360 · tracking=OFF; Baek|base; Jin|base
+[03:36:52] run_scene 시작 SRT_360 · seen_files=18 · last_saved=https://www.genspark.ai/api/files/s/xbm8btzj
+[03:36:52] ⏱ 준비 SRT_360 0.0s · chars=5666
+[03:36:54] ⏱ 다음명령유휴 SRT_360 1.4s · idle=True
+[03:36:54] fill OK(clip) follow=True chars=5666
+[03:36:54] submit 시작 composer=5666 url=https://www.genspark.ai/agents?id=960e4afa-f771-4976-8274-d99de8a96b37
+[03:36:54] submit geo 실패 hit=no-btn
+[03:36:54] submit 시도 method=geo geo=False
+[03:36:55] submit 미확인 method=geo generating=False composer=5666
+[03:36:55] submit geo 실패 hit=no-btn
+[03:36:55] submit 시도 method=send send=False
+[03:36:56] submit 미확인 method=send generating=False composer=5666
+[03:36:56] submit 시도 method=ctrl
+[03:36:57] submit 미확인 method=ctrl generating=False composer=5668
+[03:36:57] submit 시도 method=enter
+[03:36:57] submit 확인 method=enter generating=False composer=0
+[03:36:57] ⏱ 입력·전송 SRT_360 3.9s · chars=5666
+[03:36:57] 제출 후 last_saved=https://www.genspark.ai/api/files/s/xbm8btzj
+[03:36:58] ⏱ 생성대기 시작 SRT_360 max=120s
+[03:37:08] ⏱ 생성대기 완료 10.6s SRT_360 https://www.genspark.ai/api/files/s/tvryprcv
+[03:37:08] ⏱ 생성대기구간 SRT_360 10.6s · ok=True
+[03:37:08] SRT_360 근접 이미지 https://www.genspark.ai/api/files/s/tvryprcv
+[03:37:08] 다운로드 files URL=https://www.genspark.ai/api/files/s/tvryprcv → SRT_360.png
+[03:37:09] ⏱ 다운로드 직접 0.7s size=585617 SRT_360.png
+[03:37:09] ⏱ 다운로드구간 SRT_360 0.7s · SRT_360.png
+[03:37:11] ⏱ 다운로드후유휴 SRT_360 2.4s · idle=True
+[03:37:11] ⏱ 씬합계 SRT_360 19.3s · https://www.genspark.ai/api/files/s/tvryprcv
+[03:37:11] SRT_360 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\20장\png\SRT_360.png
+[03:37:12] 상태키 SRT_380 · tracking=OFF; Baek|base; Jin|base
+[03:37:12] run_scene 시작 SRT_380 · seen_files=19 · last_saved=https://www.genspark.ai/api/files/s/tvryprcv
+[03:37:12] ⏱ 준비 SRT_380 0.0s · chars=4366
+[03:37:13] ⏱ 다음명령유휴 SRT_380 1.3s · idle=True
+[03:37:14] fill OK(clip) follow=True chars=4366
+[03:37:14] submit 시작 composer=4366 url=https://www.genspark.ai/agents?id=960e4afa-f771-4976-8274-d99de8a96b37
+[03:37:14] submit geo 실패 hit=no-btn
+[03:37:14] submit 시도 method=geo geo=False
+[03:37:14] submit 미확인 method=geo generating=False composer=4366
+[03:37:15] submit geo 실패 hit=no-btn
+[03:37:15] submit 시도 method=send send=False
+[03:37:15] submit 미확인 method=send generating=False composer=4366
+[03:37:15] submit 시도 method=ctrl
+[03:37:16] submit 미확인 method=ctrl generating=False composer=4368
+[03:37:16] submit 시도 method=enter
+[03:37:17] submit 확인 method=enter generating=False composer=0
+[03:37:17] ⏱ 입력·전송 SRT_380 3.9s · chars=4366
+[03:37:17] 제출 후 last_saved=https://www.genspark.ai/api/files/s/tvryprcv
+[03:37:17] ⏱ 생성대기 시작 SRT_380 max=120s
+[03:37:32] ⏱ 생성대기 완료(busy무시) 14.4s SRT_380 https://www.genspark.ai/api/files/s/wcujgnhp
+[03:37:32] ⏱ 생성대기구간 SRT_380 14.4s · ok=True
+[03:37:32] SRT_380 근접 이미지 https://www.genspark.ai/api/files/s/wcujgnhp
+[03:37:32] 다운로드 files URL=https://www.genspark.ai/api/files/s/wcujgnhp → SRT_380.png
+[03:37:32] ⏱ 다운로드 직접 0.7s size=653095 SRT_380.png
+[03:37:32] ⏱ 다운로드구간 SRT_380 0.7s · SRT_380.png
+[03:37:34] ⏱ 다운로드후유휴 SRT_380 1.4s · idle=True
+[03:37:34] ⏱ 씬합계 SRT_380 22.1s · https://www.genspark.ai/api/files/s/wcujgnhp
+[03:37:34] SRT_380 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\20장\png\SRT_380.png
+[03:37:34] 상태키 SRT_400 · tracking=OFF; Baek|base; Jin|base
+[03:37:34] run_scene 시작 SRT_400 · seen_files=20 · last_saved=https://www.genspark.ai/api/files/s/wcujgnhp
+[03:37:34] ⏱ 준비 SRT_400 0.0s · chars=4395
+[03:37:35] ⏱ 다음명령유휴 SRT_400 1.3s · idle=True
+[03:37:36] fill OK(clip) follow=True chars=4395
+[03:37:36] submit 시작 composer=4395 url=https://www.genspark.ai/agents?id=960e4afa-f771-4976-8274-d99de8a96b37
+[03:37:36] submit geo 실패 hit=no-btn
+[03:37:36] submit 시도 method=geo geo=False
+[03:37:37] submit 미확인 method=geo generating=False composer=4395
+[03:37:37] submit geo 실패 hit=no-btn
+[03:37:37] submit 시도 method=send send=False
+[03:37:37] submit 미확인 method=send generating=False composer=4395
+[03:37:38] submit 시도 method=ctrl
+[03:37:38] submit 미확인 method=ctrl generating=False composer=4397
+[03:37:39] submit 시도 method=enter
+[03:37:39] submit 확인 method=enter generating=False composer=0
+[03:37:39] ⏱ 입력·전송 SRT_400 3.9s · chars=4395
+[03:37:39] 제출 후 last_saved=https://www.genspark.ai/api/files/s/wcujgnhp
+[03:37:39] ⏱ 생성대기 시작 SRT_400 max=120s
+[03:37:52] ⏱ 생성대기 완료(busy무시) 12.6s SRT_400 https://www.genspark.ai/api/files/s/g2fsiszr
+[03:37:52] ⏱ 생성대기구간 SRT_400 12.6s · ok=True
+[03:37:52] SRT_400 근접 이미지 https://www.genspark.ai/api/files/s/g2fsiszr
+[03:37:52] 다운로드 files URL=https://www.genspark.ai/api/files/s/g2fsiszr → SRT_400.png
+[03:37:53] ⏱ 다운로드 직접 0.7s size=672127 SRT_400.png
+[03:37:53] ⏱ 다운로드구간 SRT_400 0.7s · SRT_400.png
+[03:37:56] ⏱ 다운로드후유휴 SRT_400 3.1s · idle=True
+[03:37:56] ⏱ 씬합계 SRT_400 21.9s · https://www.genspark.ai/api/files/s/g2fsiszr
+[03:37:56] SRT_400 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\20장\png\SRT_400.png
+[03:37:56] 상태키 SRT_420 · tracking=OFF; Baek|base; Jin|base
+[03:37:56] run_scene 시작 SRT_420 · seen_files=21 · last_saved=https://www.genspark.ai/api/files/s/g2fsiszr
+[03:37:56] ⏱ 준비 SRT_420 0.0s · chars=5651
+[03:37:57] ⏱ 다음명령유휴 SRT_420 1.4s · idle=True
+[03:37:58] fill OK(clip) follow=True chars=5651
+[03:37:58] submit 시작 composer=5651 url=https://www.genspark.ai/agents?id=960e4afa-f771-4976-8274-d99de8a96b37
+[03:37:58] submit geo 실패 hit=no-btn
+[03:37:58] submit 시도 method=geo geo=False
+[03:37:59] submit 미확인 method=geo generating=False composer=5651
+[03:37:59] submit geo 실패 hit=no-btn
+[03:37:59] submit 시도 method=send send=False
+[03:38:00] submit 미확인 method=send generating=False composer=5651
+[03:38:00] submit 시도 method=ctrl
+[03:38:00] submit 미확인 method=ctrl generating=False composer=5653
+[03:38:01] submit 시도 method=enter
+[03:38:01] submit 확인 method=enter generating=False composer=0
+[03:38:01] ⏱ 입력·전송 SRT_420 4.0s · chars=5651
+[03:38:01] 제출 후 last_saved=https://www.genspark.ai/api/files/s/g2fsiszr
+[03:38:01] ⏱ 생성대기 시작 SRT_420 max=120s
+[03:38:15] ⏱ 생성대기 완료 13.3s SRT_420 https://www.genspark.ai/api/files/s/blctvf4l
+[03:38:15] ⏱ 생성대기구간 SRT_420 13.3s · ok=True
+[03:38:15] SRT_420 근접 이미지 https://www.genspark.ai/api/files/s/blctvf4l
+[03:38:15] 다운로드 files URL=https://www.genspark.ai/api/files/s/blctvf4l → SRT_420.png
+[03:38:15] ⏱ 다운로드 직접 0.7s size=544552 SRT_420.png
+[03:38:15] ⏱ 다운로드구간 SRT_420 0.7s · SRT_420.png
+[03:38:17] ⏱ 다운로드후유휴 SRT_420 1.3s · idle=True
+[03:38:17] ⏱ 씬합계 SRT_420 20.9s · https://www.genspark.ai/api/files/s/blctvf4l
+[03:38:17] SRT_420 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\20장\png\SRT_420.png
+[03:38:17] 상태키 SRT_440 · tracking=OFF; Baek|base; Jin|base
+[03:38:17] run_scene 시작 SRT_440 · seen_files=22 · last_saved=https://www.genspark.ai/api/files/s/blctvf4l
+[03:38:17] ⏱ 준비 SRT_440 0.0s · chars=4324
+[03:38:18] ⏱ 다음명령유휴 SRT_440 1.3s · idle=True
+[03:38:19] fill OK(clip) follow=True chars=4324
+[03:38:19] submit 시작 composer=4324 url=https://www.genspark.ai/agents?id=960e4afa-f771-4976-8274-d99de8a96b37
+[03:38:19] submit geo 실패 hit=no-btn
+[03:38:19] submit 시도 method=geo geo=False
+[03:38:20] submit 미확인 method=geo generating=False composer=4324
+[03:38:20] submit geo 실패 hit=no-btn
+[03:38:20] submit 시도 method=send send=False
+[03:38:21] submit 미확인 method=send generating=False composer=4324
+[03:38:21] submit 시도 method=ctrl
+[03:38:21] submit 미확인 method=ctrl generating=False composer=4326
+[03:38:22] submit 시도 method=enter
+[03:38:22] submit 확인 method=enter generating=False composer=0
+[03:38:22] ⏱ 입력·전송 SRT_440 4.0s · chars=4324
+[03:38:22] 제출 후 last_saved=https://www.genspark.ai/api/files/s/blctvf4l
+[03:38:22] ⏱ 생성대기 시작 SRT_440 max=120s
+[03:38:33] ⏱ 생성대기 완료 10.8s SRT_440 https://www.genspark.ai/api/files/s/e00zpwth
+[03:38:33] ⏱ 생성대기구간 SRT_440 10.8s · ok=True
+[03:38:33] SRT_440 근접 이미지 https://www.genspark.ai/api/files/s/e00zpwth
+[03:38:33] 다운로드 files URL=https://www.genspark.ai/api/files/s/e00zpwth → SRT_440.png
+[03:38:34] ⏱ 다운로드 직접 0.8s size=526007 SRT_440.png
+[03:38:34] ⏱ 다운로드구간 SRT_440 0.8s · SRT_440.png
+[03:38:37] ⏱ 다운로드후유휴 SRT_440 3.1s · idle=True
+[03:38:37] ⏱ 씬합계 SRT_440 20.2s · https://www.genspark.ai/api/files/s/e00zpwth
+[03:38:37] SRT_440 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\20장\png\SRT_440.png
+[03:38:37] 상태키 SRT_460 · tracking=OFF; Baek|base; Jin|base
+[03:38:37] run_scene 시작 SRT_460 · seen_files=23 · last_saved=https://www.genspark.ai/api/files/s/e00zpwth
+[03:38:37] ⏱ 준비 SRT_460 0.0s · chars=4374
+[03:38:39] ⏱ 다음명령유휴 SRT_460 1.3s · idle=True
+[03:38:39] fill OK(clip) follow=True chars=4374
+[03:38:39] submit 시작 composer=4374 url=https://www.genspark.ai/agents?id=960e4afa-f771-4976-8274-d99de8a96b37
+[03:38:39] submit geo 실패 hit=no-btn
+[03:38:39] submit 시도 method=geo geo=False
+[03:38:40] submit 미확인 method=geo generating=False composer=4374
+[03:38:40] submit geo 실패 hit=no-btn
+[03:38:40] submit 시도 method=send send=False
+[03:38:41] submit 미확인 method=send generating=False composer=4374
+[03:38:41] submit 시도 method=ctrl
+[03:38:42] submit 미확인 method=ctrl generating=False composer=4376
+[03:38:42] submit 시도 method=enter
+[03:38:43] submit 확인 method=enter generating=False composer=0
+[03:38:43] ⏱ 입력·전송 SRT_460 4.0s · chars=4374
+[03:38:43] 제출 후 last_saved=https://www.genspark.ai/api/files/s/e00zpwth
+[03:38:43] ⏱ 생성대기 시작 SRT_460 max=120s
+[03:38:53] ⏱ 생성대기 완료(busy무시) 10.7s SRT_460 https://www.genspark.ai/api/files/s/kbilbkmd
+[03:38:53] ⏱ 생성대기구간 SRT_460 10.7s · ok=True
+[03:38:53] SRT_460 근접 이미지 https://www.genspark.ai/api/files/s/kbilbkmd
+[03:38:54] 다운로드 files URL=https://www.genspark.ai/api/files/s/kbilbkmd → SRT_460.png
+[03:38:54] ⏱ 다운로드 직접 0.7s size=637553 SRT_460.png
+[03:38:54] ⏱ 다운로드구간 SRT_460 0.7s · SRT_460.png
+[03:38:55] ⏱ 다운로드후유휴 SRT_460 1.3s · idle=True
+[03:38:55] ⏱ 씬합계 SRT_460 18.2s · https://www.genspark.ai/api/files/s/kbilbkmd
+[03:38:55] SRT_460 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\20장\png\SRT_460.png
+[03:38:56] 상태키 SRT_480 · tracking=OFF; Baek|base; Jin|base
+[03:38:56] run_scene 시작 SRT_480 · seen_files=24 · last_saved=https://www.genspark.ai/api/files/s/kbilbkmd
+[03:38:56] ⏱ 준비 SRT_480 0.0s · chars=4330
+[03:38:57] ⏱ 다음명령유휴 SRT_480 1.2s · idle=True
+[03:38:58] fill OK(clip) follow=True chars=4330
+[03:38:58] submit 시작 composer=4330 url=https://www.genspark.ai/agents?id=960e4afa-f771-4976-8274-d99de8a96b37
+[03:38:58] submit geo 실패 hit=no-btn
+[03:38:58] submit 시도 method=geo geo=False
+[03:38:58] submit 미확인 method=geo generating=False composer=4330
+[03:38:59] submit geo 실패 hit=no-btn
+[03:38:59] submit 시도 method=send send=False
+[03:38:59] submit 미확인 method=send generating=False composer=4330
+[03:38:59] submit 시도 method=ctrl
+[03:39:00] submit 미확인 method=ctrl generating=False composer=4332
+[03:39:00] submit 시도 method=enter
+[03:39:01] submit 확인 method=enter generating=False composer=0
+[03:39:01] ⏱ 입력·전송 SRT_480 4.0s · chars=4330
+[03:39:01] 제출 후 last_saved=https://www.genspark.ai/api/files/s/kbilbkmd
+[03:39:01] ⏱ 생성대기 시작 SRT_480 max=120s
+[03:39:13] ⏱ 생성대기 완료 11.9s SRT_480 https://www.genspark.ai/api/files/s/fjlq7qii
+[03:39:13] ⏱ 생성대기구간 SRT_480 11.9s · ok=True
+[03:39:13] SRT_480 근접 이미지 https://www.genspark.ai/api/files/s/fjlq7qii
+[03:39:13] 다운로드 files URL=https://www.genspark.ai/api/files/s/fjlq7qii → SRT_480.png
+[03:39:14] ⏱ 다운로드 직접 0.7s size=592967 SRT_480.png
+[03:39:14] ⏱ 다운로드구간 SRT_480 0.7s · SRT_480.png
+[03:39:16] ⏱ 다운로드후유휴 SRT_480 2.6s · idle=True
+[03:39:16] ⏱ 씬합계 SRT_480 20.6s · https://www.genspark.ai/api/files/s/fjlq7qii
+[03:39:16] SRT_480 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\20장\png\SRT_480.png
+[03:39:16] 상태키 SRT_500 · tracking=OFF; Baek|base; Jin|base
+[03:39:16] run_scene 시작 SRT_500 · seen_files=25 · last_saved=https://www.genspark.ai/api/files/s/fjlq7qii
+[03:39:16] ⏱ 준비 SRT_500 0.0s · chars=4334
+[03:39:18] ⏱ 다음명령유휴 SRT_500 1.3s · idle=True
+[03:39:18] fill OK(clip) follow=True chars=4334
+[03:39:18] submit 시작 composer=4334 url=https://www.genspark.ai/agents?id=960e4afa-f771-4976-8274-d99de8a96b37
+[03:39:19] submit geo 실패 hit=no-btn
+[03:39:19] submit 시도 method=geo geo=False
+[03:39:19] submit 미확인 method=geo generating=False composer=4334
+[03:39:19] submit geo 실패 hit=no-btn
+[03:39:19] submit 시도 method=send send=False
+[03:39:20] submit 미확인 method=send generating=False composer=4334
+[03:39:20] submit 시도 method=ctrl
+[03:39:21] submit 미확인 method=ctrl generating=False composer=4336
+[03:39:21] submit 시도 method=enter
+[03:39:22] submit 확인 method=enter generating=False composer=0
+[03:39:22] ⏱ 입력·전송 SRT_500 3.9s · chars=4334
+[03:39:22] 제출 후 last_saved=https://www.genspark.ai/api/files/s/fjlq7qii
+[03:39:22] ⏱ 생성대기 시작 SRT_500 max=120s
+[03:39:34] ⏱ 생성대기 완료(busy무시) 12.3s SRT_500 https://www.genspark.ai/api/files/s/jr3ysbkb
+[03:39:34] ⏱ 생성대기구간 SRT_500 12.3s · ok=True
+[03:39:34] SRT_500 근접 이미지 https://www.genspark.ai/api/files/s/jr3ysbkb
+[03:39:34] 다운로드 files URL=https://www.genspark.ai/api/files/s/jr3ysbkb → SRT_500.png
+[03:39:36] ⏱ 다운로드 직접 1.8s size=618758 SRT_500.png
+[03:39:36] ⏱ 다운로드구간 SRT_500 1.8s · SRT_500.png
+[03:39:37] ⏱ 다운로드후유휴 SRT_500 1.3s · idle=True
+[03:39:37] ⏱ 씬합계 SRT_500 20.9s · https://www.genspark.ai/api/files/s/jr3ysbkb
+[03:39:37] SRT_500 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\20장\png\SRT_500.png
+[03:39:38] 상태키 SRT_520 · tracking=OFF; Baek|base; Jin|base
+[03:39:38] run_scene 시작 SRT_520 · seen_files=26 · last_saved=https://www.genspark.ai/api/files/s/jr3ysbkb
+[03:39:38] ⏱ 준비 SRT_520 0.0s · chars=4324
+[03:39:39] ⏱ 다음명령유휴 SRT_520 1.4s · idle=True
+[03:39:40] fill OK(clip) follow=True chars=4324
+[03:39:40] submit 시작 composer=4324 url=https://www.genspark.ai/agents?id=960e4afa-f771-4976-8274-d99de8a96b37
+[03:39:40] submit geo 실패 hit=no-btn
+[03:39:40] submit 시도 method=geo geo=False
+[03:39:40] submit 미확인 method=geo generating=False composer=4324
+[03:39:41] submit geo 실패 hit=no-btn
+[03:39:41] submit 시도 method=send send=False
+[03:39:41] submit 미확인 method=send generating=False composer=4324
+[03:39:41] submit 시도 method=ctrl
+[03:39:42] submit 미확인 method=ctrl generating=False composer=4326
+[03:39:42] submit 시도 method=enter
+[03:39:43] submit 확인 method=enter generating=False composer=0
+[03:39:43] ⏱ 입력·전송 SRT_520 4.0s · chars=4324
+[03:39:43] 제출 후 last_saved=https://www.genspark.ai/api/files/s/jr3ysbkb
+[03:39:43] ⏱ 생성대기 시작 SRT_520 max=120s
+[03:39:56] ⏱ 생성대기 완료 12.9s SRT_520 https://www.genspark.ai/api/files/s/hsvknkey
+[03:39:56] ⏱ 생성대기구간 SRT_520 12.9s · ok=True
+[03:39:56] SRT_520 근접 이미지 https://www.genspark.ai/api/files/s/hsvknkey
+[03:39:56] 다운로드 files URL=https://www.genspark.ai/api/files/s/hsvknkey → SRT_520.png
+[03:39:57] ⏱ 다운로드 직접 0.7s size=566432 SRT_520.png
+[03:39:57] ⏱ 다운로드구간 SRT_520 0.8s · SRT_520.png
+[03:39:59] ⏱ 다운로드후유휴 SRT_520 2.7s · idle=True
+[03:39:59] ⏱ 씬합계 SRT_520 22.0s · https://www.genspark.ai/api/files/s/hsvknkey
+[03:39:59] SRT_520 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\20장\png\SRT_520.png
+[03:40:00] 상태키 SRT_540 · tracking=OFF; Baek|base; Jin|base
+[03:40:00] run_scene 시작 SRT_540 · seen_files=27 · last_saved=https://www.genspark.ai/api/files/s/hsvknkey
+[03:40:00] ⏱ 준비 SRT_540 0.0s · chars=5635
+[03:40:01] ⏱ 다음명령유휴 SRT_540 1.4s · idle=True
+[03:40:02] fill OK(clip) follow=True chars=5635
+[03:40:02] submit 시작 composer=5635 url=https://www.genspark.ai/agents?id=960e4afa-f771-4976-8274-d99de8a96b37
+[03:40:02] submit geo 실패 hit=no-btn
+[03:40:02] submit 시도 method=geo geo=False
+[03:40:02] submit 미확인 method=geo generating=False composer=5635
+[03:40:03] submit geo 실패 hit=no-btn
+[03:40:03] submit 시도 method=send send=False
+[03:40:03] submit 미확인 method=send generating=False composer=5635
+[03:40:04] submit 시도 method=ctrl
+[03:40:04] submit 미확인 method=ctrl generating=False composer=5637
+[03:40:04] submit 시도 method=enter
+[03:40:05] submit 확인 method=enter generating=False composer=0
+[03:40:05] ⏱ 입력·전송 SRT_540 4.0s · chars=5635
+[03:40:05] 제출 후 last_saved=https://www.genspark.ai/api/files/s/hsvknkey
+[03:40:05] ⏱ 생성대기 시작 SRT_540 max=120s
+[03:40:18] ⏱ 생성대기 완료(busy무시) 12.9s SRT_540 https://www.genspark.ai/api/files/s/szcdr3rv
+[03:40:18] ⏱ 생성대기구간 SRT_540 12.9s · ok=True
+[03:40:18] SRT_540 근접 이미지 https://www.genspark.ai/api/files/s/szcdr3rv
+[03:40:18] 다운로드 files URL=https://www.genspark.ai/api/files/s/szcdr3rv → SRT_540.png
+[03:40:19] ⏱ 다운로드 직접 0.7s size=472683 SRT_540.png
+[03:40:19] ⏱ 다운로드구간 SRT_540 0.7s · SRT_540.png
+[03:40:21] ⏱ 다운로드후유휴 SRT_540 1.8s · idle=True
+[03:40:21] ⏱ 씬합계 SRT_540 21.1s · https://www.genspark.ai/api/files/s/szcdr3rv
+[03:40:21] SRT_540 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\20장\png\SRT_540.png
+[03:40:21] 상태키 SRT_560 · tracking=OFF; Baek|base; Jin|base
+[03:40:21] run_scene 시작 SRT_560 · seen_files=28 · last_saved=https://www.genspark.ai/api/files/s/szcdr3rv
+[03:40:21] ⏱ 준비 SRT_560 0.0s · chars=4332
+[03:40:22] ⏱ 다음명령유휴 SRT_560 1.4s · idle=True
+[03:40:23] fill OK(clip) follow=True chars=4332
+[03:40:23] submit 시작 composer=4332 url=https://www.genspark.ai/agents?id=960e4afa-f771-4976-8274-d99de8a96b37
+[03:40:23] submit geo 실패 hit=no-btn
+[03:40:23] submit 시도 method=geo geo=False
+[03:40:24] submit 미확인 method=geo generating=False composer=4332
+[03:40:24] submit geo 실패 hit=no-btn
+[03:40:24] submit 시도 method=send send=False
+[03:40:25] submit 미확인 method=send generating=False composer=4332
+[03:40:25] submit 시도 method=ctrl
+[03:40:25] submit 미확인 method=ctrl generating=False composer=4334
+[03:40:26] submit 시도 method=enter
+[03:40:26] submit 확인 method=enter generating=False composer=0
+[03:40:26] ⏱ 입력·전송 SRT_560 4.0s · chars=4332
+[03:40:26] 제출 후 last_saved=https://www.genspark.ai/api/files/s/szcdr3rv
+[03:40:27] ⏱ 생성대기 시작 SRT_560 max=120s
+[03:40:38] ⏱ 생성대기 완료(busy무시) 11.7s SRT_560 https://www.genspark.ai/api/files/s/eomo3u8x
+[03:40:38] ⏱ 생성대기구간 SRT_560 11.7s · ok=True
+[03:40:38] SRT_560 근접 이미지 https://www.genspark.ai/api/files/s/eomo3u8x
+[03:40:38] 다운로드 files URL=https://www.genspark.ai/api/files/s/eomo3u8x → SRT_560.png
+[03:40:39] ⏱ 다운로드 직접 0.7s size=414102 SRT_560.png
+[03:40:39] ⏱ 다운로드구간 SRT_560 0.7s · SRT_560.png
+[03:40:41] ⏱ 다운로드후유휴 SRT_560 1.4s · idle=True
+[03:40:41] ⏱ 씬합계 SRT_560 19.6s · https://www.genspark.ai/api/files/s/eomo3u8x
+[03:40:41] SRT_560 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\20장\png\SRT_560.png
+[03:40:41] 상태키 SRT_580 · tracking=OFF; Baek|base; Jin|base
+[03:40:41] run_scene 시작 SRT_580 · seen_files=29 · last_saved=https://www.genspark.ai/api/files/s/eomo3u8x
+[03:40:41] ⏱ 준비 SRT_580 0.0s · chars=5638
+[03:40:42] ⏱ 다음명령유휴 SRT_580 1.4s · idle=True
+[03:40:43] fill OK(clip) follow=True chars=5638
+[03:40:43] submit 시작 composer=5638 url=https://www.genspark.ai/agents?id=960e4afa-f771-4976-8274-d99de8a96b37
+[03:40:43] submit geo 실패 hit=no-btn
+[03:40:43] submit 시도 method=geo geo=False
+[03:40:43] submit 미확인 method=geo generating=False composer=5638
+[03:40:44] submit geo 실패 hit=no-btn
+[03:40:44] submit 시도 method=send send=False
+[03:40:44] submit 미확인 method=send generating=False composer=5638
+[03:40:44] submit 시도 method=ctrl
+[03:40:45] submit 미확인 method=ctrl generating=False composer=5640
+[03:40:45] submit 시도 method=enter
+[03:40:46] submit 확인 method=enter generating=False composer=0
+[03:40:46] ⏱ 입력·전송 SRT_580 3.9s · chars=5638
+[03:40:46] 제출 후 last_saved=https://www.genspark.ai/api/files/s/eomo3u8x
+[03:40:46] ⏱ 생성대기 시작 SRT_580 max=120s
+[03:40:59] ⏱ 생성대기 완료(busy무시) 12.7s SRT_580 https://www.genspark.ai/api/files/s/a7ke29ly
+[03:40:59] ⏱ 생성대기구간 SRT_580 12.7s · ok=True
+[03:40:59] SRT_580 근접 이미지 https://www.genspark.ai/api/files/s/a7ke29ly
+[03:40:59] 다운로드 files URL=https://www.genspark.ai/api/files/s/a7ke29ly → SRT_580.png
+[03:41:00] ⏱ 다운로드 직접 1.1s size=458603 SRT_580.png
+[03:41:00] ⏱ 다운로드구간 SRT_580 1.1s · SRT_580.png
+[03:41:01] ⏱ 다운로드후유휴 SRT_580 1.5s · idle=True
+[03:41:01] ⏱ 씬합계 SRT_580 20.8s · https://www.genspark.ai/api/files/s/a7ke29ly
+[03:41:01] SRT_580 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\20장\png\SRT_580.png
+[03:41:02] 상태키 SRT_600 · tracking=OFF; Baek|base; Jin|base
+[03:41:02] run_scene 시작 SRT_600 · seen_files=30 · last_saved=https://www.genspark.ai/api/files/s/a7ke29ly
+[03:41:02] ⏱ 준비 SRT_600 0.0s · chars=4367
+[03:41:03] ⏱ 다음명령유휴 SRT_600 1.3s · idle=True
+[03:41:04] fill OK(clip) follow=True chars=4367
+[03:41:04] submit 시작 composer=4367 url=https://www.genspark.ai/agents?id=960e4afa-f771-4976-8274-d99de8a96b37
+[03:41:04] submit geo 실패 hit=no-btn
+[03:41:04] submit 시도 method=geo geo=False
+[03:41:04] submit 미확인 method=geo generating=False composer=4367
+[03:41:05] submit geo 실패 hit=no-btn
+[03:41:05] submit 시도 method=send send=False
+[03:41:05] submit 미확인 method=send generating=False composer=4367
+[03:41:05] submit 시도 method=ctrl
+[03:41:06] submit 미확인 method=ctrl generating=False composer=4369
+[03:41:06] submit 시도 method=enter
+[03:41:07] submit 확인 method=enter generating=False composer=0
+[03:41:07] ⏱ 입력·전송 SRT_600 4.0s · chars=4367
+[03:41:07] 제출 후 last_saved=https://www.genspark.ai/api/files/s/a7ke29ly
+[03:41:07] ⏱ 생성대기 시작 SRT_600 max=120s
+[03:41:21] ⏱ 생성대기 완료(busy무시) 14.3s SRT_600 https://www.genspark.ai/api/files/s/s5tzlbbe
+[03:41:21] ⏱ 생성대기구간 SRT_600 14.3s · ok=True
+[03:41:21] SRT_600 근접 이미지 https://www.genspark.ai/api/files/s/s5tzlbbe
+[03:41:21] 다운로드 files URL=https://www.genspark.ai/api/files/s/s5tzlbbe → SRT_600.png
+[03:41:22] ⏱ 다운로드 직접 0.6s size=380387 SRT_600.png
+[03:41:22] ⏱ 다운로드구간 SRT_600 0.7s · SRT_600.png
+[03:41:26] ⏱ 다운로드후유휴 SRT_600 4.0s · idle=True
+[03:41:26] ⏱ 씬합계 SRT_600 24.5s · https://www.genspark.ai/api/files/s/s5tzlbbe
+[03:41:26] SRT_600 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\20장\png\SRT_600.png
+[03:41:26] 상태키 SRT_620 · tracking=OFF; Baek|base; Jin|base
+[03:41:26] run_scene 시작 SRT_620 · seen_files=31 · last_saved=https://www.genspark.ai/api/files/s/s5tzlbbe
+[03:41:26] ⏱ 준비 SRT_620 0.0s · chars=4341
+[03:41:28] ⏱ 다음명령유휴 SRT_620 1.4s · idle=True
+[03:41:28] fill OK(clip) follow=True chars=4341
+[03:41:28] submit 시작 composer=4341 url=https://www.genspark.ai/agents?id=960e4afa-f771-4976-8274-d99de8a96b37
+[03:41:29] submit geo 실패 hit=no-btn
+[03:41:29] submit 시도 method=geo geo=False
+[03:41:29] submit 미확인 method=geo generating=False composer=4341
+[03:41:29] submit geo 실패 hit=no-btn
+[03:41:29] submit 시도 method=send send=False
+[03:41:30] submit 미확인 method=send generating=False composer=4341
+[03:41:30] submit 시도 method=ctrl
+[03:41:31] submit 미확인 method=ctrl generating=False composer=4343
+[03:41:31] submit 시도 method=enter
+[03:41:32] submit 확인 method=enter generating=False composer=0
+[03:41:32] ⏱ 입력·전송 SRT_620 4.0s · chars=4341
+[03:41:32] 제출 후 last_saved=https://www.genspark.ai/api/files/s/s5tzlbbe
+[03:41:32] ⏱ 생성대기 시작 SRT_620 max=120s
+[03:41:45] ⏱ 생성대기 완료 13.1s SRT_620 https://www.genspark.ai/api/files/s/qjqkoprr
+[03:41:45] ⏱ 생성대기구간 SRT_620 13.1s · ok=True
+[03:41:45] SRT_620 근접 이미지 https://www.genspark.ai/api/files/s/qjqkoprr
+[03:41:45] 다운로드 files URL=https://www.genspark.ai/api/files/s/qjqkoprr → SRT_620.png
+[03:41:46] ⏱ 다운로드 직접 0.6s size=527331 SRT_620.png
+[03:41:46] ⏱ 다운로드구간 SRT_620 0.7s · SRT_620.png
+[03:41:49] ⏱ 다운로드후유휴 SRT_620 3.0s · idle=True
+[03:41:49] ⏱ 씬합계 SRT_620 22.4s · https://www.genspark.ai/api/files/s/qjqkoprr
+[03:41:49] SRT_620 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\20장\png\SRT_620.png
+[03:41:49] 상태키 SRT_640 · tracking=OFF; Baek|base; Jin|base
+[03:41:49] run_scene 시작 SRT_640 · seen_files=32 · last_saved=https://www.genspark.ai/api/files/s/qjqkoprr
+[03:41:49] ⏱ 준비 SRT_640 0.0s · chars=4323
+[03:41:50] ⏱ 다음명령유휴 SRT_640 1.4s · idle=True
+[03:41:51] fill OK(clip) follow=True chars=4323
+[03:41:51] submit 시작 composer=4323 url=https://www.genspark.ai/agents?id=960e4afa-f771-4976-8274-d99de8a96b37
+[03:41:51] submit geo 실패 hit=no-btn
+[03:41:51] submit 시도 method=geo geo=False
+[03:41:52] submit 미확인 method=geo generating=False composer=4323
+[03:41:52] submit geo 실패 hit=no-btn
+[03:41:52] submit 시도 method=send send=False
+[03:41:53] submit 미확인 method=send generating=False composer=4323
+[03:41:53] submit 시도 method=ctrl
+[03:41:53] submit 미확인 method=ctrl generating=False composer=4325
+[03:41:54] submit 시도 method=enter
+[03:41:54] submit 확인 method=enter generating=False composer=0
+[03:41:54] ⏱ 입력·전송 SRT_640 4.1s · chars=4323
+[03:41:54] 제출 후 last_saved=https://www.genspark.ai/api/files/s/qjqkoprr
+[03:41:55] ⏱ 생성대기 시작 SRT_640 max=120s
+[03:42:06] ⏱ 생성대기 완료 11.5s SRT_640 https://www.genspark.ai/api/files/s/0xrzwiks
+[03:42:06] ⏱ 생성대기구간 SRT_640 11.5s · ok=True
+[03:42:06] SRT_640 근접 이미지 https://www.genspark.ai/api/files/s/0xrzwiks
+[03:42:06] 다운로드 files URL=https://www.genspark.ai/api/files/s/0xrzwiks → SRT_640.png
+[03:42:07] ⏱ 다운로드 직접 0.7s size=538595 SRT_640.png
+[03:42:07] ⏱ 다운로드구간 SRT_640 0.7s · SRT_640.png
+[03:42:10] ⏱ 다운로드후유휴 SRT_640 2.9s · idle=True
+[03:42:10] ⏱ 씬합계 SRT_640 20.9s · https://www.genspark.ai/api/files/s/0xrzwiks
+[03:42:10] SRT_640 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\20장\png\SRT_640.png
+[03:42:10] 상태키 SRT_660 · tracking=OFF; Baek|base; Jin|base
+[03:42:10] run_scene 시작 SRT_660 · seen_files=33 · last_saved=https://www.genspark.ai/api/files/s/0xrzwiks
+[03:42:10] ⏱ 준비 SRT_660 0.0s · chars=4324
+[03:42:11] ⏱ 다음명령유휴 SRT_660 1.4s · idle=True
+[03:42:12] fill OK(clip) follow=True chars=4324
+[03:42:12] submit 시작 composer=4324 url=https://www.genspark.ai/agents?id=960e4afa-f771-4976-8274-d99de8a96b37
+[03:42:12] submit geo 실패 hit=no-btn
+[03:42:12] submit 시도 method=geo geo=False
+[03:42:13] submit 미확인 method=geo generating=False composer=4324
+[03:42:13] submit geo 실패 hit=no-btn
+[03:42:13] submit 시도 method=send send=False
+[03:42:14] submit 미확인 method=send generating=False composer=4324
+[03:42:14] submit 시도 method=ctrl
+[03:42:14] submit 미확인 method=ctrl generating=False composer=4326
+[03:42:15] submit 시도 method=enter
+[03:42:15] submit 확인 method=enter generating=False composer=0
+[03:42:15] ⏱ 입력·전송 SRT_660 4.0s · chars=4324
+[03:42:15] 제출 후 last_saved=https://www.genspark.ai/api/files/s/0xrzwiks
+[03:42:16] ⏱ 생성대기 시작 SRT_660 max=120s
+[03:42:29] ⏱ 생성대기 완료(busy무시) 13.3s SRT_660 https://www.genspark.ai/api/files/s/qtzdfzab
+[03:42:29] ⏱ 생성대기구간 SRT_660 13.3s · ok=True
+[03:42:29] SRT_660 근접 이미지 https://www.genspark.ai/api/files/s/qtzdfzab
+[03:42:29] 다운로드 files URL=https://www.genspark.ai/api/files/s/qtzdfzab → SRT_660.png
+[03:42:30] ⏱ 다운로드 직접 0.7s size=523165 SRT_660.png
+[03:42:30] ⏱ 다운로드구간 SRT_660 0.7s · SRT_660.png
+[03:42:32] ⏱ 다운로드후유휴 SRT_660 2.0s · idle=True
+[03:42:32] ⏱ 씬합계 SRT_660 21.8s · https://www.genspark.ai/api/files/s/qtzdfzab
+[03:42:32] SRT_660 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\20장\png\SRT_660.png
+[03:42:32] 상태키 SRT_680 · tracking=OFF; Baek|base; Jin|base
+[03:42:32] run_scene 시작 SRT_680 · seen_files=34 · last_saved=https://www.genspark.ai/api/files/s/qtzdfzab
+[03:42:32] ⏱ 준비 SRT_680 0.0s · chars=4293
+[03:42:33] ⏱ 다음명령유휴 SRT_680 1.3s · idle=True
+[03:42:34] fill OK(clip) follow=True chars=4293
+[03:42:34] submit 시작 composer=4293 url=https://www.genspark.ai/agents?id=960e4afa-f771-4976-8274-d99de8a96b37
+[03:42:34] submit geo 실패 hit=no-btn
+[03:42:34] submit 시도 method=geo geo=False
+[03:42:34] submit 미확인 method=geo generating=False composer=4293
+[03:42:35] submit geo 실패 hit=no-btn
+[03:42:35] submit 시도 method=send send=False
+[03:42:35] submit 미확인 method=send generating=False composer=4293
+[03:42:36] submit 시도 method=ctrl
+[03:42:36] submit 미확인 method=ctrl generating=False composer=4295
+[03:42:37] submit 시도 method=enter
+[03:42:37] submit 확인 method=enter generating=False composer=0
+[03:42:37] ⏱ 입력·전송 SRT_680 3.9s · chars=4293
+[03:42:37] 제출 후 last_saved=https://www.genspark.ai/api/files/s/qtzdfzab
+[03:42:37] ⏱ 생성대기 시작 SRT_680 max=120s
+[03:42:50] ⏱ 생성대기 완료(busy무시) 12.6s SRT_680 https://www.genspark.ai/api/files/s/auejw8lf
+[03:42:50] ⏱ 생성대기구간 SRT_680 12.6s · ok=True
+[03:42:50] SRT_680 근접 이미지 https://www.genspark.ai/api/files/s/auejw8lf
+[03:42:50] 다운로드 files URL=https://www.genspark.ai/api/files/s/auejw8lf → SRT_680.png
+[03:42:51] ⏱ 다운로드 직접 0.8s size=556865 SRT_680.png
+[03:42:51] ⏱ 다운로드구간 SRT_680 0.8s · SRT_680.png
+[03:42:52] ⏱ 다운로드후유휴 SRT_680 1.4s · idle=True
+[03:42:52] ⏱ 씬합계 SRT_680 20.4s · https://www.genspark.ai/api/files/s/auejw8lf
+[03:42:52] SRT_680 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\20장\png\SRT_680.png
+[03:42:52] 상태키 SRT_700 · tracking=OFF; Baek|base; Jin|base
+[03:42:52] run_scene 시작 SRT_700 · seen_files=35 · last_saved=https://www.genspark.ai/api/files/s/auejw8lf
+[03:42:52] ⏱ 준비 SRT_700 0.0s · chars=4295
+[03:42:54] ⏱ 다음명령유휴 SRT_700 1.5s · idle=True
+[03:42:54] fill OK(clip) follow=True chars=4295
+[03:42:54] submit 시작 composer=4295 url=https://www.genspark.ai/agents?id=960e4afa-f771-4976-8274-d99de8a96b37
+[03:42:55] submit geo 실패 hit=no-btn
+[03:42:55] submit 시도 method=geo geo=False
+[03:42:55] submit 미확인 method=geo generating=False composer=4295
+[03:42:56] submit geo 실패 hit=no-btn
+[03:42:56] submit 시도 method=send send=False
+[03:42:56] submit 미확인 method=send generating=False composer=4295
+[03:42:56] submit 시도 method=ctrl
+[03:42:57] submit 미확인 method=ctrl generating=False composer=4297
+[03:42:57] submit 시도 method=enter
+[03:42:58] submit 확인 method=enter generating=False composer=0
+[03:42:58] ⏱ 입력·전송 SRT_700 4.1s · chars=4295
+[03:42:58] 제출 후 last_saved=https://www.genspark.ai/api/files/s/auejw8lf
+[03:42:58] ⏱ 생성대기 시작 SRT_700 max=120s
+[03:43:11] ⏱ 생성대기 완료(busy무시) 12.6s SRT_700 https://www.genspark.ai/api/files/s/og34zy64
+[03:43:11] ⏱ 생성대기구간 SRT_700 12.6s · ok=True
+[03:43:11] SRT_700 근접 이미지 https://www.genspark.ai/api/files/s/og34zy64
+[03:43:11] 다운로드 files URL=https://www.genspark.ai/api/files/s/og34zy64 → SRT_700.png
+[03:43:11] ⏱ 다운로드 직접 0.7s size=574418 SRT_700.png
+[03:43:11] ⏱ 다운로드구간 SRT_700 0.7s · SRT_700.png
+[03:43:16] ⏱ 다운로드후유휴 SRT_700 4.7s · idle=True
+[03:43:16] ⏱ 씬합계 SRT_700 23.8s · https://www.genspark.ai/api/files/s/og34zy64
+[03:43:16] SRT_700 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\20장\png\SRT_700.png
+[03:43:16] 상태키 SRT_720 · tracking=OFF; Baek|base; Jin|base
+[03:43:16] run_scene 시작 SRT_720 · seen_files=36 · last_saved=https://www.genspark.ai/api/files/s/og34zy64
+[03:43:16] ⏱ 준비 SRT_720 0.0s · chars=4338
+[03:43:18] ⏱ 다음명령유휴 SRT_720 1.3s · idle=True
+[03:43:18] fill OK(clip) follow=True chars=4338
+[03:43:18] submit 시작 composer=4338 url=https://www.genspark.ai/agents?id=960e4afa-f771-4976-8274-d99de8a96b37
+[03:43:18] submit geo 실패 hit=no-btn
+[03:43:18] submit 시도 method=geo geo=False
+[03:43:19] submit 미확인 method=geo generating=False composer=4338
+[03:43:19] submit geo 실패 hit=no-btn
+[03:43:19] submit 시도 method=send send=False
+[03:43:20] submit 미확인 method=send generating=False composer=4338
+[03:43:20] submit 시도 method=ctrl
+[03:43:21] submit 미확인 method=ctrl generating=False composer=4340
+[03:43:21] submit 시도 method=enter
+[03:43:22] submit 확인 method=enter generating=False composer=0
+[03:43:22] ⏱ 입력·전송 SRT_720 4.1s · chars=4338
+[03:43:22] 제출 후 last_saved=https://www.genspark.ai/api/files/s/og34zy64
+[03:43:22] ⏱ 생성대기 시작 SRT_720 max=120s
+[03:43:33] ⏱ 생성대기 완료 10.7s SRT_720 https://www.genspark.ai/api/files/s/hggjtomi
+[03:43:33] ⏱ 생성대기구간 SRT_720 10.7s · ok=True
+[03:43:33] SRT_720 근접 이미지 https://www.genspark.ai/api/files/s/hggjtomi
+[03:43:33] 다운로드 files URL=https://www.genspark.ai/api/files/s/hggjtomi → SRT_720.png
+[03:43:34] ⏱ 다운로드 직접 0.8s size=564968 SRT_720.png
+[03:43:34] ⏱ 다운로드구간 SRT_720 0.8s · SRT_720.png
+[03:43:38] ⏱ 다운로드후유휴 SRT_720 4.0s · idle=True
+[03:43:38] ⏱ 씬합계 SRT_720 21.2s · https://www.genspark.ai/api/files/s/hggjtomi
+[03:43:38] SRT_720 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\20장\png\SRT_720.png
+[03:43:38] 상태키 SRT_740 · tracking=OFF; Baek|base; Jin|base
+[03:43:38] run_scene 시작 SRT_740 · seen_files=37 · last_saved=https://www.genspark.ai/api/files/s/hggjtomi
+[03:43:38] ⏱ 준비 SRT_740 0.0s · chars=6706
+[03:43:39] ⏱ 다음명령유휴 SRT_740 1.5s · idle=True
+[03:43:40] fill OK(clip) follow=True chars=6706
+[03:43:40] submit 시작 composer=6706 url=https://www.genspark.ai/agents?id=960e4afa-f771-4976-8274-d99de8a96b37
+[03:43:40] submit geo 실패 hit=no-btn
+[03:43:40] submit 시도 method=geo geo=False
+[03:43:41] submit 미확인 method=geo generating=False composer=6706
+[03:43:41] submit geo 실패 hit=no-btn
+[03:43:41] submit 시도 method=send send=False
+[03:43:42] submit 미확인 method=send generating=False composer=6706
+[03:43:42] submit 시도 method=ctrl
+[03:43:43] submit 미확인 method=ctrl generating=False composer=6708
+[03:43:43] submit 시도 method=enter
+[03:43:43] submit 확인 method=enter generating=False composer=0
+[03:43:43] ⏱ 입력·전송 SRT_740 4.2s · chars=6706
+[03:43:43] 제출 후 last_saved=https://www.genspark.ai/api/files/s/hggjtomi
+[03:43:44] ⏱ 생성대기 시작 SRT_740 max=120s
+[03:43:58] ⏱ 생성대기 완료(busy무시) 13.9s SRT_740 https://www.genspark.ai/api/files/s/1g9xd4sb
+[03:43:58] ⏱ 생성대기구간 SRT_740 13.9s · ok=True
+[03:43:58] SRT_740 근접 이미지 https://www.genspark.ai/api/files/s/1g9xd4sb
+[03:43:58] 다운로드 files URL=https://www.genspark.ai/api/files/s/1g9xd4sb → SRT_740.png
+[03:43:58] ⏱ 다운로드 직접 0.7s size=615854 SRT_740.png
+[03:43:58] ⏱ 다운로드구간 SRT_740 0.7s · SRT_740.png
+[03:44:00] ⏱ 다운로드후유휴 SRT_740 2.1s · idle=True
+[03:44:00] ⏱ 씬합계 SRT_740 22.6s · https://www.genspark.ai/api/files/s/1g9xd4sb
+[03:44:00] SRT_740 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\20장\png\SRT_740.png
+[03:44:01] 상태키 SRT_760 · tracking=OFF; Baek|base; Jin|base
+[03:44:01] run_scene 시작 SRT_760 · seen_files=38 · last_saved=https://www.genspark.ai/api/files/s/1g9xd4sb
+[03:44:01] ⏱ 준비 SRT_760 0.0s · chars=6707
+[03:44:02] ⏱ 다음명령유휴 SRT_760 1.4s · idle=True
+[03:44:03] fill OK(clip) follow=True chars=6707
+[03:44:03] submit 시작 composer=6707 url=https://www.genspark.ai/agents?id=960e4afa-f771-4976-8274-d99de8a96b37
+[03:44:03] submit geo 실패 hit=no-btn
+[03:44:03] submit 시도 method=geo geo=False
+[03:44:03] submit 미확인 method=geo generating=False composer=6707
+[03:44:04] submit geo 실패 hit=no-btn
+[03:44:04] submit 시도 method=send send=False
+[03:44:04] submit 미확인 method=send generating=False composer=6707
+[03:44:05] submit 시도 method=ctrl
+[03:44:05] submit 미확인 method=ctrl generating=False composer=6709
+[03:44:05] submit 시도 method=enter
+[03:44:06] submit 확인 method=enter generating=False composer=0
+[03:44:06] ⏱ 입력·전송 SRT_760 4.0s · chars=6707
+[03:44:06] 제출 후 last_saved=https://www.genspark.ai/api/files/s/1g9xd4sb
+[03:44:06] ⏱ 생성대기 시작 SRT_760 max=120s
+[03:44:20] ⏱ 생성대기 완료(busy무시) 13.4s SRT_760 https://www.genspark.ai/api/files/s/x2vqnajr
+[03:44:20] ⏱ 생성대기구간 SRT_760 13.4s · ok=True
+[03:44:20] SRT_760 근접 이미지 https://www.genspark.ai/api/files/s/x2vqnajr
+[03:44:20] 다운로드 files URL=https://www.genspark.ai/api/files/s/x2vqnajr → SRT_760.png
+[03:44:20] ⏱ 다운로드 직접 0.7s size=523973 SRT_760.png
+[03:44:20] ⏱ 다운로드구간 SRT_760 0.7s · SRT_760.png
+[03:44:22] ⏱ 다운로드후유휴 SRT_760 2.0s · idle=True
+[03:44:22] ⏱ 씬합계 SRT_760 21.8s · https://www.genspark.ai/api/files/s/x2vqnajr
+[03:44:22] SRT_760 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\20장\png\SRT_760.png
+[03:44:22] 상태키 SRT_780 · tracking=OFF; Baek|base; Jin|base
+[03:44:22] run_scene 시작 SRT_780 · seen_files=39 · last_saved=https://www.genspark.ai/api/files/s/x2vqnajr
+[03:44:23] ⏱ 준비 SRT_780 0.0s · chars=5395
+[03:44:24] ⏱ 다음명령유휴 SRT_780 1.4s · idle=True
+[03:44:25] fill OK(clip) follow=True chars=5395
+[03:44:25] submit 시작 composer=5395 url=https://www.genspark.ai/agents?id=960e4afa-f771-4976-8274-d99de8a96b37
+[03:44:25] submit geo 실패 hit=no-btn
+[03:44:25] submit 시도 method=geo geo=False
+[03:44:25] submit 미확인 method=geo generating=False composer=5395
+[03:44:26] submit geo 실패 hit=no-btn
+[03:44:26] submit 시도 method=send send=False
+[03:44:26] submit 미확인 method=send generating=False composer=5395
+[03:44:27] submit 시도 method=ctrl
+[03:44:27] submit 미확인 method=ctrl generating=False composer=5397
+[03:44:27] submit 시도 method=enter
+[03:44:28] submit 확인 method=enter generating=False composer=0
+[03:44:28] ⏱ 입력·전송 SRT_780 4.1s · chars=5395
+[03:44:28] 제출 후 last_saved=https://www.genspark.ai/api/files/s/x2vqnajr
+[03:44:28] ⏱ 생성대기 시작 SRT_780 max=120s
+[03:44:43] ⏱ 생성대기 완료(busy무시) 14.4s SRT_780 https://www.genspark.ai/api/files/s/kfpiwhqd
+[03:44:43] ⏱ 생성대기구간 SRT_780 14.4s · ok=True
+[03:44:43] SRT_780 근접 이미지 https://www.genspark.ai/api/files/s/kfpiwhqd
+[03:44:43] 다운로드 files URL=https://www.genspark.ai/api/files/s/kfpiwhqd → SRT_780.png
+[03:44:44] ⏱ 다운로드 직접 0.8s size=553111 SRT_780.png
+[03:44:44] ⏱ 다운로드구간 SRT_780 0.9s · SRT_780.png
+[03:44:47] ⏱ 다운로드후유휴 SRT_780 3.0s · idle=True
+[03:44:47] ⏱ 씬합계 SRT_780 24.0s · https://www.genspark.ai/api/files/s/kfpiwhqd
+[03:44:47] SRT_780 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\20장\png\SRT_780.png
+[03:44:47] 상태키 SRT_800 · tracking=OFF; Baek|base; Jin|base
+[03:44:47] run_scene 시작 SRT_800 · seen_files=40 · last_saved=https://www.genspark.ai/api/files/s/kfpiwhqd
+[03:44:47] ⏱ 준비 SRT_800 0.0s · chars=3951
+[03:44:48] ⏱ 다음명령유휴 SRT_800 1.4s · idle=True
+[03:44:49] fill OK(clip) follow=True chars=3951
+[03:44:49] submit 시작 composer=3951 url=https://www.genspark.ai/agents?id=960e4afa-f771-4976-8274-d99de8a96b37
+[03:44:49] submit geo 실패 hit=no-btn
+[03:44:49] submit 시도 method=geo geo=False
+[03:44:50] submit 미확인 method=geo generating=False composer=3951
+[03:44:50] submit geo 실패 hit=no-btn
+[03:44:50] submit 시도 method=send send=False
+[03:44:50] submit 미확인 method=send generating=False composer=3951
+[03:44:51] submit 시도 method=ctrl
+[03:44:51] submit 미확인 method=ctrl generating=False composer=3953
+[03:44:52] submit 시도 method=enter
+[03:44:52] submit 확인 method=enter generating=False composer=0
+[03:44:52] ⏱ 입력·전송 SRT_800 4.1s · chars=3951
+[03:44:52] 제출 후 last_saved=https://www.genspark.ai/api/files/s/kfpiwhqd
+[03:44:52] ⏱ 생성대기 시작 SRT_800 max=120s
+[03:45:05] ⏱ 생성대기 완료(busy무시) 12.3s SRT_800 https://www.genspark.ai/api/files/s/dsol4xld
+[03:45:05] ⏱ 생성대기구간 SRT_800 12.3s · ok=True
+[03:45:05] SRT_800 근접 이미지 https://www.genspark.ai/api/files/s/dsol4xld
+[03:45:05] 다운로드 files URL=https://www.genspark.ai/api/files/s/dsol4xld → SRT_800.png
+[03:45:06] ⏱ 다운로드 직접 0.7s size=432632 SRT_800.png
+[03:45:06] ⏱ 다운로드구간 SRT_800 0.7s · SRT_800.png
+[03:45:07] ⏱ 다운로드후유휴 SRT_800 1.5s · idle=True
+[03:45:07] ⏱ 씬합계 SRT_800 20.3s · https://www.genspark.ai/api/files/s/dsol4xld
+[03:45:07] SRT_800 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\20장\png\SRT_800.png
+[03:45:07] 상태키 SRT_820 · tracking=OFF; Baek|base; Jin|base
+[03:45:07] run_scene 시작 SRT_820 · seen_files=41 · last_saved=https://www.genspark.ai/api/files/s/dsol4xld
+[03:45:07] ⏱ 준비 SRT_820 0.0s · chars=3936
+[03:45:09] ⏱ 다음명령유휴 SRT_820 1.4s · idle=True
+[03:45:09] fill OK(clip) follow=True chars=3936
+[03:45:09] submit 시작 composer=3936 url=https://www.genspark.ai/agents?id=960e4afa-f771-4976-8274-d99de8a96b37
+[03:45:09] submit geo 실패 hit=no-btn
+[03:45:09] submit 시도 method=geo geo=False
+[03:45:10] submit 미확인 method=geo generating=False composer=3936
+[03:45:10] submit geo 실패 hit=no-btn
+[03:45:10] submit 시도 method=send send=False
+[03:45:11] submit 미확인 method=send generating=False composer=3936
+[03:45:11] submit 시도 method=ctrl
+[03:45:12] submit 미확인 method=ctrl generating=False composer=3938
+[03:45:12] submit 시도 method=enter
+[03:45:13] submit 확인 method=enter generating=False composer=0
+[03:45:13] ⏱ 입력·전송 SRT_820 4.1s · chars=3936
+[03:45:13] 제출 후 last_saved=https://www.genspark.ai/api/files/s/dsol4xld
+[03:45:13] ⏱ 생성대기 시작 SRT_820 max=120s
+[03:45:26] ⏱ 생성대기 완료(busy무시) 12.7s SRT_820 https://www.genspark.ai/api/files/s/tcshmcc8
+[03:45:26] ⏱ 생성대기구간 SRT_820 12.7s · ok=True
+[03:45:26] SRT_820 근접 이미지 https://www.genspark.ai/api/files/s/tcshmcc8
+[03:45:26] 다운로드 files URL=https://www.genspark.ai/api/files/s/tcshmcc8 → SRT_820.png
+[03:45:26] ⏱ 다운로드 직접 0.7s size=357122 SRT_820.png
+[03:45:26] ⏱ 다운로드구간 SRT_820 0.7s · SRT_820.png
+[03:45:28] ⏱ 다운로드후유휴 SRT_820 1.5s · idle=True
+[03:45:28] ⏱ 씬합계 SRT_820 20.7s · https://www.genspark.ai/api/files/s/tcshmcc8
+[03:45:28] SRT_820 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\20장\png\SRT_820.png
+[03:45:28] 상태키 SRT_840 · tracking=OFF; Baek|base; Jin|base
+[03:45:28] run_scene 시작 SRT_840 · seen_files=42 · last_saved=https://www.genspark.ai/api/files/s/tcshmcc8
+[03:45:28] ⏱ 준비 SRT_840 0.0s · chars=4324
+[03:45:29] ⏱ 다음명령유휴 SRT_840 1.4s · idle=True
+[03:45:30] fill OK(clip) follow=True chars=4324
+[03:45:30] submit 시작 composer=4324 url=https://www.genspark.ai/agents?id=960e4afa-f771-4976-8274-d99de8a96b37
+[03:45:30] submit geo 실패 hit=no-btn
+[03:45:30] submit 시도 method=geo geo=False
+[03:45:31] submit 미확인 method=geo generating=False composer=4324
+[03:45:31] submit geo 실패 hit=no-btn
+[03:45:31] submit 시도 method=send send=False
+[03:45:32] submit 미확인 method=send generating=False composer=4324
+[03:45:32] submit 시도 method=ctrl
+[03:45:33] submit 미확인 method=ctrl generating=False composer=4326
+[03:45:33] submit 시도 method=enter
+[03:45:34] submit 확인 method=enter generating=False composer=0
+[03:45:34] ⏱ 입력·전송 SRT_840 4.1s · chars=4324
+[03:45:34] 제출 후 last_saved=https://www.genspark.ai/api/files/s/tcshmcc8
+[03:45:34] ⏱ 생성대기 시작 SRT_840 max=120s
+[03:45:47] ⏱ 생성대기 완료 13.0s SRT_840 https://www.genspark.ai/api/files/s/57govici
+[03:45:47] ⏱ 생성대기구간 SRT_840 13.0s · ok=True
+[03:45:47] SRT_840 근접 이미지 https://www.genspark.ai/api/files/s/57govici
+[03:45:47] 다운로드 files URL=https://www.genspark.ai/api/files/s/57govici → SRT_840.png
+[03:45:48] ⏱ 다운로드 직접 0.7s size=447909 SRT_840.png
+[03:45:48] ⏱ 다운로드구간 SRT_840 0.7s · SRT_840.png
+[03:45:52] ⏱ 다운로드후유휴 SRT_840 4.4s · idle=True
+[03:45:52] ⏱ 씬합계 SRT_840 23.9s · https://www.genspark.ai/api/files/s/57govici
+[03:45:52] SRT_840 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\20장\png\SRT_840.png
+[03:45:52] 상태키 SRT_860 · tracking=OFF; Baek|base; Jin|base
+[03:45:52] run_scene 시작 SRT_860 · seen_files=43 · last_saved=https://www.genspark.ai/api/files/s/57govici
+[03:45:52] ⏱ 준비 SRT_860 0.0s · chars=3948
+[03:45:54] ⏱ 다음명령유휴 SRT_860 1.5s · idle=True
+[03:45:54] fill OK(clip) follow=True chars=3948
+[03:45:54] submit 시작 composer=3948 url=https://www.genspark.ai/agents?id=960e4afa-f771-4976-8274-d99de8a96b37
+[03:45:55] submit geo 실패 hit=no-btn
+[03:45:55] submit 시도 method=geo geo=False
+[03:45:55] submit 미확인 method=geo generating=False composer=3948
+[03:45:55] submit geo 실패 hit=no-btn
+[03:45:55] submit 시도 method=send send=False
+[03:45:56] submit 미확인 method=send generating=False composer=3948
+[03:45:56] submit 시도 method=ctrl
+[03:45:57] submit 미확인 method=ctrl generating=False composer=3950
+[03:45:57] submit 시도 method=enter
+[03:45:58] submit 확인 method=enter generating=False composer=0
+[03:45:58] ⏱ 입력·전송 SRT_860 4.2s · chars=3948
+[03:45:58] 제출 후 last_saved=https://www.genspark.ai/api/files/s/57govici
+[03:45:58] ⏱ 생성대기 시작 SRT_860 max=120s
+[03:46:12] ⏱ 생성대기 완료(busy무시) 13.8s SRT_860 https://www.genspark.ai/api/files/s/kpmfj3uk
+[03:46:12] ⏱ 생성대기구간 SRT_860 13.8s · ok=True
+[03:46:12] SRT_860 근접 이미지 https://www.genspark.ai/api/files/s/kpmfj3uk
+[03:46:12] 다운로드 files URL=https://www.genspark.ai/api/files/s/kpmfj3uk → SRT_860.png
+[03:46:13] ⏱ 다운로드 직접 0.7s size=413977 SRT_860.png
+[03:46:13] ⏱ 다운로드구간 SRT_860 0.7s · SRT_860.png
+[03:46:14] ⏱ 다운로드후유휴 SRT_860 1.4s · idle=True
+[03:46:14] ⏱ 씬합계 SRT_860 22.0s · https://www.genspark.ai/api/files/s/kpmfj3uk
+[03:46:14] SRT_860 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\20장\png\SRT_860.png
+[03:46:14] 상태키 SRT_880 · tracking=OFF; Baek|base; Jin|base
+[03:46:14] run_scene 시작 SRT_880 · seen_files=44 · last_saved=https://www.genspark.ai/api/files/s/kpmfj3uk
+[03:46:14] ⏱ 준비 SRT_880 0.0s · chars=5184
+[03:46:16] ⏱ 다음명령유휴 SRT_880 1.4s · idle=True
+[03:46:16] fill OK(clip) follow=True chars=5184
+[03:46:16] submit 시작 composer=5184 url=https://www.genspark.ai/agents?id=960e4afa-f771-4976-8274-d99de8a96b37
+[03:46:17] submit geo 실패 hit=no-btn
+[03:46:17] submit 시도 method=geo geo=False
+[03:46:17] submit 미확인 method=geo generating=False composer=5184
+[03:46:18] submit geo 실패 hit=no-btn
+[03:46:18] submit 시도 method=send send=False
+[03:46:18] submit 미확인 method=send generating=False composer=5184
+[03:46:18] submit 시도 method=ctrl
+[03:46:19] submit 미확인 method=ctrl generating=False composer=5186
+[03:46:19] submit 시도 method=enter
+[03:46:20] submit 확인 method=enter generating=False composer=0
+[03:46:20] ⏱ 입력·전송 SRT_880 4.2s · chars=5184
+[03:46:20] 제출 후 last_saved=https://www.genspark.ai/api/files/s/kpmfj3uk
+[03:46:20] ⏱ 생성대기 시작 SRT_880 max=120s
+[03:46:33] ⏱ 생성대기 완료(busy무시) 13.2s SRT_880 https://www.genspark.ai/api/files/s/em29fy3t
+[03:46:33] ⏱ 생성대기구간 SRT_880 13.2s · ok=True
+[03:46:33] SRT_880 근접 이미지 https://www.genspark.ai/api/files/s/em29fy3t
+[03:46:33] 다운로드 files URL=https://www.genspark.ai/api/files/s/em29fy3t → SRT_880.png
+[03:46:34] ⏱ 다운로드 직접 0.7s size=479573 SRT_880.png
+[03:46:34] ⏱ 다운로드구간 SRT_880 0.7s · SRT_880.png
+[03:46:36] ⏱ 다운로드후유휴 SRT_880 1.5s · idle=True
+[03:46:36] ⏱ 씬합계 SRT_880 21.2s · https://www.genspark.ai/api/files/s/em29fy3t
+[03:46:36] SRT_880 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\20장\png\SRT_880.png
+[03:46:36] 상태키 SRT_900 · tracking=OFF; Baek|base; Jin|base
+[03:46:36] run_scene 시작 SRT_900 · seen_files=45 · last_saved=https://www.genspark.ai/api/files/s/em29fy3t
+[03:46:36] ⏱ 준비 SRT_900 0.0s · chars=5636
+[03:46:37] ⏱ 다음명령유휴 SRT_900 1.4s · idle=True
+[03:46:38] fill OK(clip) follow=True chars=5636
+[03:46:38] submit 시작 composer=5636 url=https://www.genspark.ai/agents?id=960e4afa-f771-4976-8274-d99de8a96b37
+[03:46:38] submit geo 실패 hit=no-btn
+[03:46:38] submit 시도 method=geo geo=False
+[03:46:39] submit 미확인 method=geo generating=False composer=5636
+[03:46:39] submit geo 실패 hit=no-btn
+[03:46:39] submit 시도 method=send send=False
+[03:46:39] submit 미확인 method=send generating=False composer=5636
+[03:46:40] submit 시도 method=ctrl
+[03:46:40] submit 미확인 method=ctrl generating=False composer=5638
+[03:46:41] submit 시도 method=enter
+[03:46:41] submit 확인 method=enter generating=False composer=0
+[03:46:41] ⏱ 입력·전송 SRT_900 4.1s · chars=5636
+[03:46:41] 제출 후 last_saved=https://www.genspark.ai/api/files/s/em29fy3t
+[03:46:41] ⏱ 생성대기 시작 SRT_900 max=120s
+[03:46:53] ⏱ 생성대기 완료(busy무시) 11.5s SRT_900 https://www.genspark.ai/api/files/s/gngu5xn8
+[03:46:53] ⏱ 생성대기구간 SRT_900 11.5s · ok=True
+[03:46:53] SRT_900 근접 이미지 https://www.genspark.ai/api/files/s/gngu5xn8
+[03:46:53] 다운로드 files URL=https://www.genspark.ai/api/files/s/gngu5xn8 → SRT_900.png
+[03:46:54] ⏱ 다운로드 직접 0.9s size=534967 SRT_900.png
+[03:46:54] ⏱ 다운로드구간 SRT_900 0.9s · SRT_900.png
+[03:46:56] ⏱ 다운로드후유휴 SRT_900 1.6s · idle=True
+[03:46:56] ⏱ 씬합계 SRT_900 19.8s · https://www.genspark.ai/api/files/s/gngu5xn8
+[03:46:56] SRT_900 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\20장\png\SRT_900.png
+[03:46:56] 상태키 SRT_920 · tracking=OFF; Baek|base; Jin|base
+[03:46:56] run_scene 시작 SRT_920 · seen_files=46 · last_saved=https://www.genspark.ai/api/files/s/gngu5xn8
+[03:46:56] ⏱ 준비 SRT_920 0.0s · chars=4336
+[03:46:57] ⏱ 다음명령유휴 SRT_920 1.5s · idle=True
+[03:46:58] fill OK(clip) follow=True chars=4336
+[03:46:58] submit 시작 composer=4336 url=https://www.genspark.ai/agents?id=960e4afa-f771-4976-8274-d99de8a96b37
+[03:46:58] submit geo 실패 hit=no-btn
+[03:46:58] submit 시도 method=geo geo=False
+[03:46:59] submit 미확인 method=geo generating=False composer=4336
+[03:46:59] submit geo 실패 hit=no-btn
+[03:46:59] submit 시도 method=send send=False
+[03:46:59] submit 미확인 method=send generating=False composer=4336
+[03:47:00] submit 시도 method=ctrl
+[03:47:00] submit 미확인 method=ctrl generating=False composer=4338
+[03:47:01] submit 시도 method=enter
+[03:47:01] submit 확인 method=enter generating=False composer=0
+[03:47:01] ⏱ 입력·전송 SRT_920 4.1s · chars=4336
+[03:47:01] 제출 후 last_saved=https://www.genspark.ai/api/files/s/gngu5xn8
+[03:47:01] ⏱ 생성대기 시작 SRT_920 max=120s
+[03:47:16] ⏱ 생성대기 완료(busy무시) 14.6s SRT_920 https://www.genspark.ai/api/files/s/g122p2px
+[03:47:16] ⏱ 생성대기구간 SRT_920 14.6s · ok=True
+[03:47:16] SRT_920 근접 이미지 https://www.genspark.ai/api/files/s/g122p2px
+[03:47:16] 다운로드 files URL=https://www.genspark.ai/api/files/s/g122p2px → SRT_920.png
+[03:47:17] ⏱ 다운로드 직접 0.7s size=611566 SRT_920.png
+[03:47:17] ⏱ 다운로드구간 SRT_920 0.7s · SRT_920.png
+[03:47:19] ⏱ 다운로드후유휴 SRT_920 1.9s · idle=True
+[03:47:19] ⏱ 씬합계 SRT_920 23.1s · https://www.genspark.ai/api/files/s/g122p2px
+[03:47:19] SRT_920 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\20장\png\SRT_920.png
+[03:47:19] 상태키 SRT_940 · tracking=OFF; Baek|base; Jin|base
+[03:47:19] run_scene 시작 SRT_940 · seen_files=47 · last_saved=https://www.genspark.ai/api/files/s/g122p2px
+[03:47:19] ⏱ 준비 SRT_940 0.0s · chars=4355
+[03:47:20] ⏱ 다음명령유휴 SRT_940 1.4s · idle=True
+[03:47:21] fill OK(clip) follow=True chars=4355
+[03:47:21] submit 시작 composer=4355 url=https://www.genspark.ai/agents?id=960e4afa-f771-4976-8274-d99de8a96b37
+[03:47:21] submit geo 실패 hit=no-btn
+[03:47:21] submit 시도 method=geo geo=False
+[03:47:22] submit 미확인 method=geo generating=False composer=4355
+[03:47:22] submit geo 실패 hit=no-btn
+[03:47:22] submit 시도 method=send send=False
+[03:47:23] submit 미확인 method=send generating=False composer=4355
+[03:47:23] submit 시도 method=ctrl
+[03:47:24] submit 미확인 method=ctrl generating=False composer=4357
+[03:47:24] submit 시도 method=enter
+[03:47:25] submit 확인 method=enter generating=False composer=0
+[03:47:25] ⏱ 입력·전송 SRT_940 4.2s · chars=4355
+[03:47:25] 제출 후 last_saved=https://www.genspark.ai/api/files/s/g122p2px
+[03:47:25] ⏱ 생성대기 시작 SRT_940 max=120s
+[03:47:38] ⏱ 생성대기 완료(busy무시) 13.2s SRT_940 https://www.genspark.ai/api/files/s/ootcbyqx
+[03:47:38] ⏱ 생성대기구간 SRT_940 13.2s · ok=True
+[03:47:38] SRT_940 근접 이미지 https://www.genspark.ai/api/files/s/ootcbyqx
+[03:47:38] 다운로드 files URL=https://www.genspark.ai/api/files/s/ootcbyqx → SRT_940.png
+[03:47:39] ⏱ 다운로드 직접 0.7s size=576382 SRT_940.png
+[03:47:39] ⏱ 다운로드구간 SRT_940 0.7s · SRT_940.png
+[03:47:41] ⏱ 다운로드후유휴 SRT_940 2.1s · idle=True
+[03:47:41] ⏱ 씬합계 SRT_940 22.0s · https://www.genspark.ai/api/files/s/ootcbyqx
+[03:47:41] SRT_940 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\20장\png\SRT_940.png
+[03:47:41] 상태키 SRT_960 · tracking=OFF; Baek|base; Jin|base
+[03:47:41] run_scene 시작 SRT_960 · seen_files=48 · last_saved=https://www.genspark.ai/api/files/s/ootcbyqx
+[03:47:41] ⏱ 준비 SRT_960 0.0s · chars=4353
+[03:47:43] ⏱ 다음명령유휴 SRT_960 1.4s · idle=True
+[03:47:43] fill OK(clip) follow=True chars=4353
+[03:47:43] submit 시작 composer=4353 url=https://www.genspark.ai/agents?id=960e4afa-f771-4976-8274-d99de8a96b37
+[03:47:43] submit geo 실패 hit=no-btn
+[03:47:43] submit 시도 method=geo geo=False
+[03:47:44] submit 미확인 method=geo generating=False composer=4353
+[03:47:44] submit geo 실패 hit=no-btn
+[03:47:44] submit 시도 method=send send=False
+[03:47:45] submit 미확인 method=send generating=False composer=4353
+[03:47:45] submit 시도 method=ctrl
+[03:47:46] submit 미확인 method=ctrl generating=False composer=4355
+[03:47:46] submit 시도 method=enter
+[03:47:47] submit 확인 method=enter generating=False composer=0
+[03:47:47] ⏱ 입력·전송 SRT_960 4.2s · chars=4353
+[03:47:47] 제출 후 last_saved=https://www.genspark.ai/api/files/s/ootcbyqx
+[03:47:47] ⏱ 생성대기 시작 SRT_960 max=120s
+[03:48:01] ⏱ 생성대기 완료(busy무시) 14.0s SRT_960 https://www.genspark.ai/api/files/s/mjj6t4cx
+[03:48:01] ⏱ 생성대기구간 SRT_960 14.0s · ok=True
+[03:48:01] SRT_960 근접 이미지 https://www.genspark.ai/api/files/s/mjj6t4cx
+[03:48:01] 다운로드 files URL=https://www.genspark.ai/api/files/s/mjj6t4cx → SRT_960.png
+[03:48:02] ⏱ 다운로드 직접 0.7s size=603956 SRT_960.png
+[03:48:02] ⏱ 다운로드구간 SRT_960 0.8s · SRT_960.png
+[03:48:04] ⏱ 다운로드후유휴 SRT_960 2.7s · idle=True
+[03:48:04] ⏱ 씬합계 SRT_960 23.4s · https://www.genspark.ai/api/files/s/mjj6t4cx
+[03:48:04] SRT_960 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\20장\png\SRT_960.png
+[03:48:05] 상태키 SRT_980 · tracking=OFF; Baek|base; Jin|base
+[03:48:05] run_scene 시작 SRT_980 · seen_files=49 · last_saved=https://www.genspark.ai/api/files/s/mjj6t4cx
+[03:48:05] ⏱ 준비 SRT_980 0.0s · chars=5369
+[03:48:06] ⏱ 다음명령유휴 SRT_980 1.3s · idle=True
+[03:48:07] fill OK(clip) follow=True chars=5369
+[03:48:07] submit 시작 composer=5369 url=https://www.genspark.ai/agents?id=960e4afa-f771-4976-8274-d99de8a96b37
+[03:48:07] submit geo 실패 hit=no-btn
+[03:48:07] submit 시도 method=geo geo=False
+[03:48:07] submit 미확인 method=geo generating=False composer=5369
+[03:48:08] submit geo 실패 hit=no-btn
+[03:48:08] submit 시도 method=send send=False
+[03:48:08] submit 미확인 method=send generating=False composer=5369
+[03:48:09] submit 시도 method=ctrl
+[03:48:09] submit 미확인 method=ctrl generating=False composer=5371
+[03:48:10] submit 시도 method=enter
+[03:48:10] submit 확인 method=enter generating=False composer=0
+[03:48:10] ⏱ 입력·전송 SRT_980 4.1s · chars=5369
+[03:48:10] 제출 후 last_saved=https://www.genspark.ai/api/files/s/mjj6t4cx
+[03:48:10] ⏱ 생성대기 시작 SRT_980 max=120s
+[03:48:25] ⏱ 생성대기 진행 15.0s SRT_980 busy=True url_ok=True src=https://www.genspark.ai/api/files/s/lzveqpuy
+[03:48:25] ⏱ 생성대기 완료(busy무시) 15.1s SRT_980 https://www.genspark.ai/api/files/s/lzveqpuy
+[03:48:25] ⏱ 생성대기구간 SRT_980 15.1s · ok=True
+[03:48:25] SRT_980 근접 이미지 https://www.genspark.ai/api/files/s/lzveqpuy
+[03:48:25] 다운로드 files URL=https://www.genspark.ai/api/files/s/lzveqpuy → SRT_980.png
+[03:48:26] ⏱ 다운로드 직접 0.9s size=627822 SRT_980.png
+[03:48:26] ⏱ 다운로드구간 SRT_980 1.0s · SRT_980.png
+[03:48:32] ⏱ 다운로드후유휴 SRT_980 5.7s · idle=True
+[03:48:32] ⏱ 씬합계 SRT_980 27.4s · https://www.genspark.ai/api/files/s/lzveqpuy
+[03:48:32] SRT_980 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\20장\png\SRT_980.png
+[03:48:32] 상태키 SRT_1000 · tracking=OFF; Baek|base; Jin|base
+[03:48:32] run_scene 시작 SRT_1000 · seen_files=50 · last_saved=https://www.genspark.ai/api/files/s/lzveqpuy
+[03:48:32] ⏱ 준비 SRT_1000 0.0s · chars=5361
+[03:48:34] ⏱ 다음명령유휴 SRT_1000 1.4s · idle=True
+[03:48:34] fill OK(clip) follow=True chars=5361
+[03:48:34] submit 시작 composer=5361 url=https://www.genspark.ai/agents?id=960e4afa-f771-4976-8274-d99de8a96b37
+[03:48:34] submit geo 실패 hit=no-btn
+[03:48:34] submit 시도 method=geo geo=False
+[03:48:35] submit 미확인 method=geo generating=False composer=5361
+[03:48:35] submit geo 실패 hit=no-btn
+[03:48:35] submit 시도 method=send send=False
+[03:48:36] submit 미확인 method=send generating=False composer=5361
+[03:48:36] submit 시도 method=ctrl
+[03:48:37] submit 미확인 method=ctrl generating=False composer=5363
+[03:48:37] submit 시도 method=enter
+[03:48:38] submit 확인 method=enter generating=False composer=0
+[03:48:38] ⏱ 입력·전송 SRT_1000 4.2s · chars=5361
+[03:48:38] 제출 후 last_saved=https://www.genspark.ai/api/files/s/lzveqpuy
+[03:48:38] ⏱ 생성대기 시작 SRT_1000 max=120s
+[03:48:52] ⏱ 생성대기 완료(busy무시) 14.2s SRT_1000 https://www.genspark.ai/api/files/s/ceczelng
+[03:48:52] ⏱ 생성대기구간 SRT_1000 14.2s · ok=True
+[03:48:52] SRT_1000 근접 이미지 https://www.genspark.ai/api/files/s/ceczelng
+[03:48:52] 다운로드 files URL=https://www.genspark.ai/api/files/s/ceczelng → SRT_1000.png
+[03:48:53] ⏱ 다운로드 직접 0.7s size=584481 SRT_1000.png
+[03:48:53] ⏱ 다운로드구간 SRT_1000 0.8s · SRT_1000.png
+[03:48:57] ⏱ 다운로드후유휴 SRT_1000 4.0s · idle=True
+[03:48:57] ⏱ 씬합계 SRT_1000 24.8s · https://www.genspark.ai/api/files/s/ceczelng
+[03:48:57] SRT_1000 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\20장\png\SRT_1000.png
+[03:48:57] 상태키 SRT_1020 · tracking=OFF; Baek|base; Jin|base
+[03:48:57] run_scene 시작 SRT_1020 · seen_files=51 · last_saved=https://www.genspark.ai/api/files/s/ceczelng
+[03:48:57] ⏱ 준비 SRT_1020 0.0s · chars=4315
+[03:48:59] ⏱ 다음명령유휴 SRT_1020 1.5s · idle=True
+[03:48:59] fill OK(clip) follow=True chars=4315
+[03:48:59] submit 시작 composer=4315 url=https://www.genspark.ai/agents?id=960e4afa-f771-4976-8274-d99de8a96b37
+[03:49:00] submit geo 실패 hit=no-btn
+[03:49:00] submit 시도 method=geo geo=False
+[03:49:00] submit 미확인 method=geo generating=False composer=4315
+[03:49:00] submit geo 실패 hit=no-btn
+[03:49:00] submit 시도 method=send send=False
+[03:49:01] submit 미확인 method=send generating=False composer=4315
+[03:49:01] submit 시도 method=ctrl
+[03:49:02] submit 미확인 method=ctrl generating=False composer=4317
+[03:49:02] submit 시도 method=enter
+[03:49:03] submit 확인 method=enter generating=False composer=0
+[03:49:03] ⏱ 입력·전송 SRT_1020 4.1s · chars=4315
+[03:49:03] 제출 후 last_saved=https://www.genspark.ai/api/files/s/ceczelng
+[03:49:03] ⏱ 생성대기 시작 SRT_1020 max=120s
+[03:49:15] ⏱ 생성대기 완료 12.4s SRT_1020 https://www.genspark.ai/api/files/s/h0dkyuoo
+[03:49:15] ⏱ 생성대기구간 SRT_1020 12.4s · ok=True
+[03:49:16] SRT_1020 근접 이미지 https://www.genspark.ai/api/files/s/h0dkyuoo
+[03:49:16] 다운로드 files URL=https://www.genspark.ai/api/files/s/h0dkyuoo → SRT_1020.png
+[03:49:18] ⏱ 다운로드 직접 2.5s size=568617 SRT_1020.png
+[03:49:18] ⏱ 다운로드구간 SRT_1020 2.5s · SRT_1020.png
+[03:49:21] ⏱ 다운로드후유휴 SRT_1020 3.2s · idle=True
+[03:49:21] ⏱ 씬합계 SRT_1020 24.0s · https://www.genspark.ai/api/files/s/h0dkyuoo
+[03:49:21] SRT_1020 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\20장\png\SRT_1020.png
+[03:49:21] 상태키 SRT_1040 · tracking=OFF; Baek|base; Jin|base
+[03:49:21] run_scene 시작 SRT_1040 · seen_files=52 · last_saved=https://www.genspark.ai/api/files/s/h0dkyuoo
+[03:49:21] ⏱ 준비 SRT_1040 0.0s · chars=5388
+[03:49:23] ⏱ 다음명령유휴 SRT_1040 1.3s · idle=True
+[03:49:23] fill OK(clip) follow=True chars=5388
+[03:49:23] submit 시작 composer=5388 url=https://www.genspark.ai/agents?id=960e4afa-f771-4976-8274-d99de8a96b37
+[03:49:24] submit geo 실패 hit=no-btn
+[03:49:24] submit 시도 method=geo geo=False
+[03:49:24] submit 미확인 method=geo generating=False composer=5388
+[03:49:25] submit geo 실패 hit=no-btn
+[03:49:25] submit 시도 method=send send=False
+[03:49:25] submit 미확인 method=send generating=False composer=5388
+[03:49:25] submit 시도 method=ctrl
+[03:49:26] submit 미확인 method=ctrl generating=False composer=5390
+[03:49:26] submit 시도 method=enter
+[03:49:27] submit 확인 method=enter generating=False composer=0
+[03:49:27] ⏱ 입력·전송 SRT_1040 4.3s · chars=5388
+[03:49:27] 제출 후 last_saved=https://www.genspark.ai/api/files/s/h0dkyuoo
+[03:49:27] ⏱ 생성대기 시작 SRT_1040 max=120s
+[03:49:41] ⏱ 생성대기 완료(busy무시) 14.1s SRT_1040 https://www.genspark.ai/api/files/s/lnb8zuyq
+[03:49:41] ⏱ 생성대기구간 SRT_1040 14.1s · ok=True
+[03:49:41] SRT_1040 근접 이미지 https://www.genspark.ai/api/files/s/lnb8zuyq
+[03:49:41] 다운로드 files URL=https://www.genspark.ai/api/files/s/lnb8zuyq → SRT_1040.png
+[03:49:42] ⏱ 다운로드 직접 0.8s size=603220 SRT_1040.png
+[03:49:42] ⏱ 다운로드구간 SRT_1040 0.8s · SRT_1040.png
+[03:49:44] ⏱ 다운로드후유휴 SRT_1040 2.3s · idle=True
+[03:49:44] ⏱ 씬합계 SRT_1040 23.0s · https://www.genspark.ai/api/files/s/lnb8zuyq
+[03:49:44] SRT_1040 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\20장\png\SRT_1040.png
+[03:49:45] 상태키 SRT_1060 · tracking=OFF; Baek|base; Jin|base
+[03:49:45] run_scene 시작 SRT_1060 · seen_files=53 · last_saved=https://www.genspark.ai/api/files/s/lnb8zuyq
+[03:49:45] ⏱ 준비 SRT_1060 0.0s · chars=4348
+[03:49:46] ⏱ 다음명령유휴 SRT_1060 1.4s · idle=True
+[03:49:47] fill OK(clip) follow=True chars=4348
+[03:49:47] submit 시작 composer=4348 url=https://www.genspark.ai/agents?id=960e4afa-f771-4976-8274-d99de8a96b37
+[03:49:47] submit geo 실패 hit=no-btn
+[03:49:47] submit 시도 method=geo geo=False
+[03:49:47] submit 미확인 method=geo generating=False composer=4348
+[03:49:48] submit geo 실패 hit=no-btn
+[03:49:48] submit 시도 method=send send=False
+[03:49:48] submit 미확인 method=send generating=False composer=4348
+[03:49:49] submit 시도 method=ctrl
+[03:49:49] submit 미확인 method=ctrl generating=False composer=4350
+[03:49:50] submit 시도 method=enter
+[03:49:50] submit 확인 method=enter generating=False composer=0
+[03:49:50] ⏱ 입력·전송 SRT_1060 4.1s · chars=4348
+[03:49:50] 제출 후 last_saved=https://www.genspark.ai/api/files/s/lnb8zuyq
+[03:49:50] ⏱ 생성대기 시작 SRT_1060 max=120s
+[03:50:05] ⏱ 생성대기 진행 15.1s SRT_1060 busy=False url_ok=False src=
+[03:50:07] ⏱ 생성대기 완료(busy무시) 16.8s SRT_1060 https://www.genspark.ai/api/files/s/cgvxyegp
+[03:50:07] ⏱ 생성대기구간 SRT_1060 16.8s · ok=True
+[03:50:07] SRT_1060 근접 이미지 https://www.genspark.ai/api/files/s/cgvxyegp
+[03:50:07] 다운로드 files URL=https://www.genspark.ai/api/files/s/cgvxyegp → SRT_1060.png
+[03:50:08] ⏱ 다운로드 직접 0.7s size=488154 SRT_1060.png
+[03:50:08] ⏱ 다운로드구간 SRT_1060 0.7s · SRT_1060.png
+[03:50:11] ⏱ 다운로드후유휴 SRT_1060 2.8s · idle=True
+[03:50:11] ⏱ 씬합계 SRT_1060 26.1s · https://www.genspark.ai/api/files/s/cgvxyegp
+[03:50:11] SRT_1060 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\20장\png\SRT_1060.png
+[03:50:11] 상태키 SRT_1080 · tracking=OFF; Baek|base; Jin|base
+[03:50:11] run_scene 시작 SRT_1080 · seen_files=54 · last_saved=https://www.genspark.ai/api/files/s/cgvxyegp
+[03:50:11] ⏱ 준비 SRT_1080 0.0s · chars=4407
+[03:50:12] ⏱ 다음명령유휴 SRT_1080 1.5s · idle=True
+[03:50:13] fill OK(clip) follow=True chars=4407
+[03:50:13] submit 시작 composer=4407 url=https://www.genspark.ai/agents?id=960e4afa-f771-4976-8274-d99de8a96b37
+[03:50:13] submit geo 실패 hit=no-btn
+[03:50:13] submit 시도 method=geo geo=False
+[03:50:14] submit 미확인 method=geo generating=False composer=4407
+[03:50:14] submit geo 실패 hit=no-btn
+[03:50:14] submit 시도 method=send send=False
+[03:50:15] submit 미확인 method=send generating=False composer=4407
+[03:50:15] submit 시도 method=ctrl
+[03:50:16] submit 미확인 method=ctrl generating=False composer=4409
+[03:50:16] submit 시도 method=enter
+[03:50:17] submit 확인 method=enter generating=False composer=0
+[03:50:17] ⏱ 입력·전송 SRT_1080 4.2s · chars=4407
+[03:50:17] 제출 후 last_saved=https://www.genspark.ai/api/files/s/cgvxyegp
+[03:50:17] ⏱ 생성대기 시작 SRT_1080 max=120s
+[03:50:30] ⏱ 생성대기 완료 13.3s SRT_1080 https://www.genspark.ai/api/files/s/nrjdftzy
+[03:50:30] ⏱ 생성대기구간 SRT_1080 13.3s · ok=True
+[03:50:30] SRT_1080 근접 이미지 https://www.genspark.ai/api/files/s/nrjdftzy
+[03:50:30] 다운로드 files URL=https://www.genspark.ai/api/files/s/nrjdftzy → SRT_1080.png
+[03:50:31] ⏱ 다운로드 직접 0.7s size=799786 SRT_1080.png
+[03:50:31] ⏱ 다운로드구간 SRT_1080 0.7s · SRT_1080.png
+[03:50:36] ⏱ 다운로드후유휴 SRT_1080 5.3s · idle=True
+[03:50:36] ⏱ 씬합계 SRT_1080 25.3s · https://www.genspark.ai/api/files/s/nrjdftzy
+[03:50:36] SRT_1080 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\20장\png\SRT_1080.png
+[03:50:36] 상태키 SRT_1100 · tracking=OFF; Baek|base; Jin|base
+[03:50:36] run_scene 시작 SRT_1100 · seen_files=55 · last_saved=https://www.genspark.ai/api/files/s/nrjdftzy
+[03:50:36] ⏱ 준비 SRT_1100 0.0s · chars=6288
+[03:50:38] ⏱ 다음명령유휴 SRT_1100 1.4s · idle=True
+[03:50:38] fill OK(clip) follow=True chars=6288
+[03:50:38] submit 시작 composer=6288 url=https://www.genspark.ai/agents?id=960e4afa-f771-4976-8274-d99de8a96b37
+[03:50:39] submit geo 실패 hit=no-btn
+[03:50:39] submit 시도 method=geo geo=False
+[03:50:39] submit 미확인 method=geo generating=False composer=6288
+[03:50:40] submit geo 실패 hit=no-btn
+[03:50:40] submit 시도 method=send send=False
+[03:50:40] submit 미확인 method=send generating=False composer=6288
+[03:50:40] submit 시도 method=ctrl
+[03:50:41] submit 미확인 method=ctrl generating=False composer=6290
+[03:50:41] submit 시도 method=enter
+[03:50:42] submit 확인 method=enter generating=False composer=0
+[03:50:42] ⏱ 입력·전송 SRT_1100 4.3s · chars=6288
+[03:50:42] 제출 후 last_saved=https://www.genspark.ai/api/files/s/nrjdftzy
+[03:50:42] ⏱ 생성대기 시작 SRT_1100 max=120s
+[03:50:57] ⏱ 생성대기 진행 15.0s SRT_1100 busy=True url_ok=True src=https://www.genspark.ai/api/files/s/h0kvmoip
+[03:50:57] ⏱ 생성대기 완료(busy무시) 15.0s SRT_1100 https://www.genspark.ai/api/files/s/h0kvmoip
+[03:50:57] ⏱ 생성대기구간 SRT_1100 15.0s · ok=True
+[03:50:57] SRT_1100 근접 이미지 https://www.genspark.ai/api/files/s/h0kvmoip
+[03:50:57] 다운로드 files URL=https://www.genspark.ai/api/files/s/h0kvmoip → SRT_1100.png
+[03:50:58] ⏱ 다운로드 직접 0.7s size=806356 SRT_1100.png
+[03:50:58] ⏱ 다운로드구간 SRT_1100 0.7s · SRT_1100.png
+[03:51:01] ⏱ 다운로드후유휴 SRT_1100 2.7s · idle=True
+[03:51:01] ⏱ 씬합계 SRT_1100 24.2s · https://www.genspark.ai/api/files/s/h0kvmoip
+[03:51:01] SRT_1100 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\20장\png\SRT_1100.png
+[03:51:01] 상태키 SRT_1120 · tracking=OFF; Baek|base; Jin|base
+[03:51:01] run_scene 시작 SRT_1120 · seen_files=56 · last_saved=https://www.genspark.ai/api/files/s/h0kvmoip
+[03:51:01] ⏱ 준비 SRT_1120 0.0s · chars=8195
+[03:51:02] ⏱ 다음명령유휴 SRT_1120 1.5s · idle=True
+[03:51:03] fill OK(clip) follow=True chars=8195
+[03:51:03] submit 시작 composer=8195 url=https://www.genspark.ai/agents?id=960e4afa-f771-4976-8274-d99de8a96b37
+[03:51:03] submit geo 실패 hit=no-btn
+[03:51:03] submit 시도 method=geo geo=False
+[03:51:04] submit 미확인 method=geo generating=False composer=8195
+[03:51:04] submit geo 실패 hit=no-btn
+[03:51:04] submit 시도 method=send send=False
+[03:51:05] submit 미확인 method=send generating=False composer=8195
+[03:51:05] submit 시도 method=ctrl
+[03:51:06] submit 미확인 method=ctrl generating=False composer=8197
+[03:51:06] submit 시도 method=enter
+[03:51:06] submit 확인 method=enter generating=False composer=0
+[03:51:06] ⏱ 입력·전송 SRT_1120 4.3s · chars=8195
+[03:51:06] 제출 후 last_saved=https://www.genspark.ai/api/files/s/h0kvmoip
+[03:51:07] ⏱ 생성대기 시작 SRT_1120 max=120s
+[03:51:22] ⏱ 생성대기 진행 15.2s SRT_1120 busy=True url_ok=True src=https://www.genspark.ai/api/files/s/rjoubh9p
+[03:51:22] ⏱ 생성대기 완료(busy무시) 15.2s SRT_1120 https://www.genspark.ai/api/files/s/rjoubh9p
+[03:51:22] ⏱ 생성대기구간 SRT_1120 15.2s · ok=True
+[03:51:22] SRT_1120 근접 이미지 https://www.genspark.ai/api/files/s/rjoubh9p
+[03:51:22] 다운로드 files URL=https://www.genspark.ai/api/files/s/rjoubh9p → SRT_1120.png
+[03:51:23] ⏱ 다운로드 직접 0.7s size=669395 SRT_1120.png
+[03:51:23] ⏱ 다운로드구간 SRT_1120 0.7s · SRT_1120.png
+[03:51:24] ⏱ 다운로드후유휴 SRT_1120 1.7s · idle=True
+[03:51:24] ⏱ 씬합계 SRT_1120 23.7s · https://www.genspark.ai/api/files/s/rjoubh9p
+[03:51:24] SRT_1120 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\20장\png\SRT_1120.png
+[03:51:25] 상태키 SRT_1140 · tracking=OFF; Baek|base; Jin|base
+[03:51:25] run_scene 시작 SRT_1140 · seen_files=57 · last_saved=https://www.genspark.ai/api/files/s/rjoubh9p
+[03:51:25] ⏱ 준비 SRT_1140 0.0s · chars=8187
+[03:51:26] ⏱ 다음명령유휴 SRT_1140 1.4s · idle=True
+[03:51:27] fill OK(clip) follow=True chars=8187
+[03:51:27] submit 시작 composer=8187 url=https://www.genspark.ai/agents?id=960e4afa-f771-4976-8274-d99de8a96b37
+[03:51:27] submit geo 실패 hit=no-btn
+[03:51:27] submit 시도 method=geo geo=False
+[03:51:27] submit 미확인 method=geo generating=False composer=8187
+[03:51:28] submit geo 실패 hit=no-btn
+[03:51:28] submit 시도 method=send send=False
+[03:51:28] submit 미확인 method=send generating=False composer=8187
+[03:51:29] submit 시도 method=ctrl
+[03:51:29] submit 미확인 method=ctrl generating=False composer=8189
+[03:51:30] submit 시도 method=enter
+[03:51:30] submit 확인 method=enter generating=False composer=0
+[03:51:30] ⏱ 입력·전송 SRT_1140 4.2s · chars=8187
+[03:51:30] 제출 후 last_saved=https://www.genspark.ai/api/files/s/rjoubh9p
+[03:51:30] ⏱ 생성대기 시작 SRT_1140 max=120s
+[03:51:46] ⏱ 생성대기 진행 15.4s SRT_1140 busy=False url_ok=False src=
+[03:51:47] ⏱ 생성대기 완료(busy무시) 16.4s SRT_1140 https://www.genspark.ai/api/files/s/8znqgoad
+[03:51:47] ⏱ 생성대기구간 SRT_1140 16.4s · ok=True
+[03:51:47] SRT_1140 근접 이미지 https://www.genspark.ai/api/files/s/8znqgoad
+[03:51:47] 다운로드 files URL=https://www.genspark.ai/api/files/s/8znqgoad → SRT_1140.png
+[03:51:48] ⏱ 다운로드 직접 0.7s size=645374 SRT_1140.png
+[03:51:48] ⏱ 다운로드구간 SRT_1140 0.7s · SRT_1140.png
+[03:51:51] ⏱ 다운로드후유휴 SRT_1140 3.1s · idle=True
+[03:51:51] ⏱ 씬합계 SRT_1140 26.1s · https://www.genspark.ai/api/files/s/8znqgoad
+[03:51:51] SRT_1140 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\20장\png\SRT_1140.png
+[03:51:51] 상태키 SRT_1160 · tracking=OFF; Baek|base; Jin|base
+[03:51:51] run_scene 시작 SRT_1160 · seen_files=58 · last_saved=https://www.genspark.ai/api/files/s/8znqgoad
+[03:51:51] ⏱ 준비 SRT_1160 0.0s · chars=7532
+[03:51:52] ⏱ 다음명령유휴 SRT_1160 1.4s · idle=True
+[03:51:53] fill OK(clip) follow=True chars=7532
+[03:51:53] submit 시작 composer=7532 url=https://www.genspark.ai/agents?id=960e4afa-f771-4976-8274-d99de8a96b37
+[03:51:53] submit geo 실패 hit=no-btn
+[03:51:53] submit 시도 method=geo geo=False
+[03:51:54] submit 미확인 method=geo generating=False composer=7532
+[03:51:54] submit geo 실패 hit=no-btn
+[03:51:54] submit 시도 method=send send=False
+[03:51:55] submit 미확인 method=send generating=False composer=7532
+[03:51:55] submit 시도 method=ctrl
+[03:51:56] submit 미확인 method=ctrl generating=False composer=7534
+[03:51:56] submit 시도 method=enter
+[03:51:56] submit 확인 method=enter generating=False composer=0
+[03:51:56] ⏱ 입력·전송 SRT_1160 4.2s · chars=7532
+[03:51:56] 제출 후 last_saved=https://www.genspark.ai/api/files/s/8znqgoad
+[03:51:57] ⏱ 생성대기 시작 SRT_1160 max=120s
+[03:52:12] ⏱ 생성대기 진행 15.0s SRT_1160 busy=False url_ok=False src=
+[03:52:13] ⏱ 생성대기 완료 15.9s SRT_1160 https://www.genspark.ai/api/files/s/xdtotodr
+[03:52:13] ⏱ 생성대기구간 SRT_1160 15.9s · ok=True
+[03:52:13] SRT_1160 근접 이미지 https://www.genspark.ai/api/files/s/xdtotodr
+[03:52:13] 다운로드 files URL=https://www.genspark.ai/api/files/s/xdtotodr → SRT_1160.png
+[03:52:13] ⏱ 다운로드 직접 0.8s size=706668 SRT_1160.png
+[03:52:13] ⏱ 다운로드구간 SRT_1160 0.8s · SRT_1160.png
+[03:52:15] ⏱ 다운로드후유휴 SRT_1160 1.5s · idle=True
+[03:52:15] ⏱ 씬합계 SRT_1160 24.2s · https://www.genspark.ai/api/files/s/xdtotodr
+[03:52:15] SRT_1160 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\20장\png\SRT_1160.png
+[03:52:15] 상태키 SRT_1180 · tracking=OFF; Baek|base; Jin|base
+[03:52:15] run_scene 시작 SRT_1180 · seen_files=59 · last_saved=https://www.genspark.ai/api/files/s/xdtotodr
+[03:52:15] ⏱ 준비 SRT_1180 0.0s · chars=5199
+[03:52:17] ⏱ 다음명령유휴 SRT_1180 1.5s · idle=True
+[03:52:17] fill OK(clip) follow=True chars=5199
+[03:52:17] submit 시작 composer=5199 url=https://www.genspark.ai/agents?id=960e4afa-f771-4976-8274-d99de8a96b37
+[03:52:18] submit geo 실패 hit=no-btn
+[03:52:18] submit 시도 method=geo geo=False
+[03:52:18] submit 미확인 method=geo generating=False composer=5199
+[03:52:19] submit geo 실패 hit=no-btn
+[03:52:19] submit 시도 method=send send=False
+[03:52:19] submit 미확인 method=send generating=False composer=5199
+[03:52:20] submit 시도 method=ctrl
+[03:52:20] submit 미확인 method=ctrl generating=False composer=5201
+[03:52:20] submit 시도 method=enter
+[03:52:21] submit 미확인 method=enter generating=False composer=5201
+[03:52:21] submit geo 실패 hit=no-btn
+[03:52:21] submit 시도 method=geo2 geo=False
+[03:52:22] submit 미확인 method=geo2 generating=False composer=5201
+[03:52:22] submit geo 실패 hit=no-btn
+[03:52:22] submit 시도 method=send2 send=False
+[03:52:23] submit 미확인 method=send2 generating=False composer=5201
+[03:52:23] submit 시도 method=ctrl2
+[03:52:23] submit 미확인 method=ctrl2 generating=False composer=5203
+[03:52:23] submit 실패 composer잔존=5203
+[03:52:23] submit 재시도 2/3
+[03:52:24] submit 시작 composer=5203 url=https://www.genspark.ai/agents?id=960e4afa-f771-4976-8274-d99de8a96b37
+[03:52:24] submit geo 실패 hit=no-btn
+[03:52:24] submit 시도 method=geo geo=False
+[03:52:25] submit 미확인 method=geo generating=False composer=5203
+[03:52:25] submit geo 실패 hit=no-btn
+[03:52:25] submit 시도 method=send send=False
+[03:52:26] submit 미확인 method=send generating=False composer=5203
+[03:52:26] submit 시도 method=ctrl
+[03:52:27] submit 미확인 method=ctrl generating=False composer=5205
+[03:52:27] submit 시도 method=enter
+[03:52:28] submit 미확인 method=enter generating=False composer=5205
+[03:52:28] submit geo 실패 hit=no-btn
+[03:52:28] submit 시도 method=geo2 geo=False
+[03:52:28] submit 미확인 method=geo2 generating=False composer=5205
+[03:52:28] submit geo 실패 hit=no-btn
+[03:52:28] submit 시도 method=send2 send=False
+[03:52:29] submit 미확인 method=send2 generating=False composer=5205
+[03:52:29] submit 시도 method=ctrl2
+[03:52:30] submit 미확인 method=ctrl2 generating=False composer=5207
+[03:52:30] submit 실패 composer잔존=5207
+[03:52:30] submit 재시도 3/3
+[03:52:31] submit 시작 composer=5207 url=https://www.genspark.ai/agents?id=960e4afa-f771-4976-8274-d99de8a96b37
+[03:52:31] submit geo 실패 hit=no-btn
+[03:52:31] submit 시도 method=geo geo=False
+[03:52:31] submit 미확인 method=geo generating=False composer=5207
+[03:52:32] submit geo 실패 hit=no-btn
+[03:52:32] submit 시도 method=send send=False
+[03:52:32] submit 미확인 method=send generating=False composer=5207
+[03:52:33] submit 시도 method=ctrl
+[03:52:33] submit 미확인 method=ctrl generating=False composer=5209
+[03:52:33] submit 시도 method=enter
+[03:52:34] submit 미확인 method=enter generating=False composer=5209
+[03:52:34] submit geo 실패 hit=no-btn
+[03:52:34] submit 시도 method=geo2 geo=False
+[03:52:35] submit 미확인 method=geo2 generating=False composer=5209
+[03:52:35] submit geo 실패 hit=no-btn
+[03:52:35] submit 시도 method=send2 send=False
+[03:52:36] submit 미확인 method=send2 generating=False composer=5209
+[03:52:36] submit 시도 method=ctrl2
+[03:52:37] submit 미확인 method=ctrl2 generating=False composer=5211
+[03:52:37] submit 실패 composer잔존=5211
+[03:52:37] submit 재시도 4/3
+[03:52:37] run_scene 실패(재시도 없음): 이어쓰기 전송 실패 — 입력창에 명령이 5211자 남아 있습니다.
+[03:52:37] SRT_1180 실패 — 다음 씬 계속
+이어쓰기 전송 실패 — 입력창에 명령이 5211자 남아 있습니다.
+[03:52:37] 상태키 SRT_1200 · tracking=OFF; Baek|base; Jin|base
+[03:52:37] 늦은이미지 회수 실패 SRT_1180: SRT_1180 요청 아래 새 이미지가 없습니다.
+[03:52:37] run_scene 시작 SRT_1200 · seen_files=59 · last_saved=https://www.genspark.ai/api/files/s/xdtotodr
+[03:52:37] ⏱ 준비 SRT_1200 0.0s · chars=5161
+[03:52:39] ⏱ 다음명령유휴 SRT_1200 1.3s · idle=True
+[03:52:40] fill OK(clip) follow=True chars=5161
+[03:52:40] submit 시작 composer=5161 url=https://www.genspark.ai/agents?id=960e4afa-f771-4976-8274-d99de8a96b37
+[03:52:40] submit geo 실패 hit=no-btn
+[03:52:40] submit 시도 method=geo geo=False
+[03:52:40] submit 미확인 method=geo generating=False composer=5161
+[03:52:41] submit geo 실패 hit=no-btn
+[03:52:41] submit 시도 method=send send=False
+[03:52:41] submit 미확인 method=send generating=False composer=5161
+[03:52:42] submit 시도 method=ctrl
+[03:52:42] submit 미확인 method=ctrl generating=False composer=5163
+[03:52:43] submit 시도 method=enter
+[03:52:43] submit 미확인 method=enter generating=False composer=5163
+[03:52:43] submit geo 실패 hit=no-btn
+[03:52:43] submit 시도 method=geo2 geo=False
+[03:52:44] submit 미확인 method=geo2 generating=False composer=5163
+[03:52:44] submit geo 실패 hit=no-btn
+[03:52:44] submit 시도 method=send2 send=False
+[03:52:45] submit 미확인 method=send2 generating=False composer=5163
+[03:52:45] submit 시도 method=ctrl2
+[03:52:46] submit 미확인 method=ctrl2 generating=False composer=5165
+[03:52:46] submit 실패 composer잔존=5165
+[03:52:46] submit 재시도 2/3
+[03:52:46] submit 시작 composer=5165 url=https://www.genspark.ai/agents?id=960e4afa-f771-4976-8274-d99de8a96b37
+[03:52:46] submit geo 실패 hit=no-btn
+[03:52:46] submit 시도 method=geo geo=False
+[03:52:47] submit 미확인 method=geo generating=False composer=5165
+[03:52:47] submit geo 실패 hit=no-btn
+[03:52:47] submit 시도 method=send send=False
+[03:52:48] submit 미확인 method=send generating=False composer=5165
+[03:52:48] submit 시도 method=ctrl
+[03:52:49] submit 미확인 method=ctrl generating=False composer=5167
+[03:52:49] submit 시도 method=enter
+[03:52:50] submit 미확인 method=enter generating=False composer=5167
+[03:52:50] submit geo 실패 hit=no-btn
+[03:52:50] submit 시도 method=geo2 geo=False
+[03:52:50] submit 미확인 method=geo2 generating=False composer=5167
+[03:52:51] submit geo 실패 hit=no-btn
+[03:52:51] submit 시도 method=send2 send=False
+[03:52:51] submit 미확인 method=send2 generating=False composer=5167
+[03:52:52] submit 시도 method=ctrl2
+[03:52:52] submit 미확인 method=ctrl2 generating=False composer=5169
+[03:52:52] submit 실패 composer잔존=5169
+[03:52:52] submit 재시도 3/3
+[03:52:53] submit 시작 composer=5169 url=https://www.genspark.ai/agents?id=960e4afa-f771-4976-8274-d99de8a96b37
+[03:52:53] submit geo 실패 hit=no-btn
+[03:52:53] submit 시도 method=geo geo=False
+[03:52:54] submit 미확인 method=geo generating=False composer=5169
+[03:52:54] submit geo 실패 hit=no-btn
+[03:52:54] submit 시도 method=send send=False
+[03:52:55] submit 미확인 method=send generating=False composer=5169
+[03:52:55] submit 시도 method=ctrl
+[03:52:56] submit 미확인 method=ctrl generating=False composer=5171
+[03:52:56] submit 시도 method=enter
+[03:52:56] submit 미확인 method=enter generating=False composer=5171
+[03:52:56] submit geo 실패 hit=no-btn
+[03:52:56] submit 시도 method=geo2 geo=False
+[03:52:57] submit 미확인 method=geo2 generating=False composer=5171
+[03:52:57] submit geo 실패 hit=no-btn
+[03:52:57] submit 시도 method=send2 send=False
+[03:52:58] submit 미확인 method=send2 generating=False composer=5171
+[03:52:58] submit 시도 method=ctrl2
+[03:52:59] submit 미확인 method=ctrl2 generating=False composer=5173
+[03:52:59] submit 실패 composer잔존=5173
+[03:52:59] submit 재시도 4/3
+[03:53:00] run_scene 실패(재시도 없음): 이어쓰기 전송 실패 — 입력창에 명령이 5173자 남아 있습니다.
+[03:53:00] SRT_1200 실패(한도 추정 streak=2) — 브라우저 종료 후 대기·재오픈
+이어쓰기 전송 실패 — 입력창에 명령이 5173자 남아 있습니다.
+[03:53:05] 한도 대기 전 ChromeDebug 종료
+[04:03:05] 한도 대기 불가 — 실행 시작 시각 미입력
+[14:01:00] 탭로그 ON — 실행·생성 · 씬 7개 · reopen=True · 한도대기ON
+[14:01:07] ChromeDebug 재시작 slot=0 port=9242 user_data=C:\ChromeDebug_2_5 reused=0
+[14:01:11] 모델 이미 Pro: Nano Banana Pro
+[14:01:11] 세션 준비 — login=OK model=Nano Banana Pro auto=True
+[14:01:11] ensure_page cur_sc=10 prefer_sc=10 cur=https://www.genspark.ai/ai_image prefer=https://www.genspark.ai/ai_image
+[14:01:14] fill OK(clip) follow=True chars=69541
+[14:01:14] 입력창 붙여넣기 — 프롬프트 50827자 + SRT 18671자 = 합계 69541자
+  prompt=C:/cursor/wuxia/2_5_sceneImage/md/image.wuxiz.txt
+  srt=C:\cursor\wuxia\workspace\swardmaster\2부\20장\mp3\new.srt
+[14:01:15] ensure_page cur_sc=10 prefer_sc=10 cur=https://www.genspark.ai/ai_image prefer=https://www.genspark.ai/ai_image
+[14:01:17] 동일 입력창에 명령 추가(미실행): ===== CHARACTER LOOK (SRT_1180) =====
+Look keys (state tracking OFF): Seo|base; Namgung|base
+Seo Ryeongran, approximately seventeen years old, strikingly beautiful East-Asian young…
+[14:01:17] 상태키 SRT_1180 · tracking=OFF; Baek|base; Jin|base
+[14:01:17] run_scene 시작 SRT_1180 · seen_files=59 · last_saved=https://www.genspark.ai/api/files/s/xdtotodr
+[14:01:17] ensure_page cur_sc=10 prefer_sc=10 cur=https://www.genspark.ai/ai_image prefer=https://www.genspark.ai/ai_image
+[14:01:18] 모델 선택 시작 현재=(없음)
+[14:01:18] 모델 선택 결과 ok=False 칩=(없음) picked=
+[14:01:18] ⏱ 준비 SRT_1180 0.5s · chars=5199
+[14:01:18] submit 시작 composer=5199 url=https://www.genspark.ai/ai_image
+[14:01:18] submit geo 실패 hit=no-btn
+[14:01:18] submit 시도 method=geo geo=False
+[14:01:19] submit 미확인 method=geo generating=False composer=5199
+[14:01:19] submit geo 실패 hit=no-btn
+[14:01:19] submit 시도 method=send send=False
+[14:01:20] submit 미확인 method=send generating=False composer=5199
+[14:01:20] submit 시도 method=ctrl
+[14:01:21] submit 미확인 method=ctrl generating=False composer=5201
+[14:01:22] submit 시도 method=enter
+[14:01:23] submit 확인 method=enter generating=False composer=0
+[14:01:23] ⏱ 입력창전송 SRT_1180 4.8s
+[14:01:23] 제출 후 last_saved=https://www.genspark.ai/api/files/s/xdtotodr
+[14:01:23] ⏱ 생성대기 시작 SRT_1180 max=120s
+[14:01:34] ⏱ 생성대기 Failure 10.9s SRT_1180
+[14:01:34] ⏱ 생성대기구간 SRT_1180 10.9s · ok=False
+[14:01:34] run_scene 실패(재시도 없음): Failure 메시지 감지 — 다음 씬으로 진행
+[14:01:34] SRT_1180 실패 — 다음 씬 계속
+Failure 메시지 감지 — 다음 씬으로 진행
+[14:01:34] 상태키 SRT_1200 · tracking=OFF; Baek|base; Jin|base
+[14:01:34] 늦은이미지 회수 실패 SRT_1180: SRT_1180 요청 아래 새 이미지가 없습니다.
+[14:01:34] run_scene 시작 SRT_1200 · seen_files=59 · last_saved=https://www.genspark.ai/api/files/s/xdtotodr
+[14:01:34] ⏱ 준비 SRT_1200 0.0s · chars=5161
+[14:01:38] ⏱ 다음명령유휴 SRT_1200 4.1s · idle=True
+[14:01:39] fill OK(clip) follow=True chars=5161
+[14:01:40] submit 시작 composer=5161 url=https://www.genspark.ai/agents?id=fe0a8d14-0155-4bc2-8f6f-201cd4ea371a
+[14:01:40] submit geo 실패 hit=no-btn
+[14:01:40] submit 시도 method=geo geo=False
+[14:01:40] submit 미확인 method=geo generating=False composer=5161
+[14:01:41] submit geo 실패 hit=no-btn
+[14:01:41] submit 시도 method=send send=False
+[14:01:42] submit 미확인 method=send generating=False composer=5161
+[14:01:42] submit 시도 method=ctrl
+[14:01:42] submit 미확인 method=ctrl generating=False composer=5163
+[14:01:43] submit 시도 method=enter
+[14:01:43] submit 미확인 method=enter generating=False composer=5163
+[14:01:44] submit geo 실패 hit=no-btn
+[14:01:44] submit 시도 method=geo2 geo=False
+[14:01:44] submit 미확인 method=geo2 generating=False composer=5163
+[14:01:45] submit geo 실패 hit=no-btn
+[14:01:45] submit 시도 method=send2 send=False
+[14:01:45] submit 미확인 method=send2 generating=True composer=5163
+[14:01:46] submit 시도 method=ctrl2
+[14:01:47] submit 미확인 method=ctrl2 generating=False composer=5165
+[14:01:47] submit 실패 composer잔존=5165
+[14:01:47] submit 재시도 2/3
+[14:01:47] submit 시작 composer=5165 url=https://www.genspark.ai/agents?id=fe0a8d14-0155-4bc2-8f6f-201cd4ea371a
+[14:01:48] submit geo 실패 hit=no-btn
+[14:01:48] submit 시도 method=geo geo=False
+[14:01:48] submit 미확인 method=geo generating=False composer=5165
+[14:01:49] submit geo 실패 hit=no-btn
+[14:01:49] submit 시도 method=send send=False
+[14:01:50] submit 미확인 method=send generating=False composer=5165
+[14:01:50] submit 시도 method=ctrl
+[14:01:51] submit 미확인 method=ctrl generating=False composer=5167
+[14:01:51] submit 시도 method=enter
+[14:01:51] submit 확인 method=enter generating=False composer=0
+[14:01:51] ⏱ 입력·전송 SRT_1200 13.2s · chars=5161
+[14:01:51] 제출 후 last_saved=https://www.genspark.ai/api/files/s/xdtotodr
+[14:01:52] ⏱ 생성대기 시작 SRT_1200 max=120s
+[14:01:53] ⏱ 생성대기 완료 1.0s SRT_1200 https://www.genspark.ai/api/files/s/zvlez0lb
+[14:01:53] ⏱ 생성대기구간 SRT_1200 1.0s · ok=True
+[14:01:53] SRT_1200 근접 이미지 https://www.genspark.ai/api/files/s/zvlez0lb
+[14:01:53] 다운로드 files URL=https://www.genspark.ai/api/files/s/zvlez0lb → SRT_1200.png
+[14:01:54] ⏱ 다운로드 직접 0.9s size=637220 SRT_1200.png
+[14:01:54] ⏱ 다운로드구간 SRT_1200 0.9s · SRT_1200.png
+[14:01:58] ⏱ 다운로드후유휴 SRT_1200 4.5s · idle=True
+[14:01:58] ⏱ 씬합계 SRT_1200 23.9s · https://www.genspark.ai/api/files/s/zvlez0lb
+[14:01:58] SRT_1200 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\20장\png\SRT_1200.png
+[14:01:58] 상태키 SRT_1220 · tracking=OFF; Baek|base; Jin|base
+[14:01:58] 늦은이미지 회수 실패 SRT_1180: SRT_1180 요청 아래 새 이미지가 없습니다.
+[14:01:58] run_scene 시작 SRT_1220 · seen_files=60 · last_saved=https://www.genspark.ai/api/files/s/zvlez0lb
+[14:01:58] ⏱ 준비 SRT_1220 0.0s · chars=3972
+[14:02:01] ⏱ 다음명령유휴 SRT_1220 2.6s · idle=True
+[14:02:02] fill OK(clip) follow=True chars=3972
+[14:02:02] submit 시작 composer=3972 url=https://www.genspark.ai/agents?id=fe0a8d14-0155-4bc2-8f6f-201cd4ea371a
+[14:02:02] submit geo 실패 hit=no-btn
+[14:02:02] submit 시도 method=geo geo=False
+[14:02:03] submit 미확인 method=geo generating=False composer=3972
+[14:02:03] submit geo 실패 hit=no-btn
+[14:02:04] submit 시도 method=send send=False
+[14:02:04] submit 미확인 method=send generating=False composer=3972
+[14:02:04] submit 시도 method=ctrl
+[14:02:05] submit 미확인 method=ctrl generating=False composer=3974
+[14:02:05] submit 시도 method=enter
+[14:02:06] submit 미확인 method=enter generating=True composer=3974
+[14:02:06] submit geo 실패 hit=no-btn
+[14:02:06] submit 시도 method=geo2 geo=False
+[14:02:07] submit 미확인 method=geo2 generating=True composer=3974
+[14:02:07] submit geo 실패 hit=no-btn
+[14:02:07] submit 시도 method=send2 send=False
+[14:02:08] submit 미확인 method=send2 generating=False composer=3974
+[14:02:08] submit 시도 method=ctrl2
+[14:02:09] submit 미확인 method=ctrl2 generating=False composer=3976
+[14:02:09] submit 실패 composer잔존=3976
+[14:02:09] submit 재시도 2/3
+[14:02:10] submit 시작 composer=3976 url=https://www.genspark.ai/agents?id=fe0a8d14-0155-4bc2-8f6f-201cd4ea371a
+[14:02:10] submit geo 실패 hit=no-btn
+[14:02:10] submit 시도 method=geo geo=False
+[14:02:11] submit 미확인 method=geo generating=False composer=3976
+[14:02:11] submit geo 실패 hit=no-btn
+[14:02:11] submit 시도 method=send send=False
+[14:02:12] submit 미확인 method=send generating=False composer=3976
+[14:02:12] submit 시도 method=ctrl
+[14:02:13] submit 미확인 method=ctrl generating=False composer=3978
+[14:02:13] submit 시도 method=enter
+[14:02:14] submit 확인 method=enter generating=False composer=0
+[14:02:14] ⏱ 입력·전송 SRT_1220 12.9s · chars=3972
+[14:02:14] 제출 후 last_saved=https://www.genspark.ai/api/files/s/zvlez0lb
+[14:02:14] ⏱ 생성대기 시작 SRT_1220 max=120s
+[14:02:15] ⏱ 생성대기 완료 1.0s SRT_1220 https://www.genspark.ai/api/files/s/4izwdsnu
+[14:02:15] ⏱ 생성대기구간 SRT_1220 1.0s · ok=True
+[14:02:15] SRT_1220 근접 이미지 https://www.genspark.ai/api/files/s/4izwdsnu
+[14:02:15] 다운로드 files URL=https://www.genspark.ai/api/files/s/4izwdsnu → SRT_1220.png
+[14:02:16] ⏱ 다운로드 직접 1.0s size=554596 SRT_1220.png
+[14:02:16] ⏱ 다운로드구간 SRT_1220 1.0s · SRT_1220.png
+[14:02:19] ⏱ 다운로드후유휴 SRT_1220 3.4s · idle=True
+[14:02:19] ⏱ 씬합계 SRT_1220 21.2s · https://www.genspark.ai/api/files/s/4izwdsnu
+[14:02:19] SRT_1220 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\20장\png\SRT_1220.png
+[14:02:20] 상태키 SRT_1240 · tracking=OFF; Baek|base; Jin|base
+[14:02:20] 늦은이미지 회수 실패 SRT_1180: SRT_1180 요청 아래 새 이미지가 없습니다.
+[14:02:20] run_scene 시작 SRT_1240 · seen_files=61 · last_saved=https://www.genspark.ai/api/files/s/4izwdsnu
+[14:02:20] ⏱ 준비 SRT_1240 0.0s · chars=5207
+[14:02:23] ⏱ 다음명령유휴 SRT_1240 2.9s · idle=True
+[14:02:24] fill OK(clip) follow=True chars=5207
+[14:02:24] submit 시작 composer=5207 url=https://www.genspark.ai/agents?id=fe0a8d14-0155-4bc2-8f6f-201cd4ea371a
+[14:02:24] submit geo 실패 hit=no-btn
+[14:02:24] submit 시도 method=geo geo=False
+[14:02:25] submit 미확인 method=geo generating=False composer=5207
+[14:02:26] submit geo 실패 hit=no-btn
+[14:02:26] submit 시도 method=send send=False
+[14:02:26] submit 미확인 method=send generating=True composer=5207
+[14:02:27] submit 시도 method=ctrl
+[14:02:27] submit 미확인 method=ctrl generating=True composer=5209
+[14:02:28] submit 시도 method=enter
+[14:02:28] submit 미확인 method=enter generating=True composer=5209
+[14:02:28] submit geo 실패 hit=no-btn
+[14:02:28] submit 시도 method=geo2 geo=False
+[14:02:29] submit 미확인 method=geo2 generating=False composer=5209
+[14:02:30] submit geo 실패 hit=no-btn
+[14:02:30] submit 시도 method=send2 send=False
+[14:02:30] submit 미확인 method=send2 generating=False composer=5209
+[14:02:31] submit 시도 method=ctrl2
+[14:02:32] submit 미확인 method=ctrl2 generating=False composer=5211
+[14:02:32] submit 실패 composer잔존=5211
+[14:02:32] submit 재시도 2/3
+[14:02:32] submit 시작 composer=5211 url=https://www.genspark.ai/agents?id=fe0a8d14-0155-4bc2-8f6f-201cd4ea371a
+[14:02:32] submit geo 실패 hit=no-btn
+[14:02:32] submit 시도 method=geo geo=False
+[14:02:33] submit 미확인 method=geo generating=False composer=5211
+[14:02:34] submit geo 실패 hit=no-btn
+[14:02:34] submit 시도 method=send send=False
+[14:02:34] submit 미확인 method=send generating=False composer=5211
+[14:02:35] submit 시도 method=ctrl
+[14:02:35] submit 미확인 method=ctrl generating=False composer=5213
+[14:02:36] submit 시도 method=enter
+[14:02:36] submit 확인 method=enter generating=False composer=0
+[14:02:36] ⏱ 입력·전송 SRT_1240 13.8s · chars=5207
+[14:02:36] 제출 후 last_saved=https://www.genspark.ai/api/files/s/4izwdsnu
+[14:02:37] ⏱ 생성대기 시작 SRT_1240 max=120s
+[14:02:38] ⏱ 생성대기 완료 1.0s SRT_1240 https://www.genspark.ai/api/files/s/spjidlmb
+[14:02:38] ⏱ 생성대기구간 SRT_1240 1.0s · ok=True
+[14:02:38] SRT_1240 근접 이미지 https://www.genspark.ai/api/files/s/spjidlmb
+[14:02:38] 다운로드 files URL=https://www.genspark.ai/api/files/s/spjidlmb → SRT_1240.png
+[14:02:39] ⏱ 다운로드 직접 0.9s size=627813 SRT_1240.png
+[14:02:39] ⏱ 다운로드구간 SRT_1240 1.0s · SRT_1240.png
+[14:02:41] ⏱ 다운로드후유휴 SRT_1240 2.2s · idle=True
+[14:02:41] ⏱ 씬합계 SRT_1240 21.2s · https://www.genspark.ai/api/files/s/spjidlmb
+[14:02:41] SRT_1240 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\20장\png\SRT_1240.png
+[14:02:41] 상태키 SRT_1260 · tracking=OFF; Baek|base; Jin|base
+[14:02:41] 늦은이미지 회수 실패 SRT_1180: SRT_1180 요청 아래 새 이미지가 없습니다.
+[14:02:41] run_scene 시작 SRT_1260 · seen_files=62 · last_saved=https://www.genspark.ai/api/files/s/spjidlmb
+[14:02:41] ⏱ 준비 SRT_1260 0.0s · chars=4354
+[14:02:43] ⏱ 다음명령유휴 SRT_1260 2.2s · idle=True
+[14:02:45] fill OK(clip) follow=True chars=4354
+[14:02:45] submit 시작 composer=4354 url=https://www.genspark.ai/agents?id=fe0a8d14-0155-4bc2-8f6f-201cd4ea371a
+[14:02:45] submit geo 실패 hit=no-btn
+[14:02:45] submit 시도 method=geo geo=False
+[14:02:46] submit 미확인 method=geo generating=False composer=4354
+[14:02:46] submit geo 실패 hit=no-btn
+[14:02:46] submit 시도 method=send send=False
+[14:02:47] submit 미확인 method=send generating=False composer=4354
+[14:02:47] submit 시도 method=ctrl
+[14:02:48] submit 미확인 method=ctrl generating=False composer=4356
+[14:02:48] submit 시도 method=enter
+[14:02:49] submit 미확인 method=enter generating=True composer=4356
+[14:02:49] submit geo 실패 hit=no-btn
+[14:02:49] submit 시도 method=geo2 geo=False
+[14:02:49] submit 미확인 method=geo2 generating=True composer=4356
+[14:02:50] submit geo 실패 hit=no-btn
+[14:02:50] submit 시도 method=send2 send=False
+[14:02:51] submit 미확인 method=send2 generating=True composer=4356
+[14:02:51] submit 시도 method=ctrl2
+[14:02:52] submit 미확인 method=ctrl2 generating=False composer=4358
+[14:02:52] submit 실패 composer잔존=4358
+[14:02:52] submit 재시도 2/3
+[14:02:53] submit 시작 composer=4358 url=https://www.genspark.ai/agents?id=fe0a8d14-0155-4bc2-8f6f-201cd4ea371a
+[14:02:53] submit geo 실패 hit=no-btn
+[14:02:53] submit 시도 method=geo geo=False
+[14:02:53] submit 미확인 method=geo generating=False composer=4358
+[14:02:55] submit geo 실패 hit=no-btn
+[14:02:55] submit 시도 method=send send=False
+[14:02:55] submit 미확인 method=send generating=False composer=4358
+[14:02:56] submit 시도 method=ctrl
+[14:02:56] submit 미확인 method=ctrl generating=False composer=4360
+[14:02:57] submit 시도 method=enter
+[14:02:57] submit 확인 method=enter generating=False composer=0
+[14:02:57] ⏱ 입력·전송 SRT_1260 13.8s · chars=4354
+[14:02:57] 제출 후 last_saved=https://www.genspark.ai/api/files/s/spjidlmb
+[14:02:57] ⏱ 생성대기 시작 SRT_1260 max=120s
+[14:02:58] ⏱ 생성대기 완료 1.0s SRT_1260 https://www.genspark.ai/api/files/s/ccllgsa4
+[14:02:58] ⏱ 생성대기구간 SRT_1260 1.0s · ok=True
+[14:02:58] SRT_1260 근접 이미지 https://www.genspark.ai/api/files/s/ccllgsa4
+[14:02:58] 다운로드 files URL=https://www.genspark.ai/api/files/s/ccllgsa4 → SRT_1260.png
+[14:02:59] ⏱ 다운로드 직접 1.1s size=838121 SRT_1260.png
+[14:02:59] ⏱ 다운로드구간 SRT_1260 1.1s · SRT_1260.png
+[14:03:03] ⏱ 다운로드후유휴 SRT_1260 3.6s · idle=True
+[14:03:03] ⏱ 씬합계 SRT_1260 22.0s · https://www.genspark.ai/api/files/s/ccllgsa4
+[14:03:03] SRT_1260 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\20장\png\SRT_1260.png
+[14:03:03] 상태키 SRT_1280 · tracking=OFF; Baek|base; Jin|base
+[14:03:03] 늦은이미지 회수 실패 SRT_1180: SRT_1180 요청 아래 새 이미지가 없습니다.
+[14:03:03] run_scene 시작 SRT_1280 · seen_files=63 · last_saved=https://www.genspark.ai/api/files/s/ccllgsa4
+[14:03:03] ⏱ 준비 SRT_1280 0.0s · chars=3869
+[14:03:06] ⏱ 다음명령유휴 SRT_1280 2.2s · idle=True
+[14:03:07] fill OK(clip) follow=True chars=3869
+[14:03:07] submit 시작 composer=3869 url=https://www.genspark.ai/agents?id=fe0a8d14-0155-4bc2-8f6f-201cd4ea371a
+[14:03:07] submit geo 실패 hit=no-btn
+[14:03:07] submit 시도 method=geo geo=False
+[14:03:08] submit 미확인 method=geo generating=False composer=3869
+[14:03:08] submit geo 실패 hit=no-btn
+[14:03:08] submit 시도 method=send send=False
+[14:03:09] submit 미확인 method=send generating=False composer=3869
+[14:03:09] submit 시도 method=ctrl
+[14:03:10] submit 미확인 method=ctrl generating=False composer=3871
+[14:03:10] submit 시도 method=enter
+[14:03:11] submit 미확인 method=enter generating=False composer=3871
+[14:03:11] submit geo 실패 hit=no-btn
+[14:03:11] submit 시도 method=geo2 geo=False
+[14:03:11] submit 미확인 method=geo2 generating=True composer=3871
+[14:03:12] submit geo 실패 hit=no-btn
+[14:03:12] submit 시도 method=send2 send=False
+[14:03:13] submit 미확인 method=send2 generating=False composer=3871
+[14:03:13] submit 시도 method=ctrl2
+[14:03:14] submit 미확인 method=ctrl2 generating=False composer=3873
+[14:03:14] submit 실패 composer잔존=3873
+[14:03:14] submit 재시도 2/3
+[14:03:15] submit 시작 composer=3873 url=https://www.genspark.ai/agents?id=fe0a8d14-0155-4bc2-8f6f-201cd4ea371a
+[14:03:15] submit geo 실패 hit=no-btn
+[14:03:15] submit 시도 method=geo geo=False
+[14:03:15] submit 미확인 method=geo generating=False composer=3873
+[14:03:16] submit geo 실패 hit=no-btn
+[14:03:16] submit 시도 method=send send=False
+[14:03:16] submit 미확인 method=send generating=False composer=3873
+[14:03:17] submit 시도 method=ctrl
+[14:03:18] submit 미확인 method=ctrl generating=False composer=3875
+[14:03:18] submit 시도 method=enter
+[14:03:19] submit 확인 method=enter generating=False composer=0
+[14:03:19] ⏱ 입력·전송 SRT_1280 13.0s · chars=3869
+[14:03:19] 제출 후 last_saved=https://www.genspark.ai/api/files/s/ccllgsa4
+[14:03:19] ⏱ 생성대기 시작 SRT_1280 max=120s
+[14:03:20] ⏱ 생성대기 완료(busy무시) 1.3s SRT_1280 https://www.genspark.ai/api/files/s/nbz4jwv8
+[14:03:20] ⏱ 생성대기구간 SRT_1280 1.3s · ok=True
+[14:03:20] SRT_1280 근접 이미지 https://www.genspark.ai/api/files/s/nbz4jwv8
+[14:03:20] 다운로드 files URL=https://www.genspark.ai/api/files/s/nbz4jwv8 → SRT_1280.png
+[14:03:22] ⏱ 다운로드 직접 2.1s size=743388 SRT_1280.png
+[14:03:22] ⏱ 다운로드구간 SRT_1280 2.2s · SRT_1280.png
+[14:03:25] ⏱ 다운로드후유휴 SRT_1280 2.5s · idle=True
+[14:03:25] ⏱ 씬합계 SRT_1280 21.6s · https://www.genspark.ai/api/files/s/nbz4jwv8
+[14:03:25] SRT_1280 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\20장\png\SRT_1280.png
+[14:03:25] 상태키 SRT_1289 · tracking=OFF; Baek|base; Jin|base
+[14:03:25] 늦은이미지 회수 실패 SRT_1180: SRT_1180 요청 아래 새 이미지가 없습니다.
+[14:03:25] run_scene 시작 SRT_1289 · seen_files=64 · last_saved=https://www.genspark.ai/api/files/s/nbz4jwv8
+[14:03:25] ⏱ 준비 SRT_1289 0.0s · chars=4220
+[14:03:27] ⏱ 다음명령유휴 SRT_1289 2.2s · idle=True
+[14:03:28] fill OK(clip) follow=True chars=4220
+[14:03:28] submit 시작 composer=4220 url=https://www.genspark.ai/agents?id=fe0a8d14-0155-4bc2-8f6f-201cd4ea371a
+[14:03:29] submit geo 실패 hit=no-btn
+[14:03:29] submit 시도 method=geo geo=False
+[14:03:29] submit 미확인 method=geo generating=False composer=4220
+[14:03:30] submit geo 실패 hit=no-btn
+[14:03:30] submit 시도 method=send send=False
+[14:03:31] submit 미확인 method=send generating=False composer=4220
+[14:03:31] submit 시도 method=ctrl
+[14:03:32] submit 미확인 method=ctrl generating=False composer=4222
+[14:03:32] submit 시도 method=enter
+[14:03:32] submit 미확인 method=enter generating=False composer=4222
+[14:03:32] submit geo 실패 hit=no-btn
+[14:03:32] submit 시도 method=geo2 geo=False
+[14:03:33] submit 미확인 method=geo2 generating=False composer=4222
+[14:03:34] submit geo 실패 hit=no-btn
+[14:03:34] submit 시도 method=send2 send=False
+[14:03:35] submit 미확인 method=send2 generating=False composer=4222
+[14:03:35] submit 시도 method=ctrl2
+[14:03:36] submit 미확인 method=ctrl2 generating=False composer=4224
+[14:03:36] submit 실패 composer잔존=4224
+[14:03:36] submit 재시도 2/3
+[14:03:36] submit 시작 composer=4224 url=https://www.genspark.ai/agents?id=fe0a8d14-0155-4bc2-8f6f-201cd4ea371a
+[14:03:36] submit geo 실패 hit=no-btn
+[14:03:36] submit 시도 method=geo geo=False
+[14:03:37] submit 미확인 method=geo generating=False composer=4224
+[14:03:38] submit geo 실패 hit=no-btn
+[14:03:38] submit 시도 method=send send=False
+[14:03:38] submit 미확인 method=send generating=False composer=4224
+[14:03:39] submit 시도 method=ctrl
+[14:03:39] submit 미확인 method=ctrl generating=False composer=4226
+[14:03:40] submit 시도 method=enter
+[14:03:40] submit 확인 method=enter generating=False composer=0
+[14:03:40] ⏱ 입력·전송 SRT_1289 13.0s · chars=4220
+[14:03:40] 제출 후 last_saved=https://www.genspark.ai/api/files/s/nbz4jwv8
+[14:03:41] ⏱ 생성대기 시작 SRT_1289 max=120s
+[14:03:42] ⏱ 생성대기 완료 1.0s SRT_1289 https://www.genspark.ai/api/files/s/c1urnmuu
+[14:03:42] ⏱ 생성대기구간 SRT_1289 1.0s · ok=True
+[14:03:42] SRT_1289 근접 이미지 https://www.genspark.ai/api/files/s/c1urnmuu
+[14:03:42] 다운로드 files URL=https://www.genspark.ai/api/files/s/c1urnmuu → SRT_1289.png
+[14:03:43] ⏱ 다운로드 직접 1.3s size=783238 SRT_1289.png
+[14:03:43] ⏱ 다운로드구간 SRT_1289 1.3s · SRT_1289.png
+[14:03:45] ⏱ 다운로드후유휴 SRT_1289 2.2s · idle=True
+[14:03:45] ⏱ 씬합계 SRT_1289 20.0s · https://www.genspark.ai/api/files/s/c1urnmuu
+[14:03:45] SRT_1289 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\20장\png\SRT_1289.png
+[14:03:45] 늦은이미지 회수 실패 SRT_1180: SRT_1180 요청 아래 새 이미지가 없습니다.
+[14:03:45] salvage 완료 · 회수 0 · 미수신 1 · [1180]
+[14:03:45] 다운로드 실패 확정 1건: SRT_1180
+[18:36:06] 탭로그 ON — 실행·생성 · 씬 1개 · reopen=True · 한도대기ON
+[18:36:11] ChromeDebug 재시작 slot=0 port=9242 user_data=C:\ChromeDebug_2_5 reused=0
+[18:36:14] 모델 이미 Pro: Nano Banana Pro
+[18:36:15] 세션 준비 — login=OK model=Nano Banana Pro auto=True
+[18:36:15] ensure_page cur_sc=10 prefer_sc=10 cur=https://www.genspark.ai/ai_image prefer=https://www.genspark.ai/ai_image
+[18:36:16] fill OK(clip) follow=True chars=69541
+[18:36:16] 입력창 붙여넣기 — 프롬프트 50827자 + SRT 18671자 = 합계 69541자
+  prompt=C:/cursor/wuxia/2_5_sceneImage/md/image.wuxiz.txt
+  srt=C:\cursor\wuxia\workspace\swardmaster\2부\20장\mp3\new.srt
+[18:36:17] ensure_page cur_sc=10 prefer_sc=10 cur=https://www.genspark.ai/ai_image prefer=https://www.genspark.ai/ai_image
+[18:36:18] 동일 입력창에 명령 추가(미실행): ===== CHARACTER LOOK (SRT_1180) =====
+Look keys (state tracking OFF): Seo|base; Namgung|base
+Seo Ryeongran, approximately seventeen years old, strikingly beautiful East-Asian young…
+[18:36:19] 상태키 SRT_1180 · tracking=OFF; Baek|base; Jin|base
+[18:36:19] run_scene 시작 SRT_1180 · seen_files=65 · last_saved=https://www.genspark.ai/api/files/s/c1urnmuu
+[18:36:19] ensure_page cur_sc=10 prefer_sc=10 cur=https://www.genspark.ai/ai_image prefer=https://www.genspark.ai/ai_image
+[18:36:19] 모델 선택 시작 현재=(없음)
+[18:36:19] 모델 선택 결과 ok=False 칩=(없음) picked=
+[18:36:19] ⏱ 준비 SRT_1180 0.2s · chars=5199
+[18:36:19] submit 시작 composer=5199 url=https://www.genspark.ai/ai_image
+[18:36:19] submit geo 실패 hit=no-btn
+[18:36:19] submit 시도 method=geo geo=False
+[18:36:20] submit 미확인 method=geo generating=False composer=5199
+[18:36:20] submit geo 실패 hit=no-btn
+[18:36:20] submit 시도 method=send send=False
+[18:36:21] submit 미확인 method=send generating=False composer=5199
+[18:36:21] submit 시도 method=ctrl
+[18:36:22] submit 미확인 method=ctrl generating=False composer=5201
+[18:36:22] submit 시도 method=enter
+[18:36:23] submit 확인 method=enter generating=False composer=0
+[18:36:23] ⏱ 입력창전송 SRT_1180 3.8s
+[18:36:23] 제출 후 last_saved=https://www.genspark.ai/api/files/s/c1urnmuu
+[18:36:23] ⏱ 생성대기 시작 SRT_1180 max=120s
+[18:36:38] ⏱ 생성대기 진행 15.3s SRT_1180 busy=False url_ok=False src=
+[18:36:38] ⏱ 생성대기 한도감지 15.3s SRT_1180 · AI Image 한도 - 재설정 2026-08-30 18:36 · AI Image 5시간 제한에 도달했습니다. 8월 30일 오후 6:36에 재설정됩니다 --- 5시간 제한 --- 세션 한도 도달 AI Image 5시간 제한에 도달했습니다. 8월 30일 오후 6:36에 재설정됩니다
+[18:36:39] run_scene 실패(재시도 없음): AI Image 한도 - 재설정 2026-08-30 18:36
+[18:36:39] SRT_1180 실패(한도 확정 streak=1) — 브라우저 종료 후 대기·재오픈
+AI Image 한도 - 재설정 2026-08-30 18:36
+[18:36:43] 한도 대기 전 ChromeDebug 종료
+[18:36:43] 한도 대기 시작 — 정상화 예상 2026-08-30 18:36 (0분) — SRT_1180 한도
+[18:37:13] 한도 대기 종료 — 정상화 예상 2026-08-30 18:36 — 재시도
+[18:37:13] 한도 대기 종료 — 브라우저 재오픈 후 SRT_1180 재개
+[18:37:18] ChromeDebug 재시작 slot=0 port=9242 user_data=C:\ChromeDebug_2_5 reused=0
+[18:37:21] 모델 이미 Pro: Nano Banana Pro
+[18:37:21] 세션 준비 — login=OK model=Nano Banana Pro auto=True
+[18:37:21] ensure_page cur_sc=10 prefer_sc=10 cur=https://www.genspark.ai/ai_image prefer=https://www.genspark.ai/ai_image
+[18:37:23] fill OK(clip) follow=True chars=69541
+[18:37:23] 입력창 붙여넣기 — 프롬프트 50827자 + SRT 18671자 = 합계 69541자
+  prompt=C:/cursor/wuxia/2_5_sceneImage/md/image.wuxiz.txt
+  srt=C:\cursor\wuxia\workspace\swardmaster\2부\20장\mp3\new.srt
+[18:37:24] ensure_page cur_sc=10 prefer_sc=10 cur=https://www.genspark.ai/ai_image prefer=https://www.genspark.ai/ai_image
+[18:37:25] 동일 입력창에 명령 추가(미실행): ===== CHARACTER LOOK (SRT_1180) =====
+Look keys (state tracking OFF): Seo|base; Namgung|base
+Seo Ryeongran, approximately seventeen years old, strikingly beautiful East-Asian young…
+[18:37:26] 상태키 SRT_1180 · tracking=OFF; Baek|base; Jin|base
+[18:37:26] run_scene 시작 SRT_1180 · seen_files=65 · last_saved=https://www.genspark.ai/api/files/s/c1urnmuu
+[18:37:26] ensure_page cur_sc=10 prefer_sc=10 cur=https://www.genspark.ai/ai_image prefer=https://www.genspark.ai/ai_image
+[18:37:26] ⏱ 준비 SRT_1180 0.0s · chars=5199
+[18:37:26] submit 시작 composer=5199 url=https://www.genspark.ai/ai_image
+[18:37:26] submit geo 실패 hit=no-btn
+[18:37:26] submit 시도 method=geo geo=False
+[18:37:26] submit 미확인 method=geo generating=False composer=5199
+[18:37:27] submit geo 실패 hit=no-btn
+[18:37:27] submit 시도 method=send send=False
+[18:37:27] submit 미확인 method=send generating=False composer=5199
+[18:37:28] submit 시도 method=ctrl
+[18:37:28] submit 미확인 method=ctrl generating=False composer=5201
+[18:37:29] submit 시도 method=enter
+[18:37:30] submit 확인 method=enter generating=False composer=0
+[18:37:30] ⏱ 입력창전송 SRT_1180 3.8s
+[18:37:30] 제출 후 last_saved=https://www.genspark.ai/api/files/s/c1urnmuu
+[18:37:30] ⏱ 생성대기 시작 SRT_1180 max=120s
+[18:37:45] ⏱ 생성대기 진행 15.4s SRT_1180 busy=False url_ok=False src=
+[18:37:47] ⏱ 생성대기 완료 17.6s SRT_1180 https://www.genspark.ai/api/files/s/7eipl45s
+[18:37:47] ⏱ 생성대기구간 SRT_1180 17.6s · ok=True
+[18:37:47] SRT_1180 근접 이미지 https://www.genspark.ai/api/files/s/7eipl45s
+[18:37:47] 다운로드 files URL=https://www.genspark.ai/api/files/s/7eipl45s → SRT_1180.png
+[18:37:48] ⏱ 다운로드 직접 0.9s size=661574 SRT_1180.png
+[18:37:48] ⏱ 다운로드구간 SRT_1180 0.9s · SRT_1180.png
+[18:37:49] ⏱ 다운로드후유휴 SRT_1180 1.3s · idle=True
+[18:37:49] ⏱ 씬합계 SRT_1180 23.8s · https://www.genspark.ai/api/files/s/7eipl45s
+[18:37:49] SRT_1180 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\20장\png\SRT_1180.png
+[18:37:49] 다운로드 실패 없음 — 대상 씬 PNG 모두 확인

@@ -32,5 +32,5 @@ config/wisdom_workspace.json
 *.pyz
 *.exe
 *.mp3
+**/mp4/
 *.mp4
-

@@ -1,0 +1,323 @@
+============================================================
+[2026-08-26 21:11:42] fail · SRT_000
+error: 브라우저 탭이 닫혔습니다. 「브라우저 열기」를 다시 눌러 주세요.
+============================================================
+[2026-08-26 21:11:42] fail · SRT_000
+error: 브라우저 탭이 닫혔습니다. 「브라우저 열기」를 다시 눌러 주세요.
+extra: streak=1
+============================================================
+[2026-08-26 21:11:43] fail_streak · SRT_020
+error: 브라우저 탭이 닫혔습니다. 「브라우저 열기」를 다시 눌러 주세요.
+extra: streak=2
+============================================================
+[2026-08-26 21:12:37] fail · SRT_020
+error: 이어쓰기 입력란을 찾지 못했습니다.
+--- page ---
+nt weary eyes, cool fair skin with porcelain complexion, slender wiry physique, calm unreadable expression, jet-black waist-length hair in warrior topknot with jade hairpin, white Huashan orthodox robes with pale teal accents and flowing layered sleeves, silver plum-blossom embroidery, dark blue sash, refined orthodox Huashan jian at waist, no visible wound, slender wiry build, calm unreadable expression
+Seo Ryeongran, approximately seventeen years old, strikingly beautiful East-Asian young woman of a demon-cult outer branch, pale porcelain skin, phoenix eyes with faint crimson iris, long straight raven-black hair to the waist, half-tied with black-and-red silk ribbon, small vermilion plum-petal mark between brows, slender graceful figure, crimson-and-black layered silk robes with dark lotus and flame embroidery, jade belt ornament, slender curved dao with red tassel
+Always preserve facial identity: same face, sharp narrow phoenix eyes, high straight nose, thin lips, defined jawline, youthful East-Asian face with ancient weary eyes, cool fair skin with porcelain complexion, slender wiry swordsman physique, calm unreadable expression (unless emotion scene). Hair, robe damage, blood, and wounds must follow the State Layer only — do not invent random outfit changes. Do not change facial identity, eye shape, or physique across scenes.
+
+===== SRT [0, 20) =====
+제15장. 서령란의 경고 여름 초입의 어느
+아침이었다. 진무한이 숙소에서 눈을 떴을 때,
+문틈 아래로 밀려 들어온 것 하나가 바닥에
+놓여 있었다. 매화 잎 한 장. 마른 매화 잎이었다.
+봄에 떨어진 꽃잎이 아니라, 가지…
+============================================================
+[2026-08-26 21:12:37] fail · SRT_020
+error: 이어쓰기 입력란을 찾지 못했습니다.
+extra: streak=1
+============================================================
+[2026-08-26 21:24:05] fail · SRT_760
+error: 이어쓰기 전송 실패 — 입력창에 명령이 1564자 남아 있습니다.
+--- page ---
+the previous current-timeline scene unless dialogue chang
+
+ed hair/robe/wo
+
+und; only pose, 
+
+action, camera, and background may change. Do NOT redesign face, hair style, or robe colors arbitrarily. No text, speech bubbles, bubble, tooltip, or callout in the image. After the image appears, output exactly one line: 「SRT_720 이미지가 성공적으로 생성되었습니다.」 Do not write success text without the image. If generation fails, short error only. No summary, verification table, continuation, or background guide.
+이미지 생성
+Nano Banana 2 Flash Lite
+재생성
+리믹스
+이미지를 동영상으로
+
+SRT_720 이미지가 성공적으로 생성되었습니다.
+
+===== CHARACTER LOOK (SRT_740) =====
+State keys: Seo|base
+Seo Ryeongran, approximately seventeen years old, strikingly beautiful East-Asian young woman of a demon-cult outer branch, pale porcelain skin, phoenix eyes with faint crimson iris, long straight raven-black hair to the waist, half-tied with black-and-red silk ribbon, small vermilion plum-petal mark between brows, slender graceful figure, crimson-and-black layered silk robes with dark lotus and flame embroidery, jade belt ornament, slender curved dao with red tassel
+
+===== SRT [740, 760) =====
+그의 얼굴은 어두웠다. 진 소협. 상황은? ... 나쁘오.
+동굴 안으로 들어갔다. 어둡고 축축한 공간.
+횃불 몇 개가 벽에 꽂혀 있었고, 그 불빛
+아래로 사람들이 보였다. 앉아 있는 자, 누워
+있는 자, 서 있는 자. 모두 합쳐 스무 명 남짓.
+서령란의 지파는 원래 스물일곱 명이었다. 그중
+
+===== STYLE =====
+Chinese wuxia manhua (중국 무협 만화) style illustration, classic Chinese manhua panel composition, 16:9 aspect ratio, ultra high resolution digital manhua art, no text, no speech bubbles,…
+============================================================
+[2026-08-26 21:24:05] fail · SRT_760
+error: 이어쓰기 전송 실패 — 입력창에 명령이 1564자 남아 있습니다.
+extra: streak=1
+============================================================
+[2026-08-26 21:31:31] fail · SRT_1280
+error: 이어쓰기 입력란을 찾지 못했습니다.
+--- page ---
+AI Image 5시간 제한에 도달했습니다. 8월 27일 오전 2:12에 재설정됩니다
+---
+5시간 제한
+---
+세션 한도 도달
+AI Image 5시간 제한에 도달했습니다. 8월 27일 오전 2:12에 재설정됩니다
+OK
+---
+세션 한도 도달
+AI Image 5시간 제한에 도달했습니다. 8월 27일 오전 2:12에 재설정됩니다
+OK
+---
+5시간 제한
+---
+en brows, slender graceful figure, crimson-and-black layered silk robes with dark lotus and flame embroidery, jade belt ornament, slender curved dao with red tassel
+Namgung Rin, approximately nineteen years old, quiet sharp-eyed East-Asian youth from a fallen clan branch, tall thin pale complexion, long narrow cold analytical eyes, dark hair in low ponytail with plain black cord and a single white mourning ribbon, neat gray branch-disciple robes, thin straight sword at back
+Always preserve facial identity: same face, sharp narrow phoenix eyes, high straight nose, thin lips, defined jawline, youthful East-Asian face with ancient weary eyes, cool fair skin with porcelain complexion, slender wiry swordsman physique, calm unreadable expression (unless emotion scene). Hair, robe damage, blood, and wounds must follow the State Layer only — do not invent random outfit changes. Do not change facial identity, eye shape, or physique across scenes.
+
+===== SRT [1260, 1280) =====
+한백강이 있고, 남궁호가 있고, 서령란의 지파
+전투원 열다섯이 있다. 할 수 있다. 진무한의
+대답은 짧았다. 한백강이 잠시 진무한을
+바라보다가 고개를 끄덕였다. 형이 그렇다면,
+그런 것이오. 두 사람은 초원의 밤 아래에서
+나란히 서 있었다. 바람이 풀을 흔들었다. 별이
+
+===== STYLE =====
+Chinese wuxia manhua (중국 무협 만화) style illustration, classic Chinese manhua panel composition, 16:9 aspect ratio, ultra high resolution digital man…
+============================================================
+[2026-08-26 21:31:31] fail · SRT_1280
+error: 이어쓰기 입력란을 찾지 못했습니다.
+extra: streak=1
+============================================================
+[2026-08-26 21:31:36] fail · SRT_1300
+error: 이어쓰기 입력란을 찾지 못했습니다.
+--- page ---
+AI Image 5시간 제한에 도달했습니다. 8월 27일 오전 2:12에 재설정됩니다
+---
+5시간 제한
+---
+세션 한도 도달
+AI Image 5시간 제한에 도달했습니다. 8월 27일 오전 2:12에 재설정됩니다
+OK
+---
+세션 한도 도달
+AI Image 5시간 제한에 도달했습니다. 8월 27일 오전 2:12에 재설정됩니다
+OK
+---
+5시간 제한
+---
+en brows, slender graceful figure, crimson-and-black layered silk robes with dark lotus and flame embroidery, jade belt ornament, slender curved dao with red tassel
+Namgung Rin, approximately nineteen years old, quiet sharp-eyed East-Asian youth from a fallen clan branch, tall thin pale complexion, long narrow cold analytical eyes, dark hair in low ponytail with plain black cord and a single white mourning ribbon, neat gray branch-disciple robes, thin straight sword at back
+Always preserve facial identity: same face, sharp narrow phoenix eyes, high straight nose, thin lips, defined jawline, youthful East-Asian face with ancient weary eyes, cool fair skin with porcelain complexion, slender wiry swordsman physique, calm unreadable expression (unless emotion scene). Hair, robe damage, blood, and wounds must follow the State Layer only — do not invent random outfit changes. Do not change facial identity, eye shape, or physique across scenes.
+
+===== SRT [1260, 1280) =====
+한백강이 있고, 남궁호가 있고, 서령란의 지파
+전투원 열다섯이 있다. 할 수 있다. 진무한의
+대답은 짧았다. 한백강이 잠시 진무한을
+바라보다가 고개를 끄덕였다. 형이 그렇다면,
+그런 것이오. 두 사람은 초원의 밤 아래에서
+나란히 서 있었다. 바람이 풀을 흔들었다. 별이
+
+===== STYLE =====
+Chinese wuxia manhua (중국 무협 만화) style illustration, classic Chinese manhua panel composition, 16:9 aspect ratio, ultra high resolution digital man…
+============================================================
+[2026-08-26 21:31:36] fail_streak · SRT_1300
+error: 이어쓰기 입력란을 찾지 못했습니다.
+extra: streak=2
+============================================================
+[2026-08-26 22:32:12] limit · SRT_1300
+error: AI Image 한도 - 재설정 2026-08-27 02:12
+extra: reset_at=2026-08-27 02:12
+--- page ---
+AI Image 5시간 제한에 도달했습니다. 8월 27일 오전 2:12에 재설정됩니다
+---
+5시간 제한
+---
+세션 한도 도달
+AI Image 5시간 제한에 도달했습니다. 8월 27일 오전 2:12에 재설정됩니다
+OK
+---
+세션 한도 도달
+AI Image 5시간 제한에 도달했습니다. 8월 27일 오전 2:12에 재설정됩니다
+OK
+---
+5시간 제한
+---
+-black waist-length hair in warrior topknot with jade hairpin (slightly disheveled), white Huashan robes with pale teal torn at sleeves and hem, silver plum embroidery stained, dark blue sash, refined jian drawn, light cuts and dust, no deep wound, slender wiry build, calm unreadable expression
+Seo Ryeongran, approximately seventeen years old, strikingly beautiful East-Asian young woman of a demon-cult outer branch, pale porcelain skin, phoenix eyes with faint crimson iris, long straight raven-black hair to the waist, half-tied with black-and-red silk ribbon, small vermilion plum-petal mark between brows, slender graceful figure, crimson-and-black layered silk robes with dark lotus and flame embroidery, jade belt ornament, slender curved dao with red tassel
+Always preserve facial identity: same face, sharp narrow phoenix eyes, high straight nose, thin lips, defined jawline, youthful East-Asian face with ancient weary eyes, cool fair skin with porcelain complexion, slender wiry swordsman physique, calm unreadable expression (unless emotion scene). Hair, robe damage, blood, and wounds must follow the State Layer only — do not invent random outfit changes. Do not change facial identity, eye shape, or physique across scenes.
+
+===== SRT [1300, 1320) =====
+지파원들은 마교 무사들이었으나, 진무한의
+지시에 …
+============================================================
+[2026-08-26 22:32:12] limit · SRT_1300
+error: AI Image 한도 - 재설정 2026-08-27 02:12
+extra: streak=1 reset_at=2026-08-27 02:12
+--- page ---
+AI Image 5시간 제한에 도달했습니다. 8월 27일 오전 2:12에 재설정됩니다 --- 5시간 제한 --- 세션 한도 도달 AI Image 5시간 제한에 도달했습니다. 8월 27일 오전 2:12에 재설정됩니다 OK --- 세션 한도 도달
+============================================================
+[2026-08-27 02:24:33] limit · SRT_2000
+error: AI Image 한도 - 재설정 2026-08-27 07:12
+extra: reset_at=2026-08-27 07:12
+--- page ---
+AI Image 5시간 제한에 도달했습니다. 8월 27일 오전 7:12에 재설정됩니다
+---
+5시간 제한
+---
+세션 한도 도달
+AI Image 5시간 제한에 도달했습니다. 8월 27일 오전 7:12에 재설정됩니다
+OK
+---
+세션 한도 도달
+AI Image 5시간 제한에 도달했습니다. 8월 27일 오전 7:12에 재설정됩니다
+OK
+---
+5시간 제한
+---
+R LOOK (SRT_2000) =====
+State keys: Jin≈19|blood_robe
+Jin Muhan, approximately nineteen years old, East-Asian young swordsman, sharp narrow phoenix eyes, high straight nose, thin lips, defined jawline, youthful East-Asian face with ancient weary eyes, cool fair skin with porcelain complexion, slender wiry physique, calm unreadable expression, jet-black waist-length hair in warrior topknot with jade hairpin, white Huashan pale-teal robes with fresh blood spatters on chest and sleeves, silver plum embroidery, dark blue sash, refined jian, optional light blood on cheek, no deep wound, slender wiry build, calm unreadable expression
+Always preserve facial identity: same face, sharp narrow phoenix eyes, high straight nose, thin lips, defined jawline, youthful East-Asian face with ancient weary eyes, cool fair skin with porcelain complexion, slender wiry swordsman physique, calm unreadable expression (unless emotion scene). Hair, robe damage, blood, and wounds must follow the State Layer only — do not invent random outfit changes. Do not change facial identity, eye shape, or physique across scenes.
+
+===== SRT [2000, 2020) =====
+바뀌고 있소. 어떻게? 정찰원이 보고를 보내
+왔소. 추가 인원이 오고 있소. 통로에서
+잃은 자를 메울 보충이오. 규모는 서넛에서
+다섯. 진무한의 눈이 좁아졌다. 보충이 와도,
+총원은 처음 스물다섯을 크게 넘지 못할
+것이었다. 이미 통로에서 여럿을 베었으니.
+
+===== STYLE ==…
+============================================================
+[2026-08-27 02:24:33] limit · SRT_2000
+error: AI Image 한도 - 재설정 2026-08-27 07:12
+extra: streak=1 reset_at=2026-08-27 07:12
+--- page ---
+AI Image 5시간 제한에 도달했습니다. 8월 27일 오전 7:12에 재설정됩니다 --- 5시간 제한 --- 세션 한도 도달 AI Image 5시간 제한에 도달했습니다. 8월 27일 오전 7:12에 재설정됩니다 OK --- 세션 한도 도달
+============================================================
+[2026-08-29 12:45:00] limit · SRT_1580
+error: AI Image 한도 - 재설정 2026-08-29 17:21
+extra: reset_at=2026-08-29 17:21
+--- page ---
+AI Image 5시간 제한에 도달했습니다. 8월 29일 오후 5:21에 재설정됩니다
+---
+5시간 제한
+---
+세션 한도 도달
+AI Image 5시간 제한에 도달했습니다. 8월 29일 오후 5:21에 재설정됩니다
+OK
+---
+세션 한도 도달
+AI Image 5시간 제한에 도달했습니다. 8월 29일 오후 5:21에 재설정됩니다
+OK
+---
+5시간 제한
+---
+r physique across scenes.
+
+===== SRT [1580, 1600) =====
+머리카락. 부상 입은 왼팔을 감싼 천. 작으나
+곧은 어깨. 다음에. 진무한은 그 다음이 오기를
+빌었다. 초원의 밤이 깊어졌다. 별들이 느리게
+서쪽으로 흘러갔다. 그리고 남쪽 어딘가에서,
+발소리들이 이 초원을 향해 가까워지고 있었다.
+
+===== STYLE =====
+Chinese wuxia manhua (중국 무협 만화) style illustration, bold ink outlines with dramatic ink-wash and vibrant cel-shaded coloring, flowing ancient Chinese hanfu robes, ornate jian sword ornaments and swirling qi energy effects, cinematic high-contrast lighting with mystical cyan/crimson/golden aura, classic Chinese manhua panel composition, epic mountain-river jianghu backdrop, 16:9 aspect ratio, ultra high resolution digital manhua art, no Studio Ghibli style, no Korean manhwa, no Japanese anime, no 3D render, no flat cartoon, no photoreal, no live-action photo, no speech bubbles, no comic balloons, no dialogue balloons, no thought bubbles, no tooltips, no help balloons, no UI tips, no callout boxes, no caption boxes, no chat bubbles, no watermarks, no logos, no Hangul, no Korean characters, no Korean written text on image, no hanbok, no Korean traditional clothing, no jeogori, no chima, no Japanese text on image, no English text on image, no Latin letters on image, no Chinese hanzi on image, no written text, no letters, no captions, no signs with readable writing, distinct indivi…
+============================================================
+[2026-08-29 12:45:00] limit · SRT_1580
+error: AI Image 한도 - 재설정 2026-08-29 17:21
+extra: streak=1 reset_at=2026-08-29 17:21
+--- page ---
+AI Image 5시간 제한에 도달했습니다. 8월 29일 오후 5:21에 재설정됩니다 --- 5시간 제한 --- 세션 한도 도달 AI Image 5시간 제한에 도달했습니다. 8월 29일 오후 5:21에 재설정됩니다 OK --- 세션 한도 도달
+============================================================
+[2026-08-29 17:21:10] limit · SRT_1040
+error: AI Image 한도 - 재설정 2026-08-29 17:21
+extra: reset_at=2026-08-29 17:21
+--- page ---
+AI Image 5시간 제한에 도달했습니다. 8월 29일 오후 5:21에 재설정됩니다
+---
+5시간 제한
+---
+세션 한도 도달
+AI Image 5시간 제한에 도달했습니다. 8월 29일 오후 5:21에 재설정됩니다
+OK
+---
+세션 한도 도달
+AI Image 5시간 제한에 도달했습니다. 8월 29일 오후 5:21에 재설정됩니다
+OK
+---
+5시간 제한
+---
+wash and vibrant cel-shaded coloring, flowing ancient Chinese hanfu robes, ornate jian sword ornaments and swirling qi energy effects, cinematic high-contrast lighting with mystical cyan/crimson/golden aura, classic Chinese manhua panel composition, epic mountain-river jianghu backdrop, 16:9 aspect ratio, ultra high resolution digital manhua art, no Studio Ghibli style, no Korean manhwa, no Japanese anime, no 3D render, no flat cartoon, no photoreal, no live-action photo, no speech bubbles, no comic balloons, no dialogue balloons, no thought bubbles, no tooltips, no help balloons, no UI tips, no callout boxes, no caption boxes, no chat bubbles, no watermarks, no logos, no Hangul, no Korean characters, no Korean written text on image, no hanbok, no Korean traditional clothing, no jeogori, no chima, no Japanese text on image, no English text on image, no Latin letters on image, no Chinese hanzi on image, no written text, no letters, no captions, no signs with readable writing, distinct individualized faces matching Character Bible Face Identity, each character visually unique, NOT generic bishonen, NOT same face as other disciples, expression follows each character's Face Identity (not uniform heroic pretty-boy look)
+
+SRT_1040 Chinese wuxia manhua illustration — generate this sce…
+============================================================
+[2026-08-29 17:21:10] limit · SRT_1040
+error: AI Image 한도 - 재설정 2026-08-29 17:21
+extra: streak=1 reset_at=2026-08-29 17:21
+--- page ---
+AI Image 5시간 제한에 도달했습니다. 8월 29일 오후 5:21에 재설정됩니다 --- 5시간 제한 --- 세션 한도 도달 AI Image 5시간 제한에 도달했습니다. 8월 29일 오후 5:21에 재설정됩니다 OK --- 세션 한도 도달
+============================================================
+[2026-08-29 17:36:05] fail · SRT_2380
+error: 새 이미지 대기 초과 (120s) — 다음 씬으로 진행
+--- page ---
+le illustration, bold ink outlines with dramatic ink-wash and vibrant cel-shaded coloring, flowing ancient Chinese hanfu robes, ornate jian sword ornaments and swirling qi energy effects, cinematic high-contrast lighting with mystical cyan/crimson/golden aura, classic Chinese manhua panel composition, epic mountain-river jianghu backdrop, 16:9 aspect ratio, ultra high resolution digital manhua art, no Studio Ghibli style, no Korean manhwa, no Japanese anime, no 3D render, no flat cartoon, no photoreal, no live-action photo, no speech bubbles, no comic balloons, no dialogue balloons, no thought bubbles, no tooltips, no help balloons, no UI tips, no callout boxes, no caption boxes, no chat bubbles, no watermarks, no logos, no Hangul, no Korean characters, no Korean written text on image, no hanbok, no Korean traditional clothing, no jeogori, no chima, no Japanese text on image, no English text on image, no Latin letters on image, no Chinese hanzi on image, no written text, no letters, no captions, no signs with readable writing, distinct individualized faces matching Character Bible Face Identity, each character visually unique, NOT generic bishonen, NOT same face as other disciples, expression follows each character's Face Identity (not uniform heroic pretty-boy look)
+
+SRT_2380 Chinese wuxia manhua illustration — generate this scene now. Keep Face Identity and base outfit in CHARACTER LOOK identical across scenes; only pose, action, camera, and background may change. Do NOT re…
+============================================================
+[2026-08-29 17:36:05] fail · SRT_2380
+error: 새 이미지 대기 초과 (120s) — 다음 씬으로 진행
+extra: streak=1
+============================================================
+[2026-08-30 19:22:10] fail · SRT_040
+error: 이어쓰기 입력란을 찾지 못했습니다.
+--- page ---
+, bold ink outlines with dramatic ink-wash and vibrant cel-shaded coloring, flowing ancient Chinese hanfu robes, ornate jian sword ornaments and swirling qi energy effects, cinematic high-contrast lighting with mystical cyan/crimson/golden aura, classic Chinese manhua panel composition, epic mountain-river jianghu backdrop, 16:9 aspect ratio, ultra high resolution digital manhua art, no Studio Ghibli style, no Korean manhwa, no Japanese anime, no 3D render, no flat cartoon, no photoreal, no live-action photo, no speech bubbles, no comic balloons, no dialogue balloons, no thought bubbles, no tooltips, no help balloons, no UI tips, no callout boxes, no caption boxes, no chat bubbles, no watermarks, no logos, no Hangul, no Korean characters, no Korean written text on image, no hanbok, no Korean traditional clothing, no jeogori, no chima, no Japanese text on image, no English text on image, no Latin letters on image, no Chinese hanzi on image, no written text, no letters, no captions, no signs with readable writing, distinct individualized faces matching Character Bible Face Identity, each character visually unique, NOT generic bishonen, NOT same face as other disciples, expression follows each character's Face Identity (not uniform heroic pretty-boy look)
+
+SRT_020 Chinese wuxia manhua illustration — generate this scene now. When multiple characters appear, keep each face visually distinct — do NOT merge into one generic bishonen face. Keep Face Identity and base outfit in CHARAC…
+============================================================
+[2026-08-30 19:22:10] fail · SRT_040
+error: 이어쓰기 입력란을 찾지 못했습니다.
+extra: streak=1
+============================================================
+[2026-08-30 19:35:08] limit · SRT_720
+error: AI Image 한도 - 재설정 2026-08-30 23:37
+extra: reset_at=2026-08-30 23:37
+--- page ---
+AI Image 5시간 제한에 도달했습니다. 8월 30일 오후 11:37에 재설정됩니다
+---
+5시간 제한
+---
+세션 한도 도달
+AI Image 5시간 제한에 도달했습니다. 8월 30일 오후 11:37에 재설정됩니다
+OK
+---
+세션 한도 도달
+AI Image 5시간 제한에 도달했습니다. 8월 30일 오후 11:37에 재설정됩니다
+OK
+---
+5시간 제한
+---
+olden aura, classic Chinese manhua panel composition, epic mountain-river jianghu backdrop, 16:9 aspect ratio, ultra high resolution digital manhua art, no Studio Ghibli style, no Korean manhwa, no Japanese anime, no 3D render, no flat cartoon, no photoreal, no live-action photo, no speech bubbles, no comic balloons, no dialogue balloons, no thought bubbles, no tooltips, no help balloons, no UI tips, no callout boxes, no caption boxes, no chat bubbles, no watermarks, no logos, no Hangul, no Korean characters, no Korean written text on image, no hanbok, no Korean traditional clothing, no jeogori, no chima, no Japanese text on image, no English text on image, no Latin letters on image, no Chinese hanzi on image, no written text, no letters, no captions, no signs with readable writing, distinct individualized faces matching Character Bible Face Identity, each character visually unique, NOT generic bishonen, NOT same face as other disciples, expression follows each character's Face Identity (not uniform heroic pretty-boy look)
+
+SRT_720 Chinese wuxia manhua illustration — generate this scene now. When multiple characters appear, keep each face visually distinct — do NOT merge into one generic bishonen face. Keep Face Identity and base outfit in CHARACTER LOOK identical across sce…
+============================================================
+[2026-08-30 19:35:08] limit · SRT_720
+error: AI Image 한도 - 재설정 2026-08-30 23:37
+extra: streak=1 reset_at=2026-08-30 23:37
+--- page ---
+AI Image 5시간 제한에 도달했습니다. 8월 30일 오후 11:37에 재설정됩니다 --- 5시간 제한 --- 세션 한도 도달 AI Image 5시간 제한에 도달했습니다. 8월 30일 오후 11:37에 재설정됩니다 OK --- 세션 한도

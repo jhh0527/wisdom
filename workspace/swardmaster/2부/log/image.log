@@ -1,0 +1,9 @@
+20:46
+세션 준비 — login=OK filled=False model=Nano Banana Pro ChromeDebug=C:\ChromeDebug port=9222 skip=0 todo=41
+
+20:46
+SRT_000 실패: Page.wait_for_timeout: Target page, context or browser has been closed
+
+20:46
+오류: Page.wait_for_timeout: Target page, context or browser has been closed
+

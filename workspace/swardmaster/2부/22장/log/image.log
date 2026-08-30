@@ -1,0 +1,771 @@
+[07:26:27] 탭로그 ON — 실행·생성 · 씬 73개 · reopen=True
+[07:26:34] ChromeDebug 재시작 slot=1 port=9243 user_data=C:\ChromeDebug_2_5_slot1 reused=0
+[07:26:39] 모델 이미 Pro: Nano Banana Pro
+[07:26:39] 세션 준비 — login=OK model=Nano Banana Pro auto=True
+[07:26:39] ensure_page cur_sc=10 prefer_sc=10 cur=https://www.genspark.ai/ai_image prefer=https://www.genspark.ai/ai_image
+[07:26:42] fill OK(clip) follow=True chars=74076
+[07:26:42] 입력창 붙여넣기 — 프롬프트 50827자 + SRT 23206자 = 합계 74076자
+  prompt=C:/cursor/wuxia/2_5_sceneImage/md/image.wuxiz.txt
+  srt=C:\cursor\wuxia\workspace\swardmaster\2부\14장\mp3\new.srt
+[07:26:43] ensure_page cur_sc=10 prefer_sc=10 cur=https://www.genspark.ai/ai_image prefer=https://www.genspark.ai/ai_image
+[07:26:45] 동일 입력창에 명령 추가(미실행): ===== CHARACTER LOOK (SRT_000) =====
+Look keys (state tracking OFF): Jin≈19|base
+Jin Muhan, approximately nineteen years old, East-Asian young swordsman, sharp narrow phoenix eyes,…
+[07:26:45] 상태키 SRT_000 · tracking=OFF; Baek|base; Jin|base
+[07:26:45] run_scene 시작 SRT_000 · seen_files=0 · last_saved=
+[07:26:45] ensure_page cur_sc=10 prefer_sc=10 cur=https://www.genspark.ai/ai_image prefer=https://www.genspark.ai/ai_image
+[07:26:45] 모델 선택 시작 현재=(없음)
+[07:26:45] 모델 선택 결과 ok=False 칩=(없음) picked=
+[07:26:45] ⏱ 준비 SRT_000 0.1s · chars=3660
+[07:26:45] submit 시작 composer=3660 url=https://www.genspark.ai/ai_image
+[07:26:46] submit geo 실패 hit=no-btn
+[07:26:46] submit 시도 method=geo geo=False
+[07:26:46] submit 미확인 method=geo generating=False composer=3660
+[07:26:47] submit geo 실패 hit=no-btn
+[07:26:47] submit 시도 method=send send=False
+[07:26:47] submit 미확인 method=send generating=False composer=3660
+[07:26:48] submit 시도 method=ctrl
+[07:26:48] submit 미확인 method=ctrl generating=False composer=3662
+[07:26:49] submit 시도 method=enter
+[07:26:50] submit 확인 method=enter generating=False composer=0
+[07:26:50] ⏱ 입력창전송 SRT_000 4.7s
+[07:26:50] 제출 후 last_saved=https://www.genspark.ai/api/files/s/if2oyibg
+[07:26:50] ⏱ 생성대기 시작 SRT_000 max=120s
+[07:27:05] ⏱ 생성대기 진행 15.0s SRT_000 busy=False url_ok=False src=
+[07:27:05] ⏱ 생성대기 한도감지 15.0s SRT_000 · AI Image 한도 - 재설정 2026-08-30 08:34 · AI Image 5시간 제한에 도달했습니다. 8월 30일 오전 8:34에 재설정됩니다 --- 5시간 제한 --- 세션 한도 도달 AI Image 5시간 제한에 도달했습니다. 8월 30일 오전 8:34에 재설정됩니다
+[07:27:05] run_scene 실패(재시도 없음): AI Image 한도 - 재설정 2026-08-30 08:34
+[07:27:05] SRT_000 실패 — 다음 씬 계속
+AI Image 한도 - 재설정 2026-08-30 08:34
+[07:27:06] 상태키 SRT_020 · tracking=OFF; Baek|base; Jin|base
+[07:27:06] 늦은이미지 회수 실패 SRT_000: SRT_000 요청 아래 새 이미지가 없습니다.
+[07:27:06] run_scene 시작 SRT_020 · seen_files=0 · last_saved=
+[07:27:06] ⏱ 준비 SRT_020 0.0s · chars=7929
+[07:27:07] ⏱ 다음명령유휴 SRT_020 1.1s · idle=True
+[07:27:10] fill 실패: 후보 1개
+[07:27:10] run_scene 실패(재시도 없음): 이어쓰기 입력란을 찾지 못했습니다.
+[07:27:10] SRT_020 실패 — 다음 씬 계속
+이어쓰기 입력란을 찾지 못했습니다.
+[07:27:10] 상태키 SRT_040 · tracking=OFF; Baek|base; Jin|base
+[07:27:10] 늦은이미지 회수 실패 SRT_000: SRT_000 요청 아래 새 이미지가 없습니다.
+[07:27:10] 늦은이미지 회수 실패 SRT_020: SRT_020 요청 아래 새 이미지가 없습니다.
+[07:27:10] run_scene 시작 SRT_040 · seen_files=0 · last_saved=
+[07:27:10] ⏱ 준비 SRT_040 0.0s · chars=6113
+[07:27:11] ⏱ 다음명령유휴 SRT_040 1.1s · idle=True
+[07:27:15] fill 실패: 후보 1개
+[07:27:15] run_scene 실패(재시도 없음): 이어쓰기 입력란을 찾지 못했습니다.
+[07:27:15] SRT_040 실패 — 다음 씬 계속
+이어쓰기 입력란을 찾지 못했습니다.
+[07:27:15] 상태키 SRT_060 · tracking=OFF; Baek|base; Jin|base
+[07:27:15] 늦은이미지 회수 실패 SRT_000: SRT_000 요청 아래 새 이미지가 없습니다.
+[07:27:15] 늦은이미지 회수 실패 SRT_020: SRT_020 요청 아래 새 이미지가 없습니다.
+[07:27:15] 늦은이미지 회수 실패 SRT_040: SRT_040 요청 아래 새 이미지가 없습니다.
+[07:27:15] run_scene 시작 SRT_060 · seen_files=0 · last_saved=
+[07:27:15] ⏱ 준비 SRT_060 0.1s · chars=3945
+[07:27:17] ⏱ 다음명령유휴 SRT_060 1.9s · idle=True
+[07:27:20] fill 실패: 후보 1개
+[07:27:20] run_scene 실패(재시도 없음): 이어쓰기 입력란을 찾지 못했습니다.
+[07:27:20] SRT_060 실패 — 다음 씬 계속
+이어쓰기 입력란을 찾지 못했습니다.
+[07:27:20] 상태키 SRT_080 · tracking=OFF; Baek|base; Jin|base
+[07:27:20] 늦은이미지 회수 실패 SRT_000: SRT_000 요청 아래 새 이미지가 없습니다.
+[07:27:20] 늦은이미지 회수 실패 SRT_020: SRT_020 요청 아래 새 이미지가 없습니다.
+[07:27:20] 늦은이미지 회수 실패 SRT_040: SRT_040 요청 아래 새 이미지가 없습니다.
+[07:27:20] 늦은이미지 회수 실패 SRT_060: SRT_060 요청 아래 새 이미지가 없습니다.
+[07:27:20] run_scene 시작 SRT_080 · seen_files=0 · last_saved=
+[07:27:20] ⏱ 준비 SRT_080 0.0s · chars=5385
+[07:27:22] ⏱ 다음명령유휴 SRT_080 1.3s · idle=True
+[07:27:25] fill 실패: 후보 1개
+[07:27:25] run_scene 실패(재시도 없음): 이어쓰기 입력란을 찾지 못했습니다.
+[07:27:25] SRT_080 실패 — 다음 씬 계속
+이어쓰기 입력란을 찾지 못했습니다.
+[07:27:25] 상태키 SRT_100 · tracking=OFF; Baek|base; Jin|base
+[07:27:25] 늦은이미지 회수 실패 SRT_000: SRT_000 요청 아래 새 이미지가 없습니다.
+[07:27:25] 늦은이미지 회수 실패 SRT_020: SRT_020 요청 아래 새 이미지가 없습니다.
+[07:27:25] 늦은이미지 회수 실패 SRT_040: SRT_040 요청 아래 새 이미지가 없습니다.
+[07:27:25] 늦은이미지 회수 실패 SRT_060: SRT_060 요청 아래 새 이미지가 없습니다.
+[07:27:25] 늦은이미지 회수 실패 SRT_080: SRT_080 요청 아래 새 이미지가 없습니다.
+[07:27:25] run_scene 시작 SRT_100 · seen_files=0 · last_saved=
+[07:27:25] ⏱ 준비 SRT_100 0.0s · chars=6709
+[07:27:26] ⏱ 다음명령유휴 SRT_100 1.2s · idle=True
+[07:27:30] fill 실패: 후보 1개
+[07:27:30] run_scene 실패(재시도 없음): 이어쓰기 입력란을 찾지 못했습니다.
+[07:27:30] SRT_100 실패 — 다음 씬 계속
+이어쓰기 입력란을 찾지 못했습니다.
+[07:27:30] 상태키 SRT_120 · tracking=OFF; Baek|base; Jin|base
+[07:27:30] 늦은이미지 회수 실패 SRT_000: SRT_000 요청 아래 새 이미지가 없습니다.
+[07:27:30] 늦은이미지 회수 실패 SRT_020: SRT_020 요청 아래 새 이미지가 없습니다.
+[07:27:30] 늦은이미지 회수 실패 SRT_040: SRT_040 요청 아래 새 이미지가 없습니다.
+[07:27:30] 늦은이미지 회수 실패 SRT_060: SRT_060 요청 아래 새 이미지가 없습니다.
+[07:27:30] 늦은이미지 회수 실패 SRT_080: SRT_080 요청 아래 새 이미지가 없습니다.
+[07:27:30] 늦은이미지 회수 실패 SRT_100: SRT_100 요청 아래 새 이미지가 없습니다.
+[07:27:30] run_scene 시작 SRT_120 · seen_files=0 · last_saved=
+[07:27:30] ⏱ 준비 SRT_120 0.0s · chars=3986
+[07:27:31] ⏱ 다음명령유휴 SRT_120 1.1s · idle=True
+[07:27:34] fill 실패: 후보 1개
+[07:27:34] run_scene 실패(재시도 없음): 이어쓰기 입력란을 찾지 못했습니다.
+[07:27:34] SRT_120 실패 — 다음 씬 계속
+이어쓰기 입력란을 찾지 못했습니다.
+[07:27:34] 상태키 SRT_140 · tracking=OFF; Baek|base; Jin|base
+[07:27:34] 늦은이미지 회수 실패 SRT_000: SRT_000 요청 아래 새 이미지가 없습니다.
+[07:27:34] 늦은이미지 회수 실패 SRT_020: SRT_020 요청 아래 새 이미지가 없습니다.
+[07:27:34] 늦은이미지 회수 실패 SRT_040: SRT_040 요청 아래 새 이미지가 없습니다.
+[07:27:34] 늦은이미지 회수 실패 SRT_060: SRT_060 요청 아래 새 이미지가 없습니다.
+[07:27:34] 늦은이미지 회수 실패 SRT_080: SRT_080 요청 아래 새 이미지가 없습니다.
+[07:27:34] 늦은이미지 회수 실패 SRT_100: SRT_100 요청 아래 새 이미지가 없습니다.
+[07:27:34] 늦은이미지 회수 실패 SRT_120: SRT_120 요청 아래 새 이미지가 없습니다.
+[07:27:34] run_scene 시작 SRT_140 · seen_files=0 · last_saved=
+[07:27:34] ⏱ 준비 SRT_140 0.0s · chars=5678
+[07:27:36] ⏱ 다음명령유휴 SRT_140 1.1s · idle=True
+[07:27:39] fill 실패: 후보 1개
+[07:27:39] run_scene 실패(재시도 없음): 이어쓰기 입력란을 찾지 못했습니다.
+[07:27:39] SRT_140 실패 — 다음 씬 계속
+이어쓰기 입력란을 찾지 못했습니다.
+[07:27:39] 상태키 SRT_160 · tracking=OFF; Baek|base; Jin|base
+[07:27:39] 늦은이미지 회수 실패 SRT_000: SRT_000 요청 아래 새 이미지가 없습니다.
+[07:27:39] 늦은이미지 회수 실패 SRT_020: SRT_020 요청 아래 새 이미지가 없습니다.
+[07:27:39] 늦은이미지 회수 실패 SRT_040: SRT_040 요청 아래 새 이미지가 없습니다.
+[07:27:39] 늦은이미지 회수 실패 SRT_060: SRT_060 요청 아래 새 이미지가 없습니다.
+[07:27:39] 늦은이미지 회수 실패 SRT_080: SRT_080 요청 아래 새 이미지가 없습니다.
+[07:27:39] 늦은이미지 회수 실패 SRT_100: SRT_100 요청 아래 새 이미지가 없습니다.
+[07:27:39] 늦은이미지 회수 실패 SRT_120: SRT_120 요청 아래 새 이미지가 없습니다.
+[07:27:39] 늦은이미지 회수 실패 SRT_140: SRT_140 요청 아래 새 이미지가 없습니다.
+[07:27:39] run_scene 시작 SRT_160 · seen_files=0 · last_saved=
+[07:27:39] ⏱ 준비 SRT_160 0.0s · chars=5426
+[07:27:40] ⏱ 다음명령유휴 SRT_160 1.1s · idle=True
+[07:27:44] fill 실패: 후보 1개
+[07:27:44] run_scene 실패(재시도 없음): 이어쓰기 입력란을 찾지 못했습니다.
+[07:27:44] SRT_160 실패 — 다음 씬 계속
+이어쓰기 입력란을 찾지 못했습니다.
+[07:27:44] 상태키 SRT_180 · tracking=OFF; Baek|base; Jin|base
+[07:27:44] 늦은이미지 회수 실패 SRT_000: SRT_000 요청 아래 새 이미지가 없습니다.
+[07:27:44] 늦은이미지 회수 실패 SRT_020: SRT_020 요청 아래 새 이미지가 없습니다.
+[07:27:44] 늦은이미지 회수 실패 SRT_040: SRT_040 요청 아래 새 이미지가 없습니다.
+[07:27:44] 늦은이미지 회수 실패 SRT_060: SRT_060 요청 아래 새 이미지가 없습니다.
+[07:27:44] 늦은이미지 회수 실패 SRT_080: SRT_080 요청 아래 새 이미지가 없습니다.
+[07:27:44] 늦은이미지 회수 실패 SRT_100: SRT_100 요청 아래 새 이미지가 없습니다.
+[07:27:44] 늦은이미지 회수 실패 SRT_120: SRT_120 요청 아래 새 이미지가 없습니다.
+[07:27:44] 늦은이미지 회수 실패 SRT_140: SRT_140 요청 아래 새 이미지가 없습니다.
+[07:27:44] 늦은이미지 회수 실패 SRT_160: SRT_160 요청 아래 새 이미지가 없습니다.
+[07:27:44] run_scene 시작 SRT_180 · seen_files=0 · last_saved=
+[07:27:44] ⏱ 준비 SRT_180 0.0s · chars=5379
+[07:27:45] ⏱ 다음명령유휴 SRT_180 1.1s · idle=True
+[07:27:47] fill 실패: 후보 1개
+[07:27:47] run_scene 실패(재시도 없음): 이어쓰기 입력란을 찾지 못했습니다.
+[07:27:47] SRT_180 실패 — 다음 씬 계속
+이어쓰기 입력란을 찾지 못했습니다.
+[07:27:47] 상태키 SRT_200 · tracking=OFF; Baek|base; Jin|base
+[07:27:47] SRT_200 실패 — 다음 씬 계속
+브라우저 탭이 닫혔습니다. 「실행」를 다시 눌러 주세요.
+[07:27:48] 상태키 SRT_220 · tracking=OFF; Baek|base; Jin|base
+[07:27:48] SRT_220 실패 — 다음 씬 계속
+브라우저 탭이 닫혔습니다. 「실행」를 다시 눌러 주세요.
+[07:27:48] 상태키 SRT_240 · tracking=OFF; Baek|base; Jin|base
+[07:27:48] SRT_240 실패 — 다음 씬 계속
+브라우저 탭이 닫혔습니다. 「실행」를 다시 눌러 주세요.
+[07:27:48] 상태키 SRT_260 · tracking=OFF; Baek|base; Jin|base
+[07:27:48] SRT_260 실패 — 다음 씬 계속
+브라우저 탭이 닫혔습니다. 「실행」를 다시 눌러 주세요.
+[07:27:48] 상태키 SRT_280 · tracking=OFF; Baek|base; Jin|base
+[07:27:48] SRT_280 실패 — 다음 씬 계속
+브라우저 탭이 닫혔습니다. 「실행」를 다시 눌러 주세요.
+[07:27:48] 상태키 SRT_300 · tracking=OFF; Baek|base; Jin|base
+[07:27:48] SRT_300 실패 — 다음 씬 계속
+브라우저 탭이 닫혔습니다. 「실행」를 다시 눌러 주세요.
+[07:27:48] 상태키 SRT_320 · tracking=OFF; Baek|base; Jin|base
+[07:27:48] SRT_320 실패 — 다음 씬 계속
+브라우저 탭이 닫혔습니다. 「실행」를 다시 눌러 주세요.
+[07:27:49] 상태키 SRT_340 · tracking=OFF; Baek|base; Jin|base
+[07:27:49] SRT_340 실패 — 다음 씬 계속
+브라우저 탭이 닫혔습니다. 「실행」를 다시 눌러 주세요.
+[07:27:49] 상태키 SRT_360 · tracking=OFF; Baek|base; Jin|base
+[07:27:49] SRT_360 실패 — 다음 씬 계속
+브라우저 탭이 닫혔습니다. 「실행」를 다시 눌러 주세요.
+[07:27:49] 상태키 SRT_380 · tracking=OFF; Baek|base; Jin|base
+[07:27:49] SRT_380 실패 — 다음 씬 계속
+브라우저 탭이 닫혔습니다. 「실행」를 다시 눌러 주세요.
+[07:27:49] 상태키 SRT_400 · tracking=OFF; Baek|base; Jin|base
+[07:27:49] SRT_400 실패 — 다음 씬 계속
+브라우저 탭이 닫혔습니다. 「실행」를 다시 눌러 주세요.
+[07:27:49] 상태키 SRT_420 · tracking=OFF; Baek|base; Jin|base
+[07:27:49] SRT_420 실패 — 다음 씬 계속
+브라우저 탭이 닫혔습니다. 「실행」를 다시 눌러 주세요.
+[07:27:49] 상태키 SRT_440 · tracking=OFF; Baek|base; Jin|base
+[07:27:49] SRT_440 실패 — 다음 씬 계속
+브라우저 탭이 닫혔습니다. 「실행」를 다시 눌러 주세요.
+[07:27:50] 상태키 SRT_460 · tracking=OFF; Baek|base; Jin|base
+[07:27:50] SRT_460 실패 — 다음 씬 계속
+브라우저 탭이 닫혔습니다. 「실행」를 다시 눌러 주세요.
+[07:27:50] 상태키 SRT_480 · tracking=OFF; Baek|base; Jin|base
+[07:27:50] SRT_480 실패 — 다음 씬 계속
+브라우저 탭이 닫혔습니다. 「실행」를 다시 눌러 주세요.
+[07:27:50] 상태키 SRT_500 · tracking=OFF; Baek|base; Jin|base
+[07:27:50] SRT_500 실패 — 다음 씬 계속
+브라우저 탭이 닫혔습니다. 「실행」를 다시 눌러 주세요.
+[07:27:50] 상태키 SRT_520 · tracking=OFF; Baek|base; Jin|base
+[07:27:50] SRT_520 실패 — 다음 씬 계속
+브라우저 탭이 닫혔습니다. 「실행」를 다시 눌러 주세요.
+[07:27:50] 상태키 SRT_540 · tracking=OFF; Baek|base; Jin|base
+[07:27:50] SRT_540 실패 — 다음 씬 계속
+브라우저 탭이 닫혔습니다. 「실행」를 다시 눌러 주세요.
+[07:27:50] 상태키 SRT_560 · tracking=OFF; Baek|base; Jin|base
+[07:27:50] SRT_560 실패 — 다음 씬 계속
+브라우저 탭이 닫혔습니다. 「실행」를 다시 눌러 주세요.
+[07:27:51] 상태키 SRT_580 · tracking=OFF; Baek|base; Jin|base
+[07:27:51] SRT_580 실패 — 다음 씬 계속
+브라우저 탭이 닫혔습니다. 「실행」를 다시 눌러 주세요.
+[07:27:51] 상태키 SRT_600 · tracking=OFF; Baek|base; Jin|base
+[07:27:51] SRT_600 실패 — 다음 씬 계속
+브라우저 탭이 닫혔습니다. 「실행」를 다시 눌러 주세요.
+[07:27:51] 상태키 SRT_620 · tracking=OFF; Baek|base; Jin|base
+[07:27:51] SRT_620 실패 — 다음 씬 계속
+브라우저 탭이 닫혔습니다. 「실행」를 다시 눌러 주세요.
+[07:27:51] 상태키 SRT_640 · tracking=OFF; Baek|base; Jin|base
+[07:27:51] SRT_640 실패 — 다음 씬 계속
+브라우저 탭이 닫혔습니다. 「실행」를 다시 눌러 주세요.
+[07:27:51] 상태키 SRT_660 · tracking=OFF; Baek|base; Jin|base
+[07:27:51] SRT_660 실패 — 다음 씬 계속
+브라우저 탭이 닫혔습니다. 「실행」를 다시 눌러 주세요.
+[07:27:51] 상태키 SRT_680 · tracking=OFF; Baek|base; Jin|base
+[07:27:51] SRT_680 실패 — 다음 씬 계속
+브라우저 탭이 닫혔습니다. 「실행」를 다시 눌러 주세요.
+[07:27:52] 상태키 SRT_700 · tracking=OFF; Baek|base; Jin|base
+[07:27:52] SRT_700 실패 — 다음 씬 계속
+브라우저 탭이 닫혔습니다. 「실행」를 다시 눌러 주세요.
+[07:27:52] 상태키 SRT_720 · tracking=OFF; Baek|base; Jin|base
+[07:27:52] SRT_720 실패 — 다음 씬 계속
+브라우저 탭이 닫혔습니다. 「실행」를 다시 눌러 주세요.
+[07:27:52] 상태키 SRT_740 · tracking=OFF; Baek|base; Jin|base
+[07:27:52] SRT_740 실패 — 다음 씬 계속
+브라우저 탭이 닫혔습니다. 「실행」를 다시 눌러 주세요.
+[07:27:52] 상태키 SRT_760 · tracking=OFF; Baek|base; Jin|base
+[07:27:52] SRT_760 실패 — 다음 씬 계속
+브라우저 탭이 닫혔습니다. 「실행」를 다시 눌러 주세요.
+[07:27:52] 상태키 SRT_780 · tracking=OFF; Baek|base; Jin|base
+[07:27:52] SRT_780 실패 — 다음 씬 계속
+브라우저 탭이 닫혔습니다. 「실행」를 다시 눌러 주세요.
+[07:27:52] 상태키 SRT_800 · tracking=OFF; Baek|base; Jin|base
+[07:27:52] SRT_800 실패 — 다음 씬 계속
+브라우저 탭이 닫혔습니다. 「실행」를 다시 눌러 주세요.
+[07:27:53] 상태키 SRT_820 · tracking=OFF; Baek|base; Jin|base
+[07:27:53] SRT_820 실패 — 다음 씬 계속
+브라우저 탭이 닫혔습니다. 「실행」를 다시 눌러 주세요.
+[07:27:53] 상태키 SRT_840 · tracking=OFF; Baek|base; Jin|base
+[07:27:53] SRT_840 실패 — 다음 씬 계속
+브라우저 탭이 닫혔습니다. 「실행」를 다시 눌러 주세요.
+[07:27:53] 상태키 SRT_860 · tracking=OFF; Baek|base; Jin|base
+[07:27:53] SRT_860 실패 — 다음 씬 계속
+브라우저 탭이 닫혔습니다. 「실행」를 다시 눌러 주세요.
+[07:27:53] 상태키 SRT_880 · tracking=OFF; Baek|base; Jin|base
+[07:27:53] SRT_880 실패 — 다음 씬 계속
+브라우저 탭이 닫혔습니다. 「실행」를 다시 눌러 주세요.
+[07:27:53] 상태키 SRT_900 · tracking=OFF; Baek|base; Jin|base
+[07:27:53] SRT_900 실패 — 다음 씬 계속
+브라우저 탭이 닫혔습니다. 「실행」를 다시 눌러 주세요.
+[07:27:53] 상태키 SRT_920 · tracking=OFF; Baek|base; Jin|base
+[07:27:53] SRT_920 실패 — 다음 씬 계속
+브라우저 탭이 닫혔습니다. 「실행」를 다시 눌러 주세요.
+[07:27:54] 상태키 SRT_940 · tracking=OFF; Baek|base; Jin|base
+[07:27:54] SRT_940 실패 — 다음 씬 계속
+브라우저 탭이 닫혔습니다. 「실행」를 다시 눌러 주세요.
+[07:27:54] 상태키 SRT_960 · tracking=OFF; Baek|base; Jin|base
+[07:27:54] SRT_960 실패 — 다음 씬 계속
+브라우저 탭이 닫혔습니다. 「실행」를 다시 눌러 주세요.
+[07:27:54] 상태키 SRT_980 · tracking=OFF; Baek|base; Jin|base
+[07:27:54] SRT_980 실패 — 다음 씬 계속
+브라우저 탭이 닫혔습니다. 「실행」를 다시 눌러 주세요.
+[07:27:54] 상태키 SRT_1000 · tracking=OFF; Baek|base; Jin|base
+[07:27:54] SRT_1000 실패 — 다음 씬 계속
+브라우저 탭이 닫혔습니다. 「실행」를 다시 눌러 주세요.
+[07:27:54] 상태키 SRT_1020 · tracking=OFF; Baek|base; Jin|base
+[07:27:54] SRT_1020 실패 — 다음 씬 계속
+브라우저 탭이 닫혔습니다. 「실행」를 다시 눌러 주세요.
+[07:27:54] 상태키 SRT_1040 · tracking=OFF; Baek|base; Jin|base
+[07:27:54] SRT_1040 실패 — 다음 씬 계속
+브라우저 탭이 닫혔습니다. 「실행」를 다시 눌러 주세요.
+[07:27:55] 상태키 SRT_1060 · tracking=OFF; Baek|base; Jin|base
+[07:27:55] SRT_1060 실패 — 다음 씬 계속
+브라우저 탭이 닫혔습니다. 「실행」를 다시 눌러 주세요.
+[07:27:55] 상태키 SRT_1080 · tracking=OFF; Baek|base; Jin|base
+[07:27:55] SRT_1080 실패 — 다음 씬 계속
+브라우저 탭이 닫혔습니다. 「실행」를 다시 눌러 주세요.
+[07:27:55] 상태키 SRT_1100 · tracking=OFF; Baek|base; Jin|base
+[07:27:55] SRT_1100 실패 — 다음 씬 계속
+브라우저 탭이 닫혔습니다. 「실행」를 다시 눌러 주세요.
+[07:27:55] 상태키 SRT_1120 · tracking=OFF; Baek|base; Jin|base
+[07:27:55] SRT_1120 실패 — 다음 씬 계속
+브라우저 탭이 닫혔습니다. 「실행」를 다시 눌러 주세요.
+[07:27:55] 상태키 SRT_1140 · tracking=OFF; Baek|base; Jin|base
+[07:27:55] SRT_1140 실패 — 다음 씬 계속
+브라우저 탭이 닫혔습니다. 「실행」를 다시 눌러 주세요.
+[07:27:55] 상태키 SRT_1160 · tracking=OFF; Baek|base; Jin|base
+[07:27:55] SRT_1160 실패 — 다음 씬 계속
+브라우저 탭이 닫혔습니다. 「실행」를 다시 눌러 주세요.
+[07:27:56] 상태키 SRT_1180 · tracking=OFF; Baek|base; Jin|base
+[07:27:56] SRT_1180 실패 — 다음 씬 계속
+브라우저 탭이 닫혔습니다. 「실행」를 다시 눌러 주세요.
+[07:27:56] 상태키 SRT_1200 · tracking=OFF; Baek|base; Jin|base
+[07:27:56] SRT_1200 실패 — 다음 씬 계속
+브라우저 탭이 닫혔습니다. 「실행」를 다시 눌러 주세요.
+[07:27:56] 상태키 SRT_1220 · tracking=OFF; Baek|base; Jin|base
+[07:27:56] SRT_1220 실패 — 다음 씬 계속
+브라우저 탭이 닫혔습니다. 「실행」를 다시 눌러 주세요.
+[07:27:56] 상태키 SRT_1240 · tracking=OFF; Baek|base; Jin|base
+[07:27:56] SRT_1240 실패 — 다음 씬 계속
+브라우저 탭이 닫혔습니다. 「실행」를 다시 눌러 주세요.
+[07:27:56] 상태키 SRT_1260 · tracking=OFF; Baek|base; Jin|base
+[07:27:56] SRT_1260 실패 — 다음 씬 계속
+브라우저 탭이 닫혔습니다. 「실행」를 다시 눌러 주세요.
+[07:27:56] 상태키 SRT_1280 · tracking=OFF; Baek|base; Jin|base
+[07:27:56] SRT_1280 실패 — 다음 씬 계속
+브라우저 탭이 닫혔습니다. 「실행」를 다시 눌러 주세요.
+[07:27:57] 상태키 SRT_1300 · tracking=OFF; Baek|base; Jin|base
+[07:27:57] SRT_1300 실패 — 다음 씬 계속
+브라우저 탭이 닫혔습니다. 「실행」를 다시 눌러 주세요.
+[07:27:57] 상태키 SRT_1320 · tracking=OFF; Baek|base; Jin|base
+[07:27:57] SRT_1320 실패 — 다음 씬 계속
+브라우저 탭이 닫혔습니다. 「실행」를 다시 눌러 주세요.
+[07:27:57] 상태키 SRT_1340 · tracking=OFF; Baek|base; Jin|base
+[07:27:57] SRT_1340 실패 — 다음 씬 계속
+브라우저 탭이 닫혔습니다. 「실행」를 다시 눌러 주세요.
+[07:27:57] 상태키 SRT_1360 · tracking=OFF; Baek|base; Jin|base
+[07:27:57] SRT_1360 실패 — 다음 씬 계속
+브라우저 탭이 닫혔습니다. 「실행」를 다시 눌러 주세요.
+[07:27:57] 상태키 SRT_1380 · tracking=OFF; Baek|base; Jin|base
+[07:27:57] SRT_1380 실패 — 다음 씬 계속
+브라우저 탭이 닫혔습니다. 「실행」를 다시 눌러 주세요.
+[07:27:57] 상태키 SRT_1400 · tracking=OFF; Baek|base; Jin|base
+[07:27:57] SRT_1400 실패 — 다음 씬 계속
+브라우저 탭이 닫혔습니다. 「실행」를 다시 눌러 주세요.
+[07:27:58] 상태키 SRT_1420 · tracking=OFF; Baek|base; Jin|base
+[07:27:58] SRT_1420 실패 — 다음 씬 계속
+브라우저 탭이 닫혔습니다. 「실행」를 다시 눌러 주세요.
+[07:27:58] 상태키 SRT_1431 · tracking=OFF; Baek|base; Jin|base
+[07:27:58] SRT_1431 실패 — 다음 씬 계속
+브라우저 탭이 닫혔습니다. 「실행」를 다시 눌러 주세요.
+[07:27:58] 완료 전 회수 경고: 브라우저 탭이 닫혔습니다. 「실행」를 다시 눌러 주세요.
+[07:27:58] 다운로드 실패 확정 73건: SRT_000, SRT_020, SRT_040, SRT_060, SRT_080, SRT_100, SRT_120, SRT_140, SRT_160, SRT_180, SRT_200, SRT_220, SRT_240, SRT_260, SRT_280, SRT_300, SRT_320, SRT_340, SRT_360, SRT_380, SRT_400, SRT_420, SRT_440, SRT_460, SRT_480, SRT_500, SRT_520, SRT_540, SRT_560, SRT_580 외 43
+[07:28:01] 탭로그 ON — 실행·생성 · 씬 73개 · reopen=True · 한도대기ON
+[07:28:09] ChromeDebug 재시작 slot=1 port=9243 user_data=C:\ChromeDebug_2_5_slot1 reused=0
+[07:28:13] 모델 이미 Pro: Nano Banana Pro
+[07:28:13] 세션 준비 — login=OK model=Nano Banana Pro auto=True
+[07:28:14] ensure_page cur_sc=10 prefer_sc=10 cur=https://www.genspark.ai/ai_image prefer=https://www.genspark.ai/ai_image
+[07:28:16] fill OK(clip) follow=True chars=74076
+[07:28:16] 입력창 붙여넣기 — 프롬프트 50827자 + SRT 23206자 = 합계 74076자
+  prompt=C:/cursor/wuxia/2_5_sceneImage/md/image.wuxiz.txt
+  srt=C:\cursor\wuxia\workspace\swardmaster\2부\14장\mp3\new.srt
+[07:28:17] ensure_page cur_sc=10 prefer_sc=10 cur=https://www.genspark.ai/ai_image prefer=https://www.genspark.ai/ai_image
+[07:28:18] 동일 입력창에 명령 추가(미실행): ===== CHARACTER LOOK (SRT_000) =====
+Look keys (state tracking OFF): Jin≈19|base
+Jin Muhan, approximately nineteen years old, East-Asian young swordsman, sharp narrow phoenix eyes,…
+[07:28:19] 상태키 SRT_000 · tracking=OFF; Baek|base; Jin|base
+[07:28:19] run_scene 시작 SRT_000 · seen_files=0 · last_saved=
+[07:28:19] ensure_page cur_sc=10 prefer_sc=10 cur=https://www.genspark.ai/ai_image prefer=https://www.genspark.ai/ai_image
+[07:28:19] 모델 선택 시작 현재=(없음)
+[07:28:19] 모델 선택 결과 ok=False 칩=(없음) picked=
+[07:28:19] ⏱ 준비 SRT_000 0.2s · chars=3660
+[07:28:19] submit 시작 composer=3660 url=https://www.genspark.ai/ai_image
+[07:28:19] submit geo 실패 hit=no-btn
+[07:28:19] submit 시도 method=geo geo=False
+[07:28:20] submit 미확인 method=geo generating=False composer=3660
+[07:28:20] submit geo 실패 hit=no-btn
+[07:28:20] submit 시도 method=send send=False
+[07:28:21] submit 미확인 method=send generating=False composer=3660
+[07:28:21] submit 시도 method=ctrl
+[07:28:22] submit 미확인 method=ctrl generating=False composer=3662
+[07:28:23] submit 시도 method=enter
+[07:28:24] submit 확인 method=enter generating=False composer=0
+[07:28:24] ⏱ 입력창전송 SRT_000 4.7s
+[07:28:24] 제출 후 last_saved=https://www.genspark.ai/api/files/s/jhaufxd0
+[07:28:24] ⏱ 생성대기 시작 SRT_000 max=120s
+[07:28:40] ⏱ 생성대기 진행 15.7s SRT_000 busy=True url_ok=False src=
+[07:28:40] ⏱ 생성대기 한도감지 15.7s SRT_000 · AI Image 한도 - 재설정 2026-08-30 08:34 · AI Image 5시간 제한에 도달했습니다. 8월 30일 오전 8:34에 재설정됩니다 --- 5시간 제한 --- New AI 이미지 홈 Skills 세컨드 브레인 더보기 진무한 캐릭터 wuxia manhua 일러스트
+[07:28:40] run_scene 실패(재시도 없음): AI Image 한도 - 재설정 2026-08-30 08:34
+[07:28:40] SRT_000 실패(한도 확정 streak=1) — 브라우저 종료 후 대기·재오픈
+AI Image 한도 - 재설정 2026-08-30 08:34
+[07:28:44] 한도 대기 전 ChromeDebug 종료
+[07:28:44] 한도 대기 시작 — 정상화 예상 2026-08-30 08:34 (65분) — SRT_000 한도
+[08:34:30] 한도 대기 종료 — 정상화 예상 2026-08-30 08:34 — 재시도
+[08:34:30] 한도 대기 종료 — 브라우저 재오픈 후 SRT_000 재개
+[08:34:35] ChromeDebug 재시작 slot=1 port=9243 user_data=C:\ChromeDebug_2_5_slot1 reused=0
+[08:34:40] 모델 이미 Pro: Nano Banana Pro
+[08:34:40] 세션 준비 — login=OK model=Nano Banana Pro auto=True
+[08:34:40] ensure_page cur_sc=10 prefer_sc=10 cur=https://www.genspark.ai/ai_image prefer=https://www.genspark.ai/ai_image
+[08:34:43] fill OK(clip) follow=True chars=74076
+[08:34:43] 입력창 붙여넣기 — 프롬프트 50827자 + SRT 23206자 = 합계 74076자
+  prompt=C:/cursor/wuxia/2_5_sceneImage/md/image.wuxiz.txt
+  srt=C:\cursor\wuxia\workspace\swardmaster\2부\14장\mp3\new.srt
+[08:34:44] ensure_page cur_sc=10 prefer_sc=10 cur=https://www.genspark.ai/ai_image prefer=https://www.genspark.ai/ai_image
+[08:34:45] 동일 입력창에 명령 추가(미실행): ===== CHARACTER LOOK (SRT_000) =====
+Look keys (state tracking OFF): Jin≈19|base
+Jin Muhan, approximately nineteen years old, East-Asian young swordsman, sharp narrow phoenix eyes,…
+[08:34:46] 상태키 SRT_000 · tracking=OFF; Baek|base; Jin|base
+[08:34:46] run_scene 시작 SRT_000 · seen_files=0 · last_saved=
+[08:34:46] ensure_page cur_sc=10 prefer_sc=10 cur=https://www.genspark.ai/ai_image prefer=https://www.genspark.ai/ai_image
+[08:34:46] ⏱ 준비 SRT_000 0.0s · chars=3660
+[08:34:46] submit 시작 composer=3660 url=https://www.genspark.ai/ai_image
+[08:34:46] submit geo 실패 hit=no-btn
+[08:34:46] submit 시도 method=geo geo=False
+[08:34:47] submit 미확인 method=geo generating=False composer=3660
+[08:34:47] submit geo 실패 hit=no-btn
+[08:34:47] submit 시도 method=send send=False
+[08:34:48] submit 미확인 method=send generating=False composer=3660
+[08:34:48] submit 시도 method=ctrl
+[08:34:48] submit 미확인 method=ctrl generating=False composer=3662
+[08:34:49] submit 시도 method=enter
+[08:34:51] submit 확인 method=enter generating=False composer=0
+[08:34:51] ⏱ 입력창전송 SRT_000 4.8s
+[08:34:51] 제출 후 last_saved=https://www.genspark.ai/api/files/s/nhdhqxtm
+[08:34:51] ⏱ 생성대기 시작 SRT_000 max=120s
+[08:35:06] ⏱ 생성대기 진행 15.0s SRT_000 busy=False url_ok=True src=https://www.genspark.ai/api/files/s/dghwzfdj
+[08:35:06] ⏱ 생성대기 완료 15.3s SRT_000 https://www.genspark.ai/api/files/s/dghwzfdj
+[08:35:06] ⏱ 생성대기구간 SRT_000 15.3s · ok=True
+[08:35:06] SRT_000 근접 이미지 https://www.genspark.ai/api/files/s/dghwzfdj
+[08:35:06] 다운로드 files URL=https://www.genspark.ai/api/files/s/dghwzfdj → SRT_000.png
+[08:35:07] ⏱ 다운로드 직접 0.8s size=722012 SRT_000.png
+[08:35:07] ⏱ 다운로드구간 SRT_000 0.8s · SRT_000.png
+[08:35:09] ⏱ 다운로드후유휴 SRT_000 1.6s · idle=True
+[08:35:09] ⏱ 씬합계 SRT_000 22.9s · https://www.genspark.ai/api/files/s/dghwzfdj
+[08:35:09] SRT_000 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\22장\png\SRT_000.png
+[08:35:09] 상태키 SRT_020 · tracking=OFF; Baek|base; Jin|base
+[08:35:09] run_scene 시작 SRT_020 · seen_files=1 · last_saved=https://www.genspark.ai/api/files/s/dghwzfdj
+[08:35:09] ⏱ 준비 SRT_020 0.0s · chars=7929
+[08:35:11] ⏱ 다음명령유휴 SRT_020 1.6s · idle=True
+[08:35:11] fill OK(clip) follow=True chars=7929
+[08:35:11] submit 시작 composer=7929 url=https://www.genspark.ai/agents?id=ab9db670-dfdb-45c9-8065-283bb3c03325
+[08:35:11] submit geo 실패 hit=no-btn
+[08:35:11] submit 시도 method=geo geo=False
+[08:35:12] submit 미확인 method=geo generating=False composer=7929
+[08:35:13] submit geo 실패 hit=no-btn
+[08:35:13] submit 시도 method=send send=False
+[08:35:13] submit 미확인 method=send generating=False composer=7929
+[08:35:13] submit 시도 method=ctrl
+[08:35:14] submit 미확인 method=ctrl generating=False composer=7931
+[08:35:14] submit 시도 method=enter
+[08:35:15] submit 확인 method=enter generating=False composer=0
+[08:35:15] ⏱ 입력·전송 SRT_020 4.4s · chars=7929
+[08:35:15] 제출 후 last_saved=https://www.genspark.ai/api/files/s/dghwzfdj
+[08:35:15] ⏱ 생성대기 시작 SRT_020 max=120s
+[08:35:30] ⏱ 생성대기 진행 15.3s SRT_020 busy=False url_ok=False src=
+[08:35:33] ⏱ 생성대기 완료 17.9s SRT_020 https://www.genspark.ai/api/files/s/pjm3e5ve
+[08:35:33] ⏱ 생성대기구간 SRT_020 17.9s · ok=True
+[08:35:33] SRT_020 근접 이미지 https://www.genspark.ai/api/files/s/pjm3e5ve
+[08:35:33] 다운로드 files URL=https://www.genspark.ai/api/files/s/pjm3e5ve → SRT_020.png
+[08:35:34] ⏱ 다운로드 직접 0.7s size=787179 SRT_020.png
+[08:35:34] ⏱ 다운로드구간 SRT_020 0.7s · SRT_020.png
+[08:35:35] ⏱ 다운로드후유휴 SRT_020 1.6s · idle=True
+[08:35:35] ⏱ 씬합계 SRT_020 26.4s · https://www.genspark.ai/api/files/s/pjm3e5ve
+[08:35:35] SRT_020 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\22장\png\SRT_020.png
+[08:35:35] 상태키 SRT_040 · tracking=OFF; Baek|base; Jin|base
+[08:35:35] run_scene 시작 SRT_040 · seen_files=2 · last_saved=https://www.genspark.ai/api/files/s/pjm3e5ve
+[08:35:35] ⏱ 준비 SRT_040 0.0s · chars=6113
+[08:35:37] ⏱ 다음명령유휴 SRT_040 1.5s · idle=True
+[08:35:38] fill OK(clip) follow=True chars=6113
+[08:35:38] submit 시작 composer=6113 url=https://www.genspark.ai/agents?id=ab9db670-dfdb-45c9-8065-283bb3c03325
+[08:35:38] submit geo 실패 hit=no-btn
+[08:35:38] submit 시도 method=geo geo=False
+[08:35:39] submit 미확인 method=geo generating=False composer=6113
+[08:35:39] submit geo 실패 hit=no-btn
+[08:35:39] submit 시도 method=send send=False
+[08:35:40] submit 미확인 method=send generating=False composer=6113
+[08:35:40] submit 시도 method=ctrl
+[08:35:40] submit 미확인 method=ctrl generating=False composer=6115
+[08:35:41] submit 시도 method=enter
+[08:35:41] submit 확인 method=enter generating=False composer=0
+[08:35:41] ⏱ 입력·전송 SRT_040 4.4s · chars=6113
+[08:35:41] 제출 후 last_saved=https://www.genspark.ai/api/files/s/pjm3e5ve
+[08:35:42] ⏱ 생성대기 시작 SRT_040 max=120s
+[08:35:57] ⏱ 생성대기 진행 15.3s SRT_040 busy=False url_ok=False src=
+[08:36:00] ⏱ 생성대기 완료 18.8s SRT_040 https://www.genspark.ai/api/files/s/dji7odhi
+[08:36:00] ⏱ 생성대기구간 SRT_040 18.8s · ok=True
+[08:36:00] SRT_040 근접 이미지 https://www.genspark.ai/api/files/s/dji7odhi
+[08:36:00] 다운로드 files URL=https://www.genspark.ai/api/files/s/dji7odhi → SRT_040.png
+[08:36:02] ⏱ 다운로드 직접 1.4s size=790548 SRT_040.png
+[08:36:02] ⏱ 다운로드구간 SRT_040 1.4s · SRT_040.png
+[08:36:03] ⏱ 다운로드후유휴 SRT_040 1.4s · idle=True
+[08:36:03] ⏱ 씬합계 SRT_040 27.7s · https://www.genspark.ai/api/files/s/dji7odhi
+[08:36:03] SRT_040 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\22장\png\SRT_040.png
+[08:36:03] 상태키 SRT_060 · tracking=OFF; Baek|base; Jin|base
+[08:36:03] run_scene 시작 SRT_060 · seen_files=3 · last_saved=https://www.genspark.ai/api/files/s/dji7odhi
+[08:36:03] ⏱ 준비 SRT_060 0.0s · chars=3945
+[08:36:05] ⏱ 다음명령유휴 SRT_060 1.4s · idle=True
+[08:36:05] fill OK(clip) follow=True chars=3945
+[08:36:05] submit 시작 composer=3945 url=https://www.genspark.ai/agents?id=ab9db670-dfdb-45c9-8065-283bb3c03325
+[08:36:06] submit geo 실패 hit=no-btn
+[08:36:06] submit 시도 method=geo geo=False
+[08:36:06] submit 미확인 method=geo generating=False composer=3945
+[08:36:06] submit geo 실패 hit=no-btn
+[08:36:06] submit 시도 method=send send=False
+[08:36:07] submit 미확인 method=send generating=False composer=3945
+[08:36:07] submit 시도 method=ctrl
+[08:36:08] submit 미확인 method=ctrl generating=False composer=3947
+[08:36:08] submit 시도 method=enter
+[08:36:09] submit 확인 method=enter generating=False composer=0
+[08:36:09] ⏱ 입력·전송 SRT_060 4.0s · chars=3945
+[08:36:09] 제출 후 last_saved=https://www.genspark.ai/api/files/s/dji7odhi
+[08:36:09] ⏱ 생성대기 시작 SRT_060 max=120s
+[08:36:24] ⏱ 생성대기 진행 15.3s SRT_060 busy=False url_ok=True src=https://www.genspark.ai/api/files/s/r5ax3fft
+[08:36:25] ⏱ 생성대기 완료 15.6s SRT_060 https://www.genspark.ai/api/files/s/r5ax3fft
+[08:36:25] ⏱ 생성대기구간 SRT_060 15.6s · ok=True
+[08:36:25] SRT_060 근접 이미지 https://www.genspark.ai/api/files/s/r5ax3fft
+[08:36:25] 다운로드 files URL=https://www.genspark.ai/api/files/s/r5ax3fft → SRT_060.png
+[08:36:25] ⏱ 다운로드 직접 0.8s size=679142 SRT_060.png
+[08:36:25] ⏱ 다운로드구간 SRT_060 0.8s · SRT_060.png
+[08:36:27] ⏱ 다운로드후유휴 SRT_060 1.5s · idle=True
+[08:36:27] ⏱ 씬합계 SRT_060 23.5s · https://www.genspark.ai/api/files/s/r5ax3fft
+[08:36:27] SRT_060 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\22장\png\SRT_060.png
+[08:36:27] 상태키 SRT_080 · tracking=OFF; Baek|base; Jin|base
+[08:36:27] run_scene 시작 SRT_080 · seen_files=4 · last_saved=https://www.genspark.ai/api/files/s/r5ax3fft
+[08:36:27] ⏱ 준비 SRT_080 0.0s · chars=5385
+[08:36:29] ⏱ 다음명령유휴 SRT_080 1.5s · idle=True
+[08:36:29] fill OK(clip) follow=True chars=5385
+[08:36:29] submit 시작 composer=5385 url=https://www.genspark.ai/agents?id=ab9db670-dfdb-45c9-8065-283bb3c03325
+[08:36:29] submit geo 실패 hit=no-btn
+[08:36:29] submit 시도 method=geo geo=False
+[08:36:30] submit 미확인 method=geo generating=False composer=5385
+[08:36:30] submit geo 실패 hit=no-btn
+[08:36:30] submit 시도 method=send send=False
+[08:36:31] submit 미확인 method=send generating=False composer=5385
+[08:36:31] submit 시도 method=ctrl
+[08:36:32] submit 미확인 method=ctrl generating=False composer=5387
+[08:36:32] submit 시도 method=enter
+[08:36:32] submit 확인 method=enter generating=False composer=0
+[08:36:32] ⏱ 입력·전송 SRT_080 4.0s · chars=5385
+[08:36:32] 제출 후 last_saved=https://www.genspark.ai/api/files/s/r5ax3fft
+[08:36:33] ⏱ 생성대기 시작 SRT_080 max=120s
+[08:36:48] ⏱ 생성대기 완료 15.1s SRT_080 https://www.genspark.ai/api/files/s/fjecyppn
+[08:36:48] ⏱ 생성대기구간 SRT_080 15.1s · ok=True
+[08:36:48] SRT_080 근접 이미지 https://www.genspark.ai/api/files/s/fjecyppn
+[08:36:48] 다운로드 files URL=https://www.genspark.ai/api/files/s/fjecyppn → SRT_080.png
+[08:36:49] ⏱ 다운로드 직접 0.7s size=616414 SRT_080.png
+[08:36:49] ⏱ 다운로드구간 SRT_080 0.7s · SRT_080.png
+[08:36:50] ⏱ 다운로드후유휴 SRT_080 1.3s · idle=True
+[08:36:50] ⏱ 씬합계 SRT_080 22.8s · https://www.genspark.ai/api/files/s/fjecyppn
+[08:36:50] SRT_080 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\22장\png\SRT_080.png
+[08:36:50] 상태키 SRT_100 · tracking=OFF; Baek|base; Jin|base
+[08:36:50] run_scene 시작 SRT_100 · seen_files=5 · last_saved=https://www.genspark.ai/api/files/s/fjecyppn
+[08:36:50] ⏱ 준비 SRT_100 0.0s · chars=6709
+[08:36:51] ⏱ 다음명령유휴 SRT_100 1.4s · idle=True
+[08:36:52] fill OK(clip) follow=True chars=6709
+[08:36:52] submit 시작 composer=6709 url=https://www.genspark.ai/agents?id=ab9db670-dfdb-45c9-8065-283bb3c03325
+[08:36:52] submit geo 실패 hit=no-btn
+[08:36:52] submit 시도 method=geo geo=False
+[08:36:53] submit 미확인 method=geo generating=False composer=6709
+[08:36:53] submit geo 실패 hit=no-btn
+[08:36:53] submit 시도 method=send send=False
+[08:36:54] submit 미확인 method=send generating=False composer=6709
+[08:36:54] submit 시도 method=ctrl
+[08:36:55] submit 미확인 method=ctrl generating=False composer=6711
+[08:36:55] submit 시도 method=enter
+[08:36:55] submit 확인 method=enter generating=False composer=0
+[08:36:55] ⏱ 입력·전송 SRT_100 4.1s · chars=6709
+[08:36:55] 제출 후 last_saved=https://www.genspark.ai/api/files/s/fjecyppn
+[08:36:56] ⏱ 생성대기 시작 SRT_100 max=120s
+[08:37:11] ⏱ 생성대기 진행 15.3s SRT_100 busy=False url_ok=False src=
+[08:37:13] ⏱ 생성대기 완료 17.4s SRT_100 https://www.genspark.ai/api/files/s/fbmyjqtm
+[08:37:13] ⏱ 생성대기구간 SRT_100 17.4s · ok=True
+[08:37:13] SRT_100 근접 이미지 https://www.genspark.ai/api/files/s/fbmyjqtm
+[08:37:13] 다운로드 files URL=https://www.genspark.ai/api/files/s/fbmyjqtm → SRT_100.png
+[08:37:14] ⏱ 다운로드 직접 0.7s size=669036 SRT_100.png
+[08:37:14] ⏱ 다운로드구간 SRT_100 0.7s · SRT_100.png
+[08:37:15] ⏱ 다운로드후유휴 SRT_100 1.4s · idle=True
+[08:37:15] ⏱ 씬합계 SRT_100 25.2s · https://www.genspark.ai/api/files/s/fbmyjqtm
+[08:37:15] SRT_100 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\22장\png\SRT_100.png
+[08:37:15] 상태키 SRT_120 · tracking=OFF; Baek|base; Jin|base
+[08:37:15] run_scene 시작 SRT_120 · seen_files=6 · last_saved=https://www.genspark.ai/api/files/s/fbmyjqtm
+[08:37:15] ⏱ 준비 SRT_120 0.0s · chars=3986
+[08:37:17] ⏱ 다음명령유휴 SRT_120 1.5s · idle=True
+[08:37:17] fill OK(clip) follow=True chars=3986
+[08:37:17] submit 시작 composer=3986 url=https://www.genspark.ai/agents?id=ab9db670-dfdb-45c9-8065-283bb3c03325
+[08:37:18] submit geo 실패 hit=no-btn
+[08:37:18] submit 시도 method=geo geo=False
+[08:37:18] submit 미확인 method=geo generating=False composer=3986
+[08:37:19] submit geo 실패 hit=no-btn
+[08:37:19] submit 시도 method=send send=False
+[08:37:19] submit 미확인 method=send generating=False composer=3986
+[08:37:19] submit 시도 method=ctrl
+[08:37:20] submit 미확인 method=ctrl generating=False composer=3988
+[08:37:20] submit 시도 method=enter
+[08:37:21] submit 확인 method=enter generating=False composer=0
+[08:37:21] ⏱ 입력·전송 SRT_120 4.0s · chars=3986
+[08:37:21] 제출 후 last_saved=https://www.genspark.ai/api/files/s/fbmyjqtm
+[08:37:21] ⏱ 생성대기 시작 SRT_120 max=120s
+[08:37:37] ⏱ 생성대기 진행 15.4s SRT_120 busy=False url_ok=False src=
+[08:37:39] ⏱ 생성대기 완료 18.0s SRT_120 https://www.genspark.ai/api/files/s/rtvt2dxc
+[08:37:39] ⏱ 생성대기구간 SRT_120 18.0s · ok=True
+[08:37:39] SRT_120 근접 이미지 https://www.genspark.ai/api/files/s/rtvt2dxc
+[08:37:39] 다운로드 files URL=https://www.genspark.ai/api/files/s/rtvt2dxc → SRT_120.png
+[08:37:40] ⏱ 다운로드 직접 0.7s size=556167 SRT_120.png
+[08:37:40] ⏱ 다운로드구간 SRT_120 0.7s · SRT_120.png
+[08:37:41] ⏱ 다운로드후유휴 SRT_120 1.4s · idle=True
+[08:37:41] ⏱ 씬합계 SRT_120 25.9s · https://www.genspark.ai/api/files/s/rtvt2dxc
+[08:37:41] SRT_120 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\22장\png\SRT_120.png
+[08:37:41] 상태키 SRT_140 · tracking=OFF; Baek|base; Jin|base
+[08:37:41] run_scene 시작 SRT_140 · seen_files=7 · last_saved=https://www.genspark.ai/api/files/s/rtvt2dxc
+[08:37:41] ⏱ 준비 SRT_140 0.0s · chars=5678
+[08:37:43] ⏱ 다음명령유휴 SRT_140 1.3s · idle=True
+[08:37:43] fill OK(clip) follow=True chars=5678
+[08:37:43] submit 시작 composer=5678 url=https://www.genspark.ai/agents?id=ab9db670-dfdb-45c9-8065-283bb3c03325
+[08:37:44] submit geo 실패 hit=no-btn
+[08:37:44] submit 시도 method=geo geo=False
+[08:37:44] submit 미확인 method=geo generating=False composer=5678
+[08:37:44] submit geo 실패 hit=no-btn
+[08:37:44] submit 시도 method=send send=False
+[08:37:45] submit 미확인 method=send generating=False composer=5678
+[08:37:45] submit 시도 method=ctrl
+[08:37:46] submit 미확인 method=ctrl generating=False composer=5680
+[08:37:46] submit 시도 method=enter
+[08:37:47] submit 확인 method=enter generating=False composer=0
+[08:37:47] ⏱ 입력·전송 SRT_140 3.9s · chars=5678
+[08:37:47] 제출 후 last_saved=https://www.genspark.ai/api/files/s/rtvt2dxc
+[08:37:47] ⏱ 생성대기 시작 SRT_140 max=120s
+[08:38:02] ⏱ 생성대기 진행 15.0s SRT_140 busy=False url_ok=False src=
+[08:38:14] ⏱ 생성대기 완료 27.0s SRT_140 https://www.genspark.ai/api/files/s/5eyy5s7w
+[08:38:14] ⏱ 생성대기구간 SRT_140 27.0s · ok=True
+[08:38:14] SRT_140 근접 이미지 https://www.genspark.ai/api/files/s/5eyy5s7w
+[08:38:14] 다운로드 files URL=https://www.genspark.ai/api/files/s/5eyy5s7w → SRT_140.png
+[08:38:15] ⏱ 다운로드 직접 0.7s size=639987 SRT_140.png
+[08:38:15] ⏱ 다운로드구간 SRT_140 0.7s · SRT_140.png
+[08:38:16] ⏱ 다운로드후유휴 SRT_140 1.4s · idle=True
+[08:38:16] ⏱ 씬합계 SRT_140 34.6s · https://www.genspark.ai/api/files/s/5eyy5s7w
+[08:38:16] SRT_140 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\22장\png\SRT_140.png
+[08:38:16] 상태키 SRT_160 · tracking=OFF; Baek|base; Jin|base
+[08:38:16] run_scene 시작 SRT_160 · seen_files=8 · last_saved=https://www.genspark.ai/api/files/s/5eyy5s7w
+[08:38:16] ⏱ 준비 SRT_160 0.0s · chars=5426
+[08:38:18] ⏱ 다음명령유휴 SRT_160 1.4s · idle=True
+[08:38:18] fill OK(clip) follow=True chars=5426
+[08:38:18] submit 시작 composer=5426 url=https://www.genspark.ai/agents?id=ab9db670-dfdb-45c9-8065-283bb3c03325
+[08:38:18] submit geo 실패 hit=no-btn
+[08:38:18] submit 시도 method=geo geo=False
+[08:38:19] submit 미확인 method=geo generating=False composer=5426
+[08:38:19] submit geo 실패 hit=no-btn
+[08:38:19] submit 시도 method=send send=False
+[08:38:20] submit 미확인 method=send generating=False composer=5426
+[08:38:20] submit 시도 method=ctrl
+[08:38:21] submit 미확인 method=ctrl generating=False composer=5428
+[08:38:21] submit 시도 method=enter
+[08:38:22] submit 확인 method=enter generating=False composer=0
+[08:38:22] ⏱ 입력·전송 SRT_160 4.1s · chars=5426
+[08:38:22] 제출 후 last_saved=https://www.genspark.ai/api/files/s/5eyy5s7w
+[08:38:22] ⏱ 생성대기 시작 SRT_160 max=120s
+[08:38:37] ⏱ 생성대기 진행 15.3s SRT_160 busy=True url_ok=False src=
+[08:38:45] ⏱ 생성대기 완료 22.9s SRT_160 https://www.genspark.ai/api/files/s/wsunugdg
+[08:38:45] ⏱ 생성대기구간 SRT_160 22.9s · ok=True
+[08:38:45] SRT_160 근접 이미지 https://www.genspark.ai/api/files/s/wsunugdg
+[08:38:45] 다운로드 files URL=https://www.genspark.ai/api/files/s/wsunugdg → SRT_160.png
+[08:38:46] ⏱ 다운로드 직접 0.7s size=573351 SRT_160.png
+[08:38:46] ⏱ 다운로드구간 SRT_160 0.7s · SRT_160.png
+[08:38:47] ⏱ 다운로드후유휴 SRT_160 1.5s · idle=True
+[08:38:47] ⏱ 씬합계 SRT_160 30.9s · https://www.genspark.ai/api/files/s/wsunugdg
+[08:38:47] SRT_160 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\22장\png\SRT_160.png
+[08:38:47] 상태키 SRT_180 · tracking=OFF; Baek|base; Jin|base
+[08:38:47] run_scene 시작 SRT_180 · seen_files=9 · last_saved=https://www.genspark.ai/api/files/s/wsunugdg
+[08:38:47] ⏱ 준비 SRT_180 0.0s · chars=5379
+[08:38:49] ⏱ 다음명령유휴 SRT_180 1.5s · idle=True
+[08:38:50] fill OK(clip) follow=True chars=5379
+[08:38:50] submit 시작 composer=5379 url=https://www.genspark.ai/agents?id=ab9db670-dfdb-45c9-8065-283bb3c03325
+[08:38:50] submit geo 실패 hit=no-btn
+[08:38:50] submit 시도 method=geo geo=False
+[08:38:50] submit 미확인 method=geo generating=False composer=5379
+[08:38:51] submit geo 실패 hit=no-btn
+[08:38:51] submit 시도 method=send send=False
+[08:38:51] submit 미확인 method=send generating=False composer=5379
+[08:38:52] submit 시도 method=ctrl
+[08:38:52] submit 미확인 method=ctrl generating=False composer=5381
+[08:38:52] submit 시도 method=enter
+[08:38:53] submit 확인 method=enter generating=False composer=0
+[08:38:53] ⏱ 입력·전송 SRT_180 4.2s · chars=5379
+[08:38:53] 제출 후 last_saved=https://www.genspark.ai/api/files/s/wsunugdg
+[08:38:53] ⏱ 생성대기 시작 SRT_180 max=120s
+[08:39:09] ⏱ 생성대기 진행 15.6s SRT_180 busy=True url_ok=False src=
+[08:39:13] ⏱ 생성대기 완료 20.2s SRT_180 https://www.genspark.ai/api/files/s/bcyl1kqs
+[08:39:13] ⏱ 생성대기구간 SRT_180 20.2s · ok=True
+[08:39:13] SRT_180 근접 이미지 https://www.genspark.ai/api/files/s/bcyl1kqs
+[08:39:13] 다운로드 files URL=https://www.genspark.ai/api/files/s/bcyl1kqs → SRT_180.png
+[08:39:14] ⏱ 다운로드 직접 0.7s size=576511 SRT_180.png
+[08:39:14] ⏱ 다운로드구간 SRT_180 0.7s · SRT_180.png
+[08:39:16] ⏱ 다운로드후유휴 SRT_180 1.6s · idle=True
+[08:39:16] ⏱ 씬합계 SRT_180 28.5s · https://www.genspark.ai/api/files/s/bcyl1kqs
+[08:39:16] SRT_180 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\22장\png\SRT_180.png
+[08:39:16] 상태키 SRT_200 · tracking=OFF; Baek|base; Jin|base
+[08:39:16] run_scene 시작 SRT_200 · seen_files=10 · last_saved=https://www.genspark.ai/api/files/s/bcyl1kqs
+[08:39:16] ⏱ 준비 SRT_200 0.0s · chars=5371
+[08:39:18] ⏱ 다음명령유휴 SRT_200 1.5s · idle=True
+[08:39:18] fill OK(clip) follow=True chars=5371
+[08:39:18] submit 시작 composer=5371 url=https://www.genspark.ai/agents?id=ab9db670-dfdb-45c9-8065-283bb3c03325
+[08:39:18] submit geo 실패 hit=no-btn
+[08:39:18] submit 시도 method=geo geo=False
+[08:39:19] submit 미확인 method=geo generating=False composer=5371
+[08:39:19] submit geo 실패 hit=no-btn
+[08:39:19] submit 시도 method=send send=False
+[08:39:20] submit 미확인 method=send generating=False composer=5371
+[08:39:20] submit 시도 method=ctrl
+[08:39:21] submit 미확인 method=ctrl generating=False composer=5373
+[08:39:21] submit 시도 method=enter
+[08:39:22] submit 확인 method=enter generating=False composer=0
+[08:39:22] ⏱ 입력·전송 SRT_200 4.1s · chars=5371
+[08:39:22] 제출 후 last_saved=https://www.genspark.ai/api/files/s/bcyl1kqs
+[08:39:22] ⏱ 생성대기 시작 SRT_200 max=120s
+[08:39:37] ⏱ 생성대기 진행 15.3s SRT_200 busy=False url_ok=False src=
+[08:39:43] ⏱ 생성대기 완료 21.4s SRT_200 https://www.genspark.ai/api/files/s/stnxxkxu
+[08:39:43] ⏱ 생성대기구간 SRT_200 21.4s · ok=True
+[08:39:43] SRT_200 근접 이미지 https://www.genspark.ai/api/files/s/stnxxkxu
+[08:39:43] 다운로드 files URL=https://www.genspark.ai/api/files/s/stnxxkxu → SRT_200.png
+[08:39:44] ⏱ 다운로드 직접 0.7s size=595446 SRT_200.png
+[08:39:44] ⏱ 다운로드구간 SRT_200 0.7s · SRT_200.png
+[08:39:45] ⏱ 다운로드후유휴 SRT_200 1.4s · idle=True
+[08:39:45] ⏱ 씬합계 SRT_200 29.3s · https://www.genspark.ai/api/files/s/stnxxkxu
+[08:39:45] SRT_200 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\22장\png\SRT_200.png
+[08:39:46] 상태키 SRT_220 · tracking=OFF; Baek|base; Jin|base
+[08:39:46] run_scene 시작 SRT_220 · seen_files=11 · last_saved=https://www.genspark.ai/api/files/s/stnxxkxu
+[08:39:46] ⏱ 준비 SRT_220 0.0s · chars=5405
+[08:39:47] ⏱ 다음명령유휴 SRT_220 1.4s · idle=True
+[08:39:48] fill OK(clip) follow=True chars=5405
+[08:39:48] submit 시작 composer=5405 url=https://www.genspark.ai/agents?id=ab9db670-dfdb-45c9-8065-283bb3c03325
+[08:39:48] submit geo 실패 hit=no-btn
+[08:39:48] submit 시도 method=geo geo=False
+[08:39:48] submit 미확인 method=geo generating=False composer=5405
+[08:39:49] submit geo 실패 hit=no-btn
+[08:39:49] submit 시도 method=send send=False
+[08:39:49] submit 미확인 method=send generating=False composer=5405
+[08:39:50] submit 시도 method=ctrl
+[08:39:50] submit 미확인 method=ctrl generating=False composer=5407
+[08:39:50] submit 시도 method=enter
+[08:39:51] submit 확인 method=enter generating=False composer=0
+[08:39:51] ⏱ 입력·전송 SRT_220 4.1s · chars=5405
+[08:39:51] 제출 후 last_saved=https://www.genspark.ai/api/files/s/stnxxkxu
+[08:39:51] ⏱ 생성대기 시작 SRT_220 max=120s
+[08:40:06] ⏱ 생성대기 진행 15.0s SRT_220 busy=False url_ok=True src=https://www.genspark.ai/api/files/s/x9q2yayi
+[08:40:06] ⏱ 생성대기 완료 15.3s SRT_220 https://www.genspark.ai/api/files/s/x9q2yayi
+[08:40:06] ⏱ 생성대기구간 SRT_220 15.3s · ok=True
+[08:40:07] SRT_220 근접 이미지 https://www.genspark.ai/api/files/s/x9q2yayi
+[08:40:07] 다운로드 files URL=https://www.genspark.ai/api/files/s/x9q2yayi → SRT_220.png
+[08:40:07] ⏱ 다운로드 직접 0.8s size=555343 SRT_220.png
+[08:40:07] ⏱ 다운로드구간 SRT_220 0.8s · SRT_220.png
+[08:40:09] ⏱ 다운로드후유휴 SRT_220 1.7s · idle=True
+[08:40:09] ⏱ 씬합계 SRT_220 23.5s · https://www.genspark.ai/api/files/s/x9q2yayi
+[08:40:09] SRT_220 생성·다운로드 완료
+C:\cursor\wuxia\workspace\swardmaster\2부\22장\png\SRT_220.png
+[08:40:09] 상태키 SRT_240 · tracking=OFF; Baek|base; Jin|base
+[08:40:09] run_scene 시작 SRT_240 · seen_files=12 · last_saved=https://www.genspark.ai/api/files/s/x9q2yayi
+[08:40:09] ⏱ 준비 SRT_240 0.0s · chars=5807
+[08:40:11] ⏱ 다음명령유휴 SRT_240 1.3s · idle=True
+[08:40:11] fill 실패: 후보 1개
+[08:40:11] run_scene 실패(재시도 없음): 이어쓰기 입력란을 찾지 못했습니다.
+[08:40:11] SRT_240 실패 — 다음 씬 계속
+이어쓰기 입력란을 찾지 못했습니다.
+[08:40:11] 상태키 SRT_260 · tracking=OFF; Baek|base; Jin|base
+[08:40:11] SRT_260 실패(한도 추정 streak=2) — 브라우저 종료 후 대기·재오픈
+브라우저 탭이 닫혔습니다. 「실행」를 다시 눌러 주세요.
+[08:40:15] 한도 대기 전 ChromeDebug 종료
+[08:40:23] 한도 대기 불가 — 실행 시작 시각 미입력

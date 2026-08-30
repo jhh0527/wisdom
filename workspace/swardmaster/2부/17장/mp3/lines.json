@@ -1,0 +1,960 @@
+{
+  "source": "C:\\cursor\\wuxia\\무협극장\\검신귀환록\\2부\\17장\\tts\\17.json",
+  "count": 159,
+  "lines": [
+    {
+      "index": 1,
+      "file": "01.mp3",
+      "speaker": "narrator",
+      "text": "제17장. 남궁준의 독 — 환이 오신다"
+    },
+    {
+      "index": 2,
+      "file": "02.mp3",
+      "speaker": "narrator",
+      "text": "열흘이 더 흘렀다."
+    },
+    {
+      "index": 3,
+      "file": "03.mp3",
+      "speaker": "narrator",
+      "text": "여름이 깊어지고, 화산의 매미 소리가 날로 커졌다."
+    },
+    {
+      "index": 4,
+      "file": "04.mp3",
+      "speaker": "narrator",
+      "text": "엄중산 원로의 건강이 눈에 띄게 나빠지기 시작한 것은 이 무렵이었다."
+    },
+    {
+      "index": 5,
+      "file": "05.mp3",
+      "speaker": "narrator",
+      "text": "처음에는 작은 징후였다. 아침 산책의 시간이 짧아졌다. 서재에서 보내는 시간이 늘었다. 식사량이 줄었다. 기침이 잦아졌다."
+    },
+    {
+      "index": 6,
+      "file": "06.mp3",
+      "speaker": "narrator",
+      "text": "청허진인이 먼저 눈치챘다."
+    },
+    {
+      "index": 7,
+      "file": "07.mp3",
+      "speaker": "cheongheo",
+      "text": "[serious] \"[quietly] \"엄 사형의 기력이 떨어지고 있다.\""
+    },
+    {
+      "index": 8,
+      "file": "08.mp3",
+      "speaker": "narrator",
+      "text": "청허진인이 진무한에게 조용히 말한 것은, 어느 저녁 장로전 앞에서였다."
+    },
+    {
+      "index": 9,
+      "file": "09.mp3",
+      "speaker": "jin",
+      "text": "[calm] \"[serious] \"병이오?\""
+    },
+    {
+      "index": 10,
+      "file": "10.mp3",
+      "speaker": "cheongheo",
+      "text": "[calm] \"[slowly] \"노환이다. 칠십삼이니... 무공을 닦은 자라 해도, 몸은 늙는 것이다.\""
+    },
+    {
+      "index": 11,
+      "file": "11.mp3",
+      "speaker": "narrator",
+      "text": "진무한은 전생의 기억을 더듬었다. 전생에서 엄중산은 칠십 대 중반에 세상을 떠났다. 정확한 시점은 기억나지 않았으나, 칠십사인가 칠십오였을 것이다. 이번 생에서 엄중산의 나이가 칠십삼이니, 남은 시간이 많지 않았다."
+    },
+    {
+      "index": 12,
+      "file": "12.mp3",
+      "speaker": "jin",
+      "text": "[serious] \"[low voice] \"사조. 엄중산 사숙의 상태가... 얼마나 되었습니까?\""
+    },
+    {
+      "index": 13,
+      "file": "13.mp3",
+      "speaker": "narrator",
+      "text": "청허진인이 잠시 멈추었다가 답했다."
+    },
+    {
+      "index": 14,
+      "file": "14.mp3",
+      "speaker": "cheongheo",
+      "text": "[quietly] \"[sad] \"가을을 넘기기 어려울 것이다.\""
+    },
+    {
+      "index": 15,
+      "file": "15.mp3",
+      "speaker": "narrator",
+      "text": "가을. 두 달도 남지 않았다."
+    },
+    {
+      "index": 16,
+      "file": "16.mp3",
+      "speaker": "narrator",
+      "text": "진무한의 가슴에 미세한 아픔이 지나갔다. 엄중산은, 며칠 전 정원에서 솔직하게 과거를 털어놓은 그 늙은 원로는, 곧 가게 될 것이었다."
+    },
+    {
+      "index": 17,
+      "file": "17.mp3",
+      "speaker": "narrator",
+      "text": "그로부터 며칠 뒤. 진무한은 다시 엄중산의 서재를 찾았다."
+    },
+    {
+      "index": 18,
+      "file": "18.mp3",
+      "speaker": "narrator",
+      "text": "이번에는 문 밖에서 기다려야 했다. 엄중산이 침상에 누워 있었기 때문이다."
+    },
+    {
+      "index": 19,
+      "file": "19.mp3",
+      "speaker": "eom",
+      "text": "[tired] \"[calm] \"들어와라.\""
+    },
+    {
+      "index": 20,
+      "file": "20.mp3",
+      "speaker": "narrator",
+      "text": "안에서 엄중산의 목소리가 들렸다. 예전보다 힘이 빠져 있었으나, 여전히 맑았다."
+    },
+    {
+      "index": 21,
+      "file": "21.mp3",
+      "speaker": "narrator",
+      "text": "진무한이 문을 열고 들어갔다. 엄중산은 침상에 반쯤 기대어 앉아 있었다. 이불을 무릎까지 덮고, 벽에 등을 기댄 채. 여름이었으나 그의 몸은 이불이 필요한 상태였다."
+    },
+    {
+      "index": 22,
+      "file": "22.mp3",
+      "speaker": "jin",
+      "text": "[soft] \"[serious] \"사숙.\""
+    },
+    {
+      "index": 23,
+      "file": "23.mp3",
+      "speaker": "eom",
+      "text": "[calm] \"[tired] \"앉아라.\""
+    },
+    {
+      "index": 24,
+      "file": "24.mp3",
+      "speaker": "narrator",
+      "text": "진무한이 침상 곁의 의자에 앉았다. 엄중산이 진무한의 얼굴을 보며 미소 지었다."
+    },
+    {
+      "index": 25,
+      "file": "25.mp3",
+      "speaker": "eom",
+      "text": "[soft] \"[calm] \"요 며칠 네 얼굴이 어둡구나.\""
+    },
+    {
+      "index": 26,
+      "file": "26.mp3",
+      "speaker": "jin",
+      "text": "[quietly] \"[serious] \"사숙의 건강이 걱정되어서입니다.\""
+    },
+    {
+      "index": 27,
+      "file": "27.mp3",
+      "speaker": "eom",
+      "text": "[calm] \"[slowly] \"허. 걱정은.\""
+    },
+    {
+      "index": 28,
+      "file": "28.mp3",
+      "speaker": "eom",
+      "text": "[tired] \"[soft] \"나는 칠십을 넘게 살았다. 충분히 살았다.\""
+    },
+    {
+      "index": 29,
+      "file": "29.mp3",
+      "speaker": "narrator",
+      "text": "진무한은 말없이 엄중산을 바라보았다. 엄중산이 시선을 창밖으로 돌렸다. 창 너머로 소나무 한 그루가 보였다. 여름 햇살을 받아 초록이 짙었다."
+    },
+    {
+      "index": 30,
+      "file": "30.mp3",
+      "speaker": "eom",
+      "text": "[soft] \"[calm] \"무한아.\""
+    },
+    {
+      "index": 31,
+      "file": "31.mp3",
+      "speaker": "jin",
+      "text": "[calm] \"예.\""
+    },
+    {
+      "index": 32,
+      "file": "32.mp3",
+      "speaker": "eom",
+      "text": "[serious] \"[slowly] \"지난번 네게 말한 것... 삼십 년 전의 일. 그것에 대해 한 가지 더 말해 두고 싶은 것이 있다.\""
+    },
+    {
+      "index": 33,
+      "file": "33.mp3",
+      "speaker": "narrator",
+      "text": "진무한이 자세를 바로잡았다. 엄중산이 천천히 말했다."
+    },
+    {
+      "index": 34,
+      "file": "34.mp3",
+      "speaker": "eom",
+      "text": "[slowly] \"[serious] \"삼십 년 전, 그 노인이 나를 찾아온 것은 우연이 아니었다. 그 무렵 나는 화산에서 잠시 방황하던 시기였다. 장로가 되기 전, 사형제들과의 갈등이 있던 시절이었다.\""
+    },
+    {
+      "index": 35,
+      "file": "35.mp3",
+      "speaker": "eom",
+      "text": "[quietly] \"[sad] \"마음이 흔들리던 때에... 그자가 나타났다.\""
+    },
+    {
+      "index": 36,
+      "file": "36.mp3",
+      "speaker": "jin",
+      "text": "[calm] \"[low voice] [serious] \"흔들리던 때를 노렸다는 뜻입니까.\"\""
+    },
+    {
+      "index": 37,
+      "file": "37.mp3",
+      "speaker": "eom",
+      "text": "[serious] \"[slowly] \"그렇다. 그자는... 사람의 약한 순간을 찾아내는 데 능한 자였다. 나의 불만을, 나의 갈등을, 내가 입 밖에 낸 적도 없는 것을 알고 있었다.\""
+    },
+    {
+      "index": 38,
+      "file": "38.mp3",
+      "speaker": "eom",
+      "text": "[quietly] \"[tired] \"어떻게 알았는지는 모른다. 그러나 알고 있었다.\""
+    },
+    {
+      "index": 39,
+      "file": "39.mp3",
+      "speaker": "narrator",
+      "text": "진무한의 머리속에서 퍼즐이 돌아갔다. 노인의 방식. 사람의 약한 순간을 찾아 접근한다. 남궁준도 삼 년 전에 무언가 취약한 순간이 있었을 것이다. 그 순간에 노인, 혹은 노인의 사람이 접근한 것이다."
+    },
+    {
+      "index": 40,
+      "file": "40.mp3",
+      "speaker": "jin",
+      "text": "[calm] \"[serious] \"사숙. 한 가지만 더 여쭙겠습니다.\""
+    },
+    {
+      "index": 41,
+      "file": "41.mp3",
+      "speaker": "eom",
+      "text": "[tired] \"[calm] \"말해라.\""
+    },
+    {
+      "index": 42,
+      "file": "42.mp3",
+      "speaker": "jin",
+      "text": "[calm] \"[low voice] [serious] \"그 노인의... 이름이나, 호나, 어떤 칭호라도 들으신 것이 있습니까.\"\""
+    },
+    {
+      "index": 43,
+      "file": "43.mp3",
+      "speaker": "narrator",
+      "text": "엄중산이 눈을 감고 기억을 더듬었다."
+    },
+    {
+      "index": 44,
+      "file": "44.mp3",
+      "speaker": "eom",
+      "text": "[slowly] \"[calm] \"이름은 밝히지 않았다.\""
+    },
+    {
+      "index": 45,
+      "file": "45.mp3",
+      "speaker": "eom",
+      "text": "[quietly] \"[serious] \"다만 한 가지. 주루에서 만났을 때, 점소이가 그자를 '진 선생'이라 불렀다. 그러나 그것이 진짜 성인지는 모른다.\""
+    },
+    {
+      "index": 46,
+      "file": "46.mp3",
+      "speaker": "narrator",
+      "text": "진. 혹은 가명. 진무한은 그 정보를 기억에 새겼다."
+    },
+    {
+      "index": 47,
+      "file": "47.mp3",
+      "speaker": "jin",
+      "text": "[calm] \"[soft] \"감사합니다, 사숙.\""
+    },
+    {
+      "index": 48,
+      "file": "48.mp3",
+      "speaker": "eom",
+      "text": "[soft] \"[slowly] \"무한아.\""
+    },
+    {
+      "index": 49,
+      "file": "49.mp3",
+      "speaker": "narrator",
+      "text": "엄중산의 손이 이불 위에서 움직여 진무한의 손을 잡았다. 늙고 마른 손이었으나, 그 안에 따뜻함이 있었다."
+    },
+    {
+      "index": 50,
+      "file": "50.mp3",
+      "speaker": "eom",
+      "text": "[quietly] \"[sad] \"내가 떠난 뒤에도...\""
+    },
+    {
+      "index": 51,
+      "file": "51.mp3",
+      "speaker": "eom",
+      "text": "[soft] \"[serious] \"화산을 지켜다오.\""
+    },
+    {
+      "index": 52,
+      "file": "52.mp3",
+      "speaker": "narrator",
+      "text": "진무한의 목에 무언가가 걸렸다."
+    },
+    {
+      "index": 53,
+      "file": "53.mp3",
+      "speaker": "jin",
+      "text": "[quietly] \"[sad] \"... 예. 사숙.\""
+    },
+    {
+      "index": 54,
+      "file": "54.mp3",
+      "speaker": "narrator",
+      "text": "엄중산이 미소 지었다. 그리고 손을 놓으며 눈을 감았다."
+    },
+    {
+      "index": 55,
+      "file": "55.mp3",
+      "speaker": "eom",
+      "text": "[tired] \"[calm] \"이제 좀 쉬겠다. 가 보아라.\""
+    },
+    {
+      "index": 56,
+      "file": "56.mp3",
+      "speaker": "narrator",
+      "text": "진무한이 조용히 일어나 서재를 나왔다. 문을 닫고, 복도를 걸었다. 걸으면서, 전생에서 놓쳤던 것들을 생각했다."
+    },
+    {
+      "index": 57,
+      "file": "57.mp3",
+      "speaker": "narrator",
+      "text": "전생에서 진무한은 이 사람을 만나지 못했다. 엄중산이 세상을 떠난 뒤에야 화산을 방문했고, 그래서 이 늙은 원로의 따뜻한 손을 잡아 본 적이 없었다."
+    },
+    {
+      "index": 58,
+      "file": "58.mp3",
+      "speaker": "narrator",
+      "text": "이번 생에서는 만났다. 짧은 시간이었으나. 그리고 곧, 또 헤어져야 했다."
+    },
+    {
+      "index": 59,
+      "file": "59.mp3",
+      "speaker": "narrator",
+      "text": "이것이 귀환의 의미인가. 다시 만난 사람들과, 다시 헤어지는 것."
+    },
+    {
+      "index": 60,
+      "file": "60.mp3",
+      "speaker": "narrator",
+      "text": "진무한은 복도 끝에서 멈추어 하늘을 올려다보았다. 여름의 푸른 하늘. 구름 한 점 없이 맑았다."
+    },
+    {
+      "index": 61,
+      "file": "61.mp3",
+      "speaker": "narrator",
+      "text": "엄중산의 고백이 진무한에게 준 것은 두 가지였다."
+    },
+    {
+      "index": 62,
+      "file": "62.mp3",
+      "speaker": "narrator",
+      "text": "첫째, 노인의 방식에 대한 이해가 깊어졌다. 노인은 사람의 취약한 순간을 찾아 접근한다. 정보를 미리 수집하고, 적확한 시점에 나타난다. 그리고 선택을 강요하지 않는다. 선택지를 남기고 물러선다. '마음이 바뀌면 이것을 펴라.' 서찰을 남기고 삼십 년을 기다린다. 인내의 깊이가, 보통이 아니었다."
+    },
+    {
+      "index": 63,
+      "file": "63.mp3",
+      "speaker": "narrator",
+      "text": "둘째, 노인의 성씨일 가능성이 있는 정보, 진. 물론 가명일 수 있었으나, 단서가 하나 더 추가되었다."
+    },
+    {
+      "index": 64,
+      "file": "64.mp3",
+      "speaker": "narrator",
+      "text": "진무한은 한백강에게 이 정보를 전하며 지시했다."
+    },
+    {
+      "index": 65,
+      "file": "65.mp3",
+      "speaker": "jin",
+      "text": "[calm] \"[serious] \"'진 선생'이라는 이름으로 강호에서 활동하는 노인. 혹은 과거에 활동했던 흔적. 아무것이라도 찾아 봐라.\""
+    },
+    {
+      "index": 66,
+      "file": "66.mp3",
+      "speaker": "baek",
+      "text": "[calm] \"[serious] \"알겠소.\""
+    },
+    {
+      "index": 67,
+      "file": "67.mp3",
+      "speaker": "narrator",
+      "text": "그리고, 예상치 못한 일이 벌어진 것은, 엄중산의 고백 이후 닷새째 되는 날이었다."
+    },
+    {
+      "index": 68,
+      "file": "68.mp3",
+      "speaker": "narrator",
+      "text": "저녁. 진무한이 연무장에서 수련을 마치고 숙소로 돌아오는 길이었다. 산길을 걷는데, 앞쪽에서 급한 발소리가 들렸다."
+    },
+    {
+      "index": 69,
+      "file": "69.mp3",
+      "speaker": "narrator",
+      "text": "한백강이 달려오고 있었다."
+    },
+    {
+      "index": 70,
+      "file": "70.mp3",
+      "speaker": "baek",
+      "text": "[rushed] \"[nervous] \"형!\""
+    },
+    {
+      "index": 71,
+      "file": "71.mp3",
+      "speaker": "narrator",
+      "text": "한백강의 얼굴이 창백했다. 무언가 심각한 일이 벌어졌다는 표정."
+    },
+    {
+      "index": 72,
+      "file": "72.mp3",
+      "speaker": "jin",
+      "text": "[serious] \"[calm] \"무슨 일이다.\""
+    },
+    {
+      "index": 73,
+      "file": "73.mp3",
+      "speaker": "baek",
+      "text": "[rushed] \"[nervous] \"남궁린 사형에게서... 남궁준이...\""
+    },
+    {
+      "index": 74,
+      "file": "74.mp3",
+      "speaker": "narrator",
+      "text": "한백강이 숨을 몰아쉬며 말했다."
+    },
+    {
+      "index": 75,
+      "file": "75.mp3",
+      "speaker": "baek",
+      "text": "[gasps] \"[intense] \"남궁준이 자결했소.\""
+    },
+    {
+      "index": 76,
+      "file": "76.mp3",
+      "speaker": "narrator",
+      "text": "진무한의 발이 멈추었다."
+    },
+    {
+      "index": 77,
+      "file": "77.mp3",
+      "speaker": "jin",
+      "text": "[calm] \"[low voice] [intense] \"... 뭐라?\"\""
+    },
+    {
+      "index": 78,
+      "file": "78.mp3",
+      "speaker": "baek",
+      "text": "[rushed] \"[serious] \"남궁준이 독을 먹고 쓰러졌소. 지금 남궁린 사형의 거처 앞이오.\""
+    },
+    {
+      "index": 79,
+      "file": "79.mp3",
+      "speaker": "narrator",
+      "text": "진무한은 즉시 달렸다."
+    },
+    {
+      "index": 80,
+      "file": "80.mp3",
+      "speaker": "narrator",
+      "text": "남궁린의 거처에 도착했을 때, 이미 사람이 모여 있었다. 청허진인, 유림 장로, 그리고 남궁린."
+    },
+    {
+      "index": 81,
+      "file": "81.mp3",
+      "speaker": "narrator",
+      "text": "바닥에, 남궁준이 누워 있었다. 눈이 반쯤 감긴 채, 입가에 거품이 묻어 있었다. 얼굴이 검푸르게 변해 있었다. 이미 죽어 있었다."
+    },
+    {
+      "index": 82,
+      "file": "82.mp3",
+      "speaker": "narrator",
+      "text": "남궁린이 남궁준의 곁에 무릎을 꿇고 있었다. 그의 얼굴은 돌처럼 굳어 있었다. 울지 않았다. 눈물도, 소리도 없었다. 다만, 입술이 하얗게 질려 있었다."
+    },
+    {
+      "index": 83,
+      "file": "83.mp3",
+      "speaker": "narrator",
+      "text": "진무한이 다가갔다."
+    },
+    {
+      "index": 84,
+      "file": "84.mp3",
+      "speaker": "jin",
+      "text": "[serious] \"[low voice] \"무슨 일이오.\""
+    },
+    {
+      "index": 85,
+      "file": "85.mp3",
+      "speaker": "narrator",
+      "text": "청허진인이 답했다."
+    },
+    {
+      "index": 86,
+      "file": "86.mp3",
+      "speaker": "cheongheo",
+      "text": "[serious] \"[calm] \"한 시진 전, 남궁준이 남궁린의 거처에 찾아왔다. 두 사람이 대화를 나누었고... 대화 중에 남궁준이 갑자기 품에서 약병을 꺼내 마셨다.\""
+    },
+    {
+      "index": 87,
+      "file": "87.mp3",
+      "speaker": "narrator",
+      "text": "진무한의 눈이 남궁린에게로 향했다."
+    },
+    {
+      "index": 88,
+      "file": "88.mp3",
+      "speaker": "jin",
+      "text": "[serious] \"[low voice] \"린 사형. 무슨 대화를 나누었소?\""
+    },
+    {
+      "index": 89,
+      "file": "89.mp3",
+      "speaker": "narrator",
+      "text": "남궁린이 고개를 들었다. 그의 눈은 건조했으나, 그 안의 파도가 보였다."
+    },
+    {
+      "index": 90,
+      "file": "90.mp3",
+      "speaker": "namgung",
+      "text": "[quietly] \"[sad] \"... 형이 먼저 찾아왔소.\""
+    },
+    {
+      "index": 91,
+      "file": "91.mp3",
+      "speaker": "narrator",
+      "text": "그이의 목소리는 낮고 갈라져 있었다."
+    },
+    {
+      "index": 92,
+      "file": "92.mp3",
+      "speaker": "namgung",
+      "text": "[calm] \"[low voice] [sad] \"그리고... 말했소.\"\""
+    },
+    {
+      "index": 93,
+      "file": "93.mp3",
+      "speaker": "jin",
+      "text": "[serious] \"[intense] \"뭐라고?\""
+    },
+    {
+      "index": 94,
+      "file": "94.mp3",
+      "speaker": "namgung",
+      "text": "[quietly] \"[sorrowful] \"'린아. 미안하다. 나는... 네게 말할 수 없는 것이 있었다. 그러나 이제... 그것이 끝나야 할 때가 왔다.'\""
+    },
+    {
+      "index": 95,
+      "file": "95.mp3",
+      "speaker": "narrator",
+      "text": "남궁린이 숨을 들이쉬었다. 떨리는 숨."
+    },
+    {
+      "index": 96,
+      "file": "96.mp3",
+      "speaker": "namgung",
+      "text": "[sad] \"[slowly] \"내가 물었소. '형, 무슨 말을 하는 것이오?'\""
+    },
+    {
+      "index": 97,
+      "file": "97.mp3",
+      "speaker": "namgung",
+      "text": "[calm] \"[short pause] [quietly] \"그러자 형이... 웃으며 말했소.\"\""
+    },
+    {
+      "index": 98,
+      "file": "98.mp3",
+      "speaker": "jin",
+      "text": "[calm] \"[low voice] [intense] \"뭐라고.\"\""
+    },
+    {
+      "index": 99,
+      "file": "99.mp3",
+      "speaker": "namgung",
+      "text": "[calm] \"[low voice] [nervous] \"'환이 오신다.'\"\""
+    },
+    {
+      "index": 100,
+      "file": "100.mp3",
+      "speaker": "narrator",
+      "text": "진무한의 등줄기에 한기가 흘렀다. 환이 오신다. 남궁준의 마지막 말."
+    },
+    {
+      "index": 101,
+      "file": "101.mp3",
+      "speaker": "namgung",
+      "text": "[sad] \"[quietly] \"그리고... 약병을 꺼내 마시고 쓰러졌소.\""
+    },
+    {
+      "index": 102,
+      "file": "102.mp3",
+      "speaker": "namgung",
+      "text": "[calm] \"[short pause] [sorrowful] \"내가 손을 뻗었으나... 늦었소.\"\""
+    },
+    {
+      "index": 103,
+      "file": "103.mp3",
+      "speaker": "narrator",
+      "text": "남궁린의 손이 무릎 위에서 떨렸다."
+    },
+    {
+      "index": 104,
+      "file": "104.mp3",
+      "speaker": "narrator",
+      "text": "진무한은 남궁준의 시체를 내려다보았다."
+    },
+    {
+      "index": 105,
+      "file": "105.mp3",
+      "speaker": "narrator",
+      "text": "왜. 왜 자결했는가."
+    },
+    {
+      "index": 106,
+      "file": "106.mp3",
+      "speaker": "narrator",
+      "text": "진무한이 그를 추적하고 있다는 것을 눈치챘는가? 아니면 약재상이 명령한 것인가? '당신의 역할은 끝났다. 증거를 남기지 마라.' 그런 명이 있었는가?"
+    },
+    {
+      "index": 107,
+      "file": "107.mp3",
+      "speaker": "narrator",
+      "text": "혹은, 남궁준 자신이, 더 이상 견딜 수 없었는가."
+    },
+    {
+      "index": 108,
+      "file": "108.mp3",
+      "speaker": "narrator",
+      "text": "폐관지에서의 대화를 떠올렸다. 약재상이 남궁준에게 '혈연은 중요하지 않다'고 했을 때, 남궁준의 얼굴에 스친 고통의 표정."
+    },
+    {
+      "index": 109,
+      "file": "109.mp3",
+      "speaker": "narrator",
+      "text": "그리고 그가 마지막으로 찾아간 곳이 남궁린의 곁이었다. 사촌 동생에게 '미안하다'를 남기고 죽었다. 그자에게도, 인간의 마음이 남아 있었던 것이다."
+    },
+    {
+      "index": 110,
+      "file": "110.mp3",
+      "speaker": "narrator",
+      "text": "그러나 동정보다 중요한 것이 있었다."
+    },
+    {
+      "index": 111,
+      "file": "111.mp3",
+      "speaker": "narrator",
+      "text": "'환이 오신다.' 이 말의 의미. 환이, 온다."
+    },
+    {
+      "index": 112,
+      "file": "112.mp3",
+      "speaker": "narrator",
+      "text": "'환'이 이름이라면, 누군가가 화산을 향해 오고 있다는 뜻. '환'이 노인의 계획이라면, 무언가가 시작되려 한다는 뜻. 어느 쪽이든, 위험 신호였다."
+    },
+    {
+      "index": 113,
+      "file": "113.mp3",
+      "speaker": "narrator",
+      "text": "진무한은 청허진인을 보았다."
+    },
+    {
+      "index": 114,
+      "file": "114.mp3",
+      "speaker": "jin",
+      "text": "[serious] \"[intense] \"사조. 화산의 경계를 강화해야 합니다.\""
+    },
+    {
+      "index": 115,
+      "file": "115.mp3",
+      "speaker": "narrator",
+      "text": "청허진인의 눈이 진무한을 응시했다."
+    },
+    {
+      "index": 116,
+      "file": "116.mp3",
+      "speaker": "cheongheo",
+      "text": "[calm] \"[serious] \"... 이유를.\""
+    },
+    {
+      "index": 117,
+      "file": "117.mp3",
+      "speaker": "jin",
+      "text": "[calm] \"[low voice] [serious] \"남궁준의 마지막 말. '환이 오신다.' 이것은 경고입니다.\"\""
+    },
+    {
+      "index": 118,
+      "file": "118.mp3",
+      "speaker": "jin",
+      "text": "[intense] \"[serious] \"누군가가... 혹은 무언가가... 화산을 향해 움직이고 있습니다.\""
+    },
+    {
+      "index": 119,
+      "file": "119.mp3",
+      "speaker": "narrator",
+      "text": "청허진인이 잠시 남궁준의 시체를 내려다보았다. 그리고 고개를 끄덕였다."
+    },
+    {
+      "index": 120,
+      "file": "120.mp3",
+      "speaker": "cheongheo",
+      "text": "[stern] \"[serious] \"유림아. 외곽 경계를 강화하여라. 야간 순찰을 두 배로.\""
+    },
+    {
+      "index": 121,
+      "file": "121.mp3",
+      "speaker": "narrator",
+      "text": "유림 장로가 즉시 움직였다."
+    },
+    {
+      "index": 122,
+      "file": "122.mp3",
+      "speaker": "narrator",
+      "text": "그날 밤. 남궁준의 시체는 수습되었다. 화산 밖으로 운구할 수는 없었으므로, 화산 뒷산의 한쪽에 가매장되었다. 남궁린이 직접 매장을 지켜보았다."
+    },
+    {
+      "index": 123,
+      "file": "123.mp3",
+      "speaker": "narrator",
+      "text": "진무한은 멀리서 그 장면을 바라보았다. 남궁린이 삽질하는 제자 옆에 서 있었다. 그의 등이 달빛 아래에서 작아 보였다. 매장이 끝난 뒤, 그는 무덤 앞에 한동안 서 있었다. 고개를 숙이고, 눈을 감고."
+    },
+    {
+      "index": 124,
+      "file": "124.mp3",
+      "speaker": "narrator",
+      "text": "진무한은 다가가지 않았다. 지금은, 그이에게 혼자만의 시간이 필요했다."
+    },
+    {
+      "index": 125,
+      "file": "125.mp3",
+      "speaker": "narrator",
+      "text": "다음 날. 진무한은 한백강과 만나 상황을 정리했다."
+    },
+    {
+      "index": 126,
+      "file": "126.mp3",
+      "speaker": "jin",
+      "text": "[calm] \"[serious] \"남궁준이 자결한 이유. 세 가지 가능성이 있다.\""
+    },
+    {
+      "index": 127,
+      "file": "127.mp3",
+      "speaker": "narrator",
+      "text": "한백강이 말했다."
+    },
+    {
+      "index": 128,
+      "file": "128.mp3",
+      "speaker": "baek",
+      "text": "[serious] \"[calm] \"첫째, 우리의 추적을 눈치챘다. 둘째, 약재상의 명이었다. 셋째, 자신의 의지.\""
+    },
+    {
+      "index": 129,
+      "file": "129.mp3",
+      "speaker": "jin",
+      "text": "[calm] \"[low voice] [serious] \"내 생각은... 둘째와 셋째의 결합이다.\"\""
+    },
+    {
+      "index": 130,
+      "file": "130.mp3",
+      "speaker": "narrator",
+      "text": "진무한이 말했다."
+    },
+    {
+      "index": 131,
+      "file": "131.mp3",
+      "speaker": "jin",
+      "text": "[calm] \"[slowly] \"약재상이 '진무한이 돌아왔으니 경계가 강해질 것'이라 했다. 그 말이 남궁준에게 자결의 가능성을 암시한 것일 수 있다. '들킬 위험이 높아졌으니, 증거를 남기지 말라'는 뜻으로.\""
+    },
+    {
+      "index": 132,
+      "file": "132.mp3",
+      "speaker": "jin",
+      "text": "[quietly] \"[serious] \"그리고 남궁준은... 린을 찾아가 마지막 인사를 한 뒤 스스로 선택했다.\""
+    },
+    {
+      "index": 133,
+      "file": "133.mp3",
+      "speaker": "baek",
+      "text": "[frustrated] \"[quietly] \"역첩의 줄이 끊어졌소.\""
+    },
+    {
+      "index": 134,
+      "file": "134.mp3",
+      "speaker": "narrator",
+      "text": "한백강의 목소리에 아쉬움이 있었다."
+    },
+    {
+      "index": 135,
+      "file": "135.mp3",
+      "speaker": "jin",
+      "text": "[calm] \"[serious] \"그렇다. 그러나... 새로운 것을 얻었다.\""
+    },
+    {
+      "index": 136,
+      "file": "136.mp3",
+      "speaker": "baek",
+      "text": "[curious] \"[serious] \"무엇을?\""
+    },
+    {
+      "index": 137,
+      "file": "137.mp3",
+      "speaker": "jin",
+      "text": "[calm] \"[low voice] [intense] \"'환이 오신다.' 이 한마디.\"\""
+    },
+    {
+      "index": 138,
+      "file": "138.mp3",
+      "speaker": "narrator",
+      "text": "진무한은 말했다."
+    },
+    {
+      "index": 139,
+      "file": "139.mp3",
+      "speaker": "jin",
+      "text": "[serious] \"[calm] \"환. 이것이 이름이라면, 두 번째 판의 관리자의 이름일 수 있다. 서령란이 말한 '마교 본산 안에서 두 번째 판을 움직이는 자.' 그자의 이름이 '환'.\""
+    },
+    {
+      "index": 140,
+      "file": "140.mp3",
+      "speaker": "baek",
+      "text": "[nervous] \"[serious] \"그리고 그자가... 온다?\""
+    },
+    {
+      "index": 141,
+      "file": "141.mp3",
+      "speaker": "jin",
+      "text": "[cold] \"[low voice] \"화산을 향해.\""
+    },
+    {
+      "index": 142,
+      "file": "142.mp3",
+      "speaker": "narrator",
+      "text": "한백강의 얼굴이 어두워졌다."
+    },
+    {
+      "index": 143,
+      "file": "143.mp3",
+      "speaker": "baek",
+      "text": "[worried] \"[serious] \"그것이 언제?\""
+    },
+    {
+      "index": 144,
+      "file": "144.mp3",
+      "speaker": "jin",
+      "text": "[calm] \"[serious] \"모른다. 그래서... 경계를 강화한 것이다.\""
+    },
+    {
+      "index": 145,
+      "file": "145.mp3",
+      "speaker": "narrator",
+      "text": "두 사람은 잠시 침묵 속에 있었다."
+    },
+    {
+      "index": 146,
+      "file": "146.mp3",
+      "speaker": "jin",
+      "text": "[serious] \"[low voice] \"백강아. 폐관지의 약재상도... 아마 이미 사라졌을 것이다.\""
+    },
+    {
+      "index": 147,
+      "file": "147.mp3",
+      "speaker": "baek",
+      "text": "[serious] \"[calm] \"확인해 보겠소?\""
+    },
+    {
+      "index": 148,
+      "file": "148.mp3",
+      "speaker": "jin",
+      "text": "[calm] \"[stern] \"그래. 그러나... 조심해라.\""
+    },
+    {
+      "index": 149,
+      "file": "149.mp3",
+      "speaker": "narrator",
+      "text": "한백강이 고개를 끄덕이고 나갔다. 그리고 두 시진 뒤 돌아왔다."
+    },
+    {
+      "index": 150,
+      "file": "150.mp3",
+      "speaker": "baek",
+      "text": "[serious] \"[quietly] \"예상대로요. 폐관지에 아무도 없소. 흔적도 깨끗이 지워져 있소.\""
+    },
+    {
+      "index": 151,
+      "file": "151.mp3",
+      "speaker": "narrator",
+      "text": "약재상도 사라졌다. 남궁준이 자결한 것과 동시에, 혹은 그 직전에, 빠져나간 것이다."
+    },
+    {
+      "index": 152,
+      "file": "152.mp3",
+      "speaker": "narrator",
+      "text": "줄이 끊어졌다. 남궁준이라는 줄도, 약재상이라는 줄도. 진무한의 손에 남은 것은, '환이 오신다'는 한마디뿐."
+    },
+    {
+      "index": 153,
+      "file": "153.mp3",
+      "speaker": "narrator",
+      "text": "그리고, 아홉의 자리에 금이 갔다."
+    },
+    {
+      "index": 154,
+      "file": "154.mp3",
+      "speaker": "narrator",
+      "text": "남궁준의 자결은, 아홉 사람 전체에 충격을 주었다. 남궁린이 데려온 사람이, 노인의 첩자였다는 사실. 그것이 밝혀진 것은 아홉 사람에게 두 가지 영향을 미쳤다."
+    },
+    {
+      "index": 155,
+      "file": "155.mp3",
+      "speaker": "narrator",
+      "text": "하나는, 위기감의 강화. 노인의 손이 이미 이 안에까지 들어와 있었다는 사실이, 모두의 경각심을 높였다."
+    },
+    {
+      "index": 156,
+      "file": "156.mp3",
+      "speaker": "narrator",
+      "text": "다른 하나는, 서로에 대한 미세한 의심. '남궁준이 그쪽이었다면, 다른 사람도 그럴 수 있지 않은가.' 그 물음이, 비록 입 밖으로 꺼내지는 않았으나, 여덟 사람의 눈 속에 그림자처럼 맴돌기 시작했다."
+    },
+    {
+      "index": 157,
+      "file": "157.mp3",
+      "speaker": "narrator",
+      "text": "노인의 수가 먹힌 것이다. 남궁준을 심은 것. 그리고 남궁준을 자결하게 한 것. 양쪽 모두가, 노인의 판 위의 수였다."
+    },
+    {
+      "index": 158,
+      "file": "158.mp3",
+      "speaker": "narrator",
+      "text": "진무한은 이것을 알았다. 그리고 이 그림자를 걷어내야 한다는 것도 알았다."
+    },
+    {
+      "index": 159,
+      "file": "159.mp3",
+      "speaker": "narrator",
+      "text": "그러나 지금 당장은 방법이 없었다. 신뢰는 말로 회복되지 않는다. 시간과 행동으로 회복되는 것이다."
+    }
+  ]
+}

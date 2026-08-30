@@ -1,0 +1,37 @@
+===== 2026-08-26 20:35:24 브라우저 열기 =====
+[20:35:24] 준비 txt=C:\cursor\wuxia\무협극장\검신귀환록\2부\16장\tts\16.txt md=C:\cursor\wuxia\1_2_textToJson\md\dialogue_json.txt
+[20:35:34] ChromeDebug reused=0 port=9222 restart=True
+[20:35:38] 모델 이미 Opus 4.6: Claude Opus 4.6
+[20:35:38] 합본텍스트 입력 chars=23815 path=C:\cursor\wuxia\무협극장\검신귀환록\2부\16장\tts\text_to_json_bundle.txt
+[20:35:39] 입력창채움 ok=True chars_in=23815 chars_ui=23815
+[20:35:40] 전송후보 n=4 composer={'x': 29, 'y': 584, 'w': 1000, 'h': 216} top=[('DIV', 36, 36, 1011, 828, 'input-icon ml-[8px]'), ('DIV', 36, 36, 1011, 828, 'enter-icon items-end cursor-pointer active'), ('DIV', 36, 36, 1011, 828, 'enter-icon-wrapper rounded-[35%] md:hover:opacit'), ('DIV', 36, 36, 967, 828, 'cursor-pointer flex items-center p-[8px] rounded')]
+[20:35:41] 전송시도#1 method=send how=geo:DIV:input-icon ml-[8px] ok=True composer_len=0 grew=False generating=False
+[20:35:41] 전송확인 — 입력창 비움
+[20:35:41] 변환제출 mode=inline_text composer_remain=False generating=False txt=16.txt md=dialogue_json.txt sample=jsonSample.json voices=voices.json
+[20:35:41] 스크래프시작 wait_ms=600000 min_inputs=30 accept_n=20 src_chars=11864
+[20:35:41] 스크래프 tick=1 chars=23837 inputs=3 gen=idle page_stable=0 json_ok=False finished=False best_inputs=0 speakers=14 loose=3
+[20:35:43] 스크래프 tick=2 chars=23850 inputs=3 gen=generating page_stable=0 json_ok=False finished=False best_inputs=3 speakers=14 loose=3
+[20:36:00] 스크래프 tick=10 chars=24957 inputs=3 gen=idle page_stable=0 json_ok=False finished=False best_inputs=3 speakers=26 loose=3
+[20:36:13] 키보드복사시도 chars=27144 inputs=3
+[20:36:21] 스크래프 tick=20 chars=26879 inputs=3 gen=idle page_stable=0 json_ok=False finished=False best_inputs=3 speakers=51 loose=3
+[20:36:32] 키보드복사시도 chars=28740 inputs=3
+[20:36:35] 클립보드시도 chars=4089 inputs=48
+[20:36:35] 클립보드 채택 inputs=48
+[20:36:43] 스크래프 tick=30 chars=28587 inputs=3 gen=idle page_stable=0 json_ok=False finished=False best_inputs=48 speakers=70 loose=3
+[20:37:04] 스크래프 tick=40 chars=30231 inputs=3 gen=idle page_stable=0 json_ok=False finished=False best_inputs=48 speakers=90 loose=3
+[20:37:25] 스크래프 tick=50 chars=31969 inputs=3 gen=idle page_stable=0 json_ok=False finished=False best_inputs=48 speakers=111 loose=3
+[20:37:46] 스크래프 tick=60 chars=34005 inputs=3 gen=idle page_stable=0 json_ok=False finished=False best_inputs=48 speakers=136 loose=3
+[20:38:07] 스크래프 tick=70 chars=35930 inputs=3 gen=idle page_stable=0 json_ok=False finished=False best_inputs=48 speakers=158 loose=3
+[20:38:29] 스크래프 tick=80 chars=37866 inputs=3 gen=idle page_stable=0 json_ok=False finished=False best_inputs=48 speakers=183 loose=3
+[20:38:50] 스크래프 tick=90 chars=39887 inputs=3 gen=idle page_stable=0 json_ok=False finished=False best_inputs=48 speakers=207 loose=3
+[20:39:12] 스크래프 tick=100 chars=42233 inputs=3 gen=idle page_stable=0 json_ok=False finished=False best_inputs=48 speakers=236 loose=3
+[20:39:34] 스크래프 tick=110 chars=44028 inputs=3 gen=idle page_stable=0 json_ok=False finished=False best_inputs=48 speakers=257 loose=3
+[20:39:56] 스크래프 tick=120 chars=45883 inputs=3 gen=idle page_stable=0 json_ok=False finished=False best_inputs=48 speakers=280 loose=3
+[20:40:17] 스크래프 tick=130 chars=47794 inputs=3 gen=idle page_stable=0 json_ok=False finished=False best_inputs=48 speakers=301 loose=3
+[20:40:39] 스크래프 tick=140 chars=49862 inputs=3 gen=idle page_stable=0 json_ok=False finished=False best_inputs=48 speakers=327 loose=3
+[20:41:02] 스크래프 tick=150 chars=51757 inputs=3 gen=idle page_stable=0 json_ok=False finished=False best_inputs=48 speakers=349 loose=3
+[20:41:12] 스크래프 tick=154 chars=51870 inputs=336 gen=idle page_stable=3 json_ok=True finished=True best_inputs=336 speakers=350 loose=336
+[20:41:12] 스크래프완료 chars=25991 inputs=336
+[20:41:12] 스크래프결과 chars=25991 head={"chapter": "제16장. 배신자의 얼굴", "voices_file": "../../../voices.json", "chunk_id": "A1", "inputs": [{"speaker": "narrator",…
+[20:41:12] 플로우종료 mode=inline_text logged_in=True scraped_chars=25991
+[20:41:12] JSON 저장OK → C:\cursor\wuxia\무협극장\검신귀환록\2부\16장\tts\16.json inputs=336 voices=C:\cursor\wuxia\무협극장\검신귀환록\voices.json

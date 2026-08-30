@@ -1,0 +1,89 @@
+============================================================
+[2026-08-29 23:03:53] limit · SRT_200
+error: AI Image 한도 - 재설정 2026-08-30 03:33
+extra: reset_at=2026-08-30 03:33
+--- page ---
+AI Image 5시간 제한에 도달했습니다. 8월 30일 오전 3:33에 재설정됩니다
+---
+5시간 제한
+---
+세션 한도 도달
+AI Image 5시간 제한에 도달했습니다. 8월 30일 오전 3:33에 재설정됩니다
+OK
+---
+세션 한도 도달
+AI Image 5시간 제한에 도달했습니다. 8월 30일 오전 3:33에 재설정됩니다
+OK
+---
+5시간 제한
+---
+g ancient Chinese hanfu robes, ornate jian sword ornaments and swirling qi energy effects, cinematic high-contrast lighting with mystical cyan/crimson/golden aura, classic Chinese manhua panel composition, epic mountain-river jianghu backdrop, 16:9 aspect ratio, ultra high resolution digital manhua art, no Studio Ghibli style, no Korean manhwa, no Japanese anime, no 3D render, no flat cartoon, no photoreal, no live-action photo, no speech bubbles, no comic balloons, no dialogue balloons, no thought bubbles, no tooltips, no help balloons, no UI tips, no callout boxes, no caption boxes, no chat bubbles, no watermarks, no logos, no Hangul, no Korean characters, no Korean written text on image, no hanbok, no Korean traditional clothing, no jeogori, no chima, no Japanese text on image, no English text on image, no Latin letters on image, no Chinese hanzi on image, no written text, no letters, no captions, no signs with readable writing, distinct individualized faces matching Character Bible Face Identity, each character visually unique, NOT generic bishonen, NOT same face as other disciples, expression follows each character's Face Identity (not uniform heroic pretty-boy look)
+
+SRT_200 Chinese wuxia manhua illustration — generate this scene now. When multiple characters appear, keep…
+============================================================
+[2026-08-29 23:03:53] limit · SRT_200
+error: AI Image 한도 - 재설정 2026-08-30 03:33
+extra: streak=1 reset_at=2026-08-30 03:33
+--- page ---
+AI Image 5시간 제한에 도달했습니다. 8월 30일 오전 3:33에 재설정됩니다 --- 5시간 제한 --- 세션 한도 도달 AI Image 5시간 제한에 도달했습니다. 8월 30일 오전 3:33에 재설정됩니다 OK --- 세션 한도 도달
+============================================================
+[2026-08-30 03:52:37] fail · SRT_1180
+error: 이어쓰기 전송 실패 — 입력창에 명령이 5211자 남아 있습니다.
+--- page ---
+jianghu backdrop, 16:9 aspect ratio, ultra high resolution digital manhua art, no Studio Ghibli style, no Korean manhwa, no Japanese anime, no 3D render, no flat cartoon, no photoreal, no live-action photo, no speech bubbles, no comic balloons, no dialogue balloons, no thought bubbles, no tooltips, no help balloons, no UI tips, no callout boxes, no caption boxes, no chat bubbles, no watermarks, no logos, no Hangul, no Korean characters, no Korean written text on image, no hanbok, no Korean traditional clothing, no jeogori, no chima, no Japanese text on image, no English text on image, no Latin letters on image, no Chinese hanzi on image, no written text, no letters, no captions, no signs with readable writing, distinct individualized faces matching Character Bible Face Identity, each character visually unique, NOT generic bishonen, NOT same face as other disciples, expression follows each character's Face Identity (not uniform heroic pretty-boy look)
+
+SRT_1160 Chinese wuxia manhua illustration — generate this scene now. When multiple characters appear, keep each face visually distinct — do NOT merge into one generic bishonen face. Keep Face Identity and base outfit in CHARACTER LOOK identical across scenes; only pose, action, camera, and background may change. Do NOT redesign face, hair, or robe colors. Do NOT add blood, wounds, or torn robes unless the dialogue clearly shows this character injured in combat in this scene. No text, speech bubbles, bubble, tooltip, or callout …
+============================================================
+[2026-08-30 03:52:37] fail · SRT_1180
+error: 이어쓰기 전송 실패 — 입력창에 명령이 5211자 남아 있습니다.
+extra: streak=1
+============================================================
+[2026-08-30 03:53:00] fail · SRT_1200
+error: 이어쓰기 전송 실패 — 입력창에 명령이 5173자 남아 있습니다.
+--- page ---
+jianghu backdrop, 16:9 aspect ratio, ultra high resolution digital manhua art, no Studio Ghibli style, no Korean manhwa, no Japanese anime, no 3D render, no flat cartoon, no photoreal, no live-action photo, no speech bubbles, no comic balloons, no dialogue balloons, no thought bubbles, no tooltips, no help balloons, no UI tips, no callout boxes, no caption boxes, no chat bubbles, no watermarks, no logos, no Hangul, no Korean characters, no Korean written text on image, no hanbok, no Korean traditional clothing, no jeogori, no chima, no Japanese text on image, no English text on image, no Latin letters on image, no Chinese hanzi on image, no written text, no letters, no captions, no signs with readable writing, distinct individualized faces matching Character Bible Face Identity, each character visually unique, NOT generic bishonen, NOT same face as other disciples, expression follows each character's Face Identity (not uniform heroic pretty-boy look)
+
+SRT_1160 Chinese wuxia manhua illustration — generate this scene now. When multiple characters appear, keep each face visually distinct — do NOT merge into one generic bishonen face. Keep Face Identity and base outfit in CHARACTER LOOK identical across scenes; only pose, action, camera, and background may change. Do NOT redesign face, hair, or robe colors. Do NOT add blood, wounds, or torn robes unless the dialogue clearly shows this character injured in combat in this scene. No text, speech bubbles, bubble, tooltip, or callout …
+============================================================
+[2026-08-30 03:53:00] fail_streak · SRT_1200
+error: 이어쓰기 전송 실패 — 입력창에 명령이 5173자 남아 있습니다.
+extra: streak=2
+============================================================
+[2026-08-30 14:01:34] fail · SRT_1180
+error: Failure 메시지 감지 — 다음 씬으로 진행
+--- page ---
+무협 만화) style illustration, bold ink outlines with dramatic ink-wash and vibrant cel-shaded coloring, flowing ancient Chinese hanfu robes, ornate jian sword ornaments and swirling qi energy effects, cinematic high-contrast lighting with mystical cyan/crimson/golden aura, classic Chinese manhua panel composition, epic mountain-river jianghu backdrop, 16:9 aspect ratio, ultra high resolution digital manhua art, no Studio Ghibli style, no Korean manhwa, no Japanese anime, no 3D render, no flat cartoon, no photoreal, no live-action photo, no speech bubbles, no comic balloons, no dialogue balloons, no thought bubbles, no tooltips, no help balloons, no UI tips, no callout boxes, no caption boxes, no chat bubbles, no watermarks, no logos, no Hangul, no Korean characters, no Korean written text on image, no hanbok, no Korean traditional clothing, no jeogori, no chima, no Japanese text on image, no English text on image, no Latin letters on image, no Chinese hanzi on image, no written text, no letters, no captions, no signs with readable writing, distinct individualized faces matching Character Bible Face Identity, each character visually unique, NOT generic bishonen, NOT same face as other disciples, expression follows each character's Face Identity (not uniform heroic pretty-boy look)
+
+SRT_1180 Chinese wuxia manhua illustration — generate this scene now. When multiple characters appear, keep each face visually distinct — do NOT merge into one generic bishonen face. Keep Face Identity…
+============================================================
+[2026-08-30 14:01:34] fail · SRT_1180
+error: Failure 메시지 감지 — 다음 씬으로 진행
+extra: streak=1
+============================================================
+[2026-08-30 18:36:39] limit · SRT_1180
+error: AI Image 한도 - 재설정 2026-08-30 18:36
+extra: reset_at=2026-08-30 18:36
+--- page ---
+AI Image 5시간 제한에 도달했습니다. 8월 30일 오후 6:36에 재설정됩니다
+---
+5시간 제한
+---
+세션 한도 도달
+AI Image 5시간 제한에 도달했습니다. 8월 30일 오후 6:36에 재설정됩니다
+OK
+---
+세션 한도 도달
+AI Image 5시간 제한에 도달했습니다. 8월 30일 오후 6:36에 재설정됩니다
+OK
+---
+5시간 제한
+---
+wash and vibrant cel-shaded coloring, flowing ancient Chinese hanfu robes, ornate jian sword ornaments and swirling qi energy effects, cinematic high-contrast lighting with mystical cyan/crimson/golden aura, classic Chinese manhua panel composition, epic mountain-river jianghu backdrop, 16:9 aspect ratio, ultra high resolution digital manhua art, no Studio Ghibli style, no Korean manhwa, no Japanese anime, no 3D render, no flat cartoon, no photoreal, no live-action photo, no speech bubbles, no comic balloons, no dialogue balloons, no thought bubbles, no tooltips, no help balloons, no UI tips, no callout boxes, no caption boxes, no chat bubbles, no watermarks, no logos, no Hangul, no Korean characters, no Korean written text on image, no hanbok, no Korean traditional clothing, no jeogori, no chima, no Japanese text on image, no English text on image, no Latin letters on image, no Chinese hanzi on image, no written text, no letters, no captions, no signs with readable writing, distinct individualized faces matching Character Bible Face Identity, each character visually unique, NOT generic bishonen, NOT same face as other disciples, expression follows each character's Face Identity (not uniform heroic pretty-boy look)
+
+SRT_1180 Chinese wuxia manhua illustration — generate this sce…
+============================================================
+[2026-08-30 18:36:39] limit · SRT_1180
+error: AI Image 한도 - 재설정 2026-08-30 18:36
+extra: streak=1 reset_at=2026-08-30 18:36
+--- page ---
+AI Image 5시간 제한에 도달했습니다. 8월 30일 오후 6:36에 재설정됩니다 --- 5시간 제한 --- 세션 한도 도달 AI Image 5시간 제한에 도달했습니다. 8월 30일 오후 6:36에 재설정됩니다 OK --- 세션 한도 도달

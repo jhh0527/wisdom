@@ -1,0 +1,1380 @@
+[20:40:17] 탭로그 ON — 브라우저 열기·생성 · 씬 46개 · reopen=True · 한도대기ON
+[20:40:21] ChromeDebug 재시작 slot=0 port=9242 user_data=C:\ChromeDebug_2_5_slot0 reused=0
+[20:40:23] 모델 이미 Pro: Nano Banana Pro
+[20:40:23] 세션 준비 — login=OK model=Nano Banana Pro auto=True
+[20:40:23] ensure_page cur_sc=10 prefer_sc=10 cur=https://www.genspark.ai/ai_image prefer=https://www.genspark.ai/ai_image
+[20:40:24] fill OK(clip) follow=False chars=58968
+[20:40:24] 입력창 붙여넣기 — 프롬프트 45379자 + SRT 13546자 = 합계 58968자
+  prompt=C:\Users\PC\AppData\Local\Temp\_MEI276042\md\image.wuxiz.txt
+  srt=C:\cursor\wuxia\무협극장\검신귀환록\2부\17장\mp3\new.srt
+[20:40:25] ensure_page cur_sc=10 prefer_sc=10 cur=https://www.genspark.ai/ai_image prefer=https://www.genspark.ai/ai_image
+[20:40:26] 동일 입력창에 명령 추가(미실행): ===== CHARACTER LOOK (SRT_000) =====
+State keys: Namgung|base
+Namgung Rin, approximately nineteen years old, quiet sharp-eyed East-Asian youth from a fallen clan branch, tall thin …
+[20:40:27] 상태키 SRT_000 · Baek|base; Jin≈19|base
+[20:40:27] run_scene 시작 SRT_000 · seen_files=0 · last_saved=
+[20:40:27] ensure_page cur_sc=10 prefer_sc=10 cur=https://www.genspark.ai/ai_image prefer=https://www.genspark.ai/ai_image
+[20:40:27] 모델 선택 시작 현재=(없음)
+[20:40:27] 모델 선택 결과 ok=False 칩=(없음) picked=
+[20:40:27] ⏱ 준비 SRT_000 0.1s · chars=1384
+[20:40:27] submit 시작 composer=1384 url=https://www.genspark.ai/ai_image
+[20:40:27] submit geo 실패 hit=no-btn
+[20:40:27] submit 시도 method=geo geo=False
+[20:40:28] submit 미확인 method=geo generating=False composer=1384
+[20:40:28] submit geo 실패 hit=no-btn
+[20:40:28] submit 시도 method=send send=False
+[20:40:28] submit 미확인 method=send generating=False composer=1384
+[20:40:29] submit 시도 method=ctrl
+[20:40:29] submit 미확인 method=ctrl generating=False composer=1386
+[20:40:30] submit 시도 method=enter
+[20:40:30] submit 확인 method=enter generating=False composer=0
+[20:40:30] ⏱ 입력창전송 SRT_000 3.1s
+[20:40:30] 제출 후 last_saved=https://www.genspark.ai/api/files/s/43ny4lik
+[20:40:30] ⏱ 생성대기 시작 SRT_000 max=120s
+[20:40:45] ⏱ 생성대기 진행 15.1s SRT_000 busy=True url_ok=False src=
+[20:41:00] ⏱ 생성대기 진행 30.2s SRT_000 busy=False url_ok=False src=
+[20:41:16] ⏱ 생성대기 진행 45.5s SRT_000 busy=False url_ok=False src=
+[20:41:20] ⏱ 생성대기 완료 50.0s SRT_000 https://www.genspark.ai/api/files/s/btzds3km
+[20:41:20] ⏱ 생성대기구간 SRT_000 50.0s · ok=True
+[20:41:20] SRT_000 근접 이미지 https://www.genspark.ai/api/files/s/btzds3km
+[20:41:20] 다운로드 files URL=https://www.genspark.ai/api/files/s/btzds3km → SRT_000.png
+[20:41:21] ⏱ 다운로드 직접 0.8s size=522342 SRT_000.png
+[20:41:21] ⏱ 다운로드구간 SRT_000 0.8s · SRT_000.png
+[20:41:22] ⏱ 다운로드후유휴 SRT_000 1.0s · idle=True
+[20:41:22] ⏱ 씬합계 SRT_000 55.2s · https://www.genspark.ai/api/files/s/btzds3km
+[20:41:22] SRT_000 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\17장\png\SRT_000.png
+[20:41:22] 상태키 SRT_020 · Baek|base; Jin≈19|base
+[20:41:22] run_scene 시작 SRT_020 · seen_files=1 · last_saved=https://www.genspark.ai/api/files/s/btzds3km
+[20:41:22] ⏱ 준비 SRT_020 0.0s · chars=2488
+[20:41:23] ⏱ 다음명령유휴 SRT_020 1.0s · idle=True
+[20:41:24] fill OK(clip) follow=True chars=2488
+[20:41:24] submit 시작 composer=2488 url=https://www.genspark.ai/agents?id=a2bc3889-b9a8-435a-b569-b034f17482dd
+[20:41:24] submit geo 실패 hit=no-btn
+[20:41:24] submit 시도 method=geo geo=False
+[20:41:24] submit 미확인 method=geo generating=False composer=2488
+[20:41:25] submit geo 실패 hit=no-btn
+[20:41:25] submit 시도 method=send send=False
+[20:41:25] submit 미확인 method=send generating=False composer=2488
+[20:41:26] submit 시도 method=ctrl
+[20:41:26] submit 미확인 method=ctrl generating=False composer=2490
+[20:41:26] submit 시도 method=enter
+[20:41:27] submit 확인 method=enter generating=False composer=0
+[20:41:27] ⏱ 입력·전송 SRT_020 3.6s · chars=2488
+[20:41:27] 제출 후 last_saved=https://www.genspark.ai/api/files/s/btzds3km
+[20:41:27] ⏱ 생성대기 시작 SRT_020 max=120s
+[20:41:40] ⏱ 생성대기 완료 13.2s SRT_020 https://www.genspark.ai/api/files/s/oqpw9txk
+[20:41:40] ⏱ 생성대기구간 SRT_020 13.2s · ok=True
+[20:41:40] SRT_020 근접 이미지 https://www.genspark.ai/api/files/s/oqpw9txk
+[20:41:40] 다운로드 files URL=https://www.genspark.ai/api/files/s/oqpw9txk → SRT_020.png
+[20:41:41] ⏱ 다운로드 직접 0.7s size=518179 SRT_020.png
+[20:41:41] ⏱ 다운로드구간 SRT_020 0.7s · SRT_020.png
+[20:41:42] ⏱ 다운로드후유휴 SRT_020 1.1s · idle=True
+[20:41:42] ⏱ 씬합계 SRT_020 19.9s · https://www.genspark.ai/api/files/s/oqpw9txk
+[20:41:42] SRT_020 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\17장\png\SRT_020.png
+[20:41:42] 상태키 SRT_040 · Baek|base; Jin≈19|base
+[20:41:42] run_scene 시작 SRT_040 · seen_files=2 · last_saved=https://www.genspark.ai/api/files/s/oqpw9txk
+[20:41:42] ⏱ 준비 SRT_040 0.0s · chars=1624
+[20:41:43] ⏱ 다음명령유휴 SRT_040 1.0s · idle=True
+[20:41:44] fill OK(clip) follow=True chars=1624
+[20:41:44] submit 시작 composer=1624 url=https://www.genspark.ai/agents?id=a2bc3889-b9a8-435a-b569-b034f17482dd
+[20:41:44] submit geo 실패 hit=no-btn
+[20:41:44] submit 시도 method=geo geo=False
+[20:41:45] submit 미확인 method=geo generating=False composer=1624
+[20:41:45] submit geo 실패 hit=no-btn
+[20:41:45] submit 시도 method=send send=False
+[20:41:45] submit 미확인 method=send generating=False composer=1624
+[20:41:46] submit 시도 method=ctrl
+[20:41:46] submit 미확인 method=ctrl generating=False composer=1626
+[20:41:46] submit 시도 method=enter
+[20:41:47] submit 확인 method=enter generating=False composer=0
+[20:41:47] ⏱ 입력·전송 SRT_040 3.5s · chars=1624
+[20:41:47] 제출 후 last_saved=https://www.genspark.ai/api/files/s/oqpw9txk
+[20:41:47] ⏱ 생성대기 시작 SRT_040 max=120s
+[20:42:02] ⏱ 생성대기 완료 15.0s SRT_040 https://www.genspark.ai/api/files/s/dojqpk0s
+[20:42:02] ⏱ 생성대기구간 SRT_040 15.0s · ok=True
+[20:42:02] SRT_040 근접 이미지 https://www.genspark.ai/api/files/s/dojqpk0s
+[20:42:02] 다운로드 files URL=https://www.genspark.ai/api/files/s/dojqpk0s → SRT_040.png
+[20:42:03] ⏱ 다운로드 직접 0.8s size=537767 SRT_040.png
+[20:42:03] ⏱ 다운로드구간 SRT_040 0.8s · SRT_040.png
+[20:42:04] ⏱ 다운로드후유휴 SRT_040 1.0s · idle=True
+[20:42:04] ⏱ 씬합계 SRT_040 21.6s · https://www.genspark.ai/api/files/s/dojqpk0s
+[20:42:04] SRT_040 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\17장\png\SRT_040.png
+[20:42:04] 상태키 SRT_060 · Baek|base; Jin≈19|base
+[20:42:04] run_scene 시작 SRT_060 · seen_files=3 · last_saved=https://www.genspark.ai/api/files/s/dojqpk0s
+[20:42:04] ⏱ 준비 SRT_060 0.0s · chars=2496
+[20:42:05] ⏱ 다음명령유휴 SRT_060 1.1s · idle=True
+[20:42:06] fill OK(clip) follow=True chars=2496
+[20:42:06] submit 시작 composer=2496 url=https://www.genspark.ai/agents?id=a2bc3889-b9a8-435a-b569-b034f17482dd
+[20:42:06] submit geo 실패 hit=no-btn
+[20:42:06] submit 시도 method=geo geo=False
+[20:42:07] submit 미확인 method=geo generating=False composer=2496
+[20:42:07] submit geo 실패 hit=no-btn
+[20:42:07] submit 시도 method=send send=False
+[20:42:07] submit 미확인 method=send generating=False composer=2496
+[20:42:07] submit 시도 method=ctrl
+[20:42:08] submit 미확인 method=ctrl generating=False composer=2498
+[20:42:08] submit 시도 method=enter
+[20:42:09] submit 확인 method=enter generating=False composer=0
+[20:42:09] ⏱ 입력·전송 SRT_060 3.5s · chars=2496
+[20:42:09] 제출 후 last_saved=https://www.genspark.ai/api/files/s/dojqpk0s
+[20:42:09] ⏱ 생성대기 시작 SRT_060 max=120s
+[20:42:24] ⏱ 생성대기 완료 15.0s SRT_060 https://www.genspark.ai/api/files/s/frs1rho7
+[20:42:24] ⏱ 생성대기구간 SRT_060 15.0s · ok=True
+[20:42:24] SRT_060 근접 이미지 https://www.genspark.ai/api/files/s/frs1rho7
+[20:42:24] 다운로드 files URL=https://www.genspark.ai/api/files/s/frs1rho7 → SRT_060.png
+[20:42:25] ⏱ 다운로드 직접 0.7s size=464032 SRT_060.png
+[20:42:25] ⏱ 다운로드구간 SRT_060 0.7s · SRT_060.png
+[20:42:26] ⏱ 다운로드후유휴 SRT_060 1.0s · idle=True
+[20:42:26] ⏱ 씬합계 SRT_060 21.7s · https://www.genspark.ai/api/files/s/frs1rho7
+[20:42:26] SRT_060 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\17장\png\SRT_060.png
+[20:42:26] 상태키 SRT_080 · Baek|base; Jin≈19|base
+[20:42:26] run_scene 시작 SRT_080 · seen_files=4 · last_saved=https://www.genspark.ai/api/files/s/frs1rho7
+[20:42:26] ⏱ 준비 SRT_080 0.0s · chars=2144
+[20:42:27] ⏱ 다음명령유휴 SRT_080 1.1s · idle=True
+[20:42:28] fill OK(clip) follow=True chars=2144
+[20:42:28] submit 시작 composer=2144 url=https://www.genspark.ai/agents?id=a2bc3889-b9a8-435a-b569-b034f17482dd
+[20:42:28] submit geo 실패 hit=no-btn
+[20:42:28] submit 시도 method=geo geo=False
+[20:42:28] submit 미확인 method=geo generating=False composer=2144
+[20:42:28] submit geo 실패 hit=no-btn
+[20:42:28] submit 시도 method=send send=False
+[20:42:29] submit 미확인 method=send generating=False composer=2144
+[20:42:29] submit 시도 method=ctrl
+[20:42:30] submit 미확인 method=ctrl generating=False composer=2146
+[20:42:30] submit 시도 method=enter
+[20:42:31] submit 확인 method=enter generating=False composer=0
+[20:42:31] ⏱ 입력·전송 SRT_080 3.5s · chars=2144
+[20:42:31] 제출 후 last_saved=https://www.genspark.ai/api/files/s/frs1rho7
+[20:42:31] ⏱ 생성대기 시작 SRT_080 max=120s
+[20:42:43] ⏱ 생성대기 완료 12.4s SRT_080 https://www.genspark.ai/api/files/s/wh4esso6
+[20:42:43] ⏱ 생성대기구간 SRT_080 12.4s · ok=True
+[20:42:43] SRT_080 근접 이미지 https://www.genspark.ai/api/files/s/wh4esso6
+[20:42:43] 다운로드 files URL=https://www.genspark.ai/api/files/s/wh4esso6 → SRT_080.png
+[20:42:44] ⏱ 다운로드 직접 0.9s size=644570 SRT_080.png
+[20:42:44] ⏱ 다운로드구간 SRT_080 0.9s · SRT_080.png
+[20:42:45] ⏱ 다운로드후유휴 SRT_080 1.0s · idle=True
+[20:42:45] ⏱ 씬합계 SRT_080 19.1s · https://www.genspark.ai/api/files/s/wh4esso6
+[20:42:45] SRT_080 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\17장\png\SRT_080.png
+[20:42:45] 상태키 SRT_100 · Baek|base; Jin≈19|base
+[20:42:45] run_scene 시작 SRT_100 · seen_files=5 · last_saved=https://www.genspark.ai/api/files/s/wh4esso6
+[20:42:45] ⏱ 준비 SRT_100 0.0s · chars=2159
+[20:42:46] ⏱ 다음명령유휴 SRT_100 1.1s · idle=True
+[20:42:47] fill OK(clip) follow=True chars=2159
+[20:42:47] submit 시작 composer=2159 url=https://www.genspark.ai/agents?id=a2bc3889-b9a8-435a-b569-b034f17482dd
+[20:42:47] submit geo 실패 hit=no-btn
+[20:42:47] submit 시도 method=geo geo=False
+[20:42:48] submit 미확인 method=geo generating=False composer=2159
+[20:42:48] submit geo 실패 hit=no-btn
+[20:42:48] submit 시도 method=send send=False
+[20:42:48] submit 미확인 method=send generating=False composer=2159
+[20:42:48] submit 시도 method=ctrl
+[20:42:49] submit 미확인 method=ctrl generating=False composer=2161
+[20:42:49] submit 시도 method=enter
+[20:42:50] submit 확인 method=enter generating=False composer=0
+[20:42:50] ⏱ 입력·전송 SRT_100 3.5s · chars=2159
+[20:42:50] 제출 후 last_saved=https://www.genspark.ai/api/files/s/wh4esso6
+[20:42:50] ⏱ 생성대기 시작 SRT_100 max=120s
+[20:43:03] ⏱ 생성대기 완료 13.1s SRT_100 https://www.genspark.ai/api/files/s/8zqe7nfl
+[20:43:03] ⏱ 생성대기구간 SRT_100 13.1s · ok=True
+[20:43:03] SRT_100 근접 이미지 https://www.genspark.ai/api/files/s/8zqe7nfl
+[20:43:03] 다운로드 files URL=https://www.genspark.ai/api/files/s/8zqe7nfl → SRT_100.png
+[20:43:04] ⏱ 다운로드 직접 0.7s size=566580 SRT_100.png
+[20:43:04] ⏱ 다운로드구간 SRT_100 0.7s · SRT_100.png
+[20:43:05] ⏱ 다운로드후유휴 SRT_100 1.0s · idle=True
+[20:43:05] ⏱ 씬합계 SRT_100 19.7s · https://www.genspark.ai/api/files/s/8zqe7nfl
+[20:43:05] SRT_100 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\17장\png\SRT_100.png
+[20:43:05] 상태키 SRT_120 · Baek|base; Jin≈19|base
+[20:43:05] run_scene 시작 SRT_120 · seen_files=6 · last_saved=https://www.genspark.ai/api/files/s/8zqe7nfl
+[20:43:05] ⏱ 준비 SRT_120 0.0s · chars=2135
+[20:43:06] ⏱ 다음명령유휴 SRT_120 1.1s · idle=True
+[20:43:07] fill OK(clip) follow=True chars=2135
+[20:43:07] submit 시작 composer=2135 url=https://www.genspark.ai/agents?id=a2bc3889-b9a8-435a-b569-b034f17482dd
+[20:43:07] submit geo 실패 hit=no-btn
+[20:43:07] submit 시도 method=geo geo=False
+[20:43:07] submit 미확인 method=geo generating=False composer=2135
+[20:43:07] submit geo 실패 hit=no-btn
+[20:43:07] submit 시도 method=send send=False
+[20:43:08] submit 미확인 method=send generating=False composer=2135
+[20:43:08] submit 시도 method=ctrl
+[20:43:09] submit 미확인 method=ctrl generating=False composer=2137
+[20:43:09] submit 시도 method=enter
+[20:43:10] submit 확인 method=enter generating=False composer=0
+[20:43:10] ⏱ 입력·전송 SRT_120 3.5s · chars=2135
+[20:43:10] 제출 후 last_saved=https://www.genspark.ai/api/files/s/8zqe7nfl
+[20:43:10] ⏱ 생성대기 시작 SRT_120 max=120s
+[20:43:25] ⏱ 생성대기 진행 15.0s SRT_120 busy=False url_ok=False src=
+[20:43:29] ⏱ 생성대기 완료 19.6s SRT_120 https://www.genspark.ai/api/files/s/mmodbyvl
+[20:43:29] ⏱ 생성대기구간 SRT_120 19.6s · ok=True
+[20:43:29] SRT_120 근접 이미지 https://www.genspark.ai/api/files/s/mmodbyvl
+[20:43:29] 다운로드 files URL=https://www.genspark.ai/api/files/s/mmodbyvl → SRT_120.png
+[20:43:30] ⏱ 다운로드 직접 0.7s size=565888 SRT_120.png
+[20:43:30] ⏱ 다운로드구간 SRT_120 0.7s · SRT_120.png
+[20:43:31] ⏱ 다운로드후유휴 SRT_120 1.1s · idle=True
+[20:43:31] ⏱ 씬합계 SRT_120 26.1s · https://www.genspark.ai/api/files/s/mmodbyvl
+[20:43:31] SRT_120 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\17장\png\SRT_120.png
+[20:43:31] 상태키 SRT_140 · Baek|base; Jin≈19|base
+[20:43:31] run_scene 시작 SRT_140 · seen_files=7 · last_saved=https://www.genspark.ai/api/files/s/mmodbyvl
+[20:43:31] ⏱ 준비 SRT_140 0.0s · chars=2121
+[20:43:32] ⏱ 다음명령유휴 SRT_140 1.0s · idle=True
+[20:43:33] fill OK(clip) follow=True chars=2121
+[20:43:33] submit 시작 composer=2121 url=https://www.genspark.ai/agents?id=a2bc3889-b9a8-435a-b569-b034f17482dd
+[20:43:33] submit geo 실패 hit=no-btn
+[20:43:33] submit 시도 method=geo geo=False
+[20:43:34] submit 미확인 method=geo generating=False composer=2121
+[20:43:34] submit geo 실패 hit=no-btn
+[20:43:34] submit 시도 method=send send=False
+[20:43:34] submit 미확인 method=send generating=False composer=2121
+[20:43:35] submit 시도 method=ctrl
+[20:43:35] submit 미확인 method=ctrl generating=False composer=2123
+[20:43:35] submit 시도 method=enter
+[20:43:36] submit 확인 method=enter generating=False composer=0
+[20:43:36] ⏱ 입력·전송 SRT_140 3.5s · chars=2121
+[20:43:36] 제출 후 last_saved=https://www.genspark.ai/api/files/s/mmodbyvl
+[20:43:36] ⏱ 생성대기 시작 SRT_140 max=120s
+[20:43:51] ⏱ 생성대기 진행 15.2s SRT_140 busy=False url_ok=False src=
+[20:43:53] ⏱ 생성대기 완료 17.1s SRT_140 https://www.genspark.ai/api/files/s/dbhciisl
+[20:43:53] ⏱ 생성대기구간 SRT_140 17.1s · ok=True
+[20:43:53] SRT_140 근접 이미지 https://www.genspark.ai/api/files/s/dbhciisl
+[20:43:53] 다운로드 files URL=https://www.genspark.ai/api/files/s/dbhciisl → SRT_140.png
+[20:43:54] ⏱ 다운로드 직접 0.8s size=624017 SRT_140.png
+[20:43:54] ⏱ 다운로드구간 SRT_140 0.8s · SRT_140.png
+[20:43:55] ⏱ 다운로드후유휴 SRT_140 1.0s · idle=True
+[20:43:55] ⏱ 씬합계 SRT_140 23.8s · https://www.genspark.ai/api/files/s/dbhciisl
+[20:43:55] SRT_140 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\17장\png\SRT_140.png
+[20:43:55] 상태키 SRT_160 · Baek|base; Jin≈19|base
+[20:43:55] run_scene 시작 SRT_160 · seen_files=8 · last_saved=https://www.genspark.ai/api/files/s/dbhciisl
+[20:43:55] ⏱ 준비 SRT_160 0.0s · chars=2148
+[20:43:56] ⏱ 다음명령유휴 SRT_160 1.1s · idle=True
+[20:43:57] fill OK(clip) follow=True chars=2148
+[20:43:57] submit 시작 composer=2148 url=https://www.genspark.ai/agents?id=a2bc3889-b9a8-435a-b569-b034f17482dd
+[20:43:57] submit geo 실패 hit=no-btn
+[20:43:57] submit 시도 method=geo geo=False
+[20:43:58] submit 미확인 method=geo generating=False composer=2148
+[20:43:58] submit geo 실패 hit=no-btn
+[20:43:58] submit 시도 method=send send=False
+[20:43:58] submit 미확인 method=send generating=False composer=2148
+[20:43:58] submit 시도 method=ctrl
+[20:43:59] submit 미확인 method=ctrl generating=False composer=2150
+[20:43:59] submit 시도 method=enter
+[20:44:00] submit 확인 method=enter generating=False composer=0
+[20:44:00] ⏱ 입력·전송 SRT_160 3.5s · chars=2148
+[20:44:00] 제출 후 last_saved=https://www.genspark.ai/api/files/s/dbhciisl
+[20:44:00] ⏱ 생성대기 시작 SRT_160 max=120s
+[20:44:14] ⏱ 생성대기 완료 13.8s SRT_160 https://www.genspark.ai/api/files/s/dbaxc97w
+[20:44:14] ⏱ 생성대기구간 SRT_160 13.8s · ok=True
+[20:44:14] SRT_160 근접 이미지 https://www.genspark.ai/api/files/s/dbaxc97w
+[20:44:14] 다운로드 files URL=https://www.genspark.ai/api/files/s/dbaxc97w → SRT_160.png
+[20:44:15] ⏱ 다운로드 직접 0.7s size=640658 SRT_160.png
+[20:44:15] ⏱ 다운로드구간 SRT_160 0.7s · SRT_160.png
+[20:44:16] ⏱ 다운로드후유휴 SRT_160 1.0s · idle=True
+[20:44:16] ⏱ 씬합계 SRT_160 20.3s · https://www.genspark.ai/api/files/s/dbaxc97w
+[20:44:16] SRT_160 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\17장\png\SRT_160.png
+[20:44:16] 상태키 SRT_180 · Baek|base; Jin≈19|base
+[20:44:16] run_scene 시작 SRT_180 · seen_files=9 · last_saved=https://www.genspark.ai/api/files/s/dbaxc97w
+[20:44:16] ⏱ 준비 SRT_180 0.0s · chars=2168
+[20:44:17] ⏱ 다음명령유휴 SRT_180 1.0s · idle=True
+[20:44:17] fill OK(clip) follow=True chars=2168
+[20:44:17] submit 시작 composer=2168 url=https://www.genspark.ai/agents?id=a2bc3889-b9a8-435a-b569-b034f17482dd
+[20:44:17] submit geo 실패 hit=no-btn
+[20:44:17] submit 시도 method=geo geo=False
+[20:44:18] submit 미확인 method=geo generating=False composer=2168
+[20:44:18] submit geo 실패 hit=no-btn
+[20:44:18] submit 시도 method=send send=False
+[20:44:19] submit 미확인 method=send generating=False composer=2168
+[20:44:19] submit 시도 method=ctrl
+[20:44:19] submit 미확인 method=ctrl generating=False composer=2170
+[20:44:20] submit 시도 method=enter
+[20:44:20] submit 확인 method=enter generating=False composer=0
+[20:44:20] ⏱ 입력·전송 SRT_180 3.5s · chars=2168
+[20:44:20] 제출 후 last_saved=https://www.genspark.ai/api/files/s/dbaxc97w
+[20:44:21] ⏱ 생성대기 시작 SRT_180 max=120s
+[20:44:33] ⏱ 생성대기 완료 12.9s SRT_180 https://www.genspark.ai/api/files/s/iqrq3flf
+[20:44:33] ⏱ 생성대기구간 SRT_180 12.9s · ok=True
+[20:44:33] SRT_180 근접 이미지 https://www.genspark.ai/api/files/s/iqrq3flf
+[20:44:33] 다운로드 files URL=https://www.genspark.ai/api/files/s/iqrq3flf → SRT_180.png
+[20:44:34] ⏱ 다운로드 직접 0.7s size=637684 SRT_180.png
+[20:44:34] ⏱ 다운로드구간 SRT_180 0.7s · SRT_180.png
+[20:44:35] ⏱ 다운로드후유휴 SRT_180 1.0s · idle=True
+[20:44:35] ⏱ 씬합계 SRT_180 19.4s · https://www.genspark.ai/api/files/s/iqrq3flf
+[20:44:35] SRT_180 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\17장\png\SRT_180.png
+[20:44:35] 상태키 SRT_200 · Baek|base; Jin≈19|base
+[20:44:35] run_scene 시작 SRT_200 · seen_files=10 · last_saved=https://www.genspark.ai/api/files/s/iqrq3flf
+[20:44:35] ⏱ 준비 SRT_200 0.0s · chars=2162
+[20:44:36] ⏱ 다음명령유휴 SRT_200 1.0s · idle=True
+[20:44:37] fill OK(clip) follow=True chars=2162
+[20:44:37] submit 시작 composer=2162 url=https://www.genspark.ai/agents?id=a2bc3889-b9a8-435a-b569-b034f17482dd
+[20:44:37] submit geo 실패 hit=no-btn
+[20:44:37] submit 시도 method=geo geo=False
+[20:44:38] submit 미확인 method=geo generating=False composer=2162
+[20:44:38] submit geo 실패 hit=no-btn
+[20:44:38] submit 시도 method=send send=False
+[20:44:38] submit 미확인 method=send generating=False composer=2162
+[20:44:39] submit 시도 method=ctrl
+[20:44:39] submit 미확인 method=ctrl generating=False composer=2164
+[20:44:39] submit 시도 method=enter
+[20:44:40] submit 확인 method=enter generating=False composer=0
+[20:44:40] ⏱ 입력·전송 SRT_200 3.5s · chars=2162
+[20:44:40] 제출 후 last_saved=https://www.genspark.ai/api/files/s/iqrq3flf
+[20:44:40] ⏱ 생성대기 시작 SRT_200 max=120s
+[20:44:55] ⏱ 생성대기 진행 15.1s SRT_200 busy=False url_ok=False src=
+[20:44:57] ⏱ 생성대기 완료 17.1s SRT_200 https://www.genspark.ai/api/files/s/emyw4e6p
+[20:44:57] ⏱ 생성대기구간 SRT_200 17.1s · ok=True
+[20:44:57] SRT_200 근접 이미지 https://www.genspark.ai/api/files/s/emyw4e6p
+[20:44:57] 다운로드 files URL=https://www.genspark.ai/api/files/s/emyw4e6p → SRT_200.png
+[20:44:58] ⏱ 다운로드 직접 0.7s size=379546 SRT_200.png
+[20:44:58] ⏱ 다운로드구간 SRT_200 0.7s · SRT_200.png
+[20:44:59] ⏱ 다운로드후유휴 SRT_200 1.1s · idle=True
+[20:44:59] ⏱ 씬합계 SRT_200 23.7s · https://www.genspark.ai/api/files/s/emyw4e6p
+[20:44:59] SRT_200 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\17장\png\SRT_200.png
+[20:44:59] 상태키 SRT_220 · Baek|base; Jin≈19|base
+[20:44:59] run_scene 시작 SRT_220 · seen_files=11 · last_saved=https://www.genspark.ai/api/files/s/emyw4e6p
+[20:44:59] ⏱ 준비 SRT_220 0.0s · chars=1398
+[20:45:00] ⏱ 다음명령유휴 SRT_220 1.0s · idle=True
+[20:45:01] fill OK(clip) follow=True chars=1398
+[20:45:01] submit 시작 composer=1398 url=https://www.genspark.ai/agents?id=a2bc3889-b9a8-435a-b569-b034f17482dd
+[20:45:01] submit geo 실패 hit=no-btn
+[20:45:01] submit 시도 method=geo geo=False
+[20:45:01] submit 미확인 method=geo generating=False composer=1398
+[20:45:02] submit geo 실패 hit=no-btn
+[20:45:02] submit 시도 method=send send=False
+[20:45:02] submit 미확인 method=send generating=False composer=1398
+[20:45:02] submit 시도 method=ctrl
+[20:45:03] submit 미확인 method=ctrl generating=False composer=1400
+[20:45:03] submit 시도 method=enter
+[20:45:04] submit 확인 method=enter generating=False composer=0
+[20:45:04] ⏱ 입력·전송 SRT_220 3.5s · chars=1398
+[20:45:04] 제출 후 last_saved=https://www.genspark.ai/api/files/s/emyw4e6p
+[20:45:04] ⏱ 생성대기 시작 SRT_220 max=120s
+[20:45:19] ⏱ 생성대기 진행 15.1s SRT_220 busy=False url_ok=False src=
+[20:45:23] ⏱ 생성대기 완료 19.4s SRT_220 https://www.genspark.ai/api/files/s/newybzdc
+[20:45:23] ⏱ 생성대기구간 SRT_220 19.4s · ok=True
+[20:45:23] SRT_220 근접 이미지 https://www.genspark.ai/api/files/s/newybzdc
+[20:45:23] 다운로드 files URL=https://www.genspark.ai/api/files/s/newybzdc → SRT_220.png
+[20:45:24] ⏱ 다운로드 직접 0.7s size=587929 SRT_220.png
+[20:45:24] ⏱ 다운로드구간 SRT_220 0.7s · SRT_220.png
+[20:45:25] ⏱ 다운로드후유휴 SRT_220 1.1s · idle=True
+[20:45:25] ⏱ 씬합계 SRT_220 25.9s · https://www.genspark.ai/api/files/s/newybzdc
+[20:45:25] SRT_220 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\17장\png\SRT_220.png
+[20:45:25] 상태키 SRT_240 · Baek|base; Jin≈19|base
+[20:45:25] run_scene 시작 SRT_240 · seen_files=12 · last_saved=https://www.genspark.ai/api/files/s/newybzdc
+[20:45:25] ⏱ 준비 SRT_240 0.0s · chars=2141
+[20:45:26] ⏱ 다음명령유휴 SRT_240 1.1s · idle=True
+[20:45:27] fill OK(clip) follow=True chars=2141
+[20:45:27] submit 시작 composer=2141 url=https://www.genspark.ai/agents?id=a2bc3889-b9a8-435a-b569-b034f17482dd
+[20:45:27] submit geo 실패 hit=no-btn
+[20:45:27] submit 시도 method=geo geo=False
+[20:45:28] submit 미확인 method=geo generating=False composer=2141
+[20:45:28] submit geo 실패 hit=no-btn
+[20:45:28] submit 시도 method=send send=False
+[20:45:28] submit 미확인 method=send generating=False composer=2141
+[20:45:29] submit 시도 method=ctrl
+[20:45:29] submit 미확인 method=ctrl generating=False composer=2143
+[20:45:29] submit 시도 method=enter
+[20:45:30] submit 확인 method=enter generating=False composer=0
+[20:45:30] ⏱ 입력·전송 SRT_240 3.5s · chars=2141
+[20:45:30] 제출 후 last_saved=https://www.genspark.ai/api/files/s/newybzdc
+[20:45:30] ⏱ 생성대기 시작 SRT_240 max=120s
+[20:45:45] ⏱ 생성대기 진행 15.4s SRT_240 busy=False url_ok=True src=https://www.genspark.ai/api/files/s/i0gekumq
+[20:45:46] ⏱ 생성대기 완료 15.6s SRT_240 https://www.genspark.ai/api/files/s/i0gekumq
+[20:45:46] ⏱ 생성대기구간 SRT_240 15.6s · ok=True
+[20:45:46] SRT_240 근접 이미지 https://www.genspark.ai/api/files/s/i0gekumq
+[20:45:46] 다운로드 files URL=https://www.genspark.ai/api/files/s/i0gekumq → SRT_240.png
+[20:45:46] ⏱ 다운로드 직접 0.7s size=474075 SRT_240.png
+[20:45:46] ⏱ 다운로드구간 SRT_240 0.7s · SRT_240.png
+[20:45:47] ⏱ 다운로드후유휴 SRT_240 1.0s · idle=True
+[20:45:47] ⏱ 씬합계 SRT_240 22.1s · https://www.genspark.ai/api/files/s/i0gekumq
+[20:45:47] SRT_240 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\17장\png\SRT_240.png
+[20:45:48] 상태키 SRT_260 · Baek|base; Jin≈19|base
+[20:45:48] run_scene 시작 SRT_260 · seen_files=13 · last_saved=https://www.genspark.ai/api/files/s/i0gekumq
+[20:45:48] ⏱ 준비 SRT_260 0.0s · chars=2146
+[20:45:49] ⏱ 다음명령유휴 SRT_260 1.1s · idle=True
+[20:45:49] fill OK(clip) follow=True chars=2146
+[20:45:49] submit 시작 composer=2146 url=https://www.genspark.ai/agents?id=a2bc3889-b9a8-435a-b569-b034f17482dd
+[20:45:49] submit geo 실패 hit=no-btn
+[20:45:49] submit 시도 method=geo geo=False
+[20:45:50] submit 미확인 method=geo generating=False composer=2146
+[20:45:50] submit geo 실패 hit=no-btn
+[20:45:50] submit 시도 method=send send=False
+[20:45:51] submit 미확인 method=send generating=False composer=2146
+[20:45:51] submit 시도 method=ctrl
+[20:45:51] submit 미확인 method=ctrl generating=False composer=2148
+[20:45:52] submit 시도 method=enter
+[20:45:52] submit 확인 method=enter generating=False composer=0
+[20:45:52] ⏱ 입력·전송 SRT_260 3.5s · chars=2146
+[20:45:52] 제출 후 last_saved=https://www.genspark.ai/api/files/s/i0gekumq
+[20:45:52] ⏱ 생성대기 시작 SRT_260 max=120s
+[20:46:07] ⏱ 생성대기 완료 14.6s SRT_260 https://www.genspark.ai/api/files/s/vhvijhh9
+[20:46:07] ⏱ 생성대기구간 SRT_260 14.6s · ok=True
+[20:46:07] SRT_260 근접 이미지 https://www.genspark.ai/api/files/s/vhvijhh9
+[20:46:07] 다운로드 files URL=https://www.genspark.ai/api/files/s/vhvijhh9 → SRT_260.png
+[20:46:08] ⏱ 다운로드 직접 0.7s size=568837 SRT_260.png
+[20:46:08] ⏱ 다운로드구간 SRT_260 0.7s · SRT_260.png
+[20:46:09] ⏱ 다운로드후유휴 SRT_260 1.2s · idle=True
+[20:46:09] ⏱ 씬합계 SRT_260 21.3s · https://www.genspark.ai/api/files/s/vhvijhh9
+[20:46:09] SRT_260 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\17장\png\SRT_260.png
+[20:46:09] 상태키 SRT_280 · Baek|base; Jin≈19|base
+[20:46:09] run_scene 시작 SRT_280 · seen_files=14 · last_saved=https://www.genspark.ai/api/files/s/vhvijhh9
+[20:46:09] ⏱ 준비 SRT_280 0.0s · chars=2125
+[20:46:10] ⏱ 다음명령유휴 SRT_280 1.1s · idle=True
+[20:46:11] fill OK(clip) follow=True chars=2125
+[20:46:11] submit 시작 composer=2125 url=https://www.genspark.ai/agents?id=a2bc3889-b9a8-435a-b569-b034f17482dd
+[20:46:11] submit geo 실패 hit=no-btn
+[20:46:11] submit 시도 method=geo geo=False
+[20:46:11] submit 미확인 method=geo generating=False composer=2125
+[20:46:12] submit geo 실패 hit=no-btn
+[20:46:12] submit 시도 method=send send=False
+[20:46:12] submit 미확인 method=send generating=False composer=2125
+[20:46:12] submit 시도 method=ctrl
+[20:46:13] submit 미확인 method=ctrl generating=False composer=2127
+[20:46:13] submit 시도 method=enter
+[20:46:14] submit 확인 method=enter generating=False composer=0
+[20:46:14] ⏱ 입력·전송 SRT_280 3.5s · chars=2125
+[20:46:14] 제출 후 last_saved=https://www.genspark.ai/api/files/s/vhvijhh9
+[20:46:14] ⏱ 생성대기 시작 SRT_280 max=120s
+[20:46:26] ⏱ 생성대기 완료 11.9s SRT_280 https://www.genspark.ai/api/files/s/340djw83
+[20:46:26] ⏱ 생성대기구간 SRT_280 11.9s · ok=True
+[20:46:26] SRT_280 근접 이미지 https://www.genspark.ai/api/files/s/340djw83
+[20:46:26] 다운로드 files URL=https://www.genspark.ai/api/files/s/340djw83 → SRT_280.png
+[20:46:27] ⏱ 다운로드 직접 1.0s size=424191 SRT_280.png
+[20:46:27] ⏱ 다운로드구간 SRT_280 1.0s · SRT_280.png
+[20:46:28] ⏱ 다운로드후유휴 SRT_280 1.1s · idle=True
+[20:46:28] ⏱ 씬합계 SRT_280 18.7s · https://www.genspark.ai/api/files/s/340djw83
+[20:46:28] SRT_280 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\17장\png\SRT_280.png
+[20:46:28] 상태키 SRT_300 · Baek|base; Jin≈19|base
+[20:46:28] run_scene 시작 SRT_300 · seen_files=15 · last_saved=https://www.genspark.ai/api/files/s/340djw83
+[20:46:28] ⏱ 준비 SRT_300 0.0s · chars=1647
+[20:46:29] ⏱ 다음명령유휴 SRT_300 1.0s · idle=True
+[20:46:30] fill OK(clip) follow=True chars=1647
+[20:46:30] submit 시작 composer=1647 url=https://www.genspark.ai/agents?id=a2bc3889-b9a8-435a-b569-b034f17482dd
+[20:46:30] submit geo 실패 hit=no-btn
+[20:46:30] submit 시도 method=geo geo=False
+[20:46:30] submit 미확인 method=geo generating=False composer=1647
+[20:46:30] submit geo 실패 hit=no-btn
+[20:46:30] submit 시도 method=send send=False
+[20:46:31] submit 미확인 method=send generating=False composer=1647
+[20:46:31] submit 시도 method=ctrl
+[20:46:32] submit 미확인 method=ctrl generating=False composer=1649
+[20:46:32] submit 시도 method=enter
+[20:46:33] submit 확인 method=enter generating=False composer=0
+[20:46:33] ⏱ 입력·전송 SRT_300 3.5s · chars=1647
+[20:46:33] 제출 후 last_saved=https://www.genspark.ai/api/files/s/340djw83
+[20:46:33] ⏱ 생성대기 시작 SRT_300 max=120s
+[20:46:48] ⏱ 생성대기 진행 15.0s SRT_300 busy=False url_ok=True src=https://www.genspark.ai/api/files/s/ryvgctji
+[20:46:48] ⏱ 생성대기 완료 15.2s SRT_300 https://www.genspark.ai/api/files/s/ryvgctji
+[20:46:48] ⏱ 생성대기구간 SRT_300 15.2s · ok=True
+[20:46:48] SRT_300 근접 이미지 https://www.genspark.ai/api/files/s/ryvgctji
+[20:46:48] 다운로드 files URL=https://www.genspark.ai/api/files/s/ryvgctji → SRT_300.png
+[20:46:49] ⏱ 다운로드 직접 0.7s size=403918 SRT_300.png
+[20:46:49] ⏱ 다운로드구간 SRT_300 0.7s · SRT_300.png
+[20:46:50] ⏱ 다운로드후유휴 SRT_300 1.1s · idle=True
+[20:46:50] ⏱ 씬합계 SRT_300 21.7s · https://www.genspark.ai/api/files/s/ryvgctji
+[20:46:50] SRT_300 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\17장\png\SRT_300.png
+[20:46:50] 상태키 SRT_320 · Baek|base; Jin≈19|base
+[20:46:50] run_scene 시작 SRT_320 · seen_files=16 · last_saved=https://www.genspark.ai/api/files/s/ryvgctji
+[20:46:50] ⏱ 준비 SRT_320 0.0s · chars=2160
+[20:46:51] ⏱ 다음명령유휴 SRT_320 1.0s · idle=True
+[20:46:51] fill OK(clip) follow=True chars=2160
+[20:46:51] submit 시작 composer=2160 url=https://www.genspark.ai/agents?id=a2bc3889-b9a8-435a-b569-b034f17482dd
+[20:46:52] submit geo 실패 hit=no-btn
+[20:46:52] submit 시도 method=geo geo=False
+[20:46:52] submit 미확인 method=geo generating=False composer=2160
+[20:46:52] submit geo 실패 hit=no-btn
+[20:46:52] submit 시도 method=send send=False
+[20:46:53] submit 미확인 method=send generating=False composer=2160
+[20:46:53] submit 시도 method=ctrl
+[20:46:54] submit 미확인 method=ctrl generating=False composer=2162
+[20:46:54] submit 시도 method=enter
+[20:46:54] submit 확인 method=enter generating=False composer=0
+[20:46:54] ⏱ 입력·전송 SRT_320 3.5s · chars=2160
+[20:46:54] 제출 후 last_saved=https://www.genspark.ai/api/files/s/ryvgctji
+[20:46:55] ⏱ 생성대기 시작 SRT_320 max=120s
+[20:47:10] ⏱ 생성대기 진행 15.2s SRT_320 busy=False url_ok=False src=
+[20:47:15] ⏱ 생성대기 완료 20.8s SRT_320 https://www.genspark.ai/api/files/s/sfqrevdv
+[20:47:15] ⏱ 생성대기구간 SRT_320 20.8s · ok=True
+[20:47:15] SRT_320 근접 이미지 https://www.genspark.ai/api/files/s/sfqrevdv
+[20:47:15] 다운로드 files URL=https://www.genspark.ai/api/files/s/sfqrevdv → SRT_320.png
+[20:47:16] ⏱ 다운로드 직접 0.7s size=387906 SRT_320.png
+[20:47:16] ⏱ 다운로드구간 SRT_320 0.7s · SRT_320.png
+[20:47:17] ⏱ 다운로드후유휴 SRT_320 1.1s · idle=True
+[20:47:17] ⏱ 씬합계 SRT_320 27.3s · https://www.genspark.ai/api/files/s/sfqrevdv
+[20:47:17] SRT_320 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\17장\png\SRT_320.png
+[20:47:17] 상태키 SRT_340 · Baek|base; Jin≈19|base
+[20:47:17] run_scene 시작 SRT_340 · seen_files=17 · last_saved=https://www.genspark.ai/api/files/s/sfqrevdv
+[20:47:17] ⏱ 준비 SRT_340 0.0s · chars=2163
+[20:47:18] ⏱ 다음명령유휴 SRT_340 1.0s · idle=True
+[20:47:19] fill OK(clip) follow=True chars=2163
+[20:47:19] submit 시작 composer=2163 url=https://www.genspark.ai/agents?id=a2bc3889-b9a8-435a-b569-b034f17482dd
+[20:47:19] submit geo 실패 hit=no-btn
+[20:47:19] submit 시도 method=geo geo=False
+[20:47:20] submit 미확인 method=geo generating=False composer=2163
+[20:47:20] submit geo 실패 hit=no-btn
+[20:47:20] submit 시도 method=send send=False
+[20:47:20] submit 미확인 method=send generating=False composer=2163
+[20:47:21] submit 시도 method=ctrl
+[20:47:21] submit 미확인 method=ctrl generating=False composer=2165
+[20:47:21] submit 시도 method=enter
+[20:47:22] submit 확인 method=enter generating=False composer=0
+[20:47:22] ⏱ 입력·전송 SRT_340 3.5s · chars=2163
+[20:47:22] 제출 후 last_saved=https://www.genspark.ai/api/files/s/sfqrevdv
+[20:47:22] ⏱ 생성대기 시작 SRT_340 max=120s
+[20:47:37] ⏱ 생성대기 진행 15.1s SRT_340 busy=False url_ok=False src=
+[20:47:38] ⏱ 생성대기 완료 16.2s SRT_340 https://www.genspark.ai/api/files/s/co9tm5q2
+[20:47:38] ⏱ 생성대기구간 SRT_340 16.2s · ok=True
+[20:47:38] SRT_340 근접 이미지 https://www.genspark.ai/api/files/s/co9tm5q2
+[20:47:38] 다운로드 files URL=https://www.genspark.ai/api/files/s/co9tm5q2 → SRT_340.png
+[20:47:39] ⏱ 다운로드 직접 0.8s size=455042 SRT_340.png
+[20:47:39] ⏱ 다운로드구간 SRT_340 0.8s · SRT_340.png
+[20:47:40] ⏱ 다운로드후유휴 SRT_340 1.0s · idle=True
+[20:47:40] ⏱ 씬합계 SRT_340 22.9s · https://www.genspark.ai/api/files/s/co9tm5q2
+[20:47:40] SRT_340 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\17장\png\SRT_340.png
+[20:47:40] 상태키 SRT_360 · Baek|base; Jin≈19|base
+[20:47:40] run_scene 시작 SRT_360 · seen_files=18 · last_saved=https://www.genspark.ai/api/files/s/co9tm5q2
+[20:47:40] ⏱ 준비 SRT_360 0.0s · chars=2677
+[20:47:41] ⏱ 다음명령유휴 SRT_360 1.0s · idle=True
+[20:47:42] fill OK(clip) follow=True chars=2677
+[20:47:42] submit 시작 composer=2677 url=https://www.genspark.ai/agents?id=a2bc3889-b9a8-435a-b569-b034f17482dd
+[20:47:42] submit geo 실패 hit=no-btn
+[20:47:42] submit 시도 method=geo geo=False
+[20:47:43] submit 미확인 method=geo generating=False composer=2677
+[20:47:43] submit geo 실패 hit=no-btn
+[20:47:43] submit 시도 method=send send=False
+[20:47:43] submit 미확인 method=send generating=False composer=2677
+[20:47:44] submit 시도 method=ctrl
+[20:47:44] submit 미확인 method=ctrl generating=False composer=2679
+[20:47:44] submit 시도 method=enter
+[20:47:45] submit 확인 method=enter generating=False composer=0
+[20:47:45] ⏱ 입력·전송 SRT_360 3.5s · chars=2677
+[20:47:45] 제출 후 last_saved=https://www.genspark.ai/api/files/s/co9tm5q2
+[20:47:45] ⏱ 생성대기 시작 SRT_360 max=120s
+[20:48:01] ⏱ 생성대기 진행 15.5s SRT_360 busy=True url_ok=False src=
+[20:48:06] ⏱ 생성대기 완료 20.8s SRT_360 https://www.genspark.ai/api/files/s/bymshx7e
+[20:48:06] ⏱ 생성대기구간 SRT_360 20.8s · ok=True
+[20:48:06] SRT_360 근접 이미지 https://www.genspark.ai/api/files/s/bymshx7e
+[20:48:06] 다운로드 files URL=https://www.genspark.ai/api/files/s/bymshx7e → SRT_360.png
+[20:48:07] ⏱ 다운로드 직접 0.7s size=414606 SRT_360.png
+[20:48:07] ⏱ 다운로드구간 SRT_360 0.7s · SRT_360.png
+[20:48:08] ⏱ 다운로드후유휴 SRT_360 1.1s · idle=True
+[20:48:08] ⏱ 씬합계 SRT_360 27.4s · https://www.genspark.ai/api/files/s/bymshx7e
+[20:48:08] SRT_360 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\17장\png\SRT_360.png
+[20:48:08] 상태키 SRT_380 · Baek|base; Jin≈19|base
+[20:48:08] run_scene 시작 SRT_380 · seen_files=19 · last_saved=https://www.genspark.ai/api/files/s/bymshx7e
+[20:48:08] ⏱ 준비 SRT_380 0.0s · chars=2171
+[20:48:09] ⏱ 다음명령유휴 SRT_380 1.0s · idle=True
+[20:48:09] fill OK(clip) follow=True chars=2171
+[20:48:10] submit 시작 composer=2171 url=https://www.genspark.ai/agents?id=a2bc3889-b9a8-435a-b569-b034f17482dd
+[20:48:10] submit geo 실패 hit=no-btn
+[20:48:10] submit 시도 method=geo geo=False
+[20:48:10] submit 미확인 method=geo generating=False composer=2171
+[20:48:10] submit geo 실패 hit=no-btn
+[20:48:10] submit 시도 method=send send=False
+[20:48:11] submit 미확인 method=send generating=False composer=2171
+[20:48:11] submit 시도 method=ctrl
+[20:48:12] submit 미확인 method=ctrl generating=False composer=2173
+[20:48:12] submit 시도 method=enter
+[20:48:13] submit 확인 method=enter generating=False composer=0
+[20:48:13] ⏱ 입력·전송 SRT_380 3.5s · chars=2171
+[20:48:13] 제출 후 last_saved=https://www.genspark.ai/api/files/s/bymshx7e
+[20:48:13] ⏱ 생성대기 시작 SRT_380 max=120s
+[20:48:28] ⏱ 생성대기 완료 15.1s SRT_380 https://www.genspark.ai/api/files/s/a76vud7q
+[20:48:28] ⏱ 생성대기구간 SRT_380 15.1s · ok=True
+[20:48:28] SRT_380 근접 이미지 https://www.genspark.ai/api/files/s/a76vud7q
+[20:48:28] 다운로드 files URL=https://www.genspark.ai/api/files/s/a76vud7q → SRT_380.png
+[20:48:29] ⏱ 다운로드 직접 0.7s size=583483 SRT_380.png
+[20:48:29] ⏱ 다운로드구간 SRT_380 0.7s · SRT_380.png
+[20:48:30] ⏱ 다운로드후유휴 SRT_380 1.1s · idle=True
+[20:48:30] ⏱ 씬합계 SRT_380 21.6s · https://www.genspark.ai/api/files/s/a76vud7q
+[20:48:30] SRT_380 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\17장\png\SRT_380.png
+[20:48:30] 상태키 SRT_400 · Baek|base; Jin≈19|base
+[20:48:30] run_scene 시작 SRT_400 · seen_files=20 · last_saved=https://www.genspark.ai/api/files/s/a76vud7q
+[20:48:30] ⏱ 준비 SRT_400 0.0s · chars=1902
+[20:48:31] ⏱ 다음명령유휴 SRT_400 1.0s · idle=True
+[20:48:31] fill OK(clip) follow=True chars=1902
+[20:48:31] submit 시작 composer=1902 url=https://www.genspark.ai/agents?id=a2bc3889-b9a8-435a-b569-b034f17482dd
+[20:48:31] submit geo 실패 hit=no-btn
+[20:48:31] submit 시도 method=geo geo=False
+[20:48:32] submit 미확인 method=geo generating=False composer=1902
+[20:48:32] submit geo 실패 hit=no-btn
+[20:48:32] submit 시도 method=send send=False
+[20:48:33] submit 미확인 method=send generating=False composer=1902
+[20:48:33] submit 시도 method=ctrl
+[20:48:34] submit 미확인 method=ctrl generating=False composer=1904
+[20:48:34] submit 시도 method=enter
+[20:48:34] submit 확인 method=enter generating=False composer=0
+[20:48:34] ⏱ 입력·전송 SRT_400 3.5s · chars=1902
+[20:48:34] 제출 후 last_saved=https://www.genspark.ai/api/files/s/a76vud7q
+[20:48:35] ⏱ 생성대기 시작 SRT_400 max=120s
+[20:48:50] ⏱ 생성대기 진행 15.1s SRT_400 busy=False url_ok=False src=
+[20:48:52] ⏱ 생성대기 완료 17.1s SRT_400 https://www.genspark.ai/api/files/s/iqtpimfa
+[20:48:52] ⏱ 생성대기구간 SRT_400 17.1s · ok=True
+[20:48:52] SRT_400 근접 이미지 https://www.genspark.ai/api/files/s/iqtpimfa
+[20:48:52] 다운로드 files URL=https://www.genspark.ai/api/files/s/iqtpimfa → SRT_400.png
+[20:48:52] ⏱ 다운로드 직접 0.8s size=590440 SRT_400.png
+[20:48:52] ⏱ 다운로드구간 SRT_400 0.8s · SRT_400.png
+[20:48:53] ⏱ 다운로드후유휴 SRT_400 1.0s · idle=True
+[20:48:53] ⏱ 씬합계 SRT_400 23.7s · https://www.genspark.ai/api/files/s/iqtpimfa
+[20:48:53] SRT_400 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\17장\png\SRT_400.png
+[20:48:54] 상태키 SRT_420 · Baek|base; Jin≈19|base
+[20:48:54] run_scene 시작 SRT_420 · seen_files=21 · last_saved=https://www.genspark.ai/api/files/s/iqtpimfa
+[20:48:54] ⏱ 준비 SRT_420 0.0s · chars=3011
+[20:48:55] ⏱ 다음명령유휴 SRT_420 1.0s · idle=True
+[20:48:55] fill OK(clip) follow=True chars=3011
+[20:48:55] submit 시작 composer=3011 url=https://www.genspark.ai/agents?id=a2bc3889-b9a8-435a-b569-b034f17482dd
+[20:48:55] submit geo 실패 hit=no-btn
+[20:48:55] submit 시도 method=geo geo=False
+[20:48:56] submit 미확인 method=geo generating=False composer=3011
+[20:48:56] submit geo 실패 hit=no-btn
+[20:48:56] submit 시도 method=send send=False
+[20:48:57] submit 미확인 method=send generating=False composer=3011
+[20:48:57] submit 시도 method=ctrl
+[20:48:57] submit 미확인 method=ctrl generating=False composer=3013
+[20:48:58] submit 시도 method=enter
+[20:48:58] submit 확인 method=enter generating=False composer=0
+[20:48:58] ⏱ 입력·전송 SRT_420 3.5s · chars=3011
+[20:48:58] 제출 후 last_saved=https://www.genspark.ai/api/files/s/iqtpimfa
+[20:48:58] ⏱ 생성대기 시작 SRT_420 max=120s
+[20:49:12] ⏱ 생성대기 완료 13.7s SRT_420 https://www.genspark.ai/api/files/s/ul2whiyi
+[20:49:12] ⏱ 생성대기구간 SRT_420 13.7s · ok=True
+[20:49:12] SRT_420 근접 이미지 https://www.genspark.ai/api/files/s/ul2whiyi
+[20:49:12] 다운로드 files URL=https://www.genspark.ai/api/files/s/ul2whiyi → SRT_420.png
+[20:49:15] ⏱ 다운로드 직접 2.5s size=553772 SRT_420.png
+[20:49:15] ⏱ 다운로드구간 SRT_420 2.5s · SRT_420.png
+[20:49:16] ⏱ 다운로드후유휴 SRT_420 1.1s · idle=True
+[20:49:16] ⏱ 씬합계 SRT_420 22.1s · https://www.genspark.ai/api/files/s/ul2whiyi
+[20:49:16] SRT_420 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\17장\png\SRT_420.png
+[20:49:16] 상태키 SRT_440 · Baek|base; Jin≈19|base
+[20:49:16] run_scene 시작 SRT_440 · seen_files=22 · last_saved=https://www.genspark.ai/api/files/s/ul2whiyi
+[20:49:16] ⏱ 준비 SRT_440 0.0s · chars=1773
+[20:49:17] ⏱ 다음명령유휴 SRT_440 1.1s · idle=True
+[20:49:17] fill OK(clip) follow=True chars=1773
+[20:49:17] submit 시작 composer=1773 url=https://www.genspark.ai/agents?id=a2bc3889-b9a8-435a-b569-b034f17482dd
+[20:49:17] submit geo 실패 hit=no-btn
+[20:49:17] submit 시도 method=geo geo=False
+[20:49:18] submit 미확인 method=geo generating=False composer=1773
+[20:49:18] submit geo 실패 hit=no-btn
+[20:49:18] submit 시도 method=send send=False
+[20:49:19] submit 미확인 method=send generating=False composer=1773
+[20:49:19] submit 시도 method=ctrl
+[20:49:20] submit 미확인 method=ctrl generating=False composer=1775
+[20:49:20] submit 시도 method=enter
+[20:49:20] submit 확인 method=enter generating=False composer=0
+[20:49:20] ⏱ 입력·전송 SRT_440 3.5s · chars=1773
+[20:49:20] 제출 후 last_saved=https://www.genspark.ai/api/files/s/ul2whiyi
+[20:49:21] ⏱ 생성대기 시작 SRT_440 max=120s
+[20:49:36] ⏱ 생성대기 진행 15.3s SRT_440 busy=True url_ok=False src=
+[20:49:39] ⏱ 생성대기 완료(busy무시) 17.9s SRT_440 https://www.genspark.ai/api/files/s/wwnsxpcb
+[20:49:39] ⏱ 생성대기구간 SRT_440 17.9s · ok=True
+[20:49:39] SRT_440 근접 이미지 https://www.genspark.ai/api/files/s/wwnsxpcb
+[20:49:39] 다운로드 files URL=https://www.genspark.ai/api/files/s/wwnsxpcb → SRT_440.png
+[20:49:39] ⏱ 다운로드 직접 0.7s size=505427 SRT_440.png
+[20:49:39] ⏱ 다운로드구간 SRT_440 0.7s · SRT_440.png
+[20:49:40] ⏱ 다운로드후유휴 SRT_440 1.1s · idle=True
+[20:49:40] ⏱ 씬합계 SRT_440 24.5s · https://www.genspark.ai/api/files/s/wwnsxpcb
+[20:49:40] SRT_440 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\17장\png\SRT_440.png
+[20:49:41] 상태키 SRT_460 · Baek|base; Jin≈19|base
+[20:49:41] run_scene 시작 SRT_460 · seen_files=23 · last_saved=https://www.genspark.ai/api/files/s/wwnsxpcb
+[20:49:41] ⏱ 준비 SRT_460 0.0s · chars=2799
+[20:49:42] ⏱ 다음명령유휴 SRT_460 1.0s · idle=True
+[20:49:42] fill OK(clip) follow=True chars=2799
+[20:49:42] submit 시작 composer=2799 url=https://www.genspark.ai/agents?id=a2bc3889-b9a8-435a-b569-b034f17482dd
+[20:49:42] submit geo 실패 hit=no-btn
+[20:49:42] submit 시도 method=geo geo=False
+[20:49:43] submit 미확인 method=geo generating=False composer=2799
+[20:49:43] submit geo 실패 hit=no-btn
+[20:49:43] submit 시도 method=send send=False
+[20:49:43] submit 미확인 method=send generating=False composer=2799
+[20:49:44] submit 시도 method=ctrl
+[20:49:44] submit 미확인 method=ctrl generating=False composer=2801
+[20:49:44] submit 시도 method=enter
+[20:49:45] submit 확인 method=enter generating=False composer=0
+[20:49:45] ⏱ 입력·전송 SRT_460 3.5s · chars=2799
+[20:49:45] 제출 후 last_saved=https://www.genspark.ai/api/files/s/wwnsxpcb
+[20:49:45] ⏱ 생성대기 시작 SRT_460 max=120s
+[20:50:01] ⏱ 생성대기 진행 15.3s SRT_460 busy=False url_ok=False src=
+[20:50:02] ⏱ 생성대기 완료 17.0s SRT_460 https://www.genspark.ai/api/files/s/ds9ctcgq
+[20:50:02] ⏱ 생성대기구간 SRT_460 17.0s · ok=True
+[20:50:02] SRT_460 근접 이미지 https://www.genspark.ai/api/files/s/ds9ctcgq
+[20:50:02] 다운로드 files URL=https://www.genspark.ai/api/files/s/ds9ctcgq → SRT_460.png
+[20:50:03] ⏱ 다운로드 직접 0.7s size=538707 SRT_460.png
+[20:50:03] ⏱ 다운로드구간 SRT_460 0.7s · SRT_460.png
+[20:50:05] ⏱ 다운로드후유휴 SRT_460 1.9s · idle=True
+[20:50:05] ⏱ 씬합계 SRT_460 24.3s · https://www.genspark.ai/api/files/s/ds9ctcgq
+[20:50:05] SRT_460 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\17장\png\SRT_460.png
+[20:50:05] 상태키 SRT_480 · Baek|base; Jin≈19|base
+[20:50:05] run_scene 시작 SRT_480 · seen_files=24 · last_saved=https://www.genspark.ai/api/files/s/ds9ctcgq
+[20:50:05] ⏱ 준비 SRT_480 0.0s · chars=2468
+[20:50:06] ⏱ 다음명령유휴 SRT_480 1.4s · idle=True
+[20:50:07] fill OK(clip) follow=True chars=2468
+[20:50:07] submit 시작 composer=2468 url=https://www.genspark.ai/agents?id=a2bc3889-b9a8-435a-b569-b034f17482dd
+[20:50:07] submit geo 실패 hit=no-btn
+[20:50:07] submit 시도 method=geo geo=False
+[20:50:07] submit 미확인 method=geo generating=False composer=2468
+[20:50:08] submit geo 실패 hit=no-btn
+[20:50:08] submit 시도 method=send send=False
+[20:50:08] submit 미확인 method=send generating=False composer=2468
+[20:50:08] submit 시도 method=ctrl
+[20:50:09] submit 미확인 method=ctrl generating=False composer=2470
+[20:50:09] submit 시도 method=enter
+[20:50:10] submit 확인 method=enter generating=False composer=0
+[20:50:10] ⏱ 입력·전송 SRT_480 3.5s · chars=2468
+[20:50:10] 제출 후 last_saved=https://www.genspark.ai/api/files/s/ds9ctcgq
+[20:50:10] ⏱ 생성대기 시작 SRT_480 max=120s
+[20:50:24] ⏱ 생성대기 완료 13.7s SRT_480 https://www.genspark.ai/api/files/s/w7jh0kw4
+[20:50:24] ⏱ 생성대기구간 SRT_480 13.7s · ok=True
+[20:50:24] SRT_480 근접 이미지 https://www.genspark.ai/api/files/s/w7jh0kw4
+[20:50:24] 다운로드 files URL=https://www.genspark.ai/api/files/s/w7jh0kw4 → SRT_480.png
+[20:50:24] ⏱ 다운로드 직접 0.7s size=353485 SRT_480.png
+[20:50:24] ⏱ 다운로드구간 SRT_480 0.7s · SRT_480.png
+[20:50:26] ⏱ 다운로드후유휴 SRT_480 1.1s · idle=True
+[20:50:26] ⏱ 씬합계 SRT_480 20.5s · https://www.genspark.ai/api/files/s/w7jh0kw4
+[20:50:26] SRT_480 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\17장\png\SRT_480.png
+[20:50:26] 상태키 SRT_500 · Baek|base; Jin≈19|base
+[20:50:26] run_scene 시작 SRT_500 · seen_files=25 · last_saved=https://www.genspark.ai/api/files/s/w7jh0kw4
+[20:50:26] ⏱ 준비 SRT_500 0.0s · chars=1401
+[20:50:27] ⏱ 다음명령유휴 SRT_500 1.1s · idle=True
+[20:50:27] fill OK(clip) follow=True chars=1401
+[20:50:27] submit 시작 composer=1401 url=https://www.genspark.ai/agents?id=a2bc3889-b9a8-435a-b569-b034f17482dd
+[20:50:27] submit geo 실패 hit=no-btn
+[20:50:27] submit 시도 method=geo geo=False
+[20:50:28] submit 미확인 method=geo generating=False composer=1401
+[20:50:28] submit geo 실패 hit=no-btn
+[20:50:28] submit 시도 method=send send=False
+[20:50:29] submit 미확인 method=send generating=False composer=1401
+[20:50:29] submit 시도 method=ctrl
+[20:50:29] submit 미확인 method=ctrl generating=False composer=1403
+[20:50:30] submit 시도 method=enter
+[20:50:30] submit 확인 method=enter generating=False composer=0
+[20:50:30] ⏱ 입력·전송 SRT_500 3.5s · chars=1401
+[20:50:30] 제출 후 last_saved=https://www.genspark.ai/api/files/s/w7jh0kw4
+[20:50:30] ⏱ 생성대기 시작 SRT_500 max=120s
+[20:50:46] ⏱ 생성대기 진행 15.1s SRT_500 busy=False url_ok=False src=
+[20:50:46] ⏱ 생성대기 완료 15.8s SRT_500 https://www.genspark.ai/api/files/s/khn1s1s9
+[20:50:46] ⏱ 생성대기구간 SRT_500 15.8s · ok=True
+[20:50:46] SRT_500 근접 이미지 https://www.genspark.ai/api/files/s/khn1s1s9
+[20:50:46] 다운로드 files URL=https://www.genspark.ai/api/files/s/khn1s1s9 → SRT_500.png
+[20:50:47] ⏱ 다운로드 직접 0.6s size=241330 SRT_500.png
+[20:50:47] ⏱ 다운로드구간 SRT_500 0.7s · SRT_500.png
+[20:50:48] ⏱ 다운로드후유휴 SRT_500 1.1s · idle=True
+[20:50:48] ⏱ 씬합계 SRT_500 22.4s · https://www.genspark.ai/api/files/s/khn1s1s9
+[20:50:48] SRT_500 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\17장\png\SRT_500.png
+[20:50:48] 상태키 SRT_520 · Baek|base; Jin≈19|base
+[20:50:48] run_scene 시작 SRT_520 · seen_files=26 · last_saved=https://www.genspark.ai/api/files/s/khn1s1s9
+[20:50:48] ⏱ 준비 SRT_520 0.0s · chars=2456
+[20:50:49] ⏱ 다음명령유휴 SRT_520 1.1s · idle=True
+[20:50:50] fill OK(clip) follow=True chars=2456
+[20:50:50] submit 시작 composer=2456 url=https://www.genspark.ai/agents?id=a2bc3889-b9a8-435a-b569-b034f17482dd
+[20:50:50] submit geo 실패 hit=no-btn
+[20:50:50] submit 시도 method=geo geo=False
+[20:50:50] submit 미확인 method=geo generating=False composer=2456
+[20:50:51] submit geo 실패 hit=no-btn
+[20:50:51] submit 시도 method=send send=False
+[20:50:51] submit 미확인 method=send generating=False composer=2456
+[20:50:51] submit 시도 method=ctrl
+[20:50:52] submit 미확인 method=ctrl generating=False composer=2458
+[20:50:52] submit 시도 method=enter
+[20:50:53] submit 확인 method=enter generating=False composer=0
+[20:50:53] ⏱ 입력·전송 SRT_520 3.5s · chars=2456
+[20:50:53] 제출 후 last_saved=https://www.genspark.ai/api/files/s/khn1s1s9
+[20:50:53] ⏱ 생성대기 시작 SRT_520 max=120s
+[20:51:08] ⏱ 생성대기 진행 15.0s SRT_520 busy=False url_ok=False src=
+[20:51:10] ⏱ 생성대기 완료 16.6s SRT_520 https://www.genspark.ai/api/files/s/h75m7txw
+[20:51:10] ⏱ 생성대기구간 SRT_520 16.6s · ok=True
+[20:51:10] SRT_520 근접 이미지 https://www.genspark.ai/api/files/s/h75m7txw
+[20:51:10] 다운로드 files URL=https://www.genspark.ai/api/files/s/h75m7txw → SRT_520.png
+[20:51:10] ⏱ 다운로드 직접 0.7s size=274142 SRT_520.png
+[20:51:10] ⏱ 다운로드구간 SRT_520 0.7s · SRT_520.png
+[20:51:11] ⏱ 다운로드후유휴 SRT_520 1.1s · idle=True
+[20:51:11] ⏱ 씬합계 SRT_520 23.2s · https://www.genspark.ai/api/files/s/h75m7txw
+[20:51:11] SRT_520 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\17장\png\SRT_520.png
+[20:51:11] 상태키 SRT_540 · Baek|base; Jin≈19|base
+[20:51:11] run_scene 시작 SRT_540 · seen_files=27 · last_saved=https://www.genspark.ai/api/files/s/h75m7txw
+[20:51:12] ⏱ 준비 SRT_540 0.0s · chars=2469
+[20:51:13] ⏱ 다음명령유휴 SRT_540 1.1s · idle=True
+[20:51:13] fill OK(clip) follow=True chars=2469
+[20:51:13] submit 시작 composer=2469 url=https://www.genspark.ai/agents?id=a2bc3889-b9a8-435a-b569-b034f17482dd
+[20:51:13] submit geo 실패 hit=no-btn
+[20:51:13] submit 시도 method=geo geo=False
+[20:51:14] submit 미확인 method=geo generating=False composer=2469
+[20:51:14] submit geo 실패 hit=no-btn
+[20:51:14] submit 시도 method=send send=False
+[20:51:14] submit 미확인 method=send generating=False composer=2469
+[20:51:15] submit 시도 method=ctrl
+[20:51:15] submit 미확인 method=ctrl generating=False composer=2471
+[20:51:16] submit 시도 method=enter
+[20:51:16] submit 확인 method=enter generating=False composer=0
+[20:51:16] ⏱ 입력·전송 SRT_540 3.5s · chars=2469
+[20:51:16] 제출 후 last_saved=https://www.genspark.ai/api/files/s/h75m7txw
+[20:51:16] ⏱ 생성대기 시작 SRT_540 max=120s
+[20:51:32] ⏱ 생성대기 진행 15.3s SRT_540 busy=False url_ok=False src=
+[20:51:33] ⏱ 생성대기 완료 16.9s SRT_540 https://www.genspark.ai/api/files/s/yyauf8gl
+[20:51:33] ⏱ 생성대기구간 SRT_540 16.9s · ok=True
+[20:51:33] SRT_540 근접 이미지 https://www.genspark.ai/api/files/s/yyauf8gl
+[20:51:33] 다운로드 files URL=https://www.genspark.ai/api/files/s/yyauf8gl → SRT_540.png
+[20:51:34] ⏱ 다운로드 직접 0.7s size=286051 SRT_540.png
+[20:51:34] ⏱ 다운로드구간 SRT_540 0.7s · SRT_540.png
+[20:51:35] ⏱ 다운로드후유휴 SRT_540 1.1s · idle=True
+[20:51:35] ⏱ 씬합계 SRT_540 23.5s · https://www.genspark.ai/api/files/s/yyauf8gl
+[20:51:35] SRT_540 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\17장\png\SRT_540.png
+[20:51:35] 상태키 SRT_560 · Baek|base; Jin≈19|base
+[20:51:35] run_scene 시작 SRT_560 · seen_files=28 · last_saved=https://www.genspark.ai/api/files/s/yyauf8gl
+[20:51:35] ⏱ 준비 SRT_560 0.0s · chars=2463
+[20:51:36] ⏱ 다음명령유휴 SRT_560 1.1s · idle=True
+[20:51:37] fill OK(clip) follow=True chars=2463
+[20:51:37] submit 시작 composer=2463 url=https://www.genspark.ai/agents?id=a2bc3889-b9a8-435a-b569-b034f17482dd
+[20:51:37] submit geo 실패 hit=no-btn
+[20:51:37] submit 시도 method=geo geo=False
+[20:51:37] submit 미확인 method=geo generating=False composer=2463
+[20:51:38] submit geo 실패 hit=no-btn
+[20:51:38] submit 시도 method=send send=False
+[20:51:38] submit 미확인 method=send generating=False composer=2463
+[20:51:38] submit 시도 method=ctrl
+[20:51:39] submit 미확인 method=ctrl generating=False composer=2465
+[20:51:39] submit 시도 method=enter
+[20:51:40] submit 확인 method=enter generating=False composer=0
+[20:51:40] ⏱ 입력·전송 SRT_560 3.5s · chars=2463
+[20:51:40] 제출 후 last_saved=https://www.genspark.ai/api/files/s/yyauf8gl
+[20:51:40] ⏱ 생성대기 시작 SRT_560 max=120s
+[20:51:55] ⏱ 생성대기 진행 15.2s SRT_560 busy=False url_ok=False src=
+[20:51:57] ⏱ 생성대기 완료 16.8s SRT_560 https://www.genspark.ai/api/files/s/mjaec4po
+[20:51:57] ⏱ 생성대기구간 SRT_560 16.8s · ok=True
+[20:51:57] SRT_560 근접 이미지 https://www.genspark.ai/api/files/s/mjaec4po
+[20:51:57] 다운로드 files URL=https://www.genspark.ai/api/files/s/mjaec4po → SRT_560.png
+[20:51:58] ⏱ 다운로드 직접 1.2s size=301708 SRT_560.png
+[20:51:58] ⏱ 다운로드구간 SRT_560 1.2s · SRT_560.png
+[20:51:59] ⏱ 다운로드후유휴 SRT_560 1.1s · idle=True
+[20:51:59] ⏱ 씬합계 SRT_560 24.0s · https://www.genspark.ai/api/files/s/mjaec4po
+[20:51:59] SRT_560 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\17장\png\SRT_560.png
+[20:51:59] 상태키 SRT_580 · Baek|base; Jin≈19|base
+[20:51:59] run_scene 시작 SRT_580 · seen_files=29 · last_saved=https://www.genspark.ai/api/files/s/mjaec4po
+[20:51:59] ⏱ 준비 SRT_580 0.0s · chars=1422
+[20:52:00] ⏱ 다음명령유휴 SRT_580 1.1s · idle=True
+[20:52:01] fill OK(clip) follow=True chars=1422
+[20:52:01] submit 시작 composer=1422 url=https://www.genspark.ai/agents?id=a2bc3889-b9a8-435a-b569-b034f17482dd
+[20:52:01] submit geo 실패 hit=no-btn
+[20:52:01] submit 시도 method=geo geo=False
+[20:52:01] submit 미확인 method=geo generating=False composer=1422
+[20:52:02] submit geo 실패 hit=no-btn
+[20:52:02] submit 시도 method=send send=False
+[20:52:02] submit 미확인 method=send generating=False composer=1422
+[20:52:02] submit 시도 method=ctrl
+[20:52:03] submit 미확인 method=ctrl generating=False composer=1424
+[20:52:03] submit 시도 method=enter
+[20:52:04] submit 확인 method=enter generating=False composer=0
+[20:52:04] ⏱ 입력·전송 SRT_580 3.5s · chars=1422
+[20:52:04] 제출 후 last_saved=https://www.genspark.ai/api/files/s/mjaec4po
+[20:52:04] ⏱ 생성대기 시작 SRT_580 max=120s
+[20:52:19] ⏱ 생성대기 진행 15.0s SRT_580 busy=True url_ok=False src=
+[20:52:21] ⏱ 생성대기 완료 16.7s SRT_580 https://www.genspark.ai/api/files/s/twa647ie
+[20:52:21] ⏱ 생성대기구간 SRT_580 16.7s · ok=True
+[20:52:21] SRT_580 근접 이미지 https://www.genspark.ai/api/files/s/twa647ie
+[20:52:21] 다운로드 files URL=https://www.genspark.ai/api/files/s/twa647ie → SRT_580.png
+[20:52:21] ⏱ 다운로드 직접 0.7s size=365566 SRT_580.png
+[20:52:21] ⏱ 다운로드구간 SRT_580 0.7s · SRT_580.png
+[20:52:23] ⏱ 다운로드후유휴 SRT_580 1.5s · idle=True
+[20:52:23] ⏱ 씬합계 SRT_580 23.7s · https://www.genspark.ai/api/files/s/twa647ie
+[20:52:23] SRT_580 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\17장\png\SRT_580.png
+[20:52:23] 상태키 SRT_600 · Baek|base; Jin≈19|base
+[20:52:23] run_scene 시작 SRT_600 · seen_files=30 · last_saved=https://www.genspark.ai/api/files/s/twa647ie
+[20:52:23] ⏱ 준비 SRT_600 0.0s · chars=2168
+[20:52:24] ⏱ 다음명령유휴 SRT_600 1.1s · idle=True
+[20:52:25] fill OK(clip) follow=True chars=2168
+[20:52:25] submit 시작 composer=2168 url=https://www.genspark.ai/agents?id=a2bc3889-b9a8-435a-b569-b034f17482dd
+[20:52:25] submit geo 실패 hit=no-btn
+[20:52:25] submit 시도 method=geo geo=False
+[20:52:25] submit 미확인 method=geo generating=False composer=2168
+[20:52:25] submit geo 실패 hit=no-btn
+[20:52:25] submit 시도 method=send send=False
+[20:52:26] submit 미확인 method=send generating=False composer=2168
+[20:52:26] submit 시도 method=ctrl
+[20:52:27] submit 미확인 method=ctrl generating=False composer=2170
+[20:52:27] submit 시도 method=enter
+[20:52:28] submit 확인 method=enter generating=False composer=0
+[20:52:28] ⏱ 입력·전송 SRT_600 3.5s · chars=2168
+[20:52:28] 제출 후 last_saved=https://www.genspark.ai/api/files/s/twa647ie
+[20:52:28] ⏱ 생성대기 시작 SRT_600 max=120s
+[20:52:43] ⏱ 생성대기 진행 15.1s SRT_600 busy=False url_ok=False src=
+[20:52:45] ⏱ 생성대기 완료 16.7s SRT_600 https://www.genspark.ai/api/files/s/iklyb5ya
+[20:52:45] ⏱ 생성대기구간 SRT_600 16.7s · ok=True
+[20:52:45] SRT_600 근접 이미지 https://www.genspark.ai/api/files/s/iklyb5ya
+[20:52:45] 다운로드 files URL=https://www.genspark.ai/api/files/s/iklyb5ya → SRT_600.png
+[20:52:45] ⏱ 다운로드 직접 0.7s size=329580 SRT_600.png
+[20:52:45] ⏱ 다운로드구간 SRT_600 0.7s · SRT_600.png
+[20:52:46] ⏱ 다운로드후유휴 SRT_600 1.0s · idle=True
+[20:52:46] ⏱ 씬합계 SRT_600 23.3s · https://www.genspark.ai/api/files/s/iklyb5ya
+[20:52:46] SRT_600 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\17장\png\SRT_600.png
+[20:52:47] 상태키 SRT_620 · Baek|base; Jin≈19|base
+[20:52:47] run_scene 시작 SRT_620 · seen_files=31 · last_saved=https://www.genspark.ai/api/files/s/iklyb5ya
+[20:52:47] ⏱ 준비 SRT_620 0.0s · chars=2803
+[20:52:48] ⏱ 다음명령유휴 SRT_620 1.0s · idle=True
+[20:52:48] fill OK(clip) follow=True chars=2803
+[20:52:48] submit 시작 composer=2803 url=https://www.genspark.ai/agents?id=a2bc3889-b9a8-435a-b569-b034f17482dd
+[20:52:48] submit geo 실패 hit=no-btn
+[20:52:48] submit 시도 method=geo geo=False
+[20:52:49] submit 미확인 method=geo generating=False composer=2803
+[20:52:49] submit geo 실패 hit=no-btn
+[20:52:49] submit 시도 method=send send=False
+[20:52:49] submit 미확인 method=send generating=False composer=2803
+[20:52:50] submit 시도 method=ctrl
+[20:52:50] submit 미확인 method=ctrl generating=False composer=2805
+[20:52:51] submit 시도 method=enter
+[20:52:51] submit 확인 method=enter generating=False composer=0
+[20:52:51] ⏱ 입력·전송 SRT_620 3.5s · chars=2803
+[20:52:51] 제출 후 last_saved=https://www.genspark.ai/api/files/s/iklyb5ya
+[20:52:51] ⏱ 생성대기 시작 SRT_620 max=120s
+[20:53:06] ⏱ 생성대기 진행 15.2s SRT_620 busy=False url_ok=False src=
+[20:53:08] ⏱ 생성대기 완료 16.8s SRT_620 https://www.genspark.ai/api/files/s/kodqzp2b
+[20:53:08] ⏱ 생성대기구간 SRT_620 16.8s · ok=True
+[20:53:08] SRT_620 근접 이미지 https://www.genspark.ai/api/files/s/kodqzp2b
+[20:53:08] 다운로드 files URL=https://www.genspark.ai/api/files/s/kodqzp2b → SRT_620.png
+[20:53:09] ⏱ 다운로드 직접 0.7s size=439626 SRT_620.png
+[20:53:09] ⏱ 다운로드구간 SRT_620 0.7s · SRT_620.png
+[20:53:10] ⏱ 다운로드후유휴 SRT_620 1.1s · idle=True
+[20:53:10] ⏱ 씬합계 SRT_620 23.3s · https://www.genspark.ai/api/files/s/kodqzp2b
+[20:53:10] SRT_620 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\17장\png\SRT_620.png
+[20:53:10] 상태키 SRT_640 · Baek|base; Jin≈19|base
+[20:53:10] run_scene 시작 SRT_640 · seen_files=32 · last_saved=https://www.genspark.ai/api/files/s/kodqzp2b
+[20:53:10] ⏱ 준비 SRT_640 0.0s · chars=1747
+[20:53:11] ⏱ 다음명령유휴 SRT_640 1.0s · idle=True
+[20:53:11] fill OK(clip) follow=True chars=1747
+[20:53:11] submit 시작 composer=1747 url=https://www.genspark.ai/agents?id=a2bc3889-b9a8-435a-b569-b034f17482dd
+[20:53:12] submit geo 실패 hit=no-btn
+[20:53:12] submit 시도 method=geo geo=False
+[20:53:12] submit 미확인 method=geo generating=False composer=1747
+[20:53:12] submit geo 실패 hit=no-btn
+[20:53:12] submit 시도 method=send send=False
+[20:53:13] submit 미확인 method=send generating=False composer=1747
+[20:53:13] submit 시도 method=ctrl
+[20:53:14] submit 미확인 method=ctrl generating=False composer=1749
+[20:53:14] submit 시도 method=enter
+[20:53:15] submit 확인 method=enter generating=False composer=0
+[20:53:15] ⏱ 입력·전송 SRT_640 3.5s · chars=1747
+[20:53:15] 제출 후 last_saved=https://www.genspark.ai/api/files/s/kodqzp2b
+[20:53:15] ⏱ 생성대기 시작 SRT_640 max=120s
+[20:53:30] ⏱ 생성대기 진행 15.0s SRT_640 busy=False url_ok=False src=
+[20:53:33] ⏱ 생성대기 완료 18.5s SRT_640 https://www.genspark.ai/api/files/s/rlcfiomi
+[20:53:33] ⏱ 생성대기구간 SRT_640 18.5s · ok=True
+[20:53:33] SRT_640 근접 이미지 https://www.genspark.ai/api/files/s/rlcfiomi
+[20:53:33] 다운로드 files URL=https://www.genspark.ai/api/files/s/rlcfiomi → SRT_640.png
+[20:53:34] ⏱ 다운로드 직접 0.7s size=403014 SRT_640.png
+[20:53:34] ⏱ 다운로드구간 SRT_640 0.7s · SRT_640.png
+[20:53:35] ⏱ 다운로드후유휴 SRT_640 1.1s · idle=True
+[20:53:35] ⏱ 씬합계 SRT_640 25.0s · https://www.genspark.ai/api/files/s/rlcfiomi
+[20:53:35] SRT_640 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\17장\png\SRT_640.png
+[20:53:35] 상태키 SRT_660 · Baek|base; Jin≈19|base
+[20:53:35] run_scene 시작 SRT_660 · seen_files=33 · last_saved=https://www.genspark.ai/api/files/s/rlcfiomi
+[20:53:35] ⏱ 준비 SRT_660 0.0s · chars=2489
+[20:53:36] ⏱ 다음명령유휴 SRT_660 1.1s · idle=True
+[20:53:37] fill OK(clip) follow=True chars=2489
+[20:53:37] submit 시작 composer=2489 url=https://www.genspark.ai/agents?id=a2bc3889-b9a8-435a-b569-b034f17482dd
+[20:53:37] submit geo 실패 hit=no-btn
+[20:53:37] submit 시도 method=geo geo=False
+[20:53:37] submit 미확인 method=geo generating=False composer=2489
+[20:53:37] submit geo 실패 hit=no-btn
+[20:53:37] submit 시도 method=send send=False
+[20:53:38] submit 미확인 method=send generating=False composer=2489
+[20:53:38] submit 시도 method=ctrl
+[20:53:39] submit 미확인 method=ctrl generating=False composer=2491
+[20:53:39] submit 시도 method=enter
+[20:53:40] submit 확인 method=enter generating=False composer=0
+[20:53:40] ⏱ 입력·전송 SRT_660 3.5s · chars=2489
+[20:53:40] 제출 후 last_saved=https://www.genspark.ai/api/files/s/rlcfiomi
+[20:53:40] ⏱ 생성대기 시작 SRT_660 max=120s
+[20:53:55] ⏱ 생성대기 진행 15.2s SRT_660 busy=False url_ok=False src=
+[20:53:56] ⏱ 생성대기 완료 16.3s SRT_660 https://www.genspark.ai/api/files/s/ifipyoot
+[20:53:56] ⏱ 생성대기구간 SRT_660 16.3s · ok=True
+[20:53:56] SRT_660 근접 이미지 https://www.genspark.ai/api/files/s/ifipyoot
+[20:53:56] 다운로드 files URL=https://www.genspark.ai/api/files/s/ifipyoot → SRT_660.png
+[20:53:57] ⏱ 다운로드 직접 0.6s size=479769 SRT_660.png
+[20:53:57] ⏱ 다운로드구간 SRT_660 0.6s · SRT_660.png
+[20:53:58] ⏱ 다운로드후유휴 SRT_660 1.1s · idle=True
+[20:53:58] ⏱ 씬합계 SRT_660 22.8s · https://www.genspark.ai/api/files/s/ifipyoot
+[20:53:58] SRT_660 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\17장\png\SRT_660.png
+[20:53:58] 상태키 SRT_680 · Baek|base; Jin≈19|base
+[20:53:58] run_scene 시작 SRT_680 · seen_files=34 · last_saved=https://www.genspark.ai/api/files/s/ifipyoot
+[20:53:58] ⏱ 준비 SRT_680 0.0s · chars=2680
+[20:53:59] ⏱ 다음명령유휴 SRT_680 1.1s · idle=True
+[20:54:00] fill OK(clip) follow=True chars=2680
+[20:54:00] submit 시작 composer=2680 url=https://www.genspark.ai/agents?id=a2bc3889-b9a8-435a-b569-b034f17482dd
+[20:54:00] submit geo 실패 hit=no-btn
+[20:54:00] submit 시도 method=geo geo=False
+[20:54:00] submit 미확인 method=geo generating=False composer=2680
+[20:54:00] submit geo 실패 hit=no-btn
+[20:54:00] submit 시도 method=send send=False
+[20:54:01] submit 미확인 method=send generating=False composer=2680
+[20:54:01] submit 시도 method=ctrl
+[20:54:02] submit 미확인 method=ctrl generating=False composer=2682
+[20:54:02] submit 시도 method=enter
+[20:54:03] submit 확인 method=enter generating=False composer=0
+[20:54:03] ⏱ 입력·전송 SRT_680 3.5s · chars=2680
+[20:54:03] 제출 후 last_saved=https://www.genspark.ai/api/files/s/ifipyoot
+[20:54:03] ⏱ 생성대기 시작 SRT_680 max=120s
+[20:54:18] ⏱ 생성대기 진행 15.2s SRT_680 busy=False url_ok=False src=
+[20:54:22] ⏱ 생성대기 완료 19.6s SRT_680 https://www.genspark.ai/api/files/s/r1ma17ve
+[20:54:22] ⏱ 생성대기구간 SRT_680 19.6s · ok=True
+[20:54:22] SRT_680 근접 이미지 https://www.genspark.ai/api/files/s/r1ma17ve
+[20:54:22] 다운로드 files URL=https://www.genspark.ai/api/files/s/r1ma17ve → SRT_680.png
+[20:54:24] ⏱ 다운로드 직접 1.7s size=458931 SRT_680.png
+[20:54:24] ⏱ 다운로드구간 SRT_680 1.7s · SRT_680.png
+[20:54:25] ⏱ 다운로드후유휴 SRT_680 1.1s · idle=True
+[20:54:25] ⏱ 씬합계 SRT_680 27.1s · https://www.genspark.ai/api/files/s/r1ma17ve
+[20:54:25] SRT_680 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\17장\png\SRT_680.png
+[20:54:25] 상태키 SRT_700 · Baek|base; Jin≈19|base
+[20:54:25] run_scene 시작 SRT_700 · seen_files=35 · last_saved=https://www.genspark.ai/api/files/s/r1ma17ve
+[20:54:25] ⏱ 준비 SRT_700 0.0s · chars=2976
+[20:54:26] ⏱ 다음명령유휴 SRT_700 1.1s · idle=True
+[20:54:27] fill OK(clip) follow=True chars=2976
+[20:54:27] submit 시작 composer=2976 url=https://www.genspark.ai/agents?id=a2bc3889-b9a8-435a-b569-b034f17482dd
+[20:54:27] submit geo 실패 hit=no-btn
+[20:54:27] submit 시도 method=geo geo=False
+[20:54:28] submit 미확인 method=geo generating=False composer=2976
+[20:54:28] submit geo 실패 hit=no-btn
+[20:54:28] submit 시도 method=send send=False
+[20:54:28] submit 미확인 method=send generating=False composer=2976
+[20:54:29] submit 시도 method=ctrl
+[20:54:29] submit 미확인 method=ctrl generating=False composer=2978
+[20:54:29] submit 시도 method=enter
+[20:54:30] submit 확인 method=enter generating=False composer=0
+[20:54:30] ⏱ 입력·전송 SRT_700 3.5s · chars=2976
+[20:54:30] 제출 후 last_saved=https://www.genspark.ai/api/files/s/r1ma17ve
+[20:54:30] ⏱ 생성대기 시작 SRT_700 max=120s
+[20:54:46] ⏱ 생성대기 진행 15.3s SRT_700 busy=False url_ok=True src=https://www.genspark.ai/api/files/s/pp8bvxfe
+[20:54:46] ⏱ 생성대기 완료 15.6s SRT_700 https://www.genspark.ai/api/files/s/pp8bvxfe
+[20:54:46] ⏱ 생성대기구간 SRT_700 15.6s · ok=True
+[20:54:46] SRT_700 근접 이미지 https://www.genspark.ai/api/files/s/pp8bvxfe
+[20:54:46] 다운로드 files URL=https://www.genspark.ai/api/files/s/pp8bvxfe → SRT_700.png
+[20:54:47] ⏱ 다운로드 직접 0.8s size=465397 SRT_700.png
+[20:54:47] ⏱ 다운로드구간 SRT_700 0.8s · SRT_700.png
+[20:54:48] ⏱ 다운로드후유휴 SRT_700 1.1s · idle=True
+[20:54:48] ⏱ 씬합계 SRT_700 22.3s · https://www.genspark.ai/api/files/s/pp8bvxfe
+[20:54:48] SRT_700 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\17장\png\SRT_700.png
+[20:54:48] 상태키 SRT_720 · Baek|base; Jin≈19|base
+[20:54:48] run_scene 시작 SRT_720 · seen_files=36 · last_saved=https://www.genspark.ai/api/files/s/pp8bvxfe
+[20:54:48] ⏱ 준비 SRT_720 0.0s · chars=2495
+[20:54:49] ⏱ 다음명령유휴 SRT_720 1.0s · idle=True
+[20:54:49] fill OK(clip) follow=True chars=2495
+[20:54:49] submit 시작 composer=2495 url=https://www.genspark.ai/agents?id=a2bc3889-b9a8-435a-b569-b034f17482dd
+[20:54:50] submit geo 실패 hit=no-btn
+[20:54:50] submit 시도 method=geo geo=False
+[20:54:50] submit 미확인 method=geo generating=False composer=2495
+[20:54:50] submit geo 실패 hit=no-btn
+[20:54:50] submit 시도 method=send send=False
+[20:54:51] submit 미확인 method=send generating=False composer=2495
+[20:54:51] submit 시도 method=ctrl
+[20:54:52] submit 미확인 method=ctrl generating=False composer=2497
+[20:54:52] submit 시도 method=enter
+[20:54:52] submit 확인 method=enter generating=False composer=0
+[20:54:52] ⏱ 입력·전송 SRT_720 3.5s · chars=2495
+[20:54:52] 제출 후 last_saved=https://www.genspark.ai/api/files/s/pp8bvxfe
+[20:54:53] ⏱ 생성대기 시작 SRT_720 max=120s
+[20:55:06] ⏱ 생성대기 완료 13.8s SRT_720 https://www.genspark.ai/api/files/s/ekpsmdsw
+[20:55:06] ⏱ 생성대기구간 SRT_720 13.8s · ok=True
+[20:55:06] SRT_720 근접 이미지 https://www.genspark.ai/api/files/s/ekpsmdsw
+[20:55:06] 다운로드 files URL=https://www.genspark.ai/api/files/s/ekpsmdsw → SRT_720.png
+[20:55:07] ⏱ 다운로드 직접 0.7s size=458411 SRT_720.png
+[20:55:07] ⏱ 다운로드구간 SRT_720 0.7s · SRT_720.png
+[20:55:08] ⏱ 다운로드후유휴 SRT_720 1.1s · idle=True
+[20:55:08] ⏱ 씬합계 SRT_720 20.3s · https://www.genspark.ai/api/files/s/ekpsmdsw
+[20:55:08] SRT_720 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\17장\png\SRT_720.png
+[20:55:08] 상태키 SRT_740 · Baek|base; Jin≈19|base
+[20:55:08] run_scene 시작 SRT_740 · seen_files=37 · last_saved=https://www.genspark.ai/api/files/s/ekpsmdsw
+[20:55:08] ⏱ 준비 SRT_740 0.0s · chars=2650
+[20:55:09] ⏱ 다음명령유휴 SRT_740 1.0s · idle=True
+[20:55:10] fill OK(clip) follow=True chars=2650
+[20:55:10] submit 시작 composer=2650 url=https://www.genspark.ai/agents?id=a2bc3889-b9a8-435a-b569-b034f17482dd
+[20:55:10] submit geo 실패 hit=no-btn
+[20:55:10] submit 시도 method=geo geo=False
+[20:55:11] submit 미확인 method=geo generating=False composer=2650
+[20:55:11] submit geo 실패 hit=no-btn
+[20:55:11] submit 시도 method=send send=False
+[20:55:11] submit 미확인 method=send generating=False composer=2650
+[20:55:12] submit 시도 method=ctrl
+[20:55:12] submit 미확인 method=ctrl generating=False composer=2652
+[20:55:12] submit 시도 method=enter
+[20:55:13] submit 확인 method=enter generating=False composer=0
+[20:55:13] ⏱ 입력·전송 SRT_740 3.5s · chars=2650
+[20:55:13] 제출 후 last_saved=https://www.genspark.ai/api/files/s/ekpsmdsw
+[20:55:13] ⏱ 생성대기 시작 SRT_740 max=120s
+[20:55:28] ⏱ 생성대기 진행 15.1s SRT_740 busy=False url_ok=False src=
+[20:55:30] ⏱ 생성대기 완료 17.2s SRT_740 https://www.genspark.ai/api/files/s/vmkdz8rk
+[20:55:30] ⏱ 생성대기구간 SRT_740 17.2s · ok=True
+[20:55:30] SRT_740 근접 이미지 https://www.genspark.ai/api/files/s/vmkdz8rk
+[20:55:30] 다운로드 files URL=https://www.genspark.ai/api/files/s/vmkdz8rk → SRT_740.png
+[20:55:31] ⏱ 다운로드 직접 0.7s size=499006 SRT_740.png
+[20:55:31] ⏱ 다운로드구간 SRT_740 0.7s · SRT_740.png
+[20:55:32] ⏱ 다운로드후유휴 SRT_740 1.1s · idle=True
+[20:55:32] ⏱ 씬합계 SRT_740 23.7s · https://www.genspark.ai/api/files/s/vmkdz8rk
+[20:55:32] SRT_740 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\17장\png\SRT_740.png
+[20:55:32] 상태키 SRT_760 · Baek|base; Jin≈19|base
+[20:55:32] run_scene 시작 SRT_760 · seen_files=38 · last_saved=https://www.genspark.ai/api/files/s/vmkdz8rk
+[20:55:32] ⏱ 준비 SRT_760 0.0s · chars=3163
+[20:55:33] ⏱ 다음명령유휴 SRT_760 1.1s · idle=True
+[20:55:34] fill OK(clip) follow=True chars=3163
+[20:55:34] submit 시작 composer=3163 url=https://www.genspark.ai/agents?id=a2bc3889-b9a8-435a-b569-b034f17482dd
+[20:55:34] submit geo 실패 hit=no-btn
+[20:55:34] submit 시도 method=geo geo=False
+[20:55:34] submit 미확인 method=geo generating=False composer=3163
+[20:55:35] submit geo 실패 hit=no-btn
+[20:55:35] submit 시도 method=send send=False
+[20:55:35] submit 미확인 method=send generating=False composer=3163
+[20:55:35] submit 시도 method=ctrl
+[20:55:36] submit 미확인 method=ctrl generating=False composer=3165
+[20:55:36] submit 시도 method=enter
+[20:55:37] submit 확인 method=enter generating=False composer=0
+[20:55:37] ⏱ 입력·전송 SRT_760 3.5s · chars=3163
+[20:55:37] 제출 후 last_saved=https://www.genspark.ai/api/files/s/vmkdz8rk
+[20:55:37] ⏱ 생성대기 시작 SRT_760 max=120s
+[20:55:52] ⏱ 생성대기 진행 15.2s SRT_760 busy=False url_ok=False src=
+[20:55:55] ⏱ 생성대기 완료 17.7s SRT_760 https://www.genspark.ai/api/files/s/6iqxstz9
+[20:55:55] ⏱ 생성대기구간 SRT_760 17.7s · ok=True
+[20:55:55] SRT_760 근접 이미지 https://www.genspark.ai/api/files/s/6iqxstz9
+[20:55:55] 다운로드 files URL=https://www.genspark.ai/api/files/s/6iqxstz9 → SRT_760.png
+[20:55:56] ⏱ 다운로드 직접 0.7s size=494636 SRT_760.png
+[20:55:56] ⏱ 다운로드구간 SRT_760 0.7s · SRT_760.png
+[20:55:57] ⏱ 다운로드후유휴 SRT_760 1.0s · idle=True
+[20:55:57] ⏱ 씬합계 SRT_760 24.3s · https://www.genspark.ai/api/files/s/6iqxstz9
+[20:55:57] SRT_760 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\17장\png\SRT_760.png
+[20:55:57] 상태키 SRT_780 · Baek|base; Jin≈19|base
+[20:55:57] run_scene 시작 SRT_780 · seen_files=39 · last_saved=https://www.genspark.ai/api/files/s/6iqxstz9
+[20:55:57] ⏱ 준비 SRT_780 0.0s · chars=1576
+[20:55:58] ⏱ 다음명령유휴 SRT_780 1.0s · idle=True
+[20:55:58] fill OK(clip) follow=True chars=1576
+[20:55:58] submit 시작 composer=1576 url=https://www.genspark.ai/agents?id=a2bc3889-b9a8-435a-b569-b034f17482dd
+[20:55:58] submit geo 실패 hit=no-btn
+[20:55:58] submit 시도 method=geo geo=False
+[20:55:59] submit 미확인 method=geo generating=False composer=1576
+[20:55:59] submit geo 실패 hit=no-btn
+[20:55:59] submit 시도 method=send send=False
+[20:56:00] submit 미확인 method=send generating=False composer=1576
+[20:56:00] submit 시도 method=ctrl
+[20:56:00] submit 미확인 method=ctrl generating=False composer=1578
+[20:56:01] submit 시도 method=enter
+[20:56:01] submit 확인 method=enter generating=False composer=0
+[20:56:01] ⏱ 입력·전송 SRT_780 3.5s · chars=1576
+[20:56:01] 제출 후 last_saved=https://www.genspark.ai/api/files/s/6iqxstz9
+[20:56:01] ⏱ 생성대기 시작 SRT_780 max=120s
+[20:56:17] ⏱ 생성대기 진행 15.4s SRT_780 busy=False url_ok=False src=
+[20:56:28] ⏱ 생성대기 완료 26.4s SRT_780 https://www.genspark.ai/api/files/s/pmjdrkgk
+[20:56:28] ⏱ 생성대기구간 SRT_780 26.4s · ok=True
+[20:56:28] SRT_780 근접 이미지 https://www.genspark.ai/api/files/s/pmjdrkgk
+[20:56:28] 다운로드 files URL=https://www.genspark.ai/api/files/s/pmjdrkgk → SRT_780.png
+[20:56:29] ⏱ 다운로드 직접 0.9s size=488379 SRT_780.png
+[20:56:29] ⏱ 다운로드구간 SRT_780 0.9s · SRT_780.png
+[20:56:30] ⏱ 다운로드후유휴 SRT_780 1.1s · idle=True
+[20:56:30] ⏱ 씬합계 SRT_780 33.2s · https://www.genspark.ai/api/files/s/pmjdrkgk
+[20:56:30] SRT_780 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\17장\png\SRT_780.png
+[20:56:30] 상태키 SRT_800 · Baek|base; Jin≈19|base
+[20:56:30] run_scene 시작 SRT_800 · seen_files=40 · last_saved=https://www.genspark.ai/api/files/s/pmjdrkgk
+[20:56:30] ⏱ 준비 SRT_800 0.0s · chars=1930
+[20:56:31] ⏱ 다음명령유휴 SRT_800 1.0s · idle=True
+[20:56:32] fill OK(clip) follow=True chars=1930
+[20:56:32] submit 시작 composer=1930 url=https://www.genspark.ai/agents?id=a2bc3889-b9a8-435a-b569-b034f17482dd
+[20:56:32] submit geo 실패 hit=no-btn
+[20:56:32] submit 시도 method=geo geo=False
+[20:56:32] submit 미확인 method=geo generating=False composer=1930
+[20:56:32] submit geo 실패 hit=no-btn
+[20:56:32] submit 시도 method=send send=False
+[20:56:33] submit 미확인 method=send generating=False composer=1930
+[20:56:33] submit 시도 method=ctrl
+[20:56:34] submit 미확인 method=ctrl generating=False composer=1932
+[20:56:34] submit 시도 method=enter
+[20:56:35] submit 확인 method=enter generating=False composer=0
+[20:56:35] ⏱ 입력·전송 SRT_800 3.5s · chars=1930
+[20:56:35] 제출 후 last_saved=https://www.genspark.ai/api/files/s/pmjdrkgk
+[20:56:35] ⏱ 생성대기 시작 SRT_800 max=120s
+[20:56:50] ⏱ 생성대기 진행 15.1s SRT_800 busy=False url_ok=True src=https://www.genspark.ai/api/files/s/tzpvzkfv
+[20:56:50] ⏱ 생성대기 완료 15.4s SRT_800 https://www.genspark.ai/api/files/s/tzpvzkfv
+[20:56:50] ⏱ 생성대기구간 SRT_800 15.4s · ok=True
+[20:56:50] SRT_800 근접 이미지 https://www.genspark.ai/api/files/s/tzpvzkfv
+[20:56:50] 다운로드 files URL=https://www.genspark.ai/api/files/s/tzpvzkfv → SRT_800.png
+[20:56:51] ⏱ 다운로드 직접 0.7s size=498727 SRT_800.png
+[20:56:51] ⏱ 다운로드구간 SRT_800 0.7s · SRT_800.png
+[20:56:52] ⏱ 다운로드후유휴 SRT_800 1.1s · idle=True
+[20:56:52] ⏱ 씬합계 SRT_800 22.0s · https://www.genspark.ai/api/files/s/tzpvzkfv
+[20:56:52] SRT_800 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\17장\png\SRT_800.png
+[20:56:52] 상태키 SRT_820 · Baek|base; Jin≈19|base
+[20:56:52] run_scene 시작 SRT_820 · seen_files=41 · last_saved=https://www.genspark.ai/api/files/s/tzpvzkfv
+[20:56:52] ⏱ 준비 SRT_820 0.0s · chars=2495
+[20:56:53] ⏱ 다음명령유휴 SRT_820 1.1s · idle=True
+[20:56:54] fill OK(clip) follow=True chars=2495
+[20:56:54] submit 시작 composer=2495 url=https://www.genspark.ai/agents?id=a2bc3889-b9a8-435a-b569-b034f17482dd
+[20:56:54] submit geo 실패 hit=no-btn
+[20:56:54] submit 시도 method=geo geo=False
+[20:56:54] submit 미확인 method=geo generating=False composer=2495
+[20:56:55] submit geo 실패 hit=no-btn
+[20:56:55] submit 시도 method=send send=False
+[20:56:55] submit 미확인 method=send generating=False composer=2495
+[20:56:55] submit 시도 method=ctrl
+[20:56:56] submit 미확인 method=ctrl generating=False composer=2497
+[20:56:56] submit 시도 method=enter
+[20:56:57] submit 확인 method=enter generating=False composer=0
+[20:56:57] ⏱ 입력·전송 SRT_820 3.5s · chars=2495
+[20:56:57] 제출 후 last_saved=https://www.genspark.ai/api/files/s/tzpvzkfv
+[20:56:57] ⏱ 생성대기 시작 SRT_820 max=120s
+[20:57:12] ⏱ 생성대기 진행 15.1s SRT_820 busy=False url_ok=False src=
+[20:57:18] ⏱ 생성대기 완료 20.7s SRT_820 https://www.genspark.ai/api/files/s/di51fbxl
+[20:57:18] ⏱ 생성대기구간 SRT_820 20.7s · ok=True
+[20:57:18] SRT_820 근접 이미지 https://www.genspark.ai/api/files/s/di51fbxl
+[20:57:18] 다운로드 files URL=https://www.genspark.ai/api/files/s/di51fbxl → SRT_820.png
+[20:57:18] ⏱ 다운로드 직접 0.7s size=390083 SRT_820.png
+[20:57:18] ⏱ 다운로드구간 SRT_820 0.7s · SRT_820.png
+[20:57:20] ⏱ 다운로드후유휴 SRT_820 1.1s · idle=True
+[20:57:20] ⏱ 씬합계 SRT_820 27.3s · https://www.genspark.ai/api/files/s/di51fbxl
+[20:57:20] SRT_820 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\17장\png\SRT_820.png
+[20:57:20] 상태키 SRT_840 · Baek|base; Jin≈19|base
+[20:57:20] run_scene 시작 SRT_840 · seen_files=42 · last_saved=https://www.genspark.ai/api/files/s/di51fbxl
+[20:57:20] ⏱ 준비 SRT_840 0.0s · chars=1398
+[20:57:21] ⏱ 다음명령유휴 SRT_840 1.1s · idle=True
+[20:57:21] fill OK(clip) follow=True chars=1398
+[20:57:21] submit 시작 composer=1398 url=https://www.genspark.ai/agents?id=a2bc3889-b9a8-435a-b569-b034f17482dd
+[20:57:21] submit geo 실패 hit=no-btn
+[20:57:21] submit 시도 method=geo geo=False
+[20:57:22] submit 미확인 method=geo generating=False composer=1398
+[20:57:22] submit geo 실패 hit=no-btn
+[20:57:22] submit 시도 method=send send=False
+[20:57:23] submit 미확인 method=send generating=False composer=1398
+[20:57:23] submit 시도 method=ctrl
+[20:57:23] submit 미확인 method=ctrl generating=False composer=1400
+[20:57:24] submit 시도 method=enter
+[20:57:24] submit 확인 method=enter generating=False composer=0
+[20:57:24] ⏱ 입력·전송 SRT_840 3.5s · chars=1398
+[20:57:24] 제출 후 last_saved=https://www.genspark.ai/api/files/s/di51fbxl
+[20:57:24] ⏱ 생성대기 시작 SRT_840 max=120s
+[20:57:39] ⏱ 생성대기 완료 14.8s SRT_840 https://www.genspark.ai/api/files/s/ayiha24p
+[20:57:39] ⏱ 생성대기구간 SRT_840 14.8s · ok=True
+[20:57:39] SRT_840 근접 이미지 https://www.genspark.ai/api/files/s/ayiha24p
+[20:57:39] 다운로드 files URL=https://www.genspark.ai/api/files/s/ayiha24p → SRT_840.png
+[20:57:40] ⏱ 다운로드 직접 0.7s size=466053 SRT_840.png
+[20:57:40] ⏱ 다운로드구간 SRT_840 0.7s · SRT_840.png
+[20:57:41] ⏱ 다운로드후유휴 SRT_840 1.2s · idle=True
+[20:57:41] ⏱ 씬합계 SRT_840 21.5s · https://www.genspark.ai/api/files/s/ayiha24p
+[20:57:41] SRT_840 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\17장\png\SRT_840.png
+[20:57:41] 상태키 SRT_860 · Baek|base; Jin≈19|base
+[20:57:41] run_scene 시작 SRT_860 · seen_files=43 · last_saved=https://www.genspark.ai/api/files/s/ayiha24p
+[20:57:41] ⏱ 준비 SRT_860 0.0s · chars=1418
+[20:57:43] ⏱ 다음명령유휴 SRT_860 2.0s · idle=True
+[20:57:44] fill OK(clip) follow=True chars=1418
+[20:57:44] submit 시작 composer=1418 url=https://www.genspark.ai/agents?id=a2bc3889-b9a8-435a-b569-b034f17482dd
+[20:57:44] submit geo 실패 hit=no-btn
+[20:57:44] submit 시도 method=geo geo=False
+[20:57:45] submit 미확인 method=geo generating=False composer=1418
+[20:57:45] submit geo 실패 hit=no-btn
+[20:57:45] submit 시도 method=send send=False
+[20:57:45] submit 미확인 method=send generating=False composer=1418
+[20:57:46] submit 시도 method=ctrl
+[20:57:46] submit 미확인 method=ctrl generating=False composer=1420
+[20:57:46] submit 시도 method=enter
+[20:57:47] submit 확인 method=enter generating=False composer=0
+[20:57:47] ⏱ 입력·전송 SRT_860 3.6s · chars=1418
+[20:57:47] 제출 후 last_saved=https://www.genspark.ai/api/files/s/ayiha24p
+[20:57:47] ⏱ 생성대기 시작 SRT_860 max=120s
+[20:58:00] ⏱ 생성대기 완료 13.2s SRT_860 https://www.genspark.ai/api/files/s/kagitqel
+[20:58:00] ⏱ 생성대기구간 SRT_860 13.2s · ok=True
+[20:58:00] SRT_860 근접 이미지 https://www.genspark.ai/api/files/s/kagitqel
+[20:58:00] 다운로드 files URL=https://www.genspark.ai/api/files/s/kagitqel → SRT_860.png
+[20:58:01] ⏱ 다운로드 직접 0.8s size=483388 SRT_860.png
+[20:58:01] ⏱ 다운로드구간 SRT_860 0.8s · SRT_860.png
+[20:58:02] ⏱ 다운로드후유휴 SRT_860 1.1s · idle=True
+[20:58:02] ⏱ 씬합계 SRT_860 20.9s · https://www.genspark.ai/api/files/s/kagitqel
+[20:58:02] SRT_860 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\17장\png\SRT_860.png
+[20:58:02] 상태키 SRT_880 · Baek|base; Jin≈19|base
+[20:58:02] run_scene 시작 SRT_880 · seen_files=44 · last_saved=https://www.genspark.ai/api/files/s/kagitqel
+[20:58:02] ⏱ 준비 SRT_880 0.0s · chars=2097
+[20:58:03] ⏱ 다음명령유휴 SRT_880 1.1s · idle=True
+[20:58:04] fill OK(clip) follow=True chars=2097
+[20:58:04] submit 시작 composer=2097 url=https://www.genspark.ai/agents?id=a2bc3889-b9a8-435a-b569-b034f17482dd
+[20:58:04] submit geo 실패 hit=no-btn
+[20:58:04] submit 시도 method=geo geo=False
+[20:58:05] submit 미확인 method=geo generating=False composer=2097
+[20:58:05] submit geo 실패 hit=no-btn
+[20:58:05] submit 시도 method=send send=False
+[20:58:05] submit 미확인 method=send generating=False composer=2097
+[20:58:06] submit 시도 method=ctrl
+[20:58:06] submit 미확인 method=ctrl generating=False composer=2099
+[20:58:06] submit 시도 method=enter
+[20:58:07] submit 확인 method=enter generating=False composer=0
+[20:58:07] ⏱ 입력·전송 SRT_880 3.5s · chars=2097
+[20:58:07] 제출 후 last_saved=https://www.genspark.ai/api/files/s/kagitqel
+[20:58:07] ⏱ 생성대기 시작 SRT_880 max=120s
+[20:58:22] ⏱ 생성대기 진행 15.2s SRT_880 busy=False url_ok=False src=
+[20:58:23] ⏱ 생성대기 완료 16.0s SRT_880 https://www.genspark.ai/api/files/s/3jrdlpc9
+[20:58:23] ⏱ 생성대기구간 SRT_880 16.0s · ok=True
+[20:58:23] SRT_880 근접 이미지 https://www.genspark.ai/api/files/s/3jrdlpc9
+[20:58:23] 다운로드 files URL=https://www.genspark.ai/api/files/s/3jrdlpc9 → SRT_880.png
+[20:58:24] ⏱ 다운로드 직접 0.7s size=297575 SRT_880.png
+[20:58:24] ⏱ 다운로드구간 SRT_880 0.7s · SRT_880.png
+[20:58:25] ⏱ 다운로드후유휴 SRT_880 1.0s · idle=True
+[20:58:25] ⏱ 씬합계 SRT_880 22.6s · https://www.genspark.ai/api/files/s/3jrdlpc9
+[20:58:25] SRT_880 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\17장\png\SRT_880.png
+[20:58:25] 상태키 SRT_892 · Baek|base; Jin≈19|base
+[20:58:25] run_scene 시작 SRT_892 · seen_files=45 · last_saved=https://www.genspark.ai/api/files/s/3jrdlpc9
+[20:58:25] ⏱ 준비 SRT_892 0.0s · chars=2023
+[20:58:26] ⏱ 다음명령유휴 SRT_892 1.0s · idle=True
+[20:58:27] fill OK(clip) follow=True chars=2023
+[20:58:27] submit 시작 composer=2023 url=https://www.genspark.ai/agents?id=a2bc3889-b9a8-435a-b569-b034f17482dd
+[20:58:27] submit geo 실패 hit=no-btn
+[20:58:27] submit 시도 method=geo geo=False
+[20:58:27] submit 미확인 method=geo generating=False composer=2023
+[20:58:28] submit geo 실패 hit=no-btn
+[20:58:28] submit 시도 method=send send=False
+[20:58:28] submit 미확인 method=send generating=False composer=2023
+[20:58:28] submit 시도 method=ctrl
+[20:58:29] submit 미확인 method=ctrl generating=False composer=2025
+[20:58:29] submit 시도 method=enter
+[20:58:30] submit 확인 method=enter generating=False composer=0
+[20:58:30] ⏱ 입력·전송 SRT_892 3.6s · chars=2023
+[20:58:30] 제출 후 last_saved=https://www.genspark.ai/api/files/s/3jrdlpc9
+[20:58:30] ⏱ 생성대기 시작 SRT_892 max=120s
+[20:58:44] ⏱ 생성대기 완료 14.0s SRT_892 https://www.genspark.ai/api/files/s/8pwzshbl
+[20:58:44] ⏱ 생성대기구간 SRT_892 14.0s · ok=True
+[20:58:44] SRT_892 근접 이미지 https://www.genspark.ai/api/files/s/8pwzshbl
+[20:58:44] 다운로드 files URL=https://www.genspark.ai/api/files/s/8pwzshbl → SRT_892.png
+[20:58:46] ⏱ 다운로드 직접 2.0s size=306929 SRT_892.png
+[20:58:46] ⏱ 다운로드구간 SRT_892 2.0s · SRT_892.png
+[20:58:47] ⏱ 다운로드후유휴 SRT_892 1.1s · idle=True
+[20:58:47] ⏱ 씬합계 SRT_892 22.0s · https://www.genspark.ai/api/files/s/8pwzshbl
+[20:58:47] SRT_892 생성·다운로드 완료
+C:\cursor\wuxia\무협극장\검신귀환록\2부\17장\png\SRT_892.png

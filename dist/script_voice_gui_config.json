@@ -1,0 +1,11 @@
+{
+  "gap_sec": "1",
+  "auto_play_range": true,
+  "root_dir": "C:/cursor/wuxia/workspace/swardmaster/2부/17장",
+  "mp3_dir": "C:\\cursor\\wuxia\\workspace\\swardmaster\\2부\\17장\\mp3",
+  "tts_dir": "C:\\cursor\\wuxia\\workspace\\swardmaster\\2부\\17장\\mp3",
+  "output_dir": "C:\\cursor\\wuxia\\workspace\\swardmaster\\2부\\17장\\mp3",
+  "config_file": "C:\\cursor\\wuxia\\2_2_scriptToVoice\\dist\\elsub_config.json",
+  "dialogue_json": "C:\\cursor\\wuxia\\workspace\\swardmaster\\2부\\17장\\tts\\17장.json",
+  "script_text": "\n"
+}
