@@ -14,4 +14,12 @@ WORK_DIR_NAME = "_merge_work"
 
 
 def default_mp4_folder() -> Path:
+    try:
+        from wisdom_content_paths import default_mp4_dir
+
+        d = default_mp4_dir()
+        if d is not None:
+            return d
+    except ImportError:
+        pass
     return workspace_module_output(MODULE)

@@ -251,6 +251,27 @@ def resolve_mp3_for_srt(srt: Path) -> Path | None:
     return None
 
 
+def find_default_srt_under_root(root: Path | str) -> Path | None:
+    """``{root}/mp3`` 에서 new.srt → all.srt, 없으면 최신 *.srt."""
+    r = Path(root).expanduser()
+    mp3 = r / "mp3"
+    if mp3.is_dir():
+        for name in ("new.srt", "all.srt"):
+            p = mp3 / name
+            try:
+                if p.is_file():
+                    return p.resolve()
+            except OSError:
+                continue
+        try:
+            srts = [p for p in mp3.glob("*.srt") if p.is_file()]
+        except OSError:
+            srts = []
+        if srts:
+            return max(srts, key=lambda p: p.stat().st_mtime)
+    return None
+
+
 def pick_default_srt_mp3() -> tuple[Path | None, Path | None]:
     """4_1_video 와 동일 — ``all.srt`` / ``all.mp3`` 우선."""
     roots: list[Path] = []

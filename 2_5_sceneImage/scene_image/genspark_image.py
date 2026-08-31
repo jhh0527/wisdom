@@ -24,7 +24,10 @@ from scene_image.chrome_slot import (
 from scene_image.limit_detect import (
     AiImageLimitError,
     detect_limit_on_page,
+    limit_hit_from_text,
+    parse_reset_at,
     raise_limit_error,
+    read_page_visible_text,
 )
 from scene_image.paths import GENSPARK_AI_IMAGE_URL
 from scene_image.scene_parse import png_already_exists, srt_png_name
@@ -400,6 +403,16 @@ def _is_followup_command(text: str) -> bool:
 # 씬 직전 문맥(초). DRAW 구간과 분리해 넣음.
 CONTEXT_LOOKBACK_SEC = 60
 
+_NO_SPEECH_BUBBLE_BLOCK = (
+    "===== FORBIDDEN IN IMAGE (strict) =====\n"
+    "Absolutely NO speech bubbles, comic balloons, dialogue balloons, thought bubbles, "
+    "tooltips, help balloons, UI tips, callout boxes, caption boxes, chat bubbles, "
+    "or any tailed balloon / dialogue box of any kind. "
+    "NO written text, letters, Hangul, hanzi, kana, or Latin script on the image. "
+    "If characters speak, show only facial expression, mouth shape, and body language — "
+    "never draw a bubble, caption, or on-image dialogue."
+)
+
 
 def build_generate_command(
     srt_sec: int,
@@ -473,6 +486,8 @@ def build_generate_command(
     if not real:
         has_chars = bool(look)
         parts.append(f"===== STYLE =====\n{style_tail_for_scene(has_characters=has_chars)}")
+    # SCENE PROMPT 가 있어도 말풍선 금지는 매번 명시 (스타일 블록 생략 시에도)
+    parts.append(_NO_SPEECH_BUBBLE_BLOCK)
     tr_obj = tr if isinstance(tr, CharacterStateTracker) else None
     multi = False
     if tr_obj and look:
@@ -484,7 +499,8 @@ def build_generate_command(
         else (
             f"{label} Chinese wuxia manhua illustration — generate now. "
             f"Keep character face and outfit consistent with Character Bible. "
-            f"No text or speech bubbles. "
+            f"Absolutely no speech bubbles, comic balloons, tooltips, callouts, "
+            f"or any on-image text. "
             f"After the image, output exactly one line only: "
             f"「{label} 이미지가 성공적으로 생성되었습니다.」 "
             f"No summary, caption, analysis, tips, table, or other prose."
@@ -3840,6 +3856,28 @@ class GensparkSceneSession:
             timeout=240.0,
         )
 
+    def probe_limit_reset(
+        self,
+        *,
+        url: str = "",
+        email: str = "",
+        password: str = "",
+    ) -> dict[str, Any]:
+        """AI Image 페이지에서 한도·정상화(재설정) 시각을 읽는다.
+
+        Returns:
+            ``{"reset_at": "YYYY-MM-DDTHH:MM:SS"|None, "snippet": str, "is_limit": bool}``
+        """
+        return self._call(
+            "probe_limit",
+            {
+                "url": url or GENSPARK_AI_IMAGE_URL,
+                "email": email,
+                "password": password,
+            },
+            timeout=180.0,
+        )
+
     def paste_text(
         self,
         *,
@@ -4760,6 +4798,59 @@ class GensparkSceneSession:
                     elif op == "stop":
                         resp_q.put((True, None, None))
                         break
+                    elif op == "probe_limit":
+                        data = arg or {}
+                        url = data.get("url") or GENSPARK_AI_IMAGE_URL
+                        email = str(data.get("email") or "")
+                        password = str(data.get("password") or "")
+                        page = await _alive_page(context, page)
+                        if "genspark.ai" not in (page.url or "").lower() or (
+                            _score_ai_image_url(page.url or "") < 10
+                        ):
+                            await page.goto(
+                                url,
+                                wait_until="domcontentloaded",
+                                timeout=90_000,
+                            )
+                            await page.wait_for_timeout(1500)
+                        if email and password and not await _is_logged_in(page):
+                            await _ensure_login(
+                                page,
+                                email,
+                                password,
+                                context=context,
+                                force=False,
+                            )
+                            if _score_ai_image_url(page.url or "") < 10:
+                                await page.goto(
+                                    url,
+                                    wait_until="domcontentloaded",
+                                    timeout=90_000,
+                                )
+                                await page.wait_for_timeout(1500)
+                        # 배너·토스트가 늦게 뜨는 경우 대비
+                        await page.wait_for_timeout(2500)
+                        text = await read_page_visible_text(page)
+                        hit = limit_hit_from_text(text)
+                        reset_at = hit.reset_at if hit else None
+                        if reset_at is None:
+                            reset_at = parse_reset_at(text)
+                        resp_q.put(
+                            (
+                                True,
+                                {
+                                    "reset_at": (
+                                        reset_at.strftime("%Y-%m-%dT%H:%M:%S")
+                                        if reset_at
+                                        else None
+                                    ),
+                                    "snippet": (text or "")[:800],
+                                    "is_limit": hit is not None,
+                                    "message": hit.message if hit else "",
+                                },
+                                None,
+                            )
+                        )
                     else:
                         resp_q.put(
                             (False, None, RuntimeError(f"알 수 없는 명령: {op}"))

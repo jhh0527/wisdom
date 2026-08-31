@@ -61,6 +61,7 @@ from mp4_search.naming import (
     parse_srt_asset_number,
 )
 from mp4_search.timeline_compose import (
+    asset_timeline_mark,
     build_asset_start_times_from_srt,
     clip_duration_until_next_asset,
     compose_asset_statuses,
@@ -72,10 +73,12 @@ from mp4_search.timeline_compose import (
     list_timeline_compose_jobs,
     missing_timeline_mp4_slots,
     timeline_total_sec,
+    unlisted_folder_asset_numbers,
 )
 from mp4_search.paths import (
     announcer_dir,
     default_output_dir,
+    find_default_srt_under_root,
     list_announcer_mp4s,
     media_dirs_for_srt,
     mp3_candidates_for_srt,
@@ -209,7 +212,16 @@ def main(*, container: tk.Misc | None = None) -> None:
     mp3_var = tk.StringVar(value=mp3_init)
     download_default = cfg.get("download_dir") or str(Path.home() / "Downloads")
     download_var = tk.StringVar(value=download_default)
-    status_var = tk.StringVar(value="SRT 파일을 선택한 뒤 「① 목록 조회」를 누르세요.")
+    from wisdom_content_paths import infer_root_from_media_path
+
+    root_default = (cfg.get("root_dir") or "").strip()
+    if not root_default:
+        seed = srt_init or mp4_var.get() or mp3_init
+        if seed:
+            inferred = infer_root_from_media_path(seed)
+            root_default = str(inferred) if inferred is not None else ""
+    root_path_var = tk.StringVar(value=root_default)
+    status_var = tk.StringVar(value="루트 또는 SRT 파일을 선택한 뒤 「① 목록 조회」를 누르세요.")
     query_var = tk.StringVar(value="")
     keyword_var = tk.StringVar(value="")
     busy = {"v": False}
@@ -237,6 +249,7 @@ def main(*, container: tk.Misc | None = None) -> None:
         except NameError:
             pass
         save_gui_settings(
+            root_dir=root_path_var.get().strip(),
             srt_file=srt_var.get().strip(),
             mp4_dir=mp4_var.get().strip(),
             download_dir=download_var.get().strip(),
@@ -326,6 +339,41 @@ def main(*, container: tk.Misc | None = None) -> None:
         if force_mp3 or not mp3_var.get().strip():
             # mp4 폴더와 같이: 선택한 SRT 콘텐츠 루트의 mp3/all.mp3 경로
             mp3_var.set(str(mp3_d / "all.mp3"))
+        inferred = infer_root_from_media_path(srt)
+        if inferred is not None:
+            root_path_var.set(str(inferred))
+
+    def apply_root(*, force: bool = True) -> None:
+        """루트 지정 시 SRT·MP4·MP3 경로를 루트 기준으로 맞춘다 (이후 수기 수정 가능)."""
+        raw = root_path_var.get().strip()
+        if not raw:
+            return
+        from wisdom_content_paths import ensure_content_layout
+
+        r = Path(raw).expanduser()
+        layout = ensure_content_layout(r)
+        mp4_var.set(str(layout["mp4"]))
+        mp3_var.set(str(layout["mp3"] / "all.mp3"))
+        cur_srt = srt_var.get().strip()
+        need_srt = force or not cur_srt or not Path(cur_srt).is_file()
+        if not need_srt and cur_srt:
+            try:
+                need_srt = not Path(cur_srt).resolve().is_relative_to(r.resolve())
+            except (OSError, ValueError, AttributeError):
+                need_srt = True
+        if need_srt:
+            found = find_default_srt_under_root(r)
+            if found is not None:
+                srt_var.set(str(found))
+            elif force:
+                srt_var.set(str(layout["mp3"] / "new.srt"))
+        if force:
+            touch_workspace_from_path(str(r))
+        persist()
+        status_var.set(
+            f"루트 → mp4:{layout['mp4'].name} · "
+            f"srt:{Path(srt_var.get()).name if srt_var.get().strip() else '—'} · {r}"
+        )
 
     def suggest_mp3_from_srt() -> Path | None:
         cur = mp3_var.get().strip()
@@ -418,9 +466,42 @@ def main(*, container: tk.Misc | None = None) -> None:
     path_fr.grid(row=0, column=0, sticky="ew", pady=(0, 6))
     path_fr.grid_columnconfigure(1, weight=1)
 
-    ttk.Label(path_fr, text="SRT", width=8).grid(row=0, column=0, sticky="w")
+    ttk.Label(path_fr, text="루트", width=8).grid(row=0, column=0, sticky="w")
+    root_path_ent = ttk.Entry(path_fr, textvariable=root_path_var)
+    root_path_ent.grid(row=0, column=1, sticky="ew", padx=(4, 6))
+
+    def pick_root() -> None:
+        init = Path(root_path_var.get().strip()) if root_path_var.get().strip() else default_output_dir()
+        if init.is_file():
+            init = init.parent
+        p = filedialog.askdirectory(
+            title="루트 폴더",
+            initialdir=folder_dialog_initial(init),
+        )
+        if not p:
+            return
+        root_path_var.set(p)
+        apply_root(force=True)
+
+    btn_pick_root = ttk.Button(path_fr, text="찾기…", command=pick_root)
+    btn_pick_root.grid(row=0, column=2)
+    bind_path_row_dnd(
+        root_path_ent,
+        path_fr,
+        root_path_var,
+        mode="dir",
+        on_set=lambda _p: apply_root(force=True),
+    )
+    bind_path_entry_dnd(
+        root_path_ent,
+        root_path_var,
+        mode="dir",
+        on_set=lambda _p: apply_root(force=True),
+    )
+
+    ttk.Label(path_fr, text="SRT", width=8).grid(row=1, column=0, sticky="w", pady=(6, 0))
     srt_ent = ttk.Entry(path_fr, textvariable=srt_var)
-    srt_ent.grid(row=0, column=1, sticky="ew", padx=(4, 6))
+    srt_ent.grid(row=1, column=1, sticky="ew", padx=(4, 6), pady=(6, 0))
 
     def pick_srt() -> None:
         init = Path(srt_var.get().strip()) if srt_var.get().strip() else Path.home()
@@ -439,11 +520,11 @@ def main(*, container: tk.Misc | None = None) -> None:
         persist()
 
     btn_pick_srt = ttk.Button(path_fr, text="찾기…", command=pick_srt)
-    btn_pick_srt.grid(row=0, column=2)
+    btn_pick_srt.grid(row=1, column=2, pady=(6, 0))
 
-    ttk.Label(path_fr, text="MP4 폴더", width=8).grid(row=1, column=0, sticky="w", pady=(6, 0))
+    ttk.Label(path_fr, text="MP4 폴더", width=8).grid(row=2, column=0, sticky="w", pady=(6, 0))
     mp4_ent = ttk.Entry(path_fr, textvariable=mp4_var)
-    mp4_ent.grid(row=1, column=1, sticky="ew", padx=(4, 6), pady=(6, 0))
+    mp4_ent.grid(row=2, column=1, sticky="ew", padx=(4, 6), pady=(6, 0))
 
     def pick_mp4_dir() -> None:
         init = Path(mp4_var.get().strip()) if mp4_var.get().strip() else default_output_dir()
@@ -452,6 +533,9 @@ def main(*, container: tk.Misc | None = None) -> None:
             return
         touch_workspace_from_path(p)
         mp4_var.set(p)
+        pp = Path(p)
+        if pp.name.casefold() == "mp4":
+            root_path_var.set(str(pp.parent))
         persist()
 
     def view_mp4_folder() -> None:
@@ -472,13 +556,13 @@ def main(*, container: tk.Misc | None = None) -> None:
             safe_messagebox(root, "showinfo", "7_3 mp4Search", f"MP4 폴더:\n{d}")
 
     btn_pick_mp4 = ttk.Button(path_fr, text="찾기…", command=pick_mp4_dir)
-    btn_pick_mp4.grid(row=1, column=2, pady=(6, 0))
+    btn_pick_mp4.grid(row=2, column=2, pady=(6, 0))
     btn_view_mp4 = ttk.Button(path_fr, text="조회", command=view_mp4_folder)
-    btn_view_mp4.grid(row=1, column=3, padx=(4, 0), pady=(6, 0))
+    btn_view_mp4.grid(row=2, column=3, padx=(4, 0), pady=(6, 0))
 
-    ttk.Label(path_fr, text="다운로드", width=8).grid(row=2, column=0, sticky="w", pady=(6, 0))
+    ttk.Label(path_fr, text="다운로드", width=8).grid(row=3, column=0, sticky="w", pady=(6, 0))
     download_ent = ttk.Entry(path_fr, textvariable=download_var)
-    download_ent.grid(row=2, column=1, sticky="ew", padx=(4, 6), pady=(6, 0))
+    download_ent.grid(row=3, column=1, sticky="ew", padx=(4, 6), pady=(6, 0))
 
     def pick_download_dir() -> None:
         init = Path(download_var.get().strip()) if download_var.get().strip() else Path.home() / "Downloads"
@@ -490,11 +574,11 @@ def main(*, container: tk.Misc | None = None) -> None:
         persist()
 
     btn_pick_download = ttk.Button(path_fr, text="찾기…", command=pick_download_dir)
-    btn_pick_download.grid(row=2, column=2, pady=(6, 0))
+    btn_pick_download.grid(row=3, column=2, pady=(6, 0))
 
-    ttk.Label(path_fr, text="MP3", width=8).grid(row=3, column=0, sticky="w", pady=(6, 0))
+    ttk.Label(path_fr, text="MP3", width=8).grid(row=4, column=0, sticky="w", pady=(6, 0))
     mp3_ent = ttk.Entry(path_fr, textvariable=mp3_var)
-    mp3_ent.grid(row=3, column=1, sticky="ew", padx=(4, 6), pady=(6, 0))
+    mp3_ent.grid(row=4, column=1, sticky="ew", padx=(4, 6), pady=(6, 0))
 
     def pick_mp3() -> None:
         init = Path(mp3_var.get().strip()) if mp3_var.get().strip() else Path.home()
@@ -519,10 +603,10 @@ def main(*, container: tk.Misc | None = None) -> None:
         persist()
 
     btn_pick_mp3 = ttk.Button(path_fr, text="찾기…", command=pick_mp3)
-    btn_pick_mp3.grid(row=3, column=2, pady=(6, 0))
+    btn_pick_mp3.grid(row=4, column=2, pady=(6, 0))
 
     chk_fr = ttk.Frame(path_fr)
-    chk_fr.grid(row=4, column=1, sticky="ew", padx=(4, 0), pady=(6, 0))
+    chk_fr.grid(row=5, column=1, sticky="ew", padx=(4, 0), pady=(6, 0))
     chk_burn_sub = ttk.Checkbutton(
         chk_fr,
         text="영상에 자막추가",
@@ -539,10 +623,10 @@ def main(*, container: tk.Misc | None = None) -> None:
     chk_add_announcer.pack(side=tk.LEFT, padx=(16, 0))
 
     ttk.Label(path_fr, text="아나운서", width=8).grid(
-        row=5, column=0, sticky="w", pady=(6, 0)
+        row=6, column=0, sticky="w", pady=(6, 0)
     )
     announcer_ent = ttk.Entry(path_fr, textvariable=announcer_var)
-    announcer_ent.grid(row=5, column=1, sticky="ew", padx=(4, 6), pady=(6, 0))
+    announcer_ent.grid(row=6, column=1, sticky="ew", padx=(4, 6), pady=(6, 0))
 
     def pick_announcer() -> None:
         cur = announcer_var.get().strip()
@@ -583,11 +667,11 @@ def main(*, container: tk.Misc | None = None) -> None:
         persist()
 
     btn_pick_announcer = ttk.Button(path_fr, text="찾기…", command=pick_announcer)
-    btn_pick_announcer.grid(row=5, column=2, pady=(6, 0))
+    btn_pick_announcer.grid(row=6, column=2, pady=(6, 0))
     btn_announcer_default = ttk.Button(
         path_fr, text="기본", width=6, command=refresh_announcer_list
     )
-    btn_announcer_default.grid(row=5, column=3, padx=(4, 0), pady=(6, 0))
+    btn_announcer_default.grid(row=6, column=3, padx=(4, 0), pady=(6, 0))
 
     def _on_srt_path_set(_p: str) -> None:
         apply_media_paths_from_srt(force_mp3=True)
@@ -1492,6 +1576,48 @@ def main(*, container: tk.Misc | None = None) -> None:
                     mp4_play_mode=mp4_mode,
                     mp4_mute=mp4_mute,
                     png_path=png_path,
+                    preview_path=mp4_path if mp4_path and mp4_path.is_file() else None,
+                )
+                refresh_tree_values(iid)
+            # 마지막 자막 시작보다 뒤 번호 등 — 행에 못 붙은 폴더 자산은 목록 끝에 추가
+            listed_nums: set[int] = set()
+            for row in rows.values():
+                for p in (row.mp4_path, row.png_path):
+                    if p and p.is_file():
+                        n = parse_srt_asset_number(p.name)
+                        if n is not None:
+                            listed_nums.add(n)
+            for asset_n in unlisted_folder_asset_numbers(asset_mp4, asset_png, listed_nums):
+                mark = asset_timeline_mark(asset_n, asset_starts)
+                st_ms = max(0, int(round(mark * 1000.0)))
+                mp4_path = asset_mp4.get(asset_n)
+                png_path = asset_png.get(asset_n)
+                cue_one = "(자막 시작 이후 자산)"
+                iid = tree.insert(
+                    "",
+                    tk.END,
+                    values=(asset_n, "", "", cue_one, "", "", "", "", "", "", "고정", ""),
+                )
+                mp4_mode = MP4_MODE_LOOP
+                mp4_mute = MP4_MUTE_OFF
+                if mp4_path and mp4_path.is_file():
+                    mp4_mode = _mp4_mode_for_asset(asset_n)
+                    mp4_mute = _mp4_mute_for_asset(asset_n)
+                rows[iid] = CueRow(
+                    srt_id=asset_n,
+                    cue_text=cue_one,
+                    time_start=format_ms_short(st_ms),
+                    time_end=format_ms_short(st_ms),
+                    cue_duration_sec=0.0,
+                    timeline_start_sec=max(0.0, mark),
+                    timeline_end_sec=max(0.0, mark),
+                    clip_start_sec=0.0,
+                    clip_end_sec=0.0,
+                    cue_ids=[asset_n],
+                    mp4_path=mp4_path if mp4_path and mp4_path.is_file() else None,
+                    mp4_play_mode=mp4_mode,
+                    mp4_mute=mp4_mute,
+                    png_path=png_path if png_path and png_path.is_file() else None,
                     preview_path=mp4_path if mp4_path and mp4_path.is_file() else None,
                 )
                 refresh_tree_values(iid)

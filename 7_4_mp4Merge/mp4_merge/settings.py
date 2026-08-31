@@ -30,9 +30,17 @@ def load_gui_settings() -> dict:
 def save_gui_settings(
     *,
     mp4_folder: str | None = None,
+    root_dir: str | None = None,
     mute_files: dict[str, str] | None = None,
 ) -> None:
-    if mp4_folder is not None:
+    if root_dir is not None:
+        try:
+            from wisdom_workspace import touch_workspace_from_path
+
+            touch_workspace_from_path(root_dir)
+        except ImportError:
+            pass
+    elif mp4_folder is not None:
         try:
             from wisdom_workspace import touch_workspace_from_path
 
@@ -51,6 +59,8 @@ def save_gui_settings(
             pass
     if mp4_folder is not None:
         data["mp4_folder"] = mp4_folder
+    if root_dir is not None and root_dir.strip():
+        data["root_dir"] = root_dir.strip()
     if mute_files is not None:
         data["mute_files"] = {
             str(k).lower(): ("mute" if str(v).strip().lower() in ("mute", "1", "true", "음소거") else "sound")

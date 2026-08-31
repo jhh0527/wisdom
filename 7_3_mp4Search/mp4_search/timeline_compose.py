@@ -111,15 +111,24 @@ def folder_asset_display_owners(
 
     파일 번호 N의 시작 시각은 ``asset_start_times[N]`` (없으면 N초)이며,
     그 시각 이후 첫 자막 줄에 MP4/PNG 파일명을 표시한다.
+    이후 자막이 없으면(마지막 자막 시작보다 뒤) 마지막 자막 줄에 붙인다.
+    ``SRT_9999`` 썸네일은 제외.
     """
     owners: dict[int, int] = {}
     sorted_cues = sorted(cues, key=lambda c: c[2])
+    if not sorted_cues:
+        return owners
+    last_sid = int(sorted_cues[-1][0])
     for fk in sorted(asset_map.keys()):
+        if is_thumbnail_asset(fk):
+            continue
         mark = asset_timeline_mark(fk, asset_start_times)
         for sid, _text, st_ms, _en_ms in sorted_cues:
             if st_ms / 1000.0 >= mark - 0.001:
                 owners[fk] = sid
                 break
+        else:
+            owners[fk] = last_sid
     return owners
 
 
@@ -131,16 +140,38 @@ def folder_asset_for_cue_row(
     *,
     owns_asset: bool,
 ) -> Path | None:
-    """한 SRT 줄에 표시할 폴더 자산 (정확 번호 우선, 없으면 전환 줄 매칭)."""
+    """한 SRT 줄에 표시할 폴더 자산 (정확 번호 우선, 없으면 전환 줄 매칭).
+
+    같은 줄에 여러 자산이 매칭되면 줄의 파일 번호(``asset_sec``)에 가장 가까운 것을 고른다.
+    """
     if not owns_asset:
         return None
     exact = asset_map.get(asset_sec)
     if exact is not None:
         return exact
-    for fk, owner_sid in owners.items():
-        if owner_sid == srt_id:
-            return asset_map[fk]
-    return None
+    candidates = [
+        fk for fk, owner_sid in owners.items() if owner_sid == srt_id and fk in asset_map
+    ]
+    if not candidates:
+        return None
+    best = min(candidates, key=lambda fk: (abs(int(fk) - int(asset_sec)), int(fk)))
+    return asset_map[best]
+
+
+def unlisted_folder_asset_numbers(
+    asset_mp4: dict[int, Path],
+    asset_png: dict[int, Path],
+    listed_numbers: set[int] | frozenset[int],
+) -> list[int]:
+    """목록 행에 아직 안 붙은 폴더 ``SRT_NNN`` 번호 (썸네일 제외, 오름차순)."""
+    out: list[int] = []
+    for n in sorted(set(asset_mp4) | set(asset_png)):
+        if is_thumbnail_asset(n):
+            continue
+        if n in listed_numbers:
+            continue
+        out.append(int(n))
+    return out
 
 
 def missing_timeline_mp4_slots(

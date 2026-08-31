@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 """2_5_sceneImage GUI — 루트/stt·mp3·png + 모듈 md → Genspark 생성."""
 
 from __future__ import annotations
@@ -60,6 +60,7 @@ from scene_image.scene_parse import (
     SceneLine,
     build_interval_scenes,
     parse_scene_script,
+    parse_sec_selection,
     png_already_exists,
     scene_png_path,
 )
@@ -72,12 +73,11 @@ from scene_image.settings import (
 from wisdom_workspace import folder_dialog_initial, touch_workspace_from_path
 
 _SCENE_INTERVAL_SEC = 20
-_SEC_SPLIT_RE = re.compile(r"[,;\s]+")
 # 한도: 배너 감지 → 재설정 시각까지 대기 (매시간 시험 없음)
 _LIMIT_FAIL_STREAK = 2
 _LIMIT_WAIT_CHUNK_SEC = 15
 _LIMIT_RESET_BUFFER_SEC = 30
-_SHUTDOWN_HOURS_CHOICES = (0, 1, 2, 3, 4, 5)
+_SHUTDOWN_DELAY_SEC = 60  # 완료 후 종료까지 여유(취소: shutdown /a)
 _LIMIT_ERR_RE = re.compile(
     r"rate\s*limit|usage\s*limit|fair[\s-]*use|try\s*again\s*later|"
     r"too\s*many|5[\s-]*hour|quota|"
@@ -99,38 +99,20 @@ def _schedule_pc_shutdown(*, delay_sec: int) -> None:
     )
 
 
-def _shutdown_hours_label(hours: int) -> str:
-    h = int(hours)
-    if h <= 0:
-        return "안 함"
-    return f"{h}시간 후"
-
-
-def _parse_shutdown_hours_label(label: str) -> int:
-    s = (label or "").strip()
-    if not s or s.startswith("안"):
-        return 0
-    m = re.match(r"(\d+)", s)
-    if not m:
-        return 0
-    h = int(m.group(1))
-    return h if h in _SHUTDOWN_HOURS_CHOICES else 0
-
-
-def _load_shutdown_hours(cfg: dict[str, str]) -> int:
-    raw = (cfg.get("shutdown_after_hours") or "").strip()
-    if raw.isdigit():
-        h = int(raw)
-        if h in _SHUTDOWN_HOURS_CHOICES:
-            return h
-    legacy_on = (cfg.get("shutdown_after_complete") or "0").strip() in (
+def _load_shutdown_after_complete(cfg: dict[str, str]) -> bool:
+    """체크박스 · 구버전(시간 콤보) 설정도 켜짐으로 인식."""
+    if (cfg.get("shutdown_after_complete") or "0").strip() in (
         "1",
         "true",
         "True",
         "yes",
         "on",
-    )
-    return 1 if legacy_on else 0
+    ):
+        return True
+    raw = (cfg.get("shutdown_after_hours") or "").strip()
+    if raw.isdigit() and int(raw) > 0:
+        return True
+    return False
 
 
 def _looks_like_limit_error(err: str) -> bool:
@@ -201,21 +183,8 @@ def _default_font() -> tuple[str, int]:
         return ("맑은 고딕", 10)
 
 
-def _parse_manual_secs(text: str) -> list[int]:
-    out: list[int] = []
-    seen: set[int] = set()
-    for part in _SEC_SPLIT_RE.split((text or "").strip()):
-        if not part:
-            continue
-        try:
-            sec = int(part)
-        except ValueError:
-            continue
-        if sec < 0 or sec in seen:
-            continue
-        seen.add(sec)
-        out.append(sec)
-    return out
+def _parse_manual_secs(text: str, available_secs: list[int] | None = None) -> list[int]:
+    return parse_sec_selection(text, available_secs)
 
 
 def main(*, container: tk.Misc | None = None) -> None:
@@ -276,7 +245,7 @@ def main(*, container: tk.Misc | None = None) -> None:
         "on",
     )
     session_start_default = cfg.get("limit_session_start") or ""
-    shutdown_hours_default = _load_shutdown_hours(cfg)
+    shutdown_default = _load_shutdown_after_complete(cfg)
     manual_default = cfg.get("manual_secs") or ""
     scene_cache = cfg.get("scene_script") or ""
 
@@ -313,9 +282,7 @@ def main(*, container: tk.Misc | None = None) -> None:
     hourly_retry_var = tk.BooleanVar(value=hourly_retry_default)
     session_start_var = tk.StringVar(value=session_start_default)
     limit_reset_var = tk.StringVar(value="정상화 예상: —")
-    shutdown_hours_var = tk.StringVar(
-        value=_shutdown_hours_label(shutdown_hours_default)
-    )
+    shutdown_var = tk.BooleanVar(value=shutdown_default)
     manual_var = tk.StringVar(value=manual_default)
     email_var = tk.StringVar(value=cred_email)
     pw_var = tk.StringVar(value=cred_pw)
@@ -352,14 +319,8 @@ def main(*, container: tk.Misc | None = None) -> None:
             prompt_path=prompt_var.get().strip(),
             hourly_limit_retry="1" if hourly_retry_var.get() else "0",
             limit_session_start=session_start_var.get().strip(),
-            shutdown_after_hours=str(
-                _parse_shutdown_hours_label(shutdown_hours_var.get())
-            ),
-            shutdown_after_complete=(
-                "1"
-                if _parse_shutdown_hours_label(shutdown_hours_var.get()) > 0
-                else "0"
-            ),
+            shutdown_after_hours="0",
+            shutdown_after_complete="1" if shutdown_var.get() else "0",
             manual_secs=manual_var.get().strip(),
             scene_script=scene_text_cache["v"],
             scene_index=str(
@@ -919,33 +880,105 @@ def main(*, container: tk.Misc | None = None) -> None:
         def _session_start_hm() -> tuple[int, int] | None:
             return parse_session_start_hm(session_start_var.get())
 
-        def _prompt_session_start_hm() -> tuple[int, int] | None:
-            """배너에 재설정 시각이 없을 때 실행 시작 시·분 입력."""
-            box: dict[str, tuple[int, int] | None] = {"v": None}
-            done = threading.Event()
-
-            def _ask() -> None:
-                from tkinter import simpledialog
-
-                raw = simpledialog.askstring(
-                    "한도 — 실행 시작 시각",
-                    "배너에서 정상화 시각을 확인할 수 없습니다.\n"
-                    "오늘 Genspark AI Image 실행 시작 시각을 입력하세요.\n"
-                    "예: 14:30 또는 14시 30분",
-                    parent=root,
+        def _recover_reset_at_via_browser(*, reason: str) -> datetime | None:
+            """정상화 시각 미확인 시 브라우저 종료·재오픈으로 배너에서 읽기."""
+            max_tries = 3
+            for attempt in range(1, max_tries + 1):
+                if wait_cancel["v"] or not hourly_retry_var.get():
+                    return None
+                append_image_log(
+                    png_dir,
+                    f"정상화 시각 미확인 — 브라우저 재오픈으로 배너 확인 "
+                    f"({attempt}/{max_tries}) — {reason}",
                 )
-                if raw:
-                    box["v"] = parse_session_start_hm(raw)
-                    if box["v"]:
-                        session_start_var.set(
-                            f"{box['v'][0]:02d}:{box['v'][1]:02d}"
-                        )
-                        persist()
-                done.set()
+                safe_after(
+                    root,
+                    lambda a=attempt: set_status(
+                        f"한도 — 정상화 시각 확인 위해 브라우저 재오픈 ({a}/{max_tries})"
+                    ),
+                )
+                try:
+                    close_chrome_debug()
+                except Exception as close_ex:
+                    append_image_log(
+                        png_dir, f"정상화 확인 전 브라우저 종료 경고: {close_ex}"
+                    )
+                browser_ready["v"] = False
+                input_prepared["v"] = False
+                input_prepared["cmd_sec"] = None
+                try:
+                    from scene_image.genspark_image import reset_image_session
 
-            safe_after(root, _ask)
-            done.wait(timeout=600)
-            return box["v"]
+                    reset_image_session()
+                except Exception:
+                    pass
+                time.sleep(1.0)
+                try:
+                    info = open_browser_for_account(
+                        url, email=email, restart_chrome=True
+                    )
+                    append_image_log(
+                        png_dir,
+                        f"정상화 확인용 ChromeDebug "
+                        f"port={info.get('debug_port')} attempt={attempt}",
+                    )
+                    time.sleep(0.5)
+                    sess = get_image_session(profile_dir())
+                    sess.open_and_select_model(
+                        url=url,
+                        model_selector=model_sel,
+                        email=email,
+                        password=password,
+                        model_texts=model_texts,
+                    )
+                    browser_ready["v"] = True
+                    probed = sess.probe_limit_reset(
+                        url=url, email=email, password=password
+                    )
+                    raw_at = (probed or {}).get("reset_at")
+                    snip = ((probed or {}).get("snippet") or "")[:200]
+                    append_image_log(
+                        png_dir,
+                        f"배너 probe reset_at={raw_at or '-'} "
+                        f"is_limit={(probed or {}).get('is_limit')} "
+                        f"snip={snip!r}",
+                    )
+                    if raw_at:
+                        try:
+                            return datetime.strptime(str(raw_at), "%Y-%m-%dT%H:%M:%S")
+                        except ValueError:
+                            pass
+                        parsed = resolve_limit_reset_at(str(raw_at))
+                        if parsed is not None:
+                            return parsed
+                    # 스니펫만으로도 파싱 시도
+                    from scene_image.limit_detect import parse_reset_at
+
+                    snip_full = (probed or {}).get("snippet") or ""
+                    parsed2 = parse_reset_at(snip_full)
+                    if parsed2 is not None:
+                        return parsed2
+                except Exception as probe_ex:
+                    append_image_log(
+                        png_dir,
+                        f"정상화 시각 배너 확인 실패 ({attempt}/{max_tries}): {probe_ex}",
+                    )
+                finally:
+                    try:
+                        close_chrome_debug()
+                    except Exception:
+                        pass
+                    browser_ready["v"] = False
+                    input_prepared["v"] = False
+                    input_prepared["cmd_sec"] = None
+                    try:
+                        from scene_image.genspark_image import reset_image_session
+
+                        reset_image_session()
+                    except Exception:
+                        pass
+                time.sleep(2.0)
+            return None
 
         def _wait_until_reset(*, reset_at: datetime, reason: str) -> bool:
             """재설정 시각까지 대기. True=재개, False=취소."""
@@ -985,28 +1018,29 @@ def main(*, container: tk.Misc | None = None) -> None:
             return True
 
         def _wait_for_limit(reason: str, err: BaseException | str) -> bool:
-            """재설정 시각까지 대기. 배너·실행 시작 입력으로 시각 결정."""
+            """재설정 시각까지 대기. 배너 시각이 없으면 브라우저 재오픈으로 확인."""
             session_hm = _session_start_hm()
             reset_at = resolve_limit_reset_at(
                 err, session_start_hm=session_hm
             )
             if reset_at is None:
-                session_hm = _prompt_session_start_hm()
-                if session_hm is None:
-                    append_image_log(
-                        png_dir,
-                        "한도 대기 불가 — 실행 시작 시각 미입력",
-                    )
-                    safe_after(
-                        root,
-                        lambda: set_status("한도 — 실행 시작 시각이 필요합니다"),
-                    )
-                    return False
+                reset_at = _recover_reset_at_via_browser(reason=reason)
+            if reset_at is None and session_hm:
+                # GUI에 수동 입력된 실행 시작이 있으면 최후 보조
                 reset_at = resolve_limit_reset_at(
                     err, session_start_hm=session_hm
                 )
             if reset_at is None:
-                append_image_log(png_dir, "한도 대기 불가 — 정상화 시각 계산 실패")
+                append_image_log(
+                    png_dir,
+                    "한도 대기 불가 — 브라우저 재오픈으로도 정상화 시각 확인 실패",
+                )
+                safe_after(
+                    root,
+                    lambda: set_status(
+                        "한도 — 정상화 시각을 배너에서 읽지 못했습니다"
+                    ),
+                )
                 return False
             safe_after(root, lambda ra=reset_at: set_limit_reset_display(ra))
             return _wait_until_reset(reset_at=reset_at, reason=reason)
@@ -1330,41 +1364,24 @@ def main(*, container: tk.Misc | None = None) -> None:
                     set_busy(False)
                     reload_scenes()
                     left_n = len(remaining) if cancelled_wait else 0
-                    shutdown_h = _parse_shutdown_hours_label(shutdown_hours_var.get())
-                    will_shutdown = (
-                        shutdown_h > 0
-                        and not cancelled_wait
-                        and left_n == 0
-                        and failed_n == 0
-                    )
+                    will_shutdown = bool(shutdown_var.get())
                     shutdown_note = ""
                     if will_shutdown:
-                        delay_sec = shutdown_h * 3600
+                        delay_sec = _SHUTDOWN_DELAY_SEC
                         try:
                             close_chrome_debug()
                         except Exception:
                             pass
                         append_image_log(
                             png_dir,
-                            f"PC 종료 예약 {shutdown_h}시간 후 "
-                            f"({delay_sec}초) (취소: shutdown /a)",
+                            f"PC 종료 예약 {delay_sec}초 후 "
+                            f"(취소: shutdown /a)",
                         )
                         _schedule_pc_shutdown(delay_sec=delay_sec)
                         shutdown_note = (
-                            f"\n\n{shutdown_h}시간 후 PC가 종료됩니다."
+                            f"\n\n약 {delay_sec}초 후 PC가 종료됩니다."
                             "\n취소: 명령 프롬프트에서 shutdown /a"
                         )
-                    elif shutdown_h > 0 and (
-                        cancelled_wait or left_n > 0 or failed_n > 0
-                    ):
-                        reason = (
-                            "대기 취소"
-                            if cancelled_wait
-                            else f"실패 {failed_n}건"
-                            if failed_n
-                            else f"남음 {left_n}건"
-                        )
-                        append_image_log(png_dir, f"PC 종료 생략 — {reason}")
                     fail_note = ""
                     if fail_labels:
                         shown = ", ".join(fail_labels[:15])
@@ -1385,7 +1402,7 @@ def main(*, container: tk.Misc | None = None) -> None:
                         + recover_note
                         + (f" · 남음 {left_n}" if left_n else "")
                         + (
-                            f" · PC 종료 {shutdown_h}시간 후"
+                            f" · PC 종료 {_SHUTDOWN_DELAY_SEC}초 후"
                             if will_shutdown
                             else ""
                         )
@@ -1482,6 +1499,19 @@ def main(*, container: tk.Misc | None = None) -> None:
                 )
                 return
         todo = [sc for sc in scenes if not png_already_exists(png_dir, sc.sec)]
+        sel = _parse_manual_secs(manual_var.get(), [sc.sec for sc in scenes])
+        if sel:
+            sel_set = set(sel)
+            todo = [sc for sc in todo if sc.sec in sel_set]
+            if not todo:
+                safe_messagebox(
+                    root,
+                    "showinfo",
+                    "2_5 sceneImage",
+                    "구간 내 생성할 씬이 없거나 PNG가 이미 있습니다.\n"
+                    f"구간: {manual_var.get().strip()}",
+                )
+                return
         _run_scenes(
             todo,
             open_browser_first=True,
@@ -1493,13 +1523,14 @@ def main(*, container: tk.Misc | None = None) -> None:
         if busy["v"]:
             return
         reload_scenes()
-        secs = _parse_manual_secs(manual_var.get())
+        avail = [sc.sec for sc in scenes]
+        secs = _parse_manual_secs(manual_var.get(), avail)
         if not secs:
             safe_messagebox(
                 root,
                 "showwarning",
                 "2_5 sceneImage",
-                "초 번호를 입력하세요. 예: 10,20,120",
+                "초·구간을 입력하세요.\n예: 10,20,120 · 220~500 · 720~",
             )
             return
         by_sec = {sc.sec: sc for sc in scenes}
@@ -1534,16 +1565,12 @@ def main(*, container: tk.Misc | None = None) -> None:
         act, text="대기 취소", width=10, command=cancel_limit_wait, state=tk.DISABLED
     )
     btn_cancel_wait.pack(side=tk.LEFT, padx=(0, 6))
-    ttk.Label(act, text="완료 후 PC 종료").pack(side=tk.LEFT, padx=(8, 4))
-    shutdown_cb = ttk.Combobox(
+    ttk.Checkbutton(
         act,
-        textvariable=shutdown_hours_var,
-        values=[_shutdown_hours_label(h) for h in _SHUTDOWN_HOURS_CHOICES],
-        width=9,
-        state="readonly",
-    )
-    shutdown_cb.pack(side=tk.LEFT, padx=(0, 0))
-    shutdown_cb.bind("<<ComboboxSelected>>", lambda _e: persist())
+        text="완료후 PC종료",
+        variable=shutdown_var,
+        command=persist,
+    ).pack(side=tk.LEFT, padx=(8, 0))
 
     ttk.Label(frm, textvariable=scene_var).grid(row=2, column=0, sticky="w", pady=(0, 4))
 
@@ -1552,7 +1579,7 @@ def main(*, container: tk.Misc | None = None) -> None:
     paned.grid(row=3, column=0, sticky="nsew")
 
     manual_fr = ttk.LabelFrame(
-        paned, text="이미지수동생성 (초 번호: 10,20,120 …)", padding=4
+        paned, text="이미지 구간 생성 (10,20 / 220~500 / 720~ …)", padding=4
     )
     lists_fr = ttk.Frame(paned)
     paned.add(manual_fr, weight=1)
@@ -1561,7 +1588,7 @@ def main(*, container: tk.Misc | None = None) -> None:
     manual_fr.grid_columnconfigure(0, weight=1)
     ttk.Label(
         manual_fr,
-        text="특정 초만 생성 — 완료 문구 확인 후 다운로드.",
+        text="특정 초·구간만 생성 — 비우면 「실행」은 전체 미생성 씬.",
         foreground="#555",
     ).grid(row=0, column=0, columnspan=2, sticky="w", pady=(0, 4))
     manual_ent = ttk.Entry(manual_fr, textvariable=manual_var)
@@ -1610,8 +1637,8 @@ def main(*, container: tk.Misc | None = None) -> None:
     tip = (
         "「실행」= 재오픈 → 생성·다운로드 반복"
         " · 「인스턴스추가」= 다른 장(루트) 병렬 다운로드 · 슬롯(포트) 자동 분리"
-        " · 한도 시: 브라우저 종료 → 정상화 예상 시각까지 대기 → 재개"
-        " · 완료 후 PC 종료: 1~5시간 선택 · 전체 성공 시에만 · 취소 shutdown /a"
+        " · 한도 시: 브라우저 종료 → 정상화 시각 확인(배너·필요 시 재오픈) → 대기 → 재개"
+        " · 완료후 PC종료: 체크 시 실행 종료 후 약 60초 뒤 · 취소 shutdown /a"
         " · 실패 로그: image_fail.log"
     )
     ttk.Label(frm, text=tip, foreground="#555").grid(row=5, column=0, sticky="w", pady=(4, 0))

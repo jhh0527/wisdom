@@ -16,6 +16,64 @@ _SRT_TS = re.compile(r"^(\d{2}):(\d{2}):(\d{2})[,.](\d{1,3})$")
 _SRT_ARROW = re.compile(
     r"(\d{2}:\d{2}:\d{2}[,.]\d{1,3})\s*-->\s*(\d{2}:\d{2}:\d{2}[,.]\d{1,3})"
 )
+_SEC_SPLIT_RE = re.compile(r"[,;\s]+")
+_SEC_RANGE_RE = re.compile(r"^(\d+)\s*[~～\-]\s*(\d+)?$")
+
+
+def parse_sec_selection(
+    text: str,
+    available_secs: list[int] | None = None,
+) -> list[int]:
+    """초 선택 — ``10,20`` · ``220~500`` · ``720~`` (끝까지).
+
+    ``available_secs`` 가 있으면 실제 씬 목록에 있는 초만 반환한다.
+    """
+    raw = (text or "").strip()
+    if not raw:
+        return []
+    pool = sorted({int(s) for s in (available_secs or []) if int(s) >= 0})
+    max_sec = pool[-1] if pool else None
+    out: list[int] = []
+    seen: set[int] = set()
+
+    def _add(sec: int) -> None:
+        if sec < 0 or sec in seen:
+            return
+        if pool and sec not in pool:
+            return
+        seen.add(sec)
+        out.append(sec)
+
+    for part in _SEC_SPLIT_RE.split(raw):
+        token = part.strip()
+        if not token:
+            continue
+        m = _SEC_RANGE_RE.match(token)
+        if m:
+            lo = int(m.group(1))
+            hi_raw = m.group(2)
+            if hi_raw is not None:
+                hi = int(hi_raw)
+            elif max_sec is not None:
+                hi = max_sec
+            else:
+                hi = lo
+            if lo > hi:
+                lo, hi = hi, lo
+            if pool:
+                for sec in pool:
+                    if lo <= sec <= hi:
+                        _add(sec)
+            else:
+                _add(lo)
+                if hi != lo:
+                    _add(hi)
+            continue
+        try:
+            _add(int(token))
+        except ValueError:
+            continue
+    return sorted(out)
 
 
 @dataclass(frozen=True)

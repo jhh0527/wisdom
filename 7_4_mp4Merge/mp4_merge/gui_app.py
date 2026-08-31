@@ -64,10 +64,17 @@ def main(*, container: tk.Misc | None = None) -> None:
     fam, sz = _default_font()
     root.option_add("*Font", (fam, sz))
 
-    folder_var = tk.StringVar(
-        value=str(cfg.get("mp4_folder") or default_mp4_folder())
-    )
-    status_var = tk.StringVar(value="MP4 폴더를 지정한 뒤 목록을 불러오세요.")
+    from wisdom_content_paths import infer_root_from_media_path
+
+    mp4_default = str(cfg.get("mp4_folder") or default_mp4_folder())
+    root_default = (cfg.get("root_dir") or "").strip()
+    if not root_default:
+        inferred = infer_root_from_media_path(mp4_default)
+        root_default = str(inferred) if inferred is not None else ""
+
+    root_var = tk.StringVar(value=root_default)
+    folder_var = tk.StringVar(value=mp4_default)
+    status_var = tk.StringVar(value="루트 또는 MP4 폴더를 지정한 뒤 목록을 불러오세요.")
     progress_var = tk.DoubleVar(value=0.0)
     progress_text_var = tk.StringVar(value="")
 
@@ -85,9 +92,14 @@ def main(*, container: tk.Misc | None = None) -> None:
     path_fr = ttk.Frame(top)
     path_fr.grid(row=0, column=0, sticky="ew")
     path_fr.columnconfigure(1, weight=1)
-    ttk.Label(path_fr, text="MP4 폴더", width=10).grid(row=0, column=0, sticky="w")
+
+    ttk.Label(path_fr, text="루트 폴더", width=10).grid(row=0, column=0, sticky="w")
+    root_ent = ttk.Entry(path_fr, textvariable=root_var)
+    root_ent.grid(row=0, column=1, sticky="ew", padx=(4, 6))
+
+    ttk.Label(path_fr, text="MP4 폴더", width=10).grid(row=1, column=0, sticky="w", pady=(6, 0))
     folder_ent = ttk.Entry(path_fr, textvariable=folder_var)
-    folder_ent.grid(row=0, column=1, sticky="ew", padx=(4, 6))
+    folder_ent.grid(row=1, column=1, sticky="ew", padx=(4, 6), pady=(6, 0))
 
     def persist() -> None:
         m: dict[str, str] = {}
@@ -97,7 +109,38 @@ def main(*, container: tk.Misc | None = None) -> None:
                 m[path.name.lower()] = "mute"
             else:
                 m[path.name.lower()] = "sound"
-        save_gui_settings(mp4_folder=folder_var.get().strip(), mute_files=m)
+        save_gui_settings(
+            root_dir=root_var.get().strip(),
+            mp4_folder=folder_var.get().strip(),
+            mute_files=m,
+        )
+
+    def apply_root(*, force: bool = True) -> None:
+        raw = root_var.get().strip()
+        if not raw:
+            return
+        from wisdom_content_paths import ensure_content_layout
+
+        r = Path(raw).expanduser()
+        layout = ensure_content_layout(r)
+        folder_var.set(str(layout["mp4"]))
+        if force:
+            touch_workspace_from_path(str(r))
+        persist()
+        refresh_list()
+        status_var.set(f"루트 → mp4:{layout['mp4'].name} · {r}")
+
+    def pick_root() -> None:
+        cur = root_var.get().strip()
+        init = Path(cur) if cur and Path(cur).is_dir() else default_mp4_folder()
+        p = filedialog.askdirectory(
+            title="루트 폴더",
+            initialdir=folder_dialog_initial(init),
+        )
+        if not p:
+            return
+        root_var.set(p)
+        apply_root(force=True)
 
     def pick_folder() -> None:
         cur = folder_var.get().strip()
@@ -110,11 +153,16 @@ def main(*, container: tk.Misc | None = None) -> None:
             return
         touch_workspace_from_path(p)
         folder_var.set(p)
+        pp = Path(p)
+        if pp.name.casefold() == "mp4":
+            root_var.set(str(pp.parent))
         persist()
         refresh_list()
 
+    btn_root = ttk.Button(path_fr, text="찾기…", command=pick_root)
+    btn_root.grid(row=0, column=2)
     btn_pick = ttk.Button(path_fr, text="찾기…", command=pick_folder)
-    btn_pick.grid(row=0, column=2)
+    btn_pick.grid(row=1, column=2, pady=(6, 0))
 
     btn_fr = ttk.Frame(top)
     btn_fr.grid(row=1, column=0, sticky="ew", pady=(8, 4))
@@ -146,6 +194,19 @@ def main(*, container: tk.Misc | None = None) -> None:
         status_var.set(f"{len(clips)}개 · 음소거 {muted_n} — {folder}")
         persist()
 
+    bind_path_entry_dnd(
+        root_ent,
+        root_var,
+        mode="dir",
+        on_set=lambda _p: apply_root(force=True),
+    )
+    bind_path_row_dnd(
+        root_ent,
+        path_fr,
+        root_var,
+        mode="dir",
+        on_set=lambda _p: apply_root(force=True),
+    )
     bind_path_entry_dnd(
         folder_ent,
         folder_var,

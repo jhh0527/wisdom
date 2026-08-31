@@ -111,3 +111,38 @@ def default_jpg_dir() -> Path | None:
     if root is None:
         return None
     return find_child_dir(root, "jpg")
+
+
+def default_mp4_dir() -> Path | None:
+    root = content_root()
+    if root is None:
+        return None
+    return find_child_dir(root, "mp4")
+
+
+def ensure_content_layout(root: Path | str) -> dict[str, Path]:
+    """콘텐츠 루트 아래 ``tts``/``stt``/``md``/``png``/``jpg``/``mp3``/``mp4`` 확보."""
+    r = Path(root).expanduser()
+    r.mkdir(parents=True, exist_ok=True)
+    out: dict[str, Path] = {}
+    for name in ("tts", "stt", "md", "png", "jpg", "mp3", "mp4"):
+        p = find_child_dir(r, name)
+        p.mkdir(parents=True, exist_ok=True)
+        out[name] = p
+    return out
+
+
+def infer_root_from_media_path(path: str | Path) -> Path | None:
+    """``…/png``·``…/mp3`` 등 미디어 하위면 부모(콘텐츠 루트), 아니면 해당 폴더."""
+    p = Path(path).expanduser()
+    try:
+        p = p.resolve()
+    except OSError:
+        return None
+    if p.is_file():
+        p = p.parent
+    if not p.is_dir():
+        return None
+    if p.name.casefold() in _MEDIA_CHILD_NAMES | frozenset({"mp4", "tts", "stt", "md"}):
+        return p.parent
+    return p

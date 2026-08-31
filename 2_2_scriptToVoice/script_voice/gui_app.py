@@ -236,6 +236,7 @@ def main(*, container: tk.Misc | None = None) -> None:
             btn_range,
             btn_merge,
             btn_root,
+            btn_mp3,
             btn_cfg,
             btn_dialogue,
             btn_check_speakers,
@@ -259,15 +260,8 @@ def main(*, container: tk.Misc | None = None) -> None:
             raise ValueError("루트 폴더가 비어 있습니다.")
         r = Path(raw).expanduser()
         t = ensure_root_layout(r)
-        try:
-            mp3_ent.configure(state="normal")
-        except (tk.TclError, NameError):
-            pass
+        # 루트 지정 시 mp3·dialogue 자동 맞춤 (이후 수기·찾기로 수정 가능)
         mp3_var.set(str(t))
-        try:
-            mp3_ent.configure(state="readonly")
-        except (tk.TclError, NameError):
-            pass
 
         td = tts_dir(r)
         dj = default_dialogue_json(r)
@@ -349,8 +343,41 @@ def main(*, container: tk.Misc | None = None) -> None:
     btn_root.grid(row=0, column=2, padx=(4, 0))
 
     ttk.Label(path_fr, text="mp3 폴더", width=12).grid(row=1, column=0, sticky="w", pady=(4, 0))
-    mp3_ent = ttk.Entry(path_fr, textvariable=mp3_var, state="readonly")
+    mp3_ent = ttk.Entry(path_fr, textvariable=mp3_var)
     mp3_ent.grid(row=1, column=1, sticky="ew", padx=4, pady=(4, 0))
+
+    def pick_mp3() -> None:
+        init = folder_dialog_initial(
+            Path(mp3_var.get().strip()) if mp3_var.get().strip() else None
+        )
+        p = filedialog.askdirectory(
+            parent=root, title="mp3 저장 폴더", initialdir=init
+        )
+        if not p:
+            return
+        mp3_var.set(p)
+        touch_workspace_from_path(p)
+        # …/mp3 이면 부모를 루트로 맞춤 (하위만 수동 변경한 경우 루트는 유지)
+        pp = Path(p)
+        if pp.name.casefold() == "mp3":
+            root_var.set(str(pp.parent))
+        persist()
+        set_status(f"mp3 지정 → {p}")
+
+    def on_mp3_drop(_path: str) -> None:
+        p = mp3_var.get().strip()
+        if not p:
+            return
+        touch_workspace_from_path(p)
+        pp = Path(p)
+        if pp.name.casefold() == "mp3":
+            root_var.set(str(pp.parent))
+        persist()
+
+    btn_mp3 = ttk.Button(path_fr, text="찾기", command=pick_mp3, width=8)
+    btn_mp3.grid(row=1, column=2, padx=(4, 0), pady=(4, 0))
+    bind_path_row_dnd(mp3_ent, path_fr, mp3_var, mode="dir", on_set=on_mp3_drop)
+    bind_path_entry_dnd(mp3_ent, mp3_var, mode="dir", on_set=on_mp3_drop)
 
     ttk.Label(path_fr, text="API 설정", width=12).grid(row=2, column=0, sticky="w", pady=(4, 0))
     cfg_ent = ttk.Entry(path_fr, textvariable=cfg_var)

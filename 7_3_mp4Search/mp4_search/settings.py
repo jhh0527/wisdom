@@ -197,6 +197,7 @@ def load_gui_settings() -> dict[str, str]:
         return {}
     out: dict[str, str] = {}
     for key in (
+        "root_dir",
         "srt_file",
         "mp4_dir",
         "download_dir",
@@ -231,6 +232,7 @@ def load_gui_settings() -> dict[str, str]:
 
 def save_gui_settings(
     *,
+    root_dir: str = "",
     srt_file: str = "",
     mp4_dir: str = "",
     download_dir: str = "",
@@ -251,6 +253,8 @@ def save_gui_settings(
                 data = old
         except (OSError, json.JSONDecodeError):
             pass
+    if root_dir.strip():
+        data["root_dir"] = root_dir.strip()
     if srt_file.strip():
         data["srt_file"] = srt_file.strip()
     if mp4_dir.strip():

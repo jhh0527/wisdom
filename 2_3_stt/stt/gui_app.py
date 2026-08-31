@@ -105,7 +105,7 @@ def main(*, container: tk.Misc | None = None) -> None:
     def set_busy(v: bool) -> None:
         busy["v"] = v
         st = tk.DISABLED if v else tk.NORMAL
-        for b in (btn_root, btn_audio, btn_refresh, btn_run):
+        for b in (btn_root, btn_mp3, btn_audio, btn_refresh, btn_run):
             try:
                 b.configure(state=st)
             except tk.TclError:
@@ -117,15 +117,8 @@ def main(*, container: tk.Misc | None = None) -> None:
             raise ValueError("루트 폴더가 비어 있습니다.")
         r = Path(raw).expanduser()
         m = ensure_root_layout(r)
-        try:
-            mp3_ent.configure(state="normal")
-        except (tk.TclError, NameError):
-            pass
+        # 루트 지정 시 mp3 자동 맞춤 (이후 수기·찾기로 수정 가능)
         mp3_var.set(str(m))
-        try:
-            mp3_ent.configure(state="readonly")
-        except (tk.TclError, NameError):
-            pass
         if force:
             touch_workspace_from_path(str(r))
         refresh_audio(auto_pick=auto_pick)
@@ -183,9 +176,42 @@ def main(*, container: tk.Misc | None = None) -> None:
     btn_root.grid(row=0, column=2, padx=(4, 0))
 
     ttk.Label(frm, text="mp3 폴더", width=12).grid(row=1, column=0, sticky="w", pady=(6, 0))
-    mp3_ent = ttk.Entry(frm, textvariable=mp3_var, state="readonly")
+    mp3_ent = ttk.Entry(frm, textvariable=mp3_var)
     mp3_ent.grid(row=1, column=1, sticky="ew", padx=4, pady=(6, 0))
-    ttk.Label(frm, text="(=SRT)", width=8).grid(row=1, column=2, sticky="w", pady=(6, 0))
+
+    def pick_mp3() -> None:
+        init = folder_dialog_initial(
+            Path(mp3_var.get().strip()) if mp3_var.get().strip() else None
+        )
+        p = filedialog.askdirectory(
+            parent=root, title="mp3 폴더 (음성·SRT)", initialdir=init
+        )
+        if not p:
+            return
+        mp3_var.set(p)
+        touch_workspace_from_path(p)
+        pp = Path(p)
+        if pp.name.casefold() == "mp3":
+            root_var.set(str(pp.parent))
+        refresh_audio(auto_pick=True)
+        persist()
+        set_status(f"mp3 지정 → {p}")
+
+    def on_mp3_drop(_path: str) -> None:
+        p = mp3_var.get().strip()
+        if not p:
+            return
+        touch_workspace_from_path(p)
+        pp = Path(p)
+        if pp.name.casefold() == "mp3":
+            root_var.set(str(pp.parent))
+        refresh_audio(auto_pick=True)
+        persist()
+
+    btn_mp3 = ttk.Button(frm, text="찾기", command=pick_mp3, width=8)
+    btn_mp3.grid(row=1, column=2, padx=(4, 0), pady=(6, 0))
+    bind_path_row_dnd(mp3_ent, frm, mp3_var, mode="dir", on_set=on_mp3_drop)
+    bind_path_entry_dnd(mp3_ent, mp3_var, mode="dir", on_set=on_mp3_drop)
 
     ttk.Label(frm, text="음성/영상", width=12).grid(row=2, column=0, sticky="w", pady=(6, 0))
     audio_cb = ttk.Combobox(frm, textvariable=audio_var)

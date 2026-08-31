@@ -91,6 +91,13 @@ def main(
         cfg.get("output_dir"),
         default_output_dir(),
     )
+    from wisdom_content_paths import infer_root_from_media_path
+
+    root_default = cfg.get("root_dir") or ""
+    if not root_default:
+        inferred = infer_root_from_media_path(in_default)
+        root_default = str(inferred) if inferred is not None else str(in_default.parent)
+
     root, standalone = tk_host(container)
     apply_window_chrome(
         root,
@@ -103,13 +110,14 @@ def main(
     fam, sz = _default_font()
     root.option_add("*Font", (fam, sz))
 
+    root_var = tk.StringVar(value=root_default)
     in_var = tk.StringVar(value=str(in_default))
     out_var = tk.StringVar(value=str(out_default))
     recursive_var = tk.BooleanVar(value=True)
     include_jpg_var = tk.BooleanVar(value=False)
     quality_var = tk.IntVar(value=DEFAULT_JPEG_QUALITY)
     target_count_var = tk.StringVar(value="")
-    status_var = tk.StringVar(value="변환 대상 폴더를 지정한 뒤 변환을 실행하세요.")
+    status_var = tk.StringVar(value="루트 또는 변환 대상 폴더를 지정한 뒤 변환을 실행하세요.")
 
     frm = ttk.Frame(root, padding=10)
     frm.pack(fill=tk.BOTH, expand=True)
@@ -169,25 +177,44 @@ def main(
         sub = "하위 포함" if recursive_var.get() else "현재 폴더만"
         target_count_var.set(f"PNG/JPG {n}개 ({sub})")
 
+    def apply_root(*, force: bool = True) -> None:
+        """루트 지정 시 png·jpg 폴더를 루트 기준으로 맞춘다 (이후 수기 수정 가능)."""
+        raw = root_var.get().strip()
+        if not raw:
+            return
+        from wisdom_content_paths import ensure_content_layout
+
+        r = Path(raw).expanduser()
+        layout = ensure_content_layout(r)
+        in_var.set(str(layout["png"]))
+        out_var.set(str(layout["jpg"]))
+        if force:
+            touch_workspace_from_path(str(r))
+        persist_dirs()
+        refresh_target_count()
+        status_var.set(f"루트 → png:{layout['png'].name} · jpg:{layout['jpg'].name} · {r}")
+
     def on_input_folder_set() -> None:
         """선택한 변환 대상이 …/png 이면 저장 폴더를 …/jpg 로 맞춘다."""
         inp = Path(in_var.get().strip())
         if inp.is_dir() and inp.name.lower() == "png":
             out_var.set(str(inp.parent / "jpg"))
+            root_var.set(str(inp.parent))
         refresh_target_count()
 
-    row_dir("변환 대상 폴더 (PNG·JPG)", in_var, 0, on_pick=on_input_folder_set)
-    row_dir("저장 폴더 (SRT_XXX.jpg)", out_var, 2)
+    row_dir("루트 폴더", root_var, 0, on_pick=lambda: apply_root(force=True))
+    row_dir("변환 대상 폴더 (PNG·JPG)", in_var, 2, on_pick=on_input_folder_set)
+    row_dir("저장 폴더 (SRT_XXX.jpg)", out_var, 4)
 
     ttk.Label(
         frm,
         text="파일명 규칙: SRT_000, srt_00, SRT_042, 00_제목.png 등 → SRT_XXX.jpg (번호=시작초, 0부터, 최대 1920×1080)",
-    ).grid(row=4, column=0, sticky="w", pady=(0, 10))
+    ).grid(row=6, column=0, sticky="w", pady=(0, 10))
 
     frm.grid_columnconfigure(0, weight=1)
 
     row_target = ttk.Frame(frm)
-    row_target.grid(row=5, column=0, sticky="ew", pady=(0, 8))
+    row_target.grid(row=7, column=0, sticky="ew", pady=(0, 8))
     ttk.Label(row_target, text="대상 파일:").pack(side=tk.LEFT)
     ttk.Label(row_target, textvariable=target_count_var).pack(side=tk.LEFT, padx=(6, 12))
     btn_scan = ttk.Button(row_target, text="대상 다시 확인", command=refresh_target_count)
@@ -195,7 +222,7 @@ def main(
     browse_widgets.append(btn_scan)
 
     opts = ttk.Frame(frm)
-    opts.grid(row=6, column=0, sticky="ew", pady=(0, 8))
+    opts.grid(row=8, column=0, sticky="ew", pady=(0, 8))
 
     def on_opt_change() -> None:
         refresh_target_count()
@@ -216,12 +243,12 @@ def main(
     ttk.Label(opts, textvariable=quality_var, width=3).pack(side=tk.LEFT, padx=(4, 0))
 
     prog = ttk.Progressbar(frm, mode="determinate", maximum=100)
-    prog.grid(row=7, column=0, sticky="ew", pady=(4, 4))
-    ttk.Label(frm, textvariable=status_var).grid(row=8, column=0, sticky="w")
+    prog.grid(row=9, column=0, sticky="ew", pady=(4, 4))
+    ttk.Label(frm, textvariable=status_var).grid(row=10, column=0, sticky="w")
 
     log = tk.Text(frm, height=10, wrap=tk.WORD, state=tk.DISABLED)
-    log.grid(row=9, column=0, sticky="nsew", pady=(8, 0))
-    frm.grid_rowconfigure(9, weight=1)
+    log.grid(row=11, column=0, sticky="nsew", pady=(8, 0))
+    frm.grid_rowconfigure(11, weight=1)
 
     def log_line(msg: str) -> None:
         log.configure(state=tk.NORMAL)
@@ -245,6 +272,7 @@ def main(
     def persist_dirs() -> None:
         try:
             save_gui_settings(
+                root_dir=root_var.get().strip(),
                 input_dir=in_var.get().strip(),
                 output_dir=out_var.get().strip(),
             )
