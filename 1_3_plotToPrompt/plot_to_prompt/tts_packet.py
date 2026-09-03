@@ -20,15 +20,88 @@ _MARKER_RE = re.compile(
 )
 
 
-def extract_chapter_body(text: str) -> str | None:
-    """START/END 사이 본문. 없으면 None."""
+# 합본 「작성 지시」에 넣는 예시 — 실제 대본이 아님
+_PLACEHOLDER_BODIES = frozenset(
+    {
+        "(제목 한 줄)\n(본문)",
+        "(제목 한 줄)\r\n(본문)",
+        "…",
+        "...",
+    }
+)
+
+
+def looks_like_genspark_packet(text: str) -> bool:
+    """합본(프롬프트) 자체인지 — 감시/저장 대상에서 제외."""
     if not text:
-        return None
+        return False
+    if "===== 작성 지시 =====" in text:
+        return True
+    if "===== WRITE_RULES.md =====" in text and CHAPTER_START in text:
+        return True
+    return False
+
+
+def resolve_clipboard_body(text: str) -> tuple[str, str | None]:
+    """클립보드 분류. (kind, body) — kind: empty|packet|placeholder|no_markers|body."""
+    if not (text or "").strip():
+        return "empty", None
+    if looks_like_genspark_packet(text):
+        return "packet", None
     m = _MARKER_RE.search(text)
     if not m:
-        return None
+        return "no_markers", None
     body = m.group(1).replace("\r\n", "\n").strip()
-    return body or None
+    if not body or body in _PLACEHOLDER_BODIES:
+        return "placeholder", None
+    return "body", body
+
+
+def extract_chapter_body(text: str) -> str | None:
+    """START/END 사이 본문. 없으면 None. 합본 예시·플레이스홀더는 제외."""
+    kind, body = resolve_clipboard_body(text)
+    return body if kind == "body" else None
+
+
+def strip_outer_code_fence(text: str) -> str:
+    """젠스파크가 전체를 ``` 로 감싼 경우 제거."""
+    t = (text or "").replace("\r\n", "\n").strip()
+    if not t.startswith("```"):
+        return t
+    lines = t.split("\n")
+    if not lines:
+        return t
+    lines = lines[1:]
+    if lines and lines[-1].strip() == "```":
+        lines = lines[:-1]
+    return "\n".join(lines).strip()
+
+
+def read_export_text(path: Path | str) -> str:
+    """다운로드한 결과 파일 읽기 (utf-8 / cp949 등)."""
+    raw = Path(path).expanduser().read_bytes()
+    for enc in ("utf-8-sig", "utf-8", "cp949", "euc-kr"):
+        try:
+            return raw.decode(enc)
+        except UnicodeDecodeError:
+            continue
+    return raw.decode("utf-8", errors="replace")
+
+
+def body_from_export(text: str) -> tuple[str, str]:
+    """다운로드 텍스트 → (kind, body). kind: body|raw|packet|placeholder|empty."""
+    cleaned = strip_outer_code_fence(text)
+    kind, body = resolve_clipboard_body(cleaned)
+    if kind == "body" and body:
+        return "body", body
+    if kind == "packet":
+        return "packet", ""
+    if kind == "placeholder":
+        return "placeholder", ""
+    stripped = cleaned.strip()
+    if not stripped:
+        return "empty", ""
+    return "raw", stripped
 
 
 def resolve_brief_file(novel_root: Path | str, chapter: int) -> Path | None:

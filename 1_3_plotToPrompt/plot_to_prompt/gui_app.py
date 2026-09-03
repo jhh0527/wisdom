@@ -3,7 +3,9 @@
 
 from __future__ import annotations
 
+import threading
 import tkinter as tk
+import webbrowser
 from pathlib import Path
 from tkinter import filedialog, font as tkfont, messagebox, scrolledtext, ttk
 
@@ -12,12 +14,15 @@ from plot_to_prompt import diag_log
 from plot_to_prompt.bible_lookup import load_chapter_meta, meta_status_line
 from plot_to_prompt.bible_sync import sync_plot_to_bible
 from plot_to_prompt.brief_builder import BriefInput, build_brief_markdown
+from plot_to_prompt.credentials import load_credentials, save_credentials
 from plot_to_prompt.paths import (
+    GENSPARK_AI_CHAT_URL,
     brief_path,
     default_log_path,
     default_novel_root,
     default_output_dir,
     default_work_root,
+    genspark_profile_dir,
     infer_novel_root_from_work,
     parse_chapter_from_path,
 )
@@ -25,10 +30,14 @@ from plot_to_prompt.settings import load_gui_settings, save_gui_settings
 from plot_to_prompt.tts_packet import (
     CHAPTER_END,
     CHAPTER_START,
+    body_from_export,
     build_packet_from_brief,
     chapter_tts_path,
     extract_chapter_body,
+    looks_like_genspark_packet,
+    read_export_text,
     resolve_brief_file,
+    resolve_clipboard_body,
     save_chapter_to_tts,
 )
 
@@ -45,6 +54,29 @@ def _clipboard_set(root: tk.Misc, text: str) -> None:
     root.clipboard_clear()
     root.clipboard_append(text)
     root.update_idletasks()
+
+
+def _open_genspark() -> bool:
+    """기본 브라우저로 젠스파크 AI 채팅 열기."""
+    import os
+    import sys
+
+    try:
+        if sys.platform.startswith("win"):
+            os.startfile(GENSPARK_AI_CHAT_URL)  # type: ignore[attr-defined]
+            diag_log.log(f"젠스파크 열기(startfile) url={GENSPARK_AI_CHAT_URL}")
+            return True
+        ok = webbrowser.open(GENSPARK_AI_CHAT_URL, new=2)
+        diag_log.log(f"젠스파크 열기 ok={ok} url={GENSPARK_AI_CHAT_URL}")
+        return bool(ok)
+    except Exception as ex:
+        diag_log.log(f"젠스파크 열기 실패: {ex!r}")
+        try:
+            ok = webbrowser.open(GENSPARK_AI_CHAT_URL, new=2)
+            return bool(ok)
+        except Exception as ex2:
+            diag_log.log(f"젠스파크 webbrowser 실패: {ex2!r}")
+            return False
 
 
 def main(*, container: tk.Misc | None = None) -> None:
@@ -103,6 +135,10 @@ def main(*, container: tk.Misc | None = None) -> None:
         "on",
     )
     sync_bible_var = tk.BooleanVar(value=sync_bible_default)
+    cred_email, cred_pw = load_credentials()
+    email_var = tk.StringVar(value=cred_email)
+    pw_var = tk.StringVar(value=cred_pw)
+    run_busy = {"on": False}
 
     outer = ttk.Frame(root, padding=10)
     outer.pack(fill=tk.BOTH, expand=True)
@@ -415,19 +451,40 @@ def main(*, container: tk.Misc | None = None) -> None:
     ).pack(side=tk.LEFT, padx=(0, 12))
     ttk.Button(act1, text="BRIEF 생성·저장", command=do_brief).pack(side=tk.LEFT, padx=(0, 6))
     ttk.Button(act1, text="미리보기 다시 저장", command=do_save_brief).pack(side=tk.LEFT)
+    ttk.Button(
+        act1,
+        text="실행(줄거리→tts)",
+        command=lambda: do_oneclick_write_tts(),
+    ).pack(side=tk.RIGHT)
 
     ttk.Label(
         tab_tts,
         text=(
-            f"합본 복사 → 젠스파크 → 결과 복사. "
-            f"{CHAPTER_START}…{CHAPTER_END}. 감시 ON이면 자동 저장."
+            "「젠스파크 실행 → tts」가 합본 붙여넣기·결과 저장까지 합니다. "
+            f"(수동: 복사·다운로드 → 결과 파일 → tts / {CHAPTER_START}…)"
         ),
         wraplength=820,
-    ).pack(anchor="w", pady=(0, 6))
+    ).pack(anchor="w", pady=(0, 4))
+
+    # 버튼은 위쪽에 두 줄 — 아래 텍스트·로그에 가리지 않음
+    act_wrap = ttk.Frame(tab_tts)
+    act_wrap.pack(fill=tk.X, pady=(0, 6))
+    act2a = ttk.Frame(act_wrap)
+    act2a.pack(fill=tk.X)
+    act2b = ttk.Frame(act_wrap)
+    act2b.pack(fill=tk.X, pady=(4, 0))
+    cred_fr = ttk.Frame(act_wrap)
+    cred_fr.pack(fill=tk.X, pady=(4, 0))
+    ttk.Label(cred_fr, text="Google").pack(side=tk.LEFT)
+    ttk.Entry(cred_fr, textvariable=email_var, width=28).pack(side=tk.LEFT, padx=(6, 4))
+    ttk.Entry(cred_fr, textvariable=pw_var, show="*", width=16).pack(side=tk.LEFT, padx=(0, 6))
+    ttk.Label(cred_fr, text="(1_5·2_4 계정 자동 재사용 가능)", foreground="#666").pack(
+        side=tk.LEFT
+    )
 
     pkt_fr = ttk.LabelFrame(tab_tts, text="젠스파크 합본", padding=4)
     pkt_fr.pack(fill=tk.BOTH, expand=True, pady=(0, 6))
-    packet_text = scrolledtext.ScrolledText(pkt_fr, height=7, wrap=tk.WORD)
+    packet_text = scrolledtext.ScrolledText(pkt_fr, height=5, wrap=tk.WORD)
     packet_text.pack(fill=tk.BOTH, expand=True)
 
     body_fr = ttk.LabelFrame(tab_tts, text="대본 본문 → tts/{장}.txt", padding=4)
@@ -440,7 +497,7 @@ def main(*, container: tk.Misc | None = None) -> None:
         side=tk.LEFT, padx=(12, 0)
     )
     ttk.Label(bh, textvariable=body_count_var).pack(side=tk.RIGHT)
-    body_text = scrolledtext.ScrolledText(body_fr, height=8, wrap=tk.WORD)
+    body_text = scrolledtext.ScrolledText(body_fr, height=6, wrap=tk.WORD)
     body_text.pack(fill=tk.BOTH, expand=True, pady=(2, 0))
 
     def on_body_key(_e: object | None = None) -> None:
@@ -448,12 +505,50 @@ def main(*, container: tk.Misc | None = None) -> None:
 
     body_text.bind("<KeyRelease>", on_body_key)
 
-    clip_state: dict[str, str] = {"last_saved_hash": ""}
+    clip_state: dict[str, str] = {
+        "last_saved_hash": "",
+        "ignore_clip": "",
+        "last_reject_key": "",
+    }
 
-    def _try_save_from_text(raw: str, *, source: str) -> bool:
-        body = extract_chapter_body(raw)
-        if body is None:
-            diag_log.log(f"{source}: START/END 없음 clip={len(raw)}자")
+    def _log_reject_once(source: str, key: str, msg: str) -> None:
+        if clip_state.get("last_reject_key") == key:
+            return
+        clip_state["last_reject_key"] = key
+        diag_log.log(msg)
+        status_var.set(msg.split(":", 1)[-1].strip() if ":" in msg else msg)
+
+    def _try_save_from_text(raw: str, *, source: str, allow_raw: bool = False) -> bool:
+        if raw and (
+            raw == clip_state.get("ignore_clip") or looks_like_genspark_packet(raw)
+        ):
+            _log_reject_once(
+                source,
+                f"packet:{len(raw)}",
+                f"{source}: 클립보드가 합본(프롬프트)입니다. "
+                "젠스파크 응답을 복사하세요.",
+            )
+            return False
+        kind, body = resolve_clipboard_body(raw)
+        if kind == "placeholder":
+            _log_reject_once(
+                source,
+                f"ph:{len(raw)}",
+                f"{source}: 예시 START/END만 있음 — 젠스파크 대본을 복사하세요.",
+            )
+            return False
+        if kind == "no_markers":
+            if allow_raw and (raw or "").strip():
+                body = raw.replace("\r\n", "\n").strip()
+            else:
+                _log_reject_once(
+                    source,
+                    f"nomark:{len(raw)}",
+                    f"{source}: START/END 없음 clip={len(raw)}자 "
+                    f"(젠스파크가 {CHAPTER_START}로 감싸야 함)",
+                )
+                return False
+        if not body:
             return False
         try:
             ch = _chapter_int()
@@ -471,6 +566,7 @@ def main(*, container: tk.Misc | None = None) -> None:
         _set_progress(1, 2, "tts 저장 중")
         path = save_chapter_to_tts(work, ch, body)
         clip_state["last_saved_hash"] = key
+        clip_state["last_reject_key"] = ""
         body_text.delete("1.0", tk.END)
         body_text.insert("1.0", body)
         on_body_key()
@@ -492,9 +588,28 @@ def main(*, container: tk.Misc | None = None) -> None:
         diag_log.log(f"클립보드 수동 저장 시도 chars={len(raw)}")
         if _try_save_from_text(raw, source="클립보드"):
             return
+        if looks_like_genspark_packet(raw):
+            messagebox.showinfo(
+                "합본입니다",
+                "지금 클립보드는 합본(젠스파크에 넣을 프롬프트)입니다.\n\n"
+                "1) 합본을 젠스파크에 붙여넣기\n"
+                "2) 대본이 나오면 그 결과만 복사\n"
+                f"3) 결과에 {CHAPTER_START} … {CHAPTER_END} 가 있으면 자동 저장됩니다.",
+            )
+            return
+        kind, _ = resolve_clipboard_body(raw)
+        if kind == "no_markers" and len((raw or "").strip()) >= 500:
+            if messagebox.askyesno(
+                "구분자 없음",
+                f"클립보드에 {CHAPTER_START} / {CHAPTER_END} 가 없습니다.\n\n"
+                f"전체 {len(raw.strip()):,}자를 대본으로 저장할까요?",
+            ):
+                _try_save_from_text(raw, source="클립보드(전체)", allow_raw=True)
+            return
         messagebox.showwarning(
             "구분자 없음",
-            f"클립보드에 {CHAPTER_START} / {CHAPTER_END} 가 없습니다.",
+            f"클립보드에 {CHAPTER_START} / {CHAPTER_END} 가 없습니다.\n"
+            "젠스파크 대본 결과를 복사한 뒤 다시 시도하세요.",
         )
 
     def _poll_clipboard() -> None:
@@ -506,7 +621,10 @@ def main(*, container: tk.Misc | None = None) -> None:
                     raw = root.clipboard_get()
                 except tk.TclError:
                     raw = ""
-                if raw and CHAPTER_START in raw and CHAPTER_END in raw:
+                if raw and (
+                    CHAPTER_START in raw
+                    or looks_like_genspark_packet(raw)
+                ):
                     _try_save_from_text(raw, source="클립보드 감시")
         except tk.TclError:
             pass
@@ -568,11 +686,171 @@ def main(*, container: tk.Misc | None = None) -> None:
         if not data.strip():
             return
         _clipboard_set(root, data)
-        diag_log.log(f"합본 클립보드 복사 chars={len(data)}")
-        status_var.set(
-            f"합본 복사됨 → 젠스파크. 응답 복사 시 "
-            f"{'감시 자동 저장' if watch_var.get() else 'START/END로 저장'}."
-        )
+        # 합본에도 예시 START/END가 있어 감시가 오인 저장하지 않도록 무시
+        clip_state["ignore_clip"] = data
+        opened = _open_genspark()
+        diag_log.log(f"합본 클립보드 복사 chars={len(data)} (감시 무시 등록)")
+        if opened:
+            status_var.set(
+                f"합본 복사 · 젠스파크 열림 ({len(data):,}자). 붙여넣기 후 결과 다운로드."
+            )
+        else:
+            status_var.set(
+                f"합본 복사됨 ({len(data):,}자). 브라우저가 안 열리면 "
+                "「젠스파크 열기」를 누르세요."
+            )
+
+    def do_open_genspark() -> None:
+        if _open_genspark():
+            status_var.set("젠스파크 브라우저를 열었습니다.")
+        else:
+            messagebox.showwarning(
+                "브라우저",
+                f"브라우저를 열지 못했습니다.\n직접 열어 주세요:\n{GENSPARK_AI_CHAT_URL}",
+            )
+
+    def _resolve_account() -> tuple[str, str] | None:
+        email = email_var.get().strip()
+        password = pw_var.get()
+        if not password:
+            _e, _p = load_credentials()
+            if not email and _e:
+                email = _e
+                email_var.set(_e)
+            if _p:
+                password = _p
+                pw_var.set(_p)
+        if not email or not password:
+            messagebox.showwarning(
+                "로그인",
+                "Genspark Google 이메일·비밀번호를 입력하세요.\n"
+                "(다른 모듈 dist 자격증명이 있으면 자동으로 불러옵니다.)",
+            )
+            return None
+        save_credentials(email, password)
+        return email, password
+
+    def do_run_genspark_chapter() -> None:
+        from wisdom_gui_host import safe_after, safe_messagebox
+
+        if run_busy["on"]:
+            return
+        try:
+            ch = _chapter_int()
+        except ValueError as e:
+            messagebox.showerror("작업 루트", str(e))
+            return
+        work = work_var.get().strip()
+        if not work:
+            messagebox.showerror("작업 루트", "작업 루트(…/N장)를 선택하세요.")
+            return
+        data = packet_text.get("1.0", "end-1c")
+        if not data.strip():
+            do_build_packet()
+            data = packet_text.get("1.0", "end-1c")
+        if not data.strip():
+            messagebox.showwarning("합본", "합본이 비어 있습니다. 먼저 합본 만들기를 하세요.")
+            return
+        acc = _resolve_account()
+        if acc is None:
+            return
+        email, password = acc
+
+        from plot_to_prompt.genspark_chat import has_playwright, run_chapter_flow
+
+        if not has_playwright():
+            messagebox.showerror(
+                "Playwright",
+                "Playwright가 없습니다.\n"
+                "Python에 pip install playwright 후\n"
+                "playwright install chromium 을 실행하세요.",
+            )
+            return
+
+        clip_state["ignore_clip"] = data
+        run_busy["on"] = True
+        _busy("젠스파크 작성 중…")
+        status_var.set("젠스파크에 합본 붙여넣기·전송·대기 중…")
+        diag_log.log(f"젠스파크 실행 시작 ch={ch} packet={len(data)}자")
+
+        def work() -> None:
+            try:
+                result = run_chapter_flow(
+                    packet_text=data,
+                    profile_dir=genspark_profile_dir(),
+                    open_browser=True,
+                    url=GENSPARK_AI_CHAT_URL,
+                    email=email,
+                    password=password,
+                )
+                body = (result.get("chapter_text") or "").strip()
+
+                def done() -> None:
+                    run_busy["on"] = False
+                    if not body:
+                        _idle("대본 없음")
+                        safe_messagebox(
+                            root,
+                            "showwarning",
+                            "대본 없음",
+                            "응답에서 대본을 찾지 못했습니다.\n"
+                            "「결과 파일 → tts」로 수동 저장하세요.",
+                        )
+                        return
+                    path = save_chapter_to_tts(work, ch, body)
+                    body_text.delete("1.0", tk.END)
+                    body_text.insert("1.0", body)
+                    on_body_key()
+                    touch_workspace_from_path(work)
+                    _persist()
+                    note = " · 로그인OK" if result.get("logged_in") else ""
+                    status_var.set(
+                        f"젠스파크 → tts/{ch}.txt ({len(body):,}자){note} · {path}"
+                    )
+                    diag_log.log(f"젠스파크 → {path} chars={len(body)}")
+                    _idle("tts 저장 완료")
+                    safe_messagebox(
+                        root,
+                        "showinfo",
+                        "완료",
+                        f"대본 저장 완료{note}\n{path}\n{len(body):,}자",
+                    )
+
+                safe_after(root, done)
+            except Exception as e:
+                def fail() -> None:
+                    run_busy["on"] = False
+                    diag_log.log(f"젠스파크 실행 오류: {e!r}")
+                    _idle("젠스파크 오류")
+                    safe_messagebox(root, "showerror", "젠스파크", str(e))
+
+                safe_after(root, fail)
+
+        threading.Thread(target=work, daemon=True).start()
+
+    def do_oneclick_write_tts() -> None:
+        """원클릭: (가능하면 BRIEF 갱신) -> 합본 -> 젠스파크 -> tts 저장."""
+        if run_busy["on"]:
+            return
+        try:
+            _chapter_int()
+        except ValueError as e:
+            messagebox.showerror("작업 루트", str(e))
+            return
+        work = work_var.get().strip()
+        if not work:
+            messagebox.showerror("작업 루트", "작업 루트(…/N장)를 선택하세요.")
+            return
+        # 줄거리가 있으면 최신 BRIEF를 먼저 갱신
+        plot_raw = plot_txt.get("1.0", "end-1c").strip()
+        if plot_raw:
+            do_brief()
+        do_build_packet()
+        data = packet_text.get("1.0", "end-1c").strip()
+        if not data:
+            messagebox.showwarning("합본", "합본이 비어 있습니다. BRIEF/줄거리를 확인하세요.")
+            return
+        do_run_genspark_chapter()
 
     def do_save_tts() -> None:
         try:
@@ -614,16 +892,81 @@ def main(*, container: tk.Misc | None = None) -> None:
         status_var.set(f"불러옴: {path}")
         diag_log.log(f"tts 불러옴 {path}")
 
-    act2 = ttk.Frame(tab_tts)
-    act2.pack(fill=tk.X, pady=(4, 0))
-    ttk.Button(act2, text="합본 만들기", command=do_build_packet).pack(side=tk.LEFT, padx=(0, 6))
-    ttk.Button(act2, text="합본 복사", command=do_copy_packet).pack(side=tk.LEFT, padx=(0, 6))
-    ttk.Separator(act2, orient=tk.VERTICAL).pack(side=tk.LEFT, fill=tk.Y, padx=8)
-    ttk.Button(act2, text="START/END로 저장", command=do_clipboard_save).pack(
+    def do_import_genspark_file() -> None:
+        try:
+            ch = _chapter_int()
+        except ValueError as e:
+            messagebox.showerror("작업 루트", str(e))
+            return
+        work = work_var.get().strip()
+        if not work:
+            messagebox.showerror("작업 루트", "작업 루트(…/N장)를 선택하세요.")
+            return
+        downloads = Path.home() / "Downloads"
+        initial = str(downloads) if downloads.is_dir() else folder_dialog_initial()
+        path_str = filedialog.askopenfilename(
+            title="젠스파크 결과 파일 선택",
+            initialdir=initial,
+            filetypes=[
+                ("텍스트 / 마크다운", "*.txt *.md *.markdown"),
+                ("모든 파일", "*.*"),
+            ],
+        )
+        if not path_str:
+            return
+        src = Path(path_str)
+        try:
+            raw = read_export_text(src)
+        except OSError as ex:
+            messagebox.showerror("파일", f"읽기 실패: {ex}")
+            diag_log.log(f"결과 파일 읽기 실패: {ex!r}")
+            return
+        kind, body = body_from_export(raw)
+        diag_log.log(f"결과 파일={src.name} chars={len(raw)} kind={kind}")
+        if kind == "packet":
+            messagebox.showwarning(
+                "합본 파일",
+                "선택한 파일은 합본(프롬프트)입니다.\n"
+                "젠스파크에서 받은 대본 결과 파일을 선택하세요.",
+            )
+            return
+        if kind in ("empty", "placeholder") or not body.strip():
+            messagebox.showwarning("내용 없음", "파일에서 대본을 찾지 못했습니다.")
+            return
+        if kind == "raw":
+            diag_log.log(f"결과 파일: START/END 없음 → 전체 {len(body)}자 저장")
+        path = save_chapter_to_tts(work, ch, body)
+        body_text.delete("1.0", tk.END)
+        body_text.insert("1.0", body)
+        on_body_key()
+        touch_workspace_from_path(work)
+        _persist()
+        status_var.set(f"결과 파일 → tts/{ch}.txt ({len(body):,}자) · {path}")
+        diag_log.log(f"결과 파일 → {path} chars={len(body)}")
+        _idle("tts 저장 완료")
+
+    ttk.Button(
+        act2a,
+        text="원클릭 실행 → tts 저장",
+        command=do_oneclick_write_tts,
+    ).pack(side=tk.LEFT, padx=(0, 8))
+    ttk.Separator(act2a, orient=tk.VERTICAL).pack(side=tk.LEFT, fill=tk.Y, padx=6)
+    ttk.Button(act2a, text="합본 만들기", command=do_build_packet).pack(side=tk.LEFT, padx=(0, 6))
+    ttk.Button(act2a, text="젠스파크 실행 → tts", command=do_run_genspark_chapter).pack(
         side=tk.LEFT, padx=(0, 6)
     )
-    ttk.Button(act2, text="tts에서 불러오기", command=do_load_tts).pack(side=tk.LEFT, padx=(0, 6))
-    ttk.Button(act2, text="칸 내용 저장", command=do_save_tts).pack(side=tk.LEFT)
+    ttk.Button(act2a, text="합본 복사 · 열기", command=do_copy_packet).pack(
+        side=tk.LEFT, padx=(0, 6)
+    )
+    ttk.Button(act2a, text="젠스파크 열기", command=do_open_genspark).pack(side=tk.LEFT, padx=(0, 6))
+    ttk.Button(act2b, text="결과 파일 → tts", command=do_import_genspark_file).pack(
+        side=tk.LEFT, padx=(0, 6)
+    )
+    ttk.Button(act2b, text="START/END로 저장", command=do_clipboard_save).pack(
+        side=tk.LEFT, padx=(0, 6)
+    )
+    ttk.Button(act2b, text="tts에서 불러오기", command=do_load_tts).pack(side=tk.LEFT, padx=(0, 6))
+    ttk.Button(act2b, text="칸 내용 저장", command=do_save_tts).pack(side=tk.LEFT)
 
     def on_close() -> None:
         try:

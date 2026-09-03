@@ -26,6 +26,11 @@ def log_path() -> Path | None:
     return _log_path
 
 
+def preview(text: str, n: int = 120) -> str:
+    s = (text or "").replace("\n", "\\n")
+    return s if len(s) <= n else s[:n] + "…"
+
+
 def start_session(path: Path | str, *, title: str = "") -> Path:
     global _log_path
     p = Path(path)

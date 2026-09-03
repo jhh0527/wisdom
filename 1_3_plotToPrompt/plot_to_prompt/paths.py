@@ -9,6 +9,7 @@ from pathlib import Path
 
 PROJECT_DIRNAME = "1_3_plotToPrompt"
 NOVEL_REL = Path("무협극장") / "검신귀환록"
+GENSPARK_AI_CHAT_URL = "https://www.genspark.ai/agents?type=ai_chat"
 
 
 def _ensure_wisdom_on_path(from_file: str | Path) -> None:
@@ -88,11 +89,19 @@ def default_work_root() -> Path:
 
 def default_log_path() -> Path:
     """exe 옆 또는 모듈 dist/logs."""
+    return module_dist_dir() / "logs" / "plot_to_prompt.log"
+
+
+def module_dist_dir() -> Path:
     if getattr(sys, "frozen", False):
-        base = Path(sys.executable).resolve().parent
-    else:
-        base = project_root() / "dist"
-    return base / "logs" / "plot_to_prompt.log"
+        return Path(sys.executable).resolve().parent
+    return project_root() / "dist"
+
+
+def genspark_profile_dir() -> Path:
+    d = module_dist_dir() / ".genspark_plot_to_prompt_profile"
+    d.mkdir(parents=True, exist_ok=True)
+    return d
 
 
 _CHAPTER_DIR = re.compile(r"^(?:제\s*)?(\d+)\s*장$", re.I)

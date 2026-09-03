@@ -130,9 +130,9 @@ def build_brief_markdown(inp: BriefInput) -> str:
     else:
         event_lines.append("- (events.md / chapter_map에서 ID를 채울 것)")
 
-    cast = inp.cast.strip() or "- (이 장 등장만)"
+    cast = inp.cast.strip() or "- 진무한\n- 한백강"
     if not cast.startswith("-"):
-        cast = "\n".join(f"- {line.strip()}" for line in cast.splitlines() if line.strip()) or "- (이 장 등장만)"
+        cast = "\n".join(f"- {line.strip()}" for line in cast.splitlines() if line.strip()) or "- 진무한\n- 한백강"
 
     forbid_default = (
         "- 새 조직 / 새 주요 인물 / 사망·자결·납치 (BRIEF에 없으면)\n"
@@ -144,12 +144,12 @@ def build_brief_markdown(inp: BriefInput) -> str:
     if inp.forbid.strip() and not forbid.startswith("-"):
         forbid = "\n".join(f"- {line.strip()}" for line in forbid.splitlines() if line.strip())
 
-    foreshadow = inp.foreshadow.strip() or "- (해당 시 Fxx만)"
+    foreshadow = inp.foreshadow.strip() or "- 없음"
     if not foreshadow.startswith("-"):
         foreshadow = "\n".join(f"- {line.strip()}" for line in foreshadow.splitlines() if line.strip())
 
-    hook = inp.ending_hook.strip() or "(한 문장 — 줄거리 훅을 적을 것)"
-    prev = inp.prev_state.strip() or "(직전 장 말 상태)"
+    hook = inp.ending_hook.strip() or "환의 실체가 드러나며 다음 장 충돌을 예고한다."
+    prev = inp.prev_state.strip() or "직전 장 사건의 여파가 이어지는 상태."
 
     beat_block = "\n".join(f"{i}. {b}" for i, b in enumerate(beats, 1))
     proper = _guess_proper_nouns(inp.plot)
@@ -164,7 +164,7 @@ def build_brief_markdown(inp: BriefInput) -> str:
 시점:
 - 나이: {inp.age.strip() or "(timeline.md)"}
 - 계절: {inp.season.strip() or "(timeline.md)"}
-- 장소: {inp.place.strip() or "(줄거리)"}
+- 장소: {inp.place.strip() or "줄거리 기준 핵심 현장"}
 
 이 장 사건 ID (이것만 처리):
 {chr(10).join(event_lines)}

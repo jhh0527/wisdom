@@ -12,3 +12,319 @@
 [16:25:50] 시작 novel=C:\cursor\wuxia\무협극장\검신귀환록 work=C:\cursor\videt\무협극장\검신귀환록\1부\11장
 [16:25:50] 메타 ch=11 (chapter_map/timeline에 해당 장 없음)
 [16:26:11] 종료
+===== 2026-09-03 21:41:12 1_3_plotToPrompt 1.2.2 =====
+[21:41:12] 시작 novel=C:\cursor\wuxia\무협극장\검신귀환록 work=C:\cursor\videt\무협극장\검신귀환록\1부\11장
+[21:41:27] 메타 ch=11 (chapter_map/timeline에 해당 장 없음)
+[21:41:27] 작품 폴더=C:/cursor/wuxia/workspace/swardmaster/3부
+[21:41:27] 메타 ch=11 (chapter_map/timeline에 해당 장 없음)
+[21:42:12] 메타 ch=1 (chapter_map/timeline에 해당 장 없음)
+[21:42:12] 작업 루트=C:/cursor/wuxia/workspace/swardmaster/3부/1장 → 장=1
+[21:42:12] 메타 ch=1 15·봄
+[21:42:12] 작품 폴더 추정=C:\cursor\wuxia\workspace\swardmaster
+[21:42:19] BRIEF 중단: 줄거리 비어 있음
+[21:43:39] 메타 ch=23 환(還)의 얼굴 · 20·두 번째 봄 · E230~E234
+[21:43:39] 작업 루트=C:/cursor/wuxia/workspace/swardmaster/3부/23장 → 장=23
+[21:43:39] 메타 ch=23 환(還)의 얼굴 · 20·두 번째 봄 · E230~E234
+[21:43:39] 작품 폴더 추정=C:\cursor\wuxia\workspace\swardmaster
+[21:43:42] 메타 ch=23 환(還)의 얼굴 · 20·두 번째 봄 · E230~E234
+[21:43:42] BRIEF 빌드 ch=23 plot=1178자 title='환(還)의 얼굴' events=['E230', 'E231', 'E232', 'E233', 'E234']
+[21:43:42] BRIEF 저장 path=C:\cursor\wuxia\workspace\swardmaster\briefs\CHAPTER_23.md chars=2924
+[21:43:42] 동기화: 부줄거리 · 제3부줄거리 제23장 갱신
+[21:43:42] 메타 ch=23 환(還)의 얼굴 · 20·두 번째 봄 · E230~E234
+[21:43:51] 합본: BRIEF=C:\cursor\wuxia\workspace\swardmaster\briefs\CHAPTER_23.md
+[21:43:51] 합본 notes=['직전 tts/22.txt 없음 — 꼬리 생략']
+[21:43:51] 합본 완료 chars=8436 ch=23
+[21:43:58] 합본 클립보드 복사 chars=8436
+[21:43:58] 클립보드 감시 → C:\cursor\wuxia\workspace\swardmaster\3부\23장\tts\23.txt chars=13
+===== 2026-09-03 21:49:00 1_3_plotToPrompt 1.2.2 =====
+[21:49:00] 시작 novel=C:\cursor\wuxia\workspace\swardmaster work=C:\cursor\wuxia\workspace\swardmaster\3부\23장
+[21:49:00] 메타 ch=23 환(還)의 얼굴 · 20·두 번째 봄 · E230~E234
+[21:49:08] BRIEF 중단: 줄거리 비어 있음
+[21:49:20] 메타 ch=23 환(還)의 얼굴 · 20·두 번째 봄 · E230~E234
+[21:49:20] BRIEF 빌드 ch=23 plot=636자 title='환(還)의 얼굴' events=['E230', 'E231', 'E232', 'E233', 'E234']
+[21:49:20] BRIEF 저장 path=C:\cursor\wuxia\workspace\swardmaster\briefs\CHAPTER_23.md chars=1845
+[21:49:20] 동기화: 부줄거리 · 제3부줄거리 제23장 갱신
+[21:49:20] 메타 ch=23 환(還)의 얼굴 · 20·두 번째 봄 · E230~E234
+[21:49:21] BRIEF 저장 path=C:\cursor\wuxia\workspace\swardmaster\briefs\CHAPTER_23.md chars=1844
+[21:49:21] 동기화: 변경 없음
+[21:49:21] 메타 ch=23 환(還)의 얼굴 · 20·두 번째 봄 · E230~E234
+[21:49:29] 합본: BRIEF=C:\cursor\wuxia\workspace\swardmaster\briefs\CHAPTER_23.md
+[21:49:29] 합본 notes=['직전 tts/22.txt 없음 — 꼬리 생략']
+[21:49:29] 합본 완료 chars=7357 ch=23
+[21:49:40] 합본 클립보드 복사 chars=7357 (감시 무시 등록)
+[21:49:42] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:49:43] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:49:45] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:49:46] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:49:48] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:49:49] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:49:51] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:49:52] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:49:54] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:49:55] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:49:57] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:49:58] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:50:00] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:50:01] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:50:03] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:50:04] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:50:06] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:50:07] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:50:09] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:50:10] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:50:12] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:50:13] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:50:15] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:50:16] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:50:18] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:50:19] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:50:21] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:50:22] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:50:24] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:50:25] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:50:27] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:50:29] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:50:30] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:50:32] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:50:33] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:50:35] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:50:36] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:50:38] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:50:39] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:50:41] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:50:42] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:50:44] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:50:45] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:50:47] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:50:48] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:50:50] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:50:51] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:50:53] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:50:54] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:50:56] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:50:57] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:50:59] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:51:00] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:51:02] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:51:03] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:51:05] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:51:06] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:51:08] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:51:09] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:51:11] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:51:12] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:51:14] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:51:15] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:51:17] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:51:18] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:51:20] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:51:21] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:51:23] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:51:25] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:51:26] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:51:28] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:51:29] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:51:31] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:51:32] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:51:34] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:51:35] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:51:37] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:51:38] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:51:40] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:51:41] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:51:43] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:51:44] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:51:46] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:51:47] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:51:49] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:51:50] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:51:52] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:51:53] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:51:55] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:51:56] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:51:58] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:51:59] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:52:01] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:52:02] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:52:04] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:52:05] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:52:07] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:52:08] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:52:10] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:52:11] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:52:13] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:52:14] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:52:16] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:52:17] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:52:19] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:52:20] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:52:22] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:52:23] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:52:25] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:52:26] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:52:28] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:52:29] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:52:31] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:52:32] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:52:34] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:52:35] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:52:37] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:52:39] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:52:40] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:52:42] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+[21:52:43] 클립보드 감시: START/END 없음(또는 합본/예시) clip=7359자
+===== 2026-09-03 22:03:08 1_3_plotToPrompt 1.2.3 =====
+[22:03:08] 시작 novel=C:\cursor\wuxia\workspace\swardmaster work=C:\cursor\wuxia\workspace\swardmaster\3부\23장
+[22:03:09] 메타 ch=23 환(還)의 얼굴 · 20·두 번째 봄 · E230~E234
+[22:03:24] 메타 ch=23 환(還)의 얼굴 · 20·두 번째 봄 · E230~E234
+[22:03:24] BRIEF 빌드 ch=23 plot=636자 title='환(還)의 얼굴' events=['E230', 'E231', 'E232', 'E233', 'E234']
+[22:03:24] BRIEF 저장 path=C:\cursor\wuxia\workspace\swardmaster\briefs\CHAPTER_23.md chars=1845
+[22:03:24] 동기화: 변경 없음
+[22:03:24] 메타 ch=23 환(還)의 얼굴 · 20·두 번째 봄 · E230~E234
+===== 2026-09-03 22:06:45 1_3_plotToPrompt 1.2.4 =====
+[22:06:45] 시작 novel=C:\cursor\wuxia\workspace\swardmaster work=C:\cursor\wuxia\workspace\swardmaster\3부\23장
+[22:06:46] 메타 ch=23 환(還)의 얼굴 · 20·두 번째 봄 · E230~E234
+[22:07:00] 메타 ch=23 환(還)의 얼굴 · 20·두 번째 봄 · E230~E234
+[22:07:00] BRIEF 빌드 ch=23 plot=636자 title='환(還)의 얼굴' events=['E230', 'E231', 'E232', 'E233', 'E234']
+[22:07:00] BRIEF 저장 path=C:\cursor\wuxia\workspace\swardmaster\briefs\CHAPTER_23.md chars=1845
+[22:07:00] 동기화: 변경 없음
+[22:07:00] 메타 ch=23 환(還)의 얼굴 · 20·두 번째 봄 · E230~E234
+[22:07:13] 합본: BRIEF=C:\cursor\wuxia\workspace\swardmaster\briefs\CHAPTER_23.md
+[22:07:13] 합본 notes=['직전 tts/22.txt 없음 — 꼬리 생략']
+[22:07:13] 합본 완료 chars=7357 ch=23
+[22:07:16] 합본 클립보드 복사 chars=7357 (감시 무시 등록)
+[22:07:17] 클립보드 감시: 클립보드가 합본(프롬프트)입니다. 젠스파크 응답을 복사하세요.
+===== 2026-09-03 22:10:59 1_3_plotToPrompt 1.2.5 =====
+[22:10:59] 시작 novel=C:\cursor\wuxia\workspace\swardmaster work=C:\cursor\wuxia\workspace\swardmaster\3부\23장
+[22:10:59] 메타 ch=23 환(還)의 얼굴 · 20·두 번째 봄 · E230~E234
+[22:11:11] 메타 ch=23 환(還)의 얼굴 · 20·두 번째 봄 · E230~E234
+[22:11:11] BRIEF 빌드 ch=23 plot=636자 title='환(還)의 얼굴' events=['E230', 'E231', 'E232', 'E233', 'E234']
+[22:11:11] BRIEF 저장 path=C:\cursor\wuxia\workspace\swardmaster\briefs\CHAPTER_23.md chars=1845
+[22:11:11] 동기화: 변경 없음
+[22:11:11] 메타 ch=23 환(還)의 얼굴 · 20·두 번째 봄 · E230~E234
+[22:11:16] 합본: BRIEF=C:\cursor\wuxia\workspace\swardmaster\briefs\CHAPTER_23.md
+[22:11:16] 합본 notes=['직전 tts/22.txt 없음 — 꼬리 생략']
+[22:11:16] 합본 완료 chars=7357 ch=23
+[22:11:19] 젠스파크 열기(startfile) url=https://www.genspark.ai/agents?type=ai_chat
+[22:11:19] 합본 클립보드 복사 chars=7357 (감시 무시 등록)
+[22:11:20] 클립보드 감시: 클립보드가 합본(프롬프트)입니다. 젠스파크 응답을 복사하세요.
+===== 2026-09-03 22:41:05 1_3_plotToPrompt 1.3.0 =====
+[22:41:05] 시작 novel=C:\cursor\wuxia\workspace\swardmaster work=C:\cursor\wuxia\workspace\swardmaster\3부\23장
+[22:41:06] 메타 ch=23 환(還)의 얼굴 · 20·두 번째 봄 · E230~E234
+[22:41:21] 메타 ch=23 환(還)의 얼굴 · 20·두 번째 봄 · E230~E234
+[22:41:21] BRIEF 빌드 ch=23 plot=636자 title='환(還)의 얼굴' events=['E230', 'E231', 'E232', 'E233', 'E234']
+[22:41:21] BRIEF 저장 path=C:\cursor\wuxia\workspace\swardmaster\briefs\CHAPTER_23.md chars=1845
+[22:41:21] 동기화: 변경 없음
+[22:41:21] 메타 ch=23 환(還)의 얼굴 · 20·두 번째 봄 · E230~E234
+[22:41:24] 합본: BRIEF=C:\cursor\wuxia\workspace\swardmaster\briefs\CHAPTER_23.md
+[22:41:24] 합본 notes=['직전 tts/22.txt 없음 — 꼬리 생략']
+[22:41:24] 합본 완료 chars=7357 ch=23
+[22:41:53] 젠스파크 실행 시작 ch=23 packet=7357자
+[22:42:05] ChromeDebug reused=0 port=9223 restart=True
+[22:42:18] 모델 선택 시작 현재=Claude Haiku 4.5 → Claude Opus 4.6
+[22:42:18] 모델 칩 클릭: Claude Haiku 4.5
+[22:42:19] 모델 선택 결과 ok=True 칩=Claude Sonnet 5 picked=Claude Opus 4.6
+[22:42:19] 합본텍스트 입력 chars=7357
+[22:42:20] 입력창채움 ok=True chars_in=7357 chars_ui=7356
+[22:42:21] 전송후보 n=4 composer={'x': 28.80000114440918, 'y': 404.3999938964844, 'w': 978.4000244140625, 'h': 216} top=[('DIV', 36, 36, 989, 648, 'input-icon ml-[8px]'), ('DIV', 36, 36, 989, 648, 'enter-icon items-end cursor-pointer active'), ('DIV', 36, 36, 989, 648, 'enter-icon-wrapper rounded-[35%] md:hover:opacit'), ('DIV', 36, 36, 945, 648, 'cursor-pointer flex items-center p-[8px] rounded')]
+[22:42:22] 전송시도#1 method=send how=geo:DIV:input-icon ml-[8px] ok=False composer_len=7356 grew=False generating=False
+[22:42:24] 전송후보 n=9 composer=None top=[('BUTTON', 72, 56, 722, 659, '아래로 스크롤 vfppkd-lgbsse vfppkd-lgbsse-owxexe-k8qpj'), ('BUTTON', 76, 40, 864, 465, 'vfppkd-lgbsse vfppkd-lgbsse-owxexe-k8qpj vfppkd-'), ('BUTTON', 106, 40, 749, 465, 'vfppkd-lgbsse vfppkd-lgbsse-owxexe-dgl2hf ksbjec'), ('BUTTON', 140, 19, 612, 309, '이메일을 잊으셨나요?'), ('A', 48, 48, 910, 553, 'google 서비스 약관(외부, 새 창에서 열림) avaq4d trzeuc 약관')]
+[22:42:26] 전송시도#2 method=corner how=geo:BUTTON:아래로 스크롤 vfppkd-lgbsse vfppkd-lgbsse-owxexe-k8qpj ok=True composer_len=0 grew=False generating=False
+[22:42:26] 전송확인 — 입력창 비움
+[22:42:26] 작성제출 composer_remain=False generating=False
+[22:42:26] 스크래프시작 wait_ms=900000 min_chars=2500
+[22:42:26] 스크래프 tick=1 chars=147 body=0 gen=idle page_stable=0 ok=False finished=False markers=False best=0
+[22:42:49] 스크래프 tick=10 chars=323 body=0 gen=idle page_stable=0 ok=False finished=False markers=False best=0
+[22:43:17] 스크래프 tick=20 chars=0 body=0 gen=idle page_stable=6 ok=False finished=False markers=False best=0
+[22:43:20] 클립보드 감시: 클립보드가 합본(프롬프트)입니다. 젠스파크 응답을 복사하세요.
+[22:43:20] 키보드복사시도 chars=7729 body=0
+[22:43:30] 스크래프중단 — 입력창에 본문이 남아 있어 미전송으로 판단
+===== 2026-09-03 22:48:11 1_3_plotToPrompt 1.3.0 =====
+[22:48:11] 시작 novel=C:\cursor\wuxia\workspace\swardmaster work=C:\cursor\wuxia\workspace\swardmaster\3부\23장
+[22:48:11] 메타 ch=23 환(還)의 얼굴 · 20·두 번째 봄 · E230~E234
+[22:48:24] 메타 ch=23 환(還)의 얼굴 · 20·두 번째 봄 · E230~E234
+[22:48:24] BRIEF 빌드 ch=23 plot=636자 title='환(還)의 얼굴' events=['E230', 'E231', 'E232', 'E233', 'E234']
+[22:48:24] BRIEF 저장 path=C:\cursor\wuxia\workspace\swardmaster\briefs\CHAPTER_23.md chars=1845
+[22:48:24] 동기화: 변경 없음
+[22:48:24] 메타 ch=23 환(還)의 얼굴 · 20·두 번째 봄 · E230~E234
+[22:48:28] 합본: BRIEF=C:\cursor\wuxia\workspace\swardmaster\briefs\CHAPTER_23.md
+[22:48:28] 합본 notes=['직전 tts/22.txt 없음 — 꼬리 생략']
+[22:48:28] 합본 완료 chars=7357 ch=23
+[22:48:30] 젠스파크 실행 시작 ch=23 packet=7357자
+[22:48:30] ChromeDebug reused=1 port=9223 restart=False
+[22:48:32] 모델 이미 Opus 4.6: Claude Opus 4.6
+[22:48:32] 합본텍스트 입력 chars=7357
+[22:48:33] 입력창채움 ok=True chars_in=7357 chars_ui=7356
+[22:48:34] 전송시도#1 method=send how=ui:[class*='enter-icon' i] ok=True composer_len=0 grew=False generating=False
+[22:48:35] 전송확인 — 입력창 비움
+[22:48:35] 작성제출 composer_remain=False generating=False
+[22:48:35] 스크래프시작 wait_ms=900000 min_chars=2500
+[22:48:35] 스크래프 tick=1 chars=7379 body=0 gen=idle page_stable=0 ok=False finished=False markers=True best=0
+[22:48:37] 스크래프 tick=2 chars=7392 body=0 gen=generating page_stable=0 ok=False finished=False markers=True best=0
+[22:48:57] 스크래프 tick=10 chars=8074 body=0 gen=idle page_stable=2 ok=False finished=False markers=True best=0
+[22:49:22] 스크래프 tick=20 chars=8074 body=0 gen=idle page_stable=12 ok=False finished=False markers=True best=0
+[22:49:25] 클립보드 감시: 클립보드가 합본(프롬프트)입니다. 젠스파크 응답을 복사하세요.
+[22:49:25] 키보드복사시도 chars=8441 body=0
+[22:49:48] 스크래프 tick=30 chars=8074 body=0 gen=idle page_stable=22 ok=False finished=False markers=True best=0
+[22:49:49] 키보드복사시도 chars=8441 body=0
+[22:49:51] 클립보드시도 chars=0 body=0
+[22:50:14] 스크래프 tick=40 chars=8074 body=0 gen=idle page_stable=32 ok=False finished=False markers=True best=0
+[22:50:14] 클립보드시도 chars=0 body=0
+[22:50:39] 스크래프 tick=50 chars=8074 body=0 gen=idle page_stable=42 ok=False finished=False markers=True best=0
+[22:51:04] 스크래프 tick=60 chars=8074 body=0 gen=idle page_stable=52 ok=False finished=False markers=True best=0
+[22:51:05] 키보드복사시도 chars=8441 body=0
+[22:51:30] 스크래프 tick=70 chars=8074 body=0 gen=idle page_stable=62 ok=False finished=False markers=True best=0
+===== 2026-09-03 22:52:37 1_3_plotToPrompt 1.3.0 =====
+[22:52:37] 시작 novel=C:\cursor\wuxia\workspace\swardmaster work=C:\cursor\wuxia\workspace\swardmaster\3부\23장
+[22:52:37] 메타 ch=23 환(還)의 얼굴 · 20·두 번째 봄 · E230~E234
+[22:52:38] 클립보드 감시: 클립보드가 합본(프롬프트)입니다. 젠스파크 응답을 복사하세요.
+[22:52:49] 메타 ch=23 환(還)의 얼굴 · 20·두 번째 봄 · E230~E234
+[22:52:49] BRIEF 빌드 ch=23 plot=636자 title='환(還)의 얼굴' events=['E230', 'E231', 'E232', 'E233', 'E234']
+[22:52:49] BRIEF 저장 path=C:\cursor\wuxia\workspace\swardmaster\briefs\CHAPTER_23.md chars=1845
+[22:52:49] 동기화: 변경 없음
+[22:52:49] 메타 ch=23 환(還)의 얼굴 · 20·두 번째 봄 · E230~E234
+[22:52:53] 합본: BRIEF=C:\cursor\wuxia\workspace\swardmaster\briefs\CHAPTER_23.md
+[22:52:53] 합본 notes=['직전 tts/22.txt 없음 — 꼬리 생략']
+[22:52:53] 합본 완료 chars=7357 ch=23
+[22:52:56] 젠스파크 실행 시작 ch=23 packet=7357자
+[22:52:56] ChromeDebug reused=1 port=9223 restart=False
+[22:52:58] 모델 이미 Opus 4.6: Claude Opus 4.6
+[22:52:58] 합본텍스트 입력 chars=7357
+[22:52:59] 입력창채움 ok=True chars_in=7357 chars_ui=7356
+[22:53:00] 전송시도#1 method=send how=ui:[class*='enter-icon' i] ok=True composer_len=0 grew=False generating=False
+[22:53:01] 전송확인 — 입력창 비움
+[22:53:01] 작성제출 composer_remain=False generating=False
+[22:53:01] 스크래프시작 wait_ms=900000 min_chars=2500
+[22:53:01] 스크래프 tick=1 chars=15432 body=0 gen=idle page_stable=0 ok=False finished=False markers=True best=0
+===== 2026-09-03 23:01:57 1_3_plotToPrompt 1.3.1 =====
+[23:01:57] 시작 novel=C:\cursor\wuxia\workspace\swardmaster work=C:\cursor\wuxia\workspace\swardmaster\3부\23장
+[23:01:57] 메타 ch=23 환(還)의 얼굴 · 20·두 번째 봄 · E230~E234
+[23:03:02] 메타 ch=23 환(還)의 얼굴 · 20·두 번째 봄 · E230~E234
+[23:03:02] BRIEF 빌드 ch=23 plot=636자 title='환(還)의 얼굴' events=['E230', 'E231', 'E232', 'E233', 'E234']
+[23:03:02] BRIEF 저장 path=C:\cursor\wuxia\workspace\swardmaster\briefs\CHAPTER_23.md chars=1845
+[23:03:02] 동기화: 변경 없음
+[23:03:02] 메타 ch=23 환(還)의 얼굴 · 20·두 번째 봄 · E230~E234
+===== 2026-09-03 23:06:13 1_3_plotToPrompt 1.3.2 =====
+[23:06:13] 시작 novel=C:\cursor\wuxia\workspace\swardmaster work=C:\cursor\wuxia\workspace\swardmaster\3부\23장
+[23:06:13] 메타 ch=23 환(還)의 얼굴 · 20·두 번째 봄 · E230~E234
+[23:06:26] 메타 ch=23 환(還)의 얼굴 · 20·두 번째 봄 · E230~E234
+[23:06:26] BRIEF 빌드 ch=23 plot=636자 title='환(還)의 얼굴' events=['E230', 'E231', 'E232', 'E233', 'E234']
+[23:06:26] BRIEF 저장 path=C:\cursor\wuxia\workspace\swardmaster\briefs\CHAPTER_23.md chars=1859
+[23:06:26] 동기화: 변경 없음
+[23:06:26] 메타 ch=23 환(還)의 얼굴 · 20·두 번째 봄 · E230~E234
+[23:06:26] 합본: BRIEF=C:\cursor\wuxia\workspace\swardmaster\briefs\CHAPTER_23.md
+[23:06:26] 합본 notes=['직전 tts/22.txt 없음 — 꼬리 생략']
+[23:06:26] 합본 완료 chars=7371 ch=23
+[23:06:26] 젠스파크 실행 시작 ch=23 packet=7371자
+[23:06:26] ChromeDebug reused=1 port=9223 restart=False
+[23:06:28] 모델 이미 Opus 4.6: Claude Opus 4.6
+[23:06:28] 합본텍스트 입력 chars=7371
+[23:06:29] 입력창채움 ok=True chars_in=7371 chars_ui=7370
+[23:06:31] 전송시도#1 method=send how=ui:[class*='enter-icon' i] ok=True composer_len=0 grew=False generating=False
+[23:06:31] 전송확인 — 입력창 비움
+[23:06:31] 작성제출 composer_remain=False generating=False
+[23:06:31] 스크래프시작 wait_ms=900000 min_chars=2500
+[23:06:31] 스크래프 tick=1 chars=10333 body=10295 gen=idle page_stable=0 ok=True finished=False markers=True reply_chars=10333 best=0
+[23:06:39] 스크래프 tick=4 chars=10333 body=10295 gen=idle page_stable=3 ok=True finished=True markers=True reply_chars=87 best=10295
+[23:06:39] 스크래프완료 chars=10295
+[23:06:39] 스크래프결과 chars=10295 head=환(還)의 얼굴\n\n매화 봉오리가 열리고 있었다.\n\n아직 꽃잎이라 부르기엔 이른, 붉은 속살이 껍질 사이로 비집고 나오는 아침이었다. 화산의 두 번째 봄은 첫 번째보다 바람이 잦았다. 가지 끝이 흔들릴 때마다 …
